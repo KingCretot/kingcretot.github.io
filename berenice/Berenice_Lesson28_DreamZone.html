@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 28 — Dream Zone | Berenice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-primary:#061624;
+    --bg-gradient-1:#061624;
+    --bg-gradient-2:#0a2540;
+    --bg-gradient-3:#0d2f4f;
+    --bg-card:#0d2338;
+    --bg-card-hover:#16314a;
+    --bg-card-light:#153047;
+    --accent-teal:#00bcd4;
+    --accent-teal-bright:#4dd0e1;
+    --accent-teal-deep:#006978;
+    --accent-violet:#b39ddb;
+    --accent-violet-bright:#d1c4e9;
+    --gold:#ffd54f;
+    --gold-bright:#ffeb3b;
+    --success:#66bb6a;
+    --success-bg:rgba(102,187,106,0.15);
+    --error:#ef5350;
+    --error-bg:rgba(239,83,80,0.15);
+    --text-primary:#e0f7fa;
+    --text-secondary:#b0bec5;
+    --text-muted:#78909c;
+    --border-glow:rgba(77,208,225,0.35);
+    --border-violet:rgba(179,157,219,0.35);
+    --shadow-deep:0 20px 60px rgba(0,0,0,0.6);
+    --shadow-glow:0 0 40px rgba(0,188,212,0.25);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'Inter',-apple-system,sans-serif;
+    background:linear-gradient(135deg,var(--bg-gradient-1) 0%,var(--bg-gradient-2) 50%,var(--bg-gradient-3) 100%);
+    color:var(--text-primary);
+    min-height:100vh;
+    font-size:22px;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* Decorative background bubbles */
+  body::before,body::after{
+    content:'';
+    position:fixed;
+    border-radius:50%;
+    filter:blur(80px);
+    z-index:0;
+    pointer-events:none;
+  }
+  body::before{
+    width:500px;height:500px;
+    background:radial-gradient(circle,rgba(0,188,212,0.18),transparent);
+    top:-200px;left:-200px;
+  }
+  body::after{
+    width:600px;height:600px;
+    background:radial-gradient(circle,rgba(179,157,219,0.15),transparent);
+    bottom:-250px;right:-250px;
+  }
+
+  /* Top HUD */
+  .hud{
+    position:sticky;top:0;z-index:50;
+    background:rgba(6,22,36,0.92);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border-glow);
+    padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;
+  }
+  .hud-left{display:flex;align-items:center;gap:14px;}
+  .hud-logo{
+    font-family:'Poppins',sans-serif;
+    font-weight:800;font-size:20px;
+    background:linear-gradient(135deg,var(--accent-teal-bright),var(--accent-violet-bright));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    letter-spacing:0.5px;
+  }
+  .hud-student{
+    font-size:15px;color:var(--text-secondary);
+    border-left:2px solid var(--border-glow);
+    padding-left:14px;
+  }
+  .hud-right{display:flex;align-items:center;gap:18px;}
+  .xp-badge{
+    display:flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,rgba(255,213,79,0.15),rgba(255,213,79,0.05));
+    border:1px solid rgba(255,213,79,0.4);
+    padding:8px 16px;border-radius:20px;
+    font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;
+    color:var(--gold);
+  }
+  .xp-icon{font-size:18px;}
+  .dot-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  .dot{
+    width:12px;height:12px;border-radius:50%;
+    background:rgba(176,190,197,0.25);
+    transition:all 0.3s;
+    cursor:pointer;
+  }
+  .dot.active{
+    background:var(--accent-teal-bright);
+    box-shadow:0 0 12px var(--accent-teal-bright);
+    transform:scale(1.3);
+  }
+  .dot.done{background:var(--success);}
+
+  /* Stage */
+  .stage{
+    max-width:1180px;margin:0 auto;padding:32px 24px 80px;
+    position:relative;z-index:1;
+  }
+
+  .slide{display:none;animation:fadeSlide 0.5s ease-out;}
+  .slide.active{display:block;}
+  @keyframes fadeSlide{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  /* Slide headers */
+  .slide-number{
+    display:inline-block;
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;
+    color:var(--accent-teal-bright);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    background:rgba(0,188,212,0.1);
+    padding:6px 14px;border-radius:12px;
+    border:1px solid var(--border-glow);
+    margin-bottom:18px;
+  }
+  h1.slide-title{
+    font-family:'Poppins',sans-serif;font-weight:800;
+    font-size:44px;line-height:1.15;
+    margin-bottom:10px;
+    background:linear-gradient(135deg,#fff 0%,var(--accent-teal-bright) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  h2.slide-title{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:36px;line-height:1.2;margin-bottom:8px;
+    color:var(--text-primary);
+  }
+  .slide-subtitle-fr{
+    font-family:'Poppins',sans-serif;font-weight:500;
+    font-size:19px;color:var(--accent-violet-bright);
+    font-style:italic;
+    margin-bottom:28px;
+  }
+  .section-header{margin-bottom:30px;}
+
+  /* Cards & panels */
+  .panel{
+    background:linear-gradient(135deg,var(--bg-card),var(--bg-card-light));
+    border:1px solid var(--border-glow);
+    border-radius:20px;padding:28px;
+    margin-bottom:22px;
+    box-shadow:var(--shadow-deep);
+  }
+  .panel-violet{
+    border-color:var(--border-violet);
+    background:linear-gradient(135deg,rgba(13,35,56,0.95),rgba(60,40,90,0.35));
+  }
+  .panel-gold{
+    border-color:rgba(255,213,79,0.4);
+    background:linear-gradient(135deg,var(--bg-card),rgba(255,213,79,0.08));
+  }
+
+  /* Two-column bilingual */
+  .bilingual{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    align-items:start;
+  }
+  .bi-col{padding:20px;border-radius:14px;}
+  .bi-en{
+    background:rgba(0,188,212,0.06);
+    border-left:3px solid var(--accent-teal-bright);
+  }
+  .bi-fr{
+    background:rgba(179,157,219,0.08);
+    border-left:3px solid var(--accent-violet);
+  }
+  .bi-lang-tag{
+    display:inline-block;
+    font-family:'Poppins',sans-serif;font-weight:700;font-size:11px;
+    letter-spacing:1.5px;
+    padding:3px 10px;border-radius:8px;
+    margin-bottom:10px;
+  }
+  .bi-en .bi-lang-tag{background:var(--accent-teal-deep);color:var(--accent-teal-bright);}
+  .bi-fr .bi-lang-tag{background:rgba(126,87,194,0.3);color:var(--accent-violet-bright);}
+  .bi-en p,.bi-en li,.bi-en div{color:var(--text-primary);font-size:22px;}
+  .bi-fr p,.bi-fr li,.bi-fr div{color:var(--accent-violet-bright);font-size:19px;}
+
+  /* Welcome slide */
+  .welcome-hero{
+    text-align:center;
+    padding:40px 20px 20px;
+  }
+  .welcome-emoji{
+    font-size:80px;
+    margin-bottom:16px;
+    filter:drop-shadow(0 10px 30px rgba(77,208,225,0.5));
+    animation:floatUp 3s ease-in-out infinite;
+  }
+  @keyframes floatUp{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+  }
+  .welcome-greeting{
+    font-family:'Poppins',sans-serif;font-weight:800;
+    font-size:58px;line-height:1.1;
+    margin-bottom:18px;
+    background:linear-gradient(135deg,#fff,var(--accent-teal-bright),var(--accent-violet-bright));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    background-size:200% 200%;
+    animation:shimmer 4s ease infinite;
+  }
+  @keyframes shimmer{
+    0%,100%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+  }
+  .welcome-subtitle{
+    font-size:24px;color:var(--text-secondary);
+    margin-bottom:10px;
+  }
+  .welcome-subtitle-fr{
+    font-size:20px;color:var(--accent-violet-bright);
+    font-style:italic;
+    margin-bottom:30px;
+  }
+
+  /* Challenge recap */
+  .recap-card{
+    background:linear-gradient(135deg,rgba(102,187,106,0.12),rgba(0,188,212,0.08));
+    border:2px solid rgba(102,187,106,0.4);
+    border-radius:20px;
+    padding:28px;
+    margin:24px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .recap-card::before{
+    content:'✓';
+    position:absolute;
+    top:-10px;right:20px;
+    font-size:120px;
+    color:rgba(102,187,106,0.12);
+    font-weight:900;
+    font-family:'Poppins',sans-serif;
+  }
+  .recap-title{
+    font-family:'Poppins',sans-serif;font-weight:700;font-size:24px;
+    color:var(--success);
+    margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .recap-badge{
+    background:var(--success);color:#fff;
+    padding:4px 12px;border-radius:10px;
+    font-size:13px;letter-spacing:1px;
+  }
+  .recap-quote{
+    background:rgba(6,22,36,0.6);
+    border-radius:14px;
+    padding:18px 22px;
+    margin:14px 0;
+    font-style:italic;
+    border-left:3px solid var(--success);
+  }
+  .recap-quote-label{
+    font-family:'Poppins',sans-serif;font-size:13px;
+    color:var(--text-muted);
+    letter-spacing:1.5px;
+    margin-bottom:6px;
+  }
+
+  /* Mission briefing */
+  .mission-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:18px;margin-top:24px;
+  }
+  .mission-item{
+    background:var(--bg-card);
+    border:1px solid var(--border-glow);
+    border-radius:16px;
+    padding:22px;
+    text-align:center;
+    transition:all 0.3s;
+  }
+  .mission-item:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-glow);
+    border-color:var(--accent-teal-bright);
+  }
+  .mission-emoji{font-size:44px;margin-bottom:10px;display:block;}
+  .mission-label-en{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:18px;color:var(--accent-teal-bright);
+    margin-bottom:6px;
+  }
+  .mission-label-fr{
+    font-size:15px;color:var(--accent-violet-bright);
+    font-style:italic;
+  }
+
+  /* Vocab cards */
+  .vocab-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+  }
+  .vocab-card{
+    background:linear-gradient(135deg,var(--bg-card),var(--bg-card-light));
+    border:1px solid var(--border-glow);
+    border-radius:16px;
+    padding:22px 18px;
+    text-align:center;
+    cursor:pointer;
+    transition:all 0.3s;
+    position:relative;
+    min-height:160px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .vocab-card:hover{
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:var(--shadow-glow);
+    border-color:var(--accent-teal-bright);
+  }
+  .vocab-card.revealed{
+    background:linear-gradient(135deg,rgba(0,188,212,0.15),rgba(179,157,219,0.1));
+    border-color:var(--accent-teal-bright);
+  }
+  .vocab-emoji{font-size:42px;margin-bottom:10px;}
+  .vocab-word{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:22px;color:var(--accent-teal-bright);
+    margin-bottom:6px;
+  }
+  .vocab-fr{
+    font-size:18px;color:var(--accent-violet-bright);
+    font-style:italic;
+    opacity:0;
+    max-height:0;
+    transition:all 0.4s;
+  }
+  .vocab-card.revealed .vocab-fr{
+    opacity:1;max-height:40px;
+  }
+  .vocab-example{
+    font-size:14px;color:var(--text-muted);
+    margin-top:8px;
+    opacity:0;max-height:0;
+    transition:all 0.4s 0.1s;
+  }
+  .vocab-card.revealed .vocab-example{
+    opacity:1;max-height:80px;
+  }
+  .tap-hint{
+    font-size:12px;color:var(--text-muted);
+    letter-spacing:1px;text-transform:uppercase;
+    margin-top:8px;
+  }
+  .vocab-card.revealed .tap-hint{display:none;}
+
+  /* Grammar zone */
+  .formula-box{
+    background:linear-gradient(135deg,rgba(0,188,212,0.1),rgba(179,157,219,0.1));
+    border:2px solid var(--accent-teal-bright);
+    border-radius:18px;
+    padding:28px;
+    text-align:center;
+    margin:24px 0;
+    box-shadow:var(--shadow-glow);
+  }
+  .formula-label{
+    font-family:'Poppins',sans-serif;font-weight:600;
+    font-size:14px;letter-spacing:2px;
+    color:var(--accent-teal-bright);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .formula{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:28px;line-height:1.4;
+    color:#fff;
+  }
+  .formula-part{
+    display:inline-block;
+    padding:6px 14px;margin:4px;
+    border-radius:10px;
+  }
+  .formula-if{background:rgba(179,157,219,0.25);color:var(--accent-violet-bright);}
+  .formula-past{background:rgba(255,213,79,0.18);color:var(--gold-bright);}
+  .formula-would{background:rgba(0,188,212,0.25);color:var(--accent-teal-bright);}
+  .formula-base{background:rgba(102,187,106,0.2);color:var(--success);}
+  .formula-plus{font-size:30px;color:var(--text-muted);margin:0 4px;}
+
+  /* Example boxes */
+  .example-row{
+    background:var(--bg-card);
+    border-left:4px solid var(--accent-teal-bright);
+    border-radius:12px;
+    padding:18px 22px;
+    margin-bottom:14px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:16px;align-items:center;
+  }
+  .example-emoji{font-size:38px;}
+  .example-text-en{
+    font-size:22px;color:var(--text-primary);
+    margin-bottom:4px;
+  }
+  .example-text-fr{
+    font-size:18px;color:var(--accent-violet-bright);
+    font-style:italic;
+  }
+  .example-highlight{
+    color:var(--gold);
+    font-weight:700;
+  }
+  .example-highlight-teal{
+    color:var(--accent-teal-bright);
+    font-weight:700;
+  }
+
+  /* Tip box */
+  .tip-box{
+    background:linear-gradient(135deg,rgba(255,213,79,0.1),rgba(255,213,79,0.04));
+    border:1px solid rgba(255,213,79,0.4);
+    border-radius:14px;
+    padding:18px 22px;
+    margin:20px 0;
+  }
+  .tip-label{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    color:var(--gold);
+    font-size:14px;letter-spacing:1.5px;
+    margin-bottom:8px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .tip-content{font-size:20px;}
+  .tip-content-fr{font-size:17px;color:var(--accent-violet-bright);font-style:italic;margin-top:6px;}
+
+  /* MCQ */
+  .mcq-block{
+    background:var(--bg-card);
+    border:1px solid var(--border-glow);
+    border-radius:18px;
+    padding:26px;
+    margin-bottom:22px;
+  }
+  .mcq-number{
+    display:inline-block;
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:13px;letter-spacing:1.5px;
+    color:var(--accent-teal-bright);
+    background:rgba(0,188,212,0.15);
+    padding:4px 12px;border-radius:10px;
+    margin-bottom:14px;
+  }
+  .mcq-question{
+    font-family:'Poppins',sans-serif;font-weight:600;
+    font-size:24px;line-height:1.4;
+    color:var(--text-primary);
+    margin-bottom:8px;
+  }
+  .mcq-question-fr{
+    font-size:18px;color:var(--accent-violet-bright);
+    font-style:italic;
+    margin-bottom:18px;
+  }
+  .mcq-scenario{
+    background:rgba(179,157,219,0.08);
+    border-left:3px solid var(--accent-violet);
+    padding:14px 18px;
+    border-radius:10px;
+    margin-bottom:16px;
+    font-size:20px;
+  }
+  .mcq-scenario-label{
+    font-family:'Poppins',sans-serif;font-size:12px;
+    color:var(--accent-violet-bright);
+    letter-spacing:1.5px;
+    margin-bottom:6px;
+  }
+  .mcq-options{
+    display:grid;gap:12px;
+  }
+  .mcq-btn{
+    background:var(--bg-card-light);
+    border:2px solid rgba(176,190,197,0.2);
+    border-radius:12px;
+    padding:16px 20px;
+    font-family:'Inter',sans-serif;font-weight:500;
+    font-size:22px;line-height:1.4;
+    color:var(--text-primary);
+    cursor:pointer;
+    text-align:left;
+    transition:all 0.2s;
+    display:flex;align-items:center;gap:12px;
+  }
+  .mcq-btn:hover:not(:disabled){
+    border-color:var(--accent-teal-bright);
+    background:rgba(0,188,212,0.08);
+    transform:translateX(4px);
+  }
+  .mcq-btn:disabled{cursor:default;}
+  .mcq-letter{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    background:rgba(0,188,212,0.15);
+    color:var(--accent-teal-bright);
+    width:34px;height:34px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    font-size:16px;
+  }
+  .mcq-btn.correct{
+    border-color:var(--success);
+    background:var(--success-bg);
+  }
+  .mcq-btn.correct .mcq-letter{
+    background:var(--success);color:#fff;
+  }
+  .mcq-btn.wrong{
+    border-color:var(--error);
+    background:var(--error-bg);
+  }
+  .mcq-btn.wrong .mcq-letter{
+    background:var(--error);color:#fff;
+  }
+  .mcq-btn.faded{opacity:0.5;}
+  .mcq-feedback{
+    margin-top:16px;
+    padding:16px 20px;
+    border-radius:12px;
+    font-size:20px;
+    display:none;
+  }
+  .mcq-feedback.show{display:block;animation:fadeSlide 0.4s ease-out;}
+  .mcq-feedback.success{
+    background:var(--success-bg);
+    border:1px solid var(--success);
+    color:var(--success);
+  }
+  .mcq-feedback.retry{
+    background:var(--error-bg);
+    border:1px solid var(--error);
+    color:var(--error);
+  }
+  .mcq-feedback-fr{
+    font-size:17px;
+    font-style:italic;
+    margin-top:6px;
+    color:var(--accent-violet-bright);
+  }
+
+  /* Scenarios */
+  .scenario-card{
+    background:linear-gradient(135deg,var(--bg-card),var(--bg-card-light));
+    border:2px solid var(--border-violet);
+    border-radius:20px;
+    padding:28px;
+    margin-bottom:20px;
+    position:relative;
+  }
+  .scenario-tag{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--accent-violet),var(--accent-teal-bright));
+    color:#061624;
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:13px;letter-spacing:1.5px;
+    padding:5px 14px;border-radius:10px;
+    margin-bottom:12px;
+  }
+  .scenario-prompt{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:26px;line-height:1.3;
+    margin-bottom:6px;
+  }
+  .scenario-prompt-fr{
+    font-size:19px;color:var(--accent-violet-bright);
+    font-style:italic;
+    margin-bottom:20px;
+  }
+  .scenario-choices{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+  }
+  .scenario-choice{
+    background:var(--bg-primary);
+    border:2px solid rgba(77,208,225,0.2);
+    border-radius:14px;
+    padding:18px 14px;
+    cursor:pointer;
+    transition:all 0.3s;
+    text-align:center;
+  }
+  .scenario-choice:hover:not(.locked){
+    transform:translateY(-4px);
+    border-color:var(--accent-teal-bright);
+    box-shadow:var(--shadow-glow);
+  }
+  .scenario-choice.selected{
+    background:linear-gradient(135deg,rgba(0,188,212,0.2),rgba(179,157,219,0.15));
+    border-color:var(--accent-teal-bright);
+  }
+  .scenario-choice.locked{opacity:0.5;cursor:default;}
+  .choice-emoji{font-size:36px;margin-bottom:8px;}
+  .choice-label{
+    font-family:'Poppins',sans-serif;font-weight:600;
+    font-size:18px;
+    color:var(--accent-teal-bright);
+    margin-bottom:4px;
+  }
+  .choice-label-fr{
+    font-size:14px;color:var(--accent-violet-bright);
+    font-style:italic;
+  }
+  .scenario-response{
+    margin-top:18px;
+    background:rgba(6,22,36,0.6);
+    border-left:3px solid var(--gold);
+    padding:16px 20px;
+    border-radius:10px;
+    display:none;
+  }
+  .scenario-response.show{display:block;animation:fadeSlide 0.4s ease-out;}
+  .scenario-response-label{
+    font-family:'Poppins',sans-serif;font-size:13px;
+    color:var(--gold);
+    letter-spacing:1.5px;
+    margin-bottom:8px;
+  }
+
+  /* Speaking prompts */
+  .speaking-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:18px;
+  }
+  .speaking-card{
+    background:linear-gradient(135deg,var(--bg-card),rgba(179,157,219,0.1));
+    border:2px solid var(--border-violet);
+    border-radius:18px;
+    padding:24px;
+    cursor:pointer;
+    transition:all 0.3s;
+    position:relative;
+    min-height:200px;
+  }
+  .speaking-card:hover{
+    transform:translateY(-6px);
+    border-color:var(--accent-violet-bright);
+    box-shadow:0 15px 40px rgba(179,157,219,0.2);
+  }
+  .speaking-card.revealed{
+    background:linear-gradient(135deg,rgba(179,157,219,0.15),rgba(0,188,212,0.1));
+  }
+  .speaking-icon{
+    font-size:36px;
+    margin-bottom:10px;
+  }
+  .speaking-card-title{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:20px;
+    color:var(--accent-violet-bright);
+    margin-bottom:8px;
+  }
+  .speaking-prompt{
+    font-size:20px;line-height:1.4;
+    color:var(--text-primary);
+    margin-bottom:6px;
+    opacity:0;max-height:0;
+    transition:all 0.4s;
+    overflow:hidden;
+  }
+  .speaking-prompt-fr{
+    font-size:17px;line-height:1.4;
+    color:var(--accent-violet-bright);
+    font-style:italic;
+    opacity:0;max-height:0;
+    transition:all 0.4s;
+    overflow:hidden;
+  }
+  .speaking-card.revealed .speaking-prompt,
+  .speaking-card.revealed .speaking-prompt-fr{
+    opacity:1;max-height:300px;
+  }
+  .speaking-card .speaking-teaser{
+    font-size:17px;color:var(--text-secondary);
+    font-style:italic;
+  }
+  .speaking-card.revealed .speaking-teaser{display:none;}
+  .starter{
+    background:rgba(0,188,212,0.1);
+    border-radius:10px;
+    padding:10px 14px;
+    margin-top:12px;
+    font-size:18px;
+    color:var(--accent-teal-bright);
+    font-family:'Poppins',sans-serif;font-weight:600;
+    opacity:0;max-height:0;
+    transition:all 0.4s 0.1s;
+    overflow:hidden;
+  }
+  .speaking-card.revealed .starter{opacity:1;max-height:80px;padding:10px 14px;}
+
+  /* Challenge cards for home practice */
+  .challenge-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+  }
+  .challenge-card{
+    background:linear-gradient(135deg,var(--bg-card),var(--bg-card-light));
+    border:2px solid var(--gold);
+    border-radius:20px;
+    padding:26px;
+    position:relative;
+    overflow:hidden;
+  }
+  .challenge-card::before{
+    content:'';
+    position:absolute;
+    top:-50%;right:-50%;
+    width:200%;height:200%;
+    background:radial-gradient(circle,rgba(255,213,79,0.08),transparent 50%);
+    pointer-events:none;
+  }
+  .difficulty{
+    display:inline-block;
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:13px;letter-spacing:1.5px;
+    padding:5px 12px;border-radius:10px;
+    margin-bottom:12px;
+  }
+  .difficulty-easy{background:rgba(102,187,106,0.2);color:var(--success);}
+  .difficulty-medium{background:rgba(255,213,79,0.2);color:var(--gold);}
+  .difficulty-hard{background:rgba(239,83,80,0.2);color:var(--error);}
+  .challenge-title{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:24px;line-height:1.3;
+    margin-bottom:6px;
+    color:#fff;
+  }
+  .challenge-title-fr{
+    font-size:18px;
+    color:var(--accent-violet-bright);
+    font-style:italic;
+    margin-bottom:14px;
+  }
+  .challenge-text{
+    font-size:19px;line-height:1.5;
+    color:var(--text-primary);
+    margin-bottom:10px;
+  }
+  .challenge-text-fr{
+    font-size:17px;line-height:1.5;
+    color:var(--accent-violet-bright);
+    font-style:italic;
+    margin-bottom:12px;
+  }
+  .challenge-example{
+    background:rgba(0,188,212,0.08);
+    border-left:3px solid var(--accent-teal-bright);
+    padding:12px 16px;
+    border-radius:10px;
+    margin-top:12px;
+    font-size:17px;
+    font-style:italic;
+    color:var(--accent-teal-bright);
+  }
+  .challenge-xp{
+    margin-top:14px;
+    display:flex;align-items:center;gap:8px;
+    font-family:'Poppins',sans-serif;font-weight:700;
+    color:var(--gold);
+    font-size:18px;
+  }
+
+  /* Completion */
+  .completion-hero{
+    text-align:center;
+    padding:40px 20px;
+  }
+  .completion-emoji{
+    font-size:100px;margin-bottom:20px;
+    filter:drop-shadow(0 10px 40px rgba(255,213,79,0.5));
+    animation:floatUp 3s ease-in-out infinite;
+  }
+  .completion-title{
+    font-family:'Poppins',sans-serif;font-weight:800;
+    font-size:56px;line-height:1.1;
+    margin-bottom:16px;
+    background:linear-gradient(135deg,var(--gold),var(--accent-teal-bright),var(--accent-violet-bright));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    background-size:200% 200%;
+    animation:shimmer 3s ease infinite;
+  }
+  .completion-subtitle{
+    font-size:24px;color:var(--text-secondary);
+    margin-bottom:8px;
+  }
+  .completion-subtitle-fr{
+    font-size:19px;color:var(--accent-violet-bright);
+    font-style:italic;
+    margin-bottom:30px;
+  }
+  .final-xp-card{
+    display:inline-block;
+    background:linear-gradient(135deg,rgba(255,213,79,0.2),rgba(255,213,79,0.05));
+    border:2px solid var(--gold);
+    border-radius:24px;
+    padding:30px 50px;
+    margin:20px 0;
+    box-shadow:0 0 60px rgba(255,213,79,0.3);
+  }
+  .final-xp-label{
+    font-family:'Poppins',sans-serif;font-size:14px;
+    letter-spacing:3px;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .final-xp-value{
+    font-family:'Poppins',sans-serif;font-weight:800;
+    font-size:72px;line-height:1;
+    color:var(--gold);
+    text-shadow:0 0 20px rgba(255,213,79,0.5);
+  }
+  .stars{
+    font-size:50px;
+    margin:20px 0;
+    letter-spacing:10px;
+  }
+  .progress-wrap{
+    max-width:500px;margin:24px auto;
+    background:rgba(176,190,197,0.15);
+    border-radius:20px;
+    padding:4px;
+    position:relative;
+    height:30px;
+  }
+  .progress-bar{
+    height:100%;
+    background:linear-gradient(90deg,var(--accent-teal-bright),var(--gold),var(--accent-violet-bright));
+    border-radius:18px;
+    width:0;
+    transition:width 2s ease-out;
+    position:relative;
+  }
+
+  /* Buttons */
+  .btn-primary{
+    background:linear-gradient(135deg,var(--accent-teal-bright),var(--accent-teal-deep));
+    border:none;color:#fff;
+    font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:18px;letter-spacing:0.5px;
+    padding:16px 38px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:all 0.3s;
+    box-shadow:0 8px 24px rgba(0,188,212,0.35);
+  }
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 32px rgba(0,188,212,0.5);
+  }
+  .btn-secondary{
+    background:transparent;
+    border:2px solid var(--border-glow);
+    color:var(--accent-teal-bright);
+    font-family:'Poppins',sans-serif;font-weight:600;
+    font-size:16px;
+    padding:14px 28px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:all 0.3s;
+  }
+  .btn-secondary:hover{
+    background:rgba(0,188,212,0.1);
+    border-color:var(--accent-teal-bright);
+  }
+  .btn-row{
+    display:flex;justify-content:space-between;gap:16px;
+    margin-top:30px;flex-wrap:wrap;
+  }
+
+  /* Confetti */
+  .confetti{
+    position:fixed;
+    width:10px;height:10px;
+    pointer-events:none;
+    z-index:100;
+    animation:confettiFall 3s ease-out forwards;
+  }
+  @keyframes confettiFall{
+    0%{transform:translateY(-100vh) rotate(0deg);opacity:1;}
+    100%{transform:translateY(100vh) rotate(720deg);opacity:0;}
+  }
+
+  /* Responsive */
+  @media (max-width:820px){
+    body{font-size:20px;}
+    .bilingual{grid-template-columns:1fr;}
+    h1.slide-title{font-size:34px;}
+    h2.slide-title{font-size:28px;}
+    .welcome-greeting{font-size:42px;}
+    .completion-title{font-size:40px;}
+    .formula{font-size:22px;}
+    .stage{padding:20px 14px 60px;}
+    .panel{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="hud-left">
+    <div class="hud-logo">✦ Dream Zone</div>
+    <div class="hud-student">Berenice · Lesson 28</div>
+  </div>
+  <div class="hud-right">
+    <div class="xp-badge"><span class="xp-icon">⭐</span><span id="xpDisplay">0</span> XP</div>
+    <div class="dot-nav" id="dotNav"></div>
+  </div>
+</div>
+
+<div class="stage">
+
+  <!-- SLIDE 1: Welcome Back + Challenge Recap -->
+  <section class="slide active" data-slide="1">
+    <div class="welcome-hero">
+      <div class="welcome-emoji">🌙</div>
+      <div class="welcome-greeting">Welcome Back,<br>Berenice!</div>
+      <div class="welcome-subtitle">Let's celebrate your Dream Bedroom challenge 🏆</div>
+      <div class="welcome-subtitle-fr">Célébrons ton défi "Chambre de Rêve"!</div>
+    </div>
+
+    <div class="recap-card">
+      <div class="recap-title">
+        <span>🏆 Challenge Completed!</span>
+        <span class="recap-badge">+50 XP</span>
+      </div>
+      <div class="bilingual">
+        <div class="bi-col bi-en">
+          <div class="bi-lang-tag">EN</div>
+          <p>You told Charline or Elena about three things you would change in your bedroom — using <strong style="color:var(--accent-teal-bright)">WOULD</strong> each time.</p>
+          <p style="margin-top:10px;">That's a huge step! You just used the <strong style="color:var(--gold)">conditional</strong> — talking about imaginary situations in the present.</p>
+        </div>
+        <div class="bi-col bi-fr">
+          <div class="bi-lang-tag">FR</div>
+          <p>Tu as raconté à Charline ou Elena trois choses que tu changerais dans ta chambre — en utilisant <strong style="color:var(--accent-violet-bright)">WOULD</strong> à chaque fois.</p>
+          <p style="margin-top:10px;">C'est une grande étape! Tu viens d'utiliser le <strong style="color:var(--gold)">conditionnel</strong> — parler de situations imaginaires au présent.</p>
+        </div>
+      </div>
+      <div class="recap-quote">
+        <div class="recap-quote-label">YOUR CHALLENGE PATTERN · TON MODÈLE</div>
+        <div style="color:var(--text-primary);font-size:20px;">"If I could redecorate, <span style="color:var(--accent-teal-bright);font-weight:700;">I would</span> paint the walls pink, <span style="color:var(--accent-teal-bright);font-weight:700;">I would</span> add fairy lights, and <span style="color:var(--accent-teal-bright);font-weight:700;">I would</span> buy a bigger desk."</div>
+      </div>
+    </div>
+
+    <div class="panel panel-violet">
+      <h2 style="font-family:'Poppins',sans-serif;font-size:26px;margin-bottom:14px;color:var(--accent-violet-bright);">📍 Today we dig deeper</h2>
+      <div class="bilingual">
+        <div class="bi-col bi-en">
+          <div class="bi-lang-tag">EN</div>
+          <p>You used <strong>WOULD</strong> beautifully in your bedroom challenge. Today we'll master the full <strong>Second Conditional</strong> pattern and practice <em>hearing questions carefully</em> so you can respond with precision.</p>
+        </div>
+        <div class="bi-col bi-fr">
+          <div class="bi-lang-tag">FR</div>
+          <p>Tu as super bien utilisé <strong>WOULD</strong> dans ton défi chambre. Aujourd'hui on maîtrise le <strong>Deuxième Conditionnel</strong> complet et on s'entraîne à <em>bien écouter les questions</em> pour répondre avec précision.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <div></div>
+      <button class="btn-primary" data-nav="next">Let's Begin → Commençons</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: Mission Briefing -->
+  <section class="slide" data-slide="2">
+    <div class="section-header">
+      <span class="slide-number">Mission Briefing · Briefing de Mission</span>
+      <h1 class="slide-title">Today's Mission</h1>
+      <div class="slide-subtitle-fr">Ta mission aujourd'hui</div>
+    </div>
+
+    <div class="panel">
+      <div class="bilingual">
+        <div class="bi-col bi-en">
+          <div class="bi-lang-tag">EN — GOAL</div>
+          <p style="font-size:24px;font-weight:600;color:#fff;">Listen. Understand. Answer with precision.</p>
+          <p style="margin-top:10px;">You already speak with flow. The next level is making sure you <strong style="color:var(--gold);">understand every question</strong> and respond with the exact right words.</p>
+        </div>
+        <div class="bi-col bi-fr">
+          <div class="bi-lang-tag">FR — OBJECTIF</div>
+          <p style="font-size:20px;font-weight:600;color:var(--accent-violet-bright);">Écouter. Comprendre. Répondre avec précision.</p>
+          <p style="margin-top:10px;">Tu parles déjà avec fluidité. Le niveau supérieur c'est de t'assurer que tu <strong style="color:var(--gold);">comprends chaque question</strong> et que tu réponds avec les bons mots exacts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mission-grid">
+      <div class="mission-item">
+        <span class="mission-emoji">📚</span>
+        <div class="mission-label-en">Vocabulary</div>
+        <div class="mission-label-fr">Vocabulaire des rêves</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">🧠</span>
+        <div class="mission-label-en">Grammar Lab</div>
+        <div class="mission-label-fr">Le Conditionnel</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">🎯</span>
+        <div class="mission-label-en">Accuracy Tests</div>
+        <div class="mission-label-fr">Tests de précision</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">🗣️</span>
+        <div class="mission-label-en">Speaking Zone</div>
+        <div class="mission-label-fr">Zone de parole</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">🏠</span>
+        <div class="mission-label-en">Home Challenge</div>
+        <div class="mission-label-fr">Défi maison</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">⭐</span>
+        <div class="mission-label-en">Earn 300+ XP</div>
+        <div class="mission-label-fr">Gagne 300+ XP</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Start Learning → Apprendre</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: Vocabulary Warm-Up -->
+  <section class="slide" data-slide="3">
+    <div class="section-header">
+      <span class="slide-number">Vocabulary Warm-Up · Échauffement</span>
+      <h1 class="slide-title">Dream Words</h1>
+      <div class="slide-subtitle-fr">Les mots du rêve — tap each card to reveal / touche chaque carte pour découvrir</div>
+    </div>
+
+    <div class="vocab-grid">
+      <div class="vocab-card" data-vocab="1">
+        <div class="vocab-emoji">💭</div>
+        <div class="vocab-word">Imagine</div>
+        <div class="vocab-fr">Imaginer</div>
+        <div class="vocab-example">"Imagine you had wings."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="2">
+        <div class="vocab-emoji">🌟</div>
+        <div class="vocab-word">Wish</div>
+        <div class="vocab-fr">Souhaiter / Souhait</div>
+        <div class="vocab-example">"I wish I could fly."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="3">
+        <div class="vocab-emoji">🌙</div>
+        <div class="vocab-word">Dream</div>
+        <div class="vocab-fr">Rêver / Rêve</div>
+        <div class="vocab-example">"My dream is to travel."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="4">
+        <div class="vocab-emoji">❓</div>
+        <div class="vocab-word">What if...?</div>
+        <div class="vocab-fr">Et si... ?</div>
+        <div class="vocab-example">"What if it snowed tomorrow?"</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="5">
+        <div class="vocab-emoji">✨</div>
+        <div class="vocab-word">I would...</div>
+        <div class="vocab-fr">Je ferais...</div>
+        <div class="vocab-example">"I would travel the world."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="6">
+        <div class="vocab-emoji">🎁</div>
+        <div class="vocab-word">I could...</div>
+        <div class="vocab-fr">Je pourrais...</div>
+        <div class="vocab-example">"I could swim all day."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="7">
+        <div class="vocab-emoji">🔮</div>
+        <div class="vocab-word">Unreal</div>
+        <div class="vocab-fr">Irréel / Imaginaire</div>
+        <div class="vocab-example">"It's unreal, just imaginary."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="8">
+        <div class="vocab-emoji">🎯</div>
+        <div class="vocab-word">Exactly</div>
+        <div class="vocab-fr">Exactement</div>
+        <div class="vocab-example">"Answer exactly what I ask."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:24px;">
+      <div class="tip-label">💡 PRO TIP · ASTUCE</div>
+      <div class="tip-content">These words signal an <strong style="color:var(--gold);">imaginary situation</strong> — not something that is real right now.</div>
+      <div class="tip-content-fr">Ces mots signalent une situation <strong>imaginaire</strong> — pas quelque chose de réel maintenant.</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">To the Grammar Lab → Labo de Grammaire</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: Grammar Zone -->
+  <section class="slide" data-slide="4">
+    <div class="section-header">
+      <span class="slide-number">Grammar Lab · Labo de Grammaire</span>
+      <h1 class="slide-title">The Second Conditional</h1>
+      <div class="slide-subtitle-fr">Le Deuxième Conditionnel — talking about imaginary situations / parler de situations imaginaires</div>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-label">The Magic Formula · La Formule Magique</div>
+      <div class="formula">
+        <span class="formula-part formula-if">IF</span>
+        <span class="formula-plus">+</span>
+        <span class="formula-part formula-past">simple past</span>
+        <span class="formula-plus">,</span>
+        <br style="line-height:0.6;">
+        <span class="formula-part formula-would">WOULD</span>
+        <span class="formula-plus">+</span>
+        <span class="formula-part formula-base">base verb</span>
+      </div>
+    </div>
+
+    <div class="bilingual" style="margin-bottom:22px;">
+      <div class="bi-col bi-en">
+        <div class="bi-lang-tag">EN — WHEN?</div>
+        <p>Use it for <strong style="color:var(--gold);">imaginary</strong> or <strong style="color:var(--gold);">unlikely</strong> situations — things that aren't true right now.</p>
+        <p style="margin-top:10px;">Example: <span class="example-highlight">If I <u>had</u></span> a pool, <span class="example-highlight-teal">I <u>would swim</u></span> every morning.</p>
+        <p style="margin-top:6px;font-size:18px;color:var(--text-muted);">(You don't have a pool — so this is imaginary.)</p>
+      </div>
+      <div class="bi-col bi-fr">
+        <div class="bi-lang-tag">FR — QUAND?</div>
+        <p>À utiliser pour des situations <strong>imaginaires</strong> ou <strong>peu probables</strong> — des choses qui ne sont pas vraies maintenant.</p>
+        <p style="margin-top:10px;">Exemple : <span style="color:var(--gold);">Si j'<u>avais</u></span> une piscine, <span style="color:var(--accent-teal-bright);">je <u>nagerais</u></span> tous les matins.</p>
+        <p style="margin-top:6px;font-size:16px;color:var(--text-muted);">(Tu n'as pas de piscine — donc c'est imaginaire.)</p>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Poppins',sans-serif;font-size:22px;color:var(--accent-teal-bright);margin:20px 0 14px;">🏊 Examples from YOUR life · Exemples de TA vie</h3>
+
+    <div class="example-row">
+      <div class="example-emoji">🏊‍♀️</div>
+      <div>
+        <div class="example-text-en">If I <span class="example-highlight">had</span> more free time, I <span class="example-highlight-teal">would train</span> for the Olympics.</div>
+        <div class="example-text-fr">Si j'avais plus de temps libre, je m'entraînerais pour les Jeux Olympiques.</div>
+      </div>
+    </div>
+    <div class="example-row">
+      <div class="example-emoji">🐱</div>
+      <div>
+        <div class="example-text-en">If our cat <span class="example-highlight">could</span> talk, she <span class="example-highlight-teal">would ask</span> for more treats.</div>
+        <div class="example-text-fr">Si notre chat pouvait parler, elle demanderait plus de friandises.</div>
+      </div>
+    </div>
+    <div class="example-row">
+      <div class="example-emoji">👯</div>
+      <div>
+        <div class="example-text-en">If Elena <span class="example-highlight">were</span> here, we <span class="example-highlight-teal">would watch</span> a movie together.</div>
+        <div class="example-text-fr">Si Elena était là, on regarderait un film ensemble.</div>
+      </div>
+    </div>
+    <div class="example-row">
+      <div class="example-emoji">🌍</div>
+      <div>
+        <div class="example-text-en">If I <span class="example-highlight">could</span> travel anywhere, I <span class="example-highlight-teal">would go</span> to Australia.</div>
+        <div class="example-text-fr">Si je pouvais voyager n'importe où, j'irais en Australie.</div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">⚠️ IMPORTANT</div>
+      <div class="tip-content">With <strong>"I / he / she / it"</strong>, native speakers say <strong style="color:var(--gold);">"If I WERE"</strong> — not "If I was". It sounds more natural and correct!</div>
+      <div class="tip-content-fr">Avec <strong>"I / he / she / it"</strong>, les anglophones disent <strong>"If I WERE"</strong> — pas "If I was". Ça sonne plus naturel et correct!</div>
+      <div style="margin-top:10px;font-size:19px;">
+        ✅ "If I <span style="color:var(--success);font-weight:700;">were</span> you, I would study English every day."<br>
+        ❌ "If I was you..."
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Test Your Understanding → Teste ta compréhension</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: Comprehension 1 — Complete the Conditional -->
+  <section class="slide" data-slide="5">
+    <div class="section-header">
+      <span class="slide-number">Challenge 1 · Défi 1</span>
+      <h1 class="slide-title">Complete the Conditional</h1>
+      <div class="slide-subtitle-fr">Complète le conditionnel — choose the correct form / choisis la bonne forme · +10 XP each</div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="mcq-block" data-mcq="q1">
+      <div class="mcq-number">Question 1 of 4</div>
+      <div class="mcq-question">If I _____ a million euros, I would buy a house by the sea.</div>
+      <div class="mcq-question-fr">Si j'_____ un million d'euros, j'achèterais une maison au bord de la mer.</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q1" data-ok="false"><span class="mcq-letter">A</span><span>will have</span></button>
+        <button class="mcq-btn" data-gid="q1" data-ok="true"><span class="mcq-letter">B</span><span>had</span></button>
+        <button class="mcq-btn" data-gid="q1" data-ok="false"><span class="mcq-letter">C</span><span>have</span></button>
+        <button class="mcq-btn" data-gid="q1" data-ok="false"><span class="mcq-letter">D</span><span>am having</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="mcq-block" data-mcq="q2">
+      <div class="mcq-number">Question 2 of 4</div>
+      <div class="mcq-question">If Elena were here, we _____ a pizza together.</div>
+      <div class="mcq-question-fr">Si Elena était là, nous _____ une pizza ensemble.</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q2" data-ok="false"><span class="mcq-letter">A</span><span>will order</span></button>
+        <button class="mcq-btn" data-gid="q2" data-ok="false"><span class="mcq-letter">B</span><span>ordered</span></button>
+        <button class="mcq-btn" data-gid="q2" data-ok="true"><span class="mcq-letter">C</span><span>would order</span></button>
+        <button class="mcq-btn" data-gid="q2" data-ok="false"><span class="mcq-letter">D</span><span>are ordering</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="mcq-block" data-mcq="q3">
+      <div class="mcq-number">Question 3 of 4</div>
+      <div class="mcq-question">If I _____ you, I would go to bed earlier before swim practice.</div>
+      <div class="mcq-question-fr">Si j'_____ toi, j'irais au lit plus tôt avant l'entraînement de natation.</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q3" data-ok="false"><span class="mcq-letter">A</span><span>was</span></button>
+        <button class="mcq-btn" data-gid="q3" data-ok="true"><span class="mcq-letter">B</span><span>were</span></button>
+        <button class="mcq-btn" data-gid="q3" data-ok="false"><span class="mcq-letter">C</span><span>am</span></button>
+        <button class="mcq-btn" data-gid="q3" data-ok="false"><span class="mcq-letter">D</span><span>will be</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="mcq-block" data-mcq="q4">
+      <div class="mcq-number">Question 4 of 4</div>
+      <div class="mcq-question">Which sentence is complete and correct?</div>
+      <div class="mcq-question-fr">Quelle phrase est complète et correcte?</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q4" data-ok="false"><span class="mcq-letter">A</span><span>If I would have a dog, I will name it Luna.</span></button>
+        <button class="mcq-btn" data-gid="q4" data-ok="false"><span class="mcq-letter">B</span><span>If I have a dog, I would named it Luna.</span></button>
+        <button class="mcq-btn" data-gid="q4" data-ok="true"><span class="mcq-letter">C</span><span>If I had a dog, I would name it Luna.</span></button>
+        <button class="mcq-btn" data-gid="q4" data-ok="false"><span class="mcq-letter">D</span><span>If I had a dog, I will name it Luna.</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Next Challenge → Défi suivant</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: Comprehension 2 — Pick the Right Response -->
+  <section class="slide" data-slide="6">
+    <div class="section-header">
+      <span class="slide-number">Challenge 2 · Défi 2</span>
+      <h1 class="slide-title">Listen & Respond</h1>
+      <div class="slide-subtitle-fr">Écoute et réponds — read the question carefully, pick the precise answer / lis la question attentivement, choisis la réponse précise · +15 XP each</div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">🎯 YOUR FOCUS · TON FOCUS</div>
+      <div class="tip-content">Don't just look for keywords. <strong style="color:var(--gold);">Read the WHOLE question.</strong> Then choose the answer that truly matches.</div>
+      <div class="tip-content-fr">Ne cherche pas juste des mots-clés. <strong>Lis TOUTE la question.</strong> Puis choisis la réponse qui correspond vraiment.</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="mcq-block" data-mcq="q5">
+      <div class="mcq-number">Question 1 of 4</div>
+      <div class="mcq-scenario">
+        <div class="mcq-scenario-label">👩 CHARLINE ASKS · CHARLINE DEMANDE</div>
+        <div>"Berenice, what would you do if you had a whole free weekend?"</div>
+        <div style="color:var(--accent-violet-bright);font-style:italic;margin-top:6px;font-size:17px;">« Berenice, que ferais-tu si tu avais un week-end libre entier? »</div>
+      </div>
+      <div class="mcq-question">Which is the BEST response?</div>
+      <div class="mcq-question-fr">Quelle est la MEILLEURE réponse?</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q5" data-ok="false"><span class="mcq-letter">A</span><span>Yes, I have a free weekend.</span></button>
+        <button class="mcq-btn" data-gid="q5" data-ok="false"><span class="mcq-letter">B</span><span>I went to the pool last weekend.</span></button>
+        <button class="mcq-btn" data-gid="q5" data-ok="true"><span class="mcq-letter">C</span><span>I would sleep late and then swim at the beach.</span></button>
+        <button class="mcq-btn" data-gid="q5" data-ok="false"><span class="mcq-letter">D</span><span>I am going to the pool tomorrow.</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="mcq-block" data-mcq="q6">
+      <div class="mcq-number">Question 2 of 4</div>
+      <div class="mcq-scenario">
+        <div class="mcq-scenario-label">👧 ELENA ASKS · ELENA DEMANDE</div>
+        <div>"If you could meet any famous swimmer, who would it be?"</div>
+        <div style="color:var(--accent-violet-bright);font-style:italic;margin-top:6px;font-size:17px;">« Si tu pouvais rencontrer n'importe quel nageur célèbre, qui serait-ce? »</div>
+      </div>
+      <div class="mcq-question">Which answer is precise and correct?</div>
+      <div class="mcq-question-fr">Quelle réponse est précise et correcte?</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q6" data-ok="false"><span class="mcq-letter">A</span><span>Yes, I would like to meet them.</span></button>
+        <button class="mcq-btn" data-gid="q6" data-ok="true"><span class="mcq-letter">B</span><span>I would meet Léon Marchand — he's my hero.</span></button>
+        <button class="mcq-btn" data-gid="q6" data-ok="false"><span class="mcq-letter">C</span><span>I met a famous swimmer once.</span></button>
+        <button class="mcq-btn" data-gid="q6" data-ok="false"><span class="mcq-letter">D</span><span>Swimming is my favorite sport.</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="mcq-block" data-mcq="q7">
+      <div class="mcq-number">Question 3 of 4</div>
+      <div class="mcq-scenario">
+        <div class="mcq-scenario-label">👨 CHRISTOPHE ASKS · CHRISTOPHE DEMANDE</div>
+        <div>"If it rained all weekend, what would we do as a family?"</div>
+        <div style="color:var(--accent-violet-bright);font-style:italic;margin-top:6px;font-size:17px;">« S'il pleuvait tout le week-end, que ferait-on en famille? »</div>
+      </div>
+      <div class="mcq-question">Pick the response that answers EXACTLY what he asked.</div>
+      <div class="mcq-question-fr">Choisis la réponse qui répond EXACTEMENT à sa question.</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q7" data-ok="false"><span class="mcq-letter">A</span><span>It rained yesterday too.</span></button>
+        <button class="mcq-btn" data-gid="q7" data-ok="false"><span class="mcq-letter">B</span><span>I would go swimming outside.</span></button>
+        <button class="mcq-btn" data-gid="q7" data-ok="true"><span class="mcq-letter">C</span><span>We would stay inside and watch movies together.</span></button>
+        <button class="mcq-btn" data-gid="q7" data-ok="false"><span class="mcq-letter">D</span><span>My family doesn't like the rain.</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="mcq-block" data-mcq="q8">
+      <div class="mcq-number">Question 4 of 4</div>
+      <div class="mcq-scenario">
+        <div class="mcq-scenario-label">🐱 PRETEND · IMAGINE</div>
+        <div>"If our cat could speak English, what would she tell you first?"</div>
+        <div style="color:var(--accent-violet-bright);font-style:italic;margin-top:6px;font-size:17px;">« Si notre chatte pouvait parler anglais, que te dirait-elle en premier? »</div>
+      </div>
+      <div class="mcq-question">Which response matches the question best?</div>
+      <div class="mcq-question-fr">Quelle réponse correspond le mieux à la question?</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q8" data-ok="false"><span class="mcq-letter">A</span><span>My cat doesn't speak English.</span></button>
+        <button class="mcq-btn" data-gid="q8" data-ok="false"><span class="mcq-letter">B</span><span>Yes, she is a very smart cat.</span></button>
+        <button class="mcq-btn" data-gid="q8" data-ok="true"><span class="mcq-letter">C</span><span>She would tell me to give her more food!</span></button>
+        <button class="mcq-btn" data-gid="q8" data-ok="false"><span class="mcq-letter">D</span><span>She will tell me she is hungry.</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Next Challenge → Défi suivant</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: Accuracy Lab — Spot the Correct Sentence -->
+  <section class="slide" data-slide="7">
+    <div class="section-header">
+      <span class="slide-number">Challenge 3 · Défi 3</span>
+      <h1 class="slide-title">Accuracy Lab</h1>
+      <div class="slide-subtitle-fr">Labo de précision — spot the correct sentence / repère la phrase correcte · +15 XP each</div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">🔍 DETECTIVE MODE · MODE DÉTECTIVE</div>
+      <div class="tip-content">Only ONE sentence is perfect. The others have sneaky errors. Check <strong style="color:var(--gold);">every verb</strong>!</div>
+      <div class="tip-content-fr">Une SEULE phrase est parfaite. Les autres ont des erreurs cachées. Vérifie <strong>chaque verbe</strong>!</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="mcq-block" data-mcq="q9">
+      <div class="mcq-number">Question 1 of 3</div>
+      <div class="mcq-question">Which sentence uses the conditional correctly?</div>
+      <div class="mcq-question-fr">Quelle phrase utilise le conditionnel correctement?</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q9" data-ok="false"><span class="mcq-letter">A</span><span>If I would have time, I would visit Paris.</span></button>
+        <button class="mcq-btn" data-gid="q9" data-ok="false"><span class="mcq-letter">B</span><span>If I have time, I would visit Paris.</span></button>
+        <button class="mcq-btn" data-gid="q9" data-ok="true"><span class="mcq-letter">C</span><span>If I had time, I would visit Paris.</span></button>
+        <button class="mcq-btn" data-gid="q9" data-ok="false"><span class="mcq-letter">D</span><span>If I had time, I will visit Paris.</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="mcq-block" data-mcq="q10">
+      <div class="mcq-number">Question 2 of 3</div>
+      <div class="mcq-question">Which one sounds most natural to a native speaker?</div>
+      <div class="mcq-question-fr">Laquelle sonne la plus naturelle à un anglophone?</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q10" data-ok="false"><span class="mcq-letter">A</span><span>If I was a bird, I would fly to Spain.</span></button>
+        <button class="mcq-btn" data-gid="q10" data-ok="true"><span class="mcq-letter">B</span><span>If I were a bird, I would fly to Spain.</span></button>
+        <button class="mcq-btn" data-gid="q10" data-ok="false"><span class="mcq-letter">C</span><span>If I am a bird, I will fly to Spain.</span></button>
+        <button class="mcq-btn" data-gid="q10" data-ok="false"><span class="mcq-letter">D</span><span>If I be a bird, I would fly to Spain.</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="mcq-block" data-mcq="q11">
+      <div class="mcq-number">Question 3 of 3</div>
+      <div class="mcq-question">Which sentence is perfect — no errors at all?</div>
+      <div class="mcq-question-fr">Quelle phrase est parfaite — aucune erreur?</div>
+      <div class="mcq-options">
+        <button class="mcq-btn" data-gid="q11" data-ok="false"><span class="mcq-letter">A</span><span>If Charline gave me 50 euros, I will buy new goggles.</span></button>
+        <button class="mcq-btn" data-gid="q11" data-ok="false"><span class="mcq-letter">B</span><span>If Charline give me 50 euros, I would buy new goggles.</span></button>
+        <button class="mcq-btn" data-gid="q11" data-ok="true"><span class="mcq-letter">C</span><span>If Charline gave me 50 euros, I would buy new goggles.</span></button>
+        <button class="mcq-btn" data-gid="q11" data-ok="false"><span class="mcq-letter">D</span><span>If Charline would give me 50 euros, I would buy new goggles.</span></button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Dream Scenarios → Scénarios de rêve</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: Dream Scenarios -->
+  <section class="slide" data-slide="8">
+    <div class="section-header">
+      <span class="slide-number">Dream Scenarios · Scénarios de Rêve</span>
+      <h1 class="slide-title">Your Imagination</h1>
+      <div class="slide-subtitle-fr">Ton imagination — click a choice to see the full conditional answer / clique sur un choix pour voir la réponse complète · +10 XP per scenario</div>
+    </div>
+
+    <!-- Scenario A -->
+    <div class="scenario-card" data-scenario="s1">
+      <div class="scenario-tag">SCENARIO 1</div>
+      <div class="scenario-prompt">🧞 If you could have ONE superpower, which would you pick?</div>
+      <div class="scenario-prompt-fr">Si tu pouvais avoir UN super-pouvoir, lequel choisirais-tu?</div>
+      <div class="scenario-choices">
+        <div class="scenario-choice" data-choice="s1-a" data-response="If I could fly, I would visit every country in the world — no plane needed!" data-response-fr="Si je pouvais voler, je visiterais tous les pays du monde — sans avion!">
+          <div class="choice-emoji">🦅</div>
+          <div class="choice-label">Fly</div>
+          <div class="choice-label-fr">Voler</div>
+        </div>
+        <div class="scenario-choice" data-choice="s1-b" data-response="If I could breathe underwater, I would swim in the ocean for hours and find hidden treasures." data-response-fr="Si je pouvais respirer sous l'eau, je nagerais dans l'océan pendant des heures et trouverais des trésors.">
+          <div class="choice-emoji">🌊</div>
+          <div class="choice-label">Breathe underwater</div>
+          <div class="choice-label-fr">Respirer sous l'eau</div>
+        </div>
+        <div class="scenario-choice" data-choice="s1-c" data-response="If I could be invisible, I would sneak into the cinema and watch movies for free!" data-response-fr="Si je pouvais être invisible, je me faufilerais au cinéma et regarderais des films gratuitement!">
+          <div class="choice-emoji">👻</div>
+          <div class="choice-label">Invisible</div>
+          <div class="choice-label-fr">Invisible</div>
+        </div>
+        <div class="scenario-choice" data-choice="s1-d" data-response="If I could read minds, I would know what everyone really thinks of my outfits." data-response-fr="Si je pouvais lire dans les pensées, je saurais ce que tout le monde pense vraiment de mes tenues.">
+          <div class="choice-emoji">🧠</div>
+          <div class="choice-label">Read minds</div>
+          <div class="choice-label-fr">Lire les pensées</div>
+        </div>
+      </div>
+      <div class="scenario-response">
+        <div class="scenario-response-label">✨ THE CONDITIONAL ANSWER</div>
+        <div class="scenario-response-text" style="font-size:21px;color:var(--text-primary);margin-bottom:8px;"></div>
+        <div class="scenario-response-text-fr" style="font-size:18px;color:var(--accent-violet-bright);font-style:italic;"></div>
+      </div>
+    </div>
+
+    <!-- Scenario B -->
+    <div class="scenario-card" data-scenario="s2">
+      <div class="scenario-tag">SCENARIO 2</div>
+      <div class="scenario-prompt">🌴 If you had a one-way ticket anywhere, where would you go?</div>
+      <div class="scenario-prompt-fr">Si tu avais un billet aller simple n'importe où, où irais-tu?</div>
+      <div class="scenario-choices">
+        <div class="scenario-choice" data-choice="s2-a" data-response="If I went to Hawaii, I would learn to surf and eat fresh pineapple every day." data-response-fr="Si j'allais à Hawaï, j'apprendrais à surfer et je mangerais de l'ananas frais tous les jours.">
+          <div class="choice-emoji">🏝️</div>
+          <div class="choice-label">Hawaii</div>
+          <div class="choice-label-fr">Hawaï</div>
+        </div>
+        <div class="scenario-choice" data-choice="s2-b" data-response="If I went to Japan, I would visit Tokyo, eat ramen, and see cherry blossoms in spring." data-response-fr="Si j'allais au Japon, je visiterais Tokyo, mangerais des ramens et verrais les cerisiers en fleurs au printemps.">
+          <div class="choice-emoji">🗼</div>
+          <div class="choice-label">Japan</div>
+          <div class="choice-label-fr">Japon</div>
+        </div>
+        <div class="scenario-choice" data-choice="s2-c" data-response="If I went to Australia, I would swim with dolphins and see kangaroos in the wild." data-response-fr="Si j'allais en Australie, je nagerais avec des dauphins et verrais des kangourous en liberté.">
+          <div class="choice-emoji">🦘</div>
+          <div class="choice-label">Australia</div>
+          <div class="choice-label-fr">Australie</div>
+        </div>
+        <div class="scenario-choice" data-choice="s2-d" data-response="If I went to New York, I would take pictures in Times Square and shop on Fifth Avenue." data-response-fr="Si j'allais à New York, je prendrais des photos à Times Square et ferais du shopping sur la Cinquième Avenue.">
+          <div class="choice-emoji">🗽</div>
+          <div class="choice-label">New York</div>
+          <div class="choice-label-fr">New York</div>
+        </div>
+      </div>
+      <div class="scenario-response">
+        <div class="scenario-response-label">✨ THE CONDITIONAL ANSWER</div>
+        <div class="scenario-response-text" style="font-size:21px;color:var(--text-primary);margin-bottom:8px;"></div>
+        <div class="scenario-response-text-fr" style="font-size:18px;color:var(--accent-violet-bright);font-style:italic;"></div>
+      </div>
+    </div>
+
+    <!-- Scenario C -->
+    <div class="scenario-card" data-scenario="s3">
+      <div class="scenario-tag">SCENARIO 3</div>
+      <div class="scenario-prompt">👯 If you could swap lives with someone for ONE day, who would it be?</div>
+      <div class="scenario-prompt-fr">Si tu pouvais échanger ta vie avec quelqu'un pendant UN jour, qui serait-ce?</div>
+      <div class="scenario-choices">
+        <div class="scenario-choice" data-choice="s3-a" data-response="If I swapped with a famous pop star, I would sing on a huge stage in front of thousands of fans." data-response-fr="Si j'échangeais avec une pop star célèbre, je chanterais sur une immense scène devant des milliers de fans.">
+          <div class="choice-emoji">🎤</div>
+          <div class="choice-label">Pop star</div>
+          <div class="choice-label-fr">Pop star</div>
+        </div>
+        <div class="scenario-choice" data-choice="s3-b" data-response="If I swapped with an astronaut, I would float in space and look at Earth from the ISS." data-response-fr="Si j'échangeais avec un astronaute, je flotterais dans l'espace et regarderais la Terre depuis l'ISS.">
+          <div class="choice-emoji">🚀</div>
+          <div class="choice-label">Astronaut</div>
+          <div class="choice-label-fr">Astronaute</div>
+        </div>
+        <div class="scenario-choice" data-choice="s3-c" data-response="If I swapped with an Olympic swimmer, I would train with the best coaches and win a medal." data-response-fr="Si j'échangeais avec un nageur olympique, je m'entraînerais avec les meilleurs entraîneurs et gagnerais une médaille.">
+          <div class="choice-emoji">🏅</div>
+          <div class="choice-label">Olympic swimmer</div>
+          <div class="choice-label-fr">Nageur olympique</div>
+        </div>
+        <div class="scenario-choice" data-choice="s3-d" data-response="If I swapped with my cat, I would nap all afternoon in a sunny spot and demand food at 6am." data-response-fr="Si j'échangeais avec ma chatte, je ferais la sieste tout l'après-midi au soleil et réclamerais à manger à 6h du matin.">
+          <div class="choice-emoji">🐾</div>
+          <div class="choice-label">Your cat</div>
+          <div class="choice-label-fr">Ta chatte</div>
+        </div>
+      </div>
+      <div class="scenario-response">
+        <div class="scenario-response-label">✨ THE CONDITIONAL ANSWER</div>
+        <div class="scenario-response-text" style="font-size:21px;color:var(--text-primary);margin-bottom:8px;"></div>
+        <div class="scenario-response-text-fr" style="font-size:18px;color:var(--accent-violet-bright);font-style:italic;"></div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Speaking Zone → Zone de parole</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: Speaking Spotlight -->
+  <section class="slide" data-slide="9">
+    <div class="section-header">
+      <span class="slide-number">Speaking Spotlight · Zone de Parole</span>
+      <h1 class="slide-title">Out Loud!</h1>
+      <div class="slide-subtitle-fr">À voix haute! — tap a card, then answer OUT LOUD with a full conditional sentence / touche une carte, puis réponds À VOIX HAUTE avec une phrase conditionnelle complète · +20 XP each</div>
+    </div>
+
+    <div class="tip-box panel-violet" style="margin-bottom:26px;">
+      <div class="tip-label" style="color:var(--accent-violet-bright);">🎙️ SPEAKING RULES · RÈGLES DE PAROLE</div>
+      <div class="tip-content">
+        1. Use the starter phrase.<br>
+        2. Include the word <strong style="color:var(--gold);">WOULD</strong>.<br>
+        3. Give at least ONE specific detail.
+      </div>
+      <div class="tip-content-fr">
+        1. Utilise la phrase de départ.<br>
+        2. Inclus le mot <strong>WOULD</strong>.<br>
+        3. Donne au moins UN détail précis.
+      </div>
+    </div>
+
+    <div class="speaking-grid">
+      <div class="speaking-card" data-speak="sp1">
+        <div class="speaking-icon">🍽️</div>
+        <div class="speaking-card-title">The Dream Dinner</div>
+        <div class="speaking-teaser">Tap to reveal your prompt · Touche pour découvrir</div>
+        <div class="speaking-prompt">If you could have dinner with ANY person — dead or alive, real or fictional — who would it be, and what would you ask them?</div>
+        <div class="speaking-prompt-fr">Si tu pouvais dîner avec N'IMPORTE QUI — mort ou vivant, réel ou fictif — qui serait-ce, et que lui demanderais-tu?</div>
+        <div class="starter">Starter: "If I could have dinner with..., I would ask..."</div>
+      </div>
+
+      <div class="speaking-card" data-speak="sp2">
+        <div class="speaking-icon">🏖️</div>
+        <div class="speaking-card-title">Perfect Day</div>
+        <div class="speaking-teaser">Tap to reveal your prompt · Touche pour découvrir</div>
+        <div class="speaking-prompt">If you had a totally perfect day with no school and no practice, what would you do from morning to night?</div>
+        <div class="speaking-prompt-fr">Si tu avais une journée parfaite, sans école ni entraînement, que ferais-tu du matin au soir?</div>
+        <div class="starter">Starter: "If I had a perfect day, I would..."</div>
+      </div>
+
+      <div class="speaking-card" data-speak="sp3">
+        <div class="speaking-icon">🏡</div>
+        <div class="speaking-card-title">Dream House</div>
+        <div class="speaking-teaser">Tap to reveal your prompt · Touche pour découvrir</div>
+        <div class="speaking-prompt">If you could design your dream house, what THREE rooms would it have that a normal house doesn't?</div>
+        <div class="speaking-prompt-fr">Si tu pouvais concevoir la maison de tes rêves, quelles TROIS pièces aurait-elle qu'une maison normale n'a pas?</div>
+        <div class="starter">Starter: "My dream house would have..."</div>
+      </div>
+
+      <div class="speaking-card" data-speak="sp4">
+        <div class="speaking-icon">🎁</div>
+        <div class="speaking-card-title">Three Wishes</div>
+        <div class="speaking-teaser">Tap to reveal your prompt · Touche pour découvrir</div>
+        <div class="speaking-prompt">A genie gives you THREE wishes — but you can't wish for more wishes! What would you wish for, and WHY?</div>
+        <div class="speaking-prompt-fr">Un génie t'offre TROIS souhaits — mais tu ne peux pas en souhaiter plus! Que souhaiterais-tu, et POURQUOI?</div>
+        <div class="starter">Starter: "For my first wish, I would..."</div>
+      </div>
+
+      <div class="speaking-card" data-speak="sp5">
+        <div class="speaking-icon">🏊‍♀️</div>
+        <div class="speaking-card-title">Swim Change</div>
+        <div class="speaking-teaser">Tap to reveal your prompt · Touche pour découvrir</div>
+        <div class="speaking-prompt">If you could change ONE thing about your swim schedule or training, what would it be, and why?</div>
+        <div class="speaking-prompt-fr">Si tu pouvais changer UNE chose dans ton planning ou ton entraînement de natation, que serait-ce, et pourquoi?</div>
+        <div class="starter">Starter: "If I could change one thing, I would..."</div>
+      </div>
+
+      <div class="speaking-card" data-speak="sp6">
+        <div class="speaking-icon">🎓</div>
+        <div class="speaking-card-title">New School</div>
+        <div class="speaking-teaser">Tap to reveal your prompt · Touche pour découvrir</div>
+        <div class="speaking-prompt">If you could invent a brand new school subject, what would it be, and what would you learn in it?</div>
+        <div class="speaking-prompt-fr">Si tu pouvais inventer une toute nouvelle matière scolaire, quelle serait-elle, et qu'y apprendrais-tu?</div>
+        <div class="starter">Starter: "I would invent a subject called..."</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Home Challenge → Défi Maison</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: Home Challenge + Completion -->
+  <section class="slide" data-slide="10">
+    <div class="section-header">
+      <span class="slide-number">Home Challenge · Défi Maison</span>
+      <h1 class="slide-title">Your Speaking Mission</h1>
+      <div class="slide-subtitle-fr">Ta mission orale — choose ONE challenge to complete with your family / choisis UN défi à compléter avec ta famille</div>
+    </div>
+
+    <div class="bilingual" style="margin-bottom:22px;">
+      <div class="bi-col bi-en">
+        <div class="bi-lang-tag">EN — HOW IT WORKS</div>
+        <p>Pick one challenge. Do it <strong style="color:var(--gold);">OUT LOUD</strong> with a family member. Come back next lesson and tell me how it went!</p>
+      </div>
+      <div class="bi-col bi-fr">
+        <div class="bi-lang-tag">FR — COMMENT ÇA MARCHE</div>
+        <p>Choisis un défi. Fais-le <strong style="color:var(--gold);">À VOIX HAUTE</strong> avec un membre de ta famille. Reviens la prochaine leçon et raconte-moi!</p>
+      </div>
+    </div>
+
+    <div class="challenge-grid">
+
+      <!-- Challenge 1 -->
+      <div class="challenge-card">
+        <div class="difficulty difficulty-easy">⭐ EASY · FACILE</div>
+        <div class="challenge-title">🎁 Three Wishes with Charline</div>
+        <div class="challenge-title-fr">Trois souhaits avec Charline</div>
+        <div class="challenge-text">Tell Charline: "If a genie gave me three wishes, I would wish for..." and complete it with THREE different wishes — each using WOULD.</div>
+        <div class="challenge-text-fr">Dis à Charline : « Si un génie me donnait trois souhaits, je souhaiterais... » et complète avec TROIS souhaits différents — chacun utilisant WOULD.</div>
+        <div class="challenge-example">Example: "I would wish for a bigger swimming pool at home, I would wish to speak five languages, and I would wish for unlimited pizza!"</div>
+        <div class="challenge-xp">⭐ +50 XP when completed</div>
+      </div>
+
+      <!-- Challenge 2 -->
+      <div class="challenge-card">
+        <div class="difficulty difficulty-medium">⭐⭐ MEDIUM · MOYEN</div>
+        <div class="challenge-title">👧 Swap Lives Story with Elena</div>
+        <div class="challenge-title-fr">Histoire d'échange avec Elena</div>
+        <div class="challenge-text">Tell Elena: "If I swapped lives with you for one day, I would..." — describe THREE things you would do as her (using WOULD each time).</div>
+        <div class="challenge-text-fr">Dis à Elena : « Si j'échangeais ma vie avec toi un jour, je... » — décris TROIS choses que tu ferais à sa place (avec WOULD à chaque fois).</div>
+        <div class="challenge-example">Example: "I would wake up in your room, I would wear your favorite clothes, and I would eat cereal for breakfast."</div>
+        <div class="challenge-xp">⭐ +75 XP when completed</div>
+      </div>
+
+      <!-- Challenge 3 -->
+      <div class="challenge-card">
+        <div class="difficulty difficulty-hard">⭐⭐⭐ HARD · DIFFICILE</div>
+        <div class="challenge-title">🏡 Interview Christophe</div>
+        <div class="challenge-title-fr">Interview de Christophe</div>
+        <div class="challenge-text">Ask Christophe THREE "What would you do if..." questions in English. Listen carefully to each answer, then tell him back what HE said (starting with "You would..."). This tests if you understood!</div>
+        <div class="challenge-text-fr">Pose à Christophe TROIS questions « What would you do if... » en anglais. Écoute bien chaque réponse, puis redis-lui ce qu'IL a dit (en commençant par « You would... »). Ça teste ta compréhension!</div>
+        <div class="challenge-example">Example Q: "What would you do if you won the lottery?" · Then repeat back: "So you would... "</div>
+        <div class="challenge-xp">⭐ +100 XP when completed</div>
+      </div>
+
+    </div>
+
+    <!-- Completion -->
+    <div class="panel panel-gold" style="margin-top:40px;">
+      <div class="completion-hero">
+        <div class="completion-emoji">🌟</div>
+        <div class="completion-title">Amazing Work!</div>
+        <div class="completion-subtitle">You completed Lesson 28 — Dream Zone</div>
+        <div class="completion-subtitle-fr">Tu as terminé la Leçon 28 — Zone de Rêve</div>
+
+        <div class="final-xp-card">
+          <div class="final-xp-label">Total XP Earned</div>
+          <div class="final-xp-value" id="finalXP">0</div>
+        </div>
+
+        <div class="stars" id="starsDisplay">⭐⭐⭐⭐⭐</div>
+
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div style="max-width:600px;margin:24px auto 0;">
+          <div class="bilingual">
+            <div class="bi-col bi-en">
+              <div class="bi-lang-tag">EN</div>
+              <p>You just mastered the Second Conditional AND practiced <strong style="color:var(--gold);">listening carefully</strong>. That's a real skill! See you next lesson, Berenice. 🏊‍♀️</p>
+            </div>
+            <div class="bi-col bi-fr">
+              <div class="bi-lang-tag">FR</div>
+              <p>Tu viens de maîtriser le Deuxième Conditionnel ET tu t'es entraînée à <strong style="color:var(--gold);">bien écouter</strong>. C'est une vraie compétence! À la prochaine leçon, Berenice. 🏊‍♀️</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-primary" id="celebrateBtn" style="margin-top:30px;">🎉 Celebrate! · Célébrer!</button>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <div></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// ====== FEEDBACK DATA ======
+const FB = {
+  q1:{
+    correct:"Perfect! After 'if', we use the <strong>simple past</strong> tense ('had'). The conditional part ('would buy') comes after the comma.",
+    correctFr:"Parfait! Après 'if', on utilise le <strong>prétérit</strong> ('had'). Le conditionnel ('would buy') vient après la virgule.",
+    wrong:"Not quite. Remember the formula: <strong>IF + simple past</strong>, would + base verb. So we need 'had' — the simple past of 'have'.",
+    wrongFr:"Pas tout à fait. Rappel de la formule: <strong>IF + prétérit</strong>, would + verbe base. Il faut 'had' — le prétérit de 'have'."
+  },
+  q2:{
+    correct:"Excellent! 'Would order' is correct. After the comma in a conditional sentence, we always use <strong>would + base verb</strong>.",
+    correctFr:"Excellent! 'Would order' est correct. Après la virgule dans une phrase conditionnelle, on utilise toujours <strong>would + verbe base</strong>.",
+    wrong:"Hmm, check again. The 'if' part is already in the past ('were'). The second part needs <strong>'would' + base verb</strong> for the conditional.",
+    wrongFr:"Hmm, regarde encore. La partie 'if' est déjà au passé ('were'). La deuxième partie a besoin de <strong>'would' + verbe base</strong> pour le conditionnel."
+  },
+  q3:{
+    correct:"Yes! Native speakers say <strong>'If I were you'</strong> — not 'If I was you'. It's the most natural and correct form in conditionals.",
+    correctFr:"Oui! Les anglophones disent <strong>'If I were you'</strong> — pas 'If I was you'. C'est la forme la plus naturelle et correcte en conditionnel.",
+    wrong:"Close, but native speakers use <strong>'were'</strong> (not 'was') in conditional sentences — even with 'I'. It's the special conditional form.",
+    wrongFr:"Presque, mais les anglophones utilisent <strong>'were'</strong> (pas 'was') dans les phrases conditionnelles — même avec 'I'. C'est la forme spéciale du conditionnel."
+  },
+  q4:{
+    correct:"Brilliant! That's the textbook correct form: <strong>IF + simple past, would + base verb</strong>. No 'would' in the if-part, no 'will' in the second part.",
+    correctFr:"Génial! C'est la forme parfaitement correcte: <strong>IF + prétérit, would + verbe base</strong>. Pas de 'would' dans la partie if, pas de 'will' dans la deuxième.",
+    wrong:"Watch out for the common errors: don't use 'would' twice, and don't use 'will' or 'named' (past participle) in the second part. Try again!",
+    wrongFr:"Attention aux erreurs fréquentes: n'utilise pas 'would' deux fois, et pas 'will' ni 'named' (participe passé) dans la deuxième partie. Essaie encore!"
+  },
+  q5:{
+    correct:"Yes! Charline asked 'what WOULD you do IF you HAD' — so the response must use <strong>'would'</strong> and describe imaginary actions. Perfect match.",
+    correctFr:"Oui! Charline a demandé 'what WOULD you do IF you HAD' — donc la réponse doit utiliser <strong>'would'</strong> et décrire des actions imaginaires. Parfait.",
+    wrong:"Read again carefully. Charline asks about an IMAGINARY weekend using 'would'. The answer must use <strong>'would + base verb'</strong> — not past, present, or future tense.",
+    wrongFr:"Relis attentivement. Charline pose une question IMAGINAIRE avec 'would'. La réponse doit utiliser <strong>'would + verbe base'</strong> — pas le passé, présent ou futur."
+  },
+  q6:{
+    correct:"Precisely! Elena asked WHO you would meet. A good answer gives <strong>a specific name + 'I would meet'</strong>. That's answering with precision!",
+    correctFr:"Précisément! Elena a demandé QUI tu rencontrerais. Une bonne réponse donne <strong>un nom précis + 'I would meet'</strong>. Ça c'est répondre avec précision!",
+    wrong:"Be careful — Elena's question starts with WHO (who would it be). You need to <strong>name a person</strong> AND use the conditional 'would'.",
+    wrongFr:"Attention — la question d'Elena commence par WHO (qui). Il faut <strong>nommer une personne</strong> ET utiliser le conditionnel 'would'."
+  },
+  q7:{
+    correct:"Yes! He asked 'what would WE do as a family' — your answer uses <strong>'we would'</strong> and describes a family activity. Exactly on target!",
+    correctFr:"Oui! Il a demandé 'what would WE do as a family' — ta réponse utilise <strong>'we would'</strong> et décrit une activité familiale. Exactement ciblé!",
+    wrong:"Listen to the pronoun carefully: he asked about WE (the family). Your response should start with <strong>'We would...'</strong> and describe a family activity.",
+    wrongFr:"Écoute bien le pronom: il a demandé au sujet de WE (la famille). Ta réponse doit commencer par <strong>'We would...'</strong> et décrire une activité familiale."
+  },
+  q8:{
+    correct:"Perfect! The question was 'what WOULD she tell you' — so the answer must use <strong>'She would + base verb'</strong>. Exactly right!",
+    correctFr:"Parfait! La question était 'what WOULD she tell you' — donc la réponse doit utiliser <strong>'She would + verbe base'</strong>. Exactement ça!",
+    wrong:"The question is imaginary ('if she could speak'). Your answer must use <strong>'would'</strong> — not 'will' (that's future, not conditional) and not a real-life statement.",
+    wrongFr:"La question est imaginaire ('if she could speak'). Ta réponse doit utiliser <strong>'would'</strong> — pas 'will' (c'est le futur, pas le conditionnel) ni une phrase de vie réelle."
+  },
+  q9:{
+    correct:"Detective work! That's the only version that follows the rule perfectly: <strong>IF + past (had), would + base (visit)</strong>.",
+    correctFr:"Enquête réussie! C'est la seule version qui suit la règle parfaitement: <strong>IF + prétérit (had), would + verbe base (visit)</strong>.",
+    wrong:"Keep investigating. The IF-part needs <strong>simple past</strong>, and the second part needs <strong>'would + base verb'</strong>. Never use 'would' after 'if' and never use 'will' with the conditional.",
+    wrongFr:"Continue l'enquête. La partie IF a besoin du <strong>prétérit</strong>, et la deuxième partie de <strong>'would + verbe base'</strong>. Jamais 'would' après 'if' et jamais 'will' avec le conditionnel."
+  },
+  q10:{
+    correct:"Exactly! In conditionals, native speakers use <strong>'were'</strong> with all subjects — even 'I'. This is called the subjunctive mood.",
+    correctFr:"Exactement! En conditionnel, les anglophones utilisent <strong>'were'</strong> avec tous les sujets — même 'I'. On appelle ça le subjonctif.",
+    wrong:"The natural-sounding version uses <strong>'If I WERE...'</strong> — this is the correct conditional form, even though 'I was' is fine in other situations.",
+    wrongFr:"La version naturelle utilise <strong>'If I WERE...'</strong> — c'est la forme conditionnelle correcte, même si 'I was' est ok dans d'autres situations."
+  },
+  q11:{
+    correct:"Perfect detective! <strong>IF + gave (past) + I would buy (would + base)</strong>. No 'will', no double 'would'. That's the clean version.",
+    correctFr:"Détective parfaite! <strong>IF + gave (prétérit) + I would buy (would + verbe base)</strong>. Pas de 'will', pas de double 'would'. C'est la version impeccable.",
+    wrong:"Check each verb! A: 'will' is wrong (should be 'would'). B: 'give' is not the past. D: Don't use 'would' after 'if'. The correct answer has all parts right.",
+    wrongFr:"Vérifie chaque verbe! A: 'will' est faux (ce devrait être 'would'). B: 'give' n'est pas au passé. D: Pas de 'would' après 'if'. La bonne réponse a tout correct."
+  }
+};
+
+// ====== STATE ======
+let currentSlide = 1;
+const totalSlides = 10;
+let xp = 0;
+const answeredQuestions = new Set();
+const completedVocab = new Set();
+const completedScenarios = new Set();
+const completedSpeaking = new Set();
+
+// ====== DOT NAVIGATION ======
+function buildDots(){
+  const nav = document.getElementById('dotNav');
+  nav.innerHTML = '';
+  for(let i=1;i<=totalSlides;i++){
+    const d = document.createElement('div');
+    d.className = 'dot';
+    if(i === currentSlide) d.classList.add('active');
+    if(i < currentSlide) d.classList.add('done');
+    d.addEventListener('click',()=>goToSlide(i));
+    nav.appendChild(d);
+  }
+}
+
+function updateDots(){
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach((d,i)=>{
+    d.classList.remove('active','done');
+    if(i+1 === currentSlide) d.classList.add('active');
+    else if(i+1 < currentSlide) d.classList.add('done');
+  });
+}
+
+function goToSlide(n){
+  if(n < 1 || n > totalSlides) return;
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  const target = document.querySelector(`.slide[data-slide="${n}"]`);
+  if(target){
+    target.classList.add('active');
+    currentSlide = n;
+    updateDots();
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(n === totalSlides){
+      setTimeout(showCompletion, 400);
+    }
+  }
+}
+
+// ====== XP ======
+function addXP(amount){
+  xp += amount;
+  const display = document.getElementById('xpDisplay');
+  if(display) display.textContent = xp;
+}
+
+// ====== VOCAB CARDS ======
+document.querySelectorAll('.vocab-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.getAttribute('data-vocab');
+    if(!completedVocab.has(id)){
+      completedVocab.add(id);
+      addXP(5);
+    }
+    card.classList.add('revealed');
+  });
+});
+
+// ====== MCQ ======
+document.querySelectorAll('.mcq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const gid = btn.getAttribute('data-gid');
+    const isCorrect = btn.getAttribute('data-ok') === 'true';
+    if(answeredQuestions.has(gid)) return;
+
+    const block = btn.closest('.mcq-block');
+    const fbBox = block.querySelector('.mcq-feedback');
+    const allBtns = block.querySelectorAll('.mcq-btn');
+
+    if(isCorrect){
+      btn.classList.add('correct');
+      allBtns.forEach(b => { if(b !== btn) b.classList.add('faded'); b.disabled = true; });
+      fbBox.className = 'mcq-feedback success show';
+      fbBox.innerHTML = `✓ ${FB[gid].correct}<div class="mcq-feedback-fr">${FB[gid].correctFr}</div>`;
+      answeredQuestions.add(gid);
+      // XP varies by difficulty
+      const slideNum = parseInt(block.closest('.slide').getAttribute('data-slide'));
+      const xpAmount = slideNum === 5 ? 10 : 15;
+      addXP(xpAmount);
+      fireConfetti(6);
+    } else {
+      btn.classList.add('wrong');
+      btn.disabled = true;
+      fbBox.className = 'mcq-feedback retry show';
+      fbBox.innerHTML = `✗ ${FB[gid].wrong}<div class="mcq-feedback-fr">${FB[gid].wrongFr}</div>`;
+    }
+  });
+});
+
+// ====== SCENARIOS ======
+document.querySelectorAll('.scenario-choice').forEach(choice => {
+  choice.addEventListener('click', () => {
+    const card = choice.closest('.scenario-card');
+    const scenarioId = card.getAttribute('data-scenario');
+    const response = choice.getAttribute('data-response');
+    const responseFr = choice.getAttribute('data-response-fr');
+
+    // Mark all choices in this scenario
+    card.querySelectorAll('.scenario-choice').forEach(c => {
+      c.classList.add('locked');
+      c.classList.remove('selected');
+    });
+    choice.classList.add('selected');
+    choice.classList.remove('locked');
+
+    // Show response
+    const responseBox = card.querySelector('.scenario-response');
+    card.querySelector('.scenario-response-text').innerHTML = response;
+    card.querySelector('.scenario-response-text-fr').innerHTML = responseFr;
+    responseBox.classList.add('show');
+
+    if(!completedScenarios.has(scenarioId)){
+      completedScenarios.add(scenarioId);
+      addXP(10);
+      fireConfetti(4);
+    }
+  });
+});
+
+// ====== SPEAKING CARDS ======
+document.querySelectorAll('.speaking-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.getAttribute('data-speak');
+    card.classList.add('revealed');
+    if(!completedSpeaking.has(id)){
+      completedSpeaking.add(id);
+      addXP(20);
+    }
+  });
+});
+
+// ====== NAVIGATION BUTTONS ======
+document.querySelectorAll('[data-nav]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dir = btn.getAttribute('data-nav');
+    if(dir === 'next') goToSlide(currentSlide + 1);
+    else if(dir === 'prev') goToSlide(currentSlide - 1);
+  });
+});
+
+// ====== CONFETTI ======
+function fireConfetti(count = 30){
+  const colors = ['#00bcd4','#4dd0e1','#b39ddb','#ffd54f','#66bb6a'];
+  for(let i=0;i<count;i++){
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.animationDelay = Math.random() * 0.4 + 's';
+    c.style.animationDuration = (2.5 + Math.random() * 1.5) + 's';
+    if(Math.random() > 0.5){
+      c.style.borderRadius = '0';
+      c.style.width = '8px';
+      c.style.height = '14px';
+    }
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4500);
+  }
+}
+
+// ====== COMPLETION ======
+function showCompletion(){
+  const finalEl = document.getElementById('finalXP');
+  if(finalEl){
+    const start = 0;
+    const end = xp;
+    const duration = 1500;
+    const startTime = performance.now();
+    function animate(now){
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      finalEl.textContent = Math.floor(start + (end - start) * easedProgress);
+      if(progress < 1) requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  }
+  const progressBar = document.getElementById('progressBar');
+  if(progressBar){
+    setTimeout(()=>{
+      const pct = Math.min((xp / 300) * 100, 100);
+      progressBar.style.width = pct + '%';
+    }, 300);
+  }
+  // Stars based on performance
+  const starsEl = document.getElementById('starsDisplay');
+  if(starsEl){
+    let starCount = 3;
+    if(xp >= 150) starCount = 4;
+    if(xp >= 250) starCount = 5;
+    starsEl.textContent = '⭐'.repeat(starCount) + '☆'.repeat(5 - starCount);
+  }
+}
+
+// Celebrate button
+document.getElementById('celebrateBtn')?.addEventListener('click', () => {
+  fireConfetti(80);
+});
+
+// ====== INIT ======
+buildDots();
+</script>
+</body>
+</html>

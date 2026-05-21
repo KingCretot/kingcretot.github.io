@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 29 — Detective Academy | Berenice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Bright detective academy palette */
+    --bg-cream:#fff6e3;
+    --bg-cream-2:#ffe9c4;
+    --bg-cream-3:#ffd89c;
+    --bg-card:#ffffff;
+    --bg-card-soft:#fff3dd;
+    --bg-card-warm:#fef0d5;
+    --paper:#fffaf0;
+
+    --amber:#f5a623;
+    --amber-bright:#ffc04d;
+    --amber-deep:#c77800;
+    --amber-glow:rgba(245,166,35,0.35);
+
+    --navy:#1b4965;
+    --navy-deep:#0d3147;
+    --navy-soft:#2d6991;
+
+    --coral:#ee6c4d;
+    --coral-bright:#ff8a65;
+    --coral-deep:#c14a30;
+
+    --purple:#7c5295;
+    --purple-bright:#a47fc4;
+    --purple-soft:#e8dcf0;
+
+    --gold:#ffc857;
+    --gold-bright:#ffd87a;
+
+    --success:#5cb85c;
+    --success-bright:#7fd87f;
+    --success-bg:rgba(92,184,92,0.15);
+    --error:#e63946;
+    --error-bg:rgba(230,57,70,0.12);
+
+    --text-dark:#2c2c2c;
+    --text-mid:#5a5a5a;
+    --text-light:#888;
+    --text-fr:#7c5295;
+
+    --border-amber:rgba(245,166,35,0.45);
+    --border-navy:rgba(27,73,101,0.25);
+    --border-coral:rgba(238,108,77,0.4);
+
+    --shadow-soft:0 8px 24px rgba(27,73,101,0.12);
+    --shadow-deep:0 16px 48px rgba(27,73,101,0.2);
+    --shadow-glow:0 0 32px rgba(245,166,35,0.3);
+    --shadow-paper:0 4px 0 rgba(27,73,101,0.08), 0 8px 28px rgba(27,73,101,0.18);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'Inter',-apple-system,sans-serif;
+    background:linear-gradient(135deg,var(--bg-cream) 0%,var(--bg-cream-2) 60%,var(--bg-cream-3) 100%);
+    color:var(--text-dark);
+    min-height:100vh;
+    font-size:22px;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* Floating clue icons in background */
+  .bg-clues{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+  }
+  .bg-clue{
+    position:absolute;
+    font-size:64px;
+    opacity:0.08;
+    animation:driftClue 28s linear infinite;
+    user-select:none;
+  }
+  .bg-clue:nth-child(1){top:8%;left:5%;animation-delay:0s;}
+  .bg-clue:nth-child(2){top:18%;right:8%;animation-delay:-7s;font-size:54px;}
+  .bg-clue:nth-child(3){top:55%;left:3%;animation-delay:-14s;font-size:72px;}
+  .bg-clue:nth-child(4){top:72%;right:5%;animation-delay:-21s;font-size:60px;}
+  .bg-clue:nth-child(5){top:38%;left:48%;animation-delay:-10s;font-size:50px;}
+  .bg-clue:nth-child(6){bottom:12%;left:38%;animation-delay:-18s;font-size:58px;}
+  @keyframes driftClue{
+    0%,100%{transform:translate(0,0) rotate(-8deg);}
+    25%{transform:translate(30px,-20px) rotate(4deg);}
+    50%{transform:translate(-20px,-40px) rotate(-12deg);}
+    75%{transform:translate(15px,-15px) rotate(8deg);}
+  }
+
+  /* Top HUD */
+  .hud{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,250,240,0.94);
+    backdrop-filter:blur(14px);
+    border-bottom:2px solid var(--amber);
+    padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;
+    box-shadow:0 4px 16px rgba(27,73,101,0.08);
+  }
+  .hud-left{display:flex;align-items:center;gap:14px;}
+  .hud-logo{
+    font-family:'Fraunces',serif;
+    font-weight:800;font-size:24px;
+    color:var(--navy);
+    letter-spacing:-0.5px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .hud-logo .logo-icon{
+    display:inline-block;
+    font-size:24px;
+    animation:glassWiggle 4s ease-in-out infinite;
+  }
+  @keyframes glassWiggle{
+    0%,100%{transform:rotate(-15deg);}
+    50%{transform:rotate(15deg);}
+  }
+  .hud-student{
+    font-family:'Special Elite',serif;
+    font-size:15px;color:var(--navy);
+    border-left:2px solid var(--amber);
+    padding-left:14px;
+    letter-spacing:0.5px;
+  }
+  .hud-right{display:flex;align-items:center;gap:14px;}
+  .xp-badge{
+    display:flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+    border:2px solid var(--amber-deep);
+    padding:8px 16px;border-radius:999px;
+    font-family:'Fraunces',serif;font-weight:700;font-size:16px;
+    color:var(--navy-deep);
+    box-shadow:0 4px 0 var(--amber-deep);
+  }
+  .xp-icon{font-size:18px;}
+  .sound-toggle{
+    background:var(--bg-card);
+    border:2px solid var(--border-navy);
+    width:42px;height:42px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    display:flex;align-items:center;justify-content:center;
+    transition:all 0.2s;
+    color:var(--navy);
+  }
+  .sound-toggle:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 14px rgba(27,73,101,0.18);
+    border-color:var(--amber);
+  }
+  .sound-toggle.muted{opacity:0.5;}
+  .dot-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  .dot{
+    width:12px;height:12px;border-radius:50%;
+    background:rgba(27,73,101,0.18);
+    transition:all 0.3s;
+    cursor:pointer;
+  }
+  .dot.active{
+    background:var(--coral);
+    box-shadow:0 0 12px var(--coral);
+    transform:scale(1.4);
+  }
+  .dot.done{background:var(--success);}
+
+  /* Stage */
+  .stage{
+    max-width:1180px;margin:0 auto;padding:32px 24px 80px;
+    position:relative;z-index:1;
+  }
+
+  .slide{display:none;animation:fadeSlide 0.5s ease-out;}
+  .slide.active{display:block;}
+  @keyframes fadeSlide{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  /* Slide headers */
+  .slide-number{
+    display:inline-block;
+    font-family:'Special Elite',serif;font-size:14px;
+    color:var(--coral-deep);
+    letter-spacing:3px;
+    text-transform:uppercase;
+    background:rgba(238,108,77,0.12);
+    padding:6px 14px;border-radius:6px;
+    border:1px dashed var(--coral);
+    margin-bottom:18px;
+  }
+  h1.slide-title{
+    font-family:'Fraunces',serif;font-weight:800;
+    font-size:48px;line-height:1.1;
+    margin-bottom:10px;
+    color:var(--navy-deep);
+    letter-spacing:-1px;
+  }
+  h2.slide-title{
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:36px;line-height:1.2;margin-bottom:8px;
+    color:var(--navy);
+  }
+  .slide-subtitle-fr{
+    font-family:'Inter',sans-serif;font-weight:500;
+    font-size:19px;color:var(--purple);
+    font-style:italic;
+    margin-bottom:28px;
+  }
+  .section-header{margin-bottom:30px;}
+
+  /* Cards & panels */
+  .panel{
+    background:var(--bg-card);
+    border:2px solid var(--border-amber);
+    border-radius:20px;padding:28px;
+    margin-bottom:22px;
+    box-shadow:var(--shadow-soft);
+    position:relative;
+  }
+  .panel-warm{
+    background:linear-gradient(135deg,var(--bg-card-warm),var(--bg-card-soft));
+    border-color:var(--amber);
+  }
+  .panel-coral{
+    border-color:var(--border-coral);
+    background:linear-gradient(135deg,#fff,#ffece6);
+  }
+  .panel-navy{
+    background:linear-gradient(135deg,var(--navy),var(--navy-deep));
+    color:var(--paper);
+    border-color:var(--gold);
+  }
+  .panel-navy h2,.panel-navy h1,.panel-navy strong{color:var(--gold-bright);}
+
+  /* Two-column bilingual */
+  .bilingual{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    align-items:start;
+  }
+  .bi-col{padding:20px;border-radius:14px;}
+  .bi-en{
+    background:rgba(245,166,35,0.08);
+    border-left:4px solid var(--amber);
+  }
+  .bi-fr{
+    background:rgba(124,82,149,0.08);
+    border-left:4px solid var(--purple);
+  }
+  .bi-lang-tag{
+    display:inline-block;
+    font-family:'Special Elite',serif;font-weight:700;font-size:11px;
+    letter-spacing:2px;
+    padding:4px 10px;border-radius:4px;
+    margin-bottom:10px;
+  }
+  .bi-en .bi-lang-tag{background:var(--amber);color:#fff;}
+  .bi-fr .bi-lang-tag{background:var(--purple);color:#fff;}
+  .bi-en p,.bi-en li,.bi-en div{color:var(--text-dark);font-size:22px;}
+  .bi-fr p,.bi-fr li,.bi-fr div{color:var(--purple);font-size:19px;}
+  .bi-en strong{color:var(--coral-deep);}
+  .bi-fr strong{color:var(--purple);}
+
+  /* Welcome slide */
+  .welcome-hero{
+    text-align:center;
+    padding:30px 20px 10px;
+    position:relative;
+  }
+  .badge-wrap{
+    display:inline-block;
+    position:relative;
+    margin-bottom:18px;
+    animation:badgeIn 1s ease-out;
+  }
+  @keyframes badgeIn{
+    0%{opacity:0;transform:scale(0.4) rotate(-30deg);}
+    60%{transform:scale(1.1) rotate(5deg);}
+    100%{opacity:1;transform:scale(1) rotate(0);}
+  }
+  .badge{
+    width:140px;height:140px;
+    background:radial-gradient(circle at 30% 30%,var(--gold-bright),var(--amber) 60%,var(--amber-deep));
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:72px;
+    box-shadow:
+      0 0 0 6px var(--paper),
+      0 0 0 9px var(--amber),
+      0 12px 32px rgba(245,166,35,0.5);
+    margin:0 auto;
+    position:relative;
+    animation:badgePulse 3s ease-in-out infinite;
+  }
+  @keyframes badgePulse{
+    0%,100%{box-shadow:0 0 0 6px var(--paper),0 0 0 9px var(--amber),0 12px 32px rgba(245,166,35,0.5);}
+    50%{box-shadow:0 0 0 6px var(--paper),0 0 0 9px var(--amber),0 12px 48px rgba(245,166,35,0.8);}
+  }
+  .badge-stars{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+  }
+  .badge-stars span{
+    position:absolute;
+    font-size:18px;
+    animation:sparkle 2s ease-in-out infinite;
+  }
+  .badge-stars span:nth-child(1){top:-10px;right:10px;animation-delay:0s;}
+  .badge-stars span:nth-child(2){bottom:0;left:-12px;animation-delay:0.7s;}
+  .badge-stars span:nth-child(3){top:30%;right:-20px;animation-delay:1.3s;}
+  @keyframes sparkle{
+    0%,100%{opacity:0;transform:scale(0.5);}
+    50%{opacity:1;transform:scale(1.2);}
+  }
+  .welcome-greeting{
+    font-family:'Fraunces',serif;font-weight:800;
+    font-size:60px;line-height:1.05;
+    margin-bottom:14px;
+    color:var(--navy-deep);
+    letter-spacing:-1.5px;
+  }
+  .welcome-greeting .accent{
+    color:var(--coral);
+    font-style:italic;
+  }
+  .welcome-subtitle{
+    font-family:'Special Elite',serif;
+    font-size:22px;color:var(--navy);
+    margin-bottom:6px;
+    letter-spacing:0.5px;
+  }
+  .welcome-subtitle-fr{
+    font-size:19px;color:var(--purple);
+    font-style:italic;
+    margin-bottom:20px;
+  }
+
+  /* Recap card - case file style */
+  .recap-card{
+    background:var(--paper);
+    border:1px solid var(--border-navy);
+    border-radius:14px;
+    padding:28px;
+    margin:24px 0;
+    box-shadow:var(--shadow-paper);
+    position:relative;
+    overflow:hidden;
+  }
+  .recap-card::before{
+    content:'CASE FILE';
+    position:absolute;
+    top:14px;right:18px;
+    font-family:'Special Elite',serif;
+    font-size:11px;
+    color:var(--coral);
+    letter-spacing:3px;
+    border:1px solid var(--coral);
+    padding:3px 8px;
+    border-radius:4px;
+    transform:rotate(3deg);
+  }
+  .recap-title{
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;
+    margin-bottom:18px;
+    padding-right:80px;
+  }
+  .recap-title-text{
+    font-family:'Fraunces',serif;font-weight:700;font-size:26px;
+    color:var(--navy-deep);
+  }
+  .recap-badge{
+    background:linear-gradient(135deg,var(--success),var(--success-bright));
+    color:#fff;
+    padding:6px 14px;border-radius:999px;
+    font-family:'Fraunces',serif;font-weight:700;font-size:14px;
+    box-shadow:0 4px 0 rgba(0,0,0,0.1);
+  }
+  .recap-quote{
+    margin-top:18px;
+    background:var(--bg-card-warm);
+    border-left:4px solid var(--amber);
+    padding:16px 20px;
+    border-radius:8px;
+  }
+  .recap-quote-label{
+    font-family:'Special Elite',serif;font-size:12px;
+    color:var(--coral-deep);
+    letter-spacing:2px;
+    margin-bottom:8px;
+  }
+
+  /* Mission grid */
+  .mission-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:14px;
+    margin-top:24px;
+  }
+  .mission-item{
+    background:var(--bg-card);
+    border:2px solid var(--border-amber);
+    border-radius:14px;
+    padding:18px 14px;
+    text-align:center;
+    transition:all 0.3s;
+    cursor:default;
+  }
+  .mission-item:hover{
+    transform:translateY(-4px);
+    border-color:var(--coral);
+    box-shadow:var(--shadow-soft);
+  }
+  .mission-emoji{
+    display:block;
+    font-size:38px;margin-bottom:8px;
+  }
+  .mission-label-en{
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:17px;
+    color:var(--navy-deep);
+    margin-bottom:2px;
+  }
+  .mission-label-fr{
+    font-size:14px;color:var(--purple);
+    font-style:italic;
+  }
+
+  /* Vocabulary cards */
+  .vocab-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+  }
+  .vocab-card{
+    background:var(--paper);
+    border:2px solid var(--border-amber);
+    border-radius:18px;
+    padding:24px 20px;
+    cursor:pointer;
+    transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+    position:relative;
+    overflow:hidden;
+    min-height:230px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .vocab-card::before{
+    content:'';
+    position:absolute;
+    top:-50%;left:-50%;
+    width:200%;height:200%;
+    background:radial-gradient(circle,rgba(245,166,35,0.15),transparent 50%);
+    opacity:0;
+    transition:opacity 0.4s;
+    pointer-events:none;
+  }
+  .vocab-card:hover::before{opacity:1;}
+  .vocab-card:hover{
+    transform:translateY(-6px) rotate(-1deg);
+    border-color:var(--amber);
+    box-shadow:0 14px 36px rgba(245,166,35,0.3);
+  }
+  .vocab-card.revealed{
+    background:linear-gradient(135deg,var(--bg-card-warm),var(--paper));
+    border-color:var(--success);
+    transform:rotate(-1deg);
+  }
+  .vocab-card.revealed::after{
+    content:'✓';
+    position:absolute;
+    top:14px;right:14px;
+    width:28px;height:28px;
+    background:var(--success);
+    color:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:16px;
+    animation:stampPop 0.5s ease-out;
+  }
+  @keyframes stampPop{
+    0%{transform:scale(0) rotate(-90deg);opacity:0;}
+    60%{transform:scale(1.3) rotate(10deg);}
+    100%{transform:scale(1) rotate(0);opacity:1;}
+  }
+  .vocab-emoji{
+    font-size:48px;
+    margin-bottom:10px;
+    transition:transform 0.4s;
+  }
+  .vocab-card:hover .vocab-emoji{transform:scale(1.15) rotate(-8deg);}
+  .vocab-word{
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:26px;
+    color:var(--navy-deep);
+    margin-bottom:6px;
+  }
+  .vocab-fr{
+    font-size:17px;
+    color:var(--purple);
+    font-style:italic;
+    margin-bottom:10px;
+  }
+  .vocab-example{
+    font-size:16px;color:var(--text-mid);
+    font-style:italic;
+    opacity:0;max-height:0;
+    transition:all 0.4s;
+    overflow:hidden;
+    line-height:1.4;
+  }
+  .vocab-card.revealed .vocab-example{
+    opacity:1;max-height:120px;
+    margin-top:6px;
+  }
+  .tap-hint{
+    font-family:'Special Elite',serif;
+    font-size:13px;
+    color:var(--coral);
+    letter-spacing:1.5px;
+    margin-top:auto;
+    padding-top:12px;
+  }
+  .vocab-card.revealed .tap-hint{display:none;}
+
+  /* Training Lab - Context Clue Types */
+  .clue-type-grid{
+    display:grid;
+    gap:18px;
+  }
+  .clue-type{
+    background:var(--bg-card);
+    border:2px solid var(--border-amber);
+    border-left:8px solid var(--amber);
+    border-radius:14px;
+    padding:22px 24px;
+    transition:all 0.3s;
+  }
+  .clue-type:hover{
+    transform:translateX(6px);
+    box-shadow:var(--shadow-soft);
+  }
+  .clue-type.coral{border-left-color:var(--coral);}
+  .clue-type.purple{border-left-color:var(--purple);}
+  .clue-type.success{border-left-color:var(--success);}
+  .clue-type-header{
+    display:flex;align-items:center;gap:12px;
+    margin-bottom:10px;
+  }
+  .clue-type-num{
+    width:36px;height:36px;
+    background:var(--amber);
+    color:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:800;
+    font-size:18px;
+    flex-shrink:0;
+  }
+  .clue-type.coral .clue-type-num{background:var(--coral);}
+  .clue-type.purple .clue-type-num{background:var(--purple);}
+  .clue-type.success .clue-type-num{background:var(--success);}
+  .clue-type-name{
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:22px;
+    color:var(--navy-deep);
+  }
+  .clue-type-name-fr{
+    font-size:15px;color:var(--purple);
+    font-style:italic;
+    margin-left:auto;
+  }
+  .clue-type-desc{
+    font-size:18px;color:var(--text-mid);
+    margin-bottom:10px;
+  }
+  .clue-type-desc-fr{
+    font-size:16px;color:var(--purple);
+    font-style:italic;
+    margin-bottom:14px;
+  }
+  .clue-example{
+    background:var(--bg-card-warm);
+    border-radius:10px;
+    padding:14px 18px;
+    font-size:18px;
+    line-height:1.5;
+    color:var(--text-dark);
+    border:1px dashed var(--amber);
+  }
+  .clue-example .target-word{
+    background:var(--gold);
+    padding:1px 6px;
+    border-radius:4px;
+    font-weight:700;
+    color:var(--navy-deep);
+  }
+  .clue-example .clue-part{
+    background:rgba(92,184,92,0.2);
+    padding:1px 4px;
+    border-radius:3px;
+    border-bottom:2px solid var(--success);
+  }
+
+  /* Case Files - MCQs */
+  .case-intro{
+    background:linear-gradient(135deg,var(--bg-card),var(--bg-card-warm));
+    border:2px dashed var(--amber);
+    border-radius:14px;
+    padding:18px 22px;
+    margin-bottom:24px;
+    display:flex;align-items:center;gap:16px;
+  }
+  .case-intro-icon{
+    font-size:42px;
+    flex-shrink:0;
+  }
+  .case-intro-text{
+    flex:1;
+  }
+  .case-intro-en{
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:19px;color:var(--navy-deep);
+  }
+  .case-intro-fr{
+    font-size:16px;color:var(--purple);
+    font-style:italic;
+    margin-top:2px;
+  }
+  .difficulty-tag{
+    display:inline-block;
+    font-family:'Special Elite',serif;
+    font-size:13px;letter-spacing:2px;
+    padding:4px 12px;
+    border-radius:4px;
+    margin-bottom:8px;
+  }
+  .difficulty-easy{background:rgba(92,184,92,0.18);color:var(--success);}
+  .difficulty-medium{background:rgba(245,166,35,0.18);color:var(--amber-deep);}
+  .difficulty-hard{background:rgba(238,108,77,0.18);color:var(--coral-deep);}
+
+  .mcq-block{
+    background:var(--paper);
+    border:2px solid var(--border-amber);
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:18px;
+    position:relative;
+  }
+  .mcq-num{
+    position:absolute;
+    top:-14px;left:24px;
+    background:var(--coral);
+    color:#fff;
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:14px;letter-spacing:1px;
+    padding:4px 14px;
+    border-radius:999px;
+    box-shadow:0 4px 12px rgba(238,108,77,0.4);
+  }
+  .mcq-passage{
+    background:var(--bg-card-warm);
+    border-left:4px solid var(--amber);
+    border-radius:10px;
+    padding:16px 20px;
+    margin-bottom:14px;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.5;
+    color:var(--navy-deep);
+  }
+  .mcq-passage .target{
+    background:var(--gold);
+    padding:1px 6px;
+    border-radius:4px;
+    font-weight:700;
+    font-style:normal;
+  }
+  .mcq-question{
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:21px;
+    color:var(--navy);
+    margin-bottom:14px;
+  }
+  .mcq-question-fr{
+    font-size:16px;color:var(--purple);
+    font-style:italic;
+    margin-top:-10px;
+    margin-bottom:14px;
+  }
+  .mcq-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:12px;
+  }
+  .mcq-btn{
+    background:var(--bg-card);
+    border:2px solid var(--border-navy);
+    border-radius:14px;
+    padding:16px 18px;
+    cursor:pointer;
+    transition:all 0.25s;
+    text-align:left;
+    font-family:'Inter',sans-serif;
+    font-size:18px;
+    color:var(--text-dark);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .mcq-btn:hover:not(:disabled){
+    transform:translateY(-3px);
+    border-color:var(--amber);
+    background:var(--bg-card-warm);
+    box-shadow:0 6px 16px rgba(245,166,35,0.2);
+  }
+  .mcq-letter{
+    width:30px;height:30px;
+    background:var(--bg-card-warm);
+    border:2px solid var(--amber);
+    border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:16px;
+    color:var(--navy-deep);
+    flex-shrink:0;
+    transition:all 0.25s;
+  }
+  .mcq-btn.correct{
+    background:linear-gradient(135deg,rgba(92,184,92,0.15),rgba(92,184,92,0.05));
+    border-color:var(--success);
+    box-shadow:0 0 0 3px rgba(92,184,92,0.3);
+    animation:correctPulse 0.6s ease-out;
+  }
+  .mcq-btn.correct .mcq-letter{
+    background:var(--success);
+    color:#fff;
+    border-color:var(--success);
+  }
+  @keyframes correctPulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.04);}
+    100%{transform:scale(1);}
+  }
+  .mcq-btn.wrong{
+    background:rgba(230,57,70,0.08);
+    border-color:var(--error);
+    animation:shakeWrong 0.5s ease-out;
+  }
+  .mcq-btn.wrong .mcq-letter{
+    background:var(--error);
+    color:#fff;
+    border-color:var(--error);
+  }
+  @keyframes shakeWrong{
+    0%,100%{transform:translateX(0);}
+    20%,60%{transform:translateX(-10px);}
+    40%,80%{transform:translateX(10px);}
+  }
+  .mcq-btn.faded{opacity:0.4;}
+  .mcq-btn:disabled{cursor:default;}
+
+  .mcq-feedback{
+    margin-top:16px;
+    border-radius:12px;
+    padding:0;
+    overflow:hidden;
+    max-height:0;
+    transition:max-height 0.4s ease-out, padding 0.4s ease-out;
+  }
+  .mcq-feedback.show{
+    max-height:600px;
+    padding:18px 20px;
+  }
+  .mcq-feedback.success{
+    background:linear-gradient(135deg,rgba(92,184,92,0.12),rgba(92,184,92,0.04));
+    border:2px solid var(--success);
+  }
+  .mcq-feedback.retry{
+    background:linear-gradient(135deg,rgba(230,57,70,0.08),rgba(230,57,70,0.02));
+    border:2px solid var(--error);
+  }
+  .mcq-feedback-en{
+    font-size:18px;
+    color:var(--text-dark);
+    line-height:1.5;
+  }
+  .mcq-feedback-fr{
+    margin-top:8px;
+    font-size:16px;
+    color:var(--purple);
+    font-style:italic;
+    line-height:1.5;
+  }
+  .mcq-feedback strong{color:var(--coral-deep);}
+  .mcq-feedback.success strong{color:var(--success);}
+
+  /* Solved stamp animation */
+  .solved-stamp{
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%) rotate(-12deg) scale(0);
+    font-family:'Special Elite',serif;
+    font-size:72px;
+    color:var(--success);
+    border:6px solid var(--success);
+    padding:8px 28px;
+    letter-spacing:6px;
+    pointer-events:none;
+    z-index:20;
+    opacity:0;
+    background:rgba(255,255,255,0.85);
+    border-radius:8px;
+  }
+  .solved-stamp.show{
+    animation:stampDown 1.4s ease-out forwards;
+  }
+  @keyframes stampDown{
+    0%{transform:translate(-50%,-50%) rotate(-30deg) scale(2);opacity:0;}
+    20%{transform:translate(-50%,-50%) rotate(-12deg) scale(1.1);opacity:1;}
+    30%{transform:translate(-50%,-50%) rotate(-12deg) scale(1);}
+    80%{transform:translate(-50%,-50%) rotate(-12deg) scale(1);opacity:1;}
+    100%{transform:translate(-50%,-50%) rotate(-12deg) scale(1);opacity:0;}
+  }
+
+  /* Speaking Bureau cards */
+  .speaking-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:18px;
+  }
+  .speaking-card{
+    background:var(--paper);
+    border:2px solid var(--border-coral);
+    border-radius:18px;
+    padding:24px;
+    cursor:pointer;
+    transition:all 0.4s;
+    position:relative;
+    min-height:200px;
+    overflow:hidden;
+  }
+  .speaking-card::before{
+    content:'';
+    position:absolute;
+    top:0;right:0;
+    width:60px;height:60px;
+    background:linear-gradient(135deg,transparent 50%,var(--coral) 50%);
+    transition:width 0.4s, height 0.4s;
+  }
+  .speaking-card:hover{
+    transform:translateY(-6px);
+    border-color:var(--coral);
+    box-shadow:0 16px 40px rgba(238,108,77,0.25);
+  }
+  .speaking-card:hover::before{
+    width:80px;height:80px;
+  }
+  .speaking-card.revealed{
+    background:linear-gradient(135deg,#fff,#fff5ed);
+    border-color:var(--coral);
+  }
+  .speaking-icon{
+    font-size:42px;
+    margin-bottom:10px;
+  }
+  .speaking-card-title{
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:22px;
+    color:var(--coral-deep);
+    margin-bottom:8px;
+  }
+  .speaking-prompt{
+    font-size:19px;line-height:1.45;
+    color:var(--text-dark);
+    margin-bottom:6px;
+    opacity:0;max-height:0;
+    transition:all 0.4s;
+    overflow:hidden;
+  }
+  .speaking-prompt-fr{
+    font-size:16px;line-height:1.4;
+    color:var(--purple);
+    font-style:italic;
+    opacity:0;max-height:0;
+    transition:all 0.4s;
+    overflow:hidden;
+  }
+  .speaking-card.revealed .speaking-prompt,
+  .speaking-card.revealed .speaking-prompt-fr{
+    opacity:1;max-height:300px;
+  }
+  .speaking-teaser{
+    font-family:'Special Elite',serif;
+    font-size:16px;color:var(--text-mid);
+    letter-spacing:0.5px;
+  }
+  .speaking-card.revealed .speaking-teaser{display:none;}
+  .starter{
+    background:rgba(238,108,77,0.1);
+    border-radius:10px;
+    padding:10px 14px;
+    margin-top:12px;
+    font-size:17px;
+    color:var(--coral-deep);
+    font-family:'Fraunces',serif;font-weight:600;
+    font-style:italic;
+    opacity:0;max-height:0;
+    transition:all 0.4s 0.1s;
+    overflow:hidden;
+  }
+  .speaking-card.revealed .starter{opacity:1;max-height:120px;padding:10px 14px;}
+  .starter-label{
+    display:block;
+    font-family:'Special Elite',serif;
+    font-size:11px;
+    letter-spacing:1.5px;
+    color:var(--coral);
+    margin-bottom:4px;
+    font-style:normal;
+  }
+
+  /* Field Mission challenge cards */
+  .challenge-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+  }
+  .challenge-card{
+    background:var(--paper);
+    border:2px solid var(--amber);
+    border-radius:18px;
+    padding:26px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:var(--shadow-paper);
+  }
+  .challenge-card::before{
+    content:'';
+    position:absolute;
+    top:-50%;right:-50%;
+    width:200%;height:200%;
+    background:radial-gradient(circle,rgba(245,166,35,0.08),transparent 50%);
+    pointer-events:none;
+  }
+  .challenge-icon{
+    font-size:40px;
+    margin-bottom:8px;
+  }
+  .challenge-title{
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:24px;line-height:1.3;
+    margin-bottom:6px;
+    color:var(--navy-deep);
+  }
+  .challenge-title-fr{
+    font-size:17px;
+    color:var(--purple);
+    font-style:italic;
+    margin-bottom:14px;
+  }
+  .challenge-text{
+    font-size:18px;line-height:1.5;
+    color:var(--text-dark);
+    margin-bottom:10px;
+  }
+  .challenge-text-fr{
+    font-size:16px;line-height:1.5;
+    color:var(--purple);
+    font-style:italic;
+    margin-bottom:12px;
+  }
+  .challenge-xp{
+    margin-top:14px;
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--gold);
+    color:var(--navy-deep);
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:15px;
+    padding:5px 12px;
+    border-radius:999px;
+  }
+
+  /* Completion */
+  .completion-hero{
+    text-align:center;
+    padding:30px 20px;
+  }
+  .completion-badge-wrap{
+    display:inline-block;
+    position:relative;
+    margin-bottom:24px;
+  }
+  .completion-badge{
+    width:180px;height:180px;
+    background:radial-gradient(circle at 30% 30%,var(--gold-bright),var(--amber) 50%,var(--amber-deep));
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:96px;
+    box-shadow:
+      0 0 0 8px var(--paper),
+      0 0 0 12px var(--amber),
+      0 16px 48px rgba(245,166,35,0.6);
+    margin:0 auto;
+    animation:badgeSpin 4s ease-in-out infinite;
+  }
+  @keyframes badgeSpin{
+    0%,100%{transform:rotate(-3deg) scale(1);}
+    50%{transform:rotate(3deg) scale(1.03);}
+  }
+  .completion-rays{
+    position:absolute;
+    inset:-40px;
+    background:conic-gradient(from 0deg,transparent 0deg,var(--gold) 10deg,transparent 20deg,transparent 80deg,var(--gold) 90deg,transparent 100deg,transparent 160deg,var(--gold) 170deg,transparent 180deg,transparent 240deg,var(--gold) 250deg,transparent 260deg,transparent 320deg,var(--gold) 330deg,transparent 340deg);
+    border-radius:50%;
+    opacity:0.3;
+    animation:rotateRays 12s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes rotateRays{
+    from{transform:rotate(0);}
+    to{transform:rotate(360deg);}
+  }
+  .completion-title{
+    font-family:'Fraunces',serif;font-weight:800;
+    font-size:60px;line-height:1.05;
+    margin-bottom:14px;
+    color:var(--navy-deep);
+    letter-spacing:-1.5px;
+  }
+  .completion-title .accent{color:var(--coral);}
+  .completion-subtitle{
+    font-family:'Special Elite',serif;
+    font-size:22px;color:var(--navy);
+    margin-bottom:6px;
+    letter-spacing:1px;
+  }
+  .completion-subtitle-fr{
+    font-size:18px;color:var(--purple);
+    font-style:italic;
+    margin-bottom:30px;
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:16px;
+    margin:30px 0;
+  }
+  .stat-tile{
+    background:var(--paper);
+    border:2px solid var(--border-amber);
+    border-radius:16px;
+    padding:24px 16px;
+    text-align:center;
+    box-shadow:var(--shadow-soft);
+  }
+  .stat-emoji{font-size:36px;margin-bottom:8px;}
+  .stat-num{
+    font-family:'Fraunces',serif;font-weight:800;
+    font-size:42px;
+    color:var(--coral);
+    line-height:1;
+  }
+  .stat-label{
+    font-family:'Special Elite',serif;
+    font-size:13px;
+    color:var(--navy);
+    letter-spacing:1.5px;
+    margin-top:4px;
+  }
+  .progress-track{
+    background:rgba(27,73,101,0.12);
+    border-radius:999px;
+    height:14px;
+    overflow:hidden;
+    margin:24px 0;
+  }
+  .progress-bar{
+    height:100%;
+    background:linear-gradient(90deg,var(--amber),var(--coral),var(--gold));
+    background-size:200% 100%;
+    border-radius:999px;
+    width:0;
+    transition:width 1.6s cubic-bezier(0.4,0,0.2,1);
+    animation:progressShine 2s ease-in-out infinite;
+  }
+  @keyframes progressShine{
+    0%,100%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+  }
+
+  /* Buttons */
+  .btn-primary{
+    background:linear-gradient(135deg,var(--coral),var(--coral-bright));
+    border:none;color:#fff;
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:18px;letter-spacing:0.5px;
+    padding:16px 38px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:all 0.3s;
+    box-shadow:0 6px 0 var(--coral-deep), 0 10px 24px rgba(238,108,77,0.4);
+  }
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 9px 0 var(--coral-deep), 0 14px 32px rgba(238,108,77,0.55);
+  }
+  .btn-primary:active{
+    transform:translateY(2px);
+    box-shadow:0 2px 0 var(--coral-deep), 0 4px 12px rgba(238,108,77,0.4);
+  }
+  .btn-secondary{
+    background:var(--bg-card);
+    border:2px solid var(--border-navy);
+    color:var(--navy);
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:16px;
+    padding:14px 28px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:all 0.3s;
+  }
+  .btn-secondary:hover{
+    background:var(--bg-card-warm);
+    border-color:var(--amber);
+    transform:translateY(-2px);
+  }
+  .btn-row{
+    display:flex;justify-content:space-between;gap:16px;
+    margin-top:30px;flex-wrap:wrap;
+  }
+
+  /* Confetti */
+  .confetti{
+    position:fixed;
+    width:10px;height:10px;
+    pointer-events:none;
+    z-index:200;
+    animation:confettiFall 3s ease-out forwards;
+  }
+  @keyframes confettiFall{
+    0%{transform:translateY(-100vh) rotate(0deg);opacity:1;}
+    100%{transform:translateY(100vh) rotate(720deg);opacity:0;}
+  }
+
+  /* Tip pill */
+  .tip-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--gold);
+    color:var(--navy-deep);
+    padding:8px 16px;
+    border-radius:999px;
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:15px;
+    margin-bottom:14px;
+  }
+
+  /* Responsive */
+  @media (max-width:820px){
+    body{font-size:20px;}
+    .bilingual{grid-template-columns:1fr;}
+    h1.slide-title{font-size:34px;}
+    h2.slide-title{font-size:28px;}
+    .welcome-greeting{font-size:42px;}
+    .completion-title{font-size:42px;}
+    .stage{padding:20px 14px 60px;}
+    .panel{padding:20px;}
+    .badge{width:110px;height:110px;font-size:54px;}
+    .completion-badge{width:140px;height:140px;font-size:72px;}
+    .hud-student{display:none;}
+    .mcq-passage{font-size:18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-clues">
+  <span class="bg-clue">🔍</span>
+  <span class="bg-clue">🗝️</span>
+  <span class="bg-clue">📋</span>
+  <span class="bg-clue">💡</span>
+  <span class="bg-clue">🧩</span>
+  <span class="bg-clue">🔬</span>
+</div>
+
+<div class="hud">
+  <div class="hud-left">
+    <div class="hud-logo"><span class="logo-icon">🔍</span> Detective Academy</div>
+    <div class="hud-student">Berenice · Case #29</div>
+  </div>
+  <div class="hud-right">
+    <button class="sound-toggle" id="soundToggle" title="Toggle sound" aria-label="Toggle sound">🔊</button>
+    <div class="xp-badge"><span class="xp-icon">⭐</span><span id="xpDisplay">0</span> XP</div>
+    <div class="dot-nav" id="dotNav"></div>
+  </div>
+</div>
+
+<div class="stage">
+
+  <!-- SLIDE 1: Welcome to the Academy -->
+  <section class="slide active" data-slide="1">
+    <div class="welcome-hero">
+      <div class="badge-wrap">
+        <div class="badge">🕵️
+          <div class="badge-stars">
+            <span>✨</span>
+            <span>⭐</span>
+            <span>✨</span>
+          </div>
+        </div>
+      </div>
+      <div class="welcome-greeting">Welcome,<br><span class="accent">Detective Berenice!</span></div>
+      <div class="welcome-subtitle">You've been promoted to Junior Detective 🎖️</div>
+      <div class="welcome-subtitle-fr">Tu as été promue Détective Junior!</div>
+    </div>
+
+    <div class="recap-card">
+      <div class="recap-title">
+        <span class="recap-title-text">🏆 Last Mission Closed</span>
+        <span class="recap-badge">+50 XP</span>
+      </div>
+      <div class="bilingual">
+        <div class="bi-col bi-en">
+          <div class="bi-lang-tag">EN</div>
+          <p>You mastered the <strong>Second Conditional</strong> — describing imaginary worlds with <strong>"If I had... I would..."</strong>.</p>
+          <p style="margin-top:10px;">Now we put those listening and thinking skills to a brand new test.</p>
+        </div>
+        <div class="bi-col bi-fr">
+          <div class="bi-lang-tag">FR</div>
+          <p>Tu as maîtrisé le <strong>Deuxième Conditionnel</strong> — décrire des mondes imaginaires avec <strong>"If I had... I would..."</strong>.</p>
+          <p style="margin-top:10px;">Maintenant on met ces compétences d'écoute et de réflexion à un tout nouveau test.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-coral">
+      <h2 style="font-family:'Fraunces',serif;font-size:30px;margin-bottom:14px;color:var(--coral-deep);">🔍 Your New Mission</h2>
+      <div class="bilingual">
+        <div class="bi-col bi-en">
+          <div class="bi-lang-tag">EN</div>
+          <p>Real readers don't stop when they hit an unknown word — they <strong>investigate</strong>. They use the words around it, the situation, and their brain to <strong>figure out the meaning</strong>.</p>
+          <p style="margin-top:10px;">Today you'll learn to read like a real detective. 🔎</p>
+        </div>
+        <div class="bi-col bi-fr">
+          <div class="bi-lang-tag">FR</div>
+          <p>Les vrais lecteurs ne s'arrêtent pas devant un mot inconnu — ils <strong>enquêtent</strong>. Ils utilisent les mots autour, la situation, et leur cerveau pour <strong>deviner le sens</strong>.</p>
+          <p style="margin-top:10px;">Aujourd'hui tu apprends à lire comme une vraie détective. 🔎</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <div></div>
+      <button class="btn-primary" data-nav="next">Enter the Academy → Entrer</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: Mission Briefing -->
+  <section class="slide" data-slide="2">
+    <div class="section-header">
+      <span class="slide-number">Mission Briefing · Briefing</span>
+      <h1 class="slide-title">Today's Case Files</h1>
+      <div class="slide-subtitle-fr">Les dossiers d'aujourd'hui</div>
+    </div>
+
+    <div class="panel panel-warm">
+      <div class="bilingual">
+        <div class="bi-col bi-en">
+          <div class="bi-lang-tag">EN — GOAL</div>
+          <p style="font-size:24px;font-weight:600;color:var(--navy-deep);font-family:'Fraunces',serif;">Investigate. Infer. Explain.</p>
+          <p style="margin-top:10px;">You'll see English words you've never met. Your job: use the <strong>context</strong> — the words around them — to crack the meaning.</p>
+        </div>
+        <div class="bi-col bi-fr">
+          <div class="bi-lang-tag">FR — OBJECTIF</div>
+          <p style="font-size:20px;font-weight:600;color:var(--purple);font-family:'Fraunces',serif;">Enquêter. Inférer. Expliquer.</p>
+          <p style="margin-top:10px;">Tu verras des mots anglais que tu ne connais pas. Ton job: utiliser le <strong>contexte</strong> — les mots autour — pour décoder le sens.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mission-grid">
+      <div class="mission-item">
+        <span class="mission-emoji">🧰</span>
+        <div class="mission-label-en">Detective Toolkit</div>
+        <div class="mission-label-fr">Boîte à outils</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">🔬</span>
+        <div class="mission-label-en">Training Lab</div>
+        <div class="mission-label-fr">Laboratoire</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">📁</span>
+        <div class="mission-label-en">3 Case Files</div>
+        <div class="mission-label-fr">3 dossiers</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">🗣️</span>
+        <div class="mission-label-en">Speaking Bureau</div>
+        <div class="mission-label-fr">Bureau de parole</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">🏠</span>
+        <div class="mission-label-en">Field Mission</div>
+        <div class="mission-label-fr">Mission terrain</div>
+      </div>
+      <div class="mission-item">
+        <span class="mission-emoji">⭐</span>
+        <div class="mission-label-en">Earn 300+ XP</div>
+        <div class="mission-label-fr">Gagne 300+ XP</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Open Toolkit → Ouvrir</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: Detective Vocabulary -->
+  <section class="slide" data-slide="3">
+    <div class="section-header">
+      <span class="slide-number">Toolkit · Boîte à outils</span>
+      <h1 class="slide-title">Detective Words</h1>
+      <div class="slide-subtitle-fr">Les mots du détective — tap each card to reveal / touche chaque carte pour découvrir</div>
+    </div>
+
+    <div class="vocab-grid">
+      <div class="vocab-card" data-vocab="1">
+        <div class="vocab-emoji">🔍</div>
+        <div class="vocab-word">Investigate</div>
+        <div class="vocab-fr">Enquêter</div>
+        <div class="vocab-example">"Detectives investigate every clue."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="2">
+        <div class="vocab-emoji">🧩</div>
+        <div class="vocab-word">Clue</div>
+        <div class="vocab-fr">Indice</div>
+        <div class="vocab-example">"The torn paper was an important clue."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="3">
+        <div class="vocab-emoji">💡</div>
+        <div class="vocab-word">Figure out</div>
+        <div class="vocab-fr">Comprendre, deviner</div>
+        <div class="vocab-example">"Can you figure out what happened?"</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="4">
+        <div class="vocab-emoji">🎯</div>
+        <div class="vocab-word">Context</div>
+        <div class="vocab-fr">Contexte</div>
+        <div class="vocab-example">"Context helps you understand new words."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="5">
+        <div class="vocab-emoji">🤔</div>
+        <div class="vocab-word">Infer</div>
+        <div class="vocab-fr">Inférer, déduire</div>
+        <div class="vocab-example">"I infer he's tired from his yawning."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="6">
+        <div class="vocab-emoji">📋</div>
+        <div class="vocab-word">Evidence</div>
+        <div class="vocab-fr">Preuve</div>
+        <div class="vocab-example">"The evidence pointed to one suspect."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="7">
+        <div class="vocab-emoji">🔬</div>
+        <div class="vocab-word">Examine</div>
+        <div class="vocab-fr">Examiner</div>
+        <div class="vocab-example">"Examine each word carefully."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+      <div class="vocab-card" data-vocab="8">
+        <div class="vocab-emoji">🗝️</div>
+        <div class="vocab-word">Solve</div>
+        <div class="vocab-fr">Résoudre</div>
+        <div class="vocab-example">"Together, we'll solve the mystery."</div>
+        <div class="tap-hint">Tap to reveal</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Enter Lab → Laboratoire</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: Training Lab - 4 Types of Context Clues -->
+  <section class="slide" data-slide="4">
+    <div class="section-header">
+      <span class="slide-number">Training Lab · Laboratoire</span>
+      <h1 class="slide-title">The 4 Types of Clues</h1>
+      <div class="slide-subtitle-fr">Les 4 types d'indices — apprends à les repérer / learn to spot them</div>
+    </div>
+
+    <div class="panel panel-navy">
+      <div style="font-family:'Fraunces',serif;font-size:24px;margin-bottom:8px;color:var(--gold-bright);">🎓 Detective's Secret</div>
+      <p style="font-size:19px;line-height:1.5;color:var(--paper);">When you don't know a word, the writer almost always leaves you a <strong>clue</strong> nearby. There are <strong>four main types</strong>. Once you know them, you'll see them everywhere.</p>
+      <p style="font-size:17px;line-height:1.5;color:var(--gold-bright);font-style:italic;margin-top:10px;">Quand tu ne connais pas un mot, l'auteur laisse presque toujours un <strong>indice</strong> à côté. Il y a <strong>quatre types</strong>. Une fois que tu les connais, tu les vois partout.</p>
+    </div>
+
+    <div class="clue-type-grid">
+
+      <div class="clue-type">
+        <div class="clue-type-header">
+          <div class="clue-type-num">1</div>
+          <div class="clue-type-name">Definition Clue</div>
+          <div class="clue-type-name-fr">Indice de définition</div>
+        </div>
+        <div class="clue-type-desc">The writer <strong>defines</strong> the word right next to it.</div>
+        <div class="clue-type-desc-fr">L'auteur <strong>définit</strong> le mot juste à côté.</div>
+        <div class="clue-example">
+          The painting was <span class="target-word">vibrant</span> — <span class="clue-part">full of bright, lively colors</span>.
+          <div style="font-style:italic;color:var(--text-mid);font-size:15px;margin-top:6px;">→ The dash explains "vibrant" = full of bright colors.</div>
+        </div>
+      </div>
+
+      <div class="clue-type coral">
+        <div class="clue-type-header">
+          <div class="clue-type-num">2</div>
+          <div class="clue-type-name">Example Clue</div>
+          <div class="clue-type-name-fr">Indice par exemples</div>
+        </div>
+        <div class="clue-type-desc">The writer gives <strong>examples</strong> of the word.</div>
+        <div class="clue-type-desc-fr">L'auteur donne des <strong>exemples</strong> du mot.</div>
+        <div class="clue-example">
+          She loves <span class="target-word">citrus fruits</span> like <span class="clue-part">lemons, oranges, and grapefruits</span>.
+          <div style="font-style:italic;color:var(--text-mid);font-size:15px;margin-top:6px;">→ The examples tell you "citrus fruits" are sour, juicy fruits.</div>
+        </div>
+      </div>
+
+      <div class="clue-type purple">
+        <div class="clue-type-header">
+          <div class="clue-type-num">3</div>
+          <div class="clue-type-name">Synonym / Antonym</div>
+          <div class="clue-type-name-fr">Synonyme / Contraire</div>
+        </div>
+        <div class="clue-type-desc">The writer uses a <strong>similar</strong> or <strong>opposite</strong> word nearby.</div>
+        <div class="clue-type-desc-fr">L'auteur utilise un mot <strong>similaire</strong> ou <strong>opposé</strong> à côté.</div>
+        <div class="clue-example">
+          Unlike her <span class="clue-part">quiet and calm</span> sister, Elena was <span class="target-word">boisterous</span>.
+          <div style="font-style:italic;color:var(--text-mid);font-size:15px;margin-top:6px;">→ "Unlike" + "quiet and calm" = boisterous means the opposite (loud, energetic).</div>
+        </div>
+      </div>
+
+      <div class="clue-type success">
+        <div class="clue-type-header">
+          <div class="clue-type-num">4</div>
+          <div class="clue-type-name">Inference Clue</div>
+          <div class="clue-type-name-fr">Indice par déduction</div>
+        </div>
+        <div class="clue-type-desc">No definition given — you <strong>think</strong> about the situation and figure it out.</div>
+        <div class="clue-type-desc-fr">Pas de définition — tu <strong>réfléchis</strong> à la situation et tu devines.</div>
+        <div class="clue-example">
+          Berenice's <span class="clue-part">stomach was rumbling. She hadn't eaten since lunch</span>. She was <span class="target-word">famished</span>.
+          <div style="font-style:italic;color:var(--text-mid);font-size:15px;margin-top:6px;">→ Empty stomach + no food = "famished" must mean very hungry.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Open Case File #1 → Dossier 1</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: Case File #1 - EASY -->
+  <section class="slide" data-slide="5">
+    <div class="section-header">
+      <span class="slide-number">Case File #1 · Dossier 1</span>
+      <span class="difficulty-tag difficulty-easy">★ ☆ ☆  Easy</span>
+      <h1 class="slide-title">Definition & Example Cases</h1>
+      <div class="slide-subtitle-fr">L'auteur te donne presque la réponse — trouve-la! / The writer almost gives you the answer — find it!</div>
+    </div>
+
+    <div class="case-intro">
+      <span class="case-intro-icon">🔎</span>
+      <div class="case-intro-text">
+        <div class="case-intro-en">Read each passage. Look for the <strong>definition</strong> or <strong>examples</strong> hidden near the highlighted word.</div>
+        <div class="case-intro-fr">Lis chaque passage. Cherche la <strong>définition</strong> ou les <strong>exemples</strong> cachés près du mot surligné.</div>
+      </div>
+    </div>
+
+    <!-- Q1 - Meticulous - B -->
+    <div class="mcq-block" data-question="q1">
+      <div class="mcq-num">CASE 01</div>
+      <div class="mcq-passage">"The detective was <span class="target">meticulous</span>, paying attention to every tiny detail in the crime scene."</div>
+      <div class="mcq-question">What does <em>meticulous</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « meticulous »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q1" data-ok="false"><span class="mcq-letter">A</span>careless</button>
+        <button class="mcq-btn" data-gid="q1" data-ok="true"><span class="mcq-letter">B</span>extremely careful and detailed</button>
+        <button class="mcq-btn" data-gid="q1" data-ok="false"><span class="mcq-letter">C</span>tired</button>
+        <button class="mcq-btn" data-gid="q1" data-ok="false"><span class="mcq-letter">D</span>angry</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q2 - Nocturnal - A -->
+    <div class="mcq-block" data-question="q2">
+      <div class="mcq-num">CASE 02</div>
+      <div class="mcq-passage">"Many <span class="target">nocturnal</span> animals — owls, bats, and raccoons — are most active at night."</div>
+      <div class="mcq-question">What does <em>nocturnal</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « nocturnal »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q2" data-ok="true"><span class="mcq-letter">A</span>active at night</button>
+        <button class="mcq-btn" data-gid="q2" data-ok="false"><span class="mcq-letter">B</span>able to fly</button>
+        <button class="mcq-btn" data-gid="q2" data-ok="false"><span class="mcq-letter">C</span>very small</button>
+        <button class="mcq-btn" data-gid="q2" data-ok="false"><span class="mcq-letter">D</span>dangerous</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q3 - Bustling - A -->
+    <div class="mcq-block" data-question="q3">
+      <div class="mcq-num">CASE 03</div>
+      <div class="mcq-passage">"The market was <span class="target">bustling</span> — full of shouting vendors, hurrying shoppers, and noisy traffic."</div>
+      <div class="mcq-question">What does <em>bustling</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « bustling »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q3" data-ok="true"><span class="mcq-letter">A</span>full of activity and noise</button>
+        <button class="mcq-btn" data-gid="q3" data-ok="false"><span class="mcq-letter">B</span>closed for the day</button>
+        <button class="mcq-btn" data-gid="q3" data-ok="false"><span class="mcq-letter">C</span>underground</button>
+        <button class="mcq-btn" data-gid="q3" data-ok="false"><span class="mcq-letter">D</span>very expensive</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q4 - Famished - D -->
+    <div class="mcq-block" data-question="q4">
+      <div class="mcq-num">CASE 04</div>
+      <div class="mcq-passage">"Elena was <span class="target">famished</span> after gymnastics practice — she hadn't eaten all day and her stomach was growling."</div>
+      <div class="mcq-question">What does <em>famished</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « famished »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q4" data-ok="false"><span class="mcq-letter">A</span>excited</button>
+        <button class="mcq-btn" data-gid="q4" data-ok="false"><span class="mcq-letter">B</span>tired</button>
+        <button class="mcq-btn" data-gid="q4" data-ok="false"><span class="mcq-letter">C</span>confused</button>
+        <button class="mcq-btn" data-gid="q4" data-ok="true"><span class="mcq-letter">D</span>extremely hungry</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Case File #2 → Dossier 2</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: Case File #2 - MEDIUM -->
+  <section class="slide" data-slide="6">
+    <div class="section-header">
+      <span class="slide-number">Case File #2 · Dossier 2</span>
+      <span class="difficulty-tag difficulty-medium">★ ★ ☆  Medium</span>
+      <h1 class="slide-title">Synonym & Antonym Cases</h1>
+      <div class="slide-subtitle-fr">Cherche un mot opposé ou similaire à côté / Look for an opposite or similar word nearby</div>
+    </div>
+
+    <div class="case-intro">
+      <span class="case-intro-icon">🧩</span>
+      <div class="case-intro-text">
+        <div class="case-intro-en">Watch for words like <strong>"unlike"</strong>, <strong>"but"</strong>, <strong>"different from"</strong> — they signal an <strong>opposite</strong> is coming.</div>
+        <div class="case-intro-fr">Surveille des mots comme <strong>« unlike », « but », « different from »</strong> — ils signalent un <strong>contraire</strong>.</div>
+      </div>
+    </div>
+
+    <!-- Q5 - Tedious - C -->
+    <div class="mcq-block" data-question="q5">
+      <div class="mcq-num">CASE 05</div>
+      <div class="mcq-passage">"Charline thought the movie was <span class="target">tedious</span>, but Christophe found it fascinating and thrilling."</div>
+      <div class="mcq-question">What does <em>tedious</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « tedious »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q5" data-ok="false"><span class="mcq-letter">A</span>interesting</button>
+        <button class="mcq-btn" data-gid="q5" data-ok="false"><span class="mcq-letter">B</span>frightening</button>
+        <button class="mcq-btn" data-gid="q5" data-ok="true"><span class="mcq-letter">C</span>boring</button>
+        <button class="mcq-btn" data-gid="q5" data-ok="false"><span class="mcq-letter">D</span>confusing</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q6 - Lethargic - A -->
+    <div class="mcq-block" data-question="q6">
+      <div class="mcq-num">CASE 06</div>
+      <div class="mcq-passage">"The cat was <span class="target">lethargic</span> this morning — sluggish, slow, and barely willing to move."</div>
+      <div class="mcq-question">What does <em>lethargic</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « lethargic »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q6" data-ok="true"><span class="mcq-letter">A</span>lacking energy</button>
+        <button class="mcq-btn" data-gid="q6" data-ok="false"><span class="mcq-letter">B</span>hungry</button>
+        <button class="mcq-btn" data-gid="q6" data-ok="false"><span class="mcq-letter">C</span>playful</button>
+        <button class="mcq-btn" data-gid="q6" data-ok="false"><span class="mcq-letter">D</span>energetic</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q7 - Timid - B -->
+    <div class="mcq-block" data-question="q7">
+      <div class="mcq-num">CASE 07</div>
+      <div class="mcq-passage">"Unlike her <span class="target">timid</span> sister, Elena was bold and willing to try anything new."</div>
+      <div class="mcq-question">What does <em>timid</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « timid »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q7" data-ok="false"><span class="mcq-letter">A</span>brave</button>
+        <button class="mcq-btn" data-gid="q7" data-ok="true"><span class="mcq-letter">B</span>shy or fearful</button>
+        <button class="mcq-btn" data-gid="q7" data-ok="false"><span class="mcq-letter">C</span>intelligent</button>
+        <button class="mcq-btn" data-gid="q7" data-ok="false"><span class="mcq-letter">D</span>loud</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q8 - Lenient - D -->
+    <div class="mcq-block" data-question="q8">
+      <div class="mcq-num">CASE 08</div>
+      <div class="mcq-passage">"The new teacher was <span class="target">lenient</span>, unlike Mr. Dubois who was strict and gave detentions for every small mistake."</div>
+      <div class="mcq-question">What does <em>lenient</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « lenient »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q8" data-ok="false"><span class="mcq-letter">A</span>very tall</button>
+        <button class="mcq-btn" data-gid="q8" data-ok="false"><span class="mcq-letter">B</span>French</button>
+        <button class="mcq-btn" data-gid="q8" data-ok="false"><span class="mcq-letter">C</span>unfair</button>
+        <button class="mcq-btn" data-gid="q8" data-ok="true"><span class="mcq-letter">D</span>easygoing or not strict</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Case File #3 → Dossier 3</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: Case File #3 - HARD -->
+  <section class="slide" data-slide="7">
+    <div class="section-header">
+      <span class="slide-number">Case File #3 · Dossier 3</span>
+      <span class="difficulty-tag difficulty-hard">★ ★ ★  Hard</span>
+      <h1 class="slide-title">Inference Cases</h1>
+      <div class="slide-subtitle-fr">Lis entre les lignes — pense comme un détective! / Read between the lines — think like a detective!</div>
+    </div>
+
+    <div class="case-intro">
+      <span class="case-intro-icon">🧠</span>
+      <div class="case-intro-text">
+        <div class="case-intro-en">No definitions here. Read the <strong>whole situation</strong>, then ask: <em>"What does this person feel? What is happening?"</em></div>
+        <div class="case-intro-fr">Pas de définitions ici. Lis <strong>toute la situation</strong>, puis demande-toi: <em>« Que ressent cette personne? Que se passe-t-il? »</em></div>
+      </div>
+    </div>
+
+    <!-- Q9 - Amiss - C -->
+    <div class="mcq-block" data-question="q9">
+      <div class="mcq-num">CASE 09</div>
+      <div class="mcq-passage">"When Berenice walked into the gymnastics gym, the air felt different. Coach Marie was pacing back and forth, her face tense. The other gymnasts whispered in small groups. Something was <span class="target">amiss</span>."</div>
+      <div class="mcq-question">What does <em>amiss</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « amiss »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q9" data-ok="false"><span class="mcq-letter">A</span>celebrated</button>
+        <button class="mcq-btn" data-gid="q9" data-ok="false"><span class="mcq-letter">B</span>noisy</button>
+        <button class="mcq-btn" data-gid="q9" data-ok="true"><span class="mcq-letter">C</span>wrong or not right</button>
+        <button class="mcq-btn" data-gid="q9" data-ok="false"><span class="mcq-letter">D</span>cold</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q10 - Words swim - C -->
+    <div class="mcq-block" data-question="q10">
+      <div class="mcq-num">CASE 10</div>
+      <div class="mcq-passage">"After three hours of homework, Berenice was exhausted. She tried to read her history book, but the words seemed to <span class="target">swim on the page</span>. She read the same sentence five times before giving up."</div>
+      <div class="mcq-question">What does <em>"the words swim on the page"</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « les mots nagent sur la page »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q10" data-ok="false"><span class="mcq-letter">A</span>the page was wet</button>
+        <button class="mcq-btn" data-gid="q10" data-ok="false"><span class="mcq-letter">B</span>the words were translated</button>
+        <button class="mcq-btn" data-gid="q10" data-ok="true"><span class="mcq-letter">C</span>she couldn't focus or read clearly</button>
+        <button class="mcq-btn" data-gid="q10" data-ok="false"><span class="mcq-letter">D</span>she fell asleep</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q11 - Reputation preceded her - D -->
+    <div class="mcq-block" data-question="q11">
+      <div class="mcq-num">CASE 11</div>
+      <div class="mcq-passage">"The lecture hall was packed. Every seat was taken, students stood along the walls, and the doorway was crowded with people peeking in. The professor's <span class="target">reputation preceded her</span>."</div>
+      <div class="mcq-question">What does <em>"her reputation preceded her"</em> most likely mean?</div>
+      <div class="mcq-question-fr">Que signifie probablement « sa réputation la précédait »?</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q11" data-ok="false"><span class="mcq-letter">A</span>she arrived early</button>
+        <button class="mcq-btn" data-gid="q11" data-ok="false"><span class="mcq-letter">B</span>she was a beginner</button>
+        <button class="mcq-btn" data-gid="q11" data-ok="false"><span class="mcq-letter">C</span>she came from another country</button>
+        <button class="mcq-btn" data-gid="q11" data-ok="true"><span class="mcq-letter">D</span>people knew about her before they met her</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <!-- Q12 - Christophe upset - B -->
+    <div class="mcq-block" data-question="q12">
+      <div class="mcq-num">CASE 12</div>
+      <div class="mcq-passage">"Christophe usually has a hearty appetite, but tonight he barely picked at his food. He stared at his plate, distracted, and excused himself early."</div>
+      <div class="mcq-question">From these clues, we can <em>infer</em> Christophe is:</div>
+      <div class="mcq-question-fr">D'après ces indices, on peut <em>déduire</em> que Christophe est:</div>
+      <div class="mcq-grid">
+        <button class="mcq-btn" data-gid="q12" data-ok="false"><span class="mcq-letter">A</span>very hungry</button>
+        <button class="mcq-btn" data-gid="q12" data-ok="true"><span class="mcq-letter">B</span>upset or troubled</button>
+        <button class="mcq-btn" data-gid="q12" data-ok="false"><span class="mcq-letter">C</span>celebrating something</button>
+        <button class="mcq-btn" data-gid="q12" data-ok="false"><span class="mcq-letter">D</span>excited about dessert</button>
+      </div>
+      <div class="mcq-feedback"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Speaking Bureau → Bureau</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: Speaking Bureau -->
+  <section class="slide" data-slide="8">
+    <div class="section-header">
+      <span class="slide-number">Speaking Bureau · Bureau de parole</span>
+      <h1 class="slide-title">Explain Your Reasoning</h1>
+      <div class="slide-subtitle-fr">Real detectives explain how they think — your turn! / Les vrais détectives expliquent leur raisonnement — à toi!</div>
+    </div>
+
+    <div class="panel panel-warm">
+      <div class="tip-pill">💡 Tip from the Academy</div>
+      <div class="bilingual">
+        <div class="bi-col bi-en">
+          <div class="bi-lang-tag">EN</div>
+          <p>Tap a card. Read the question. Then <strong>speak your answer aloud</strong> using the sentence starter — even if it's slow at first. Detectives <strong>practice out loud</strong>.</p>
+        </div>
+        <div class="bi-col bi-fr">
+          <div class="bi-lang-tag">FR</div>
+          <p>Touche une carte. Lis la question. Puis <strong>dis ta réponse à voix haute</strong> avec le début de phrase — même si c'est lent au début. Les détectives <strong>s'entraînent à voix haute</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-grid">
+      <div class="speaking-card" data-speak="1">
+        <div class="speaking-icon">🔍</div>
+        <div class="speaking-card-title">The Profile</div>
+        <div class="speaking-teaser">Tap to open the case file...</div>
+        <div class="speaking-prompt">Describe a <strong>meticulous</strong> person you know. What do they do that shows it?</div>
+        <div class="speaking-prompt-fr">Décris une personne <strong>méticuleuse</strong> que tu connais. Que fait-elle qui le montre?</div>
+        <div class="starter">
+          <span class="starter-label">SENTENCE STARTER</span>
+          "I know someone meticulous. They always..."
+        </div>
+      </div>
+
+      <div class="speaking-card" data-speak="2">
+        <div class="speaking-icon">🌃</div>
+        <div class="speaking-card-title">The Scene</div>
+        <div class="speaking-teaser">Tap to open the case file...</div>
+        <div class="speaking-prompt">Describe a <strong>bustling</strong> place you've been to. Use 3 details to show why it was bustling.</div>
+        <div class="speaking-prompt-fr">Décris un endroit <strong>bustling</strong> où tu es allée. Donne 3 détails pour montrer pourquoi.</div>
+        <div class="starter">
+          <span class="starter-label">SENTENCE STARTER</span>
+          "Last summer I went to ___. It was bustling because..."
+        </div>
+      </div>
+
+      <div class="speaking-card" data-speak="3">
+        <div class="speaking-icon">🎬</div>
+        <div class="speaking-card-title">The Witness</div>
+        <div class="speaking-teaser">Tap to open the case file...</div>
+        <div class="speaking-prompt">Tell me about a movie or show you found <strong>tedious</strong>. Why was it tedious?</div>
+        <div class="speaking-prompt-fr">Parle-moi d'un film ou série que tu as trouvé <strong>tedious</strong>. Pourquoi?</div>
+        <div class="starter">
+          <span class="starter-label">SENTENCE STARTER</span>
+          "I once watched ___. It was tedious because..."
+        </div>
+      </div>
+
+      <div class="speaking-card" data-speak="4">
+        <div class="speaking-icon">🤐</div>
+        <div class="speaking-card-title">Body Language</div>
+        <div class="speaking-teaser">Tap to open the case file...</div>
+        <div class="speaking-prompt">What clues tell you when Elena is upset, even if she doesn't say it?</div>
+        <div class="speaking-prompt-fr">Quels indices te montrent qu'Elena est contrariée, même si elle ne le dit pas?</div>
+        <div class="starter">
+          <span class="starter-label">SENTENCE STARTER</span>
+          "When Elena is upset, I can tell because..."
+        </div>
+      </div>
+
+      <div class="speaking-card" data-speak="5">
+        <div class="speaking-icon">🕵️</div>
+        <div class="speaking-card-title">The Investigation</div>
+        <div class="speaking-teaser">Tap to open the case file...</div>
+        <div class="speaking-prompt">Imagine you're a detective for a day in Le Mans. What would you investigate, and where?</div>
+        <div class="speaking-prompt-fr">Imagine que tu es détective pour un jour au Mans. Sur quoi enquêterais-tu, et où?</div>
+        <div class="starter">
+          <span class="starter-label">SENTENCE STARTER</span>
+          "If I were a detective in Le Mans, I would investigate..."
+        </div>
+      </div>
+
+      <div class="speaking-card" data-speak="6">
+        <div class="speaking-icon">🧠</div>
+        <div class="speaking-card-title">The Method</div>
+        <div class="speaking-teaser">Tap to open the case file...</div>
+        <div class="speaking-prompt">Pick any new word from today. Teach it to me using <strong>context</strong> — give clues without saying the meaning!</div>
+        <div class="speaking-prompt-fr">Choisis un nouveau mot d'aujourd'hui. Enseigne-le-moi avec le <strong>contexte</strong> — donne des indices sans dire le sens!</div>
+        <div class="starter">
+          <span class="starter-label">SENTENCE STARTER</span>
+          "Imagine a sentence: ___. Now, what does the word mean?"
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Field Mission → Mission</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: Field Mission Home Challenges -->
+  <section class="slide" data-slide="9">
+    <div class="section-header">
+      <span class="slide-number">Field Mission · Mission terrain</span>
+      <h1 class="slide-title">Take It Home</h1>
+      <div class="slide-subtitle-fr">3 défis à faire cette semaine / 3 challenges to complete this week</div>
+    </div>
+
+    <div class="panel panel-coral">
+      <div class="bilingual">
+        <div class="bi-col bi-en">
+          <div class="bi-lang-tag">EN</div>
+          <p>Pick <strong>at least one</strong> challenge. Bring your evidence to next lesson!</p>
+        </div>
+        <div class="bi-col bi-fr">
+          <div class="bi-lang-tag">FR</div>
+          <p>Choisis <strong>au moins un</strong> défi. Apporte tes preuves au prochain cours!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <span class="difficulty-tag difficulty-easy">★ ☆ ☆  Easy</span>
+        <div class="challenge-icon">🔍</div>
+        <div class="challenge-title">The Word Hunt</div>
+        <div class="challenge-title-fr">La chasse aux mots</div>
+        <div class="challenge-text">Find <strong>3 unfamiliar English words</strong> this week — in songs, shows, or books. Write each in its sentence. Guess the meaning from <strong>context</strong>.</div>
+        <div class="challenge-text-fr">Trouve <strong>3 mots anglais inconnus</strong> cette semaine — chansons, séries, ou livres. Écris chacun dans sa phrase. Devine le sens grâce au <strong>contexte</strong>.</div>
+        <div class="challenge-xp">⭐ +30 XP</div>
+      </div>
+
+      <div class="challenge-card">
+        <span class="difficulty-tag difficulty-medium">★ ★ ☆  Medium</span>
+        <div class="challenge-icon">🎬</div>
+        <div class="challenge-title">The Show Investigation</div>
+        <div class="challenge-title-fr">L'enquête de série</div>
+        <div class="challenge-text">Watch one English show or movie. Note <strong>5 unfamiliar words</strong>. For each, predict the meaning from context, <strong>then</strong> check the dictionary. Were you right?</div>
+        <div class="challenge-text-fr">Regarde une série ou film en anglais. Note <strong>5 mots inconnus</strong>. Pour chacun, prédis le sens par le contexte, <strong>puis</strong> vérifie le dictionnaire. Avais-tu raison?</div>
+        <div class="challenge-xp">⭐ +50 XP</div>
+      </div>
+
+      <div class="challenge-card">
+        <span class="difficulty-tag difficulty-hard">★ ★ ★  Hard</span>
+        <div class="challenge-icon">🕵️</div>
+        <div class="challenge-title">The Storyteller's Trap</div>
+        <div class="challenge-title-fr">Le piège du conteur</div>
+        <div class="challenge-text">Tell Charline, Christophe, or Elena a short story in English using <strong>one new word</strong> from today. See if they can guess what it means from your story!</div>
+        <div class="challenge-text-fr">Raconte à Charline, Christophe, ou Elena une courte histoire en anglais en utilisant <strong>un nouveau mot</strong> d'aujourd'hui. Vois s'ils peuvent deviner le sens grâce à ton histoire!</div>
+        <div class="challenge-xp">⭐ +70 XP</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Back</button>
+      <button class="btn-primary" data-nav="next">Close the Case → Fermer</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: Case Closed -->
+  <section class="slide" data-slide="10">
+    <div class="completion-hero">
+      <div class="completion-badge-wrap">
+        <div class="completion-rays"></div>
+        <div class="completion-badge">🏆</div>
+      </div>
+      <div class="completion-title">Case <span class="accent">Closed!</span></div>
+      <div class="completion-subtitle">⭐ <span id="starsDisplay">⭐⭐⭐</span> ⭐</div>
+      <div class="completion-subtitle">Detective Berenice — case solved with style!</div>
+      <div class="completion-subtitle-fr">Détective Berenice — affaire résolue avec brio!</div>
+
+      <div class="stats-grid">
+        <div class="stat-tile">
+          <div class="stat-emoji">🎯</div>
+          <div class="stat-num" id="finalXP">0</div>
+          <div class="stat-label">XP EARNED</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-emoji">📁</div>
+          <div class="stat-num" id="casesSolved">0</div>
+          <div class="stat-label">CASES SOLVED</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-emoji">📚</div>
+          <div class="stat-num" id="wordsLearned">0</div>
+          <div class="stat-label">WORDS UNLOCKED</div>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="panel panel-warm" style="text-align:left;margin-top:30px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:24px;margin-bottom:14px;color:var(--coral-deep);">🎓 What You Mastered Today</h2>
+        <div class="bilingual">
+          <div class="bi-col bi-en">
+            <div class="bi-lang-tag">EN</div>
+            <p>✓ The 4 types of <strong>context clues</strong></p>
+            <p>✓ How to <strong>infer meaning</strong> like a detective</p>
+            <p>✓ How to <strong>explain your reasoning</strong> out loud</p>
+            <p>✓ A whole new toolkit of detective vocabulary</p>
+          </div>
+          <div class="bi-col bi-fr">
+            <div class="bi-lang-tag">FR</div>
+            <p>✓ Les 4 types d'<strong>indices contextuels</strong></p>
+            <p>✓ Comment <strong>déduire le sens</strong> comme une détective</p>
+            <p>✓ Comment <strong>expliquer ton raisonnement</strong> à voix haute</p>
+            <p>✓ Toute une nouvelle boîte à outils détective</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:30px;">
+        <button class="btn-primary" id="celebrateBtn">🎉 Celebrate! · Célébrer!</button>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" data-nav="prev">← Review Lesson</button>
+      <div></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Solved stamp overlay container -->
+<div id="stampLayer"></div>
+
+<script>
+// ====== FEEDBACK DATA ======
+const FB = {
+  q1:{
+    correct:"Excellent detective work! The phrase <strong>'paying attention to every tiny detail'</strong> is the definition. <strong>Meticulous</strong> = extremely careful and detailed.",
+    correctFr:"Excellent travail de détective! L'expression <strong>« paying attention to every tiny detail »</strong> est la définition. <strong>Meticulous</strong> = extrêmement soigneux et minutieux.",
+    wrong:"Look again at the part after the comma — <strong>'paying attention to every tiny detail'</strong>. That's a <em>definition clue</em>! It tells you meticulous means <strong>extremely careful and detailed</strong>.",
+    wrongFr:"Regarde après la virgule — <strong>« paying attention to every tiny detail »</strong>. C'est un <em>indice de définition</em>! Ça te dit que meticulous = <strong>extrêmement soigneux et minutieux</strong>."
+  },
+  q2:{
+    correct:"Brilliant! The examples <strong>(owls, bats, raccoons)</strong> AND the definition <strong>'most active at night'</strong> both point to it. Double clue!",
+    correctFr:"Brillant! Les exemples <strong>(owls, bats, raccoons)</strong> ET la définition <strong>« most active at night »</strong> le confirment. Double indice!",
+    wrong:"Look at the end of the sentence: <strong>'most active at night'</strong>. The writer literally tells you what nocturnal means. <strong>Nocturnal</strong> = active at night.",
+    wrongFr:"Regarde la fin de la phrase: <strong>« most active at night »</strong>. L'auteur te dit littéralement ce que nocturnal signifie. <strong>Nocturnal</strong> = actif la nuit."
+  },
+  q3:{
+    correct:"Case solved! The examples — <strong>shouting vendors, hurrying shoppers, noisy traffic</strong> — paint a picture of a place full of activity and noise.",
+    correctFr:"Affaire résolue! Les exemples — <strong>shouting vendors, hurrying shoppers, noisy traffic</strong> — peignent un endroit plein d'activité et de bruit.",
+    wrong:"Picture the scene: shouting, hurrying, noisy traffic. That's a <em>busy, lively place</em>. <strong>Bustling</strong> = full of activity and noise.",
+    wrongFr:"Imagine la scène: cris, gens pressés, trafic bruyant. C'est un <em>endroit animé et plein de vie</em>. <strong>Bustling</strong> = plein d'activité et de bruit."
+  },
+  q4:{
+    correct:"Perfect inference! The clues <strong>'hadn't eaten all day'</strong> and <strong>'stomach was growling'</strong> mean only one thing — <strong>famished</strong> = extremely hungry.",
+    correctFr:"Inférence parfaite! Les indices <strong>« hadn't eaten all day »</strong> et <strong>« stomach was growling »</strong> ne veulent dire qu'une chose — <strong>famished</strong> = extrêmement affamée.",
+    wrong:"Two big clues here: <strong>'hadn't eaten all day'</strong> + <strong>'stomach was growling'</strong>. Both point to one thing — <strong>famished</strong> means extremely hungry.",
+    wrongFr:"Deux gros indices: <strong>« hadn't eaten all day »</strong> + <strong>« stomach was growling »</strong>. Les deux pointent vers une chose — <strong>famished</strong> = extrêmement affamée."
+  },
+  q5:{
+    correct:"Excellent! The word <strong>'but'</strong> is your signal. Christophe found it 'fascinating and thrilling' — so Charline thought the OPPOSITE. <strong>Tedious</strong> = boring.",
+    correctFr:"Excellent! Le mot <strong>« but »</strong> est ton signal. Christophe trouvait ça « fascinating and thrilling » — donc Charline pensait le CONTRAIRE. <strong>Tedious</strong> = ennuyeux.",
+    wrong:"Notice the word <strong>'but'</strong> — it signals an opposite is coming! Christophe found the movie 'fascinating and thrilling'. Charline thought the opposite. <strong>Tedious</strong> = boring.",
+    wrongFr:"Regarde le mot <strong>« but »</strong> — il signale un contraire! Christophe trouvait le film « fascinating and thrilling ». Charline pensait le contraire. <strong>Tedious</strong> = ennuyeux."
+  },
+  q6:{
+    correct:"You spotted the synonyms! <strong>'Sluggish, slow, barely willing to move'</strong> are all similar to lethargic. <strong>Lethargic</strong> = lacking energy.",
+    correctFr:"Tu as repéré les synonymes! <strong>« Sluggish, slow, barely willing to move »</strong> sont tous similaires à lethargic. <strong>Lethargic</strong> = sans énergie.",
+    wrong:"The dash gives you SYNONYMS: <strong>sluggish, slow, barely willing to move</strong>. All of these mean the same thing — <strong>lethargic</strong> = lacking energy.",
+    wrongFr:"Le tiret donne des SYNONYMES: <strong>sluggish, slow, barely willing to move</strong>. Tous veulent dire la même chose — <strong>lethargic</strong> = sans énergie."
+  },
+  q7:{
+    correct:"Sharp eye! <strong>'Unlike'</strong> tells you Elena is the OPPOSITE of timid. Elena is bold, so timid means the opposite of bold. <strong>Timid</strong> = shy or fearful.",
+    correctFr:"Œil affûté! <strong>« Unlike »</strong> te dit qu'Elena est le CONTRAIRE de timid. Elena est bold (audacieuse), donc timid = le contraire. <strong>Timid</strong> = timide ou craintive.",
+    wrong:"The signal word is <strong>'unlike'</strong>! Elena is 'bold and willing to try anything'. Her sister is the OPPOSITE — <strong>timid</strong> means shy or fearful.",
+    wrongFr:"Le mot signal est <strong>« unlike »</strong>! Elena est « bold and willing to try anything ». Sa sœur est le CONTRAIRE — <strong>timid</strong> = timide ou craintive."
+  },
+  q8:{
+    correct:"Perfect! <strong>'Unlike Mr. Dubois who was strict'</strong> — so the new teacher is the OPPOSITE of strict. <strong>Lenient</strong> = easygoing or not strict.",
+    correctFr:"Parfait! <strong>« Unlike Mr. Dubois who was strict »</strong> — donc la nouvelle prof est le CONTRAIRE de strict. <strong>Lenient</strong> = indulgent, pas strict.",
+    wrong:"<strong>'Unlike'</strong> is the key! Mr. Dubois was strict and gave detentions. The lenient teacher is the OPPOSITE. <strong>Lenient</strong> = easygoing or not strict.",
+    wrongFr:"<strong>« Unlike »</strong> est la clé! M. Dubois était strict et donnait des retenues. La prof lenient est le CONTRAIRE. <strong>Lenient</strong> = indulgent, pas strict."
+  },
+  q9:{
+    correct:"Outstanding inference! Tense face + whispering + 'air felt different' all signal something is <em>wrong</em>. <strong>Amiss</strong> = wrong or not right.",
+    correctFr:"Inférence remarquable! Visage tendu + chuchotements + « air felt different » signalent que quelque chose ne va pas. <strong>Amiss</strong> = qui ne va pas, anormal.",
+    wrong:"Read the mood: tense coach, whispering gymnasts, strange atmosphere. These all signal something is <em>not right</em>. <strong>Amiss</strong> = wrong or not right.",
+    wrongFr:"Lis l'ambiance: coach tendue, gymnastes qui chuchotent, atmosphère étrange. Tout signale que quelque chose <em>ne va pas</em>. <strong>Amiss</strong> = qui ne va pas, anormal."
+  },
+  q10:{
+    correct:"Beautiful inference! She's exhausted + reads the same sentence 5 times + gives up. The words don't really swim — she just <strong>can't focus</strong>.",
+    correctFr:"Belle inférence! Elle est épuisée + lit la même phrase 5 fois + abandonne. Les mots ne nagent pas vraiment — elle <strong>n'arrive pas à se concentrer</strong>.",
+    wrong:"Think: she's exhausted, reading the same sentence 5 times, gives up. The words aren't really wet or moving — it's a <em>figurative</em> way to say she <strong>couldn't focus</strong>.",
+    wrongFr:"Réfléchis: elle est épuisée, relit la même phrase 5 fois, abandonne. Les mots ne sont pas vraiment mouillés — c'est une façon <em>figurée</em> de dire qu'elle <strong>n'arrivait pas à se concentrer</strong>."
+  },
+  q11:{
+    correct:"Brilliant detective! Why was the room packed BEFORE the professor arrived? Because <strong>everyone already knew about her</strong>. That's exactly what 'reputation preceded her' means.",
+    correctFr:"Détective brillante! Pourquoi la salle était bondée AVANT que la prof arrive? Parce que <strong>tout le monde la connaissait déjà</strong>. C'est exactement ça « reputation preceded her ».",
+    wrong:"Ask yourself: WHY was the room packed before she even arrived? Because <strong>everyone already knew about her</strong>. <strong>'Reputation preceded her'</strong> = people knew about her before they met her.",
+    wrongFr:"Demande-toi: POURQUOI la salle était bondée avant qu'elle arrive? Parce que <strong>tout le monde la connaissait déjà</strong>. <strong>« Reputation preceded her »</strong> = on la connaissait avant de la rencontrer."
+  },
+  q12:{
+    correct:"Top-tier detective! Usually hearty appetite + barely eats + distracted + leaves early. These are <em>all</em> behavior clues that someone is <strong>upset or troubled</strong>.",
+    correctFr:"Détective de haut niveau! Normalement gros appétit + mange à peine + distrait + part tôt. Ce sont <em>tous</em> des indices de comportement qui montrent qu'il est <strong>contrarié ou troublé</strong>.",
+    wrong:"Look at his behavior: barely eats, stares at his plate, distracted, leaves early. These are classic signs of someone who is <strong>upset or troubled</strong> — not hungry or excited.",
+    wrongFr:"Regarde son comportement: mange à peine, fixe son assiette, distrait, part tôt. Ce sont des signes classiques de quelqu'un qui est <strong>contrarié ou troublé</strong> — pas affamé ou excité."
+  }
+};
+
+// ====== STATE ======
+let currentSlide = 1;
+const totalSlides = 10;
+let xp = 0;
+let soundOn = true;
+const answeredQuestions = new Set();
+const correctAnswers = new Set();
+const completedVocab = new Set();
+const completedSpeaking = new Set();
+
+// ====== AUDIO (Web Audio API) ======
+let audioCtx = null;
+function ensureAudio(){
+  if(!audioCtx){
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    } catch(e){ audioCtx = null; }
+  }
+  return audioCtx;
+}
+
+function playTone(freq, duration=0.15, type='sine', volume=0.15, when=0){
+  if(!soundOn) return;
+  const ctx = ensureAudio();
+  if(!ctx) return;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type;
+  osc.frequency.value = freq;
+  gain.gain.setValueAtTime(0, ctx.currentTime + when);
+  gain.gain.linearRampToValueAtTime(volume, ctx.currentTime + when + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + when + duration);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(ctx.currentTime + when);
+  osc.stop(ctx.currentTime + when + duration + 0.05);
+}
+
+function playClick(){
+  playTone(800, 0.06, 'square', 0.05);
+}
+
+function playReveal(){
+  playTone(440, 0.1, 'sine', 0.1);
+  playTone(660, 0.15, 'sine', 0.1, 0.05);
+}
+
+function playCorrect(){
+  // C5 - E5 - G5 happy chime
+  playTone(523.25, 0.12, 'sine', 0.18);
+  playTone(659.25, 0.12, 'sine', 0.18, 0.1);
+  playTone(783.99, 0.25, 'sine', 0.2, 0.2);
+}
+
+function playWrong(){
+  playTone(330, 0.18, 'triangle', 0.14);
+  playTone(247, 0.22, 'triangle', 0.14, 0.12);
+}
+
+function playCelebrate(){
+  // Fanfare
+  const notes = [523, 659, 784, 1047];
+  notes.forEach((n,i) => playTone(n, 0.18, 'triangle', 0.15, i * 0.12));
+}
+
+// ====== DOT NAV ======
+function buildDots(){
+  const nav = document.getElementById('dotNav');
+  nav.innerHTML = '';
+  for(let i=1;i<=totalSlides;i++){
+    const d = document.createElement('div');
+    d.className = 'dot';
+    if(i === currentSlide) d.classList.add('active');
+    if(i < currentSlide) d.classList.add('done');
+    d.addEventListener('click',()=>goToSlide(i));
+    nav.appendChild(d);
+  }
+}
+function updateDots(){
+  document.querySelectorAll('.dot').forEach((d,i)=>{
+    d.classList.remove('active','done');
+    if(i+1 === currentSlide) d.classList.add('active');
+    else if(i+1 < currentSlide) d.classList.add('done');
+  });
+}
+function goToSlide(n){
+  if(n < 1 || n > totalSlides) return;
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  const target = document.querySelector(`.slide[data-slide="${n}"]`);
+  if(target){
+    target.classList.add('active');
+    currentSlide = n;
+    updateDots();
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(n === totalSlides) setTimeout(showCompletion, 400);
+  }
+}
+
+// ====== XP ======
+function addXP(amount){
+  xp += amount;
+  const display = document.getElementById('xpDisplay');
+  if(display){
+    display.textContent = xp;
+    display.parentElement.style.transition = 'transform 0.3s';
+    display.parentElement.style.transform = 'scale(1.15)';
+    setTimeout(()=>{display.parentElement.style.transform = 'scale(1)';}, 300);
+  }
+}
+
+// ====== VOCAB CARDS ======
+document.querySelectorAll('.vocab-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.getAttribute('data-vocab');
+    if(!completedVocab.has(id)){
+      completedVocab.add(id);
+      addXP(5);
+      playReveal();
+    } else {
+      playClick();
+    }
+    card.classList.add('revealed');
+  });
+});
+
+// ====== MCQ ======
+document.querySelectorAll('.mcq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const gid = btn.getAttribute('data-gid');
+    const isCorrect = btn.getAttribute('data-ok') === 'true';
+    if(answeredQuestions.has(gid)) return;
+
+    const block = btn.closest('.mcq-block');
+    const fbBox = block.querySelector('.mcq-feedback');
+    const allBtns = block.querySelectorAll('.mcq-btn');
+
+    if(isCorrect){
+      btn.classList.add('correct');
+      allBtns.forEach(b => { if(b !== btn) b.classList.add('faded'); b.disabled = true; });
+      fbBox.className = 'mcq-feedback success show';
+      fbBox.innerHTML = `<div class="mcq-feedback-en">✓ ${FB[gid].correct}</div><div class="mcq-feedback-fr">${FB[gid].correctFr}</div>`;
+      answeredQuestions.add(gid);
+      correctAnswers.add(gid);
+      addXP(15);
+      playCorrect();
+      fireConfetti(8);
+      showSolvedStamp(block);
+    } else {
+      btn.classList.add('wrong');
+      btn.disabled = true;
+      fbBox.className = 'mcq-feedback retry show';
+      fbBox.innerHTML = `<div class="mcq-feedback-en">✗ ${FB[gid].wrong}</div><div class="mcq-feedback-fr">${FB[gid].wrongFr}</div>`;
+      playWrong();
+    }
+  });
+});
+
+// ====== SOLVED STAMP ======
+function showSolvedStamp(block){
+  const stamp = document.createElement('div');
+  stamp.className = 'solved-stamp show';
+  stamp.textContent = 'SOLVED';
+  block.style.position = 'relative';
+  block.appendChild(stamp);
+  setTimeout(() => stamp.remove(), 1500);
+}
+
+// ====== SPEAKING CARDS ======
+document.querySelectorAll('.speaking-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.getAttribute('data-speak');
+    card.classList.add('revealed');
+    if(!completedSpeaking.has(id)){
+      completedSpeaking.add(id);
+      addXP(20);
+      playReveal();
+    } else {
+      playClick();
+    }
+  });
+});
+
+// ====== NAV BUTTONS ======
+document.querySelectorAll('[data-nav]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dir = btn.getAttribute('data-nav');
+    playClick();
+    if(dir === 'next') goToSlide(currentSlide + 1);
+    else if(dir === 'prev') goToSlide(currentSlide - 1);
+  });
+});
+
+// ====== SOUND TOGGLE ======
+document.getElementById('soundToggle').addEventListener('click', (e) => {
+  soundOn = !soundOn;
+  const btn = e.currentTarget;
+  if(soundOn){
+    btn.textContent = '🔊';
+    btn.classList.remove('muted');
+    playClick();
+  } else {
+    btn.textContent = '🔇';
+    btn.classList.add('muted');
+  }
+});
+
+// ====== CONFETTI ======
+function fireConfetti(count = 30){
+  const colors = ['#f5a623','#ee6c4d','#ffc857','#5cb85c','#7c5295','#ffc04d'];
+  for(let i=0;i<count;i++){
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.animationDelay = Math.random() * 0.4 + 's';
+    c.style.animationDuration = (2.5 + Math.random() * 1.5) + 's';
+    if(Math.random() > 0.5){
+      c.style.borderRadius = '0';
+      c.style.width = '8px';
+      c.style.height = '14px';
+    }
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4500);
+  }
+}
+
+// ====== COMPLETION ======
+function animateNumber(el, end, duration=1500){
+  if(!el) return;
+  const start = 0;
+  const startTime = performance.now();
+  function step(now){
+    const elapsed = now - startTime;
+    const p = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(start + (end - start) * eased);
+    if(p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function showCompletion(){
+  animateNumber(document.getElementById('finalXP'), xp, 1600);
+  animateNumber(document.getElementById('casesSolved'), correctAnswers.size, 1400);
+  animateNumber(document.getElementById('wordsLearned'), completedVocab.size, 1300);
+
+  const progressBar = document.getElementById('progressBar');
+  if(progressBar){
+    setTimeout(()=>{
+      const pct = Math.min((xp / 300) * 100, 100);
+      progressBar.style.width = pct + '%';
+    }, 300);
+  }
+  // Stars by performance
+  const starsEl = document.getElementById('starsDisplay');
+  if(starsEl){
+    let starCount = 3;
+    if(xp >= 180) starCount = 4;
+    if(xp >= 260) starCount = 5;
+    starsEl.textContent = '⭐'.repeat(starCount) + '☆'.repeat(5 - starCount);
+  }
+
+  // Auto celebration burst
+  setTimeout(() => {
+    fireConfetti(60);
+    playCelebrate();
+  }, 600);
+}
+
+// Celebrate button
+document.getElementById('celebrateBtn')?.addEventListener('click', () => {
+  fireConfetti(100);
+  playCelebrate();
+});
+
+// ====== INIT ======
+buildDots();
+
+// Resume audio context on first interaction (browser policy)
+document.body.addEventListener('click', function once(){
+  ensureAudio();
+  if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  document.body.removeEventListener('click', once);
+}, { once: false });
+</script>
+</body>
+</html>
