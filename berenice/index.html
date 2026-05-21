@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berenice — English Lessons · KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #09111f;
+  --deep:   #0d1829;
+  --card:   #131f38;
+  --rim:    #1c2d4a;
+  --white:  #e8f0ff;
+  --muted:  #8095bb;
+  --teal:   #0fd4b8;
+  --amber:  #ffb830;
+  --coral:  #ff5a42;
+  --violet: #a47aff;
+  --lime:   #3ee88a;
+  --aqua:   #00d4ff;
+  --hd: 'Poppins', sans-serif;
+  --bd: 'Inter', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--bd);
+  font-size: 22px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image:
+    radial-gradient(900px 500px at 12% -5%, rgba(15,212,184,0.14), transparent 60%),
+    radial-gradient(800px 480px at 95% 8%, rgba(164,122,255,0.12), transparent 60%),
+    radial-gradient(900px 600px at 50% 115%, rgba(255,184,48,0.10), transparent 60%);
+}
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 48px 24px 70px; }
+
+/* ── HEADER ── */
+.brandbar {
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--hd); font-weight: 800;
+  letter-spacing: .5px; color: var(--amber);
+  font-size: .82rem; text-transform: uppercase;
+}
+.brandbar .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 14px var(--amber); }
+
+.hero {
+  margin-top: 26px;
+  background: linear-gradient(160deg, #16244180, #0d182980);
+  border: 1px solid var(--rim);
+  border-radius: 26px;
+  padding: 44px 44px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: ""; position: absolute; right: -60px; top: -60px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,184,48,0.18), transparent 70%);
+}
+.hero h1 {
+  font-family: var(--hd); font-weight: 900;
+  font-size: 3.1rem; line-height: 1.08; letter-spacing: -1px;
+}
+.hero h1 .accent { color: var(--amber); }
+.hero .fr {
+  color: var(--violet); font-weight: 600; font-size: 1.4rem;
+  margin-top: 8px;
+}
+.hero p.lead {
+  color: var(--muted); font-size: 1.18rem; margin-top: 18px; max-width: 640px;
+}
+.hero .meta {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px;
+}
+.chip {
+  background: #0e1a30; border: 1px solid var(--rim);
+  border-radius: 999px; padding: 9px 18px;
+  font-size: .92rem; font-weight: 600; color: var(--white);
+  display: flex; align-items: center; gap: 8px;
+}
+.chip .emo { font-size: 1.1rem; }
+
+/* ── SECTION LABEL ── */
+.seclabel {
+  margin: 46px 4px 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.seclabel h2 {
+  font-family: var(--hd); font-weight: 800; font-size: 1.5rem;
+}
+.seclabel .line { flex: 1; height: 1px; background: var(--rim); }
+
+/* ── LESSON GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+.lesson {
+  display: block;
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--rim);
+  border-radius: 20px;
+  padding: 26px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: rise .5s ease forwards;
+}
+@keyframes rise { to { opacity: 1; transform: translateY(0); } }
+.lesson::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 5px; background: var(--ac);
+}
+.lesson:hover {
+  transform: translateY(-6px);
+  border-color: var(--ac);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.45);
+}
+.lesson .row1 {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.lesson .num {
+  font-family: var(--hd); font-weight: 900; font-size: 2.6rem;
+  color: var(--ac); line-height: 1;
+}
+.lesson .num small {
+  display: block; font-size: .58rem; letter-spacing: 2px;
+  color: var(--muted); font-weight: 700; margin-bottom: 4px;
+}
+.lesson .emoji {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+.lesson h3 {
+  font-family: var(--hd); font-weight: 800; font-size: 1.4rem;
+  margin-top: 18px; color: var(--white);
+}
+.lesson .theme {
+  color: var(--muted); font-size: 1.02rem; margin-top: 6px;
+}
+.lesson .go {
+  margin-top: 18px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 700; font-size: 1rem; color: var(--ac);
+}
+.lesson .go .arr { transition: transform .18s ease; }
+.lesson:hover .go .arr { transform: translateX(5px); }
+.badge-new {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--lime); color: #06281a;
+  font-family: var(--hd); font-weight: 800; font-size: .68rem;
+  letter-spacing: 1px; padding: 5px 11px; border-radius: 999px;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 56px; padding-top: 28px;
+  border-top: 1px solid var(--rim);
+  display: flex; flex-wrap: wrap; gap: 10px 26px;
+  align-items: center; justify-content: space-between;
+  color: var(--muted); font-size: .95rem;
+}
+footer .name { font-family: var(--hd); font-weight: 800; color: var(--amber); }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--white); }
+
+@media (max-width: 620px) {
+  .wrap { padding: 32px 16px 50px; }
+  .hero { padding: 32px 24px 30px; }
+  .hero h1 { font-size: 2.3rem; }
+  .hero .fr { font-size: 1.15rem; }
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brandbar"><span class="dot"></span> KingCretot Experience</div>
+
+  <header class="hero">
+    <h1>Berenice's <span class="accent">English Lessons</span></h1>
+    <div class="fr">Les leçons d'anglais de Bérénice</div>
+    <p class="lead">Pick a lesson below to begin. Each one is interactive — listen,
+      tap, and play your way through. / Choisis une leçon pour commencer.</p>
+    <div class="meta">
+      <span class="chip"><span class="emo">📚</span> 11 lessons</span>
+      <span class="chip"><span class="emo">🎮</span> Interactive &amp; gamified</span>
+      <span class="chip"><span class="emo">🇫🇷🇺🇸</span> Bilingual</span>
+    </div>
+  </header>
+
+  <div class="seclabel">
+    <h2>Your Lesson Map</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Berenice_Lesson24_WorldExplorer%20(1).html" style="--ac:var(--aqua); animation-delay:.04s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>24</div>
+        <div class="emoji">🌍</div>
+      </div>
+      <h3>World Explorer</h3>
+      <div class="theme">Cultures, travel, and discovering the world.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="Berenice_Lesson25_SportsChampions_v2%20(1).html" style="--ac:var(--teal); animation-delay:.08s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>25</div>
+        <div class="emoji">🏊</div>
+      </div>
+      <h3>Sports Champions</h3>
+      <div class="theme">Talking about ability — can, could, will be able to.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="Berenice_Lesson26_ChampionsCode.html" style="--ac:var(--amber); animation-delay:.12s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>26</div>
+        <div class="emoji">🏆</div>
+      </div>
+      <h3>Champion's Code</h3>
+      <div class="theme">Rules and obligations — should, must, have to.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="Berenice_Lesson27_StyleLab.html" style="--ac:var(--violet); animation-delay:.16s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>27</div>
+        <div class="emoji">🎨</div>
+      </div>
+      <h3>Style Lab</h3>
+      <div class="theme">Describing rooms, colors, and your dream space.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="Berenice_Lesson28_DreamZone.html" style="--ac:var(--coral); animation-delay:.20s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>28</div>
+        <div class="emoji">💭</div>
+      </div>
+      <h3>Dream Zone</h3>
+      <div class="theme">The Second Conditional — imagining "what if".</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="Berenice_Lesson29_DetectiveAcademy.html" style="--ac:var(--aqua); animation-delay:.24s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>29</div>
+        <div class="emoji">🔍</div>
+      </div>
+      <h3>Detective Academy</h3>
+      <div class="theme">Asking sharp questions and listening for clues.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="berenice_lesson30_idiom_island.html" style="--ac:var(--lime); animation-delay:.28s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>30</div>
+        <div class="emoji">🏝️</div>
+      </div>
+      <h3>Idiom Island</h3>
+      <div class="theme">Everyday idioms and what they really mean.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="Berenice_Lesson31_PhrasalVerbJungle.html" style="--ac:var(--teal); animation-delay:.32s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>31</div>
+        <div class="emoji">🌴</div>
+      </div>
+      <h3>Phrasal Verb Jungle</h3>
+      <div class="theme">Phrasal verbs and how to use them naturally.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="Berenice_Lesson32_ChronosTimeTraveler.html" style="--ac:var(--amber); animation-delay:.36s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>32</div>
+        <div class="emoji">⏳</div>
+      </div>
+      <h3>Chronos Time Traveler</h3>
+      <div class="theme">Moving between tenses — past, present, future.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="Berenice_Lesson33_NewsroomLive.html" style="--ac:var(--violet); animation-delay:.40s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>33</div>
+        <div class="emoji">📰</div>
+      </div>
+      <h3>Newsroom Live</h3>
+      <div class="theme">Reporting events and speaking with precision.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+    <a class="lesson" href="Berenice_Lesson34_MysteryMansion%20copy.html" style="--ac:var(--coral); animation-delay:.44s">
+      <span class="badge-new">NEWEST</span>
+      <div class="row1">
+        <div class="num"><small>LESSON</small>34</div>
+        <div class="emoji">🏚️</div>
+      </div>
+      <h3>Mystery Mansion</h3>
+      <div class="theme">Solving a mystery while you practice English.</div>
+      <span class="go">Start lesson <span class="arr">→</span></span>
+    </a>
+
+  </div>
+
+  <footer>
+    <span><span class="name">KingCretot Experience</span> &nbsp;·&nbsp; English lessons for Berenice</span>
+    <span><a href="https://kingcretot.com">kingcretot.com</a> &nbsp;·&nbsp; <a href="mailto:kce@kingcretot.com">kce@kingcretot.com</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
