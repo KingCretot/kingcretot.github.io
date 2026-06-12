@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recife &amp; Olinda Pre-Build Excursion — Nov 18–22, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#26211C; --paper:#FFFFFF; --soft:#F6F3EE; --line:#E5DFD6;
+  --cobalt:#2456A6; --coral:#D94F3D; --mango:#E8A21D; --palm:#3E7C59;
+  --muted:#7A7066;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Public Sans',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+a{color:var(--cobalt)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* ---------- header ---------- */
+header{background:var(--ink);color:#fff;padding:42px 0 0}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mango);font-weight:700}
+h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(30px,5.5vw,52px);line-height:1.05;margin:10px 0 8px}
+.sub{color:#D8CFC4;font-size:15px;max-width:620px}
+.keyfacts{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0;padding-bottom:26px}
+.fact{background:#39322B;border-radius:8px;padding:8px 14px;font-size:13px;color:#EFE8DF}
+.fact b{color:#fff}
+
+/* ---------- facade tabs (signature) ---------- */
+nav{background:var(--ink);position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 20px 0;max-width:880px;margin:0 auto;-webkit-overflow-scrolling:touch}
+.tab{flex:0 0 auto;border:none;cursor:pointer;font-family:'Public Sans',sans-serif;font-weight:700;font-size:13px;
+  color:#fff;padding:10px 16px 12px;border-radius:10px 10px 0 0;position:relative;opacity:.62;transition:opacity .15s, transform .15s}
+.tab::before{content:"";position:absolute;left:50%;top:-7px;transform:translateX(-50%);
+  border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:8px solid currentColor;opacity:0}
+.tab.active{opacity:1;transform:translateY(-2px)}
+.tab.active::before{opacity:1}
+.tab:focus-visible{outline:3px solid var(--mango);outline-offset:2px}
+.t-over{background:var(--ink);border:1.5px solid #5B5249}
+.t-day{background:var(--cobalt);color:#fff}.t-day::before{color:var(--cobalt)}
+.t-stay{background:var(--coral)}.t-stay::before{color:var(--coral)}
+.t-eat{background:var(--mango);color:var(--ink)}.t-eat::before{color:var(--mango)}
+.t-tips{background:var(--palm)}.t-tips::before{color:var(--palm)}
+
+/* ---------- panels ---------- */
+.panel{display:none;padding:36px 0 60px}
+.panel.show{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2{font-family:'Fraunces',serif;font-weight:700;font-size:28px;margin-bottom:6px}
+.lede{color:var(--muted);font-size:15px;margin-bottom:26px;max-width:640px}
+h3{font-family:'Fraunces',serif;font-weight:700;font-size:19px;margin:0 0 2px}
+
+/* day cards */
+.day{border:1px solid var(--line);border-radius:14px;margin-bottom:18px;overflow:hidden;background:#fff}
+.dayhead{width:100%;border:none;background:#fff;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 18px;text-align:left}
+.dayhead:focus-visible{outline:3px solid var(--cobalt);outline-offset:-3px}
+.chip{flex:0 0 auto;width:52px;height:52px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.chip small{font-size:10px;letter-spacing:.08em;opacity:.9}.chip span{font-size:20px;line-height:1}
+.dayhead .dh-title{font-family:'Fraunces',serif;font-weight:700;font-size:18px}
+.dayhead .dh-sub{font-size:13px;color:var(--muted)}
+.caret{margin-left:auto;font-size:18px;color:var(--muted);transition:transform .2s}
+.day.open .caret{transform:rotate(180deg)}
+.daybody{display:none;border-top:1px solid var(--line);padding:8px 18px 18px}
+.day.open .daybody{display:block}
+.stop{display:grid;grid-template-columns:74px 1fr;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.stop:last-child{border-bottom:none}
+.time{font-weight:700;font-size:13px;color:var(--muted);padding-top:2px}
+.stop h4{font-size:15px;font-weight:700;margin-bottom:3px}
+.stop p{font-size:14px;color:#4A443D}
+.meta{font-size:12.5px;color:var(--muted);margin-top:5px}
+.meta a{white-space:nowrap}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:5px;padding:2px 7px;margin-left:6px;vertical-align:1px}
+.tag.free{background:#E4EFE8;color:var(--palm)}
+.tag.book{background:#FBEAE7;color:var(--coral)}
+.tag.holiday{background:#FCF2DC;color:#9A6B0B}
+
+/* place cards (stay / eat) */
+.cards{display:grid;gap:16px}
+.place{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
+.place.pick{background:var(--soft);border-color:#D8CFC0}
+.place .role{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.role.c1{color:var(--coral)} .role.c2{color:var(--cobalt)} .role.c3{color:var(--palm)} .role.c4{color:#9A6B0B}
+.place p{font-size:14px;color:#4A443D;margin:8px 0 12px}
+.contact{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;text-decoration:none;
+  border:1.5px solid var(--line);border-radius:8px;padding:7px 12px;color:var(--ink);background:#fff;transition:border-color .15s}
+.btn:hover{border-color:var(--cobalt)}
+.addr{font-size:13px;color:var(--muted);margin-top:10px}
+.price{font-weight:700;font-size:14px;color:var(--ink)}
+.hours{font-size:12.5px;color:var(--muted);margin-top:4px}
+
+/* budget table */
+table{width:100%;border-collapse:collapse;margin:10px 0 18px;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.num{text-align:right;font-weight:700;white-space:nowrap}
+tr.total td{border-top:2px solid var(--ink);border-bottom:none;font-size:15px}
+.note{background:var(--soft);border-radius:12px;padding:16px 18px;font-size:13.5px;color:#4A443D;margin:14px 0}
+.note b{color:var(--ink)}
+ul.tips{list-style:none}
+ul.tips li{padding:10px 0 10px 26px;border-bottom:1px dashed var(--line);font-size:14px;position:relative}
+ul.tips li::before{content:"";position:absolute;left:4px;top:17px;width:9px;height:9px;border-radius:50%;background:var(--palm)}
+ul.tips li:last-child{border-bottom:none}
+footer{background:var(--soft);padding:26px 0;font-size:13px;color:var(--muted)}
+footer b{color:var(--ink)}
+@media (max-width:560px){ .stop{grid-template-columns:1fr} .time{padding-top:0} }
+@media print{ nav{position:static} .panel{display:block!important;padding:18px 0} .dayhead{pointer-events:none} .daybody{display:block!important} .tab{display:none} }
+@media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Optional pre-build excursion · Habitat for Humanity Global Village</div>
+    <h1>Recife &amp; Olinda, Brazil</h1>
+    <p class="sub">Three full cultural days based in Olinda's UNESCO World Heritage historic center — before we head inland for the Caruaru build.</p>
+    <div class="keyfacts">
+      <div class="fact"><b>Arrive:</b> Wed, Nov 18 (any time)</div>
+      <div class="fact"><b>Excursion:</b> Thu 19 – Sat 21</div>
+      <div class="fact"><b>Sun, Nov 22:</b> check out → private driver to Habitat lodging in Recife</div>
+      <div class="fact"><b>Est. cost:</b> $280–390 pp + airfare</div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="tabs" role="tablist">
+    <button class="tab t-over active" role="tab" aria-selected="true" data-panel="p-over">Overview</button>
+    <button class="tab t-day" role="tab" aria-selected="false" data-panel="p-days">Day by Day</button>
+    <button class="tab t-stay" role="tab" aria-selected="false" data-panel="p-stay">Where We Stay</button>
+    <button class="tab t-eat" role="tab" aria-selected="false" data-panel="p-eat">Where We Eat</button>
+    <button class="tab t-tips" role="tab" aria-selected="false" data-panel="p-tips">Budget &amp; Tips</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= OVERVIEW ================= -->
+<section id="p-over" class="panel show">
+  <h2>The shape of the trip</h2>
+  <p class="lede">Everyone flies into Recife (REC) on Wednesday, November 18. A private driver Jonathan is arranging will run airport pickups to our pousada in Olinda (20–30 min) as flights land — send him your flight details when you book. No group program that night; arrive when you arrive. Then we get three full days together.</p>
+
+  <div class="cards">
+    <div class="place"><div class="role c2">Thursday — Olinda on foot</div>
+      <p>A guided walking day through the colonial hill town we're sleeping in: working artist studios, baroque churches, the old market in a former slave-trade building, the giant carnival puppets — capped with sunset over Recife and a welcome dinner at one of the best restaurants in the Northeast.</p></div>
+    <div class="place"><div class="role c4">Friday — Black Consciousness Day</div>
+      <p>November 20 is a national holiday, and Pernambuco is the heartland of Afro-Brazilian maracatu culture. We visit the surreal Brennand ceramic sculpture compound by day and catch free holiday drum performances in the evening — something no tour package sells.</p></div>
+    <div class="place"><div class="role c1">Saturday — Recife</div>
+      <p>The big-city day: a 19th-century iron market, the interactive frevo dance museum, the Cais do Sertão museum (the story of the dry interior region we'll be building in), lunch with live music at a market beer garden, and a communal farewell feast back in Olinda.</p></div>
+    <div class="place"><div class="role c3">Sunday — the Habitat itinerary takes over</div>
+      <p>We check out of the pousada Sunday morning and our private driver takes the group to our Habitat-provided lodging in Recife, where we join the arriving team. From there it's the official program: lunch at a local restaurant, the 2-hour drive to Caruaru, hotel check-in, orientation, and the welcome dinner.</p></div>
+  </div>
+
+  <div class="note"><b>Who this is for:</b> everyone — all paces welcome. Olinda's historic center is steep cobblestone — bring sturdy walking shoes — and every day has an easy opt-out (pool, café, terrace). Nothing is mandatory; this whole excursion is optional and separate from the $2,300 build program cost.</div>
+</section>
+
+<!-- ================= DAY BY DAY ================= -->
+<section id="p-days" class="panel">
+  <h2>Day by day</h2>
+  <p class="lede">Tap a day to expand it. Every stop has a map link; anything marked <span class="tag book">reserve</span> needs a booking, anything marked <span class="tag free">free</span> costs nothing.</p>
+
+  <!-- WED -->
+  <div class="day open">
+    <button class="dayhead" aria-expanded="true">
+      <div class="chip" style="background:var(--ink)"><small>WED</small><span>18</span></div>
+      <div><div class="dh-title">Arrival day — come as you are</div><div class="dh-sub">Individual arrivals · no group program</div></div>
+      <div class="caret">▾</div>
+    </button>
+    <div class="daybody">
+      <div class="stop"><div class="time">Any time</div><div>
+        <h4>Land at Recife/Guararapes Intl. (REC) → ride to Olinda</h4>
+        <p>We're arriving from different cities at different times. Jonathan is arranging a private driver to run airport pickups as flights land — <b>send him your flight number and arrival time as soon as you book</b>. If your arrival falls outside the driver's runs, Uber from the airport is the easy backup (R$35–55 / about $7–11, 20–30 min). Save the address below to show any driver.</p>
+        <div class="meta">Destination: <b>Pousada dos Quatro Cantos, Rua Prudente de Morais 441, Carmo, Olinda – PE</b> · <a href="https://maps.google.com/?cid=14063820062522391400" target="_blank">Open in Google Maps</a></div>
+      </div></div>
+      <div class="stop"><div class="time">On arrival</div><div>
+        <h4>Check in &amp; message the group</h4>
+        <p>Front desk operates around the clock, so late flights are no problem. Drop a message in the trip WhatsApp group when you've landed and again when you've checked in so Jonathan can keep count.</p>
+      </div></div>
+      <div class="stop"><div class="time">Evening</div><div>
+        <h4>Hungry? Two easy options near the pousada <span class="tag free">low-cost</span></h4>
+        <p>The tapioca stalls at Alto da Sé (5-min walk uphill) serve stuffed tapioca crepes into the evening for R$10–25. For a real meal, Casa de Noca serves its legendary one-dish carne-de-sol dinner until 11 PM, two blocks away.</p>
+        <div class="meta">Casa de Noca: <a href="tel:+558134391040">+55 81 3439-1040</a></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- THU -->
+  <div class="day">
+    <button class="dayhead" aria-expanded="false">
+      <div class="chip" style="background:var(--cobalt)"><small>THU</small><span>19</span></div>
+      <div><div class="dh-title">Olinda — the town we live in</div><div class="dh-sub">Guided walk · artist studios · welcome dinner</div></div>
+      <div class="caret">▾</div>
+    </button>
+    <div class="daybody">
+      <div class="stop"><div class="time">9:00 AM</div><div>
+        <h4>Guided walking tour of the historic center <span class="tag book">reserve</span></h4>
+        <p>A local accredited guide brings the hill town to life: São Bento Monastery, the Sé Cathedral, hidden viewpoints, and the working artist studios of Rua do Amparo — most painters and printmakers welcome visitors in. About R$250–350 total for the whole group; the pousada front desk arranges trusted guides (ask for an English-speaking one when we check in, or call ahead).</p>
+        <div class="meta">Arrange via pousada: <a href="tel:+5581999690141">+55 81 99969-0141</a> (WhatsApp works)</div>
+      </div></div>
+      <div class="stop"><div class="time">12:30 PM</div><div>
+        <h4>Lunch at Patuá</h4>
+        <p>Chef-driven Pernambucan seafood hidden at the end of a corridor, with a cozy terrace. Lunch-only and small, so we'll call ahead for a group table.</p>
+        <div class="meta">R. Bernardo Vieira de Melo, Carmo · <a href="tel:+558130550833">+55 81 3055-0833</a> · Thu 11 AM–4 PM · <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Patu%C3%A1+Olinda&query_place_id=ChIJVVVVZbMiqwcR-vPbTLhu0RM" target="_blank">Map</a></div>
+      </div></div>
+      <div class="stop"><div class="time">2:30 PM</div><div>
+        <h4>Mercado da Ribeira &amp; the giant carnival puppets</h4>
+        <p>An artisan market in a building that once held the slave trade — sobering history alongside woodcut prints and local crafts. Around the corner, the Casa dos Bonecos Gigantes houses Olinda's famous giant carnival puppets (entry ~R$10–20).</p>
+        <div class="meta">R. Bernardo Vieira de Melo 160 (market) · both an easy walk</div>
+      </div></div>
+      <div class="stop"><div class="time">5:00 PM</div><div>
+        <h4>Sunset at Alto da Sé <span class="tag free">free</span></h4>
+        <p>The hilltop square with the classic panorama over Recife's skyline and the Atlantic. Craft stalls, cold coconuts, and golden light.</p>
+        <div class="meta"><a href="https://maps.google.com/?cid=6547414957860777469" target="_blank">Map</a></div>
+      </div></div>
+      <div class="stop"><div class="time">7:30 PM</div><div>
+        <h4>Welcome dinner — Oficina do Sabor <span class="tag book">reserve</span></h4>
+        <p>The Northeast's celebrated kitchen: shrimp-and-mango stuffed pumpkin on a veranda overlooking Recife's lights. The one splurge meal of the trip (roughly R$90–150/person with a drink). We'll book a group table well ahead.</p>
+        <div class="meta">R. do Amparo 335, Olinda · <a href="tel:+558134293331">+55 81 3429-3331</a> · <a href="https://www.google.com/maps/search/?api=1&query=Oficina+do+Sabor+Olinda&query_place_id=ChIJX6fBpq8iqwcRe8NlSQxbBaw" target="_blank">Map</a></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- FRI -->
+  <div class="day">
+    <button class="dayhead" aria-expanded="false">
+      <div class="chip" style="background:var(--mango);color:var(--ink)"><small>FRI</small><span>20</span></div>
+      <div><div class="dh-title">Black Consciousness Day <span class="tag holiday">national holiday</span></div><div class="dh-sub">Brennand ceramics · maracatu drums</div></div>
+      <div class="caret">▾</div>
+    </button>
+    <div class="daybody">
+      <div class="stop"><div class="time">9:30 AM</div><div>
+        <h4>Oficina Cerâmica Francisco Brennand</h4>
+        <p>A surreal compound of thousands of ceramic sculptures inside a converted brick factory on Recife's green edge — the most memorable, least-touristed major sight in the region. Mostly flat grounds, gentle pace. Entry ~R$50. Our chartered van takes the group out (35–40 min each way).</p>
+        <div class="meta">R. Diogo de Vasconcelos s/n, Várzea, Recife · <a href="tel:+558120115466">+55 81 2011-5466</a> · Tue–Sun 9 AM–5 PM · <a href="https://maps.google.com/?cid=1392962201155615994" target="_blank">Map</a></div>
+      </div></div>
+      <div class="stop"><div class="time">1:00 PM</div><div>
+        <h4>Optional add-on: Instituto Ricardo Brennand</h4>
+        <p>Five minutes away, the cousin's castle-like museum — European art, tapestries, and one of the world's largest armory collections, in landscaped gardens with a good lunch restaurant on site. Opens at 1 PM; those not interested can head back for pool time.</p>
+        <div class="meta">R. Mário Campelo 700, Várzea · <a href="tel:+558121210365">+55 81 2121-0365</a> · 1–5 PM · <a href="https://maps.google.com/?cid=14674573864481882746" target="_blank">Map</a></div>
+      </div></div>
+      <div class="stop"><div class="time">Evening</div><div>
+        <h4>Holiday maracatu &amp; afoxé performances <span class="tag free">free</span></h4>
+        <p>November 20 brings free Afro-Brazilian drum and dance performances to public squares in Olinda and Recife — the exact lineup is announced locally in the days before. We'll ask the pousada that morning where the maracatu nations are playing and follow the drums. This is the cultural heart of the whole excursion.</p>
+      </div></div>
+      <div class="stop"><div class="time">8:30 PM</div><div>
+        <h4>Dinner — Beijupirá Olinda <span class="tag book">reserve</span></h4>
+        <p>Creative Pernambucan seafood on a hillside terrace reached by a tiny funicular lift, with a stunning view. Open until 11 PM on Fridays.</p>
+        <div class="meta">R. do Amparo, Carmo, Olinda · <a href="tel:+558134396691">+55 81 3439-6691</a> · Fri noon–11 PM · <a href="https://www.google.com/maps/search/?api=1&query=Beijupir%C3%A1+Olinda&query_place_id=ChIJQSAZ868iqwcRXTQR2Ejp-es" target="_blank">Map</a></div>
+      </div></div>
+      <div class="note" style="margin-top:14px"><b>Holiday heads-up:</b> some businesses close or shorten hours on Nov 20. The Brennand sites normally keep regular hours, but we'll confirm by phone the day before — and the evening street performances only happen <i>because</i> it's the holiday.</div>
+    </div>
+  </div>
+
+  <!-- SAT -->
+  <div class="day">
+    <button class="dayhead" aria-expanded="false">
+      <div class="chip" style="background:var(--coral)"><small>SAT</small><span>21</span></div>
+      <div><div class="dh-title">Recife — markets, frevo &amp; farewell</div><div class="dh-sub">Old city · live music lunch · farewell feast</div></div>
+      <div class="caret">▾</div>
+    </button>
+    <div class="daybody">
+      <div class="stop"><div class="time">9:00 AM</div><div>
+        <h4>Mercado de São José</h4>
+        <p>A cast-iron market hall gifted from France in 1875 — fish, fruit, herbs, cachaça, and crafts at local prices. Go early, keep valuables minimal, haggle gently. 15–20 min from Olinda in our chartered van.</p>
+        <div class="meta">Praça Dom Vital, São José, Recife · Sat 6 AM–6 PM · <a href="https://maps.google.com/?cid=11084842813915952985" target="_blank">Map</a></div>
+      </div></div>
+      <div class="stop"><div class="time">11:00 AM</div><div>
+        <h4>Marco Zero &amp; Paço do Frevo</h4>
+        <p>Recife Antigo's grand waterfront square, then the joyful interactive museum of frevo — the city's signature dance and music, with English signage throughout. Entry ~R$10.</p>
+        <div class="meta">Praça do Arsenal da Marinha 91 · Sat 11 AM–6:30 PM · <a href="https://maps.google.com/?cid=12441695338587732324" target="_blank">Map</a></div>
+      </div></div>
+      <div class="stop"><div class="time">1:00 PM</div><div>
+        <h4>Lunch with live music — Mercado da Boa Vista</h4>
+        <p>A traditional market that turns into a beer garden on weekends, with several bands playing at once and cheap, hearty regional food (the stewed goat is the move). Very local, all ages.</p>
+        <div class="meta">R. da Santa Cruz s/n, Boa Vista · Sat until 6 PM · <a href="https://maps.google.com/?cid=4403725037619800892" target="_blank">Map</a></div>
+      </div></div>
+      <div class="stop"><div class="time">3:00 PM</div><div>
+        <h4>Cais do Sertão</h4>
+        <p>An immersive museum about the sertão — the dry interior where Caruaru sits and where we'll be building. Music, instruments to play, and the story of the people we're about to work alongside. The perfect last stop before build week. Free/cheap entry.</p>
+        <div class="meta">Av. Alfredo Lisboa s/n, Recife Antigo · <a href="tel:+558131828267">+55 81 3182-8267</a> · Sat 1–6 PM · <a href="https://maps.google.com/?cid=13792264879837527389" target="_blank">Map</a></div>
+      </div></div>
+      <div class="stop"><div class="time">7:30 PM</div><div>
+        <h4>Farewell feast — Casa de Noca</h4>
+        <p>Back in Olinda, the no-menu legend: one communal spread of sun-dried beef, grilled coalho cheese, and buttery cassava, ordered by table size. Cheap, generous, and exactly the right send-off. Then pack — tomorrow belongs to the build.</p>
+        <div class="meta">Tv. do Bomfim 243, Carmo, Olinda · <a href="tel:+558134391040">+55 81 3439-1040</a> · until 11 PM · <a href="https://www.google.com/maps/search/?api=1&query=Casa+de+Noca+Olinda&query_place_id=ChIJJXrnVqUiqwcRicpGfbWt98Y" target="_blank">Map</a></div>
+      </div></div>
+      <div class="note" style="margin-top:14px"><b>Sunday, Nov 22:</b> excursion over. Breakfast, check out, and our private driver takes us to the Habitat-provided lodging in Recife to join the arriving team — from there the official Habitat itinerary runs the day (lunch, 2-hour drive to Caruaru, orientation, welcome dinner). Have bags ready at the time Jonathan circulates.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STAY ================= -->
+<section id="p-stay" class="panel">
+  <h2>Where we stay</h2>
+  <p class="lede">All three options are in or beside Olinda's historic center, walkable to everything on the plan. Jonathan will block rooms at the group base once headcount firms up; the other two are alternates for anyone wanting a different price point or comfort level. <b>Book by phone/WhatsApp or the property website</b> — Brazilian pousadas respond fastest on WhatsApp.</p>
+
+  <div class="cards">
+    <div class="place pick">
+      <div class="role c1">Group base · recommended</div>
+      <h3>Pousada dos Quatro Cantos</h3>
+      <p>A restored 19th-century mansion at the Quatro Cantos crossroads — the literal center of historic Olinda. Pool, tropical courtyard, secure parking, 24-hour front desk (good for our staggered Wednesday arrivals), and a breakfast guests consistently rave about. Rated 4.6★ from 1,600+ reviews.</p>
+      <div class="price">≈ $60–70 per night per double room (~$30–35/person sharing)</div>
+      <div class="addr">📍 Rua Prudente de Morais 441, Carmo, Olinda – PE, 53020-140, Brazil</div>
+      <div class="contact" style="margin-top:12px">
+        <a class="btn" href="tel:+5581999690141">📞 +55 81 99969-0141</a>
+        <a class="btn" href="https://wa.me/5581999690141" target="_blank">💬 WhatsApp</a>
+        <a class="btn" href="http://www.pousada4cantos.com.br" target="_blank">🌐 pousada4cantos.com.br</a>
+        <a class="btn" href="https://maps.google.com/?cid=14063820062522391400" target="_blank">🗺️ Map</a>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="role c2">Budget option</div>
+      <h3>Pousada Histórica Convento da Conceição</h3>
+      <p>A working piece of history: a convent founded in 1585, restored and opened as a guesthouse, still owned by the Sisters of Saint Dorothy. Simple, spotless rooms (14 of 31 have private baths — request one when booking), peaceful courtyards, and a location right on Alto da Sé. Rated 4.7★.</p>
+      <div class="price">≈ $35–40 per night per room</div>
+      <div class="addr">📍 Rua Bispo Coutinho, Alto da Sé, Carmo, Olinda – PE, 53120-130, Brazil</div>
+      <div class="contact" style="margin-top:12px">
+        <a class="btn" href="tel:+558134293108">📞 +55 81 3429-3108</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Pousada+Convento+da+Concei%C3%A7%C3%A3o+Olinda&query_place_id=ChIJLWg83q8iqwcRcDECQFul7uI" target="_blank">🗺️ Map</a>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="role c3">Extra-comfort option</div>
+      <h3>Hotel 7 Colinas</h3>
+      <p>A 3-star hotel set in lush gardens with a large pool, on-site restaurant, and the flattest access of the three — the best fit for anyone who'd rather skip cobblestone hills. A 5-minute walk to the historic center. Rated 4.7★.</p>
+      <div class="price">≈ $75–85 per night per double room</div>
+      <div class="addr">📍 Rua de São Francisco 307, Carmo, Olinda – PE, 53120-070, Brazil</div>
+      <div class="contact" style="margin-top:12px">
+        <a class="btn" href="tel:+558134937766">📞 +55 81 3493-7766</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hotel+7+Colinas+Olinda&query_place_id=ChIJQYCfb7oiqwcRvdvmVBDYtj0" target="_blank">🗺️ Map</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="note"><b>Booking note:</b> phone numbers above come from each property's current Google listing — confirm rates and availability directly when reserving, and mention it's a Habitat for Humanity volunteer group; pousadas often extend small group courtesies. November is shoulder season, but a 6–10 room block is worth locking 60+ days out.</div>
+</section>
+
+<!-- ================= EAT ================= -->
+<section id="p-eat" class="panel">
+  <h2>Where we eat</h2>
+  <p class="lede">A mix of splurges, legends, and cheap-and-cheerful — all vetted, all regional. Prices are per person, food only. $ = under R$40 · $$ = R$40–90 · $$$ = R$90–160.</p>
+
+  <div class="cards">
+    <div class="place"><div class="role c1">Olinda · $$$ · Thursday welcome dinner</div>
+      <h3>Oficina do Sabor</h3>
+      <p>The famous one — shrimp-and-mango stuffed pumpkin on a veranda overlooking Recife. Reserve for groups.</p>
+      <div class="addr">📍 R. do Amparo 335, Olinda · Tue–Sat from 11:30 AM (Fri/Sat to 11 PM), Sun to 5 PM, closed Mon</div>
+      <div class="contact" style="margin-top:10px"><a class="btn" href="tel:+558134293331">📞 +55 81 3429-3331</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Oficina+do+Sabor+Olinda&query_place_id=ChIJX6fBpq8iqwcRe8NlSQxbBaw" target="_blank">🗺️ Map</a></div></div>
+
+    <div class="place"><div class="role c1">Olinda · $$$ · Friday dinner</div>
+      <h3>Beijupirá Olinda</h3>
+      <p>Inventive seafood — fish in cashew crust, shrimp with fruit sauces — on a terrace reached by a tiny hillside lift. Closed Tuesdays.</p>
+      <div class="addr">📍 R. do Amparo, Carmo, Olinda · Wed–Mon from noon (Fri/Sat to 11 PM)</div>
+      <div class="contact" style="margin-top:10px"><a class="btn" href="tel:+558134396691">📞 +55 81 3439-6691</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Beijupir%C3%A1+Olinda&query_place_id=ChIJQSAZ868iqwcRXTQR2Ejp-es" target="_blank">🗺️ Map</a></div></div>
+
+    <div class="place"><div class="role c1">Olinda · $$ · Thursday lunch</div>
+      <h3>Restaurante Patuá</h3>
+      <p>Small chef-run spot fusing local seafood with global technique; charming terrace. Lunch only.</p>
+      <div class="addr">📍 R. Bernardo Vieira de Melo, Carmo, Olinda · Tue–Sun 11 AM–3/4 PM, closed Mon</div>
+      <div class="contact" style="margin-top:10px"><a class="btn" href="tel:+558130550833">📞 +55 81 3055-0833</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Patu%C3%A1+Olinda&query_place_id=ChIJVVVVZbMiqwcR-vPbTLhu0RM" target="_blank">🗺️ Map</a></div></div>
+
+    <div class="place"><div class="role c1">Olinda · $$ · Saturday farewell + late arrivals</div>
+      <h3>Casa de Noca</h3>
+      <p>One dish, done perfectly for generations: sun-dried beef, grilled coalho cheese, and buttery cassava, ordered by table size. No-frills, communal, beloved.</p>
+      <div class="addr">📍 Travessa do Bomfim 243, Carmo, Olinda · daily, until 11 PM</div>
+      <div class="contact" style="margin-top:10px"><a class="btn" href="tel:+558134391040">📞 +55 81 3439-1040</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Casa+de+Noca+Olinda&query_place_id=ChIJJXrnVqUiqwcRicpGfbWt98Y" target="_blank">🗺️ Map</a></div></div>
+
+    <div class="place"><div class="role c1">Olinda · $ · any evening</div>
+      <h3>Alto da Sé tapioca stalls</h3>
+      <p>Olinda's signature street food — tapioca crepes stuffed with coalho cheese, coconut, carne de sol — made to order at the hilltop square. R$10–25, cash friendly.</p>
+      <div class="addr">📍 Alto da Sé square · most stalls open afternoon into the evening</div>
+      <div class="contact" style="margin-top:10px"><a class="btn" href="https://maps.google.com/?cid=6547414957860777469" target="_blank">🗺️ Map</a></div></div>
+
+    <div class="place"><div class="role c2">Recife · $$ · Saturday lunch</div>
+      <h3>Mercado da Boa Vista</h3>
+      <p>Market-turned-weekend-beer-garden with multiple live bands and traditional plates — try the stewed goat. Cheap, loud, joyful, very local.</p>
+      <div class="addr">📍 R. da Santa Cruz s/n, Boa Vista, Recife · Mon–Sat 6 AM–6 PM, Sun to 3 PM</div>
+      <div class="contact" style="margin-top:10px"><a class="btn" href="https://maps.google.com/?cid=4403725037619800892" target="_blank">🗺️ Map</a></div></div>
+
+    <div class="place"><div class="role c2">Recife · $$$ · optional weekday lunch</div>
+      <h3>Restaurante Leite (est. 1882)</h3>
+      <p>The oldest restaurant in operation in Brazil — white-tablecloth Luso-Brazilian classics and the definitive cartola dessert. Lunch only; <b>closed Saturdays</b>, so it fits best if we adjust Friday.</p>
+      <div class="addr">📍 Praça Joaquim Nabuco 147, Santo Antônio, Recife · Sun–Fri 11 AM–4 PM</div>
+      <div class="contact" style="margin-top:10px"><a class="btn" href="tel:+558132247977">📞 +55 81 3224-7977</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Leite+Recife&query_place_id=ChIJz6Gqq-cYqwcRnuPcfC098HQ" target="_blank">🗺️ Map</a></div></div>
+
+    <div class="place"><div class="role c2">Recife · $ – $$ · flexible backups</div>
+      <h3>Parraxaxá (Boa Viagem) &amp; Bode do Nô</h3>
+      <p>Two group-friendly safety nets: Parraxaxá is a festive pay-by-weight regional buffet (everyone eats exactly what and how much they want — ideal for mixed appetites); Bode do Nô is the classic for Pernambuco's signature goat dishes, open late daily.</p>
+      <div class="addr">📍 Parraxaxá: Av. Fernando Simões Barbosa 1200 · daily 11:30 AM–10 PM &nbsp;|&nbsp; Bode do Nô: R. Dr. João G. Pontes Sobrinho 245 · daily 11 AM–1 AM+</div>
+      <div class="contact" style="margin-top:10px"><a class="btn" href="tel:+558134637874">📞 Parraxaxá</a><a class="btn" href="tel:+558134550912">📞 Bode do Nô</a></div></div>
+  </div>
+</section>
+
+<!-- ================= BUDGET & TIPS ================= -->
+<section id="p-tips" class="panel">
+  <h2>Budget &amp; practical tips</h2>
+  <p class="lede">Estimated per person, sharing a double room at the group base. Airfare and the $2,300 build program are separate. Final costs drop a bit as headcount grows (shared guides and vans get cheaper per person).</p>
+
+  <table>
+    <tr><th>Item</th><th style="text-align:right">Per person</th></tr>
+    <tr><td>Lodging — 4 nights, shared double (Wed–Sat)</td><td class="num">$120 – $145</td></tr>
+    <tr><td>Meals — 4 days, street food to one splurge dinner</td><td class="num">$65 – $95</td></tr>
+    <tr><td>Museum entries + shared local guide</td><td class="num">$40 – $60</td></tr>
+    <tr><td>Private driver &amp; charter van — airport pickups, Fri &amp; Sat outings, Sunday transfer to Recife</td><td class="num">$55 – $90</td></tr>
+    <tr class="total"><td><b>Estimated total</b></td><td class="num">$280 – $390</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--muted)">Van pricing assumes roughly R$2,500–3,500 total for the driver across the excursion, split 6–10 ways — the per-person number drops as headcount grows. From the Recife handoff onward (Sunday lunch, Caruaru transfer, and all build-week transport), costs are covered by the Habitat program.</p>
+
+  <h2 style="margin-top:34px">Good to know</h2>
+  <ul class="tips">
+    <li><b>Money:</b> Brazil uses the real (R$), recently around R$5–5.5 per US dollar. Cards are accepted almost everywhere; carry R$100–200 in small bills for markets, tapioca stalls, and tips. Airport ATMs work with US cards.</li>
+    <li><b>WhatsApp is essential in Brazil</b> — install it before you fly. The trip group chat, the pousada, guides, and restaurants all run on it.</li>
+    <li><b>Getting around:</b> our private driver covers group movements; for anything on your own, Uber is cheap, safe, and everywhere (a cross-town ride is usually $3–8). Nobody needs to rent a car.</li>
+    <li><b>Weather in November:</b> start of the dry season — sunny, mid-80s to low 90s °F with ocean breeze. Pack light clothing, a hat, strong sunscreen, and a refillable water bottle.</li>
+    <li><b>Footwear:</b> Olinda is steep cobblestone. Sturdy walking shoes or grippy sneakers, not flip-flops, for the walking days.</li>
+    <li><b>Safety basics:</b> Olinda's historic center and Recife Antigo are tourist-friendly by day; use normal big-city sense — minimal jewelry, phone in front pocket, Ubers after dark, stick together in the São José market area.</li>
+    <li><b>Health:</b> check the CDC's current Brazil guidance with your doctor (routine vaccines; many travelers also get Hep A/typhoid). Drink bottled or filtered water. Pharmacies ("farmácias") are abundant and well-stocked.</li>
+    <li><b>Language:</b> Portuguese; English is limited outside hotels. Google Translate's camera mode + a smile covers the rest.</li>
+    <li><b>Phone:</b> check your carrier's international plan, or grab an eSIM (Airalo etc.) before you fly.</li>
+  </ul>
+
+  <div class="note" style="margin-top:22px"><b>Ready to join?</b> Tell Jonathan you're in so he can lock the room block — <a href="mailto:jonathan@kingcretot.com">jonathan@kingcretot.com</a> · <a href="tel:+19543369905">954.336.9905</a>. Then book your flight to arrive at REC on <b>Wednesday, November 18</b> (any time of day).</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Habitat for Humanity Global Village — Brazil 2026</b> · Pre-build excursion plan · Build program: Sun Nov 22 – Sat Nov 28 departure (per Habitat itinerary), Caruaru, PE<br>
+    Hours, prices, and phone numbers gathered June 2026 from current listings — reconfirm when booking. Questions: Jonathan, <a href="mailto:jonathan@kingcretot.com">jonathan@kingcretot.com</a>
+  </div>
+</footer>
+
+<script>
+const tabs=document.querySelectorAll('.tab');
+const panels=document.querySelectorAll('.panel');
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});
+  t.classList.add('active');t.setAttribute('aria-selected','true');
+  panels.forEach(p=>p.classList.remove('show'));
+  document.getElementById(t.dataset.panel).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+document.querySelectorAll('.dayhead').forEach(h=>h.addEventListener('click',()=>{
+  const d=h.parentElement;const open=d.classList.toggle('open');
+  h.setAttribute('aria-expanded',open);
+}));
+</script>
+</body>
+</html>
