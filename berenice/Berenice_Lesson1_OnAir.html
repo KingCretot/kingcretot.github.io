@@ -25,7 +25,7 @@
       radial-gradient(900px 500px at 12% -5%, rgba(15,212,184,0.14), transparent 60%),
       radial-gradient(800px 480px at 95% 8%, rgba(164,122,255,0.12), transparent 60%),
       radial-gradient(900px 600px at 50% 115%, rgba(255,184,48,0.10), transparent 60%);
-    min-height:100vh; padding-bottom:100px; position:relative;
+    min-height:100vh; padding-bottom:100px; position:relative; overflow:hidden;
   }
   .hud{ position:fixed; top:14px; left:14px; right:14px; display:flex; justify-content:space-between; align-items:center; z-index:50; gap:10px; flex-wrap:wrap; }
   .hud-pill{ background:var(--card); border:1px solid var(--rim); color:var(--white); padding:9px 16px; border-radius:999px; font-weight:700; font-size:16px; box-shadow:0 4px 14px var(--shadow); display:flex; align-items:center; gap:7px; }
@@ -65,7 +65,6 @@
   .nav-btn.next{ background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
   .nav-btn:disabled{ opacity:.35; cursor:not-allowed; }
   .nav-btn.locked{ background:#2a3550; color:#6b7a9a; }
-  .progress-track{ position:absolute; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--teal),var(--amber)); transition:width .4s ease; }
   .progress-label{ font-size:13px; color:var(--muted); font-weight:700; }
 
   .vocab-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:20px 0; }
@@ -94,13 +93,28 @@
   .feedback-banner.retry .fb-en{ color:var(--coral); }
 
   .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:560px; margin:16px auto 0; }
-  .mcq-opt{ font-family:'Inter',sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; text-align:left; transition:transform .08s ease,background .15s ease,border-color .15s ease; }
+  .mcq-opt{ font-family:'Inter',sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; text-align:left; transition:transform .08s ease,background .15s ease,border-color .15s ease; width:100%; }
   .mcq-opt .opt-fr{ display:block; font-size:14px; color:var(--violet); font-weight:600; margin-top:3px; font-style:italic; }
   .mcq-opt:hover{ transform:translateY(-2px); }
   .mcq-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
   .mcq-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
   .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
   @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-7px);} 75%{transform:translateX(7px);} }
+
+  .passage-card{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; font-size:20px; line-height:1.6; }
+  .passage-card .ptitle{ font-family:'Poppins',sans-serif; font-weight:800; color:var(--amber); font-size:13px; text-transform:uppercase; letter-spacing:.6px; margin-bottom:10px; }
+
+  .match-round-label{ font-size:14px; color:var(--muted); font-weight:700; margin-bottom:6px; }
+  .match-fr-word{ font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:var(--amber); margin-bottom:16px; }
+  .match-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:560px; margin:0 auto; }
+  @media (max-width:520px){ .match-grid{ grid-template-columns:1fr; } }
+  .match-opt{ font-family:'Inter',sans-serif; font-size:18px; font-weight:600; padding:14px 16px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; }
+  .match-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
+  .match-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
+  .match-opt.disabled{ pointer-events:none; opacity:.4; }
+  .match-progress{ display:flex; gap:6px; justify-content:center; margin-bottom:18px; }
+  .match-dot{ width:10px; height:10px; border-radius:50%; background:var(--rim); }
+  .match-dot.done{ background:var(--lime); }
 
   /* ===== Conversation Wheel ===== */
   .wheel-frame{ background:var(--deep); border:1px solid var(--rim); border-radius:22px; padding:24px 18px; margin-top:14px; }
@@ -141,6 +155,24 @@
   .wbtn-primary{ background:var(--amber); color:#2a1c00; }
   .wbtn-ghost{ background:transparent; color:var(--white); border-color:var(--rim); }
   .wbtn:disabled{ opacity:.5; cursor:default; }
+  .wspin-count{ font-size:13px; color:var(--muted); margin-top:8px; text-align:center; }
+
+  /* ===== Celebration slide ===== */
+  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0; }
+  @media (max-width:680px){ .stat-grid{ grid-template-columns:1fr; } }
+  .stat-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px; text-align:center; }
+  .stat-num{ font-family:'Poppins',sans-serif; font-weight:900; font-size:34px; color:var(--amber); }
+  .stat-lbl{ font-size:13px; color:var(--muted); font-weight:700; margin-top:2px; }
+  .stat-lbl-fr{ font-size:12px; color:var(--violet); font-style:italic; }
+  .celebrate-btn{ display:block; margin:24px auto 4px; font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; padding:16px 38px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--coral),var(--amber)); color:#2a1c00; box-shadow:0 8px 22px rgba(255,90,66,0.35); transition:transform .1s ease; }
+  .celebrate-btn:active{ transform:translateY(3px) scale(.98); }
+  .celebrate-btn:disabled{ opacity:.5; cursor:default; }
+  .badge-reveal{ text-align:center; margin-top:18px; opacity:0; transform:scale(.7); transition:all .5s cubic-bezier(.34,1.56,.64,1); }
+  .badge-reveal.show{ opacity:1; transform:scale(1); }
+  .badge-reveal .badge-emoji{ font-size:90px; display:block; }
+  .badge-reveal .badge-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--amber); margin-top:6px; }
+  .confetti-piece{ position:fixed; top:-20px; z-index:200; pointer-events:none; font-size:22px; animation:confettiFall linear forwards; }
+  @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(400deg); opacity:0.2; } }
 
   footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:var(--muted); }
 </style>
@@ -148,10 +180,9 @@
 <body class="notranslate" translate="no">
 
 <div class="hud">
-  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 7</span><div class="progress-track" id="progTrack" style="position:relative;width:60px;height:3px;"></div></div>
+  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 11</span></div>
   <div style="display:flex; gap:10px; align-items:center;">
     <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
-    <button class="sound-toggle" id="soundToggle" title="Toggle hints">🔔</button>
   </div>
 </div>
 <div class="xp-pop" id="xpPop"></div>
@@ -201,11 +232,28 @@
   </div>
 </div>
 
-<!-- SLIDE 3: BUILD A QUESTION -->
+<!-- SLIDE 3: VOCAB MATCH -->
+<div class="slide" data-title="Word Match">
+  <div class="card" style="text-align:center;">
+    <span class="badge-tag">Quick Match · Association rapide</span>
+    <h2>🔗 Match the word</h2>
+    <div class="bi-cols" style="text-align:left;">
+      <div class="bi-en">Tap the English word that matches the French one shown.</div>
+      <div class="bi-fr">Touche le mot anglais qui correspond au mot français affiché.</div>
+    </div>
+    <div class="match-progress" id="matchProgress"></div>
+    <div class="match-round-label">Round <span id="matchRoundNum">1</span> / 4</div>
+    <div class="match-fr-word" id="matchFrWord"></div>
+    <div class="match-grid" id="matchGrid"></div>
+    <div class="feedback-banner" id="matchFeedback"></div>
+  </div>
+</div>
+
+<!-- SLIDE 4: BUILD A QUESTION 1 -->
 <div class="slide" data-title="Build a Question">
   <div class="card">
     <span class="badge-tag">Warm-Up · Échauffement</span>
-    <h2>❓ Build the question</h2>
+    <h2>❓ Build the question (1/2)</h2>
     <div class="bi-cols">
       <div class="bi-en">Good conversation = good questions. Tap the words in order to build this one.</div>
       <div class="bi-fr">Une bonne conversation = de bonnes questions. Touche les mots dans l'ordre pour construire celle-ci.</div>
@@ -218,11 +266,28 @@
   </div>
 </div>
 
-<!-- SLIDE 4: QUICK CHECK -->
-<div class="slide" data-title="Quick Check">
+<!-- SLIDE 5: BUILD A QUESTION 2 -->
+<div class="slide" data-title="Build a Question 2">
+  <div class="card">
+    <span class="badge-tag">Warm-Up · Échauffement</span>
+    <h2>❓ Build the question (2/2)</h2>
+    <div class="bi-cols">
+      <div class="bi-en">One more. This one is a little longer — take your time.</div>
+      <div class="bi-fr">Encore une. Celle-ci est un peu plus longue — prends ton temps.</div>
+    </div>
+    <div class="word-bank-wrap">
+      <div class="sentence-slot" id="sentenceSlot2"></div>
+      <div class="word-bank" id="wordBank2"></div>
+    </div>
+    <div class="feedback-banner" id="phraseFeedback2"></div>
+  </div>
+</div>
+
+<!-- SLIDE 6: QUICK CHECK 1 -->
+<div class="slide" data-title="Quick Check 1">
   <div class="card">
     <span class="badge-tag">Quick Check · Vérification</span>
-    <h2>🧠 Which question fits?</h2>
+    <h2>🧠 Which question fits? (1/2)</h2>
     <div class="bi-cols">
       <div class="bi-en">Your friend says: "I went to Paris last weekend." What do you ask?</div>
       <div class="bi-fr">Ton amie dit : « Je suis allée à Paris le week-end dernier. » Tu demandes quoi ?</div>
@@ -233,8 +298,15 @@
       <button class="mcq-opt" data-ans="C">C) You went to Paris tomorrow?<span class="opt-fr">Tu es allée à Paris demain ?</span></button>
     </div>
     <div class="feedback-banner" id="mcqFeedback1"></div>
+  </div>
+</div>
 
-    <div style="margin-top:24px;">
+<!-- SLIDE 7: QUICK CHECK 2 -->
+<div class="slide" data-title="Quick Check 2">
+  <div class="card">
+    <span class="badge-tag">Quick Check · Vérification</span>
+    <h2>🧠 Which question fits? (2/2)</h2>
+    <div class="bi-cols">
       <div class="bi-en">Your friend says: "My sister lives in London." What do you ask?</div>
       <div class="bi-fr">Ton amie dit : « Ma sœur habite à Londres. » Tu demandes quoi ?</div>
     </div>
@@ -247,14 +319,49 @@
   </div>
 </div>
 
-<!-- SLIDE 5: THE WHEEL -->
+<!-- SLIDE 8: READING COMPREHENSION -->
+<div class="slide" data-title="Guest Bio">
+  <div class="card">
+    <span class="badge-tag">Precision Check · Vérification précise</span>
+    <h2>📋 Meet today's guest</h2>
+    <div class="bi-cols">
+      <div class="bi-en">Read carefully. The questions test EXACT details, not just the general idea.</div>
+      <div class="bi-fr">Lis attentivement. Les questions testent des détails EXACTS, pas juste l'idée générale.</div>
+    </div>
+    <div class="passage-card">
+      <div class="ptitle">Guest Bio · Fiche invité</div>
+      <p>Meet today's guest: Léa Toussaint, 16, from Marseille. She has two older brothers and one younger sister. She loves rock climbing but hates the smell of chalk on her hands. Her dream is to become a marine biologist.</p>
+    </div>
+    <div class="bi-en" style="margin-bottom:6px;">How many siblings does Léa have in total?</div>
+    <div class="bi-fr" style="margin-bottom:6px;">Combien de frères et sœurs Léa a-t-elle au total ?</div>
+    <div class="mcq-options" data-gid="r1">
+      <button class="mcq-opt" data-ans="A">A) Two<span class="opt-fr">Deux</span></button>
+      <button class="mcq-opt" data-ans="B">B) Three<span class="opt-fr">Trois</span></button>
+      <button class="mcq-opt" data-ans="C">C) Four<span class="opt-fr">Quatre</span></button>
+    </div>
+    <div class="feedback-banner" id="mcqFeedbackR1"></div>
+
+    <div style="margin-top:24px;">
+      <div class="bi-en" style="margin-bottom:6px;">What does Léa want to become?</div>
+      <div class="bi-fr" style="margin-bottom:6px;">Que veut devenir Léa ?</div>
+    </div>
+    <div class="mcq-options" data-gid="r2">
+      <button class="mcq-opt" data-ans="A">A) A rock climbing coach<span class="opt-fr">Coach d'escalade</span></button>
+      <button class="mcq-opt" data-ans="B">B) A marine biologist<span class="opt-fr">Biologiste marine</span></button>
+      <button class="mcq-opt" data-ans="C">C) A journalist<span class="opt-fr">Journaliste</span></button>
+    </div>
+    <div class="feedback-banner" id="mcqFeedbackR2"></div>
+  </div>
+</div>
+
+<!-- SLIDE 9: THE WHEEL -->
 <div class="slide" data-title="The Wheel">
   <div class="card">
     <span class="badge-tag">Main Event · L'événement principal</span>
     <h2>🎡 The Conversation Wheel</h2>
     <div class="bi-cols">
-      <div class="bi-en">This is our lesson centerpiece, every week. Spin it — or pick a category — and just <strong>talk</strong>. No perfect grammar required. I want to hear you think out loud.</div>
-      <div class="bi-fr">C'est le cœur de notre leçon, chaque semaine. Fais-le tourner — ou choisis une catégorie — et <strong>parle</strong>. Pas besoin d'une grammaire parfaite. Je veux t'entendre réfléchir à voix haute.</div>
+      <div class="bi-en">This is our lesson centerpiece, every week. Spin it — or pick a category — and just <strong>talk</strong>. No perfect grammar required. I want to hear you think out loud. Spin at least 3 times before we wrap up.</div>
+      <div class="bi-fr">C'est le cœur de notre leçon, chaque semaine. Fais-le tourner — ou choisis une catégorie — et <strong>parle</strong>. Pas besoin d'une grammaire parfaite. Fais tourner au moins 3 fois avant qu'on termine.</div>
     </div>
     <div class="wheel-frame">
       <div class="wheel-main">
@@ -277,29 +384,41 @@
             <button class="wbtn wbtn-ghost" id="wagainBtn">Another in this topic</button>
             <button class="wbtn wbtn-primary" id="wspinBtn">Spin again</button>
           </div>
+          <div class="wspin-count" id="wspinCount">Spins so far: 0 / 3</div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 6: CELEBRATION -->
+<!-- SLIDE 10: CELEBRATION -->
 <div class="slide" data-title="Great Start">
   <div class="card" style="text-align:center;">
-    <div class="hero-emoji">🎉🎙️⭐</div>
+    <span class="badge-tag">Episode Wrap · Fin de l'épisode</span>
     <h1>Great first episode, <span class="accent">Berenice!</span></h1>
     <div class="bi-cols" style="margin-top:20px; text-align:left;">
-      <div class="bi-en">You built questions, made quick decisions, and talked through six real topics. That's exactly the habit we're building this year — <strong>speak first, perfect it later.</strong></div>
-      <div class="bi-fr">Tu as construit des questions, pris des décisions rapides, et parlé de six sujets réels. C'est exactement l'habitude qu'on construit cette année — <strong>parle d'abord, perfectionne ensuite.</strong></div>
+      <div class="bi-en">Look what you actually did today — not just understood, <strong>did</strong>.</div>
+      <div class="bi-fr">Regarde ce que tu as vraiment fait aujourd'hui — pas juste compris, <strong>fait</strong>.</div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num" id="statWords">0</div><div class="stat-lbl">Words learned</div><div class="stat-lbl-fr">Mots appris</div></div>
+      <div class="stat-card"><div class="stat-num" id="statQuestions">0</div><div class="stat-lbl">Questions built</div><div class="stat-lbl-fr">Questions construites</div></div>
+      <div class="stat-card"><div class="stat-num" id="statSpins">0</div><div class="stat-lbl">Topics discussed live</div><div class="stat-lbl-fr">Sujets discutés en direct</div></div>
+    </div>
+    <button class="celebrate-btn" id="celebrateBtn">🎉 Open Your Episode Badge</button>
+    <div class="badge-reveal" id="badgeReveal">
+      <span class="badge-emoji">🏅</span>
+      <div class="badge-title">On-Air Starter — Episode 1 Complete!</div>
+      <div class="hero-sub-fr" style="margin-top:6px;">Débutante à l'antenne — Épisode 1 terminé !</div>
     </div>
     <p style="margin-top:20px; font-size:17px; color:var(--muted);">See you next episode. 🎬</p>
   </div>
 </div>
 
 <div class="nav-row">
-  <button class="nav-btn back" id="backBtn" onclick="changeSlide(-1)">⬅ Back</button>
-  <span class="progress-label" id="progressLabel">Slide 1 / 7</span>
-  <button class="nav-btn next" id="nextBtn" onclick="changeSlide(1)">Next ➡</button>
+  <button class="nav-btn back" id="backBtn">⬅ Back</button>
+  <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
+  <button class="nav-btn next" id="nextBtn">Next ➡</button>
 </div>
 
 <script>
@@ -308,7 +427,7 @@ const slides = document.querySelectorAll('.slide');
 const total = slides.length;
 let current = 0;
 let xp = 0;
-const locks = {2:false, 3:false, 4:false, 5:false}; // vocab, question-build, mcq-check, wheel
+const locks = {2:false, 3:false, 4:false, 5:false, 6:false, 7:false, 8:false, 9:false};
 
 function addXP(n){ xp += n; document.getElementById('xpCount').textContent = xp;
   const pop = document.getElementById('xpPop'); pop.textContent = '+' + n + ' XP';
@@ -323,6 +442,7 @@ function refreshNav(){
   nextBtn.textContent = current === total-1 ? 'Finished! 🎉' : 'Next ➡';
   document.getElementById('progressLabel').textContent = 'Slide ' + (current+1) + ' / ' + total;
   document.getElementById('progText').textContent = (current+1) + ' / ' + total;
+  if(current === total-1) runCelebrationEntry();
 }
 function changeSlide(delta){
   const newIdx = current + delta;
@@ -333,6 +453,8 @@ function changeSlide(delta){
   refreshNav();
   window.scrollTo({top:0, behavior:'smooth'});
 }
+document.getElementById('backBtn').addEventListener('click', ()=>changeSlide(-1));
+document.getElementById('nextBtn').addEventListener('click', ()=>changeSlide(1));
 function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
 
 /* ============ VOCAB CARDS ============ */
@@ -363,9 +485,57 @@ function buildVocab(){
   });
 }
 
-/* ============ BUILD-A-QUESTION ============ */
+/* ============ VOCAB MATCH MINI-QUIZ ============ */
+const matchWords = [ vocabData[1], vocabData[2], vocabData[4], vocabData[8] ]; // host, guest, live, interview
+let matchRound = 0;
+function buildMatchProgress(){
+  const wrap = document.getElementById('matchProgress');
+  for(let i=0;i<matchWords.length;i++){
+    const d = document.createElement('span'); d.className='match-dot'; d.id='mdot'+i;
+    wrap.appendChild(d);
+  }
+}
+function renderMatchRound(){
+  const item = matchWords[matchRound];
+  document.getElementById('matchRoundNum').textContent = matchRound+1;
+  document.getElementById('matchFrWord').textContent = item.fr;
+  document.getElementById('matchFeedback').innerHTML = '';
+  const grid = document.getElementById('matchGrid');
+  grid.innerHTML = '';
+  const distractors = shuffle(vocabData.filter(v=>v.en!==item.en)).slice(0,3);
+  const options = shuffle([item, ...distractors]);
+  options.forEach(opt=>{
+    const btn = document.createElement('button'); btn.className='match-opt'; btn.textContent = opt.en;
+    btn.addEventListener('click', ()=>{
+      if(btn.classList.contains('disabled')) return;
+      const grid2 = document.getElementById('matchGrid');
+      if(opt.en === item.en){
+        btn.classList.add('correct');
+        grid2.querySelectorAll('.match-opt').forEach(o=>o.classList.add('disabled'));
+        addXP(1);
+        const dot = document.getElementById('mdot'+matchRound); if(dot) dot.classList.add('done');
+        document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">Yes! 🎉</span>';
+        setTimeout(()=>{
+          matchRound++;
+          if(matchRound >= matchWords.length){
+            if(!locks[3]){ locks[3] = true; refreshNav(); }
+            document.getElementById('matchFrWord').textContent = '✅';
+            document.getElementById('matchGrid').innerHTML = '';
+            document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">All done! Next is unlocked.</span><span class="fb-fr">Terminé ! Suivant est débloqué.</span>';
+          } else {
+            renderMatchRound();
+          }
+        }, 700);
+      } else {
+        btn.classList.add('incorrect'); setTimeout(()=>btn.classList.remove('incorrect'), 450);
+      }
+    });
+    grid.appendChild(btn);
+  });
+}
+
+/* ============ BUILD-A-QUESTION 1 ============ */
 const displayPhrase = ['Who', 'did', 'you', 'go', 'with?'];
-const frHints = {'Who':'Qui', 'did':'as', 'you':'tu', 'go':'allée', 'with?':'avec ?'};
 const bankWords = shuffle(['with?', 'Who', 'go', 'did', 'you']);
 let placedWords = [];
 function buildPhraseScreen(){
@@ -395,7 +565,7 @@ function checkPhrase(){
     addXP(2);
     fb.innerHTML = '<span class="fb-en">Perfect! "Who did you go with?" 🌟</span><span class="fb-fr">Parfait ! « Avec qui es-tu allée ? »</span>';
     fb.className = 'feedback-banner good';
-    locks[3] = true; refreshNav();
+    locks[4] = true; refreshNav();
   } else {
     fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
     fb.className = 'feedback-banner retry';
@@ -405,20 +575,76 @@ function checkPhrase(){
   }
 }
 
-/* ============ MCQ ============ */
+/* ============ BUILD-A-QUESTION 2 ============ */
+const displayPhrase2 = ['How', 'long', 'has', 'she', 'lived', 'there?'];
+const bankWords2 = shuffle(['there?', 'How', 'lived', 'has', 'long', 'she']);
+let placedWords2 = [];
+function buildPhraseScreen2(){
+  const bank = document.getElementById('wordBank2');
+  bankWords2.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip';
+    chip.textContent = word;
+    chip.addEventListener('click', ()=>{
+      if(chip.classList.contains('used')) return;
+      placedWords2.push(word); chip.classList.add('used');
+      renderSlot2(); checkPhrase2();
+    });
+    bank.appendChild(chip);
+  });
+  renderSlot2();
+}
+function renderSlot2(){
+  const slot = document.getElementById('sentenceSlot2');
+  slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
+    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
+}
+function checkPhrase2(){
+  const fb = document.getElementById('phraseFeedback2');
+  if(placedWords2.length < displayPhrase2.length) return;
+  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
+  if(correct){
+    addXP(2);
+    fb.innerHTML = '<span class="fb-en">Perfect! "How long has she lived there?" 🌟</span><span class="fb-fr">Parfait ! « Depuis quand y habite-t-elle ? »</span>';
+    fb.className = 'feedback-banner good';
+    locks[5] = true; refreshNav();
+  } else {
+    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
+    fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords2 = []; document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot2(); };
+    fb.appendChild(resetBtn);
+  }
+}
+
+/* ============ MCQ (quick checks + reading) ============ */
 const FB = {
-  q1: { ok:'B', expl:{
+  q1: { lockKey:6, ok:'B', expl:{
     A:{en:'That asks about a habit, not her trip — try again!', fr:'Ça demande une habitude, pas son voyage — réessaie !'},
     B:{en:'Yes! A natural follow-up question. 🎉', fr:'Oui ! Une question de suivi naturelle.'},
     C:{en:'Mixing past and future — try again!', fr:'Tu mélanges passé et futur — réessaie !'}
   }},
-  q2: { ok:'A', expl:{
+  q2: { lockKey:7, ok:'A', expl:{
     A:{en:'Yes! Perfect natural question. 🎉', fr:'Oui ! Question parfaitement naturelle.'},
     B:{en:'That works but sounds surprised, not curious — try the other one.', fr:'Ça marche mais ça sonne surpris, pas curieux — essaie l\'autre.'},
     C:{en:'Grammar slip: "Do you living" isn\'t correct — try again!', fr:'Erreur de grammaire : « Do you living » n\'est pas correct — réessaie !'}
+  }},
+  r1: { lockKey:8, ok:'B', expl:{
+    A:{en:'Recount: two brothers PLUS one sister — try again!', fr:'Recompte : deux frères PLUS une sœur — réessaie !'},
+    B:{en:'Yes! Two brothers + one sister = three. 🎉', fr:'Oui ! Deux frères + une sœur = trois.'},
+    C:{en:'That\'s one too many — try again!', fr:'C\'est un de trop — réessaie !'}
+  }},
+  r2: { lockKey:8, ok:'B', expl:{
+    A:{en:'That\'s her hobby, not her dream job — try again!', fr:'C\'est son loisir, pas son métier de rêve — réessaie !'},
+    B:{en:'Yes! Exactly what the bio said. 🎉', fr:'Oui ! Exactement ce que disait la fiche.'},
+    C:{en:'Not mentioned in the bio — try again!', fr:'Pas mentionné dans la fiche — réessaie !'}
   }}
 };
-function initMCQ(gid, lockKey, feedbackId){
+let mcqAnswered = {q1:false, q2:false, r1:false, r2:false};
+function checkLockGroup(lockKey, members){
+  const allDone = members.every(m=>mcqAnswered[m]);
+  if(allDone && !locks[lockKey]){ locks[lockKey] = true; refreshNav(); }
+}
+function initMCQ(gid, feedbackId){
   const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
   const fb = document.getElementById(feedbackId);
   block.querySelectorAll('.mcq-opt').forEach(opt=>{
@@ -431,7 +657,10 @@ function initMCQ(gid, lockKey, feedbackId){
         addXP(2);
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
         fb.className = 'feedback-banner good';
-        checkBothMCQ(lockKey);
+        mcqAnswered[gid] = true;
+        if(gid === 'q1') checkLockGroup(6, ['q1']);
+        if(gid === 'q2') checkLockGroup(7, ['q2']);
+        if(gid === 'r1' || gid === 'r2') checkLockGroup(8, ['r1','r2']);
       } else {
         opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
@@ -440,11 +669,6 @@ function initMCQ(gid, lockKey, feedbackId){
     });
   });
 }
-let mcqAnswered = {q1:false, q2:false};
-function checkBothMCQ(lockKey){
-  mcqAnswered[event ? '' : ''] = true; // placeholder no-op guard
-}
-function markAnswered(gid){ mcqAnswered[gid] = true; if(mcqAnswered.q1 && mcqAnswered.q2 && !locks[4]){ locks[4] = true; refreshNav(); } }
 
 /* ============ CONVERSATION WHEEL ============ */
 const WCATS = [
@@ -540,9 +764,11 @@ const whub=document.getElementById('whub');
 const whint=document.getElementById('whint');
 const wpanel=document.getElementById('wpanel');
 const wactions=document.getElementById('wactions');
+const wspinCountEl = document.getElementById('wspinCount');
 const wchips=[...document.querySelectorAll('.wchip')];
 let wrotation=0, wspinning=false, wcurrentCat=null, wlastQ={}; const wdecks={};
-let wheelSpunOnce = false;
+let wheelSpinTally = 0;
+const WHEEL_SPIN_TARGET = 3;
 
 function wsetDisabled(state){
   wspinning=state; whub.disabled=state;
@@ -579,7 +805,6 @@ function wreveal(i){
   });
   whint.textContent = 'Talk it through, then spin again. / Parle, puis fais tourner à nouveau.';
   wsetDisabled(false);
-  if(!wheelSpunOnce){ wheelSpunOnce = true; addXP(3); if(!locks[5]){ locks[5]=true; refreshNav(); } }
 }
 function spinWheelTo(i){
   if(wspinning) return;
@@ -594,8 +819,15 @@ function spinWheelTo(i){
   wrotation = wrotation + turns*360 + delta;
   wheelEl.style.transform = `rotate(${wrotation}deg)`;
   const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(reduce){ wreveal(i); return; }
-  const onEnd = ()=>{ wheelEl.removeEventListener('transitionend', onEnd); wreveal(i); };
+  const afterSpin = ()=>{
+    wreveal(i);
+    wheelSpinTally++;
+    wspinCountEl.textContent = 'Spins so far: ' + Math.min(wheelSpinTally,WHEEL_SPIN_TARGET) + ' / ' + WHEEL_SPIN_TARGET;
+    if(wheelSpinTally === 1) addXP(3);
+    if(wheelSpinTally >= WHEEL_SPIN_TARGET && !locks[9]){ locks[9] = true; addXP(2); refreshNav(); }
+  };
+  if(reduce){ afterSpin(); return; }
+  const onEnd = ()=>{ wheelEl.removeEventListener('transitionend', onEnd); afterSpin(); };
   wheelEl.addEventListener('transitionend', onEnd);
 }
 function spinWheelRandom(){ spinWheelTo(Math.floor(Math.random()*NW)); }
@@ -603,13 +835,52 @@ whub.addEventListener('click', spinWheelRandom);
 document.getElementById('wspinBtn').addEventListener('click', spinWheelRandom);
 document.getElementById('wagainBtn').addEventListener('click', ()=>{ if(wcurrentCat!==null) wreveal(wcurrentCat); });
 
+/* ============ CELEBRATION SLIDE ============ */
+let celebrationRan = false;
+function animateCount(el, target, duration){
+  const start = performance.now();
+  function frame(now){
+    const p = Math.min((now-start)/duration, 1);
+    el.textContent = Math.round(p * target);
+    if(p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+function runCelebrationEntry(){
+  if(celebrationRan) return; celebrationRan = true;
+  animateCount(document.getElementById('statWords'), vocabFlipped, 700);
+  animateCount(document.getElementById('statQuestions'), 2, 700);
+  animateCount(document.getElementById('statSpins'), wheelSpinTally, 700);
+}
+function spawnConfetti(){
+  const pieces = ['🎉','⭐','🎊','🎙️','✨'];
+  for(let i=0;i<26;i++){
+    const el = document.createElement('span'); el.className = 'confetti-piece';
+    el.textContent = pieces[Math.floor(Math.random()*pieces.length)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.animationDuration = (2 + Math.random()*1.6) + 's';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(), 4000);
+  }
+}
+document.getElementById('celebrateBtn').addEventListener('click', function(){
+  spawnConfetti();
+  document.getElementById('badgeReveal').classList.add('show');
+  addXP(5);
+  this.disabled = true;
+  this.textContent = '🏅 Badge Unlocked!';
+});
+
 /* ============ INIT ============ */
 buildVocab();
+buildMatchProgress();
+renderMatchRound();
 buildPhraseScreen();
-initMCQ('q1', 4, 'mcqFeedback1');
-initMCQ('q2', 4, 'mcqFeedback2');
-document.querySelectorAll('.mcq-options[data-gid="q1"] .mcq-opt').forEach(o=>o.addEventListener('click',()=>{ if(o.dataset.ans===FB.q1.ok) markAnswered('q1'); }));
-document.querySelectorAll('.mcq-options[data-gid="q2"] .mcq-opt').forEach(o=>o.addEventListener('click',()=>{ if(o.dataset.ans===FB.q2.ok) markAnswered('q2'); }));
+buildPhraseScreen2();
+initMCQ('q1', 'mcqFeedback1');
+initMCQ('q2', 'mcqFeedback2');
+initMCQ('r1', 'mcqFeedbackR1');
+initMCQ('r2', 'mcqFeedbackR2');
 refreshNav();
 </script>
 </body>
