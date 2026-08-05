@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Elina's Numbers & Colors Adventure! / L'aventure des nombres et couleurs !</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#FFC93C; --sky:#4AC7EC; --grass:#6BCB77; --berry:#FF6F91;
+    --grape:#9B6BFF; --tangerine:#FF9142; --ink:#2C2A4A; --white:#FFFFFF;
+    --cream:#FFF9EC; --french:#7B3FE4; --shadow: 0 10px 0 rgba(0,0,0,0.12);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{ font-family:'Poppins', sans-serif; background: linear-gradient(160deg, #E8F9FF 0%, #FFF6DA 55%, #FFE9F5 100%); min-height:100vh; overflow-x:hidden; color:var(--ink); }
+  .notranslate{translate:no;}
+  #app{ max-width:1000px; margin:0 auto; padding:18px 18px 60px; position:relative; }
+  .topbar{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
+  .brand{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:22px; color:var(--grape); display:flex; align-items:center; gap:8px; }
+  .brand span.emoji{font-size:26px;}
+  .progress-wrap{ flex:1; min-width:170px; max-width:280px; background:#fff; border-radius:20px; padding:6px 10px; box-shadow: var(--shadow); display:flex; align-items:center; gap:8px; }
+  .progress-track{ flex:1; height:14px; background:#EDEDF7; border-radius:10px; overflow:hidden; }
+  .progress-fill{ height:100%; width:0%; background:linear-gradient(90deg, var(--berry), var(--tangerine)); border-radius:10px; transition:width .5s ease; }
+  .progress-label{font-weight:700; font-size:13px; color:var(--ink); white-space:nowrap;}
+  .star-count{ display:flex; align-items:center; gap:5px; background:#fff; border-radius:20px; padding:6px 14px; box-shadow: var(--shadow); font-weight:800; font-size:16px; color:var(--sun); }
+  .sound-toggle{ display:flex; align-items:center; gap:6px; background:#fff; border-radius:20px; padding:6px 14px; box-shadow: var(--shadow); font-weight:700; font-size:14px; color:var(--ink); cursor:pointer; border:none; font-family:'Poppins',sans-serif; }
+  .sound-toggle .dot{width:9px; height:9px; border-radius:50%; background:var(--grass);}
+  .sound-toggle.off .dot{background:#c9c9d6;}
+  .screen{display:none; animation: pop .35s ease;}
+  .screen.active{display:block;}
+  @keyframes pop{ from{opacity:0; transform:scale(.96);} to{opacity:1; transform:scale(1);} }
+  .card{ background:var(--white); border-radius:28px; padding:32px 28px; box-shadow: 0 16px 0 rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.08); text-align:center; position:relative; overflow:hidden; }
+  .bi-header{ margin:4px 0 18px; }
+  .bi-header .en{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:32px; color:var(--ink); display:block; line-height:1.2; }
+  .bi-header .fr{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:30px; color:var(--french); display:block; line-height:1.2; margin-top:2px; }
+  .section-tag{ display:inline-block; background:#F1F1FF; color:var(--grape); font-weight:700; font-size:13px; letter-spacing:.5px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:10px; }
+  .bi-body{ margin:10px 0 16px; }
+  .bi-body .en{ font-size:21px; font-weight:600; color:var(--ink); display:block; line-height:1.45; }
+  .bi-body .fr{ font-size:20px; font-weight:600; color:var(--french); display:block; line-height:1.45; margin-top:2px; }
+  .mascot{ font-size:56px; display:block; margin-bottom:6px; animation: bob 2.4s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+  .dual-audio-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin:14px 0; }
+  .lang-btn{ display:inline-flex; align-items:center; gap:8px; color:#fff; border:none; border-radius:50px; padding:12px 20px; font-size:19px; font-weight:700; font-family:'Poppins', sans-serif; cursor:pointer; transition: transform .08s ease; }
+  .lang-btn:active{ transform: translateY(5px); }
+  .lang-btn.en-btn{ background:var(--sky); box-shadow: 0 7px 0 #2E9DBF; }
+  .lang-btn.fr-btn{ background:var(--french); box-shadow: 0 7px 0 #5A2BAE; }
+  .nav-row{ display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:22px auto 0; padding:0 6px; }
+  .nav-btn{ font-family:'Poppins', sans-serif; font-weight:700; font-size:20px; padding:14px 30px; border-radius:50px; border:none; cursor:pointer; color:#fff; box-shadow: var(--shadow); transition: transform .08s ease; }
+  .nav-btn:active{transform:translateY(6px); box-shadow:0 2px 0 rgba(0,0,0,0.15);}
+  .nav-btn.back{background:#B9B9C9; box-shadow:0 8px 0 #92929F;}
+  .nav-btn.next{background:var(--grass); box-shadow:0 8px 0 #429A4C;}
+  .nav-btn:disabled{opacity:.35; cursor:not-allowed;}
+  .nav-btn.locked{background:#D8D8E4; box-shadow:0 8px 0 #B4B4C2; color:#8888a0;}
+  .shape-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin:20px 0; }
+  @media (max-width:640px){ .shape-grid{grid-template-columns:repeat(3,1fr);} }
+  .shape-card{ background:var(--cream); border-radius:20px; border:3px solid #FFE1A8; padding:14px 6px 8px; font-size:34px; }
+  .shape-card .cap-en{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:14px; color:var(--ink); margin-top:4px; }
+  .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; color:var(--french); margin-top:1px;}
+  .card-audio-row{ display:flex; gap:5px; justify-content:center; margin-top:6px; }
+  .card-audio-btn{ border:none; border-radius:8px; font-size:11px; font-weight:800; padding:4px 7px; cursor:pointer; color:#fff; }
+  .card-audio-btn.en{ background:var(--sky); }
+  .card-audio-btn.fr{ background:var(--french); }
+  .swatch-card{ width:100%; height:44px; border-radius:12px; margin:0 auto; }
+  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; }
+  .match-col{display:flex; flex-direction:column; gap:14px; min-width:160px;}
+  .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
+  .match-tile .main-txt{ font-size:22px; font-weight:700; display:block; }
+  .match-tile.selected{ border-color: var(--grape); background:#E9DBFF; transform:scale(1.03); }
+  .match-tile.correct{ border-color: var(--grass); background:#D9FFE0; cursor:default; }
+  .match-tile.wrong{ animation: shake .4s ease; border-color: var(--berry); background:#FFE0E8;}
+  @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 75%{transform:translateX(8px);} }
+  .opinion-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:20px 0; }
+  @media (max-width:640px){ .opinion-grid{grid-template-columns:repeat(2,1fr);} }
+  .opinion-card{ background:var(--cream); border:3px solid #FFE1A8; border-radius:20px; padding:14px 8px 10px; }
+  .opinion-card .swatch2{ width:60px; height:40px; border-radius:10px; margin:0 auto 6px; }
+  .opinion-card .cap-en{ font-family:'Baloo 2',sans-serif; font-weight:700; font-size:14px; display:block; color:var(--ink); }
+  .opinion-card .cap-fr{ font-size:13px; color:var(--french); font-weight:700; display:block; margin-bottom:8px;}
+  .opinion-btns{ display:flex; gap:6px; justify-content:center; margin-top:6px; }
+  .opinion-btn{ border:none; border-radius:12px; padding:7px 9px; font-size:18px; cursor:pointer; background:#fff; box-shadow:0 4px 0 rgba(0,0,0,0.1); transition: transform .08s ease;}
+  .opinion-btn:active{ transform:translateY(3px); box-shadow:none; }
+  .opinion-btn.like.picked{ background:#D9FFE0; }
+  .opinion-btn.dislike.picked{ background:#FFE0E8; }
+  .opinion-card.answered{ border-color: var(--grass); }
+  .opinion-said{ margin-top:6px; font-size:11px; font-weight:700; color:var(--grass); min-height:26px; line-height:1.3; }
+  .sentence-slot{ min-height:70px; background:#F6F6FF; border:3px dashed #C7C7EE; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; padding:14px; margin:16px 0; font-family:'Baloo 2', sans-serif; font-size:24px; font-weight:700; }
+  .sentence-slot .placed{ background:var(--sun); padding:8px 14px; border-radius:12px; color:#4A3600; }
+  .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
+  .word-chip{ background:var(--berry); color:#fff; padding:10px 18px; border-radius:16px; font-family:'Baloo 2', sans-serif; font-weight:700; font-size:20px; cursor:pointer; box-shadow:0 6px 0 #C24868; transition: transform .1s ease; text-align:center; }
+  .word-chip .fr-hint{ display:block; font-size:11px; font-weight:600; opacity:.85; margin-top:2px; }
+  .word-chip:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; }
+  .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
+  .feedback-banner{ margin-top:14px; font-weight:800; font-size:20px; min-height:52px; }
+  .feedback-banner .fb-fr{ display:block; font-size:16px; color:var(--french); font-weight:700; }
+  .feedback-banner.good .fb-en{color:#2F9E44;}
+  .feedback-banner.retry .fb-en{color:#E8590C;}
+  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:520px; margin:18px auto 0; }
+  .mcq-opt{ font-family:'Poppins', sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:16px; border:3px solid #D6D6FF; background:#F8F8FF; cursor:pointer; text-align:left; transition: transform .08s ease, background .15s ease, border-color .15s ease; }
+  .mcq-opt .opt-fr{ display:block; font-size:15px; color:var(--french); font-weight:600; margin-top:3px; }
+  .mcq-opt:hover{ transform: translateY(-2px); }
+  .mcq-opt.correct{ background:#D9FFE0; border-color:var(--grass); }
+  .mcq-opt.incorrect{ background:#FFE0E8; border-color:var(--berry); animation: shake .4s ease;}
+  .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
+  .recap-chip-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
+  .recap-chip{ background:#fff; border:3px solid #D6D6FF; border-radius:16px; padding:10px 14px; font-size:26px; cursor:pointer; transition: transform .1s ease, border-color .15s ease;}
+  .recap-chip:hover{ transform:translateY(-3px); }
+  .recap-chip.active{ border-color:var(--grape); background:#EEE6FF; }
+  .recap-sentence-en{ font-family:'Baloo 2', sans-serif; font-size:26px; font-weight:800; min-height:38px; margin:14px 0 2px; color:var(--ink); }
+  .recap-sentence-fr{ font-family:'Baloo 2', sans-serif; font-size:23px; font-weight:800; min-height:32px; color:var(--french); }
+  .confetti{ font-size:40px; display:flex; justify-content:center; gap:12px; margin:10px 0 6px; }
+  .confetti span{ display:inline-block; animation: spin 1.6s linear infinite; }
+  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  .confetti-burst{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:5; }
+  .confetti-piece{ position:absolute; top:-20px; font-size:20px; animation: fall linear forwards; }
+  @keyframes fall{ to{ transform: translateY(420px) rotate(360deg); opacity:0; } }
+  .replay-btn{ background:var(--tangerine); color:#fff; border:none; border-radius:50px; padding:12px 22px; font-size:17px; font-weight:700; cursor:pointer; box-shadow:0 6px 0 #C86B1E; margin-top:12px; }
+  .count-display{ font-size:44px; letter-spacing:6px; margin:10px 0; }
+  footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:#8b8ba3; }
+</style>
+</head>
+<body class="notranslate" translate="no">
+<div id="app">
+  <div class="topbar">
+    <div class="brand"><span class="emoji">🔢</span> Elina's Numbers &amp; Colors</div>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">1 / 12</div>
+    </div>
+    <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
+    <div class="star-count">⭐ <span id="starCount">0</span></div>
+  </div>
+
+  <section class="screen active" data-screen="0">
+    <div class="card">
+      <span class="mascot">🦊</span>
+      <div class="bi-header"><span class="en">Welcome back, Elina!</span><span class="fr">Bon retour, Elina !</span></div>
+      <div class="bi-body"><span class="en">Today: numbers and new colors!</span><span class="fr">Aujourd'hui : les nombres et de nouvelles couleurs !</span></div>
+      <div class="dual-audio-row">
+        <button class="lang-btn en-btn" onclick="speakEN('Hi Elina! Today we count and learn new colors!')">🔊 EN</button>
+        <button class="lang-btn fr-btn" onclick="speakFR('Salut Elina ! Aujourd\'hui on compte et on apprend des couleurs !')">🔊 FR</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="1">
+    <div class="card">
+      <span class="section-tag">Numbers 1-10 / Nombres 1 à 10</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Let's count to ten!</span><span class="fr" style="font-size:24px;">Comptons jusqu'à dix !</span></div>
+      <div class="shape-grid" id="numbers1to10Grid"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="2">
+    <div class="card">
+      <span class="section-tag">Numbers 11-20 / Nombres 11 à 20</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Now let's count higher!</span><span class="fr" style="font-size:24px;">Comptons encore plus haut !</span></div>
+      <div class="shape-grid" id="numbers11to20Grid"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="3">
+    <div class="card">
+      <span class="section-tag">Counting Game / Jeu de comptage</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Match the number to the dots!</span><span class="fr" style="font-size:24px;">Associe le nombre aux points !</span></div>
+      <div class="match-wrap">
+        <div class="match-col" id="matchNumWords"></div>
+        <div class="match-col" id="matchNumDots"></div>
+      </div>
+      <div class="feedback-banner" id="matchFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="4">
+    <div class="card">
+      <span class="section-tag">More Colors / Plus de couleurs</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Six new colors!</span><span class="fr" style="font-size:24px;">Six nouvelles couleurs !</span></div>
+      <div class="shape-grid" id="moreColorsGrid"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="5">
+    <div class="card">
+      <span class="section-tag">Color Game / Jeu de couleurs</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Match the color word to the swatch!</span><span class="fr" style="font-size:24px;">Associe le mot à la couleur !</span></div>
+      <div class="match-wrap">
+        <div class="match-col" id="matchColorWords"></div>
+        <div class="match-col" id="matchColorSwatch"></div>
+      </div>
+      <div class="feedback-banner" id="matchFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="6">
+    <div class="card">
+      <span class="section-tag">Build a Sentence / Construis une phrase</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">I have three cats!</span><span class="fr" style="font-size:24px;">J'ai trois chats !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="sentence-slot" id="sentenceSlot"></div>
+      <div class="word-bank" id="wordBank"></div>
+      <div class="feedback-banner" id="phraseFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="7">
+    <div class="card">
+      <span class="section-tag">I Like&hellip; / J'aime&hellip;</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Which new colors do you like?</span><span class="fr" style="font-size:24px;">Quelles nouvelles couleurs aimes-tu ?</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 10px;">Tap ❤️ or 🚫 on at least 4. / Touche ❤️ ou 🚫 sur au moins 4.</p>
+      <div class="opinion-grid" id="colorOpinionGrid"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="8">
+    <div class="card">
+      <span class="section-tag">How Many? / Combien ?</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">How many stars do you see?</span><span class="fr" style="font-size:24px;">Combien d'étoiles vois-tu ?</span></div>
+      <div class="count-display">⭐⭐⭐⭐</div>
+      <div class="mcq-options" data-gid="q1">
+        <button class="mcq-opt" data-ans="A">A) Two<span class="opt-fr">Deux</span></button>
+        <button class="mcq-opt" data-ans="B">B) Four<span class="opt-fr">Quatre</span></button>
+        <button class="mcq-opt" data-ans="C">C) Six<span class="opt-fr">Six</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="9">
+    <div class="card">
+      <span class="section-tag">What Color? / Quelle couleur ?</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">What color is the sun?</span><span class="fr" style="font-size:24px;">De quelle couleur est le soleil ?</span></div>
+      <div style="font-size:48px; margin:8px 0;">☀️</div>
+      <div class="mcq-options" data-gid="q2">
+        <button class="mcq-opt" data-ans="A">A) Black<span class="opt-fr">Noir</span></button>
+        <button class="mcq-opt" data-ans="B">B) Brown<span class="opt-fr">Marron</span></button>
+        <button class="mcq-opt" data-ans="C">C) Gold<span class="opt-fr">Doré</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="10">
+    <div class="card">
+      <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Tell Fox a number and a color!</span><span class="fr" style="font-size:24px;">Dis un nombre et une couleur à Renard !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap anything below! / Touche n'importe quoi ci-dessous !</p>
+      <div class="recap-chip-row" id="recapChips"></div>
+      <div class="recap-sentence-en" id="recapSentence">&hellip;</div>
+      <div class="recap-sentence-fr" id="recapSentenceFr">&hellip;</div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="11">
+    <div class="card">
+      <div class="confetti"><span>🎉</span><span>🔢</span><span>🎨</span><span>⭐</span><span>🎉</span></div>
+      <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
+      <div class="bi-body"><span class="en">You can count to twenty and name twelve colors!</span><span class="fr">Tu sais compter jusqu'à vingt et nommer douze couleurs !</span></div>
+      <div class="dual-audio-row">
+        <button class="lang-btn en-btn" onclick="speakEN('Great job, Elina!')">🔊 EN</button>
+        <button class="lang-btn fr-btn" onclick="speakFR('Bravo, Elina !')">🔊 FR</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="nav-row">
+    <button class="nav-btn back" id="backBtn" onclick="changeScreen(-1)">⬅ Back</button>
+    <button class="nav-btn next" id="nextBtn" onclick="changeScreen(1)">Next ➡</button>
+  </div>
+  <footer class="credit">KingCretot Experience &middot; Elina &middot; Lesson 3: Numbers 1-20 &amp; More Colors &middot; Phase 1 (Full Bilingual)</footer>
+</div>
+
+<script>
+let audioCtx;
+function getCtx(){ if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } return audioCtx; }
+function tone(freq, start, dur, type='sine', vol=0.22){
+  const ctx = getCtx(); const osc = ctx.createOscillator(); const gain = ctx.createGain();
+  osc.type = type; osc.frequency.value = freq;
+  gain.gain.setValueAtTime(vol, ctx.currentTime + start);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start(ctx.currentTime + start); osc.stop(ctx.currentTime + start + dur);
+}
+function playCorrect(){ tone(523.25,0,.14); tone(659.25,.14,.14); tone(783.99,.28,.14); tone(1046.5,.42,.22); }
+function playIncorrect(){ tone(330,0,.18,'sawtooth',0.15); tone(220,.15,.25,'sawtooth',0.15); }
+function playFanfare(){ [523.25,659.25,783.99,1046.5,1318.5].forEach((f,i)=> tone(f, i*0.13, .3, 'triangle', 0.2)); }
+
+const confettiEmojis = ['🎉','⭐','🎊','✨','💫'];
+function burstConfetti(cardEl){
+  let layer = cardEl.querySelector('.confetti-burst');
+  if(!layer){ layer = document.createElement('div'); layer.className = 'confetti-burst'; cardEl.appendChild(layer); }
+  for(let i=0;i<16;i++){
+    const piece = document.createElement('span');
+    piece.className = 'confetti-piece';
+    piece.textContent = confettiEmojis[Math.floor(Math.random()*confettiEmojis.length)];
+    piece.style.left = (Math.random()*94)+'%';
+    piece.style.animationDuration = (0.8 + Math.random()*0.9)+'s';
+    piece.style.fontSize = (16 + Math.random()*18)+'px';
+    layer.appendChild(piece);
+    setTimeout(()=> piece.remove(), 1900);
+  }
+}
+function currentCard(){ return document.querySelector('.screen.active .card'); }
+
+let soundOn = true;
+let voiceEN = null, voiceFR = null;
+function pickVoices(){
+  const voices = window.speechSynthesis.getVoices();
+  voiceEN = voices.find(v=> v.name.includes('Google') && v.lang === 'en-US')
+         || voices.find(v=> v.name.includes('Google') && v.lang.startsWith('en'))
+         || voices.find(v=> ['Samantha','Alex'].includes(v.name))
+         || voices.find(v=> v.lang === 'en-US') || voices[0] || null;
+  voiceFR = voices.find(v=> v.name.includes('Google') && v.lang === 'fr-FR')
+         || voices.find(v=> v.name.includes('Google') && v.lang.startsWith('fr'))
+         || voices.find(v=> v.lang && v.lang.startsWith('fr')) || null;
+}
+if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged = pickVoices; pickVoices(); }
+function speakEN(text){
+  if(!soundOn || !('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = 0.92; u.pitch = 1.0;
+  if(voiceEN) u.voice = voiceEN;
+  window.speechSynthesis.speak(u);
+}
+function speakFR(text){
+  if(!soundOn || !('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 0.92; u.pitch = 1.0;
+  if(voiceFR) u.voice = voiceFR;
+  window.speechSynthesis.speak(u);
+}
+function toggleSound(){
+  soundOn = !soundOn;
+  const btn = document.getElementById('soundToggle');
+  btn.classList.toggle('off', !soundOn);
+  document.getElementById('soundToggleLabel').textContent = soundOn ? 'Sound On' : 'Sound Off';
+  if(!soundOn && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+}
+
+const screens = document.querySelectorAll('.screen');
+let current = 0;
+const totalScreens = screens.length;
+const screenLocks = {3:false, 5:false, 6:false, 7:false, 8:false, 9:false, 10:false};
+
+function updateProgress(){
+  document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%';
+  document.getElementById('progressLabel').textContent = (current+1) + ' / ' + totalScreens;
+}
+function refreshNavButtons(){
+  document.getElementById('backBtn').disabled = (current === 0);
+  const nextBtn = document.getElementById('nextBtn');
+  const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
+  nextBtn.disabled = locked || current === totalScreens-1;
+  nextBtn.classList.toggle('locked', locked);
+  nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡';
+}
+function changeScreen(delta){
+  const newIdx = current + delta;
+  if(newIdx < 0 || newIdx >= totalScreens) return;
+  screens[current].classList.remove('active');
+  current = newIdx;
+  screens[current].classList.add('active');
+  updateProgress(); refreshNavButtons();
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(current === totalScreens-1){ setTimeout(()=>{ burstConfetti(currentCard()); playFanfare(); }, 200); }
+}
+let stars = 0;
+function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
+
+const numberNames = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty'];
+const numberNamesFr = ['zéro','un','deux','trois','quatre','cinq','six','sept','huit','neuf','dix','onze','douze','treize','quatorze','quinze','seize','dix-sept','dix-huit','dix-neuf','vingt'];
+function buildNumberGrid(gridId, start, end){
+  const grid = document.getElementById(gridId);
+  for(let n=start;n<=end;n++){
+    const card = document.createElement('div');
+    card.className = 'shape-card';
+    card.innerHTML = `
+      ${n}
+      <span class="cap-en">${numberNames[n]}</span>
+      <span class="cap-fr">${numberNamesFr[n]}</span>
+      <div class="card-audio-row">
+        <button class="card-audio-btn en" type="button">EN</button>
+        <button class="card-audio-btn fr" type="button">FR</button>
+      </div>
+    `;
+    card.querySelector('.card-audio-btn.en').addEventListener('click', ()=> speakEN(numberNames[n]));
+    card.querySelector('.card-audio-btn.fr').addEventListener('click', ()=> speakFR(numberNamesFr[n]));
+    grid.appendChild(card);
+  }
+}
+
+function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
+
+function buildCountingMatch(){
+  const wordCol = document.getElementById('matchNumWords');
+  const dotCol = document.getElementById('matchNumDots');
+  const nums = [3,5,7,9];
+  const shuffledWords = shuffle(nums);
+  const shuffledDots = shuffle(nums);
+  let selectedTile = null; let matchesFound = 0;
+  const fb = document.getElementById('matchFeedback');
+
+  shuffledWords.forEach(n=>{
+    const tile = document.createElement('div');
+    tile.className = 'match-tile';
+    tile.innerHTML = `<span class="main-txt">${n} / ${numberNames[n]}</span>`;
+    tile.dataset.key = n;
+    tile.addEventListener('click', ()=>{
+      if(tile.classList.contains('correct')) return;
+      wordCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
+      tile.classList.add('selected'); selectedTile = tile;
+      speakEN(numberNames[n]);
+    });
+    wordCol.appendChild(tile);
+  });
+  shuffledDots.forEach(n=>{
+    const tile = document.createElement('div');
+    tile.className = 'match-tile';
+    tile.innerHTML = `<span class="main-txt">${'🔴'.repeat(n)}</span>`;
+    tile.dataset.key = n;
+    tile.addEventListener('click', ()=>{
+      if(tile.classList.contains('correct') || !selectedTile) return;
+      const isMatch = String(selectedTile.dataset.key) === String(tile.dataset.key);
+      if(isMatch){
+        tile.classList.add('correct'); selectedTile.classList.add('correct'); selectedTile.classList.remove('selected');
+        playCorrect(); addStar(1); matchesFound++;
+        burstConfetti(currentCard());
+        fb.innerHTML = `<span class="fb-en">Yes! That's ${numberNames[n]}! 🎉</span><span class="fb-fr">Oui ! C'est ${numberNamesFr[n]} !</span>`;
+        fb.className = 'feedback-banner good';
+        selectedTile = null;
+        if(matchesFound >= nums.length && !screenLocks[3]){ screenLocks[3] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+      } else {
+        tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
+        playIncorrect();
+        fb.innerHTML = `<span class="fb-en">Try again! Count carefully.</span><span class="fb-fr">Réessaie ! Compte bien.</span>`;
+        fb.className = 'feedback-banner retry';
+      }
+    });
+    dotCol.appendChild(tile);
+  });
+}
+
+const moreColors = [
+  {en:'Pink', fr:'rose', hex:'#FF9AC1'}, {en:'Black', fr:'noir', hex:'#2C2A4A'},
+  {en:'White', fr:'blanc', hex:'#F5F5F5'}, {en:'Brown', fr:'marron', hex:'#A9714B'},
+  {en:'Gray', fr:'gris', hex:'#A8A8B3'}, {en:'Gold', fr:'doré', hex:'#E4B94B'}
+];
+function buildMoreColorsGrid(){
+  const grid = document.getElementById('moreColorsGrid');
+  moreColors.forEach(item=>{
+    const card = document.createElement('div');
+    card.className = 'shape-card';
+    card.innerHTML = `
+      <div class="swatch-card" style="background:${item.hex}; border:2px solid #eee;"></div>
+      <span class="cap-en">${item.en}</span>
+      <span class="cap-fr">${item.fr}</span>
+      <div class="card-audio-row">
+        <button class="card-audio-btn en" type="button">EN</button>
+        <button class="card-audio-btn fr" type="button">FR</button>
+      </div>
+    `;
+    card.querySelector('.card-audio-btn.en').addEventListener('click', ()=> speakEN(item.en));
+    card.querySelector('.card-audio-btn.fr').addEventListener('click', ()=> speakFR(item.fr));
+    grid.appendChild(card);
+  });
+}
+
+function buildColorMatch(){
+  const wordCol = document.getElementById('matchColorWords');
+  const swatchCol = document.getElementById('matchColorSwatch');
+  const shuffledWords = shuffle(moreColors);
+  const shuffledSwatches = shuffle(moreColors);
+  let selectedTile = null; let matchesFound = 0;
+  const fb = document.getElementById('matchFeedback2');
+
+  shuffledWords.forEach(item=>{
+    const tile = document.createElement('div');
+    tile.className = 'match-tile';
+    tile.innerHTML = `<span class="main-txt">${item.en}</span>`;
+    tile.dataset.key = item.en;
+    tile.addEventListener('click', ()=>{
+      if(tile.classList.contains('correct')) return;
+      wordCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
+      tile.classList.add('selected'); selectedTile = tile;
+      speakEN(item.en);
+    });
+    wordCol.appendChild(tile);
+  });
+  shuffledSwatches.forEach(item=>{
+    const tile = document.createElement('div');
+    tile.className = 'match-tile';
+    tile.innerHTML = `<div class="swatch-card" style="background:${item.hex}; border:2px solid #eee;"></div>`;
+    tile.dataset.key = item.en;
+    tile.addEventListener('click', ()=>{
+      if(tile.classList.contains('correct') || !selectedTile) return;
+      const isMatch = selectedTile.dataset.key === tile.dataset.key;
+      if(isMatch){
+        tile.classList.add('correct'); selectedTile.classList.add('correct'); selectedTile.classList.remove('selected');
+        playCorrect(); addStar(1); matchesFound++;
+        burstConfetti(currentCard());
+        const matched = moreColors.find(c=>c.en===tile.dataset.key);
+        fb.innerHTML = `<span class="fb-en">Yes! That's ${matched.en}! 🎉</span><span class="fb-fr">Oui ! C'est ${matched.fr} !</span>`;
+        fb.className = 'feedback-banner good';
+        selectedTile = null;
+        if(matchesFound >= moreColors.length && !screenLocks[5]){ screenLocks[5] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+      } else {
+        tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
+        playIncorrect();
+        fb.innerHTML = `<span class="fb-en">Try again! Look carefully.</span><span class="fb-fr">Réessaie ! Regarde bien.</span>`;
+        fb.className = 'feedback-banner retry';
+      }
+    });
+    swatchCol.appendChild(tile);
+  });
+}
+
+const displayPhrase = ['I', 'have', 'three', 'cats.'];
+const frHints = {'I':'Je', 'have':'ai', 'three':'trois', 'cats.':'chats.'};
+const bankWords = shuffle(['three', 'I', 'cats.', 'have']);
+let placedWords = [];
+function buildPhraseScreen(){
+  const bank = document.getElementById('wordBank');
+  bankWords.forEach(word=>{
+    const chip = document.createElement('div');
+    chip.className = 'word-chip';
+    chip.innerHTML = `${word}<span class="fr-hint">${frHints[word]}</span>`;
+    chip.addEventListener('click', ()=>{
+      if(chip.classList.contains('used')) return;
+      placedWords.push(word); chip.classList.add('used');
+      renderSlot(); checkPhrase();
+    });
+    bank.appendChild(chip);
+  });
+  renderSlot();
+}
+function renderSlot(){
+  const slot = document.getElementById('sentenceSlot');
+  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
+    '<span style="color:#aaa; font-size:16px; font-weight:500;">Tap the words below&hellip; / Touche les mots ci-dessous&hellip;</span>';
+}
+function checkPhrase(){
+  const fb = document.getElementById('phraseFeedback');
+  if(placedWords.length < displayPhrase.length) return;
+  const correct = placedWords.join(' ') === displayPhrase.join(' ');
+  if(correct){
+    playFanfare(); addStar(2); burstConfetti(currentCard());
+    fb.innerHTML = '<span class="fb-en">Perfect! "I have three cats." 🌟</span><span class="fb-fr">Parfait ! « J\'ai trois chats. »</span>';
+    fb.className = 'feedback-banner good';
+    speakEN('I have three cats.');
+    screenLocks[6] = true; refreshNavButtons();
+  } else {
+    playIncorrect();
+    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
+    fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button');
+    resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = resetPhrase;
+    fb.appendChild(resetBtn);
+  }
+}
+function resetPhrase(){
+  placedWords = [];
+  document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used'));
+  document.getElementById('phraseFeedback').innerHTML = '';
+  renderSlot();
+}
+
+let colorOpinionAnswered = 0;
+function buildColorOpinion(){
+  const grid = document.getElementById('colorOpinionGrid');
+  moreColors.forEach(item=>{
+    const card = document.createElement('div');
+    card.className = 'opinion-card';
+    card.innerHTML = `
+      <div class="swatch2" style="background:${item.hex}; border:2px solid #eee;"></div>
+      <span class="cap-en">${item.en}</span>
+      <span class="cap-fr">${item.fr}</span>
+      <div class="opinion-btns">
+        <button class="opinion-btn like">❤️</button>
+        <button class="opinion-btn dislike">🚫</button>
+      </div>
+      <div class="opinion-said"></div>
+    `;
+    const likeBtn = card.querySelector('.like');
+    const dislikeBtn = card.querySelector('.dislike');
+    const saidEl = card.querySelector('.opinion-said');
+    const respond = (liked)=>{
+      const already = card.classList.contains('answered');
+      likeBtn.classList.toggle('picked', liked);
+      dislikeBtn.classList.toggle('picked', !liked);
+      const enSentence = liked ? `I like ${item.en.toLowerCase()}.` : `I don't like ${item.en.toLowerCase()}.`;
+      const frSentence = liked ? `J'aime le ${item.fr}.` : `Je n'aime pas le ${item.fr}.`;
+      saidEl.innerHTML = enSentence + '<br>' + frSentence;
+      speakEN(enSentence);
+      if(!already){
+        card.classList.add('answered'); colorOpinionAnswered++;
+        burstConfetti(currentCard()); playCorrect();
+        if(colorOpinionAnswered >= 4 && !screenLocks[7]){ screenLocks[7] = true; refreshNavButtons(); }
+      }
+    };
+    likeBtn.addEventListener('click', ()=> respond(true));
+    dislikeBtn.addEventListener('click', ()=> respond(false));
+    grid.appendChild(card);
+  });
+}
+
+const FB = {
+  q1: { ok: 'B', expl: {
+    A: {en:'Count again - look closely!', fr:'Recompte - regarde bien !'},
+    B: {en:'Yes! Four stars! 🎉', fr:'Oui ! Quatre étoiles !'},
+    C: {en:'Count again - look closely!', fr:'Recompte - regarde bien !'}
+  }},
+  q2: { ok: 'C', expl: {
+    A: {en:'The sun isn\'t black - try again!', fr:'Le soleil n\'est pas noir - réessaie !'},
+    B: {en:'The sun isn\'t brown - try again!', fr:'Le soleil n\'est pas marron - réessaie !'},
+    C: {en:'Yes! The sun is gold/yellow! 🎉', fr:'Oui ! Le soleil est doré !'}
+  }}
+};
+function initMCQ(gid, lockKey, feedbackId){
+  const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
+  const fb = document.getElementById(feedbackId);
+  block.querySelectorAll('.mcq-opt').forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      if(block.classList.contains('answered')) return;
+      const ans = opt.dataset.ans;
+      const isCorrect = ans === FB[gid].ok;
+      if(isCorrect){
+        opt.classList.add('correct'); block.classList.add('answered');
+        block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
+        playCorrect(); addStar(2); burstConfetti(currentCard());
+        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
+        fb.className = 'feedback-banner good';
+        screenLocks[lockKey] = true; refreshNavButtons();
+      } else {
+        opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
+        playIncorrect();
+        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
+        fb.className = 'feedback-banner retry';
+      }
+    });
+  });
+}
+
+function buildRecap(){
+  const row = document.getElementById('recapChips');
+  const sentenceEl = document.getElementById('recapSentence');
+  const sentenceFrEl = document.getElementById('recapSentenceFr');
+  const pool = [
+    {enPhrase:'I have five stars.', frPhrase:'J\'ai cinq étoiles.', e:'⭐'},
+    {enPhrase:'I like pink.', frPhrase:'J\'aime le rose.', e:'🥷'},
+    {enPhrase:'I have ten fingers.', frPhrase:'J\'ai dix doigts.', e:'✋'},
+    {enPhrase:'I like gold.', frPhrase:'J\'aime le doré.', e:'✨'},
+    {enPhrase:'I have twenty stickers.', frPhrase:'J\'ai vingt autocollants.', e:'🌟'},
+    {enPhrase:'I like gray.', frPhrase:'J\'aime le gris.', e:'☁️'}
+  ];
+  pool.forEach(item=>{
+    const chip = document.createElement('div');
+    chip.className = 'recap-chip'; chip.textContent = item.e;
+    chip.addEventListener('click', ()=>{
+      document.querySelectorAll('.recap-chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      sentenceEl.textContent = item.enPhrase;
+      sentenceFrEl.textContent = item.frPhrase;
+      speakEN(item.enPhrase);
+      burstConfetti(currentCard()); playCorrect();
+      if(!screenLocks[10]){ screenLocks[10] = true; refreshNavButtons(); }
+    });
+    row.appendChild(chip);
+  });
+}
+
+buildNumberGrid('numbers1to10Grid', 1, 10);
+buildNumberGrid('numbers11to20Grid', 11, 20);
+buildCountingMatch();
+buildMoreColorsGrid();
+buildColorMatch();
+buildPhraseScreen();
+buildColorOpinion();
+initMCQ('q1', 8, 'mcqFeedback');
+initMCQ('q2', 9, 'mcqFeedback2');
+buildRecap();
+updateProgress();
+refreshNavButtons();
+</script>
+</body>
+</html>
