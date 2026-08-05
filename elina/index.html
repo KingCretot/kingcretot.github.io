@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Elina — English Lessons · KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sun:#FFC93C; --sky:#4AC7EC; --grass:#6BCB77; --berry:#FF6F91; --grape:#9B6BFF; --tangerine:#FF9142;
+  --ink:#2C2A4A; --card:#ffffff; --rim:#E9E4FF; --muted:#7a7a95; --french:#7B3FE4;
+  --hd:'Baloo 2', sans-serif; --bd:'Poppins', sans-serif;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+.notranslate{ translate:no; }
+body {
+  background: linear-gradient(160deg, #FFE0B8 0%, #FFC9A3 45%, #E7CFFF 100%);
+  color: var(--ink);
+  font-family: var(--bd);
+  font-size: 20px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 40px 22px 64px; }
+
+.brandbar {
+  display:flex; align-items:center; gap:12px;
+  font-family: var(--hd); font-weight:800;
+  letter-spacing:.5px; color:#8a4fd6;
+  font-size:.85rem; text-transform:uppercase;
+}
+.brandbar .dot { width:9px; height:9px; border-radius:50%; background:var(--grape); box-shadow:0 0 12px var(--grape); }
+
+.hero {
+  margin-top:22px;
+  background: var(--card);
+  border: 3px solid var(--rim);
+  border-radius: 28px;
+  padding: 36px 36px 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 0 rgba(0,0,0,0.06), 0 20px 40px rgba(0,0,0,0.08);
+}
+.hero::after {
+  content:""; position:absolute; right:-50px; top:-50px;
+  width:200px; height:200px; border-radius:50%;
+  background: radial-gradient(circle, rgba(255,201,60,0.28), transparent 70%);
+}
+.hero .mascot { font-size:46px; display:block; margin-bottom:8px; }
+.hero h1 {
+  font-family: var(--hd); font-weight:800;
+  font-size: 2.6rem; line-height:1.1; color: var(--ink);
+}
+.hero h1 .accent { color: var(--berry); }
+.hero .fr {
+  color: var(--french); font-weight:700; font-size: 1.25rem; margin-top:6px;
+  font-family: var(--hd);
+}
+.hero p.lead {
+  color: var(--muted); font-size: 1.08rem; margin-top:16px; max-width:620px;
+}
+.hero .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.chip {
+  background:#F6F2FF; border:2px solid var(--rim); border-radius:999px;
+  padding:8px 16px; font-size:.9rem; font-weight:700; color:var(--ink);
+  display:flex; align-items:center; gap:7px;
+}
+.chip .emo { font-size:1.05rem; }
+
+.seclabel { margin:40px 4px 16px; display:flex; align-items:center; gap:12px; }
+.seclabel h2 { font-family: var(--hd); font-weight:800; font-size:1.35rem; color:var(--ink); }
+.seclabel .line { flex:1; height:2px; background:var(--rim); border-radius:2px; }
+.seclabel .fr-sub { font-family: var(--hd); font-weight:600; font-size:.95rem; color:var(--french); }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:18px; }
+.lesson {
+  display:block; text-decoration:none;
+  background: var(--card);
+  border: 3px solid var(--rim);
+  border-radius: 22px;
+  padding: 22px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  opacity:0; transform:translateY(14px); animation: rise .5s ease forwards;
+}
+@keyframes rise { to { opacity:1; transform:translateY(0); } }
+.lesson::before {
+  content:""; position:absolute; left:0; top:0; bottom:0; width:6px; background:var(--ac);
+}
+.lesson:hover { transform:translateY(-5px); border-color:var(--ac); box-shadow:0 14px 28px rgba(0,0,0,0.12); }
+.lesson .row1 { display:flex; align-items:center; justify-content:space-between; }
+.lesson .num { font-family:var(--hd); font-weight:800; font-size:2.2rem; color:var(--ac); line-height:1; }
+.lesson .num small { display:block; font-size:.55rem; letter-spacing:2px; color:var(--muted); font-weight:700; margin-bottom:3px; }
+.lesson .emoji { font-size:2rem; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15)); }
+.lesson h3 { font-family:var(--hd); font-weight:800; font-size:1.25rem; margin-top:14px; color:var(--ink); }
+.lesson .theme-en { color:var(--ink); font-size:.95rem; margin-top:6px; font-weight:500; }
+.lesson .theme-fr { color:var(--french); font-size:.88rem; margin-top:2px; font-weight:600; }
+.lesson .go { margin-top:14px; display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:.95rem; color:var(--ac); }
+.lesson .go .arr { transition: transform .18s ease; }
+.lesson:hover .go .arr { transform:translateX(5px); }
+.badge-new {
+  position:absolute; top:14px; right:14px; background:var(--grass); color:#0f3d1c;
+  font-family:var(--hd); font-weight:800; font-size:.62rem; letter-spacing:1px;
+  padding:4px 10px; border-radius:999px;
+}
+
+footer {
+  margin-top:48px; padding-top:24px; border-top:2px solid var(--rim);
+  display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center; justify-content:space-between;
+  color:var(--muted); font-size:.92rem;
+}
+footer .name { font-family:var(--hd); font-weight:800; color:#8a4fd6; }
+footer a { color:var(--muted); text-decoration:none; }
+footer a:hover { color:var(--ink); }
+
+@media (max-width:620px) {
+  .wrap { padding:28px 14px 46px; }
+  .hero { padding:26px 20px 24px; }
+  .hero h1 { font-size:2rem; }
+  .hero .fr { font-size:1.05rem; }
+  .grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body class="notranslate" translate="no">
+<div class="wrap">
+
+  <div class="brandbar"><span class="dot"></span> KingCretot Experience</div>
+
+  <header class="hero">
+    <span class="mascot">🦇</span>
+    <h1>Elina's <span class="accent">English Lessons</span></h1>
+    <div class="fr">Les leçons d'anglais d'Elina</div>
+    <p class="lead">Pick a lesson below to begin! Tap, listen, and play your way through. / Choisis une leçon pour commencer ! Touche, écoute, et joue.</p>
+    <div class="meta">
+      <span class="chip"><span class="emo">📚</span> 8 lessons</span>
+      <span class="chip"><span class="emo">🎮</span> Interactive &amp; gamified</span>
+      <span class="chip"><span class="emo">🇫🇷🇺🇸</span> Full Bilingual</span>
+    </div>
+  </header>
+
+  <div class="seclabel">
+    <h2>September / Septembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Elina_Lesson1_Hello_ABC.html" style="--ac:var(--sky); animation-delay:.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>1</div>
+        <div class="emoji">🔤</div>
+      </div>
+      <h3>Hello, ABC &amp; My Favorites</h3>
+      <div class="theme-en">Greetings, the alphabet, and first favorite things.</div>
+      <div class="theme-fr">Salutations, l'alphabet, et les premières choses préférées.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Elina_Lesson2_My_Family_My_House.html" style="--ac:var(--berry); animation-delay:.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>2</div>
+        <div class="emoji">🏠</div>
+      </div>
+      <h3>My Family &amp; My House</h3>
+      <div class="theme-en">Family words and rooms in the house.</div>
+      <div class="theme-fr">Les mots de la famille et les pièces de la maison.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Elina_Lesson3_Numbers_MoreColors.html" style="--ac:var(--grape); animation-delay:.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>3</div>
+        <div class="emoji">🔢</div>
+      </div>
+      <h3>Numbers &amp; More Colors</h3>
+      <div class="theme-en">Counting and naming more colors.</div>
+      <div class="theme-fr">Compter et nommer plus de couleurs.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Elina_Lesson4_MoreLetters_Sounds.html" style="--ac:var(--grass); animation-delay:.14s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>4</div>
+        <div class="emoji">🔡</div>
+      </div>
+      <h3>More Letters &amp; Sounds</h3>
+      <div class="theme-en">Practicing letter sounds and phonics.</div>
+      <div class="theme-fr">Pratiquer les sons des lettres et la phonétique.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>October / Octobre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Elina_Lesson5_MyDay.html" style="--ac:var(--tangerine); animation-delay:.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>5</div>
+        <div class="emoji">⏰</div>
+      </div>
+      <h3>My Day</h3>
+      <div class="theme-en">Daily routine words, in order from morning to night.</div>
+      <div class="theme-fr">Les mots de la routine quotidienne, du matin au soir.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Elina_Lesson6_Weather_Days.html" style="--ac:var(--sky); animation-delay:.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>6</div>
+        <div class="emoji">⛅</div>
+      </div>
+      <h3>Weather &amp; Days</h3>
+      <div class="theme-en">Days of the week and talking about the weather.</div>
+      <div class="theme-fr">Les jours de la semaine et parler de la météo.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Elina_Lesson7_AutumnShapesSizes.html" style="--ac:var(--berry); animation-delay:.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>7</div>
+        <div class="emoji">🍂</div>
+      </div>
+      <h3>Autumn Shapes &amp; Sizes</h3>
+      <div class="theme-en">Describing autumn things by shape, size, and color.</div>
+      <div class="theme-fr">Décrire les choses d'automne par forme, taille, et couleur.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Elina_Lesson8_Halloween.html" style="--ac:var(--grape); animation-delay:.14s">
+      <span class="badge-new">NEWEST</span>
+      <div class="row1">
+        <div class="num"><small>LESSON</small>8</div>
+        <div class="emoji">🎃</div>
+      </div>
+      <h3>Halloween Fun</h3>
+      <div class="theme-en">Spooky vocabulary, costumes, and trick-or-treating.</div>
+      <div class="theme-fr">Vocabulaire d'Halloween, costumes, et bonbon ou un sort.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <footer>
+    <span><span class="name">KingCretot Experience</span> &nbsp;·&nbsp; English lessons for Elina</span>
+    <span><a href="https://kingcretot.com">kingcretot.com</a> &nbsp;·&nbsp; <a href="mailto:kce@kingcretot.com">kce@kingcretot.com</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
