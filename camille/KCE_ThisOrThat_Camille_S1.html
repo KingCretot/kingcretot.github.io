@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>This or That — Camille · Session 1 | KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D;
+  --navyband:#0A2540;
+  --gold:#C9A84C;
+  --blue:#0047BA;
+  --red:#DB2F30;
+  --cream:#FAF7EF;
+  --ink:#232A38;
+  --muted:#6E7686;
+  --line:#DFD8C6;
+  --display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --ui:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--ui);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 40px rgba(10,31,61,.08)}
+
+/* ---------- masthead ---------- */
+.mast{background:var(--navyband);padding:20px 28px;display:flex;align-items:center;gap:16px}
+.kc{width:44px;height:44px;flex:none;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:1px}
+.wm{color:var(--gold);font-family:var(--display);font-size:25px;font-weight:700;line-height:1;letter-spacing:.4px}
+.motto{font-size:9.5px;letter-spacing:3.2px;margin-top:6px;font-family:var(--ui);font-weight:600}
+.motto .e{color:#fff}.motto .m{color:var(--gold)}.motto .x{color:var(--red)}
+.band{height:5px;display:flex}
+.band i{flex:1}
+.band .b1{background:var(--blue)}.band .b2{background:var(--gold)}.band .b3{background:var(--red)}
+
+/* ---------- intro ---------- */
+.head{padding:26px 28px 4px}
+h1{font-family:var(--display);font-size:32px;font-weight:700;color:var(--navy);margin:0 0 6px;line-height:1.05}
+.sess{font-size:12px;color:var(--muted);margin:0 0 16px}
+.rules{background:var(--cream);border-left:3px solid var(--gold);padding:13px 16px;font-size:13px;line-height:1.6;margin:0 0 6px}
+.rules b{color:var(--navy)}
+.rules p{margin:0 0 5px}
+.rules p:last-child{margin:0}
+.fr{color:var(--muted);font-style:italic;font-family:var(--display);font-size:14px}
+
+/* ---------- sticky counter ---------- */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:9px 28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.count{font-size:12px;color:var(--navy);font-weight:600;letter-spacing:.2px}
+.count span{color:var(--muted);font-weight:400}
+.track{flex:1;min-width:90px;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.fill{height:100%;width:0%;background:var(--gold);transition:width .25s ease}
+.btn{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.3px;padding:7px 14px;border-radius:3px;border:1px solid var(--navy);background:var(--navy);color:#fff;cursor:pointer}
+.btn:hover{background:#123056}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn.ghost:hover{background:var(--cream)}
+.btn:focus-visible,.opt:focus-visible,.star:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+/* ---------- clusters ---------- */
+.cluster{padding:0 28px}
+.ctop{display:flex;align-items:baseline;gap:10px;margin:30px 0 3px;padding-bottom:6px;border-bottom:2px solid var(--gold)}
+.cname{font-family:var(--display);font-size:21px;font-weight:700;color:var(--navy)}
+.cfeeds{font-size:9.5px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;font-weight:600;margin-left:auto;text-align:right}
+
+/* ---------- the split bar (signature) ---------- */
+.row{display:flex;align-items:stretch;gap:8px;margin:7px 0}
+.pair{flex:1;display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;min-height:46px}
+.opt{
+  flex:1;border:0;background:#fff;font-family:var(--ui);font-size:14.5px;color:var(--ink);
+  cursor:pointer;padding:10px 12px;text-align:center;line-height:1.25;
+  transition:background .14s ease,color .14s ease;
+}
+.opt:hover{background:var(--cream)}
+.opt.sel{background:var(--navy);color:#fff;font-weight:600}
+.pair.done .opt:not(.sel){color:#A9AFBB;background:#FCFBF7}
+.mid{width:1px;background:var(--line);flex:none}
+.pair.done .mid{background:var(--navy)}
+.hint{display:block;font-size:12.5px;color:#4A5261;font-family:var(--ui);font-style:normal;margin-top:3px}
+.opt.sel .hint{color:#DCE4F0}
+.star{
+  flex:none;width:40px;border:1px solid var(--line);border-radius:4px;background:#fff;
+  cursor:pointer;font-size:16px;line-height:1;color:#CFD5DE;transition:.14s;
+}
+.star:hover{background:var(--cream);color:var(--gold)}
+.star.on{background:#FBF3DC;border-color:var(--gold);color:var(--gold)}
+
+/* ---------- notes + output ---------- */
+.tail{padding:8px 28px 34px}
+h2{font-family:var(--display);font-size:21px;font-weight:700;color:var(--navy);margin:30px 0 3px;padding-bottom:6px;border-bottom:2px solid var(--gold)}
+.lab{font-size:11px;color:var(--muted);margin:10px 0 5px;line-height:1.5}
+textarea{
+  width:100%;min-height:88px;border:1px solid var(--line);border-radius:4px;padding:11px;
+  font-family:var(--ui);font-size:13.5px;color:var(--ink);resize:vertical;background:#fff;
+}
+textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.18)}
+#out{min-height:200px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.5;background:var(--cream);display:none}
+.acts{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap}
+.said{font-size:12px;color:#2E7D32;font-weight:600;margin-top:9px;display:none}
+
+.foot{background:var(--navyband);color:#8E99AC;font-size:9.5px;text-align:center;padding:11px;font-style:italic;font-family:var(--display)}
+
+@media(max-width:600px){
+  .head,.cluster,.tail,.bar{padding-left:16px;padding-right:16px}
+  h1{font-size:26px}
+  .opt{font-size:13.5px;padding:9px 7px}
+  .cfeeds{display:none}
+  .mast{padding:16px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="mast">
+    <div class="kc">KC</div>
+    <div>
+      <div class="wm">KingCretot Experience</div>
+      <div class="motto"><span class="e">EDUCATE.</span> <span class="m">EMPOWER.</span> <span class="x">EXCEL.</span></div>
+    </div>
+  </div>
+  <div class="band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+  <div class="head">
+    <h1>This or That</h1>
+    <p class="sess">Camille &middot; Session 1</p>
+    <div class="rules">
+      <p><b>Fast.</b> No thinking time. First answer wins — that's the whole game.</p>
+      <p><b>Star anything she gets excited about.</b> If she starts talking, let her — that's the good stuff.</p>
+      <p><b>Skipping is fine.</b> Leave one blank and move on.</p>
+      <p class="fr">&laquo; Pas de bonne r&eacute;ponse. Le premier truc qui te vient. &raquo;</p>
+    </div>
+  </div>
+
+  <div class="bar">
+    <div class="count" id="cnt">0 answered <span>&middot; 0 starred</span></div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+    <button class="btn" id="build">Build results</button>
+  </div>
+
+  <div id="clusters"></div>
+
+  <div class="tail">
+    <h2>What she actually said</h2>
+    <p class="lab">Anything worth remembering — a story, something she lit up about, something she rushed past. This is usually where the good lesson topics hide.</p>
+    <textarea id="notes" placeholder="e.g. Got really into the Ancient Egypt question, kept going for a full minute. Went quiet on anything about school."></textarea>
+
+    <h2>Results</h2>
+    <p class="lab">Build the results, copy the block, and paste it back to Claude for lesson topics.</p>
+    <textarea id="out" readonly aria-label="Results output"></textarea>
+    <div class="acts">
+      <button class="btn" id="copy">Copy results</button>
+      <button class="btn ghost" id="reset">Clear all</button>
+    </div>
+    <div class="said" id="said">Copied.</div>
+  </div>
+
+  <div class="foot">KingCretot Experience &nbsp;&middot;&nbsp; CONFIDENTIAL — Internal Use &nbsp;&middot;&nbsp; kingcretot.com</div>
+</div>
+
+<script>
+const DATA = [
+  { name:"Waking up", feeds:"Daily rhythm", items:[
+    ["Cereal","Toast","céréales","tartine"],
+    ["Morning person","Night owl","du matin","du soir"],
+    ["Sweet breakfast","Salty breakfast","petit-déj sucré","petit-déj salé"],
+    ["Get dressed fast","Take your time","s'habiller vite","prendre son temps"],
+    ["Hot chocolate","Orange juice","chocolat chaud","jus d'orange"],
+    ["Shower in the morning","Shower at night","douche le matin","douche le soir"],
+    ["Sleep in on weekends","Up early anyway","faire la grasse matinée","debout tôt quand même"]
+  ]},
+  { name:"Screens & stories", feeds:"Shows, games, what she watches", items:[
+    ["Cartoons","Live-action shows","dessins animés","séries avec de vrais acteurs"],
+    ["Watch in English","Watch in French","regarder en anglais","regarder en français"],
+    ["Books","Videos","livres","vidéos"],
+    ["YouTube","Netflix"],
+    ["Rewatch a favorite","Always something new","revoir un préféré","toujours du nouveau"],
+    ["Funny stories","Adventure stories","histoires drôles","histoires d'aventure"],
+    ["Happy ending","Surprise ending","fin heureuse","fin surprise"]
+  ]},
+  { name:"History mysteries", feeds:"Camille's thing — lean into it", items:[
+    ["Ancient Egypt","Ancient Rome","l'Égypte ancienne","la Rome antique"],
+    ["Castles","Pyramids","les châteaux","les pyramides"],
+    ["Real history","Legends & myths","l'histoire vraie","les légendes"],
+    ["Kings and queens","Explorers","les rois et les reines","les explorateurs"],
+    ["Museum","Old ruins outside","un musée","des ruines dehors"],
+    ["Treasure hunt","Solving a mystery","chasse au trésor","résoudre un mystère"]
+  ]},
+  { name:"Friends", feeds:"Social style", items:[
+    ["Big group","Two close friends","grand groupe","deux amies proches"],
+    ["Talk a lot","Listen a lot","parler beaucoup","écouter beaucoup"],
+    ["Board games","Outside games","jeux de société","jeux dehors"],
+    ["Plan the game","Follow along","organiser le jeu","suivre le mouvement"],
+    ["The funny friend","The kind friend","l'amie drôle","l'amie gentille"],
+    ["New friends","Old friends","nouvelles amies","anciennes amies"]
+  ]},
+  { name:"Elsewhere", feeds:"Travel, escape", items:[
+    ["Beach","Mountains","la plage","la montagne"],
+    ["Another country","Somewhere close","un autre pays","tout près"],
+    ["Plane","Train","l'avion","le train"],
+    ["Hotel","Camping"],
+    ["Summer trip","Winter trip","voyage en été","voyage en hiver"],
+    ["New York","Paris"]
+  ]},
+  { name:"Who you are", feeds:"Identity — the fun ones", items:[
+    ["Tidy room","Organized mess","chambre bien rangée","bazar organisé"],
+    ["Take the photo","Be in the photo","prendre la photo","être sur la photo"],
+    ["Try it right away","Watch first","essayer tout de suite","regarder d'abord"],
+    ["Say what you think","Keep it to yourself","dire ce que tu penses","garder pour toi"],
+    ["Cat","Dog","chat","chien"],
+    ["Routine","Surprises"]
+  ]},
+  { name:"Fast and silly", feeds:"Exit laughing", items:[
+    ["Sweet popcorn","Salty popcorn","popcorn sucré","popcorn salé"],
+    ["Pizza","Burger"],
+    ["Fly","Be invisible","voler","être invisible"],
+    ["Travel to the past","Travel to the future","voyager dans le passé","voyager dans le futur"],
+    ["Never be bored","Never be tired","ne jamais s'ennuyer","ne jamais être fatiguée"],
+    ["Talking animals","Reading minds","des animaux qui parlent","lire dans les pensées"]
+  ]}
+];
+
+const state = {};
+let total = 0;
+
+const host = document.getElementById('clusters');
+DATA.forEach((cl, ci) => {
+  const sec = document.createElement('div');
+  sec.className = 'cluster';
+  const top = document.createElement('div');
+  top.className = 'ctop';
+  top.innerHTML = '<div class="cname">' + cl.name + '</div><div class="cfeeds">' + cl.feeds + '</div>';
+  sec.appendChild(top);
+
+  cl.items.forEach((it, ii) => {
+    const key = ci + '-' + ii;
+    total++;
+    state[key] = { a: it[0], b: it[1], pick: null, star: false, cluster: cl.name };
+
+    const row = document.createElement('div');
+    row.className = 'row';
+
+    const pair = document.createElement('div');
+    pair.className = 'pair';
+
+    const optA = document.createElement('button');
+    optA.className = 'opt';
+    optA.innerHTML = it[0] + (it[2] ? '<span class="hint">' + it[2] + '</span>' : '');
+    optA.addEventListener('click', () => pick(key, 'a', pair, optA, optB));
+
+    const mid = document.createElement('div');
+    mid.className = 'mid';
+
+    const optB = document.createElement('button');
+    optB.className = 'opt';
+    optB.innerHTML = it[1] + (it[3] ? '<span class="hint">' + it[3] + '</span>' : '');
+    optB.addEventListener('click', () => pick(key, 'b', pair, optB, optA));
+
+    pair.appendChild(optA);
+    pair.appendChild(mid);
+    pair.appendChild(optB);
+
+    const star = document.createElement('button');
+    star.className = 'star';
+    star.innerHTML = '&#9733;';
+    star.setAttribute('aria-label', 'Star this answer');
+    star.addEventListener('click', () => {
+      state[key].star = !state[key].star;
+      star.classList.toggle('on', state[key].star);
+      updateCount();
+    });
+
+    row.appendChild(pair);
+    row.appendChild(star);
+    sec.appendChild(row);
+  });
+
+  host.appendChild(sec);
+});
+
+function pick(key, side, pair, chosen, other) {
+  state[key].pick = side;
+  pair.classList.add('done');
+  chosen.classList.add('sel');
+  other.classList.remove('sel');
+  updateCount();
+}
+
+function updateCount() {
+  const answered = Object.values(state).filter(s => s.pick).length;
+  const starred = Object.values(state).filter(s => s.star).length;
+  document.getElementById('cnt').innerHTML = answered + ' answered <span>&middot; ' + starred + ' starred</span>';
+  document.getElementById('fill').style.width = (answered / total * 100) + '%';
+}
+
+document.getElementById('build').addEventListener('click', () => {
+  const notes = document.getElementById('notes').value.trim();
+  let lines = ['CAMILLE — THIS OR THAT — SESSION 1', ''];
+  let currentCluster = '';
+  Object.values(state).forEach(s => {
+    if (!s.pick) return;
+    if (s.cluster !== currentCluster) {
+      currentCluster = s.cluster;
+      lines.push('[' + currentCluster + ']');
+    }
+    const picked = s.pick === 'a' ? s.a : s.b;
+    lines.push((s.star ? '★ ' : '  ') + picked);
+  });
+  if (notes) {
+    lines.push('', 'NOTES:', notes);
+  }
+  const out = document.getElementById('out');
+  out.value = lines.join('\n');
+  out.style.display = 'block';
+  out.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+document.getElementById('copy').addEventListener('click', () => {
+  const out = document.getElementById('out');
+  if (!out.value) return;
+  navigator.clipboard.writeText(out.value).then(() => {
+    const said = document.getElementById('said');
+    said.style.display = 'block';
+    setTimeout(() => said.style.display = 'none', 2000);
+  });
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  if (!confirm('Clear all answers?')) return;
+  location.reload();
+});
+</script>
+</body>
+</html>
