@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>This or That — Bérénice · Session 1 | KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D;
+  --navyband:#0A2540;
+  --gold:#C9A84C;
+  --blue:#0047BA;
+  --red:#DB2F30;
+  --cream:#FAF7EF;
+  --ink:#232A38;
+  --muted:#6E7686;
+  --line:#DFD8C6;
+  --display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --ui:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--ui);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 40px rgba(10,31,61,.08)}
+
+.mast{background:var(--navyband);padding:20px 28px;display:flex;align-items:center;gap:16px}
+.kc{width:44px;height:44px;flex:none;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:1px}
+.wm{color:var(--gold);font-family:var(--display);font-size:25px;font-weight:700;line-height:1;letter-spacing:.4px}
+.motto{font-size:9.5px;letter-spacing:3.2px;margin-top:6px;font-family:var(--ui);font-weight:600}
+.motto .e{color:#fff}.motto .m{color:var(--gold)}.motto .x{color:var(--red)}
+.band{height:5px;display:flex}
+.band i{flex:1}
+.band .b1{background:var(--blue)}.band .b2{background:var(--gold)}.band .b3{background:var(--red)}
+
+.head{padding:26px 28px 4px}
+h1{font-family:var(--display);font-size:32px;font-weight:700;color:var(--navy);margin:0 0 6px;line-height:1.05}
+.sess{font-size:12px;color:var(--muted);margin:0 0 16px}
+.rules{background:var(--cream);border-left:3px solid var(--gold);padding:13px 16px;font-size:13px;line-height:1.6;margin:0 0 6px}
+.rules b{color:var(--navy)}
+.rules p{margin:0 0 5px}
+.rules p:last-child{margin:0}
+.fr{color:var(--muted);font-style:italic;font-family:var(--display);font-size:14px}
+
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:9px 28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.count{font-size:12px;color:var(--navy);font-weight:600;letter-spacing:.2px}
+.count span{color:var(--muted);font-weight:400}
+.track{flex:1;min-width:90px;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.fill{height:100%;width:0%;background:var(--gold);transition:width .25s ease}
+.btn{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.3px;padding:7px 14px;border-radius:3px;border:1px solid var(--navy);background:var(--navy);color:#fff;cursor:pointer}
+.btn:hover{background:#123056}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn.ghost:hover{background:var(--cream)}
+.btn:focus-visible,.opt:focus-visible,.star:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+.cluster{padding:0 28px}
+.ctop{display:flex;align-items:baseline;gap:10px;margin:30px 0 3px;padding-bottom:6px;border-bottom:2px solid var(--gold)}
+.cname{font-family:var(--display);font-size:21px;font-weight:700;color:var(--navy)}
+.cfeeds{font-size:9.5px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;font-weight:600;margin-left:auto;text-align:right}
+
+.row{display:flex;align-items:stretch;gap:8px;margin:7px 0}
+.pair{flex:1;display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;min-height:46px}
+.opt{
+  flex:1;border:0;background:#fff;font-family:var(--ui);font-size:14.5px;color:var(--ink);
+  cursor:pointer;padding:10px 12px;text-align:center;line-height:1.25;
+  transition:background .14s ease,color .14s ease;
+}
+.opt:hover{background:var(--cream)}
+.opt.sel{background:var(--navy);color:#fff;font-weight:600}
+.pair.done .opt:not(.sel){color:#A9AFBB;background:#FCFBF7}
+.mid{width:1px;background:var(--line);flex:none}
+.pair.done .mid{background:var(--navy)}
+.hint{display:block;font-size:12.5px;color:#4A5261;font-family:var(--ui);font-style:normal;margin-top:3px}
+.opt.sel .hint{color:#DCE4F0}
+.star{
+  flex:none;width:40px;border:1px solid var(--line);border-radius:4px;background:#fff;
+  cursor:pointer;font-size:16px;line-height:1;color:#CFD5DE;transition:.14s;
+}
+.star:hover{background:var(--cream);color:var(--gold)}
+.star.on{background:#FBF3DC;border-color:var(--gold);color:var(--gold)}
+
+.tail{padding:8px 28px 34px}
+h2{font-family:var(--display);font-size:21px;font-weight:700;color:var(--navy);margin:30px 0 3px;padding-bottom:6px;border-bottom:2px solid var(--gold)}
+.lab{font-size:11px;color:var(--muted);margin:10px 0 5px;line-height:1.5}
+textarea{
+  width:100%;min-height:88px;border:1px solid var(--line);border-radius:4px;padding:11px;
+  font-family:var(--ui);font-size:13.5px;color:var(--ink);resize:vertical;background:#fff;
+}
+textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.18)}
+#out{min-height:200px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.5;background:var(--cream);display:none}
+.acts{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap}
+.said{font-size:12px;color:#2E7D32;font-weight:600;margin-top:9px;display:none}
+
+.foot{background:var(--navyband);color:#8E99AC;font-size:9.5px;text-align:center;padding:11px;font-style:italic;font-family:var(--display)}
+
+@media(max-width:600px){
+  .head,.cluster,.tail,.bar{padding-left:16px;padding-right:16px}
+  h1{font-size:26px}
+  .opt{font-size:13.5px;padding:9px 7px}
+  .cfeeds{display:none}
+  .mast{padding:16px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="mast">
+    <div class="kc">KC</div>
+    <div>
+      <div class="wm">KingCretot Experience</div>
+      <div class="motto"><span class="e">EDUCATE.</span> <span class="m">EMPOWER.</span> <span class="x">EXCEL.</span></div>
+    </div>
+  </div>
+  <div class="band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+  <div class="head">
+    <h1>This or That</h1>
+    <p class="sess">Bérénice &middot; Session 1</p>
+    <div class="rules">
+      <p><b>Fast.</b> No thinking time. First instinct wins — the speed is the point.</p>
+      <p><b>Star anything she talks about.</b> Where she goes off on a tangent matters more than the answer.</p>
+      <p><b>Skipping is fine.</b> Leave a row blank and move on. You don't have to finish.</p>
+      <p class="fr">&laquo; Pas de bonne r&eacute;ponse. Le premier truc qui te vient. &raquo;</p>
+    </div>
+  </div>
+
+  <div class="bar">
+    <div class="count" id="cnt">0 answered <span>&middot; 0 starred</span></div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+    <button class="btn" id="build">Build results</button>
+  </div>
+
+  <div id="clusters"></div>
+
+  <div class="tail">
+    <h2>What she actually said</h2>
+    <p class="lab">Anything worth remembering — a story, a name, something she lit up about, something she avoided. This is usually where the good conversation topics hide.</p>
+    <textarea id="notes" placeholder="e.g. Talked for two minutes about her last swim meet. Went quiet on anything about next year."></textarea>
+
+    <h2>Results</h2>
+    <p class="lab">Build the results, copy the block, and paste it back to Claude for conversation topics.</p>
+    <textarea id="out" readonly aria-label="Results output"></textarea>
+    <div class="acts">
+      <button class="btn" id="copy">Copy results</button>
+      <button class="btn ghost" id="reset">Clear all</button>
+    </div>
+    <div class="said" id="said">Copied.</div>
+  </div>
+
+  <div class="foot">KingCretot Experience &nbsp;&middot;&nbsp; CONFIDENTIAL — Internal Use &nbsp;&middot;&nbsp; kingcretot.com</div>
+</div>
+
+<script>
+const DATA = [
+  { name:"Waking up", feeds:"Daily rhythm", items:[
+    ["Coffee","Tea","café","thé"],
+    ["Morning person","Night person","du matin","du soir"],
+    ["Big breakfast","Skip breakfast","gros petit-déj","pas de petit-déj"],
+    ["Sweet","Savory","sucré","salé"],
+    ["Shower in the morning","Shower at night","douche le matin","douche le soir"]
+  ]},
+  { name:"Pool & gym", feeds:"Bérénice's thing — swimming, gymnastics", items:[
+    ["Swimming","Gymnastics","la natation","la gymnastique"],
+    ["Competition day","Training day","jour de compétition","jour d'entraînement"],
+    ["Individual event","Team event","épreuve individuelle","épreuve d'équipe"],
+    ["Early morning practice","Evening practice","entraînement tôt le matin","entraînement le soir"],
+    ["Push through the pain","Know when to stop","aller au bout malgré la douleur","savoir s'arrêter"],
+    ["Beat your own record","Beat someone else","battre ton propre record","battre quelqu'un d'autre"]
+  ]},
+  { name:"Screens & stories", feeds:"Series, films, what she watches", items:[
+    ["Shows","Movies","séries","films"],
+    ["Original version with subtitles","Dubbed in French","VO sous-titrée","VF"],
+    ["Binge the whole season","One episode at a time","toute la saison d'un coup","un épisode à la fois"],
+    ["Netflix","YouTube"],
+    ["TikTok","Instagram"],
+    ["Happy ending","Realistic ending","fin heureuse","fin réaliste"]
+  ]},
+  { name:"Sound", feeds:"Music taste, concerts", items:[
+    ["Music with lyrics","Instrumental","avec des paroles","sans paroles"],
+    ["French music","English music","musique française","musique anglaise"],
+    ["Concert","Festival"],
+    ["Headphones","Speaker out loud","écouteurs","enceinte, à voix haute"],
+    ["Playlist on shuffle","Same song on repeat","playlist en aléatoire","la même chanson en boucle"]
+  ]},
+  { name:"People", feeds:"Social style", items:[
+    ["Text","Call","SMS","appeler"],
+    ["Big group","Two close friends","grand groupe","deux amies proches"],
+    ["Plan it ahead","Decide last minute","prévoir à l'avance","décider au dernier moment"],
+    ["Talk it out","Need time alone first","en parler","besoin d'être seule d'abord"],
+    ["The funny friend","The one who listens","l'amie drôle","celle qui écoute"]
+  ]},
+  { name:"Elsewhere", feeds:"Travel — Europe, USA", items:[
+    ["Beach","Mountains","la plage","la montagne"],
+    ["City","Countryside","la ville","la campagne"],
+    ["Europe","United States","l'Europe","les États-Unis"],
+    ["Summer trip","Winter trip","voyage en été","voyage en hiver"],
+    ["Plane","Train","l'avion","le train"],
+    ["Same place every year","Somewhere new","le même endroit chaque année","un endroit nouveau"]
+  ]},
+  { name:"Who you are", feeds:"Identity — the revealing ones", items:[
+    ["Speak first","Listen first","parler en premier","écouter d'abord"],
+    ["Take the photo","Be in the photo","prendre la photo","être sur la photo"],
+    ["Risk it","Play it safe","tenter le coup","jouer la sécurité"],
+    ["Say what you think","Keep the peace","dire ce que tu penses","éviter le conflit"],
+    ["Routine","Surprises"],
+    ["Cat","Dog","chat","chien"]
+  ]},
+  { name:"Fast and silly", feeds:"Exit laughing", items:[
+    ["Sweet popcorn","Salty popcorn","popcorn sucré","popcorn salé"],
+    ["Pizza","Burger"],
+    ["Fly","Be invisible","voler","être invisible"],
+    ["Never be bored","Never be tired","ne jamais t'ennuyer","ne jamais être fatiguée"]
+  ]}
+];
+
+const state = {};
+let total = 0;
+
+const host = document.getElementById('clusters');
+DATA.forEach((cl, ci) => {
+  const sec = document.createElement('div');
+  sec.className = 'cluster';
+  const top = document.createElement('div');
+  top.className = 'ctop';
+  top.innerHTML = '<div class="cname">' + cl.name + '</div><div class="cfeeds">' + cl.feeds + '</div>';
+  sec.appendChild(top);
+
+  cl.items.forEach((it, ii) => {
+    const key = ci + '-' + ii;
+    total++;
+    state[key] = { a: it[0], b: it[1], pick: null, star: false, cluster: cl.name };
+
+    const row = document.createElement('div');
+    row.className = 'row';
+
+    const pair = document.createElement('div');
+    pair.className = 'pair';
+
+    const optA = document.createElement('button');
+    optA.className = 'opt';
+    optA.innerHTML = it[0] + (it[2] ? '<span class="hint">' + it[2] + '</span>' : '');
+    optA.addEventListener('click', () => pick(key, 'a', pair, optA, optB));
+
+    const mid = document.createElement('div');
+    mid.className = 'mid';
+
+    const optB = document.createElement('button');
+    optB.className = 'opt';
+    optB.innerHTML = it[1] + (it[3] ? '<span class="hint">' + it[3] + '</span>' : '');
+    optB.addEventListener('click', () => pick(key, 'b', pair, optB, optA));
+
+    pair.appendChild(optA);
+    pair.appendChild(mid);
+    pair.appendChild(optB);
+
+    const star = document.createElement('button');
+    star.className = 'star';
+    star.innerHTML = '&#9733;';
+    star.setAttribute('aria-label', 'Star this answer');
+    star.addEventListener('click', () => {
+      state[key].star = !state[key].star;
+      star.classList.toggle('on', state[key].star);
+      updateCount();
+    });
+
+    row.appendChild(pair);
+    row.appendChild(star);
+    sec.appendChild(row);
+  });
+
+  host.appendChild(sec);
+});
+
+function pick(key, side, pair, chosen, other) {
+  state[key].pick = side;
+  pair.classList.add('done');
+  chosen.classList.add('sel');
+  other.classList.remove('sel');
+  updateCount();
+}
+
+function updateCount() {
+  const answered = Object.values(state).filter(s => s.pick).length;
+  const starred = Object.values(state).filter(s => s.star).length;
+  document.getElementById('cnt').innerHTML = answered + ' answered <span>&middot; ' + starred + ' starred</span>';
+  document.getElementById('fill').style.width = (answered / total * 100) + '%';
+}
+
+document.getElementById('build').addEventListener('click', () => {
+  const notes = document.getElementById('notes').value.trim();
+  let lines = ['BÉRÉNICE — THIS OR THAT — SESSION 1', ''];
+  let currentCluster = '';
+  Object.values(state).forEach(s => {
+    if (!s.pick) return;
+    if (s.cluster !== currentCluster) {
+      currentCluster = s.cluster;
+      lines.push('[' + currentCluster + ']');
+    }
+    const picked = s.pick === 'a' ? s.a : s.b;
+    lines.push((s.star ? '★ ' : '  ') + picked);
+  });
+  if (notes) {
+    lines.push('', 'NOTES:', notes);
+  }
+  const out = document.getElementById('out');
+  out.value = lines.join('\n');
+  out.style.display = 'block';
+  out.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+document.getElementById('copy').addEventListener('click', () => {
+  const out = document.getElementById('out');
+  if (!out.value) return;
+  navigator.clipboard.writeText(out.value).then(() => {
+    const said = document.getElementById('said');
+    said.style.display = 'block';
+    setTimeout(() => said.style.display = 'none', 2000);
+  });
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  if (!confirm('Clear all answers?')) return;
+  location.reload();
+});
+</script>
+</body>
+</html>
