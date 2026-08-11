@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Conversation Wheel (EN / FR) · KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A1F3D; --navyband:#0A2540; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30;
+    --cream:#FAF7EF; --paper:#FBF9F4; --ink:#233046; --muted:#6E7686; --line:#E4DDCC;
+    --motto-red:#DB2F30;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Nunito','Segoe UI',system-ui,sans-serif; color:var(--ink);
+    background:
+      radial-gradient(1200px 620px at 50% -10%, rgba(201,168,76,.10), transparent 60%),
+      var(--cream);
+    display:flex; align-items:flex-start; justify-content:center;
+    padding:20px 14px 34px; line-height:1.5;
+  }
+  .frame{
+    width:100%; max-width:560px; background:#fff; border-radius:18px; overflow:hidden;
+    box-shadow:0 18px 50px rgba(10,31,61,.16), 0 2px 0 rgba(10,31,61,.04);
+    border:1px solid #ECE6D8;
+  }
+
+  /* masthead */
+  .mast{background:var(--navyband); padding:22px 26px 24px; display:flex; align-items:center; justify-content:center}
+  .mast img{display:block; width:100%; max-width:400px; height:auto}
+  .tricolor{display:flex;height:4px}.tricolor i{flex:1}
+  .t1{background:var(--blue)}.t2{background:var(--gold)}.t3{background:var(--red)}
+
+  /* header band */
+  .head{text-align:center;padding:20px 26px 6px}
+  .eye{font-weight:800;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:29px;color:var(--navy);margin:5px 0 2px}
+  .sub{color:var(--muted);font-size:12.5px}
+
+  /* main layout — column on mobile, row on desktop */
+  .main{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 20px 4px}
+
+  /* left: wheel + legend */
+  .left{display:flex;flex-direction:column;align-items:center;width:100%}
+  .wheel-wrap{position:relative;width:300px;height:300px;max-width:80vw;max-height:80vw}
+  .pointer{
+    position:absolute;top:-4px;left:50%;transform:translateX(-50%);z-index:5;
+    width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;
+    border-top:26px solid var(--gold);filter:drop-shadow(0 3px 3px rgba(10,31,61,.35));
+  }
+  .wheel{
+    width:100%;height:100%;border-radius:50%;
+    transition:transform 4.4s cubic-bezier(.15,.9,.25,1);
+    filter:drop-shadow(0 10px 24px rgba(10,31,61,.28));will-change:transform;
+  }
+  .hub{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:4;
+    width:94px;height:94px;border-radius:50%;background:var(--navy);
+    border:3px solid var(--gold);color:var(--gold);cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:'Nunito',sans-serif;box-shadow:0 6px 16px rgba(10,31,61,.35), inset 0 0 0 6px rgba(201,168,76,.10);
+    transition:transform .15s ease;
+  }
+  .hub:hover{transform:translate(-50%,-50%) scale(1.05)}
+  .hub:active{transform:translate(-50%,-50%) scale(.96)}
+  .hub:disabled{cursor:default;opacity:.85}
+  .hub .word{font-weight:800;font-size:15px;letter-spacing:.14em}
+  .hub .spin-ico{font-size:15px;margin-bottom:1px;line-height:1}
+  .hub:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  .hint{color:var(--muted);font-size:11.5px;margin:12px 0 6px;text-align:center}
+
+  .legend{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;padding:2px 0 8px;max-width:340px}
+  .chip{
+    border:none;cursor:pointer;color:#fff;font-family:'Nunito',sans-serif;font-weight:700;
+    font-size:11px;padding:5px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:5px;
+    opacity:.9;transition:transform .12s ease, opacity .12s ease;
+  }
+  .chip:hover{transform:translateY(-1px);opacity:1}
+  .chip:disabled{cursor:default;opacity:.55;transform:none}
+  .chip:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+
+  /* right: result card */
+  .right{width:100%;display:flex;flex-direction:column;justify-content:center;padding:6px 0 4px}
+  .panel{
+    background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:22px 20px;text-align:center;min-height:150px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+    opacity:0;transform:translateY(8px);transition:opacity .45s ease, transform .45s ease;
+  }
+  .panel.show{opacity:1;transform:none}
+  .cat-chip{
+    font-weight:800;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:#fff;padding:5px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;
+  }
+  .q{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(21px,2.4vw,30px);line-height:1.28;color:var(--navy)}
+  .placeholder{color:var(--muted);font-size:13px;font-style:italic}
+
+  .push-toggle{
+    background:none;border:none;color:var(--blue);font-family:'Nunito',sans-serif;font-weight:700;
+    font-size:12px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;
+  }
+  .push-toggle:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+  .push{display:none;background:#fff;border:1px dashed var(--gold);border-radius:10px;padding:10px 14px;max-width:440px}
+  .push.show{display:block}
+  .push .lbl{font-weight:800;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px}
+  .push .txt{font-size:14.5px;color:var(--ink);font-weight:600}
+
+  .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+  .btn{
+    font-family:'Nunito',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.02em;
+    padding:10px 18px;border-radius:10px;cursor:pointer;border:2px solid transparent;transition:all .15s ease;
+  }
+  .btn-primary{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+  .btn-primary:hover{background:#0d2a52}
+  .btn-ghost{background:#fff;color:var(--navy);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--gold)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .btn:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+  /* footer */
+  .foot{padding:20px 22px 22px;text-align:center;background:var(--navyband);margin-top:6px}
+  .foot .rule{display:flex;height:3px;width:110px;margin:0 auto 12px;border-radius:2px;overflow:hidden}
+  .foot .rule i{flex:1}
+  .foot .motto{font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
+  .foot .motto .e1{color:#FFFFFF}.foot .motto .e2{color:var(--gold)}.foot .motto .e3{color:var(--motto-red)}
+  .foot .co{font-size:10px;color:rgba(255,255,255,.62)}
+  .foot .co b{color:#fff}
+
+  /* ===== DESKTOP / PRESENTING: horizontal ===== */
+  @media (min-width:780px){
+    body{align-items:center}
+    .frame{max-width:960px}
+    .main{flex-direction:row;align-items:stretch;gap:26px;padding:14px 34px 10px}
+    .left{width:auto;flex:0 0 auto;justify-content:center}
+    .wheel-wrap{width:340px;height:340px;max-width:none;max-height:none}
+    .right{flex:1;min-width:0}
+    .panel{min-height:280px;padding:30px 28px}
+    .legend{max-width:360px}
+    h1{font-size:33px}
+    .mast img{max-width:480px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .wheel{transition:transform .01s linear}
+    .panel{transition:none}
+  }
+
+  /* ===== bilingual EN/FR ===== */
+  .qgroup{display:flex;flex-direction:column;gap:6px;align-items:center}
+  .qf{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(15px,1.7vw,20px);line-height:1.32;color:var(--muted)}
+  .push .txt-fr{display:block;font-style:italic;font-weight:600;font-size:13px;color:var(--muted);margin-top:6px}
+
+.mast{display:flex;align-items:center;gap:14px;padding:18px 24px;}
+.kc-mono{width:42px;height:42px;flex:none;border:2px solid #C9A84C;display:flex;align-items:center;justify-content:center;color:#C9A84C;font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:18px;letter-spacing:1px;}
+.wm-text{color:#C9A84C;font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:700;line-height:1;}
+.motto-text{font-size:9px;letter-spacing:2.8px;margin-top:5px;font-weight:700;color:#fff;}
+.motto-text .g{color:#C9A84C;} .motto-text .r{color:#ff8a86;}
+</style>
+</head>
+<body>
+<main class="frame">
+  <div class="mast">
+    <div class="kc-mono">KC</div>
+    <div class="kc-word">
+      <div class="wm-text">KingCretot Experience</div>
+      <div class="motto-text">EDUCATE. <span class="g">EMPOWER.</span> <span class="r">EXCEL.</span></div>
+    </div>
+  </div>
+  <div class="tricolor"><i class="t1"></i><i class="t2"></i><i class="t3"></i></div>
+
+  <div class="head">
+    <div class="eye">Summer Conversation · Oral Confidence</div>
+    <h1>Let's Get Talking</h1>
+    <div class="sub">Spin the wheel for a topic — or tap a category to aim it.</div>
+  </div>
+
+  <div class="main">
+    <div class="left">
+      <div class="wheel-wrap">
+        <div class="pointer"></div>
+        <svg class="wheel" id="wheel" viewBox="0 0 300 300" aria-hidden="true"></svg>
+        <button class="hub" id="hub" aria-label="Spin the wheel">
+          <span class="spin-ico">↻</span><span class="word">SPIN</span>
+        </button>
+      </div>
+      <div class="hint" id="hint">Tap SPIN to begin</div>
+      <div class="legend" id="legend"></div>
+    </div>
+
+    <div class="right">
+      <div class="panel" id="panel">
+        <div class="placeholder" id="placeholder">Your first topic will appear here.  ·  Votre premier sujet apparaîtra ici.</div>
+      </div>
+      <div class="actions" id="actions" style="display:none">
+        <button class="btn btn-ghost" id="againBtn">Another in this topic</button>
+        <button class="btn btn-primary" id="spinBtn">Spin again</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="rule"><i class="t1"></i><i class="t2"></i><i class="t3"></i></div>
+    <div class="motto"><span class="e1">EDUCATE.</span> <span class="e2">EMPOWER.</span> <span class="e3">EXCEL.</span></div>
+    <div class="co"><b>KingCretot Experience, LLC</b> · PO Box 2322, Arcadia, FL 34265</div>
+  </div>
+</main>
+
+<script>
+/* ============================================================
+   KCE — Conversation Spinner (shared English resource)
+   Each card = an open conversation starter + a "Take it further"
+   follow-up written DIRECTLY TO THE STUDENT (student-visible).
+   7 questions per topic × 8 topics = 56.
+   To add your own: drop a new {q, push} object into any list.
+   ============================================================ */
+const CATS = [
+  { name:"Screens & Series", emoji:"🎬", color:"#0047BA", text:"#fff",
+    qs:[
+      {q:"Which series would you make the whole world watch — and why that one?", qf:"Quelle série ferais-tu regarder au monde entier — et pourquoi celle-là ?", push:"Give me three reasons — and you can't use the word 'good.'", pushf:"Donne-moi trois raisons — et interdit d'utiliser le mot « bien »."},
+      {q:"Describe a character you'd actually want as a friend — without saying their name.", qf:"Décris un personnage que tu voudrais vraiment comme ami — sans dire son nom.", push:"Now tell me what you two would do on a Saturday.", pushf:"Maintenant, dis-moi ce que vous feriez tous les deux un samedi."},
+      {q:"You can only rewatch ONE show for the rest of your life. Defend your choice.", qf:"Tu ne peux revoir qu'UNE seule série pour le reste de ta vie. Défends ton choix.", push:"Someone thinks your pick is boring — change their mind.", pushf:"Quelqu'un trouve ton choix ennuyeux — fais-lui changer d'avis."},
+      {q:"What's a plot twist that genuinely shocked you? Tell it like a story.", qf:"Quel rebondissement t'a vraiment choqué ? Raconte-le comme une histoire.", push:"Now tell it again in the present tense.", pushf:"Maintenant, raconte-le à nouveau au présent."},
+      {q:"Subtitles or dubbing — which is better, and why?", qf:"Sous-titres ou doublage — lequel est le mieux, et pourquoi ?", push:"Now argue the opposite side.", pushf:"Maintenant, défends le point de vue inverse."},
+      {q:"Pitch a Netflix show set in your town: genre, main character, first scene.", qf:"Propose une série Netflix qui se passe dans ta ville : genre, personnage principal, première scène.", push:"Now give me the season-one cliffhanger.", pushf:"Maintenant, donne-moi le suspense de fin de saison 1."},
+      {q:"Which show taught you the most real English? Which words stuck?", qf:"Quelle série t'a appris le plus d'anglais réel ? Quels mots sont restés ?", push:"Now use three of those words in fresh sentences.", pushf:"Maintenant, utilise trois de ces mots dans de nouvelles phrases."},
+    {q:"What show could you rewatch ten times and never get bored?", qf:"Quelle série tu pourrais revoir dix fois sans t'ennuyer ?", push:"Now sell it to someone who hates that genre.", pushf:"Maintenant, vends-la à quelqu'un qui déteste ce genre."},{q:"Describe the last thing you watched without saying its name. Let me guess.", qf:"Décris la dernière chose que tu as regardée sans dire son nom. Je devine.", push:"Now give me one more clue, but only with a sound.", pushf:"Maintenant, donne-moi un indice de plus, mais seulement avec un son."},{q:"Which character would you want as a roommate, and which would be a nightmare?", qf:"Quel personnage tu voudrais comme coloc, et lequel serait un cauchemar ?", push:"Now put them both in your apartment for one week. What happens?", pushf:"Maintenant, mets-les tous les deux chez toi pendant une semaine. Il se passe quoi ?"},{q:"A show everyone loves that you just don't get. Defend your position.", qf:"Une série que tout le monde adore et que toi, tu ne comprends pas. Défends ta position.", push:"Now argue the opposite side as convincingly as you can.", pushf:"Maintenant, défends le camp adverse de façon convaincante."},{q:"You get to write one more season of any show. Where does it go?", qf:"Tu écris une saison de plus pour n'importe quelle série. Elle part où ?", push:"Now tell me how it ends, for real this time.", pushf:"Maintenant, dis-moi comment ça se termine, pour de vrai."},{q:"Subtitles, dubbing, or neither? Explain how you actually watch.", qf:"Sous-titres, doublage, ou rien ? Explique comment tu regardes vraiment.", push:"Now tell me one English word you learned from a screen.", pushf:"Maintenant, dis-moi un mot d'anglais que tu as appris devant un écran."},{q:"What's the most overrated movie you've ever seen?", qf:"Quel est le film le plus surcoté que tu aies vu ?", push:"Now name something everyone hated that you secretly liked.", pushf:"Maintenant, nomme un truc que tout le monde a détesté et que toi, tu as bien aimé."},{q:"Tell me the plot of a movie badly, in three sentences.", qf:"Raconte mal l'intrigue d'un film, en trois phrases.", push:"Now do it again, but make it sound terrifying.", pushf:"Maintenant, refais-le, mais fais que ça ait l'air terrifiant."},{q:"Which fictional world would you actually want to live in?", qf:"Dans quel monde de fiction tu voudrais vraiment vivre ?", push:"Now tell me what you'd miss most from this one.", pushf:"Maintenant, dis-moi ce qui te manquerait le plus d'ici."},{q:"Do you watch things alone or with people? Which is better, and why?", qf:"Tu regardes seule ou avec des gens ? C'est mieux comment, et pourquoi ?", push:"Now describe the worst person to watch a movie with.", pushf:"Maintenant, décris la pire personne avec qui regarder un film."},{q:"What's a scene that made you cry? You're allowed to lie.", qf:"Quelle scène t'a fait pleurer ? Tu as le droit de mentir.", push:"Now tell me whether you were telling the truth.", pushf:"Maintenant, dis-moi si tu disais la vérité."},{q:"Reality TV: guilty pleasure or complete waste of time?", qf:"La télé-réalité : plaisir coupable ou perte de temps totale ?", push:"Now pitch a reality show set in your school.", pushf:"Maintenant, propose une télé-réalité qui se passe dans ton lycée."},{q:"What's the best thing you've watched in English this year?", qf:"Quelle est la meilleure chose que tu aies regardée en anglais cette année ?", push:"Now tell me one line from it you still remember.", pushf:"Maintenant, dis-moi une réplique dont tu te souviens encore."}]},
+  { name:"My Town & Home", emoji:"🏡", color:"#C9A84C", text:"#0A1F3D",
+    qs:[
+      {q:"Give me a 30-second tour of your town for someone who's never been.", qf:"Fais-moi visiter ta ville en 30 secondes, pour quelqu'un qui n'y est jamais allé.", push:"Now tell me the one spot you'd save for last.", pushf:"Maintenant, dis-moi l'endroit que tu garderais pour la fin."},
+      {q:"What food from your area does a visitor absolutely have to try? Sell it to me.", qf:"Quel plat de ta région un visiteur doit-il absolument goûter ? Vends-le-moi.", push:"Now describe the taste so well I can imagine it.", pushf:"Maintenant, décris le goût si bien que je puisse l'imaginer."},
+      {q:"Explain a famous event or tradition from where you live to someone who's never heard of it.", qf:"Explique un événement ou une tradition célèbre de chez toi à quelqu'un qui n'en a jamais entendu parler.", push:"Now tell me why people love it so much.", pushf:"Maintenant, dis-moi pourquoi les gens l'aiment autant."},
+      {q:"If you moved to another country, what would you miss most about home?", qf:"Si tu déménageais dans un autre pays, qu'est-ce qui te manquerait le plus de chez toi ?", push:"Now name one specific thing — not just 'my family.'", pushf:"Maintenant, nomme une chose précise — pas juste « ma famille »."},
+      {q:"Describe your perfect Saturday at home, hour by hour.", qf:"Décris ton samedi parfait à la maison, heure par heure.", push:"Now change one thing to make it even better.", pushf:"Maintenant, change une chose pour le rendre encore meilleur."},
+      {q:"What's something about your country the rest of the world gets wrong?", qf:"Qu'est-ce que le reste du monde comprend de travers à propos de ton pays ?", push:"Now give me one real example.", pushf:"Maintenant, donne-moi un exemple concret."},
+      {q:"Teach me an expression in your language that has no good English version.", qf:"Apprends-moi une expression de ta langue qui n'a pas de bon équivalent en anglais.", push:"Now invent an English phrase that could work instead.", pushf:"Maintenant, invente une expression anglaise qui pourrait la remplacer."},
+    {q:"Give me a tour of your bedroom in five sentences.", qf:"Fais-moi visiter ta chambre en cinq phrases.", push:"Now tell me which object you'd save in a fire.", pushf:"Maintenant, dis-moi quel objet tu sauverais dans un incendie."},{q:"What's the best-kept secret in your town?", qf:"Quel est le secret le mieux gardé de ta ville ?", push:"Now tell me who told you about it.", pushf:"Maintenant, dis-moi qui te l'a dit."},{q:"Describe your walk to school. What do you pass?", qf:"Décris ton trajet jusqu'au lycée. Tu passes devant quoi ?", push:"Now describe the same walk in winter.", pushf:"Maintenant, décris le même trajet en hiver."},{q:"A tourist has three hours in your town. What do you show them?", qf:"Un touriste a trois heures dans ta ville. Tu lui montres quoi ?", push:"Now tell me where you'd take them to eat.", pushf:"Maintenant, dis-moi où tu l'emmènerais manger."},{q:"What's the noise you hear most from your window?", qf:"Quel bruit tu entends le plus depuis ta fenêtre ?", push:"Now tell me the noise you miss when you're away.", pushf:"Maintenant, dis-moi le bruit qui te manque quand tu n'es pas là."},{q:"What's one thing your town needs that it doesn't have?", qf:"Qu'est-ce qui manque à ta ville ?", push:"Now convince the mayor in thirty seconds.", pushf:"Maintenant, convaincs le maire en trente secondes."},{q:"Where do you go when you want to be alone?", qf:"Où tu vas quand tu veux être seule ?", push:"Now tell me what you do there.", pushf:"Maintenant, dis-moi ce que tu y fais."},{q:"Describe your kitchen at dinner time. Who's there, what's happening?", qf:"Décris ta cuisine à l'heure du dîner. Qui est là, il se passe quoi ?", push:"Now tell me what's usually cooking.", pushf:"Maintenant, dis-moi ce qui mijote d'habitude."},{q:"What's changed in your town since you were small?", qf:"Qu'est-ce qui a changé dans ta ville depuis que tu es petite ?", push:"Now tell me if that's better or worse.", pushf:"Maintenant, dis-moi si c'est mieux ou moins bien."},{q:"Middle of a city or middle of nowhere? Pick and defend it.", qf:"En plein centre-ville ou au milieu de nulle part ? Choisis et défends.", push:"Now tell me what you'd hate about your own choice.", pushf:"Maintenant, dis-moi ce que tu détesterais dans ton propre choix."},{q:"What does your house smell like?", qf:"Ça sent quoi, chez toi ?", push:"Now tell me what smell means home to you.", pushf:"Maintenant, dis-moi quelle odeur veut dire la maison pour toi."},{q:"Describe the room where you study. Is it working for you?", qf:"Décris la pièce où tu révises. Ça marche pour toi ?", push:"Now change one thing about it.", pushf:"Maintenant, change une chose."},{q:"Who's your favorite neighbor, and why?", qf:"Quel est ton voisin préféré, et pourquoi ?", push:"Now tell me about the strangest one.", pushf:"Maintenant, parle-moi du plus bizarre."}]},
+  { name:"Friends & Daily Life", emoji:"👟", color:"#DB2F30", text:"#fff",
+    qs:[
+      {q:"Describe your friend group — but you're not allowed to name anyone.", qf:"Décris ton groupe d'amis — mais tu n'as pas le droit de nommer qui que ce soit.", push:"Now tell me which one you're most like.", pushf:"Maintenant, dis-moi à qui tu ressembles le plus."},
+      {q:"What's a trend at your school right now that adults just don't get?", qf:"Quelle tendance dans ton école en ce moment les adultes ne comprennent-ils pas du tout ?", push:"Now defend it — then make fun of it.", pushf:"Maintenant, défends-la — puis moque-toi d'elle."},
+      {q:"Tell me about something embarrassing you can laugh about now.", qf:"Raconte-moi un truc gênant dont tu peux rire aujourd'hui.", push:"Now tell me what you'd do differently.", pushf:"Maintenant, dis-moi ce que tu ferais différemment."},
+      {q:"What do you and your friends argue about the most?", qf:"De quoi toi et tes amis vous disputez-vous le plus ?", push:"Now take both sides of that argument.", pushf:"Maintenant, défends les deux camps de cette dispute."},
+      {q:"Plan the perfect day out with your friends — what's the plan?", qf:"Organise la journée parfaite avec tes amis — c'est quoi le programme ?", push:"Now you've each only got 20 euros — adjust the plan.", pushf:"Maintenant, vous n'avez que 20 euros chacun — adapte le programme."},
+      {q:"What's a small thing that instantly makes your day better?", qf:"Quelle petite chose améliore ta journée instantanément ?", push:"Now tell me why that one, exactly.", pushf:"Maintenant, dis-moi pourquoi celle-là, précisément."},
+      {q:"Describe your morning routine — but make it sound dramatic.", qf:"Décris ta routine du matin — mais rends-la spectaculaire.", push:"Now narrate it like a movie trailer.", pushf:"Maintenant, raconte-la comme une bande-annonce de film."},
+    {q:"How did you meet your closest friend?", qf:"Comment tu as rencontré ton amie la plus proche ?", push:"Now tell me the first thing you ever said to each other.", pushf:"Maintenant, dis-moi la première chose que vous vous êtes dite."},{q:"Describe your perfect Saturday, hour by hour.", qf:"Décris ton samedi parfait, heure par heure.", push:"Now tell me the last time you actually had one.", pushf:"Maintenant, dis-moi la dernière fois que tu en as vraiment eu un."},{q:"What's a running joke in your friend group?", qf:"Quelle est la blague récurrente dans ton groupe d'amis ?", push:"Now explain why it's funny to someone outside it.", pushf:"Maintenant, explique pourquoi c'est drôle à quelqu'un d'extérieur."},{q:"Who in your life gives the best advice?", qf:"Qui, dans ta vie, donne les meilleurs conseils ?", push:"Now tell me the best thing they ever told you.", pushf:"Maintenant, dis-moi la meilleure chose qu'on t'ait dite."},{q:"What do you and your friends argue about most?", qf:"Vous vous disputez le plus à propos de quoi, avec tes amis ?", push:"Now tell me who usually wins.", pushf:"Maintenant, dis-moi qui gagne d'habitude."},{q:"Tell me about a time you laughed so hard you couldn't breathe.", qf:"Raconte-moi une fois où tu as ri au point de ne plus respirer.", push:"Now tell me if it's still funny.", pushf:"Maintenant, dis-moi si c'est encore drôle."},{q:"What's your screen time? Be honest.", qf:"C'est quoi ton temps d'écran ? Sois honnête.", push:"Now tell me what you'd do with those hours instead.", pushf:"Maintenant, dis-moi ce que tu ferais de ces heures à la place."},{q:"Describe your morning routine in ten steps.", qf:"Décris ta routine du matin en dix étapes.", push:"Now tell me which step you cut when you're late.", pushf:"Maintenant, dis-moi quelle étape tu sautes quand tu es en retard."},{q:"Do you make the plans or wait to be invited?", qf:"Tu proposes les plans ou tu attends qu'on t'invite ?", push:"Now tell me which one you wish you were.", pushf:"Maintenant, dis-moi lequel tu aimerais être."},{q:"What would your friends say about you that you'd disagree with?", qf:"Qu'est-ce que tes amis diraient de toi et que tu contesterais ?", push:"Now tell me why they think that.", pushf:"Maintenant, dis-moi pourquoi ils pensent ça."},{q:"Tell me about a friendship that ended. What happened?", qf:"Parle-moi d'une amitié qui s'est terminée. Il s'est passé quoi ?", push:"Now tell me what you learned from it.", pushf:"Maintenant, dis-moi ce que tu en as appris."},{q:"What's the most useless skill you have?", qf:"Quel est le talent le plus inutile que tu aies ?", push:"Now explain exactly how it works.", pushf:"Maintenant, explique exactement comment ça marche."},{q:"How do you spend money you weren't expecting?", qf:"Tu dépenses comment un argent que tu n'attendais pas ?", push:"Now tell me the last thing you regretted buying.", pushf:"Maintenant, dis-moi le dernier truc que tu as regretté d'acheter."}]},
+  { name:"Dreams & Future", emoji:"✨", color:"#14746F", text:"#fff",
+    qs:[
+      {q:"Where do you want to be at 25? Paint me the picture.", qf:"Où veux-tu être à 25 ans ? Dépeins-moi le tableau.", push:"Now tell me what has to happen first.", pushf:"Maintenant, dis-moi ce qui doit se passer d'abord."},
+      {q:"If money didn't matter at all, what job would you choose?", qf:"Si l'argent n'avait aucune importance, quel métier choisirais-tu ?", push:"Now walk me through a normal Tuesday in that job.", pushf:"Maintenant, décris-moi un mardi ordinaire dans ce métier."},
+      {q:"One country you'd move to tomorrow — and why there?", qf:"Un pays où tu déménagerais dès demain — et pourquoi là-bas ?", push:"Now tell me what scares you about it.", pushf:"Maintenant, dis-moi ce qui te fait peur là-bas."},
+      {q:"Invent a school subject that should exist. What do students learn?", qf:"Invente une matière scolaire qui devrait exister. Qu'apprennent les élèves ?", push:"Now give me the title of the first lesson.", pushf:"Maintenant, donne-moi le titre du premier cours."},
+      {q:"If you could master one skill overnight, what would it be?", qf:"Si tu pouvais maîtriser une compétence du jour au lendemain, laquelle serait-ce ?", push:"Now tell me the first thing you'd do with it.", pushf:"Maintenant, dis-moi la première chose que tu en ferais."},
+      {q:"Describe your ideal home ten years from now.", qf:"Décris ta maison idéale dans dix ans.", push:"Now tell me what's on the walls.", pushf:"Maintenant, dis-moi ce qu'il y a sur les murs."},
+      {q:"What's a goal you're a little scared to say out loud?", qf:"Quel objectif as-tu un peu peur de dire à voix haute ?", push:"Now say one reason it matters to you.", pushf:"Maintenant, donne une raison pour laquelle il compte pour toi."},
+    {q:"Where do you want to be living at twenty-five?", qf:"Tu veux vivre où à vingt-cinq ans ?", push:"Now tell me who's there with you.", pushf:"Maintenant, dis-moi qui est là avec toi."},{q:"What job did you want as a child? What happened to it?", qf:"Quel métier tu voulais faire enfant ? Qu'est-ce qui s'est passé ?", push:"Now tell me if any part of it survived.", pushf:"Maintenant, dis-moi s'il en reste quelque chose."},{q:"If you had to study something completely different, what would it be?", qf:"Si tu devais étudier quelque chose de complètement différent, ce serait quoi ?", push:"Now tell me why you didn't choose it.", pushf:"Maintenant, dis-moi pourquoi tu ne l'as pas choisi."},{q:"What do you want to be able to do in English by Christmas?", qf:"Qu'est-ce que tu veux savoir faire en anglais d'ici Noël ?", push:"Now tell me what would make that possible.", pushf:"Maintenant, dis-moi ce qui rendrait ça possible."},{q:"Describe your ideal workday from start to finish.", qf:"Décris ta journée de travail idéale du début à la fin.", push:"Now tell me what you'd never want in a job.", pushf:"Maintenant, dis-moi ce que tu ne voudrais jamais dans un travail."},{q:"A whole year anywhere, doing anything. Where, and what?", qf:"Une année entière n'importe où, à faire n'importe quoi. Où, et quoi ?", push:"Now tell me what you'd bring back.", pushf:"Maintenant, dis-moi ce que tu en ramènerais."},{q:"What's something you're afraid you won't be good at?", qf:"Qu'est-ce que tu as peur de ne pas réussir ?", push:"Now tell me who could help.", pushf:"Maintenant, dis-moi qui pourrait t'aider."},{q:"A job that pays well, or one that means something?", qf:"Un travail bien payé, ou un travail qui a du sens ?", push:"Now tell me if you could have both.", pushf:"Maintenant, dis-moi si on peut avoir les deux."},{q:"What would you do with a completely free year after the bac?", qf:"Tu ferais quoi d'une année complètement libre après le bac ?", push:"Now tell me what your parents would say.", pushf:"Maintenant, dis-moi ce que tes parents diraient."},{q:"Whose life would you want, and which part exactly?", qf:"De qui tu voudrais la vie, et quelle partie exactement ?", push:"Now tell me what part you wouldn't want.", pushf:"Maintenant, dis-moi quelle partie tu ne voudrais pas."},{q:"What's a skill you want to have by thirty?", qf:"Quelle compétence tu veux avoir à trente ans ?", push:"Now tell me what's stopping you from starting now.", pushf:"Maintenant, dis-moi ce qui t'empêche de commencer maintenant."},{q:"Really good at one thing, or okay at many?", qf:"Très bonne dans un domaine, ou correcte dans plein ?", push:"Now tell me which one you actually are.", pushf:"Maintenant, dis-moi ce que tu es vraiment."},{q:"Tell me about New York. What are you looking forward to most?", qf:"Parle-moi de New York. Tu attends quoi avec le plus d'impatience ?", push:"Now tell me what you're nervous about.", pushf:"Maintenant, dis-moi ce qui te rend nerveuse."}]},
+  { name:"Culture Clash", emoji:"🌍", color:"#0A1F3D", text:"#C9A84C",
+    qs:[
+      {q:"What surprises you most about life in English-speaking countries from the shows you watch?", qf:"Qu'est-ce qui te surprend le plus dans la vie des pays anglophones, d'après les séries que tu regardes ?", push:"Now tell me if you'd actually want that where you live.", pushf:"Maintenant, dis-moi si tu voudrais vraiment ça là où tu vis."},
+      {q:"One thing from your culture people abroad would love if they tried it.", qf:"Une chose de ta culture que les gens à l'étranger adoreraient s'ils l'essayaient.", push:"Now convince a total skeptic.", pushf:"Maintenant, convaincs un vrai sceptique."},
+      {q:"School in your country vs. in the US — which would you rather, and why?", qf:"L'école dans ton pays contre celle aux États-Unis — laquelle préfères-tu, et pourquoi ?", push:"Now tell me one thing you'd steal from the other one.", pushf:"Maintenant, dis-moi une chose que tu piquerais à l'autre."},
+      {q:"An English word or phrase you love that your language just doesn't have.", qf:"Un mot ou une expression anglaise que tu adores et que ta langue n'a tout simplement pas.", push:"Now use it three different ways.", pushf:"Maintenant, utilise-le de trois façons différentes."},
+      {q:"What's a habit from another country you'd never adopt?", qf:"Quelle habitude d'un autre pays n'adopterais-tu jamais ?", push:"Now tell me why it bothers you.", pushf:"Maintenant, dis-moi pourquoi ça te dérange."},
+      {q:"You host an exchange student from abroad — what do you show them first?", qf:"Tu accueilles un élève étranger en échange — que lui montres-tu en premier ?", push:"Now tell me what would shock them most.", pushf:"Maintenant, dis-moi ce qui le choquerait le plus."},
+      {q:"Breakfast in your country vs. a big American breakfast — defend your winner.", qf:"Le petit-déjeuner de ton pays contre un gros petit-déjeuner américain — défends ton gagnant.", push:"Now describe both in real detail.", pushf:"Maintenant, décris les deux avec de vrais détails."},
+    {q:"What do foreigners always get wrong about France?", qf:"Qu'est-ce que les étrangers comprennent toujours de travers sur la France ?", push:"Now tell me what they get right.", pushf:"Maintenant, dis-moi ce qu'ils comprennent bien."},{q:"Explain a French tradition to someone who's never heard of it.", qf:"Explique une tradition française à quelqu'un qui n'en a jamais entendu parler.", push:"Now tell me if you actually like it.", pushf:"Maintenant, dis-moi si tu l'aimes vraiment."},{q:"What American thing do you wish existed in France?", qf:"Quel truc américain tu aimerais avoir en France ?", push:"Now name one you're glad doesn't.", pushf:"Maintenant, nomme un truc dont tu es contente qu'il n'existe pas ici."},{q:"What's the strangest thing about how Americans eat?", qf:"Quelle est la chose la plus bizarre dans la façon de manger des Américains ?", push:"Now defend a French food habit that sounds strange.", pushf:"Maintenant, défends une habitude alimentaire française qui paraît bizarre."},{q:"Is there an English word you wish existed in French?", qf:"Y a-t-il un mot anglais que tu aimerais avoir en français ?", push:"Now do it the other way around.", pushf:"Maintenant, fais l'inverse."},{q:"How do people your age greet each other here? Show me.", qf:"Comment les gens de ton âge se saluent ici ? Montre-moi.", push:"Now tell me what would feel wrong.", pushf:"Maintenant, dis-moi ce qui semblerait bizarre."},{q:"What's polite here but rude somewhere else?", qf:"Qu'est-ce qui est poli ici et impoli ailleurs ?", push:"Now tell me how you'd explain it to a visitor.", pushf:"Maintenant, dis-moi comment tu l'expliquerais à un visiteur."},{q:"Describe French school to an American teenager.", qf:"Décris le lycée français à un ado américain.", push:"Now tell me which system you'd rather be in.", pushf:"Maintenant, dis-moi dans quel système tu préférerais être."},{q:"Which stereotype about French people annoys you most?", qf:"Quel cliché sur les Français t'énerve le plus ?", push:"Now tell me one that's a little bit true.", pushf:"Maintenant, dis-m'en un qui est un peu vrai."},{q:"You host an American student for a week. First thing you do?", qf:"Tu accueilles un étudiant américain une semaine. Tu fais quoi en premier ?", push:"Now tell me what would shock them.", pushf:"Maintenant, dis-moi ce qui le choquerait."},{q:"What country would you most like to understand better?", qf:"Quel pays tu aimerais mieux comprendre ?", push:"Now tell me what you'd ask someone from there.", pushf:"Maintenant, dis-moi ce que tu demanderais à quelqu'un de là-bas."},{q:"Do you think in French when you speak English?", qf:"Tu penses en français quand tu parles anglais ?", push:"Now tell me when that helps and when it doesn't.", pushf:"Maintenant, dis-moi quand ça aide et quand ça gêne."},{q:"What's a French song an American should hear?", qf:"Quelle chanson française un Américain devrait écouter ?", push:"Now translate one line of it for me.", pushf:"Maintenant, traduis-m'en une phrase."}]},
+  { name:"Opinions & Debate", emoji:"💬", color:"#C6612E", text:"#fff",
+    qs:[
+      {q:"Is social media good or bad for people your age? Convince me.", qf:"Les réseaux sociaux sont-ils bons ou mauvais pour les jeunes de ton âge ? Convaincs-moi.", push:"Now argue the exact opposite.", pushf:"Maintenant, défends exactement le contraire."},
+      {q:"Should students get to choose ALL their own subjects?", qf:"Les élèves devraient-ils pouvoir choisir TOUTES leurs matières ?", push:"Now tell me what could go wrong.", pushf:"Maintenant, dis-moi ce qui pourrait mal tourner."},
+      {q:"Books or movies — which tells a story better?", qf:"Les livres ou les films — qui raconte mieux une histoire ?", push:"Now think of a book that became a great movie — does your answer still hold?", pushf:"Maintenant, pense à un livre devenu un super film — ta réponse tient-elle toujours ?"},
+      {q:"Better to be famous or rich? Pick a side and hold it.", qf:"Mieux vaut être célèbre ou riche ? Choisis un camp et tiens-le.", push:"Now defend your side against its biggest downside.", pushf:"Maintenant, défends ton camp face à son plus gros inconvénient."},
+      {q:"Should everyone in the world learn the same language?", qf:"Tout le monde devrait-il apprendre la même langue ?", push:"Now tell me what we'd lose.", pushf:"Maintenant, dis-moi ce qu'on y perdrait."},
+      {q:"Homework: genuinely useful, or a waste of time?", qf:"Les devoirs : vraiment utiles, ou une perte de temps ?", push:"Now suggest a middle-ground fix.", pushf:"Maintenant, propose une solution intermédiaire."},
+      {q:"Is it braver to speak up or to stay quiet? Depends on what?", qf:"Est-ce plus courageux de parler ou de se taire ? Ça dépend de quoi ?", push:"Now give me a situation where the answer flips.", pushf:"Maintenant, donne-moi une situation où la réponse s'inverse."},
+    {q:"Should school start later in the morning? Take a side.", qf:"Les cours devraient-ils commencer plus tard ? Choisis un camp.", push:"Now argue the other side.", pushf:"Maintenant, défends l'autre camp."},{q:"Is social media good or bad for people your age?", qf:"Les réseaux sociaux, c'est bien ou mal pour les gens de ton âge ?", push:"Now give me the strongest argument against your own view.", pushf:"Maintenant, donne le meilleur argument contre ton propre avis."},{q:"Should phones be banned in schools?", qf:"Faut-il interdire les téléphones au lycée ?", push:"Now tell me what would actually happen if they were.", pushf:"Maintenant, dis-moi ce qui se passerait vraiment."},{q:"Is it better to be respected or liked?", qf:"Vaut-il mieux être respectée ou appréciée ?", push:"Now tell me which one you chase.", pushf:"Maintenant, dis-moi ce que tu recherches, toi."},{q:"Do exams measure anything real?", qf:"Est-ce que les examens mesurent quelque chose de réel ?", push:"Now propose a better system.", pushf:"Maintenant, propose un meilleur système."},{q:"Should everyone have to learn a second language?", qf:"Tout le monde devrait-il apprendre une deuxième langue ?", push:"Now tell me which one, and why.", pushf:"Maintenant, dis-moi laquelle, et pourquoi."},{q:"Is it ever okay to lie to protect someone?", qf:"Est-ce parfois acceptable de mentir pour protéger quelqu'un ?", push:"Now give me a case where it isn't.", pushf:"Maintenant, donne un cas où ça ne l'est pas."},{q:"Talent or hard work. Which matters more?", qf:"Le talent ou le travail. Qu'est-ce qui compte le plus ?", push:"Now tell me about someone who proves your point.", pushf:"Maintenant, parle-moi de quelqu'un qui le prouve."},{q:"Should teenagers be allowed to vote?", qf:"Les adolescents devraient-ils pouvoir voter ?", push:"Now argue like someone who disagrees with you.", pushf:"Maintenant, argumente comme quelqu'un qui n'est pas d'accord."},{q:"Is it worse to be bored or stressed?", qf:"C'est pire de s'ennuyer ou d'être stressée ?", push:"Now tell me which you'd choose for a whole year.", pushf:"Maintenant, dis-moi ce que tu choisirais pour une année entière."},{q:"Do you have to like a subject to be good at it?", qf:"Faut-il aimer une matière pour y être bonne ?", push:"Now give me an example from your own life.", pushf:"Maintenant, donne un exemple de ta propre vie."},{q:"Should parents read their kids' messages?", qf:"Les parents devraient-ils lire les messages de leurs enfants ?", push:"Now answer it again as a parent.", pushf:"Maintenant, réponds à nouveau en tant que parent."},{q:"Is being alone the same as being lonely?", qf:"Être seule et se sentir seule, c'est pareil ?", push:"Now tell me which one you're better at.", pushf:"Maintenant, dis-moi lequel tu gères le mieux."}]},
+  { name:"Imagine & Wonder", emoji:"🎲", color:"#6E3B7A", text:"#fff",
+    qs:[
+      {q:"Would you rather speak every language OR play every instrument? Why?", qf:"Préférerais-tu parler toutes les langues OU jouer de tous les instruments ? Pourquoi ?", push:"Now tell me the first thing you'd do with it.", pushf:"Maintenant, dis-moi la première chose que tu en ferais."},
+      {q:"You wake up inside your favorite show. Which one — and what happens next?", qf:"Tu te réveilles à l'intérieur de ta série préférée. Laquelle — et que se passe-t-il ensuite ?", push:"Now tell me how you get back out.", pushf:"Maintenant, dis-moi comment tu en ressors."},
+      {q:"Invent a brand-new holiday. What are we celebrating, and how?", qf:"Invente une toute nouvelle fête. Qu'est-ce qu'on célèbre, et comment ?", push:"Now tell me the traditional food.", pushf:"Maintenant, dis-moi le plat traditionnel."},
+      {q:"If your life were a Netflix series, what's the title and the genre?", qf:"Si ta vie était une série Netflix, quel en serait le titre et le genre ?", push:"Now give me the theme song.", pushf:"Maintenant, donne-moi la musique du générique."},
+      {q:"You get one superpower, but it's slightly useless. What is it?", qf:"Tu obtiens un superpouvoir, mais il est un peu inutile. C'est quoi ?", push:"Now convince me it's actually helpful.", pushf:"Maintenant, convaincs-moi qu'il est en fait utile."},
+      {q:"If animals could talk, which one would be the rudest?", qf:"Si les animaux pouvaient parler, lequel serait le plus impoli ?", push:"Now do the voice.", pushf:"Maintenant, fais la voix."},
+      {q:"Dinner with any character, real or fictional. Who — and why?", qf:"Un dîner avec n'importe quel personnage, réel ou fictif. Qui — et pourquoi ?", push:"Now tell me the first question you'd ask them.", pushf:"Maintenant, dis-moi la première question que tu lui poserais."},
+    {q:"You wake up speaking perfect English. What's the first thing you do?", qf:"Tu te réveilles en parlant anglais parfaitement. Tu fais quoi en premier ?", push:"Now tell me who you call.", pushf:"Maintenant, dis-moi qui tu appelles."},{q:"Dinner with anyone, living or dead. Who, and what do you ask?", qf:"Un dîner avec qui tu veux, vivant ou mort. Qui, et tu demandes quoi ?", push:"Now tell me what they'd ask you.", pushf:"Maintenant, dis-moi ce qu'il te demanderait."},{q:"There's a door in your bedroom that wasn't there yesterday. Open it.", qf:"Il y a une porte dans ta chambre qui n'était pas là hier. Ouvre-la.", push:"Now tell me if you go through.", pushf:"Maintenant, dis-moi si tu la franchis."},{q:"Animals can talk for one day. Which one do you want to hear from?", qf:"Les animaux parlent pendant une journée. Lequel tu veux entendre ?", push:"Now tell me what it says about us.", pushf:"Maintenant, dis-moi ce qu'il pense de nous."},{q:"You can delete one invention from history. Which one?", qf:"Tu peux effacer une invention de l'histoire. Laquelle ?", push:"Now tell me what breaks because of that.", pushf:"Maintenant, dis-moi ce que ça casse."},{q:"You're invisible for twenty-four hours. Where do you go?", qf:"Tu es invisible pendant vingt-quatre heures. Tu vas où ?", push:"Now tell me what you'd never do.", pushf:"Maintenant, dis-moi ce que tu ne ferais jamais."},{q:"Describe a color to someone who has never seen it.", qf:"Décris une couleur à quelqu'un qui ne l'a jamais vue.", push:"Now do it without naming a single object.", pushf:"Maintenant, fais-le sans nommer un seul objet."},{q:"You can freeze time ten minutes a day. When do you use it?", qf:"Tu peux arrêter le temps dix minutes par jour. Tu l'utilises quand ?", push:"Now tell me how you'd waste it.", pushf:"Maintenant, dis-moi comment tu le gaspillerais."},{q:"A stranger hands you a suitcase and walks away. What's inside?", qf:"Un inconnu te tend une valise et s'en va. Il y a quoi dedans ?", push:"Now tell me what you do next.", pushf:"Maintenant, dis-moi ce que tu fais ensuite."},{q:"Invent a new sport. What are the rules?", qf:"Invente un nouveau sport. C'est quoi les règles ?", push:"Now tell me why it would never catch on.", pushf:"Maintenant, dis-moi pourquoi ça ne marcherait jamais."},{q:"One sentence to yourself at age ten. What is it?", qf:"Une phrase à toi-même à dix ans. C'est quoi ?", push:"Now tell me if she'd listen.", pushf:"Maintenant, dis-moi si elle écouterait."},{q:"Tomorrow the sky turns green and nobody knows why. What happens?", qf:"Demain le ciel devient vert et personne ne sait pourquoi. Il se passe quoi ?", push:"Now tell me what the news says.", pushf:"Maintenant, dis-moi ce que disent les infos."},{q:"You're the last person awake on Earth for one night. Describe it.", qf:"Tu es la dernière personne éveillée sur Terre pour une nuit. Décris ça.", push:"Now tell me how you feel at sunrise.", pushf:"Maintenant, dis-moi ce que tu ressens au lever du soleil."}]},
+  { name:"Quickfire", emoji:"⚡", color:"#4E8B57", text:"#fff",
+    qs:[
+      {q:"Best thing that happened this week — go.", qf:"La meilleure chose de ta semaine — vas-y.", push:"Now give me one more detail.", pushf:"Maintenant, donne-moi un détail de plus."},
+      {q:"Coffee, tea, or hot chocolate? Defend it in one sentence.", qf:"Café, thé ou chocolat chaud ? Défends ton choix en une phrase.", push:"Now defend it against your least favorite of the three.", pushf:"Maintenant, défends-le face à celui que tu aimes le moins des trois."},
+      {q:"Last song stuck in your head? Describe it without singing.", qf:"La dernière chanson coincée dans ta tête ? Décris-la sans chanter.", push:"Now tell me why it stuck.", pushf:"Maintenant, dis-moi pourquoi elle est restée."},
+      {q:"Describe your day in exactly three words, then explain them.", qf:"Décris ta journée en exactement trois mots, puis explique-les.", push:"Now swap one word for a better one.", pushf:"Maintenant, remplace un mot par un meilleur."},
+      {q:"Sweet or savory? Pick your side for life.", qf:"Sucré ou salé ? Choisis ton camp pour la vie.", push:"Now name the one exception you'd allow.", pushf:"Maintenant, nomme la seule exception que tu t'autoriserais."},
+      {q:"What's your comfort meal after a bad day?", qf:"Quel est ton plat réconfort après une mauvaise journée ?", push:"Now tell me who makes it best.", pushf:"Maintenant, dis-moi qui le fait le mieux."},
+      {q:"Text or call — and why does the other one stress you out?", qf:"SMS ou appel — et pourquoi l'autre te stresse ?", push:"Now tell me how you feel about voice notes.", pushf:"Maintenant, dis-moi ce que tu penses des messages vocaux."},
+    {q:"Say three things you can see right now.", qf:"Nomme trois choses que tu vois maintenant.", push:"Now describe one of them in detail.", pushf:"Maintenant, décris-en une en détail."},{q:"Count backwards from twenty in English. Go.", qf:"Compte à rebours depuis vingt en anglais. Vas-y.", push:"Now do it with odd numbers only.", pushf:"Maintenant, fais-le avec les nombres impairs seulement."},{q:"Name five things in this room in ten seconds.", qf:"Nomme cinq choses dans cette pièce en dix secondes.", push:"Now name five you can't see but know are there.", pushf:"Maintenant, cinq que tu ne vois pas mais qui sont là."},{q:"Describe today's weather without saying hot or cold.", qf:"Décris le temps qu'il fait sans dire chaud ni froid.", push:"Now describe yesterday's.", pushf:"Maintenant, décris celui d'hier."},{q:"What did you eat last? Describe it like a chef.", qf:"Tu as mangé quoi en dernier ? Décris-le comme un chef.", push:"Now describe it like someone who hated it.", pushf:"Maintenant, décris-le comme quelqu'un qui a détesté."},{q:"Give me three words that describe your week.", qf:"Donne-moi trois mots qui décrivent ta semaine.", push:"Now explain the middle one.", pushf:"Maintenant, explique celui du milieu."},{q:"Spell your favorite word and tell me why you like it.", qf:"Épelle ton mot préféré et dis-moi pourquoi tu l'aimes.", push:"Now use it in a sentence about me.", pushf:"Maintenant, utilise-le dans une phrase sur moi."},{q:"What time did you wake up, and how did it go?", qf:"Tu t'es réveillée à quelle heure, et ça s'est passé comment ?", push:"Now tell me what would have made it better.", pushf:"Maintenant, dis-moi ce qui l'aurait amélioré."},{q:"Name something you did yesterday, in the past tense.", qf:"Nomme une chose que tu as faite hier, au passé.", push:"Now give me three more, fast.", pushf:"Maintenant, donne-m'en trois de plus, vite."},{q:"Ask me three questions in a row. Go.", qf:"Pose-moi trois questions d'affilée. Vas-y.", push:"Now ask me one you actually want answered.", pushf:"Maintenant, pose-en une dont tu veux vraiment la réponse."},{q:"Describe what you're wearing today.", qf:"Décris ce que tu portes aujourd'hui.", push:"Now tell me why you chose it.", pushf:"Maintenant, dis-moi pourquoi tu l'as choisi."},{q:"What's in your bag right now?", qf:"Il y a quoi dans ton sac là ?", push:"Now tell me what should be in there but isn't.", pushf:"Maintenant, dis-moi ce qui devrait y être et qui n'y est pas."},{q:"Finish this and keep going for thirty seconds: Today I feel...", qf:"Termine et continue trente secondes : Aujourd'hui je me sens...", push:"Now say the same thing in one word.", pushf:"Maintenant, dis la même chose en un mot."}]},
+];
+
+/* ---------- build wheel ---------- */
+const SVGNS = "http://www.w3.org/2000/svg";
+const wheel = document.getElementById('wheel');
+const N = CATS.length, seg = 360/N, cx=150, cy=150, r=148;
+function polar(rr, angDeg){ const a=(angDeg)*Math.PI/180; return [cx + rr*Math.sin(a), cy - rr*Math.cos(a)]; }
+
+CATS.forEach((c,i)=>{
+  const start=i*seg, end=(i+1)*seg;
+  const [x1,y1]=polar(r,start), [x2,y2]=polar(r,end);
+  const large = seg>180?1:0;
+  const path=document.createElementNS(SVGNS,'path');
+  path.setAttribute('d',`M${cx},${cy} L${x1.toFixed(2)},${y1.toFixed(2)} A${r},${r} 0 ${large} 1 ${x2.toFixed(2)},${y2.toFixed(2)} Z`);
+  path.setAttribute('fill',c.color);
+  path.setAttribute('stroke','#fff');
+  path.setAttribute('stroke-width','2');
+  wheel.appendChild(path);
+  const mid=start+seg/2;
+  const [ex,ey]=polar(r*0.66, mid);
+  const t=document.createElementNS(SVGNS,'text');
+  t.setAttribute('x',ex.toFixed(2)); t.setAttribute('y',(ey+8).toFixed(2));
+  t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','24');
+  t.textContent=c.emoji;
+  wheel.appendChild(t);
+});
+const rim=document.createElementNS(SVGNS,'circle');
+rim.setAttribute('cx',cx);rim.setAttribute('cy',cy);rim.setAttribute('r',r);
+rim.setAttribute('fill','none');rim.setAttribute('stroke','#C9A84C');rim.setAttribute('stroke-width','4');
+wheel.appendChild(rim);
+
+/* ---------- legend chips ---------- */
+const legend=document.getElementById('legend');
+CATS.forEach((c,i)=>{
+  const b=document.createElement('button');
+  b.className='chip'; b.style.background=c.color; b.style.color=c.text;
+  b.innerHTML=`<span>${c.emoji}</span> ${c.name}`;
+  b.setAttribute('aria-label',`Spin to ${c.name}`);
+  b.addEventListener('click',()=>spinTo(i));
+  legend.appendChild(b);
+});
+
+/* ---------- spin logic ---------- */
+const hub=document.getElementById('hub');
+const hint=document.getElementById('hint');
+const panel=document.getElementById('panel');
+const actions=document.getElementById('actions');
+const chips=[...document.querySelectorAll('.chip')];
+
+let rotation=0, spinning=false, currentCat=null, lastQ={}; const decks={};
+
+function setDisabled(state){
+  spinning=state; hub.disabled=state;
+  const sb=document.getElementById('spinBtn'), ab=document.getElementById('againBtn');
+  if(sb) sb.disabled=state; if(ab) ab.disabled=state;
+  chips.forEach(ch=>ch.disabled=state);
+}
+function pickQuestion(i){
+  const list=CATS[i].qs;
+  if(!decks[i] || decks[i].length===0){
+    decks[i]=list.map((_,k)=>k);
+    for(let k=decks[i].length-1;k>0;k--){
+      const j=Math.floor(Math.random()*(k+1));
+      [decks[i][k],decks[i][j]]=[decks[i][j],decks[i][k]];
+    }
+    if(list.length>1 && decks[i][decks[i].length-1]===lastQ[i]){
+      [decks[i][0],decks[i][decks[i].length-1]]=[decks[i][decks[i].length-1],decks[i][0]];
+    }
+  }
+  const idx=decks[i].pop();
+  lastQ[i]=idx;
+  return list[idx];
+}
+function reveal(i){
+  const c=CATS[i]; const item=pickQuestion(i); currentCat=i;
+  panel.classList.remove('show');
+  panel.innerHTML=`
+    <span class="cat-chip" style="background:${c.color};color:${c.text}">${c.emoji} ${c.name}</span>
+    <div class="qgroup">
+      <div class="q">${item.q}</div>
+      <div class="qf" lang="fr">${item.qf}</div>
+    </div>
+    <button class="push-toggle" id="pushToggle">Take it further →</button>
+    <div class="push" id="pushBox"><span class="lbl">Take it further · Pour aller plus loin</span><span class="txt">${item.push}</span><span class="txt-fr" lang="fr">${item.pushf}</span></div>
+  `;
+  actions.style.display='flex';
+  void panel.offsetWidth;
+  panel.classList.add('show');
+  document.getElementById('pushToggle').addEventListener('click',(e)=>{
+    const box=document.getElementById('pushBox');
+    box.classList.toggle('show');
+    e.target.textContent = box.classList.contains('show') ? 'Hide' : 'Take it further →';
+  });
+  hint.textContent='Ready when you are — spin again or dig deeper.';
+  setDisabled(false);
+}
+function spinTo(i){
+  if(spinning) return;
+  setDisabled(true);
+  hint.textContent='Spinning…';
+  const center = i*seg + seg/2;
+  const jitter = (Math.random()*2-1)*(seg/2 - 9);
+  const target = (center + jitter);
+  const align = ((360 - (target % 360)) % 360);
+  const currentMod = ((rotation % 360)+360)%360;
+  let delta = (align - currentMod + 360)%360;
+  const turns = 5 + Math.floor(Math.random()*3);
+  rotation = rotation + turns*360 + delta;
+  wheel.style.transform=`rotate(${rotation}deg)`;
+  const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce){ reveal(i); return; }
+  const onEnd=()=>{ wheel.removeEventListener('transitionend',onEnd); reveal(i); };
+  wheel.addEventListener('transitionend',onEnd);
+}
+function spinRandom(){ spinTo(Math.floor(Math.random()*N)); }
+
+hub.addEventListener('click',spinRandom);
+document.getElementById('spinBtn').addEventListener('click',spinRandom);
+document.getElementById('againBtn').addEventListener('click',()=>{ if(currentCat!==null) reveal(currentCat); });
+</script>
+</body>
+</html>
