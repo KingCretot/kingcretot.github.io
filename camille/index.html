@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Camille — English Lessons · KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sun:#FFC93C; --sky:#4AC7EC; --grass:#6BCB77; --berry:#FF6F91; --grape:#9B6BFF; --tangerine:#FF9142;
+  --ink:#2C2A4A; --card:#ffffff; --rim:#E9E4FF; --muted:#7a7a95; --french:#7B3FE4;
+  --hd:'Baloo 2', sans-serif; --bd:'Poppins', sans-serif;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+.notranslate{ translate:no; }
+body {
+  background: linear-gradient(160deg, #FFE0B8 0%, #FFC9A3 45%, #E7CFFF 100%);
+  color: var(--ink);
+  font-family: var(--bd);
+  font-size: 20px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 40px 22px 64px; }
+
+.brandbar {
+  display:flex; align-items:center; gap:12px;
+  font-family: var(--hd); font-weight:800;
+  letter-spacing:.5px; color:#8a4fd6;
+  font-size:.85rem; text-transform:uppercase;
+}
+.brandbar .dot { width:9px; height:9px; border-radius:50%; background:var(--grape); box-shadow:0 0 12px var(--grape); }
+
+.hero {
+  margin-top:22px;
+  background: var(--card);
+  border: 3px solid var(--rim);
+  border-radius: 28px;
+  padding: 36px 36px 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 0 rgba(0,0,0,0.06), 0 20px 40px rgba(0,0,0,0.08);
+}
+.hero::after {
+  content:""; position:absolute; right:-50px; top:-50px;
+  width:200px; height:200px; border-radius:50%;
+  background: radial-gradient(circle, rgba(255,201,60,0.28), transparent 70%);
+}
+.hero .mascot { font-size:46px; display:block; margin-bottom:8px; }
+.hero h1 {
+  font-family: var(--hd); font-weight:800;
+  font-size: 2.6rem; line-height:1.1; color: var(--ink);
+}
+.hero h1 .accent { color: var(--berry); }
+.hero .fr {
+  color: var(--french); font-weight:700; font-size: 1.25rem; margin-top:6px;
+  font-family: var(--hd);
+}
+.hero p.lead {
+  color: var(--muted); font-size: 1.08rem; margin-top:16px; max-width:620px;
+}
+.hero .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.chip {
+  background:#F6F2FF; border:2px solid var(--rim); border-radius:999px;
+  padding:8px 16px; font-size:.9rem; font-weight:700; color:var(--ink);
+  display:flex; align-items:center; gap:7px;
+}
+.chip .emo { font-size:1.05rem; }
+
+.seclabel { margin:40px 4px 16px; display:flex; align-items:center; gap:12px; }
+.seclabel h2 { font-family: var(--hd); font-weight:800; font-size:1.35rem; color:var(--ink); }
+.seclabel .line { flex:1; height:2px; background:var(--rim); border-radius:2px; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:18px; }
+.lesson {
+  display:block; text-decoration:none;
+  background: var(--card);
+  border: 3px solid var(--rim);
+  border-radius: 22px;
+  padding: 22px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  opacity:0; transform:translateY(14px); animation: rise .5s ease forwards;
+}
+@keyframes rise { to { opacity:1; transform:translateY(0); } }
+.lesson::before {
+  content:""; position:absolute; left:0; top:0; bottom:0; width:6px; background:var(--ac);
+}
+.lesson:hover { transform:translateY(-5px); border-color:var(--ac); box-shadow:0 14px 28px rgba(0,0,0,0.12); }
+.lesson .row1 { display:flex; align-items:center; justify-content:space-between; }
+.lesson .num { font-family:var(--hd); font-weight:800; font-size:2.2rem; color:var(--ac); line-height:1; }
+.lesson .num small { display:block; font-size:.55rem; letter-spacing:2px; color:var(--muted); font-weight:700; margin-bottom:3px; }
+.lesson .emoji { font-size:2rem; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15)); }
+.lesson h3 { font-family:var(--hd); font-weight:800; font-size:1.25rem; margin-top:14px; color:var(--ink); }
+.lesson .theme-en { color:var(--ink); font-size:.95rem; margin-top:6px; font-weight:500; }
+.lesson .theme-fr { color:var(--french); font-size:.88rem; margin-top:2px; font-weight:600; }
+.lesson .go { margin-top:14px; display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:.95rem; color:var(--ac); }
+.lesson .go .arr { transition: transform .18s ease; }
+.lesson:hover .go .arr { transform:translateX(5px); }
+
+footer {
+  margin-top:48px; padding-top:24px; border-top:2px solid var(--rim);
+  display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center; justify-content:space-between;
+  color:var(--muted); font-size:.92rem;
+}
+footer .name { font-family:var(--hd); font-weight:800; color:#8a4fd6; }
+footer a { color:var(--muted); text-decoration:none; }
+footer a:hover { color:var(--ink); }
+
+@media (max-width:620px) {
+  .wrap { padding:28px 14px 46px; }
+  .hero { padding:26px 20px 24px; }
+  .hero h1 { font-size:2rem; }
+  .hero .fr { font-size:1.05rem; }
+  .grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body class="notranslate" translate="no">
+<div class="wrap">
+
+  <div class="brandbar"><span class="dot"></span> KingCretot Experience</div>
+
+  <header class="hero">
+    <span class="mascot">🗺️</span>
+    <h1>Camille's <span class="accent">English Lessons</span></h1>
+    <div class="fr">Les leçons d'anglais de Camille</div>
+    <p class="lead">Pick a lesson below to begin! Tap, explore, and talk your way through. / Choisis une leçon pour commencer ! Touche, explore, et parle.</p>
+    <div class="meta">
+      <span class="chip"><span class="emo">📚</span> 17 lessons</span>
+      <span class="chip"><span class="emo">🎮</span> Interactive &amp; gamified</span>
+      <span class="chip"><span class="emo">🇫🇷🇺🇸</span> Full Bilingual</span>
+    </div>
+  </header>
+
+  <div class="seclabel">
+    <h2>August / Août</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Camille_Lesson1_WelcomeToMyWorld.html" style="--ac:var(--sky); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>1</div>
+        <div class="emoji">🌍</div>
+      </div>
+      <h3>Welcome to My World</h3>
+      <div class="theme-en">Meeting her family, exploring ancient Egypt or Rome, and teaching her teacher about Le Mans.</div>
+      <div class="theme-fr">Rencontrer sa famille, explorer l'Égypte ou Rome antique, et enseigner à sa professeure Le Mans.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson2_MyFreeTime.html" style="--ac:var(--berry); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>2</div>
+        <div class="emoji">🎮</div>
+      </div>
+      <h3>My Free Time</h3>
+      <div class="theme-en">Hobbies, weekend habits, and sharing her own favorite activities.</div>
+      <div class="theme-fr">Passe-temps, habitudes du week-end, et partager ses activités préférées.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>September / Septembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Camille_Lesson3_AnimalsAndPets.html" style="--ac:var(--grass); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>3</div>
+        <div class="emoji">🐾</div>
+      </div>
+      <h3>Animals & Pets</h3>
+      <div class="theme-en">A tour of animal habitats, from the ocean to her own home.</div>
+      <div class="theme-fr">Un tour des habitats animaux, de l'océan jusqu'à chez elle.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson4_BooksAndStories.html" style="--ac:var(--grape); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>4</div>
+        <div class="emoji">📖</div>
+      </div>
+      <h3>Books & Stories</h3>
+      <div class="theme-en">Exploring story genres and sharing her own favorite book.</div>
+      <div class="theme-fr">Explorer les genres d'histoires et partager son livre préféré.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson5_HistoryDetectives.html" style="--ac:var(--tangerine); animation-delay:0.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>5</div>
+        <div class="emoji">🕵️</div>
+      </div>
+      <h3>History Detectives: Pirates & Lost Treasure</h3>
+      <div class="theme-en">Separating real pirate history from legend, clue by clue.</div>
+      <div class="theme-fr">Séparer la vraie histoire des pirates des légendes, indice par indice.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson6_MorningRoutine.html" style="--ac:var(--sky); animation-delay:0.14s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>6</div>
+        <div class="emoji">⏰</div>
+      </div>
+      <h3>Getting Ready for the Day</h3>
+      <div class="theme-en">Morning routines and the vocabulary that goes with them.</div>
+      <div class="theme-fr">Les routines du matin et le vocabulaire qui va avec.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>October / Octobre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Camille_Lesson7_WeatherAndSeasons.html" style="--ac:var(--berry); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>7</div>
+        <div class="emoji">🌦️</div>
+      </div>
+      <h3>Weather & Seasons</h3>
+      <div class="theme-en">Sun, rain, snow, and wind — and her own favorite weather.</div>
+      <div class="theme-fr">Soleil, pluie, neige et vent — et sa météo préférée.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson8_FavoriteFoods.html" style="--ac:var(--grass); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>8</div>
+        <div class="emoji">🍽️</div>
+      </div>
+      <h3>My Favorite Foods</h3>
+      <div class="theme-en">Breakfast, snacks, dinner, and sweet treats around the table.</div>
+      <div class="theme-fr">Petit-déjeuner, collations, dîner et douceurs autour de la table.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson9_SportsILike.html" style="--ac:var(--grape); animation-delay:0.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>9</div>
+        <div class="emoji">🏅</div>
+      </div>
+      <h3>Sports I Like</h3>
+      <div class="theme-en">Team sports, solo sports, and the ones she'd like to try.</div>
+      <div class="theme-fr">Sports d'équipe, sports individuels, et ceux qu'elle aimerait essayer.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson10_SpaceExplorers.html" style="--ac:var(--tangerine); animation-delay:0.14s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>10</div>
+        <div class="emoji">🚀</div>
+      </div>
+      <h3>Space Explorers</h3>
+      <div class="theme-en">A mission through the Moon, the Sun, the planets, and the stars.</div>
+      <div class="theme-fr">Une mission à travers la Lune, le Soleil, les planètes et les étoiles.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson11_MyHouseAndBedroom.html" style="--ac:var(--sky); animation-delay:0.18s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>11</div>
+        <div class="emoji">🏠</div>
+      </div>
+      <h3>My House & Bedroom</h3>
+      <div class="theme-en">A tour of the rooms in a home, and a description of her own room.</div>
+      <div class="theme-fr">Un tour des pièces d'une maison, et une description de sa propre chambre.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>November / Novembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Camille_Lesson12_Transportation.html" style="--ac:var(--berry); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>12</div>
+        <div class="emoji">🚗</div>
+      </div>
+      <h3>Transportation & Travel</h3>
+      <div class="theme-en">Cars, trains, planes, and bikes — and how she gets around.</div>
+      <div class="theme-fr">Voitures, trains, avions et vélos — et comment elle se déplace.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson13_FeelingsAndEmotions.html" style="--ac:var(--grass); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>13</div>
+        <div class="emoji">💭</div>
+      </div>
+      <h3>My Feelings & Emotions</h3>
+      <div class="theme-en">Naming feelings and talking through what helps.</div>
+      <div class="theme-fr">Nommer ses émotions et parler de ce qui aide.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson14_FiveSenses.html" style="--ac:var(--grape); animation-delay:0.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>14</div>
+        <div class="emoji">👀</div>
+      </div>
+      <h3>The Five Senses</h3>
+      <div class="theme-en">Sight, sound, smell, and touch — and her own favorites.</div>
+      <div class="theme-fr">La vue, l'ouïe, l'odorat et le toucher — et ses préférences.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>December / Décembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Camille_Lesson15_CulturesOfTheWorld.html" style="--ac:var(--tangerine); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>15</div>
+        <div class="emoji">🌍</div>
+      </div>
+      <h3>Cultures of the World</h3>
+      <div class="theme-en">A world tour through Japan, Brazil, Kenya, and India.</div>
+      <div class="theme-fr">Un tour du monde à travers le Japon, le Brésil, le Kenya et l'Inde.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson16_JobsAndFuture.html" style="--ac:var(--sky); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>16</div>
+        <div class="emoji">💼</div>
+      </div>
+      <h3>Jobs & When I Grow Up</h3>
+      <div class="theme-en">Exploring careers and imagining her own future.</div>
+      <div class="theme-fr">Explorer des métiers et imaginer son propre avenir.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" href="Camille_Lesson17_WinterTraditions.html" style="--ac:var(--berry); animation-delay:0.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>17</div>
+        <div class="emoji">❄️</div>
+      </div>
+      <h3>Winter Traditions & Holidays</h3>
+      <div class="theme-en">Winter foods, games, family time, and lights.</div>
+      <div class="theme-fr">Plats d'hiver, jeux, temps en famille et lumières.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <footer>
+    <span><span class="name">KingCretot Experience</span> &nbsp;·&nbsp; English lessons for Camille</span>
+    <span><a href="https://kingcretot.com">kingcretot.com</a> &nbsp;·&nbsp; <a href="mailto:kce@kingcretot.com">kce@kingcretot.com</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
