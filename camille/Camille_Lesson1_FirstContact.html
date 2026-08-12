@@ -23,7 +23,7 @@ body{ font-family:var(--ui); background:linear-gradient(160deg, var(--cream) 0%,
 .kc{width:38px;height:38px;flex:none;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:var(--display);font-weight:700;font-size:16px;}
 .wm{color:var(--gold); font-family:var(--display); font-size:20px; font-weight:700; line-height:1;}
 .motto{font-size:8px; letter-spacing:2.5px; color:#fff; margin-top:4px; font-weight:700;}
-.motto .g{color:var(--gold);} .motto .r{color:#ff8a86;}
+.motto .g{color:var(--gold);} .motto .r{color:var(--red);}
 .band{height:4px;display:flex;} .band i{flex:1;} .band .b1{background:var(--blue);} .band .b2{background:var(--gold);} .band .b3{background:var(--red);}
 
 .topbar{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 20px; flex-wrap:wrap; }
@@ -43,11 +43,6 @@ body{ font-family:var(--ui); background:linear-gradient(160deg, var(--cream) 0%,
 .bi-body{ margin:14px 0; font-size:16px; line-height:1.5; }
 .bi-body .en{ color:var(--ink); display:block; font-weight:600; }
 .bi-body .fr{ color:var(--muted); display:block; margin-top:3px; font-style:italic; }
-
-.dual-audio-row{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:16px 0 4px; }
-.lang-btn{ display:inline-flex; align-items:center; gap:7px; color:#fff; border:none; border-radius:50px; padding:11px 18px; font-size:15px; font-weight:700; cursor:pointer; }
-.lang-btn.en-btn{ background:var(--blue); } .lang-btn.fr-btn{ background:var(--red); }
-.lang-btn:active{ transform:translateY(2px); }
 
 .nav-row{ display:flex; justify-content:space-between; align-items:center; margin:20px 0 0; }
 .nav-btn{ font-weight:800; font-size:15px; padding:12px 24px; border-radius:50px; border:none; cursor:pointer; color:#fff; }
@@ -74,9 +69,6 @@ body{ font-family:var(--ui); background:linear-gradient(160deg, var(--cream) 0%,
 .vocab-card{ background:var(--cream); border-radius:16px; border:2px solid var(--line); padding:14px 10px; }
 .vocab-card .en{ font-weight:800; color:var(--navy); font-size:15px; }
 .vocab-card .fr{ color:var(--red); font-size:13px; font-style:italic; margin-top:2px; }
-.vocab-audio{ margin-top:8px; display:flex; gap:6px; justify-content:center; }
-.vocab-audio button{ border:none; border-radius:8px; font-size:11px; font-weight:800; padding:4px 8px; cursor:pointer; color:#fff; }
-.vocab-audio .en-b{ background:var(--blue); } .vocab-audio .fr-b{ background:var(--red); }
 
 .mcq-options{ display:flex; flex-direction:column; gap:10px; margin:16px 0; }
 .mcq-opt{ font-size:15px; font-weight:600; padding:12px 16px; border-radius:14px; border:2px solid var(--line); background:#FAF8F1; cursor:pointer; text-align:left; }
@@ -110,10 +102,6 @@ footer.credit{ text-align:center; margin-top:18px; font-size:11px; color:var(--m
       <span class="eyebrow">Lesson 1 · September</span>
       <div class="bi-header"><span class="en">First Contact</span><span class="fr">Premier contact</span></div>
       <div class="bi-body"><span class="en">Let's start with a quick game, then learn how to say hello!</span><span class="fr">On commence par un petit jeu, puis on apprend à dire bonjour !</span></div>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Hi Camille! Let\'s get started!')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('Salut Camille ! On commence !')">🔊 FR</button>
-      </div>
     </div>
   </section>
 
@@ -146,9 +134,6 @@ footer.credit{ text-align:center; margin-top:18px; font-size:11px; color:var(--m
         <tr><td class="en-col">We <b>are</b></td><td class="fr-col">Nous <b>sommes</b></td></tr>
         <tr><td class="en-col">They <b>are</b></td><td class="fr-col">Ils / Elles <b>sont</b></td></tr>
       </table>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('I am Camille. I am ten years old.')">🔊 Hear it: I am Camille.</button>
-      </div>
     </div>
   </section>
 
@@ -185,9 +170,6 @@ footer.credit{ text-align:center; margin-top:18px; font-size:11px; color:var(--m
       <span class="eyebrow">Speak It / À l'oral</span>
       <div class="bi-header"><span class="en" style="font-size:22px;">Your turn!</span><span class="fr" style="font-size:16px;">Say this out loud to your teacher:</span></div>
       <div class="bi-body"><span class="en" style="font-size:18px; font-weight:700;">"Hello! My name is Camille. I am ten years old. Nice to meet you!"</span></div>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Hello! My name is Camille. I am ten years old. Nice to meet you!')">🔊 Hear it first</button>
-      </div>
       <p style="font-size:13px; color:var(--muted); margin-top:10px; font-style:italic;">Want more speaking practice? Spin the wheel below any time.</p>
       <a class="wheel-link" href="../conversation-wheel/KCE_English_ConversationWheel_Bilingual_v1.html" target="_blank">🎡 Conversation Wheel</a>
     </div>
@@ -197,10 +179,6 @@ footer.credit{ text-align:center; margin-top:18px; font-size:11px; color:var(--m
     <div class="card">
       <div class="bi-header"><span class="en">Great job, Camille!</span><span class="fr">Bravo, Camille !</span></div>
       <div class="bi-body"><span class="en">You can now say hello and introduce yourself in English!</span><span class="fr">Tu sais maintenant dire bonjour et te présenter en anglais !</span></div>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Great job today!')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('Bravo aujourd\'hui !')">🔊 FR</button>
-      </div>
     </div>
   </section>
 
@@ -212,18 +190,11 @@ footer.credit{ text-align:center; margin-top:18px; font-size:11px; color:var(--m
 </div>
 
 <script>
+/* Short confirmation chimes only — no computer voice/narration. Listening & speaking practice happens live with the teacher and via the Conversation Wheel. */
 let audioCtx; function getCtx(){ if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } return audioCtx; }
 function tone(freq, start, dur, type='sine', vol=0.2){ const ctx=getCtx(); const osc=ctx.createOscillator(); const gain=ctx.createGain(); osc.type=type; osc.frequency.value=freq; gain.gain.setValueAtTime(vol, ctx.currentTime+start); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+start+dur); osc.connect(gain).connect(ctx.destination); osc.start(ctx.currentTime+start); osc.stop(ctx.currentTime+start+dur); }
 function playCorrect(){ tone(523.25,0,.14); tone(659.25,.14,.14); tone(783.99,.28,.18); }
 function playIncorrect(){ tone(300,0,.18,'sawtooth',0.15); }
-
-let voiceEN=null, voiceFR=null;
-function pickVoices(){ const voices=window.speechSynthesis.getVoices();
-  voiceEN = voices.find(v=>v.name.includes('Google') && v.lang==='en-US') || voices.find(v=>v.lang==='en-US') || voices[0] || null;
-  voiceFR = voices.find(v=>v.name.includes('Google') && v.lang==='fr-FR') || voices.find(v=>v.lang && v.lang.startsWith('fr')) || null; }
-if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged=pickVoices; pickVoices(); }
-function speakEN(text){ if(!('speechSynthesis' in window)) return; window.speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=0.92; if(voiceEN) u.voice=voiceEN; window.speechSynthesis.speak(u); }
-function speakFR(text){ if(!('speechSynthesis' in window)) return; window.speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text); u.lang='fr-FR'; u.rate=0.92; if(voiceFR) u.voice=voiceFR; window.speechSynthesis.speak(u); }
 
 const screens = document.querySelectorAll('.screen'); let current=0; const totalScreens=screens.length;
 const screenLocks = {1:false, 4:false, 5:false};
@@ -253,7 +224,7 @@ function buildTOT(){
     let answered = false;
     function pick(chosen, other){
       if(!answered){ answered=true; totAnswered++; addStar(1); if(totAnswered>=4 && !screenLocks[1]){ screenLocks[1]=true; refreshNavButtons(); } }
-      chosen.classList.add('sel'); other.classList.remove('sel'); speakEN(chosen===optA?p.a:p.b);
+      chosen.classList.add('sel'); other.classList.remove('sel');
     }
     optA.addEventListener('click', ()=>pick(optA,optB));
     optB.addEventListener('click', ()=>pick(optB,optA));
@@ -271,10 +242,7 @@ function buildVocab(){
   const grid = document.getElementById('vocabGrid');
   vocabData.forEach(item=>{
     const card = document.createElement('div'); card.className='vocab-card';
-    card.innerHTML = `<div class="en">${item.en}</div><div class="fr">${item.fr}</div>
-      <div class="vocab-audio"><button class="en-b" type="button">EN</button><button class="fr-b" type="button">FR</button></div>`;
-    card.querySelector('.en-b').addEventListener('click', ()=>speakEN(item.en));
-    card.querySelector('.fr-b').addEventListener('click', ()=>speakFR(item.fr));
+    card.innerHTML = `<div class="en">${item.en}</div><div class="fr">${item.fr}</div>`;
     grid.appendChild(card);
   });
 }
