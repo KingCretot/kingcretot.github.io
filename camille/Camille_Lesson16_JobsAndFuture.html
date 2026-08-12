@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="google" content="notranslate">
+<title>Camille • Lesson 16 — Jobs & When I Grow Up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#FFDD4A; --sun-deep:#D9B000;
+    --sky:#4361EE; --sky-deep:#0B29B6;
+    --coral:#F72585; --coral-deep:#AA024F;
+    --leaf:#BFEAC5; --leaf-deep:#66D375;
+    --sand:#D7E3FC; --sand-deep:#6B99F8;
+    --cream:#fff8ea; --ink:#25324a; --violet:#7c3aed;
+    --good:#34d399; --bad:#ef4444;
+    --shadow:0 12px 36px rgba(76,201,240,0.18);
+    --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Quicksand',sans-serif;font-size:20px;line-height:1.55;color:var(--ink);
+    background:
+      radial-gradient(circle at 8% 12%,rgba(76,201,240,0.20) 0,transparent 42%),
+      radial-gradient(circle at 92% 82%,rgba(255,183,3,0.20) 0,transparent 42%),
+      linear-gradient(180deg,#fff8ea 0%,#fff 100%);
+    min-height:100vh;overflow-x:hidden;
+  }
+  .notranslate{translate:no}
+  .kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px;}
+  .kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px;}
+  .kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1;}
+  .kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700;}
+  .kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+  .kce-band{height:3px;display:flex;}.kce-band i{flex:1}
+  .kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+
+  .stage{max-width:1280px;margin:0 auto;padding:24px 24px 100px;position:relative}
+  .hud{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--sky);border-radius:24px;padding:14px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
+  .hud-brand{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);display:flex;align-items:center;gap:8px;}
+  .hud-brand::before{content:'🌍';font-size:26px}
+  .hud-stat{display:flex;align-items:center;gap:6px;font-weight:700;font-size:18px;background:var(--cream);padding:8px 14px;border-radius:12px;border:2px solid var(--sky);color:var(--sky-deep);}
+  .hud-stat.lives{border-color:var(--coral);color:var(--coral-deep)}
+  .hud-stat.streak{border-color:var(--sun);color:#a06400}
+  .xp-shell{flex:1;min-width:160px;height:16px;background:#e6f7fb;border-radius:999px;overflow:hidden;border:2px solid var(--sky);position:relative;}
+  .xp-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--sun),var(--coral),var(--sky));border-radius:999px;transition:width .8s cubic-bezier(.2,.9,.3,1.2);}
+  .xp-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--sky-deep);}
+
+  .slide{background:#fff;border:3px solid var(--sky);border-radius:26px;padding:28px 30px;margin-top:18px;box-shadow:var(--shadow);display:none;animation:slideIn .5s ease;position:relative;overflow:hidden;}
+  .slide::before{content:'';position:absolute;top:-30px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,183,3,0.28),transparent 70%);z-index:0;}
+  .slide.active{display:block}
+  @keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .slide-title{font-family:'Caprasimo',serif;font-size:34px;color:var(--coral-deep);margin-bottom:6px;text-align:center;position:relative;z-index:1;}
+  .slide-sub{font-size:16px;color:var(--violet);text-align:center;margin-bottom:18px;font-style:italic;position:relative;z-index:1;}
+  .slide-count{text-align:center;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;position:relative;z-index:1;}
+  .connect-note{background:#f3e8ff;border-left:5px solid var(--violet);border-radius:10px;padding:10px 14px;font-size:14px;color:var(--violet);font-weight:700;margin-bottom:14px;position:relative;z-index:1;}
+
+  .bilingual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;position:relative;z-index:1;}
+  .lang-card{background:linear-gradient(135deg,#fff,#eaf9ff);border-radius:16px;padding:18px 22px;border-left:6px solid var(--sky);box-shadow:0 4px 14px rgba(33,158,188,0.10);}
+  .lang-card.fr{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0);}
+  .lang-tag{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--sky-deep);background:#d4f1fa;padding:3px 10px;border-radius:6px;margin-bottom:8px;}
+  .lang-card.fr .lang-tag{color:var(--coral-deep);background:#ffe3e3}
+  .lang-card p{font-size:18px;line-height:1.6}
+  .lang-card.fr p{color:var(--violet);font-size:17px}
+
+  .modal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:16px 0;position:relative;z-index:1;}
+  .modal-card{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sun);border-radius:16px;padding:16px 20px;cursor:pointer;transition:all .3s;min-height:112px;}
+  .modal-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(255,183,3,0.30)}
+  .modal-card.flipped{background:linear-gradient(135deg,var(--sky),var(--sky-deep));color:#fff;border-color:var(--coral)}
+  .modal-card .who{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);margin-bottom:5px;}
+  .modal-card.flipped .who{color:#fff}
+  .modal-card .role{font-size:13px;font-weight:700;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;}
+  .modal-card.flipped .role{color:var(--sun)}
+  .modal-card .detail{font-size:15px;margin-top:7px;color:var(--ink)}
+  .modal-card.flipped .detail{color:#fff}
+  .modal-card .fr{font-size:13px;color:var(--violet);margin-top:5px;font-style:italic;}
+  .modal-card.flipped .fr{color:#fff8e1}
+  .modal-card .tap-hint{font-size:11px;font-weight:700;color:#888;margin-top:8px}
+  .modal-card.flipped .tap-hint{color:var(--cream)}
+
+  /* Interactive map/journey */
+  .map-track{display:flex;gap:12px;padding:10px 4px 16px;position:relative;z-index:1;}
+  .map-stop{flex:1;min-width:0;background:#fff;border:3px solid var(--sand);border-radius:16px;padding:24px 14px;text-align:center;cursor:pointer;transition:all .25s;}
+  @media(max-width:520px){ .map-track{flex-wrap:wrap;} .map-stop{flex:1 1 45%;} }
+  .map-stop:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(156,102,68,0.25)}
+  .map-stop.active{background:linear-gradient(135deg,var(--sand),var(--sand-deep));border-color:var(--coral);}
+  .map-stop.active .stop-num,.map-stop.active .stop-label{color:#fff}
+  .map-stop.visited{border-color:var(--good);}
+  .map-stop .stop-icon{font-size:52px;display:block;margin-bottom:8px;}
+  .map-stop .stop-num{font-size:13px;font-weight:800;color:var(--sand-deep);text-transform:uppercase;letter-spacing:1px;}
+  .map-stop .stop-label{font-size:18px;font-weight:700;color:var(--ink);margin-top:4px;}
+  .map-stop .stop-check{font-size:14px;color:var(--good);font-weight:800;margin-top:6px;visibility:hidden;}
+  .map-stop.visited .stop-check{visibility:visible;}
+  .stop-progress{text-align:center;font-size:13px;color:var(--sand-deep);font-weight:700;margin-bottom:6px;position:relative;z-index:1;}
+
+  .trail-wrap{position:relative;height:34px;margin:0 4px 10px;position:relative;z-index:1;}
+  .trail-line{position:absolute;top:50%;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--sand) 0,var(--sand) 8px,transparent 8px,transparent 16px);transform:translateY(-50%);border-radius:4px;}
+  .trail-mover{position:absolute;top:50%;left:0;font-size:26px;transform:translate(-50%,-50%);transition:left 0.6s cubic-bezier(.3,.9,.3,1.2);filter:drop-shadow(0 2px 4px rgba(0,0,0,0.25));}
+
+  .artifact-tray{display:flex;gap:8px;justify-content:center;align-items:center;min-height:44px;margin:6px 0 12px;position:relative;z-index:1;}
+  .artifact-slot{width:38px;height:38px;border-radius:10px;border:2px dashed #d8c4a8;display:flex;align-items:center;justify-content:center;font-size:20px;background:#fff;transition:all .3s;}
+  .artifact-slot.filled{border-style:solid;border-color:var(--good);background:linear-gradient(135deg,#fff,#e6fff5);animation:popIn .4s ease;}
+  @keyframes popIn{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+
+  .bonus-card{display:none;background:linear-gradient(135deg,#fff8ea,#fff);border:3px solid var(--sun);border-radius:16px;padding:16px 20px;margin-top:12px;position:relative;z-index:1;}
+  .bonus-card.show{display:block;animation:slideIn .5s ease;}
+  .bonus-card .bc-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--sun-deep);margin-bottom:6px;}
+  .bonus-card h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--coral-deep);margin-bottom:6px;}
+  .bonus-card .fr{color:var(--violet);font-style:italic;font-size:13px;display:block;margin-top:4px;}
+
+  .stop-panel{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sand);border-radius:18px;padding:20px 22px;position:relative;z-index:1;min-height:140px;}
+  .stop-panel .sp-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--sand-deep);margin-bottom:6px;}
+  .stop-panel h3{font-family:'Caprasimo',serif;font-size:24px;color:var(--coral-deep);margin-bottom:8px;}
+  .stop-panel .sp-en{font-size:17px;margin-bottom:4px;}
+  .stop-panel .sp-fr{font-size:14px;color:var(--violet);font-style:italic;margin-bottom:10px;}
+  .stop-panel .sp-fact{background:#fff;border-left:4px solid var(--leaf);border-radius:10px;padding:10px 14px;font-size:15px;}
+  .stop-panel .sp-fact .fr{display:block;color:var(--violet);font-style:italic;font-size:13px;margin-top:4px;}
+  .stop-panel .sp-placeholder{color:#aaa;font-style:italic;font-size:15px;text-align:center;padding:20px 0;}
+  .img-note{font-size:12px;color:#aaa;font-style:italic;margin-top:8px;position:relative;z-index:1;}
+
+  .mcq-q{font-family:'Caprasimo',serif;font-size:20px;color:var(--coral-deep);margin:14px 0 12px;padding:14px 18px;background:var(--cream);border-radius:14px;border-left:6px solid var(--sky);position:relative;z-index:1;}
+  .mcq-q .fr{display:block;font-family:'Quicksand',sans-serif;font-size:14px;color:var(--violet);font-weight:500;font-style:italic;margin-top:5px;}
+  .answers{display:grid;gap:8px;margin-bottom:10px;position:relative;z-index:1}
+  .ans{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:11px 16px;font-size:17px;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;transition:all .2s;font-family:'Quicksand',sans-serif;}
+  .ans:hover:not(:disabled){background:#eaf9ff;transform:translateX(4px);border-color:var(--sky-deep)}
+  .ans.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
+  .ans.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
+  .ans:disabled{cursor:default}
+  @keyframes pulse{0%,100%{transform:none}50%{transform:scale(1.03)}}
+  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  .feedback{margin-top:6px;padding:11px 15px;border-radius:12px;font-size:15px;display:none;position:relative;z-index:1}
+  .feedback.show{display:block;animation:slideIn .3s ease}
+  .feedback.good{background:#d1fae5;color:#065f46;border-left:5px solid var(--good)}
+  .feedback.bad{background:#fee2e2;color:#991b1b;border-left:5px solid var(--bad)}
+  .feedback .fr{display:block;color:var(--violet);font-style:italic;margin-top:3px;font-size:13px}
+
+  /* This or That */
+  .tot-cluster-label{font-size:13px;font-weight:800;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;margin:12px 0 6px;position:relative;z-index:1;}
+  .tot-row{display:flex;gap:8px;margin:8px 0;position:relative;z-index:1;}
+  .tot-pair{flex:1;display:flex;border:3px solid var(--sky);border-radius:14px;overflow:hidden;}
+  .tot-opt{flex:1;border:0;background:#fff;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer;padding:12px 8px;transition:all .2s;}
+  .tot-opt:hover{background:#eaf9ff;}
+  .tot-opt.sel{background:var(--coral);color:#fff;}
+  .tot-mid{width:2px;background:var(--sky);}
+  .tot-hint{font-size:11px;color:var(--violet);font-style:italic;margin-top:3px;display:block;}
+
+  /* Elicitation / speaking-first */
+  .elicit-card{background:linear-gradient(135deg,#fff,#eaf9ff);border:3px dashed var(--sky);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
+  .elicit-card h4{font-family:'Caprasimo',serif;font-size:20px;color:var(--sky-deep);margin-bottom:8px;}
+  .starter-row{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+  .starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:10px 14px;font-family:'Quicksand',sans-serif;}
+  .starter .en{font-weight:700;color:var(--ink);font-size:17px;font-family:'Quicksand',sans-serif;display:block;}
+  .starter .fr{display:block;color:var(--violet);font-style:italic;font-weight:500;font-size:13px;font-family:'Quicksand',sans-serif;margin-top:2px;}
+  .hint-toggle{background:var(--sun);border:none;color:var(--kce-navy);font-weight:800;padding:9px 18px;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:13px;margin-top:10px;}
+  .hint-facts{display:none;margin-top:10px;background:#fff;border-left:4px solid var(--sun);border-radius:10px;padding:12px 14px;font-size:14px;}
+  .hint-facts.show{display:block;}
+  .hint-facts li{margin-bottom:6px;}
+  .hint-facts .fr{color:var(--violet);font-style:italic;font-size:12px;}
+
+  .tiers{display:grid;gap:11px;margin-top:14px;position:relative;z-index:1}
+  .tier{background:#fff;border-radius:16px;padding:16px 20px;border-left:8px solid var(--sky);box-shadow:0 4px 14px rgba(0,0,0,0.06);}
+  .tier.silver{border-left-color:#9ca3af}
+  .tier.gold{border-left-color:var(--sun)}
+  .tier.diamond{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0)}
+  .tier-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#666;margin-bottom:5px;}
+  .tier h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--coral-deep);margin-bottom:5px}
+  .tier p{font-size:16px}
+  .tier .fr{color:var(--violet);font-style:italic;font-size:14px;margin-top:3px}
+
+  .bridge-map{position:relative;min-height:260px;margin:20px 4px;position:relative;z-index:1;}
+  .bridge-distance{text-align:center;background:var(--cream);border:2px dashed var(--sun);border-radius:14px;padding:12px 18px;margin-top:14px;font-size:16px;font-weight:700;color:var(--sand-deep);position:relative;z-index:1;}
+  .bridge-distance .fr{display:block;font-weight:500;font-style:italic;color:var(--violet);font-size:13px;margin-top:3px;}
+
+  .wheel-embed-label{font-family:'Caprasimo',serif;font-size:18px;color:var(--sun-deep);text-align:center;margin-top:6px;margin-bottom:10px;position:relative;z-index:1;}
+  .wheel-embed{width:100%;min-height:640px;border:3px solid var(--sun);border-radius:20px;position:relative;z-index:1;box-shadow:0 8px 24px rgba(255,183,3,0.25);background:#fff;}
+  @media(max-width:780px){ .wheel-embed{min-height:760px;} }
+
+  .victory{background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#fff;border-radius:22px;padding:32px;text-align:center;border:4px solid var(--sun);margin:12px 0;box-shadow:0 12px 40px rgba(229,72,77,0.4);position:relative;z-index:1;}
+  .victory h2{font-family:'Caprasimo',serif;font-size:34px;margin-bottom:12px}
+  .victory p{font-size:17px;line-height:1.7;margin-bottom:8px}
+  .victory .fr{color:var(--sun);font-style:italic;font-size:15px;margin-top:6px}
+  .victory .recap{background:rgba(255,255,255,.15);border-radius:14px;padding:14px 18px;margin-top:14px;text-align:left;font-size:15px;}
+  .victory .recap b{color:var(--sun)}
+
+  .nav-wrap-fixed{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid var(--sky);padding:12px 0;z-index:500;box-shadow:0 -6px 20px rgba(0,0,0,0.12);}
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1280px;margin:0 auto;padding:0 24px;flex-wrap:wrap;}
+  .dots{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:380px}
+  .dot{width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--coral);cursor:pointer;transition:all .25s;}
+  .dot.active{background:var(--coral);transform:scale(1.4)}
+  .dot.done{background:var(--sky);border-color:var(--sky)}
+  .nav-btn{background:linear-gradient(135deg,var(--coral),var(--coral-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(229,72,77,0.4);transition:all .25s;text-transform:uppercase;letter-spacing:0.5px;}
+  .nav-btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(229,72,77,0.55)}
+  .nav-btn.prev{background:linear-gradient(135deg,#888,#aaa);box-shadow:0 6px 18px rgba(0,0,0,0.2)}
+  .nav-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+
+  .reaction{position:fixed;font-size:44px;pointer-events:none;z-index:9999;animation:floatUp 1.4s ease-out forwards;}
+  @keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(0.5)}20%{opacity:1;transform:translateY(-30px) scale(1.2)}100%{opacity:0;transform:translateY(-180px) scale(0.8)}}
+  .confetti{position:fixed;width:10px;height:10px;pointer-events:none;z-index:9999;animation:confettiFall 2s ease-out forwards;}
+  @keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(400px) rotate(720deg)}}
+
+  footer.kce-foot{text-align:center;padding:16px 20px;font-size:11px;color:#8a93a6;}
+
+  @media(max-width:780px){
+    .bilingual{grid-template-columns:1fr}
+    .slide-title{font-size:26px}
+    .modal-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body class="notranslate" translate="no">
+
+<div class="kce-mast">
+  <div class="kce-mono">KC</div>
+  <div>
+    <div class="kce-word">KingCretot Experience</div>
+    <div class="kce-tag">EDUCATE. <span class="g">EMPOWER.</span> <span class="r">EXCEL.</span></div>
+  </div>
+</div>
+<div class="kce-band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+<div class="stage">
+  <div class="hud">
+    <div class="hud-brand">Camille • L16</div>
+    <div class="hud-stat lives">❤️ <span id="lives">3</span></div>
+    <div class="hud-stat">⭐ <span id="stars">0</span></div>
+    <div class="hud-stat streak">🔥 <span id="streak">0</span></div>
+    <div class="xp-shell">
+      <div class="xp-fill" id="xpFill"></div>
+      <div class="xp-text"><span id="xpText">0</span> / 260 XP</div>
+    </div>
+  </div>
+
+  <section class="slide active" data-slide="1">
+    <div class="slide-count">Slide 1 of 9</div>
+    <div class="slide-title">💼 Jobs & When I Grow Up</div>
+    <div class="slide-sub">What will you be?</div>
+    <div class="bilingual">
+      <div class="lang-card">
+        <span class="lang-tag">English</span>
+        <p>Hi Camille! Last week we explored the world. This week, let's imagine the future — and talk about jobs and what you want to be when you grow up!</p>
+      </div>
+      <div class="lang-card fr">
+        <span class="lang-tag">Français</span>
+        <p>Salut Camille! La semaine dernière, on a exploré le monde. Cette semaine, imaginons l'avenir — et parlons des métiers et de ce que tu veux faire plus tard!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-slide="2">
+    <div class="slide-count">Slide 2 of 9</div>
+    <div class="slide-title">⚡ This or That!</div>
+    <div class="slide-sub">Quick warm-up — tap fast! / Échauffement rapide!</div>
+    <div class="tot-cluster-label">💭 Career Vibes</div>
+    <div id="totRows1"></div>
+  </section>
+
+  <section class="slide" data-slide="3">
+    <div class="slide-count">Slide 3 of 9</div>
+    <div class="slide-title">⚡ This or That!</div>
+    <div class="slide-sub">What matters most to you in a job? / Qu'est-ce qui compte le plus pour toi dans un métier?</div>
+    <div class="tot-cluster-label">👩‍⚕️ Jobs</div>
+    <div id="totRows2"></div>
+  </section>
+
+  <section class="slide" data-slide="4">
+    <div class="slide-count">Slide 4 of 9</div>
+    <div class="slide-title">💼 Careers Around You</div>
+    <div class="connect-note">Tap each station to explore a job!</div>
+    <div class="stop-progress" id="stopProgress">0 / 4 jobs explored</div>
+    <div class="map-track" id="mapTrack"></div>
+    <div class="trail-wrap">
+      <div class="trail-line"></div>
+      <div class="trail-mover" id="trailMover">💼</div>
+    </div>
+    <div class="artifact-tray" id="artifactTray"></div>
+    <div class="stop-panel" id="stopPanel">
+      <div class="sp-placeholder">Tap a station above to begin! / Tape une station pour commencer!</div>
+    </div>
+    <div class="bonus-card" id="bonusCard"></div>
+  </section>
+
+  <section class="slide" data-slide="5">
+    <div class="slide-count">Slide 5 of 9</div>
+    <div class="slide-title">🧠 Quick Check</div>
+    <div class="slide-sub">Let's see what stuck!</div>
+    <div id="quizHost"></div>
+  </section>
+
+  <section class="slide" data-slide="6">
+    <div class="slide-count">Slide 6 of 9</div>
+    <div class="slide-title">🎤 Now It's Your Turn</div>
+    <div class="connect-note">Forget the stations — tell me about YOUR future!</div>
+    <div class="elicit-card">
+      <h4>Tell me what you want to be</h4>
+      <div class="starter-row">
+        <div class="starter"><span class="en">When I grow up, I want to be...</span><span class="fr">Quand je serai grande, je veux être...</span></div>
+        <div class="starter"><span class="en">I would be good at this job because...</span><span class="fr">Je serais douée pour ce métier parce que...</span></div>
+        <div class="starter"><span class="en">The most important thing in a job is...</span><span class="fr">Le plus important dans un métier, c'est...</span></div>
+      </div>
+      <button class="hint-toggle" id="hintToggle">Need some words? Tap for ideas 💡</button>
+      <ul class="hint-facts" id="hintFacts">
+        <li><strong>doctor</strong> — <span class="fr">médecin</span></li>
+        <li><strong>teacher</strong> — <span class="fr">enseignant</span></li>
+        <li><strong>astronaut</strong> — <span class="fr">astronaute</span></li>
+        <li><strong>artist</strong> — <span class="fr">artiste</span></li>
+        <li><strong>job</strong> — <span class="fr">métier</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide" data-slide="7">
+    <div class="slide-count">Slide 7 of 9</div>
+    <div class="slide-title">🎤 Your Turn to Talk!</div>
+    <div class="slide-sub">Pick your level with your teacher.</div>
+    <div class="tiers">
+      <div class="tier silver">
+        <div class="tier-label">🥈 Silver Challenge</div>
+        <h4>Tell me one job you'd like to have.</h4>
+        <p class="fr">Dis-moi un métier que tu aimerais avoir.</p>
+      </div>
+      <div class="tier gold">
+        <div class="tier-label">🥇 Gold Challenge</div>
+        <h4>Tell me why you'd like that job.</h4>
+        <p class="fr">Dis-moi pourquoi tu aimerais ce métier.</p>
+      </div>
+      <div class="tier diamond">
+        <div class="tier-label">💎 Diamond Challenge</div>
+        <h4>Compare two jobs we explored today. Which is more like you, and why?</h4>
+        <p class="fr">Compare deux métiers qu'on a explorés aujourd'hui. Lequel te ressemble le plus, et pourquoi?</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-slide="8">
+    <div class="slide-count">Slide 8 of 9</div>
+    <div class="slide-title">🎡 Bonus Round!</div>
+    <div class="slide-sub">Extra time? Spin for a totally different kind of question.</div>
+    <div class="wheel-embed-label">🎡 Spin for a question!</div>
+    <iframe class="wheel-embed" id="wheelFrame" title="Conversation Wheel" src="https://kingcretot.github.io/conversation-wheel/KCE_English_ConversationWheel_Bilingual_v1.html" loading="lazy"></iframe>
+  </section>
+
+  <section class="slide" data-slide="9">
+    <div class="slide-count">Slide 9 of 9</div>
+    <div class="victory">
+      <h2>🎉 Bravo, Camille!</h2>
+      <p>Today you explored four jobs and shared your own dreams for the future — all in English!</p>
+      <p class="fr">Aujourd'hui, tu as exploré quatre métiers et partagé tes propres rêves pour l'avenir — tout en anglais!</p>
+      <div class="recap" id="recapBox"></div>
+    </div>
+  </section>
+</div>
+<div class="nav-wrap-fixed">
+  <div class="nav-wrap">
+    <button class="nav-btn prev" id="prevBtn">◂ Back</button>
+    <div class="dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▸</button>
+  </div>
+</div>
+<footer class="kce-foot">KingCretot Experience · Camille · Lesson 16: Jobs & When I Grow Up</footer>
+
+<script>
+const STATIONS = [
+  {icon:"\u{1FA7A}", label:"Doctor", en:"heal", fr:"soigner", ex:"The doctor worked hard to heal her patients.", exfr:"La docteure a travaillé dur pour soigner ses patients.", fact:"Doctors study for many years — sometimes more than 10! — before they can treat patients on their own.", factfr:"Les médecins étudient pendant de nombreuses années — parfois plus de 10! — avant de pouvoir soigner des patients seuls."},
+  {icon:"\u{1F4DA}", label:"Teacher", en:"inspire", fr:"inspirer", ex:"A great teacher can inspire students to love learning.", exfr:"Un excellent enseignant peut inspirer les élèves à aimer apprendre.", fact:"Many famous scientists and artists say a teacher was the person who first inspired their passion!", factfr:"Beaucoup de scientifiques et d'artistes célèbres disent qu'un enseignant a été la première personne à inspirer leur passion!"},
+  {icon:"\u{1F680}", label:"Astronaut", en:"mission", fr:"mission", ex:"The astronaut trained for years before her first mission to space.", exfr:"L'astronaute s'est entraînée pendant des années avant sa première mission dans l'espace.", fact:"Astronauts have to learn how to eat, sleep, and even exercise while floating in zero gravity!", factfr:"Les astronautes doivent apprendre à manger, dormir et même faire de l'exercice en flottant en apesanteur!"},
+  {icon:"\u{1F3A8}", label:"Artist", en:"imagination", fr:"imagination", ex:"The artist used her imagination to paint a whole new world.", exfr:"L'artiste a utilisé son imagination pour peindre un monde tout nouveau.", fact:"Many famous artists, like Claude Monet, were French — Monet's garden paintings are loved all over the world!", factfr:"Beaucoup d'artistes célèbres, comme Claude Monet, étaient français — les peintures de jardin de Monet sont aimées dans le monde entier!"}
+];
+
+const FB = {};
+
+let ac;
+function tone(freqs, durs){
+  try{
+    if(!ac) ac = new (window.AudioContext||window.webkitAudioContext)();
+    const now = ac.currentTime;
+    freqs.forEach((f,i)=>{
+      const o=ac.createOscillator(),g=ac.createGain();
+      o.type='triangle';o.frequency.value=f;
+      o.connect(g);g.connect(ac.destination);
+      const t0=now+i*0.09;
+      g.gain.setValueAtTime(0,t0);
+      g.gain.linearRampToValueAtTime(0.18,t0+0.02);
+      g.gain.exponentialRampToValueAtTime(0.001,t0+(durs[i]||0.25));
+      o.start(t0);o.stop(t0+(durs[i]||0.25));
+    });
+  }catch(e){}
+}
+const goodSound=()=>tone([523.25,659.25,783.99,1046.5],[0.18,0.18,0.18,0.36]);
+const badSound =()=>tone([392,329.63,261.63],[0.2,0.2,0.34]);
+
+const state = {lives:3,stars:0,streak:0,xp:0,slide:1,total:9,answered:{},visitedStations:new Set(),bonusShown:false};
+function updateHUD(){
+  document.getElementById('lives').textContent=state.lives;
+  document.getElementById('stars').textContent=state.stars;
+  document.getElementById('streak').textContent=state.streak;
+  document.getElementById('xpFill').style.width=Math.min(100,(state.xp/260)*100)+'%';
+  document.getElementById('xpText').textContent=state.xp;
+}
+function addXP(n){state.xp=Math.min(260,state.xp+n);updateHUD()}
+function reaction(emoji){
+  const el=document.createElement('div');el.className='reaction';el.textContent=emoji;
+  el.style.left=(40+Math.random()*40)+'%';el.style.top='50%';
+  document.body.appendChild(el);setTimeout(()=>el.remove(),1400);
+}
+function confetti(){
+  const colors=['#F72585','#4361EE','#FFDD4A','#7c3aed','#fff8ea','#BFEAC5'];
+  for(let i=0;i<26;i++){
+    const c=document.createElement('div');c.className='confetti';
+    c.style.background=colors[i%colors.length];
+    c.style.left=Math.random()*100+'vw';c.style.top='-10px';
+    c.style.animationDelay=(Math.random()*0.4)+'s';
+    document.body.appendChild(c);setTimeout(()=>c.remove(),2400);
+  }
+}
+
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('.ans');
+  if(!btn) return;
+  const group = btn.closest('.answers');
+  const gid = group.getAttribute('data-gid');
+  if(!FB[gid] || state.answered[gid]) return;
+  const ans = btn.getAttribute('data-ans');
+  const data = FB[gid][ans];
+  const fb = document.querySelector(`.feedback[data-gid="${gid}"]`);
+  if(data.ok){
+    state.answered[gid]=true;
+    btn.classList.add('correct');
+    group.querySelectorAll('.ans').forEach(b=>b.disabled=true);
+    fb.className='feedback show good';
+    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
+    state.stars++;state.streak++;addXP(15);updateHUD();
+    goodSound();reaction('🎉');confetti();
+  } else {
+    btn.classList.add('wrong');btn.disabled=true;
+    fb.className='feedback show bad';
+    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
+    state.lives=Math.max(0,state.lives-1);state.streak=0;updateHUD();
+    badSound();reaction('👎');
+  }
+});
+
+function buildTOT(hostId, pairsArr){
+  const host = document.getElementById(hostId);
+  pairsArr.forEach(p=>{
+    const row=document.createElement('div');row.className='tot-row';
+    const pair=document.createElement('div');pair.className='tot-pair';
+    const optA=document.createElement('button');optA.className='tot-opt';optA.innerHTML=p[0]+'<span class="tot-hint">'+(p[2]||'')+'</span>';
+    const mid=document.createElement('div');mid.className='tot-mid';
+    const optB=document.createElement('button');optB.className='tot-opt';optB.innerHTML=p[1]+'<span class="tot-hint">'+(p[3]||'')+'</span>';
+    function pick(chosen,other){
+      chosen.classList.add('sel'); other.classList.remove('sel');
+      addXP(3); reaction('✨'); tone([587,740],[0.1,0.16]);
+    }
+    optA.addEventListener('click',()=>pick(optA,optB));
+    optB.addEventListener('click',()=>pick(optB,optA));
+    pair.appendChild(optA);pair.appendChild(mid);pair.appendChild(optB);
+    row.appendChild(pair); host.appendChild(row);
+  });
+}
+
+const TOT1 = [
+  ["Work indoors","Work outdoors","travailler à l'intérieur","travailler à l'extérieur"],
+  ["Work alone","Work with a team","travailler seul","travailler en équipe"],
+  ["Help people","Build things","aider les gens","construire des choses"],
+  ["Quiet job","Exciting job","métier calme","métier passionnant"],
+  ["Same routine","New challenges","routine fixe","nouveaux défis"],
+  ["Work with animals","Work with computers","travailler avec des animaux","travailler avec des ordinateurs"],
+  ["Wear a uniform","Wear anything","porter un uniforme","porter ce que tu veux"]
+];
+const TOT2 = [
+  ["Doctor","Teacher","médecin","enseignant"],
+  ["Astronaut","Artist","astronaute","artiste"],
+  ["Scientist","Chef","scientifique","chef cuisinier"],
+  ["Firefighter","Vet","pompier","vétérinaire"],
+  ["Engineer","Musician","ingénieur","musicien"],
+  ["Explorer","Inventor","explorateur","inventeur"]
+];
+buildTOT('totRows1', TOT1);
+buildTOT('totRows2', TOT2);
+
+function renderStations(){
+  const track = document.getElementById('mapTrack');
+  track.innerHTML = '';
+  STATIONS.forEach((s,i)=>{
+    const el = document.createElement('div');
+    el.className = 'map-stop';
+    el.dataset.idx = i;
+    el.innerHTML = `<span class="stop-icon">${s.icon}</span><div class="stop-num">Station ${i+1}</div><div class="stop-label">${s.label}</div><div class="stop-check">✓ visited</div>`;
+    el.addEventListener('click', ()=>showStation(i));
+    track.appendChild(el);
+  });
+  const tray = document.getElementById('artifactTray');
+  tray.innerHTML = '';
+  STATIONS.forEach((s,i)=>{
+    const slot = document.createElement('div');
+    slot.className = 'artifact-slot';
+    slot.id = 'artifact-'+i;
+    slot.textContent = '?';
+    tray.appendChild(slot);
+  });
+  document.getElementById('trailMover').style.left = '0%';
+  document.getElementById('bonusCard').classList.remove('show');
+  updateStationProgress();
+}
+function updateStationProgress(){
+  document.getElementById('stopProgress').textContent = `${state.visitedStations.size} / 4 jobs explored`;
+  document.getElementById('trailMover').style.left = (state.visitedStations.size/4*94)+'%';
+}
+function showStation(idx){
+  const s = STATIONS[idx];
+  document.querySelectorAll('.map-stop').forEach((el,i)=>{
+    el.classList.toggle('active', i===idx);
+  });
+  if(!state.visitedStations.has(idx)){
+    state.visitedStations.add(idx);
+    document.querySelectorAll('.map-stop')[idx].classList.add('visited');
+    const slot = document.getElementById('artifact-'+idx);
+    if(slot){ slot.textContent = s.icon; slot.classList.add('filled'); }
+    addXP(8); reaction('🚀'); tone([494,622],[0.1,0.18]);
+    updateStationProgress();
+    if(state.visitedStations.size===4 && !state.bonusShown){
+      state.bonusShown = true;
+      setTimeout(()=>{
+        const bc = document.getElementById('bonusCard');
+        bc.innerHTML = `<div class="bc-eyebrow">🏆 All 4 jobs explored!</div><h4>You just built a whole vocabulary toolkit for talking about jobs and your future in English!</h4><span class="fr">Tu viens de construire tout un vocabulaire pour parler de métiers et de ton avenir en anglais!</span>`;
+        bc.classList.add('show');
+        confetti(); reaction('🏆'); addXP(10); goodSound();
+      }, 500);
+    }
+  }
+  const panel = document.getElementById('stopPanel');
+  panel.innerHTML = `
+    <div class="sp-eyebrow">Station ${idx+1} · New word: ${s.en}</div>
+    <h3>${s.icon} ${s.label}</h3>
+    <div class="sp-en">"${s.ex}"</div>
+    <div class="sp-fr">${s.fr} — "${s.exfr}"</div>
+    <div class="sp-fact">${s.fact} <span class="fr">${s.factfr}</span></div>
+  `;
+}
+
+function renderQuiz(){
+  const host = document.getElementById('quizHost');
+  host.innerHTML = `
+    <div class="mcq-q" data-gid="q1">
+      About how many years do doctors often study before treating patients alone?
+      <span class="fr">Environ combien d'années les médecins étudient-ils souvent avant de soigner des patients seuls?</span>
+    </div>
+    <div class="answers" data-gid="q1">
+        <button class="ans" data-ans="A">A. 1 year</button>
+        <button class="ans" data-ans="B">B. More than 10 years</button>
+        <button class="ans" data-ans="C">C. 6 months</button>
+    </div>
+    <div class="feedback" data-gid="q1"></div>
+    <div class="mcq-q" data-gid="q2">
+      What is one thing astronauts must learn to do in zero gravity?
+      <span class="fr">Que doivent apprendre les astronautes à faire en apesanteur?</span>
+    </div>
+    <div class="answers" data-gid="q2">
+        <button class="ans" data-ans="A">A. Eat and sleep while floating</button>
+        <button class="ans" data-ans="B">B. Drive a car</button>
+        <button class="ans" data-ans="C">C. Grow taller</button>
+    </div>
+    <div class="feedback" data-gid="q2"></div>`;
+  FB.q1 = {A:{ok:false, msg:"Much longer than that!", fr:"Bien plus longtemps que ça!"}, B:{ok:true, msg:"⭐ Yes! It takes a long time to become a doctor!", fr:"⭐ Oui! Il faut longtemps pour devenir médecin!"}, C:{ok:false, msg:"Way longer than that!", fr:"Beaucoup plus longtemps que ça!"}};
+  FB.q2 = {A:{ok:true, msg:"⭐ Yes! Even everyday things are different in space!", fr:"⭐ Oui! Même les choses du quotidien sont différentes dans l'espace!"}, B:{ok:false, msg:"There are no roads in space!", fr:"Il n'y a pas de routes dans l'espace!"}, C:{ok:false, msg:"That's not quite it!", fr:"Ce n'est pas tout à fait ça!"}};
+}
+
+const dots = document.getElementById('dots');
+for(let i=1;i<=state.total;i++){
+  const d=document.createElement('div');
+  d.className='dot'+(i===1?' active':'');
+  d.addEventListener('click',()=>goSlide(i));
+  dots.appendChild(d);
+}
+function goSlide(n){
+  const prevSlide = state.slide;
+  state.slide=Math.max(1,Math.min(state.total,n));
+
+  if(state.slide===4 && prevSlide!==4){ renderStations(); }
+  if(state.slide===5 && prevSlide!==5){ renderQuiz(); }
+  if(state.slide===9 && prevSlide!==9){
+    document.getElementById('recapBox').innerHTML = `You explored ${state.visitedStations.size}/4 jobs and shared your own dreams for the future — all in English!`;
+  }
+
+  document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',+s.dataset.slide===state.slide));
+  document.querySelectorAll('.dot').forEach((d,i)=>{
+    d.classList.toggle('active',i+1===state.slide);
+    d.classList.toggle('done',i+1<state.slide);
+  });
+  document.getElementById('prevBtn').disabled=state.slide===1;
+  document.getElementById('nextBtn').textContent=state.slide===state.total?'🎉 Done!':'Next ▸';
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      window.scrollTo({top:0,behavior:'auto'});
+    });
+  });
+}
+document.getElementById('prevBtn').addEventListener('click',()=>goSlide(state.slide-1));
+document.getElementById('nextBtn').addEventListener('click',()=>{
+  if(state.slide===state.total){confetti();reaction('🏆');goodSound();return;}
+  goSlide(state.slide+1);
+});
+updateHUD();
+
+const hintToggleBtn = document.getElementById('hintToggle');
+if(hintToggleBtn){
+  hintToggleBtn.addEventListener('click', ()=>{
+    const box = document.getElementById('hintFacts');
+    box.classList.toggle('show');
+    hintToggleBtn.textContent = box.classList.contains('show') ? 'Hide ideas' : 'Need some words? Tap for ideas 💡';
+  });
+}
+
+</script>
+</body>
+</html>
