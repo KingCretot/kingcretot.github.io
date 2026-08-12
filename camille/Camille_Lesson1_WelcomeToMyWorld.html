@@ -1,1 +1,416 @@
-SEE_BASH_OUTPUT
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="google" content="notranslate">
+<title>Camille • Lesson 1 — Welcome to My World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#ffb703; --sun-deep:#e08e00;
+    --sky:#4cc9f0; --sky-deep:#219ebc;
+    --coral:#ff6b6b; --coral-deep:#e5484d;
+    --leaf:#52b788; --leaf-deep:#2d6a4f;
+    --sand:#d4a373; --sand-deep:#9c6644;
+    --cream:#fff8ea; --ink:#25324a; --violet:#7c3aed;
+    --good:#34d399; --bad:#ef4444;
+    --shadow:0 12px 36px rgba(76,201,240,0.18);
+    --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Quicksand',sans-serif;font-size:20px;line-height:1.55;color:var(--ink);
+    background:
+      radial-gradient(circle at 8% 12%,rgba(76,201,240,0.20) 0,transparent 42%),
+      radial-gradient(circle at 92% 82%,rgba(255,183,3,0.20) 0,transparent 42%),
+      linear-gradient(180deg,#fff8ea 0%,#fff 100%);
+    min-height:100vh;overflow-x:hidden;
+  }
+  .notranslate{translate:no}
+  .kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px;}
+  .kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px;}
+  .kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1;}
+  .kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700;}
+  .kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+  .kce-band{height:3px;display:flex;}.kce-band i{flex:1}
+  .kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+
+  .stage{max-width:1280px;margin:0 auto;padding:24px 24px 100px;position:relative}
+  .hud{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--sky);border-radius:24px;padding:14px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
+  .hud-brand{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);display:flex;align-items:center;gap:8px;}
+  .hud-brand::before{content:'🌍';font-size:26px}
+  .hud-stat{display:flex;align-items:center;gap:6px;font-weight:700;font-size:18px;background:var(--cream);padding:8px 14px;border-radius:12px;border:2px solid var(--sky);color:var(--sky-deep);}
+  .hud-stat.lives{border-color:var(--coral);color:var(--coral-deep)}
+  .hud-stat.streak{border-color:var(--sun);color:#a06400}
+  .xp-shell{flex:1;min-width:160px;height:16px;background:#e6f7fb;border-radius:999px;overflow:hidden;border:2px solid var(--sky);position:relative;}
+  .xp-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--sun),var(--coral),var(--sky));border-radius:999px;transition:width .8s cubic-bezier(.2,.9,.3,1.2);}
+  .xp-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--sky-deep);}
+
+  .slide{background:#fff;border:3px solid var(--sky);border-radius:26px;padding:28px 30px;margin-top:18px;box-shadow:var(--shadow);display:none;animation:slideIn .5s ease;position:relative;overflow:hidden;}
+  .slide::before{content:'';position:absolute;top:-30px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,183,3,0.28),transparent 70%);z-index:0;}
+  .slide.active{display:block}
+  @keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .slide-title{font-family:'Caprasimo',serif;font-size:34px;color:var(--coral-deep);margin-bottom:6px;text-align:center;position:relative;z-index:1;}
+  .slide-sub{font-size:16px;color:var(--violet);text-align:center;margin-bottom:18px;font-style:italic;position:relative;z-index:1;}
+  .slide-count{text-align:center;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;position:relative;z-index:1;}
+  .connect-note{background:#f3e8ff;border-left:5px solid var(--violet);border-radius:10px;padding:10px 14px;font-size:14px;color:var(--violet);font-weight:700;margin-bottom:14px;position:relative;z-index:1;}
+
+  .bilingual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;position:relative;z-index:1;}
+  .lang-card{background:linear-gradient(135deg,#fff,#eaf9ff);border-radius:16px;padding:18px 22px;border-left:6px solid var(--sky);box-shadow:0 4px 14px rgba(33,158,188,0.10);}
+  .lang-card.fr{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0);}
+  .lang-tag{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--sky-deep);background:#d4f1fa;padding:3px 10px;border-radius:6px;margin-bottom:8px;}
+  .lang-card.fr .lang-tag{color:var(--coral-deep);background:#ffe3e3}
+  .lang-card p{font-size:18px;line-height:1.6}
+  .lang-card.fr p{color:var(--violet);font-size:17px}
+
+  .modal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:16px 0;position:relative;z-index:1;}
+  .modal-card{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sun);border-radius:16px;padding:16px 20px;cursor:pointer;transition:all .3s;min-height:112px;}
+  .modal-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(255,183,3,0.30)}
+  .modal-card.flipped{background:linear-gradient(135deg,var(--sky),var(--sky-deep));color:#fff;border-color:var(--coral)}
+  .modal-card .who{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);margin-bottom:5px;}
+  .modal-card.flipped .who{color:#fff}
+  .modal-card .role{font-size:13px;font-weight:700;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;}
+  .modal-card.flipped .role{color:var(--sun)}
+  .modal-card .detail{font-size:15px;margin-top:7px;color:var(--ink)}
+  .modal-card.flipped .detail{color:#fff}
+  .modal-card .fr{font-size:13px;color:var(--violet);margin-top:5px;font-style:italic;}
+  .modal-card.flipped .fr{color:#fff8e1}
+  .modal-card .tap-hint{font-size:11px;font-weight:700;color:#888;margin-top:8px}
+  .modal-card.flipped .tap-hint{color:var(--cream)}
+
+  /* Interactive map/journey */
+  .map-track{display:flex;gap:12px;padding:10px 4px 16px;position:relative;z-index:1;}
+  .map-stop{flex:1;min-width:0;background:#fff;border:3px solid var(--sand);border-radius:16px;padding:24px 14px;text-align:center;cursor:pointer;transition:all .25s;}
+  @media(max-width:520px){ .map-track{flex-wrap:wrap;} .map-stop{flex:1 1 45%;} }
+  .map-stop:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(156,102,68,0.25)}
+  .map-stop.active{background:linear-gradient(135deg,var(--sand),var(--sand-deep));border-color:var(--coral);}
+  .map-stop.active .stop-num,.map-stop.active .stop-label{color:#fff}
+  .map-stop.visited{border-color:var(--good);}
+  .map-stop .stop-icon{font-size:52px;display:block;margin-bottom:8px;}
+  .map-stop .stop-num{font-size:13px;font-weight:800;color:var(--sand-deep);text-transform:uppercase;letter-spacing:1px;}
+  .map-stop .stop-label{font-size:18px;font-weight:700;color:var(--ink);margin-top:4px;}
+  .map-stop .stop-check{font-size:14px;color:var(--good);font-weight:800;margin-top:6px;visibility:hidden;}
+  .map-stop.visited .stop-check{visibility:visible;}
+  .stop-progress{text-align:center;font-size:13px;color:var(--sand-deep);font-weight:700;margin-bottom:6px;position:relative;z-index:1;}
+
+  .trail-wrap{position:relative;height:34px;margin:0 4px 10px;position:relative;z-index:1;}
+  .trail-line{position:absolute;top:50%;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--sand) 0,var(--sand) 8px,transparent 8px,transparent 16px);transform:translateY(-50%);border-radius:4px;}
+  .trail-mover{position:absolute;top:50%;left:0;font-size:26px;transform:translate(-50%,-50%);transition:left 0.6s cubic-bezier(.3,.9,.3,1.2);filter:drop-shadow(0 2px 4px rgba(0,0,0,0.25));}
+
+  .artifact-tray{display:flex;gap:8px;justify-content:center;align-items:center;min-height:44px;margin:6px 0 12px;position:relative;z-index:1;}
+  .artifact-slot{width:38px;height:38px;border-radius:10px;border:2px dashed #d8c4a8;display:flex;align-items:center;justify-content:center;font-size:20px;background:#fff;transition:all .3s;}
+  .artifact-slot.filled{border-style:solid;border-color:var(--good);background:linear-gradient(135deg,#fff,#e6fff5);animation:popIn .4s ease;}
+  @keyframes popIn{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+
+  .bonus-card{display:none;background:linear-gradient(135deg,#fff8ea,#fff);border:3px solid var(--sun);border-radius:16px;padding:16px 20px;margin-top:12px;position:relative;z-index:1;}
+  .bonus-card.show{display:block;animation:slideIn .5s ease;}
+  .bonus-card .bc-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--sun-deep);margin-bottom:6px;}
+  .bonus-card h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--coral-deep);margin-bottom:6px;}
+  .bonus-card .fr{color:var(--violet);font-style:italic;font-size:13px;display:block;margin-top:4px;}
+
+  .stop-panel{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sand);border-radius:18px;padding:20px 22px;position:relative;z-index:1;min-height:140px;}
+  .stop-panel .sp-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--sand-deep);margin-bottom:6px;}
+  .stop-panel h3{font-family:'Caprasimo',serif;font-size:24px;color:var(--coral-deep);margin-bottom:8px;}
+  .stop-panel .sp-en{font-size:17px;margin-bottom:4px;}
+  .stop-panel .sp-fr{font-size:14px;color:var(--violet);font-style:italic;margin-bottom:10px;}
+  .stop-panel .sp-fact{background:#fff;border-left:4px solid var(--leaf);border-radius:10px;padding:10px 14px;font-size:15px;}
+  .stop-panel .sp-fact .fr{display:block;color:var(--violet);font-style:italic;font-size:13px;margin-top:4px;}
+  .stop-panel .sp-placeholder{color:#aaa;font-style:italic;font-size:15px;text-align:center;padding:20px 0;}
+  .img-note{font-size:12px;color:#aaa;font-style:italic;margin-top:8px;position:relative;z-index:1;}
+
+  .mcq-q{font-family:'Caprasimo',serif;font-size:20px;color:var(--coral-deep);margin:14px 0 12px;padding:14px 18px;background:var(--cream);border-radius:14px;border-left:6px solid var(--sky);position:relative;z-index:1;}
+  .mcq-q .fr{display:block;font-family:'Quicksand',sans-serif;font-size:14px;color:var(--violet);font-weight:500;font-style:italic;margin-top:5px;}
+  .answers{display:grid;gap:8px;margin-bottom:10px;position:relative;z-index:1}
+  .ans{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:11px 16px;font-size:17px;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;transition:all .2s;font-family:'Quicksand',sans-serif;}
+  .ans:hover:not(:disabled){background:#eaf9ff;transform:translateX(4px);border-color:var(--sky-deep)}
+  .ans.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
+  .ans.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
+  .ans:disabled{cursor:default}
+  @keyframes pulse{0%,100%{transform:none}50%{transform:scale(1.03)}}
+  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  .feedback{margin-top:6px;padding:11px 15px;border-radius:12px;font-size:15px;display:none;position:relative;z-index:1}
+  .feedback.show{display:block;animation:slideIn .3s ease}
+  .feedback.good{background:#d1fae5;color:#065f46;border-left:5px solid var(--good)}
+  .feedback.bad{background:#fee2e2;color:#991b1b;border-left:5px solid var(--bad)}
+  .feedback .fr{display:block;color:var(--violet);font-style:italic;margin-top:3px;font-size:13px}
+
+  /* This or That */
+  .tot-cluster-label{font-size:13px;font-weight:800;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;margin:12px 0 6px;position:relative;z-index:1;}
+  .tot-row{display:flex;gap:8px;margin:8px 0;position:relative;z-index:1;}
+  .tot-pair{flex:1;display:flex;border:3px solid var(--sky);border-radius:14px;overflow:hidden;}
+  .tot-opt{flex:1;border:0;background:#fff;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer;padding:12px 8px;transition:all .2s;}
+  .tot-opt:hover{background:#eaf9ff;}
+  .tot-opt.sel{background:var(--coral);color:#fff;}
+  .tot-mid{width:2px;background:var(--sky);}
+  .tot-hint{font-size:11px;color:var(--violet);font-style:italic;margin-top:3px;display:block;}
+
+  /* Elicitation / speaking-first */
+  .elicit-card{background:linear-gradient(135deg,#fff,#eaf9ff);border:3px dashed var(--sky);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
+  .elicit-card h4{font-family:'Caprasimo',serif;font-size:20px;color:var(--sky-deep);margin-bottom:8px;}
+  .starter-row{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+  .starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:10px 14px;font-family:'Quicksand',sans-serif;}
+  .starter .en{font-weight:700;color:var(--ink);font-size:17px;font-family:'Quicksand',sans-serif;display:block;}
+  .starter .fr{display:block;color:var(--violet);font-style:italic;font-weight:500;font-size:13px;font-family:'Quicksand',sans-serif;margin-top:2px;}
+  .hint-toggle{background:var(--sun);border:none;color:var(--kce-navy);font-weight:800;padding:9px 18px;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:13px;margin-top:10px;}
+  .hint-facts{display:none;margin-top:10px;background:#fff;border-left:4px solid var(--sun);border-radius:10px;padding:12px 14px;font-size:14px;}
+  .hint-facts.show{display:block;}
+  .hint-facts li{margin-bottom:6px;}
+  .hint-facts .fr{color:var(--violet);font-style:italic;font-size:12px;}
+
+  .tiers{display:grid;gap:11px;margin-top:14px;position:relative;z-index:1}
+  .tier{background:#fff;border-radius:16px;padding:16px 20px;border-left:8px solid var(--sky);box-shadow:0 4px 14px rgba(0,0,0,0.06);}
+  .tier.silver{border-left-color:#9ca3af}
+  .tier.gold{border-left-color:var(--sun)}
+  .tier.diamond{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0)}
+  .tier-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#666;margin-bottom:5px;}
+  .tier h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--coral-deep);margin-bottom:5px}
+  .tier p{font-size:16px}
+  .tier .fr{color:var(--violet);font-style:italic;font-size:14px;margin-top:3px}
+
+  .bridge-map{position:relative;min-height:260px;margin:20px 4px;position:relative;z-index:1;}
+  .bridge-distance{text-align:center;background:var(--cream);border:2px dashed var(--sun);border-radius:14px;padding:12px 18px;margin-top:14px;font-size:16px;font-weight:700;color:var(--sand-deep);position:relative;z-index:1;}
+  .bridge-distance .fr{display:block;font-weight:500;font-style:italic;color:var(--violet);font-size:13px;margin-top:3px;}
+
+  .wheel-embed-label{font-family:'Caprasimo',serif;font-size:18px;color:var(--sun-deep);text-align:center;margin-top:6px;margin-bottom:10px;position:relative;z-index:1;}
+  .wheel-embed{width:100%;min-height:640px;border:3px solid var(--sun);border-radius:20px;position:relative;z-index:1;box-shadow:0 8px 24px rgba(255,183,3,0.25);background:#fff;}
+  @media(max-width:780px){ .wheel-embed{min-height:760px;} }
+
+  .victory{background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#fff;border-radius:22px;padding:32px;text-align:center;border:4px solid var(--sun);margin:12px 0;box-shadow:0 12px 40px rgba(229,72,77,0.4);position:relative;z-index:1;}
+  .victory h2{font-family:'Caprasimo',serif;font-size:34px;margin-bottom:12px}
+  .victory p{font-size:17px;line-height:1.7;margin-bottom:8px}
+  .victory .fr{color:var(--sun);font-style:italic;font-size:15px;margin-top:6px}
+  .victory .recap{background:rgba(255,255,255,.15);border-radius:14px;padding:14px 18px;margin-top:14px;text-align:left;font-size:15px;}
+  .victory .recap b{color:var(--sun)}
+
+  .nav-wrap-fixed{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid var(--sky);padding:12px 0;z-index:500;box-shadow:0 -6px 20px rgba(0,0,0,0.12);}
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1280px;margin:0 auto;padding:0 24px;flex-wrap:wrap;}
+  .dots{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:380px}
+  .dot{width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--coral);cursor:pointer;transition:all .25s;}
+  .dot.active{background:var(--coral);transform:scale(1.4)}
+  .dot.done{background:var(--sky);border-color:var(--sky)}
+  .nav-btn{background:linear-gradient(135deg,var(--coral),var(--coral-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(229,72,77,0.4);transition:all .25s;text-transform:uppercase;letter-spacing:0.5px;}
+  .nav-btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(229,72,77,0.55)}
+  .nav-btn.prev{background:linear-gradient(135deg,#888,#aaa);box-shadow:0 6px 18px rgba(0,0,0,0.2)}
+  .nav-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+
+  .reaction{position:fixed;font-size:44px;pointer-events:none;z-index:9999;animation:floatUp 1.4s ease-out forwards;}
+  @keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(0.5)}20%{opacity:1;transform:translateY(-30px) scale(1.2)}100%{opacity:0;transform:translateY(-180px) scale(0.8)}}
+  .confetti{position:fixed;width:10px;height:10px;pointer-events:none;z-index:9999;animation:confettiFall 2s ease-out forwards;}
+  @keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(400px) rotate(720deg)}}
+
+  footer.kce-foot{text-align:center;padding:16px 20px;font-size:11px;color:#8a93a6;}
+
+  @media(max-width:780px){
+    .bilingual{grid-template-columns:1fr}
+    .slide-title{font-size:26px}
+    .modal-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body class="notranslate" translate="no">
+
+<div class="kce-mast">
+  <div class="kce-mono">KC</div>
+  <div>
+    <div class="kce-word">KingCretot Experience</div>
+    <div class="kce-tag">EDUCATE. <span class="g">EMPOWER.</span> <span class="r">EXCEL.</span></div>
+  </div>
+</div>
+<div class="kce-band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+<div class="stage">
+  <div class="hud">
+    <div class="hud-brand">Camille • L1</div>
+    <div class="hud-stat lives">❤️ <span id="lives">3</span></div>
+    <div class="hud-stat">⭐ <span id="stars">0</span></div>
+    <div class="hud-stat streak">🔥 <span id="streak">0</span></div>
+    <div class="xp-shell">
+      <div class="xp-fill" id="xpFill"></div>
+      <div class="xp-text"><span id="xpText">0</span> / 300 XP</div>
+    </div>
+  </div>
+
+  <!-- 1: Welcome -->
+  <section class="slide active" data-slide="1">
+    <div class="slide-count">Slide 1 of 11</div>
+    <div class="slide-title">🌍 Welcome to My World</div>
+    <div class="slide-sub">A new year, a new adventure in English!</div>
+    <div class="bilingual">
+      <div class="lang-card">
+        <span class="lang-tag">English</span>
+        <p>Hi Camille! Today, you're the guide. I want to meet your world — your family, your history obsession, and your town.</p>
+      </div>
+      <div class="lang-card fr">
+        <span class="lang-tag">Français</span>
+        <p>Salut Camille! Aujourd'hui, c'est toi le guide. Je veux découvrir ton monde — ta famille, ta passion pour l'histoire, et ta ville.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2: Meet the family - MOVED EARLY -->
+  <section class="slide" data-slide="2">
+    <div class="slide-count">Slide 2 of 11</div>
+    <div class="slide-title">🏡 Meet My World</div>
+    <div class="slide-sub">Tap each card to meet the people in Camille's life. / Tape sur chaque carte.</div>
+    <div class="img-note">📷 A real illustrated "map" of Camille's world could replace these cards — ask about a Canva build.</div>
+    <div class="modal-grid">
+      <div class="modal-card" data-modal="1">
+        <div class="who">Fabien</div>
+        <div class="role">Dad · Papa</div>
+        <div class="detail">"My dad is Fabien. He always has a joke ready."</div>
+        <div class="fr">"Mon papa, c'est Fabien. Il a toujours une blague prête."</div>
+        <div class="tap-hint">tap ▸</div>
+      </div>
+      <div class="modal-card" data-modal="2">
+        <div class="who">Virginie</div>
+        <div class="role">Mom · Maman</div>
+        <div class="detail">"Virginie is my mom. She makes the best crêpes on Sundays."</div>
+        <div class="fr">"Virginie, c'est ma maman. Elle fait les meilleures crêpes le dimanche."</div>
+        <div class="tap-hint">tap ▸</div>
+      </div>
+      <div class="modal-card" data-modal="3">
+        <div class="who">Hugo</div>
+        <div class="role">Brother · Frère</div>
+        <div class="detail">"My brother is Hugo. He never stops talking about soccer."</div>
+        <div class="fr">"Mon frère, c'est Hugo. Il n'arrête jamais de parler de foot."</div>
+        <div class="tap-hint">tap ▸</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3: This or That - Waking Up (warm-up energizer) -->
+  <section class="slide" data-slide="3">
+    <div class="slide-count">Slide 3 of 11</div>
+    <div class="slide-title">⚡ This or That!</div>
+    <div class="slide-sub">Quick warm-up — tap fast, no thinking! / Échauffement rapide!</div>
+    <div class="tot-cluster-label">☀️ Waking Up</div>
+    <div id="totRows1"></div>
+  </section>
+
+  <!-- 4: This or That - History Mysteries (sets up the branch) -->
+  <section class="slide" data-slide="4">
+    <div class="slide-count">Slide 4 of 11</div>
+    <div class="slide-title">⚡ This or That!</div>
+    <div class="slide-sub">This one's for you, history detective. / Celui-ci, c'est pour toi.</div>
+    <div class="tot-cluster-label">🏛️ History Mysteries</div>
+    <div id="totRows2"></div>
+  </section>
+
+  <!-- 5: Interactive journey - Egypt or Rome -->
+  <section class="slide" data-slide="5">
+    <div class="slide-count">Slide 5 of 11</div>
+    <div class="slide-title" id="journeyTitle">🏛️ Let's Explore!</div>
+    <div class="connect-note" id="journeyConnect">You picked this — let's go there!</div>
+    <div id="journeyHero" style="margin-bottom:14px;position:relative;z-index:1;"></div>
+    <div class="stop-progress" id="stopProgress">0 / 4 stops explored</div>
+    <div class="map-track" id="mapTrack"></div>
+    <div class="trail-wrap">
+      <div class="trail-line"></div>
+      <div class="trail-mover" id="trailMover">🐫</div>
+    </div>
+    <div class="artifact-tray" id="artifactTray"></div>
+    <div class="stop-panel" id="stopPanel">
+      <div class="sp-placeholder">Tap a stop above to begin your journey! / Tape un arrêt pour commencer!</div>
+    </div>
+    <div class="bonus-card" id="bonusCard"></div>
+    <div class="img-note">📷 A real illustrated map of this journey could go here — ask about a Canva build.</div>
+  </section>
+
+  <!-- 6: Comprehension check - real recall, not translation -->
+  <section class="slide" data-slide="6">
+    <div class="slide-count">Slide 6 of 11</div>
+    <div class="slide-title">🧠 Quick Check</div>
+    <div class="slide-sub">Let's see what stuck from your journey!</div>
+    <div id="journeyMCQ"></div>
+  </section>
+
+  <!-- 7: Bridge/transition - exaggerated journey map from Egypt/Rome to Le Mans -->
+  <section class="slide" data-slide="7">
+    <div class="slide-count">Slide 7 of 11</div>
+    <div class="slide-title">✈️ And Now... Back Home!</div>
+    <div class="slide-sub" id="bridgeSub">Buckle up — we're making a very fast trip!</div>
+    <div class="bridge-map" id="bridgeMap"></div>
+  </section>
+
+  <!-- 8: Le Mans - SHE tells ME, elicitation not lecture -->
+  <section class="slide" data-slide="8">
+    <div class="slide-count">Slide 8 of 11</div>
+    <div class="slide-title">🏛️ Now You're the Guide</div>
+    <div class="connect-note">You live in Le Mans — I want YOU to teach ME about it!</div>
+    <div class="elicit-card">
+      <h4>Tell me about your town</h4>
+      <div class="starter-row">
+        <div class="starter"><span class="en">"My town is called..."</span><span class="fr">"Ma ville s'appelle..."</span></div>
+        <div class="starter"><span class="en">"Something famous here is..."</span><span class="fr">"Un truc célèbre ici, c'est..."</span></div>
+        <div class="starter"><span class="en">"My favorite place in town is..."</span><span class="fr">"Mon endroit préféré en ville, c'est..."</span></div>
+      </div>
+      <button class="hint-toggle" id="hintToggle">Need an idea? Tap for a hint 💡</button>
+      <ul class="hint-facts" id="hintFacts">
+        <li>Le Mans hosts the <strong>24 Hours of Le Mans</strong> car race — one of the most famous in the world. <span class="fr">Le Mans accueille les 24 Heures du Mans.</span></li>
+        <li>The old town, <strong>Cité Plantagenêt</strong>, has streets hundreds of years old — real history, like you love! <span class="fr">La vieille ville, la Cité Plantagenêt, a des rues vieilles de plusieurs siècles.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 9: Speak It - tiered, pulls it all together -->
+  <section class="slide" data-slide="9">
+    <div class="slide-count">Slide 9 of 11</div>
+    <div class="slide-title">🎤 Your Turn to Talk!</div>
+    <div class="slide-sub">Use what YOU shared today. Pick your level with your teacher.</div>
+    <div class="tiers">
+      <div class="tier silver">
+        <div class="tier-label">🥈 Silver Challenge</div>
+        <h4>Introduce your family, and tell me one thing about your town.</h4>
+        <p class="fr">Présente ta famille, et dis-moi une chose sur ta ville.</p>
+      </div>
+      <div class="tier gold">
+        <div class="tier-label">🥇 Gold Challenge</div>
+        <h4>Tell me one thing you learned today about Egypt or Rome, then tell me about Le Mans.</h4>
+        <p class="fr">Dis-moi une chose apprise aujourd'hui sur l'Égypte ou Rome, puis parle-moi du Mans.</p>
+      </div>
+      <div class="tier diamond">
+        <div class="tier-label">💎 Diamond Challenge</div>
+        <h4>Compare something from today's history journey to something real in Le Mans. What's similar? What's different?</h4>
+        <p class="fr">Compare quelque chose du voyage d'aujourd'hui à quelque chose de réel au Mans. Qu'est-ce qui se ressemble? Qu'est-ce qui est différent?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10: Bonus - Conversation Wheel -->
+  <section class="slide" data-slide="10">
+    <div class="slide-count">Slide 10 of 11</div>
+    <div class="slide-title">🎡 Bonus Round!</div>
+    <div class="slide-sub">Extra time? Spin for a totally different kind of question.</div>
+    <div class="wheel-embed-label">🎡 Spin for a question!</div>
+    <iframe class="wheel-embed" id="wheelFrame" title="Conversation Wheel"></iframe>
+  </section>
+
+  <!-- 11: Victory -->
+  <section class="slide" data-slide="11">
+    <div class="slide-count">Slide 11 of 11</div>
+    <div class="victory">
+      <h2>🎉 Bravo, Camille!</h2>
+      <p>Today you introduced your family, explored real history, and taught ME about your own town — all in English!</p>
+      <p class="fr">Aujourd'hui, tu as présenté ta famille, exploré la vraie histoire, et tu m'as appris des choses sur ta propre ville — tout en anglais!</p>
+      <div class="recap" id="recapBox"></div>
+    </div>
+  </section>
+</div>
+<div class="nav-wrap-fixed">
+  <div class="nav-wrap">
+    <button class="nav-btn prev" id="prevBtn">◂ Back</button>
+    <div class="dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▸</button>
+  </div>
+</div>
+<footer class="kce-foot">KingCretot Experience · Camille · Lesson 1: Welcome to My World</footer>
+
+<script>
+CONTENT_TRUNCATED_FOR_UPLOAD_STEP
+</script>
+</body>
+</html>
