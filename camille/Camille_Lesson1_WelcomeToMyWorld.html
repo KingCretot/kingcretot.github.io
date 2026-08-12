@@ -386,7 +386,7 @@
     <div class="slide-title">🎡 Bonus Round!</div>
     <div class="slide-sub">Extra time? Spin for a totally different kind of question.</div>
     <div class="wheel-embed-label">🎡 Spin for a question!</div>
-    <iframe class="wheel-embed" id="wheelFrame" title="Conversation Wheel"></iframe>
+    <iframe class="wheel-embed" id="wheelFrame" title="Conversation Wheel" src="https://kingcretot.github.io/conversation-wheel/KCE_English_ConversationWheel_Bilingual_v1.html" loading="lazy"></iframe>
   </section>
 
   <!-- 11: Victory -->
@@ -410,7 +410,495 @@
 <footer class="kce-foot">KingCretot Experience · Camille · Lesson 1: Welcome to My World</footer>
 
 <script>
-CONTENT_TRUNCATED_FOR_UPLOAD_STEP
+/* ===== Interactive journey content: Egypt / Rome, 4 stops each ===== */
+const JOURNEYS = {
+  egypt:{
+    title:"🏺 Journey Through Ancient Egypt", cls:"egypt",
+    stops:[
+      {icon:"🔺", label:"Great Pyramid", en:"pyramid", fr:"pyramide", ex:"The Great Pyramid was built as a tomb for a pharaoh.", exfr:"La grande pyramide a été construite comme tombeau pour un pharaon.", fact:"It's over 4,500 years old — and was the tallest building in the world for almost 4,000 years!", factfr:"Elle a plus de 4500 ans — et c'était le plus haut bâtiment du monde pendant presque 4000 ans!"},
+      {icon:"👑", label:"Tutankhamun's Tomb", en:"pharaoh", fr:"pharaon", ex:"Tutankhamun became pharaoh when he was only nine years old.", exfr:"Toutankhamon est devenu pharaon à seulement neuf ans.", fact:"In 1922, his tomb was found almost completely untouched — full of gold treasure that had been hidden for 3,000 years!", factfr:"En 1922, sa tombe a été trouvée presque intacte — pleine de trésors en or cachés depuis 3000 ans!"},
+      {icon:"👸", label:"Cleopatra & Alexandria", en:"queen", fr:"reine", ex:"Cleopatra was the last queen of ancient Egypt.", exfr:"Cléopâtre était la dernière reine de l'Égypte ancienne.", fact:"She ruled from Alexandria, a city she made famous for its huge library — one of the largest in the ancient world!", factfr:"Elle régnait depuis Alexandrie, une ville rendue célèbre par son immense bibliothèque!"},
+      {icon:"🌶️", label:"Spice Market", en:"spice", fr:"épice", ex:"Ancient Egyptians traded spices like cumin and coriander to flavor their food.", exfr:"Les Égyptiens échangeaient des épices comme le cumin et la coriandre pour parfumer leur nourriture.", fact:"They grew wheat and dates along the fertile banks of the Nile River — the river made farming possible in the desert!", factfr:"Ils cultivaient blé et dattes le long des rives fertiles du Nil — le fleuve rendait l'agriculture possible dans le désert!"}
+    ],
+    recapWord:"Tutankhamun",
+    bonus:"Secret fact: it took over 20 years and thousands of workers to build the Great Pyramid — with no modern machines at all!",
+    bonusFr:"Fait secret: il a fallu plus de 20 ans et des milliers d'ouvriers pour construire la grande pyramide — sans aucune machine moderne!",
+    originIcon:"🔺", originCity:"Cairo, Egypt", originCityFr:"Le Caire, Égypte", distanceKm:"3,300 km", distanceMi:"2,050 miles"
+  },
+  rome:{
+    title:"🏛️ Journey Through Ancient Rome", cls:"rome",
+    stops:[
+      {icon:"🏟️", label:"The Colosseum", en:"gladiator", fr:"gladiateur", ex:"Gladiators fought for the crowd in the Colosseum.", exfr:"Les gladiateurs combattaient pour la foule au Colisée.", fact:"It could hold about 50,000 people — almost like a modern stadium, but it's nearly 2,000 years old!", factfr:"Il pouvait accueillir environ 50 000 personnes — presque comme un stade moderne, mais il a presque 2000 ans!"},
+      {icon:"🏦", label:"The Roman Forum", en:"senate", fr:"sénat", ex:"Roman leaders met at the Forum to make big decisions.", exfr:"Les dirigeants romains se réunissaient au Forum pour les grandes décisions.", fact:"Julius Caesar himself walked through the Forum — it was the political heart of the entire empire.", factfr:"Jules César lui-même marchait dans le Forum — c'était le cœur politique de tout l'empire."},
+      {icon:"👑", label:"The Emperor", en:"empire", fr:"empire", ex:"The Roman Empire covered much of Europe.", exfr:"L'Empire romain couvrait une grande partie de l'Europe.", fact:"At its largest, the empire stretched from Britain all the way to Egypt!", factfr:"À son apogée, l'empire s'étendait de la Grande-Bretagne jusqu'à l'Égypte!"},
+      {icon:"🍇", label:"Roman Market", en:"trade", fr:"commerce", ex:"Romans traded olives, wine, and spices from all over the empire.", exfr:"Les Romains échangeaient olives, vin et épices de tout l'empire.", fact:"Spices from as far as India reached Roman markets through long trade routes.", factfr:"Des épices venues d'aussi loin que l'Inde arrivaient sur les marchés romains."}
+    ],
+    recapWord:"the Colosseum",
+    bonus:"Secret fact: Roman roads were built so well that some are still used today — almost 2,000 years later!",
+    bonusFr:"Fait secret: les routes romaines étaient si bien construites que certaines sont encore utilisées aujourd'hui — presque 2000 ans plus tard!",
+    originIcon:"🏛️", originCity:"Rome, Italy", originCityFr:"Rome, Italie", distanceKm:"1,300 km", distanceMi:"800 miles"
+  }
+};
+
+const HERO_SVG = {
+  egypt: `<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:16px;">
+    <defs><linearGradient id="skyEgypt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffd166"/><stop offset="100%" stop-color="#ffe8b8"/></linearGradient></defs>
+    <rect width="600" height="200" fill="url(#skyEgypt)"/>
+    <g stroke="#ffb703" stroke-width="4" stroke-linecap="round">
+      <line x1="103" y1="45" x2="114" y2="45"/>
+      <line x1="93" y1="68" x2="101" y2="76"/>
+      <line x1="70" y1="78" x2="70" y2="89"/>
+      <line x1="47" y1="68" x2="39" y2="76"/>
+      <line x1="37" y1="45" x2="26" y2="45"/>
+      <line x1="47" y1="22" x2="39" y2="14"/>
+      <line x1="70" y1="12" x2="70" y2="1"/>
+      <line x1="93" y1="22" x2="101" y2="14"/>
+    </g>
+    <circle cx="70" cy="45" r="30" fill="#ffb703"/>
+    <path d="M0,150 Q120,120 260,145 T600,135 V200 H0 Z" fill="#e9c896"/>
+    <path d="M0,168 Q180,145 360,165 T600,155 V200 H0 Z" fill="#d4a373"/>
+    <path d="M0,182 Q220,168 420,180 T600,175 V200 H0 Z" fill="#c08a52"/>
+    <g fill="#b5763a" opacity="0.35">
+      <circle cx="80" cy="185" r="2"/><circle cx="140" cy="190" r="2"/><circle cx="230" cy="182" r="2"/>
+      <circle cx="330" cy="188" r="2"/><circle cx="420" cy="184" r="2"/><circle cx="510" cy="190" r="2"/>
+    </g>
+    <polygon points="330,170 400,70 470,170" fill="#c68642"/>
+    <polygon points="400,170 460,90 520,170" fill="#b5763a"/>
+    <polygon points="450,170 495,105 540,170" fill="#9c6644"/>
+    <polygon points="330,170 365,120 400,170" fill="#a5713a" opacity="0.5"/>
+    <rect x="57" y="110" width="7" height="65" rx="3" fill="#8b5e34" transform="rotate(-6 60 175)"/>
+    <g transform="translate(60,110)">
+      <ellipse cx="0" cy="0" rx="26" ry="8" fill="#52b788" transform="rotate(-55)"/>
+      <ellipse cx="0" cy="0" rx="26" ry="8" fill="#52b788" transform="rotate(-20)"/>
+      <ellipse cx="0" cy="0" rx="26" ry="8" fill="#52b788" transform="rotate(15)"/>
+      <ellipse cx="0" cy="0" rx="26" ry="8" fill="#2d6a4f" transform="rotate(50)"/>
+    </g>
+    <g fill="#c68642">
+      <path d="M155,148 C148,140 148,128 158,120 C166,108 182,102 195,105 C205,100 216,102 220,110 C226,106 234,108 236,116 C240,124 235,131 227,132 C224,140 218,146 212,150 C210,158 210,165 208,170 L200,170 C201,163 201,156 199,152 C190,155 175,155 166,152 C165,158 165,165 164,170 L156,170 C157,163 157,156 157,150 C156,150 155,149 155,148 Z"/>
+      <ellipse cx="230" cy="112" rx="9" ry="7"/>
+      <polygon points="225,106 228,97 232,106"/>
+      <polygon points="232,106 235,98 238,107"/>
+      <ellipse cx="238" cy="113" rx="3" ry="2.2"/>
+    </g>
+    <g fill="#9c6644">
+      <rect x="165" y="152" width="5" height="20" rx="2"/>
+      <rect x="178" y="152" width="5" height="20" rx="2"/>
+      <rect x="198" y="152" width="5" height="20" rx="2"/>
+      <rect x="211" y="152" width="5" height="20" rx="2"/>
+    </g>
+    <line x1="157" y1="145" x2="148" y2="158" stroke="#9c6644" stroke-width="3" stroke-linecap="round"/>
+    <g>
+      <rect x="530" y="14" width="46" height="8" fill="#DB2F30"/>
+      <rect x="530" y="22" width="46" height="8" fill="#fff"/>
+      <rect x="530" y="30" width="46" height="8" fill="#1a1a1a"/>
+      <circle cx="553" cy="26" r="3.5" fill="#C9A84C"/>
+      <rect x="530" y="14" width="46" height="24" fill="none" stroke="#00000022" stroke-width="1"/>
+    </g>
+    <text x="553" y="50" text-anchor="middle" font-family="Quicksand,sans-serif" font-size="11" font-weight="700" fill="#7a5230">EGYPT</text>
+  </svg>`,
+  rome: `<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:16px;">
+    <defs><linearGradient id="skyRome" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4a261"/><stop offset="100%" stop-color="#ffe8d6"/></linearGradient></defs>
+    <rect width="600" height="200" fill="url(#skyRome)"/>
+    <g stroke="#ffb703" stroke-width="4" stroke-linecap="round">
+      <line x1="553" y1="45" x2="564" y2="45"/>
+      <line x1="543" y1="68" x2="551" y2="76"/>
+      <line x1="520" y1="78" x2="520" y2="89"/>
+      <line x1="497" y1="68" x2="489" y2="76"/>
+      <line x1="487" y1="45" x2="476" y2="45"/>
+      <line x1="497" y1="22" x2="489" y2="14"/>
+      <line x1="520" y1="12" x2="520" y2="1"/>
+      <line x1="543" y1="22" x2="551" y2="14"/>
+    </g>
+    <circle cx="520" cy="45" r="26" fill="#ffb703"/>
+    <path d="M0,170 Q200,150 400,168 T600,162 V200 H0 Z" fill="#c9a67a"/>
+    <path d="M0,185 Q220,172 440,183 T600,178 V200 H0 Z" fill="#b5895c"/>
+    <g stroke="#8a6a45" stroke-width="1.5" opacity="0.4">
+      <line x1="40" y1="190" x2="40" y2="182"/><line x1="90" y1="192" x2="90" y2="184"/>
+      <line x1="480" y1="190" x2="480" y2="182"/><line x1="540" y1="192" x2="540" y2="184"/>
+    </g>
+    <g fill="#e6c9a0">
+      <rect x="30" y="120" width="10" height="60" rx="2"/>
+      <rect x="26" y="112" width="18" height="8" rx="2"/>
+      <rect x="26" y="180" width="18" height="6" rx="2"/>
+      <rect x="55" y="130" width="10" height="50" rx="2"/>
+      <rect x="51" y="122" width="18" height="8" rx="2"/>
+      <rect x="51" y="180" width="18" height="6" rx="2"/>
+    </g>
+    <rect x="160" y="88" width="300" height="70" rx="6" fill="#d8a866"/>
+    <rect x="160" y="76" width="300" height="14" rx="4" fill="#b5763a"/>
+    <g fill="#f4a261">
+      <rect x="175" y="98" width="16" height="32" rx="8"/><rect x="203" y="98" width="16" height="32" rx="8"/>
+      <rect x="231" y="98" width="16" height="32" rx="8"/><rect x="259" y="98" width="16" height="32" rx="8"/>
+      <rect x="287" y="98" width="16" height="32" rx="8"/><rect x="315" y="98" width="16" height="32" rx="8"/>
+      <rect x="343" y="98" width="16" height="32" rx="8"/><rect x="371" y="98" width="16" height="32" rx="8"/>
+      <rect x="399" y="98" width="16" height="32" rx="8"/><rect x="427" y="98" width="16" height="32" rx="8"/>
+    </g>
+    <g fill="#2d6a4f">
+      <path d="M100,175 C92,150 92,120 100,95 C108,120 108,150 100,175 Z"/>
+      <path d="M500,177 C493,155 493,128 500,105 C507,128 507,155 500,177 Z"/>
+    </g>
+    <rect x="97" y="175" width="6" height="10" fill="#6b4423"/>
+    <rect x="497" y="177" width="6" height="10" fill="#6b4423"/>
+    <g>
+      <rect x="524" y="14" width="15" height="24" fill="#009246"/>
+      <rect x="539" y="14" width="15" height="24" fill="#fff"/>
+      <rect x="554" y="14" width="15" height="24" fill="#CE2B37"/>
+      <rect x="524" y="14" width="45" height="24" fill="none" stroke="#00000022" stroke-width="1"/>
+    </g>
+    <text x="546" y="50" text-anchor="middle" font-family="Quicksand,sans-serif" font-size="11" font-weight="700" fill="#7a5230">ROME</text>
+  </svg>`
+};
+
+const FB = {};
+
+let ac;
+function tone(freqs, durs){
+  try{
+    if(!ac) ac = new (window.AudioContext||window.webkitAudioContext)();
+    const now = ac.currentTime;
+    freqs.forEach((f,i)=>{
+      const o=ac.createOscillator(),g=ac.createGain();
+      o.type='triangle';o.frequency.value=f;
+      o.connect(g);g.connect(ac.destination);
+      const t0=now+i*0.09;
+      g.gain.setValueAtTime(0,t0);
+      g.gain.linearRampToValueAtTime(0.18,t0+0.02);
+      g.gain.exponentialRampToValueAtTime(0.001,t0+(durs[i]||0.25));
+      o.start(t0);o.stop(t0+(durs[i]||0.25));
+    });
+  }catch(e){}
+}
+const goodSound=()=>tone([523.25,659.25,783.99,1046.5],[0.18,0.18,0.18,0.36]);
+const badSound =()=>tone([392,329.63,261.63],[0.2,0.2,0.34]);
+
+const state = {lives:3,stars:0,streak:0,xp:0,slide:1,total:11,answered:{},historyPick:null,wakePick:null,visitedStops:new Set(),bonusShown:false};
+function updateHUD(){
+  document.getElementById('lives').textContent=state.lives;
+  document.getElementById('stars').textContent=state.stars;
+  document.getElementById('streak').textContent=state.streak;
+  document.getElementById('xpFill').style.width=Math.min(100,(state.xp/300)*100)+'%';
+  document.getElementById('xpText').textContent=state.xp;
+}
+function addXP(n){state.xp=Math.min(300,state.xp+n);updateHUD()}
+function reaction(emoji){
+  const el=document.createElement('div');el.className='reaction';el.textContent=emoji;
+  el.style.left=(40+Math.random()*40)+'%';el.style.top='50%';
+  document.body.appendChild(el);setTimeout(()=>el.remove(),1400);
+}
+function confetti(){
+  const colors=['#ff6b6b','#4cc9f0','#ffb703','#7c3aed','#fff8ea','#34d399'];
+  for(let i=0;i<26;i++){
+    const c=document.createElement('div');c.className='confetti';
+    c.style.background=colors[i%colors.length];
+    c.style.left=Math.random()*100+'vw';c.style.top='-10px';
+    c.style.animationDelay=(Math.random()*0.4)+'s';
+    document.body.appendChild(c);setTimeout(()=>c.remove(),2400);
+  }
+}
+
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('.ans');
+  if(!btn) return;
+  const group = btn.closest('.answers');
+  const gid = group.getAttribute('data-gid');
+  if(!FB[gid] || state.answered[gid]) return;
+  const ans = btn.getAttribute('data-ans');
+  const data = FB[gid][ans];
+  const fb = document.querySelector(`.feedback[data-gid="${gid}"]`);
+  if(data.ok){
+    state.answered[gid]=true;
+    btn.classList.add('correct');
+    group.querySelectorAll('.ans').forEach(b=>b.disabled=true);
+    fb.className='feedback show good';
+    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
+    state.stars++;state.streak++;addXP(15);updateHUD();
+    goodSound();reaction('🎉');confetti();
+  } else {
+    btn.classList.add('wrong');btn.disabled=true;
+    fb.className='feedback show bad';
+    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
+    state.lives=Math.max(0,state.lives-1);state.streak=0;updateHUD();
+    badSound();reaction('👎');
+  }
+});
+
+document.addEventListener('click', e=>{
+  const c = e.target.closest('.modal-card');
+  if(!c) return;
+  if(c.classList.toggle('flipped')){addXP(3);reaction('💡');tone([440,554.37],[0.1,0.16])}
+});
+
+/* ---------- This or That builder ---------- */
+function buildTOT(hostId, pairsArr, onPickCallback){
+  const host = document.getElementById(hostId);
+  pairsArr.forEach(p=>{
+    const row=document.createElement('div');row.className='tot-row';
+    const pair=document.createElement('div');pair.className='tot-pair';
+    const optA=document.createElement('button');optA.className='tot-opt';optA.innerHTML=p[0]+'<span class="tot-hint">'+(p[2]||'')+'</span>';
+    const mid=document.createElement('div');mid.className='tot-mid';
+    const optB=document.createElement('button');optB.className='tot-opt';optB.innerHTML=p[1]+'<span class="tot-hint">'+(p[3]||'')+'</span>';
+    function pick(chosen,other,side){
+      chosen.classList.add('sel'); other.classList.remove('sel');
+      addXP(3); reaction('✨'); tone([587,740],[0.1,0.16]);
+      if(onPickCallback) onPickCallback(p, side);
+    }
+    optA.addEventListener('click',()=>pick(optA,optB,'a'));
+    optB.addEventListener('click',()=>pick(optB,optA,'b'));
+    pair.appendChild(optA);pair.appendChild(mid);pair.appendChild(optB);
+    row.appendChild(pair); host.appendChild(row);
+  });
+}
+
+const WAKING_UP = [
+  ["Cereal","Toast","céréales","tartine"],
+  ["Morning person","Night owl","du matin","du soir"],
+  ["Sweet breakfast","Salty breakfast","petit-déj sucré","petit-déj salé"],
+  ["Get dressed fast","Take your time","s'habiller vite","prendre son temps"],
+  ["Hot chocolate","Orange juice","chocolat chaud","jus d'orange"],
+  ["Shower in the morning","Shower at night","douche le matin","douche le soir"],
+  ["Sleep in on weekends","Up early anyway","faire la grasse matinée","debout tôt quand même"]
+];
+const HISTORY_MYSTERIES = [
+  ["Ancient Egypt","Ancient Rome","l'Égypte ancienne","la Rome antique"],
+  ["Castles","Pyramids","les châteaux","les pyramides"],
+  ["Real history","Legends & myths","l'histoire vraie","les légendes"],
+  ["Kings and queens","Explorers","les rois et les reines","les explorateurs"],
+  ["Museum","Old ruins outside","un musée","des ruines dehors"],
+  ["Treasure hunt","Solving a mystery","chasse au trésor","résoudre un mystère"]
+];
+
+buildTOT('totRows1', WAKING_UP, (pair, side)=>{
+  if(pair[0]==="Morning person"){ state.wakePick = side==='a' ? 'morning' : 'night'; }
+});
+buildTOT('totRows2', HISTORY_MYSTERIES, (pair, side)=>{
+  if(pair[0]==="Ancient Egypt"){ state.historyPick = side==='a' ? 'egypt' : 'rome'; }
+});
+
+/* ---------- Interactive journey/map ---------- */
+function renderJourney(){
+  const key = state.historyPick || 'egypt';
+  const journey = JOURNEYS[key];
+  document.getElementById('journeyTitle').textContent = journey.title;
+  document.getElementById('journeyConnect').textContent = `You picked ${key==='egypt'?'Ancient Egypt':'Ancient Rome'} — let's go there!`;
+  document.getElementById('journeyHero').innerHTML = HERO_SVG[key];
+  document.getElementById('trailMover').textContent = key==='egypt' ? '🐫' : '🐎';
+
+  const track = document.getElementById('mapTrack');
+  track.innerHTML = '';
+  journey.stops.forEach((s,i)=>{
+    const el = document.createElement('div');
+    el.className = 'map-stop';
+    el.dataset.idx = i;
+    el.innerHTML = `<span class="stop-icon">${s.icon}</span><div class="stop-num">Stop ${i+1}</div><div class="stop-label">${s.label}</div><div class="stop-check">✓ visited</div>`;
+    el.addEventListener('click', ()=>showStop(key, i));
+    track.appendChild(el);
+  });
+
+  const tray = document.getElementById('artifactTray');
+  tray.innerHTML = '';
+  journey.stops.forEach((s,i)=>{
+    const slot = document.createElement('div');
+    slot.className = 'artifact-slot';
+    slot.id = 'artifact-'+i;
+    slot.textContent = '?';
+    tray.appendChild(slot);
+  });
+
+  document.getElementById('trailMover').style.left = '0%';
+  document.getElementById('bonusCard').classList.remove('show');
+  updateStopProgress();
+}
+function updateStopProgress(){
+  document.getElementById('stopProgress').textContent = `${state.visitedStops.size} / 4 stops explored`;
+  document.getElementById('trailMover').style.left = (state.visitedStops.size/4*94)+'%';
+}
+function showStop(key, idx){
+  const journey = JOURNEYS[key];
+  const s = journey.stops[idx];
+  document.querySelectorAll('.map-stop').forEach((el,i)=>{
+    el.classList.toggle('active', i===idx);
+  });
+  const stopKey = key+'-'+idx;
+  if(!state.visitedStops.has(stopKey)){
+    state.visitedStops.add(stopKey);
+    document.querySelectorAll('.map-stop')[idx].classList.add('visited');
+    const slot = document.getElementById('artifact-'+idx);
+    if(slot){ slot.textContent = s.icon; slot.classList.add('filled'); }
+    addXP(8); reaction('🗺️'); tone([494,622],[0.1,0.18]);
+    updateStopProgress();
+    if(state.visitedStops.size===4 && !state.bonusShown){
+      state.bonusShown = true;
+      setTimeout(()=>{
+        const bc = document.getElementById('bonusCard');
+        bc.innerHTML = `<div class="bc-eyebrow">🏆 All 4 stops explored!</div><h4>${journey.bonus}</h4><span class="fr">${journey.bonusFr}</span>`;
+        bc.classList.add('show');
+        confetti(); reaction('🏆'); addXP(10); goodSound();
+      }, 500);
+    }
+  }
+  const panel = document.getElementById('stopPanel');
+  panel.innerHTML = `
+    <div class="sp-eyebrow">Stop ${idx+1} · New word: ${s.en}</div>
+    <h3>${s.icon} ${s.label}</h3>
+    <div class="sp-en">"${s.ex}"</div>
+    <div class="sp-fr">${s.fr} — "${s.exfr}"</div>
+    <div class="sp-fact">${s.fact} <span class="fr">${s.factfr}</span></div>
+  `;
+}
+
+function renderJourneyMCQ(){
+  const key = state.historyPick || 'egypt';
+  const journey = JOURNEYS[key];
+  const host = document.getElementById('journeyMCQ');
+  if(key==='egypt'){
+    host.innerHTML = `
+      <div class="mcq-q" data-gid="qJourney">
+        Which pharaoh's tomb was found almost completely full of treasure?
+        <span class="fr">La tombe de quel pharaon a été trouvée pleine de trésors?</span>
+      </div>
+      <div class="answers" data-gid="qJourney">
+        <button class="ans" data-ans="A">A. Cleopatra</button>
+        <button class="ans" data-ans="B">B. Tutankhamun</button>
+        <button class="ans" data-ans="C">C. Julius Caesar</button>
+      </div>
+      <div class="feedback" data-gid="qJourney"></div>
+      <div class="mcq-q" data-gid="qJourney2">
+        Cleopatra ruled from which famous city?
+        <span class="fr">Cléopâtre régnait depuis quelle ville célèbre?</span>
+      </div>
+      <div class="answers" data-gid="qJourney2">
+        <button class="ans" data-ans="A">A. Alexandria</button>
+        <button class="ans" data-ans="B">B. Rome</button>
+        <button class="ans" data-ans="C">C. Le Mans</button>
+      </div>
+      <div class="feedback" data-gid="qJourney2"></div>`;
+    FB.qJourney = {
+      A:{ok:false, msg:"Cleopatra was a queen, but she's not the one whose tomb was found full of gold in 1922.", fr:"Cléopâtre était une reine, mais ce n'est pas elle."},
+      B:{ok:true, msg:"⭐ Yes! Tutankhamun's tomb was found in 1922, almost untouched for 3,000 years!", fr:"⭐ Oui! La tombe de Toutankhamon a été trouvée en 1922, presque intacte depuis 3000 ans!"},
+      C:{ok:false, msg:"Julius Caesar was a Roman leader, not an Egyptian pharaoh — different journey!", fr:"Jules César était romain, pas égyptien — différent voyage!"}
+    };
+    FB.qJourney2 = {
+      A:{ok:true, msg:"⭐ Yes! Alexandria — famous for its huge library in the ancient world!", fr:"⭐ Oui! Alexandrie — célèbre pour son immense bibliothèque!"},
+      B:{ok:false, msg:"Rome was a different empire entirely — Cleopatra ruled in Egypt.", fr:"Rome, c'est un autre empire — Cléopâtre régnait en Égypte."},
+      C:{ok:false, msg:"Le Mans is Camille's hometown, not ancient Egypt!", fr:"Le Mans, c'est la ville de Camille, pas l'Égypte ancienne!"}
+    };
+  } else {
+    host.innerHTML = `
+      <div class="mcq-q" data-gid="qJourney">
+        About how many people could the Colosseum hold?
+        <span class="fr">Le Colisée pouvait accueillir combien de personnes environ?</span>
+      </div>
+      <div class="answers" data-gid="qJourney">
+        <button class="ans" data-ans="A">A. 500</button>
+        <button class="ans" data-ans="B">B. 5,000</button>
+        <button class="ans" data-ans="C">C. 50,000</button>
+      </div>
+      <div class="feedback" data-gid="qJourney"></div>
+      <div class="mcq-q" data-gid="qJourney2">
+        At its largest, the Roman Empire stretched from Britain all the way to...?
+        <span class="fr">À son apogée, l'Empire romain s'étendait de la Grande-Bretagne jusqu'à...?</span>
+      </div>
+      <div class="answers" data-gid="qJourney2">
+        <button class="ans" data-ans="A">A. Egypt</button>
+        <button class="ans" data-ans="B">B. Le Mans</button>
+        <button class="ans" data-ans="C">C. Japan</button>
+      </div>
+      <div class="feedback" data-gid="qJourney2"></div>`;
+    FB.qJourney = {
+      A:{ok:false, msg:"Way more than that — think stadium-sized!", fr:"Bien plus que ça — pense à un stade!"},
+      B:{ok:false, msg:"Close, but ten times more than that!", fr:"Presque, mais dix fois plus!"},
+      C:{ok:true, msg:"⭐ Yes! About 50,000 people — almost like a modern stadium!", fr:"⭐ Oui! Environ 50 000 personnes — presque comme un stade moderne!"}
+    };
+    FB.qJourney2 = {
+      A:{ok:true, msg:"⭐ Yes! From Britain all the way to Egypt — a huge empire!", fr:"⭐ Oui! De la Grande-Bretagne jusqu'à l'Égypte — un immense empire!"},
+      B:{ok:false, msg:"Le Mans is Camille's hometown today, not part of the ancient Roman Empire's reach in this fact.", fr:"Le Mans, c'est la ville de Camille aujourd'hui, pas ce dont on parle ici."},
+      C:{ok:false, msg:"Japan is much farther than the Roman Empire ever reached.", fr:"Le Japon est bien plus loin que l'Empire romain ne s'est jamais étendu."}
+    };
+  }
+}
+
+function renderBridge(){
+  const key = state.historyPick || 'egypt';
+  const journey = JOURNEYS[key];
+  document.getElementById('bridgeSub').textContent = `From ${journey.originCity}... all the way home to Le Mans!`;
+  const originIcon = key==='egypt' ? '🔺' : '🏛️';
+  const flyer = key==='egypt' ? '🧞' : '🐎';
+  const roadPath = "M100,150 C170,95 220,190 290,125 C360,55 420,165 490,100";
+  const originFlag = key==='egypt'
+    ? `<rect x="28" y="40" width="34" height="8" fill="#DB2F30"/><rect x="28" y="48" width="34" height="8" fill="#fff"/><rect x="28" y="56" width="34" height="8" fill="#1a1a1a"/><circle cx="45" cy="52" r="3" fill="#C9A84C"/>`
+    : `<rect x="28" y="40" width="11" height="24" fill="#009246"/><rect x="39" y="40" width="12" height="24" fill="#fff"/><rect x="51" y="40" width="11" height="24" fill="#CE2B37"/>`;
+  document.getElementById('bridgeMap').innerHTML = `
+    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+      <defs><linearGradient id="skyBridge" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#bde0fe"/><stop offset="100%" stop-color="#fff8ea"/></linearGradient></defs>
+      <rect width="600" height="220" fill="url(#skyBridge)"/>
+      <path d="${roadPath}" fill="none" stroke="#d4a373" stroke-width="7" stroke-linecap="round"/>
+      <path d="${roadPath}" fill="none" stroke="#fff8ea" stroke-width="2" stroke-dasharray="8 8" stroke-linecap="round"/>
+      ${originFlag}
+      <text x="45" y="78" text-anchor="middle" font-family="Quicksand,sans-serif" font-size="11" font-weight="700" fill="#7a5230">${key==='egypt'?'EGYPT':'ITALY'}</text>
+      <text x="45" y="122" font-size="32" text-anchor="middle">${originIcon}</text>
+      <text x="45" y="145" text-anchor="middle" font-family="Quicksand,sans-serif" font-size="12" font-weight="700" fill="#25324a">${journey.originCity}</text>
+      <rect x="528" y="40" width="11" height="24" fill="#0055A4"/><rect x="539" y="40" width="12" height="24" fill="#fff"/><rect x="551" y="40" width="11" height="24" fill="#EF4135"/>
+      <text x="545" y="78" text-anchor="middle" font-family="Quicksand,sans-serif" font-size="11" font-weight="700" fill="#7a5230">FRANCE</text>
+      <text x="545" y="122" font-size="32" text-anchor="middle">🏠</text>
+      <text x="545" y="145" text-anchor="middle" font-family="Quicksand,sans-serif" font-size="12" font-weight="700" fill="#25324a">Le Mans</text>
+      <g>
+        <text x="-15" y="10" font-size="30">${flyer}</text>
+        <animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto" path="${roadPath}"/>
+      </g>
+    </svg>
+    <div class="bridge-distance">That's about ${journey.distanceKm} (${journey.distanceMi})... but don't worry, we made it in zero seconds! <span class="fr">C'est environ ${journey.distanceKm} — mais ne t'inquiète pas, on est arrivés en zéro seconde!</span></div>
+  `;
+}
+
+const dots = document.getElementById('dots');
+for(let i=1;i<=state.total;i++){
+  const d=document.createElement('div');
+  d.className='dot'+(i===1?' active':'');
+  d.addEventListener('click',()=>goSlide(i));
+  dots.appendChild(d);
+}
+function goSlide(n){
+  const prevSlide = state.slide;
+  state.slide=Math.max(1,Math.min(state.total,n));
+
+  if(state.slide===5 && prevSlide!==5){ renderJourney(); }
+  if(state.slide===6 && prevSlide!==6){ renderJourneyMCQ(); }
+  if(state.slide===7 && prevSlide!==7){ renderBridge(); }
+  if(state.slide===11 && prevSlide!==11){
+    const key = state.historyPick || 'egypt';
+    const j = JOURNEYS[key];
+    const wakeLine = state.wakePick ? (state.wakePick==='morning' ? " You're a morning person 🌅 and " : " You're a night owl 🦉 and ") : " You're ";
+    document.getElementById('recapBox').innerHTML = `${wakeLine}a history detective who explored <b>${key==='egypt'?'Ancient Egypt':'Ancient Rome'}</b> (${state.visitedStops.size}/4 stops!), met Camille's family, and taught your teacher about <b>Le Mans</b> — all in English!`;
+  }
+
+  document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',+s.dataset.slide===state.slide));
+  document.querySelectorAll('.dot').forEach((d,i)=>{
+    d.classList.toggle('active',i+1===state.slide);
+    d.classList.toggle('done',i+1<state.slide);
+  });
+  document.getElementById('prevBtn').disabled=state.slide===1;
+  document.getElementById('nextBtn').textContent=state.slide===state.total?'🎉 Done!':'Next ▸';
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      window.scrollTo({top:0,behavior:'auto'});
+    });
+  });
+}
+document.getElementById('prevBtn').addEventListener('click',()=>goSlide(state.slide-1));
+document.getElementById('nextBtn').addEventListener('click',()=>{
+  if(state.slide===state.total){confetti();reaction('🏆');goodSound();return;}
+  goSlide(state.slide+1);
+});
+updateHUD();
+
+const hintToggleBtn = document.getElementById('hintToggle');
+if(hintToggleBtn){
+  hintToggleBtn.addEventListener('click', ()=>{
+    const box = document.getElementById('hintFacts');
+    box.classList.toggle('show');
+    hintToggleBtn.textContent = box.classList.contains('show') ? 'Hide hint' : 'Need an idea? Tap for a hint 💡';
+  });
+}
 </script>
 </body>
 </html>
