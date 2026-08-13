@@ -1,1 +1,745 @@
-/home/claude/hugo_lessons/Hugo_Lesson1_FootballAroundTheWorld.html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="google" content="notranslate">
+<title>Hugo • Lesson 1 — Football Around the World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#ffb703; --sun-deep:#e08e00;
+    --sky:#4cc9f0; --sky-deep:#219ebc;
+    --coral:#ff6b6b; --coral-deep:#e5484d;
+    --leaf:#52b788; --leaf-deep:#2d6a4f;
+    --sand:#d4a373; --sand-deep:#9c6644;
+    --cream:#fff8ea; --ink:#25324a; --violet:#7c3aed;
+    --good:#34d399; --bad:#ef4444;
+    --shadow:0 12px 36px rgba(76,201,240,0.18);
+    --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Quicksand',sans-serif;font-size:20px;line-height:1.55;color:var(--ink);
+    background:
+      radial-gradient(circle at 8% 12%,rgba(76,201,240,0.20) 0,transparent 42%),
+      radial-gradient(circle at 92% 82%,rgba(255,183,3,0.20) 0,transparent 42%),
+      linear-gradient(180deg,#fff8ea 0%,#fff 100%);
+    min-height:100vh;overflow-x:hidden;
+  }
+  .notranslate{translate:no}
+  .kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px;}
+  .kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px;}
+  .kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1;}
+  .kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700;}
+  .kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+  .kce-band{height:3px;display:flex;}.kce-band i{flex:1}
+  .kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+
+  .stage{max-width:1280px;margin:0 auto;padding:24px 24px 100px;position:relative}
+  .hud{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--sky);border-radius:24px;padding:14px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
+  .hud-brand{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);display:flex;align-items:center;gap:8px;}
+  .hud-brand::before{content:'⚽';font-size:26px}
+  .hud-stat{display:flex;align-items:center;gap:6px;font-weight:700;font-size:18px;background:var(--cream);padding:8px 14px;border-radius:12px;border:2px solid var(--sky);color:var(--sky-deep);}
+  .hud-stat.streak{border-color:var(--sun);color:#a06400}
+  .xp-shell{flex:1;min-width:160px;height:16px;background:#e6f7fb;border-radius:999px;overflow:hidden;border:2px solid var(--sky);position:relative;}
+  .xp-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--sun),var(--coral),var(--sky));border-radius:999px;transition:width .8s cubic-bezier(.2,.9,.3,1.2);}
+  .xp-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--sky-deep);}
+
+  .slide{background:#fff;border:3px solid var(--sky);border-radius:26px;padding:28px 30px;margin-top:18px;box-shadow:var(--shadow);display:none;animation:slideIn .5s ease;position:relative;overflow:hidden;}
+  .slide::before{content:'';position:absolute;top:-30px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,183,3,0.28),transparent 70%);z-index:0;}
+  .slide.active{display:block}
+  @keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .slide-title{font-family:'Caprasimo',serif;font-size:34px;color:var(--coral-deep);margin-bottom:6px;text-align:center;position:relative;z-index:1;}
+  .slide-sub{font-size:16px;color:var(--violet);text-align:center;margin-bottom:18px;font-style:italic;position:relative;z-index:1;}
+  .slide-count{text-align:center;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;position:relative;z-index:1;}
+  .connect-note{background:#f3e8ff;border-left:5px solid var(--violet);border-radius:10px;padding:10px 14px;font-size:14px;color:var(--violet);font-weight:700;margin-bottom:14px;position:relative;z-index:1;}
+
+  .bilingual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;position:relative;z-index:1;}
+  .lang-card{background:linear-gradient(135deg,#fff,#eaf9ff);border-radius:16px;padding:18px 22px;border-left:6px solid var(--sky);box-shadow:0 4px 14px rgba(33,158,188,0.10);}
+  .lang-card.fr{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0);}
+  .lang-tag{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--sky-deep);background:#d4f1fa;padding:3px 10px;border-radius:6px;margin-bottom:8px;}
+  .lang-card.fr .lang-tag{color:var(--coral-deep);background:#ffe3e3}
+  .lang-card p{font-size:18px;line-height:1.6}
+  .lang-card.fr p{color:var(--violet);font-size:17px}
+
+  .modal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:16px 0;position:relative;z-index:1;}
+  .modal-card{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sun);border-radius:16px;padding:16px 20px;cursor:pointer;transition:all .3s;min-height:112px;}
+  .modal-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(255,183,3,0.30)}
+  .modal-card.flipped{background:linear-gradient(135deg,var(--sky),var(--sky-deep));color:#fff;border-color:var(--coral)}
+  .modal-card .who{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);margin-bottom:5px;}
+  .modal-card.flipped .who{color:#fff}
+  .modal-card .role{font-size:13px;font-weight:700;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;}
+  .modal-card.flipped .role{color:var(--sun)}
+  .modal-card .detail{font-size:15px;margin-top:7px;color:var(--ink)}
+  .modal-card.flipped .detail{color:#fff}
+  .modal-card .fr{font-size:13px;color:var(--violet);margin-top:5px;font-style:italic;}
+  .modal-card.flipped .fr{color:#fff8e1}
+  .modal-card .tap-hint{font-size:11px;font-weight:700;color:#888;margin-top:8px}
+  .modal-card.flipped .tap-hint{color:var(--cream)}
+
+  .map-track{display:flex;gap:12px;padding:10px 4px 16px;position:relative;z-index:1;}
+  .map-stop{flex:1;min-width:0;background:#fff;border:3px solid var(--sand);border-radius:16px;padding:24px 14px;text-align:center;cursor:pointer;transition:all .25s;}
+  @media(max-width:520px){ .map-track{flex-wrap:wrap;} .map-stop{flex:1 1 45%;} }
+  .map-stop:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(156,102,68,0.25)}
+  .map-stop.active{background:linear-gradient(135deg,var(--sand),var(--sand-deep));border-color:var(--coral);}
+  .map-stop.active .stop-num,.map-stop.active .stop-label{color:#fff}
+  .map-stop.visited{border-color:var(--good);}
+  .map-stop .stop-icon{font-size:52px;display:block;margin-bottom:8px;}
+  .map-stop .stop-num{font-size:13px;font-weight:800;color:var(--sand-deep);text-transform:uppercase;letter-spacing:1px;}
+  .map-stop .stop-label{font-size:18px;font-weight:700;color:var(--ink);margin-top:4px;}
+  .map-stop .stop-check{font-size:14px;color:var(--good);font-weight:800;margin-top:6px;visibility:hidden;}
+  .map-stop.visited .stop-check{visibility:visible;}
+  .stop-progress{text-align:center;font-size:13px;color:var(--sand-deep);font-weight:700;margin-bottom:6px;position:relative;z-index:1;}
+
+  .stop-panel{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sand);border-radius:18px;padding:20px 22px;position:relative;z-index:1;min-height:150px;}
+  .stop-panel .sp-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--sand-deep);margin-bottom:6px;}
+  .stop-panel h3{font-family:'Caprasimo',serif;font-size:24px;color:var(--coral-deep);margin-bottom:8px;}
+  .stop-panel .sp-en{font-size:17px;margin-bottom:4px;}
+  .stop-panel .sp-fr{font-size:14px;color:var(--violet);font-style:italic;margin-bottom:10px;}
+  .stop-panel .sp-fact{background:#fff;border-left:4px solid var(--leaf);border-radius:10px;padding:10px 14px;font-size:15px;}
+  .stop-panel .sp-fact .fr{display:block;color:var(--violet);font-style:italic;font-size:13px;margin-top:4px;}
+  .stop-panel .sp-placeholder{color:#aaa;font-style:italic;font-size:15px;text-align:center;padding:20px 0;}
+
+  .flag-btn{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:16px 12px;font-size:30px;cursor:pointer;text-align:center;min-width:80px;font-family:'Quicksand',sans-serif;transition:all .2s;}
+  .flag-btn:hover:not(:disabled){background:#eaf9ff;transform:translateY(-3px);border-color:var(--sky-deep)}
+  .flag-btn.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
+  .flag-btn.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
+  .flag-btn:disabled{cursor:default}
+
+  .mcq-q{font-family:'Caprasimo',serif;font-size:20px;color:var(--coral-deep);margin:14px 0 12px;padding:14px 18px;background:var(--cream);border-radius:14px;border-left:6px solid var(--sky);position:relative;z-index:1;}
+  .mcq-q .fr{display:block;font-family:'Quicksand',sans-serif;font-size:14px;color:var(--violet);font-weight:500;font-style:italic;margin-top:5px;}
+  .answers{display:grid;gap:8px;margin-bottom:10px;position:relative;z-index:1}
+  .ans{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:11px 16px;font-size:17px;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;transition:all .2s;font-family:'Quicksand',sans-serif;}
+  .ans:hover:not(:disabled){background:#eaf9ff;transform:translateX(4px);border-color:var(--sky-deep)}
+  .ans.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
+  .ans.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
+  .ans:disabled{cursor:default}
+  @keyframes pulse{0%,100%{transform:none}50%{transform:scale(1.03)}}
+  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  .feedback{margin-top:6px;padding:11px 15px;border-radius:12px;font-size:15px;display:none;position:relative;z-index:1}
+  .feedback.show{display:block;animation:slideIn .3s ease}
+  .feedback.good{background:#d1fae5;color:#065f46;border-left:5px solid var(--good)}
+  .feedback.bad{background:#fee2e2;color:#991b1b;border-left:5px solid var(--bad)}
+  .feedback .fr{display:block;color:var(--violet);font-style:italic;margin-top:3px;font-size:13px}
+
+  .tot-cluster-label{font-size:13px;font-weight:800;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;margin:12px 0 6px;position:relative;z-index:1;}
+  .tot-row{display:flex;gap:8px;margin:8px 0;position:relative;z-index:1;}
+  .tot-pair{flex:1;display:flex;border:3px solid var(--sky);border-radius:14px;overflow:hidden;}
+  .tot-opt{flex:1;border:0;background:#fff;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer;padding:12px 8px;transition:all .2s;}
+  .tot-opt:hover{background:#eaf9ff;}
+  .tot-opt.sel{background:var(--coral);color:#fff;}
+  .tot-mid{width:2px;background:var(--sky);}
+  .tot-hint{font-size:11px;color:var(--violet);font-style:italic;margin-top:3px;display:block;}
+
+  .elicit-card{background:linear-gradient(135deg,#fff,#eaf9ff);border:3px dashed var(--sky);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
+  .elicit-card h4{font-family:'Caprasimo',serif;font-size:20px;color:var(--sky-deep);margin-bottom:8px;}
+  .starter-row{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+  .starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:10px 14px;font-family:'Quicksand',sans-serif;}
+  .starter .en{font-weight:700;color:var(--ink);font-size:17px;font-family:'Quicksand',sans-serif;display:block;}
+  .starter .fr{display:block;color:var(--violet);font-style:italic;font-weight:500;font-size:13px;font-family:'Quicksand',sans-serif;margin-top:2px;}
+  .hint-toggle{background:var(--sun);border:none;color:var(--kce-navy);font-weight:800;padding:9px 18px;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:13px;margin-top:10px;}
+  .hint-facts{display:none;margin-top:10px;background:#fff;border-left:4px solid var(--sun);border-radius:10px;padding:12px 14px;font-size:14px;}
+  .hint-facts.show{display:block;}
+  .hint-facts li{margin-bottom:6px;}
+  .hint-facts .fr{color:var(--violet);font-style:italic;font-size:12px;}
+
+  .think-card{background:linear-gradient(135deg,#f3e8ff,#fff);border:3px solid var(--violet);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
+  .think-card h4{font-family:'Caprasimo',serif;font-size:21px;color:var(--violet);margin-bottom:8px;}
+  .think-card .qtext{font-size:18px;font-weight:600;margin-bottom:6px;}
+  .think-card .qtext-fr{font-size:15px;color:var(--violet);font-style:italic;margin-bottom:12px;}
+
+  .toolkit{background:linear-gradient(135deg,#eaf9ff,#fff);border:3px solid var(--sky);border-radius:18px;padding:18px 22px;margin:14px 0;position:relative;z-index:1;}
+  .toolkit h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--sky-deep);margin-bottom:10px;}
+  .toolkit-group{margin-bottom:12px;}
+  .toolkit-group .tk-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--violet);margin-bottom:5px;}
+  .toolkit-group .tk-phrase{background:#fff;border-left:4px solid var(--sky);border-radius:8px;padding:8px 12px;margin-bottom:5px;font-size:15px;}
+  .toolkit-group .tk-phrase .fr{display:block;color:var(--violet);font-style:italic;font-size:12px;margin-top:2px;}
+
+  .tiers{display:grid;gap:11px;margin-top:14px;position:relative;z-index:1}
+  .tier{background:#fff;border-radius:16px;padding:16px 20px;border-left:8px solid var(--sky);box-shadow:0 4px 14px rgba(0,0,0,0.06);}
+  .tier.silver{border-left-color:#9ca3af}
+  .tier.gold{border-left-color:var(--sun)}
+  .tier.diamond{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0)}
+  .tier-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#666;margin-bottom:5px;}
+  .tier h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--coral-deep);margin-bottom:5px}
+  .tier p{font-size:16px}
+  .tier .fr{color:var(--violet);font-style:italic;font-size:14px;margin-top:3px}
+
+  .wheel-embed-label{font-family:'Caprasimo',serif;font-size:18px;color:var(--sun-deep);text-align:center;margin-top:6px;margin-bottom:10px;position:relative;z-index:1;}
+  .wheel-embed{width:100%;min-height:640px;border:3px solid var(--sun);border-radius:20px;position:relative;z-index:1;box-shadow:0 8px 24px rgba(255,183,3,0.25);background:#fff;}
+  @media(max-width:780px){ .wheel-embed{min-height:760px;} }
+
+  .victory{background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#fff;border-radius:22px;padding:32px;text-align:center;border:4px solid var(--sun);margin:12px 0;box-shadow:0 12px 40px rgba(229,72,77,0.4);position:relative;z-index:1;}
+  .victory h2{font-family:'Caprasimo',serif;font-size:34px;margin-bottom:12px}
+  .victory p{font-size:17px;line-height:1.7;margin-bottom:8px}
+  .victory .fr{color:var(--sun);font-style:italic;font-size:15px;margin-top:6px}
+  .victory .recap{background:rgba(255,255,255,.15);border-radius:14px;padding:14px 18px;margin-top:14px;text-align:left;font-size:15px;}
+  .victory .recap b{color:var(--sun)}
+
+  .nav-wrap-fixed{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid var(--sky);padding:12px 0;z-index:500;box-shadow:0 -6px 20px rgba(0,0,0,0.12);}
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1280px;margin:0 auto;padding:0 24px;flex-wrap:wrap;}
+  .dots{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:380px}
+  .dot{width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--coral);cursor:pointer;transition:all .25s;}
+  .dot.active{background:var(--coral);transform:scale(1.4)}
+  .dot.done{background:var(--sky);border-color:var(--sky)}
+  .nav-btn{background:linear-gradient(135deg,var(--coral),var(--coral-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(229,72,77,0.4);transition:all .25s;text-transform:uppercase;letter-spacing:0.5px;}
+  .nav-btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(229,72,77,0.55)}
+  .nav-btn.prev{background:linear-gradient(135deg,#888,#aaa);box-shadow:0 6px 18px rgba(0,0,0,0.2)}
+  .nav-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+
+  .reaction{position:fixed;font-size:44px;pointer-events:none;z-index:9999;animation:floatUp 1.4s ease-out forwards;}
+  @keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(0.5)}20%{opacity:1;transform:translateY(-30px) scale(1.2)}100%{opacity:0;transform:translateY(-180px) scale(0.8)}}
+  .confetti{position:fixed;width:10px;height:10px;pointer-events:none;z-index:9999;animation:confettiFall 2s ease-out forwards;}
+  @keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(400px) rotate(720deg)}}
+
+  footer.kce-foot{text-align:center;padding:16px 20px;font-size:11px;color:#8a93a6;}
+
+  @media(max-width:780px){
+    .bilingual{grid-template-columns:1fr}
+    .slide-title{font-size:26px}
+    .modal-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body class="notranslate" translate="no">
+
+<div class="kce-mast">
+  <div class="kce-mono">KC</div>
+  <div>
+    <div class="kce-word">KingCretot Experience</div>
+    <div class="kce-tag">EDUCATE. <span class="g">EMPOWER.</span> <span class="r">EXCEL.</span></div>
+  </div>
+</div>
+<div class="kce-band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+<div class="stage">
+  <div class="hud">
+    <div class="hud-brand">Hugo • L1</div>
+    <div class="hud-stat">🎯 <span id="accuracy">0</span> right</div>
+    <div class="hud-stat">⭐ <span id="stars">0</span></div>
+    <div class="hud-stat streak">🔥 <span id="streak">0</span></div>
+    <div class="xp-shell">
+      <div class="xp-fill" id="xpFill"></div>
+      <div class="xp-text"><span id="xpText">0</span> / 300 XP</div>
+    </div>
+  </div>
+
+  <!-- 1: Welcome -->
+  <section class="slide active" data-slide="1">
+    <div class="slide-count">Slide 1 of 12</div>
+    <div class="slide-title">⚽ Football Around the World</div>
+    <div class="slide-sub">A new year, a bigger conversation.</div>
+    <div class="bilingual">
+      <div class="lang-card">
+        <span class="lang-tag">English</span>
+        <p>Hi Hugo! You already know more about football than most adults. This year, I want you to use that knowledge to think — not just to talk. Today: why does one sport dominate almost the entire planet?</p>
+      </div>
+      <div class="lang-card fr">
+        <span class="lang-tag">Français</span>
+        <p>Salut Hugo! Tu en sais déjà plus sur le foot que la plupart des adultes. Cette année, je veux que tu utilises cette connaissance pour réfléchir — pas seulement pour parler. Aujourd'hui : pourquoi un seul sport domine-t-il presque toute la planète?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2: Elicitation - what he already knows -->
+  <section class="slide" data-slide="2">
+    <div class="slide-count">Slide 2 of 12</div>
+    <div class="slide-title">🎤 Before We Start...</div>
+    <div class="connect-note">You're the expert here. Tell me first — I'll listen.</div>
+    <div class="elicit-card">
+      <h4>Talk to me about your team</h4>
+      <div class="starter-row">
+        <div class="starter"><span class="en">"My favorite team is... because..."</span><span class="fr">"Mon équipe préférée, c'est... parce que..."</span></div>
+        <div class="starter"><span class="en">"The player I admire most is... because..."</span><span class="fr">"Le joueur que j'admire le plus, c'est... parce que..."</span></div>
+        <div class="starter"><span class="en">"A match I'll never forget is..."</span><span class="fr">"Un match que je n'oublierai jamais, c'est..."</span></div>
+      </div>
+      <button class="hint-toggle" id="hintToggle1">Need vocabulary? Tap for help 💡</button>
+      <ul class="hint-facts" id="hintFacts1">
+        <li><strong>a rivalry</strong> — a long-running competition between two teams or players. <span class="fr">une rivalité.</span></li>
+        <li><strong>a legend</strong> — a player so good their name becomes bigger than the sport itself. <span class="fr">une légende.</span></li>
+        <li><strong>to support a team</strong> — to be a loyal fan, through wins and losses. <span class="fr">soutenir une équipe.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3: This or That warm-up -->
+  <section class="slide" data-slide="3">
+    <div class="slide-count">Slide 3 of 12</div>
+    <div class="slide-title">⚡ This or That!</div>
+    <div class="slide-sub">Fast answers — no overthinking. / Réponses rapides — ne réfléchis pas trop.</div>
+    <div class="tot-cluster-label">⚽ Football Instincts</div>
+    <div id="totRows1"></div>
+  </section>
+
+  <!-- 4: NEW bridge - zoom out from personal team to systems -->
+  <section class="slide" data-slide="4">
+    <div class="slide-count">Slide 4 of 12</div>
+    <div class="slide-title">🔭 Make a Prediction</div>
+    <div class="connect-note">You know your team inside and out. Now let's zoom out — before you see the facts, make a guess.</div>
+    <div class="think-card">
+      <h4>Which league makes the most money?</h4>
+      <div class="qtext">Premier League, Ligue 1, or Bundesliga — tap the one you think earns the most, before the tour tells you.</div>
+      <div class="qtext-fr">Premier League, Ligue 1 ou Bundesliga — tape celle que tu penses la plus riche, avant que le tour te le révèle.</div>
+      <div id="predictRow" style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;position:relative;z-index:1;"></div>
+      <div id="predictResult" style="margin-top:12px;font-size:14px;font-weight:700;color:var(--violet);display:none;position:relative;z-index:1;"></div>
+    </div>
+  </section>
+
+  <!-- 5: Interactive tour of 3 leagues - deepened past trivia, kept tight -->
+  <section class="slide" data-slide="5">
+    <div class="slide-count">Slide 5 of 12</div>
+    <div class="slide-title">🌍 Three Machines, One Sport</div>
+    <div class="connect-note">Tap each league — not for the score, for the system. Notice how differently each one solved the same problem: who gets the power and the money?</div>
+    <div class="stop-progress" id="stopProgress">0 / 3 leagues explored</div>
+    <div class="map-track" id="mapTrack"></div>
+    <div class="stop-panel" id="stopPanel">
+      <div class="sp-placeholder">Tap a league above to begin! / Tape une ligue pour commencer!</div>
+    </div>
+  </section>
+
+  <!-- 6: Comprehension check - application-based, tests transfer not recall -->
+  <section class="slide" data-slide="6">
+    <div class="slide-count">Slide 6 of 12</div>
+    <div class="slide-title">🧠 Now Apply It</div>
+    <div class="slide-sub">Same sport, three totally different machines. Use what you saw — don't just recall it.</div>
+    <div id="leagueMCQ"></div>
+  </section>
+
+  <!-- 7: bridge - connects the pattern to the big question -->
+  <section class="slide" data-slide="7">
+    <div class="slide-count">Slide 7 of 12</div>
+    <div class="slide-title">🌐 Spot the Exception</div>
+    <div class="connect-note">In every one of these countries, football is the #1 sport, woven into money, law, and identity. One of them is a total exception. Tap the one that doesn't belong.</div>
+    <div id="flagRow" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0;position:relative;z-index:1;"></div>
+    <div id="flagResult" style="display:none;margin-top:8px;position:relative;z-index:1;"></div>
+  </section>
+
+  <!-- 9: Critical thinking card -->
+  <section class="slide" data-slide="8">
+    <div class="slide-count">Slide 8 of 12</div>
+    <div class="slide-title">🤔 Let's Think About This</div>
+    <div class="think-card">
+      <h4>The Big Question</h4>
+      <div class="qtext">Football is the most popular sport almost everywhere on Earth — except in the United States, where American football, basketball, and baseball come first. Why do you think that is?</div>
+      <div class="qtext-fr">Le foot est le sport le plus populaire presque partout sur Terre — sauf aux États-Unis, où le football américain, le basket et le baseball passent en premier. À ton avis, pourquoi?</div>
+      <button class="hint-toggle" id="hintToggle2">Stuck? Tap for angles to consider 💡</button>
+      <ul class="hint-facts" id="hintFacts2">
+        <li><strong>History:</strong> the US built its own sports leagues in the 1800s-1900s, before football/soccer became global — home-grown sports got a head start. <span class="fr">Les États-Unis ont créé leurs propres ligues avant que le foot ne devienne mondial.</span></li>
+        <li><strong>Geography & colonization:</strong> football spread fastest through the British Empire's old trade and colonial routes — this is why it's huge in Europe, Africa, and South America. <span class="fr">Le foot s'est répandu via les anciennes routes de l'Empire britannique.</span></li>
+        <li><strong>Money & media:</strong> American TV networks built massive business models around their home sports, which made switching harder. <span class="fr">Les chaînes américaines ont construit d'énormes modèles économiques autour de leurs sports locaux.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 10: This or That - culture comparison -->
+  <section class="slide" data-slide="9">
+    <div class="slide-count">Slide 9 of 12</div>
+    <div class="slide-title">⚡ This or That!</div>
+    <div class="slide-sub">Comparing two sports cultures. / Comparer deux cultures sportives.</div>
+    <div class="tot-cluster-label">🇫🇷 vs 🇺🇸 Sports Culture</div>
+    <div id="totRows2"></div>
+  </section>
+
+  <!-- 11: Tiered speaking challenge -->
+  <section class="slide" data-slide="10">
+    <div class="slide-count">Slide 10 of 12</div>
+    <div class="slide-title">🎤 Your Turn to Argue!</div>
+    <div class="slide-sub">Pick your level with your teacher — argue your case out loud, using what you learned about the systems today.</div>
+    <div class="connect-note">👩‍🏫 No clicking here — pick one tier together and have Hugo speak his answer out loud. Use the toolkit below as a starting point, not a script.</div>
+    <div class="toolkit">
+      <h4>🧰 Language Toolkit</h4>
+      <div class="toolkit-group">
+        <div class="tk-label">Comparing</div>
+        <div class="tk-phrase">"Unlike England, Germany..." / "X is more... than Y because..."<span class="fr">"Contrairement à l'Angleterre, l'Allemagne..." / "X est plus... que Y parce que..."</span></div>
+      </div>
+      <div class="toolkit-group">
+        <div class="tk-label">Cause & Effect</div>
+        <div class="tk-phrase">"This is because..." / "As a result..." / "This means that..."<span class="fr">"C'est parce que..." / "Par conséquent..." / "Cela signifie que..."</span></div>
+      </div>
+      <div class="toolkit-group">
+        <div class="tk-label">Giving an Opinion (with nuance)</div>
+        <div class="tk-phrase">"In my opinion..." / "Some people might say... but I'd argue..." / "While it's true that... I still think..."<span class="fr">"À mon avis..." / "Certains diraient... mais je pense que..." / "Même si c'est vrai que... je pense quand même que..."</span></div>
+      </div>
+    </div>
+    <div class="tiers">
+      <div class="tier silver">
+        <div class="tier-label">🥈 Silver Challenge</div>
+        <h4>Describe your favorite team and explain what makes them special.</h4>
+        <p class="fr">Décris ton équipe préférée et explique ce qui la rend spéciale.</p>
+      </div>
+      <div class="tier gold">
+        <div class="tier-label">🥇 Gold Challenge</div>
+        <h4>Compare two league systems from today. Which one would you want to be a fan inside, and why?</h4>
+        <p class="fr">Compare deux systèmes de ligue d'aujourd'hui. Dans lequel aimerais-tu être fan, et pourquoi?</p>
+      </div>
+      <div class="tier diamond">
+        <div class="tier-label">💎 Diamond Challenge</div>
+        <h4>Make your own argument: is it a good thing or a bad thing that one sport dominates so much of the world? Defend your answer with at least two reasons.</h4>
+        <p class="fr">Construis ton propre argument : est-ce une bonne ou une mauvaise chose qu'un seul sport domine autant le monde? Défends ta réponse avec au moins deux raisons.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12: Bonus - Conversation Wheel -->
+  <section class="slide" data-slide="11">
+    <div class="slide-count">Slide 11 of 12</div>
+    <div class="slide-title">🎡 Bonus Round!</div>
+    <div class="slide-sub">Extra time? Spin for a totally different kind of question.</div>
+    <div class="wheel-embed-label">🎡 Tap to spin!</div>
+    <div id="spinResult" class="stop-panel" style="text-align:center;min-height:120px;display:flex;align-items:center;justify-content:center;">
+      <div class="sp-placeholder">Tap the button below to get your bonus question! / Appuie sur le bouton pour ta question bonus!</div>
+    </div>
+    <div style="text-align:center;margin-top:16px;position:relative;z-index:1;">
+      <button class="nav-btn" id="spinBtn" style="text-transform:none;letter-spacing:0;">🎡 Spin!</button>
+    </div>
+  </section>
+
+  <!-- 13: Victory -->
+  <section class="slide" data-slide="12">
+    <div class="slide-count">Slide 12 of 12</div>
+    <div class="victory">
+      <h2>🎉 Well Argued, Hugo!</h2>
+      <p>Today you toured five football economies, spotted the pattern connecting them, thought through a real global question, and defended your own opinion — all in English!</p>
+      <p class="fr">Aujourd'hui, tu as visité cinq économies du foot, repéré le lien qui les unit, réfléchi à une vraie question mondiale, et défendu ta propre opinion — tout en anglais!</p>
+      <div class="recap" id="recapBox"></div>
+    </div>
+  </section>
+</div>
+<div class="nav-wrap-fixed">
+  <div class="nav-wrap">
+    <button class="nav-btn prev" id="prevBtn">◂ Back</button>
+    <div class="dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▸</button>
+  </div>
+</div>
+<footer class="kce-foot">KingCretot Experience · Hugo · Lesson 1: Football Around the World</footer>
+
+<script>
+const LEAGUES = [
+  {icon:"🏴", label:"Premier League", country:"England", en:"Fast, physical, relentless — but the real story is money. It's the richest league on Earth, largely owned by foreign billionaires and investment groups, not by fans.", fr:"Rapide, physique, sans répit — mais la vraie histoire, c'est l'argent. C'est la ligue la plus riche du monde, majoritairement possédée par des milliardaires étrangers, pas par les fans.", fact:"In many Premier League clubs, fans who've supported the team for generations have zero ownership or vote — the club can be bought and sold like any company.", factfr:"Dans beaucoup de clubs de Premier League, les fans qui soutiennent l'équipe depuis des générations n'ont aucune part ni aucun vote dans les décisions."},
+  {icon:"🇫🇷", label:"Ligue 1", country:"France", en:"France doesn't try to out-spend England. Instead it built a different model: find brilliant young players, develop them, then sell them abroad for enormous profit.", fr:"La France n'essaie pas de rivaliser avec l'argent de l'Angleterre. Elle a construit un autre modèle : former de jeunes talents, puis les vendre à l'étranger pour d'énormes profits.", fact:"Mbappé, Griezmann, and dozens of other global stars came up through exactly this system — Ligue 1 works like a talent factory for richer leagues.", factfr:"Mbappé, Griezmann et des dizaines d'autres stars mondiales sont passés par ce système — la Ligue 1 fonctionne comme une usine à talents pour les ligues plus riches."},
+  {icon:"🇩🇪", label:"Bundesliga", country:"Germany", en:"Germany did something almost no other major league allows: by law, fans must hold the majority of voting power in their own clubs.", fr:"L'Allemagne a fait quelque chose que presque aucune autre grande ligue n'autorise : par la loi, les fans doivent détenir la majorité du pouvoir de vote dans leur propre club.", fact:"This rule is called '50+1.' It's the reason German ticket prices stay low and stadiums stay packed, even though the clubs earn less than England's.", factfr:"Cette règle s'appelle le '50+1' — c'est pourquoi les prix des billets restent bas et les stades pleins en Allemagne, même si les clubs gagnent moins qu'en Angleterre."}
+];
+
+const FB = {};
+let ac;
+function tone(freqs, durs){
+  try{
+    if(!ac) ac = new (window.AudioContext||window.webkitAudioContext)();
+    const now = ac.currentTime;
+    freqs.forEach((f,i)=>{
+      const o=ac.createOscillator(),g=ac.createGain();
+      o.type='triangle';o.frequency.value=f;
+      o.connect(g);g.connect(ac.destination);
+      const t0=now+i*0.09;
+      g.gain.setValueAtTime(0,t0);
+      g.gain.linearRampToValueAtTime(0.18,t0+0.02);
+      g.gain.exponentialRampToValueAtTime(0.001,t0+(durs[i]||0.25));
+      o.start(t0);o.stop(t0+(durs[i]||0.25));
+    });
+  }catch(e){}
+}
+const goodSound=()=>tone([523.25,659.25,783.99,1046.5],[0.18,0.18,0.18,0.36]);
+const badSound =()=>tone([392,329.63,261.63],[0.2,0.2,0.34]);
+
+const state = {correct:0,attempted:0,stars:0,streak:0,xp:0,slide:1,total:12,answered:{},visitedLeagues:new Set()};
+function updateHUD(){
+  document.getElementById('accuracy').textContent=state.attempted ? state.correct+'/'+state.attempted : 0;
+  document.getElementById('stars').textContent=state.stars;
+  document.getElementById('streak').textContent=state.streak;
+  document.getElementById('xpFill').style.width=Math.min(100,(state.xp/300)*100)+'%';
+  document.getElementById('xpText').textContent=state.xp;
+}
+function addXP(n){state.xp=Math.min(300,state.xp+n);updateHUD()}
+function reaction(emoji){
+  const el=document.createElement('div');el.className='reaction';el.textContent=emoji;
+  el.style.left=(40+Math.random()*40)+'%';el.style.top='50%';
+  document.body.appendChild(el);setTimeout(()=>el.remove(),1400);
+}
+function confetti(){
+  const colors=['#ff6b6b','#4cc9f0','#ffb703','#7c3aed','#fff8ea','#34d399'];
+  for(let i=0;i<26;i++){
+    const c=document.createElement('div');c.className='confetti';
+    c.style.background=colors[i%colors.length];
+    c.style.left=Math.random()*100+'vw';c.style.top='-10px';
+    c.style.animationDelay=(Math.random()*0.4)+'s';
+    document.body.appendChild(c);setTimeout(()=>c.remove(),2400);
+  }
+}
+
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('.ans');
+  if(!btn) return;
+  const group = btn.closest('.answers');
+  if(!group) return;
+  const gid = group.getAttribute('data-gid');
+  if(!FB[gid] || state.answered[gid]) return;
+  const ans = btn.getAttribute('data-ans');
+  const data = FB[gid][ans];
+  const fb = document.querySelector(`.feedback[data-gid="${gid}"]`);
+  state.attempted++;
+  if(data.ok){
+    state.answered[gid]=true;
+    btn.classList.add('correct');
+    group.querySelectorAll('.ans').forEach(b=>b.disabled=true);
+    fb.className='feedback show good';
+    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
+    state.stars++;state.streak++;state.correct++;addXP(15);updateHUD();
+    goodSound();reaction('🎉');confetti();
+  } else {
+    btn.classList.add('wrong');btn.disabled=true;
+    fb.className='feedback show bad';
+    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
+    state.streak=0;updateHUD();
+    badSound();reaction('👎');
+  }
+});
+
+/* ---------- This or That builder ---------- */
+function buildTOT(hostId, pairsArr){
+  const host = document.getElementById(hostId);
+  pairsArr.forEach(p=>{
+    const row=document.createElement('div');row.className='tot-row';
+    const pair=document.createElement('div');pair.className='tot-pair';
+    const optA=document.createElement('button');optA.className='tot-opt';optA.innerHTML=p[0]+'<span class="tot-hint">'+(p[2]||'')+'</span>';
+    const mid=document.createElement('div');mid.className='tot-mid';
+    const optB=document.createElement('button');optB.className='tot-opt';optB.innerHTML=p[1]+'<span class="tot-hint">'+(p[3]||'')+'</span>';
+    function pick(chosen,other){
+      chosen.classList.add('sel'); other.classList.remove('sel');
+      addXP(3); reaction('✨'); tone([587,740],[0.1,0.16]);
+    }
+    optA.addEventListener('click',()=>pick(optA,optB));
+    optB.addEventListener('click',()=>pick(optB,optA));
+    pair.appendChild(optA);pair.appendChild(mid);pair.appendChild(optB);
+    row.appendChild(pair); host.appendChild(row);
+  });
+}
+
+const FOOTBALL_INSTINCTS = [
+  ["Mbappé","Haaland","Mbappé","Haaland"],
+  ["Attacking football","Defensive football","le jeu offensif","le jeu défensif"],
+  ["Play the game","Watch the game","jouer","regarder"],
+  ["Club football","National team football","le club","l'équipe nationale"],
+  ["Champions League","World Cup","la Ligue des Champions","la Coupe du Monde"],
+  ["Team of stars","Team of teamwork","une équipe de stars","une équipe soudée"]
+];
+const CULTURE_COMPARE = [
+  ["Football (soccer)","American football","le foot","le football américain"],
+  ["90 minutes, few breaks","Stop-start, many breaks","90 minutes, peu de pauses","arrêts fréquents"],
+  ["One World Cup, whole world watches","Super Bowl, mostly one country","toute la planète regarde","surtout un seul pays"],
+  ["Fans sing the whole match","Fans cheer at big plays","les fans chantent tout le match","les fans applaudissent aux grandes actions"]
+];
+
+buildTOT('totRows1', FOOTBALL_INSTINCTS);
+buildTOT('totRows2', CULTURE_COMPARE);
+
+/* ---------- League tour ---------- */
+function renderLeagues(){
+  const track = document.getElementById('mapTrack');
+  track.innerHTML = '';
+  LEAGUES.forEach((l,i)=>{
+    const el = document.createElement('div');
+    el.className = 'map-stop';
+    el.dataset.idx = i;
+    el.innerHTML = `<span class="stop-icon">${l.icon}</span><div class="stop-num">${l.country}</div><div class="stop-label">${l.label}</div><div class="stop-check">✓ explored</div>`;
+    el.addEventListener('click', ()=>showLeague(i));
+    track.appendChild(el);
+  });
+}
+function updateLeagueProgress(){
+  document.getElementById('stopProgress').textContent = `${state.visitedLeagues.size} / 3 leagues explored`;
+}
+function showLeague(idx){
+  const l = LEAGUES[idx];
+  document.querySelectorAll('.map-stop').forEach((el,i)=>{
+    el.classList.toggle('active', i===idx);
+  });
+  if(!state.visitedLeagues.has(idx)){
+    state.visitedLeagues.add(idx);
+    document.querySelectorAll('.map-stop')[idx].classList.add('visited');
+    addXP(8); reaction('⚽'); tone([494,622],[0.1,0.18]);
+    updateLeagueProgress();
+  }
+  const panel = document.getElementById('stopPanel');
+  let predictNote = '';
+  if(idx===0 && state.moneyGuess){
+    const right = state.moneyGuess==='premier';
+    predictNote = right
+      ? `<div class="sp-fact" style="border-left-color:var(--good);margin-top:8px;">🎯 Your guess was right! Premier League really is the richest. <span class="fr">Ta prédiction était juste! La Premier League est vraiment la plus riche.</span></div>`
+      : `<div class="sp-fact" style="border-left-color:var(--coral);margin-top:8px;">🎯 Good guess, but not quite — this is actually the richest of the three. <span class="fr">Bonne idée, mais pas tout à fait — c'est en fait la plus riche des trois.</span></div>`;
+  }
+  panel.innerHTML = `
+    <div class="sp-eyebrow">${l.country}</div>
+    <h3>${l.icon} ${l.label}</h3>
+    <div class="sp-en">${l.en}</div>
+    <div class="sp-fr">${l.fr}</div>
+    <div class="sp-fact">${l.fact} <span class="fr">${l.factfr}</span></div>
+    ${predictNote}
+  `;
+}
+function renderFlagSpot(){
+  const row = document.getElementById('flagRow');
+  if(!row || row.dataset.built) return;
+  row.dataset.built = '1';
+  const countries = [
+    ['🏴','England'],['🇪🇸','Spain'],['🇫🇷','France'],['🇩🇪','Germany'],
+    ['🇮🇹','Italy'],['🇧🇷','Brazil'],['🇦🇷','Argentina'],['🇯🇵','Japan'],['🇺🇸','USA']
+  ];
+  countries.forEach(([flag,name])=>{
+    const btn = document.createElement('button');
+    btn.className = 'flag-btn';
+    btn.innerHTML = `${flag}<br><span style="font-size:12px;font-weight:700;">${name}</span>`;
+    btn.addEventListener('click', ()=>{
+      if(row.dataset.answered) return;
+      const result = document.getElementById('flagResult');
+      if(name==='USA'){
+        row.dataset.answered = '1';
+        row.querySelectorAll('button').forEach(b=>b.disabled=true);
+        btn.classList.add('correct');
+        result.style.display = 'block';
+        result.className = 'feedback show good';
+        result.innerHTML = `⭐ Exactly! The USA is the one major country where football isn't the top sport. <span class="fr">⭐ Exactement! Les États-Unis sont le seul grand pays où le foot n'est pas le sport numéro un.</span>`;
+        state.correct++;state.attempted++;state.stars++;state.streak++;addXP(15);updateHUD();
+        goodSound();reaction('🎉');confetti();
+      } else {
+        btn.classList.add('wrong');
+        tone([392,329.63],[0.15,0.2]);
+        reaction('🤔');
+      }
+    });
+    row.appendChild(btn);
+  });
+}
+function renderPrediction(){
+  const row = document.getElementById('predictRow');
+  if(!row || row.dataset.built) return;
+  row.dataset.built = '1';
+  const options = [['premier','🏴 Premier League'],['ligue1','🇫🇷 Ligue 1'],['bundes','🇩🇪 Bundesliga']];
+  options.forEach(([key,label])=>{
+    const btn = document.createElement('button');
+    btn.className = 'nav-btn';
+    btn.style.cssText = 'background:linear-gradient(135deg,var(--sky),var(--sky-deep));box-shadow:0 6px 18px rgba(33,158,188,0.35);text-transform:none;letter-spacing:0;font-size:14px;padding:11px 18px;';
+    btn.textContent = label;
+    btn.addEventListener('click', ()=>{
+      if(state.moneyGuess) return;
+      state.moneyGuess = key;
+      row.querySelectorAll('button').forEach(b=>b.disabled=true);
+      btn.style.outline = '3px solid var(--violet)';
+      const result = document.getElementById('predictResult');
+      result.style.display = 'block';
+      result.innerHTML = "Locked in! Let's see if you're right during the tour → <span style=\"display:block;font-weight:500;font-style:italic;color:var(--ink);margin-top:2px;\">Prédiction enregistrée! On verra si tu as raison pendant le tour.</span>";
+      addXP(5); reaction('🔮'); tone([440,554],[0.1,0.16]);
+    });
+    row.appendChild(btn);
+  });
+}
+
+function renderLeagueMCQ(){
+  const host = document.getElementById('leagueMCQ');
+  host.innerHTML = `
+    <div class="mcq-q" data-gid="q1">
+      A country wants to stop foreign billionaires from buying and controlling its football clubs. Based on what you saw, which model should they copy?
+      <span class="fr">Un pays veut empêcher des milliardaires étrangers d'acheter et de contrôler ses clubs. D'après ce que tu as vu, quel modèle devrait-il copier?</span>
+    </div>
+    <div class="answers" data-gid="q1">
+      <button class="ans" data-ans="A">A. England's model</button>
+      <button class="ans" data-ans="B">B. Germany's model</button>
+      <button class="ans" data-ans="C">C. Neither — ownership doesn't matter</button>
+    </div>
+    <div class="feedback" data-gid="q1"></div>
+    <div class="mcq-q" data-gid="q2">
+      A small country has great young players but not much money to keep them at home. Which strategy could actually work in their favor?
+      <span class="fr">Un petit pays a de super jeunes joueurs mais pas assez d'argent pour les garder. Quelle stratégie pourrait jouer en sa faveur?</span>
+    </div>
+    <div class="answers" data-gid="q2">
+      <button class="ans" data-ans="A">A. Buy expensive foreign stars, like England</button>
+      <button class="ans" data-ans="B">B. Develop young talent and sell it abroad, like France</button>
+      <button class="ans" data-ans="C">C. Give fans legal voting control, like Germany</button>
+    </div>
+    <div class="feedback" data-gid="q2"></div>`;
+  FB.q1 = {
+    A:{ok:false, msg:"England's model is the opposite — it's built on open foreign investment and billionaire ownership, exactly what this country wants to avoid.", fr:"Le modèle anglais, c'est l'inverse — il repose sur l'investissement étranger et la propriété par des milliardaires."},
+    B:{ok:true, msg:"⭐ Right! Germany's '50+1' law keeps majority control with fans by law — that's the model built specifically to block outside buyouts.", fr:"⭐ Exact! La loi allemande du '50+1' garde le contrôle majoritaire entre les mains des fans — c'est le modèle fait pour bloquer les rachats étrangers."},
+    C:{ok:false, msg:"Ownership rules are exactly what determined who controls England's clubs versus Germany's — it matters a lot.", fr:"Les règles de propriété, c'est justement ce qui détermine qui contrôle les clubs — ça compte énormément."}
+  };
+  FB.q2 = {
+    A:{ok:false, msg:"That only works if you already have the money to spend — this country doesn't, so it can't copy England's approach.", fr:"Ça ne marche que si on a déjà l'argent à dépenser — ce pays ne l'a pas."},
+    B:{ok:true, msg:"⭐ Right! France's model turns limited money into an advantage — develop talent cheaply, then sell it for profit. Perfect fit for a country without deep pockets.", fr:"⭐ Exact! Le modèle français transforme un budget limité en avantage — former des talents, puis les vendre. Parfait pour un pays sans gros moyens."},
+    C:{ok:false, msg:"Fan ownership protects clubs from being bought out — it doesn't solve the problem of not having money to develop or keep players in the first place.", fr:"La propriété fan protège contre les rachats — mais ça ne résout pas le manque d'argent pour former ou garder des joueurs."}
+  };
+}
+
+const BONUS_QUESTIONS = [
+  {en:"If you owned a football club, would you run it like England (open to any buyer) or Germany (fans in control)? Why?", fr:"Si tu possédais un club de foot, le gérerais-tu comme l'Angleterre (ouvert à tout acheteur) ou l'Allemagne (les fans au contrôle)? Pourquoi?"},
+  {en:"Do you think Mbappé playing for Real Madrid instead of a French club is good or bad for French football?", fr:"Penses-tu que Mbappé au Real Madrid plutôt que dans un club français est bon ou mauvais pour le foot français?"},
+  {en:"Should the World Cup happen every 2 years instead of every 4? What would change?", fr:"La Coupe du Monde devrait-elle avoir lieu tous les 2 ans au lieu de tous les 4? Qu'est-ce que ça changerait?"},
+  {en:"If the USA fully embraced football tomorrow, what do you think would happen to the sport worldwide?", fr:"Si les États-Unis adoptaient totalement le foot demain, que penses-tu qu'il arriverait au sport mondialement?"},
+  {en:"Is it fair that rich clubs can simply buy the best players instead of developing their own? Defend your answer.", fr:"Est-ce juste que les clubs riches puissent simplement acheter les meilleurs joueurs au lieu de les former? Défends ta réponse."},
+  {en:"Which matters more in football: individual talent or teamwork? Give an example.", fr:"Qu'est-ce qui compte le plus au foot : le talent individuel ou le travail d'équipe? Donne un exemple."}
+];
+const spinBtn = document.getElementById('spinBtn');
+if(spinBtn){
+  spinBtn.addEventListener('click', ()=>{
+    const q = BONUS_QUESTIONS[Math.floor(Math.random()*BONUS_QUESTIONS.length)];
+    const box = document.getElementById('spinResult');
+    box.innerHTML = `<div><div class="sp-en" style="font-size:18px;">${q.en}</div><div class="sp-fr" style="margin-top:8px;">${q.fr}</div></div>`;
+    addXP(5); reaction('🎡'); confetti(); tone([494,622,740],[0.12,0.12,0.2]);
+  });
+}
+for(let i=1;i<=state.total;i++){
+  const d=document.createElement('div');
+  d.className='dot'+(i===1?' active':'');
+  d.addEventListener('click',()=>goSlide(i));
+  dots.appendChild(d);
+}
+function goSlide(n){
+  const prevSlide = state.slide;
+  state.slide=Math.max(1,Math.min(state.total,n));
+
+  if(state.slide===4 && prevSlide!==4){ renderPrediction(); }
+  if(state.slide===5 && prevSlide!==5){ renderLeagues(); }
+  if(state.slide===6 && prevSlide!==6){ renderLeagueMCQ(); }
+  if(state.slide===7 && prevSlide!==7){ renderFlagSpot(); }
+  if(state.slide===12 && prevSlide!==12){
+    const acc = state.attempted ? state.correct+'/'+state.attempted : '0/0';
+    document.getElementById('recapBox').innerHTML = `You explored <b>${state.visitedLeagues.size}/3 league systems</b>, applied what you learned (${acc} correct), and built your own argument about why the world's game isn't America's game — all in English!`;
+  }
+
+  document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',+s.dataset.slide===state.slide));
+  document.querySelectorAll('.dot').forEach((d,i)=>{
+    d.classList.toggle('active',i+1===state.slide);
+    d.classList.toggle('done',i+1<state.slide);
+  });
+  document.getElementById('prevBtn').disabled=state.slide===1;
+  document.getElementById('nextBtn').textContent=state.slide===state.total?'🎉 Done!':'Next ▸';
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      window.scrollTo({top:0,behavior:'auto'});
+    });
+  });
+}
+document.getElementById('prevBtn').addEventListener('click',()=>goSlide(state.slide-1));
+document.getElementById('nextBtn').addEventListener('click',()=>{
+  if(state.slide===state.total){confetti();reaction('🏆');goodSound();return;}
+  goSlide(state.slide+1);
+});
+updateHUD();
+
+[['hintToggle1','hintFacts1'],['hintToggle2','hintFacts2']].forEach(([btnId,boxId])=>{
+  const btn = document.getElementById(btnId);
+  const box = document.getElementById(boxId);
+  if(btn && box){
+    btn.addEventListener('click', ()=>{
+      box.classList.toggle('show');
+      btn.textContent = box.classList.contains('show') ? 'Hide hint' : btn.dataset.orig || btn.textContent;
+      if(!btn.dataset.orig) btn.dataset.orig = btn.textContent === 'Hide hint' ? '' : btn.textContent;
+    });
+  }
+});
+</script>
+</body>
+</html>
