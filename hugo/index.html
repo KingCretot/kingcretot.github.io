@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Hugo — English Lessons · KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sun:#FFC93C; --sky:#4AC7EC; --grass:#6BCB77; --berry:#FF6F91; --grape:#9B6BFF; --tangerine:#FF9142;
+  --ink:#2C2A4A; --card:#ffffff; --rim:#E9E4FF; --muted:#7a7a95; --french:#7B3FE4;
+  --hd:'Baloo 2', sans-serif; --bd:'Poppins', sans-serif;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+.notranslate{ translate:no; }
+body {
+  background: linear-gradient(160deg, #FFE0B8 0%, #FFC9A3 45%, #E7CFFF 100%);
+  color: var(--ink);
+  font-family: var(--bd);
+  font-size: 20px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 40px 22px 64px; }
+
+.brandbar {
+  display:flex; align-items:center; gap:12px;
+  font-family: var(--hd); font-weight:800;
+  letter-spacing:.5px; color:#8a4fd6;
+  font-size:.85rem; text-transform:uppercase;
+}
+.brandbar .dot { width:9px; height:9px; border-radius:50%; background:var(--grape); box-shadow:0 0 12px var(--grape); }
+
+.hero {
+  margin-top:22px;
+  background: var(--card);
+  border: 3px solid var(--rim);
+  border-radius: 28px;
+  padding: 36px 36px 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 0 rgba(0,0,0,0.06), 0 20px 40px rgba(0,0,0,0.08);
+}
+.hero::after {
+  content:""; position:absolute; right:-50px; top:-50px;
+  width:200px; height:200px; border-radius:50%;
+  background: radial-gradient(circle, rgba(255,201,60,0.28), transparent 70%);
+}
+.hero .mascot { font-size:46px; display:block; margin-bottom:8px; }
+.hero h1 {
+  font-family: var(--hd); font-weight:800;
+  font-size: 2.6rem; line-height:1.1; color: var(--ink);
+}
+.hero h1 .accent { color: var(--berry); }
+.hero .fr {
+  color: var(--french); font-weight:700; font-size: 1.25rem; margin-top:6px;
+  font-family: var(--hd);
+}
+.hero p.lead {
+  color: var(--muted); font-size: 1.08rem; margin-top:16px; max-width:620px;
+}
+.hero .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.chip {
+  background:#F6F2FF; border:2px solid var(--rim); border-radius:999px;
+  padding:8px 16px; font-size:.9rem; font-weight:700; color:var(--ink);
+  display:flex; align-items:center; gap:7px;
+}
+.chip .emo { font-size:1.05rem; }
+
+.seclabel { margin:40px 4px 16px; display:flex; align-items:center; gap:12px; }
+.seclabel h2 { font-family: var(--hd); font-weight:800; font-size:1.35rem; color:var(--ink); }
+.seclabel .line { flex:1; height:2px; background:var(--rim); border-radius:2px; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:18px; }
+.lesson {
+  display:block; text-decoration:none;
+  background: var(--card);
+  border: 3px solid var(--rim);
+  border-radius: 22px;
+  padding: 22px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  opacity:0; transform:translateY(14px); animation: rise .5s ease forwards;
+}
+@keyframes rise { to { opacity:1; transform:translateY(0); } }
+.lesson::before {
+  content:""; position:absolute; left:0; top:0; bottom:0; width:6px; background:var(--ac);
+}
+.lesson:hover { transform:translateY(-5px); border-color:var(--ac); box-shadow:0 14px 28px rgba(0,0,0,0.12); }
+.lesson .row1 { display:flex; align-items:center; justify-content:space-between; }
+.lesson .num { font-family:var(--hd); font-weight:800; font-size:2.2rem; color:var(--ac); line-height:1; }
+.lesson .num small { display:block; font-size:.55rem; letter-spacing:2px; color:var(--muted); font-weight:700; margin-bottom:3px; }
+.lesson .emoji { font-size:2rem; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15)); }
+.lesson h3 { font-family:var(--hd); font-weight:800; font-size:1.25rem; margin-top:14px; color:var(--ink); }
+.lesson .theme-en { color:var(--ink); font-size:.95rem; margin-top:6px; font-weight:500; }
+.lesson .theme-fr { color:var(--french); font-size:.88rem; margin-top:2px; font-weight:600; }
+.lesson .go { margin-top:14px; display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:.95rem; color:var(--ac); }
+.lesson .go .arr { transition: transform .18s ease; }
+.lesson:hover .go .arr { transform:translateX(5px); }
+
+footer {
+  margin-top:48px; padding-top:24px; border-top:2px solid var(--rim);
+  display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center; justify-content:space-between;
+  color:var(--muted); font-size:.92rem;
+}
+footer .name { font-family:var(--hd); font-weight:800; color:#8a4fd6; }
+footer a { color:var(--muted); text-decoration:none; }
+footer a:hover { color:var(--ink); }
+
+@media (max-width:620px) {
+  .wrap { padding:28px 14px 46px; }
+  .hero { padding:26px 20px 24px; }
+  .hero h1 { font-size:2rem; }
+  .hero .fr { font-size:1.05rem; }
+  .grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body class="notranslate" translate="no">
+<div class="wrap">
+
+  <div class="brandbar"><span class="dot"></span> KingCretot Experience</div>
+
+  <header class="hero">
+    <span class="mascot">⚽</span>
+    <h1>Hugo's <span class="accent">English Lessons</span></h1>
+    <div class="fr">Les leçons d'anglais de Hugo</div>
+    <p class="lead">Pick a lesson below to begin! Tap, explore, argue your case. / Choisis une leçon pour commencer ! Touche, explore, défends ton point de vue.</p>
+    <div class="meta">
+      <span class="chip"><span class="emo">📚</span> 17 lessons</span>
+      <span class="chip"><span class="emo">🎮</span> Interactive &amp; gamified</span>
+      <span class="chip"><span class="emo">🇫🇷🇺🇸</span> Full Bilingual</span>
+    </div>
+  </header>
+
+  <div class="seclabel">
+    <h2>September / Septembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Hugo_Lesson1_FootballAroundTheWorld.html" style="--ac:var(--sky); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>1</div>
+        <div class="emoji">⚽</div>
+      </div>
+      <h3>Football Around the World</h3>
+      <div class="theme-en">Not just goals and jerseys — the money, ownership, and history behind the world's biggest sport.</div>
+      <div class="theme-fr">Pas juste des buts et des maillots — l'argent, la propriété et l'histoire derrière le plus grand sport du monde.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson2_GamesFranceVsAmerica.html" style="--ac:var(--berry); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>2</div>
+        <div class="emoji">🎮</div>
+      </div>
+      <h3>Games: France vs. America</h3>
+      <div class="theme-en">Board games, video games, and the French giant hiding behind Assassin's Creed.</div>
+      <div class="theme-fr">Jeux de société, jeux vidéo, et le géant français caché derrière Assassin's Creed.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson3_WhoAmI.html" style="--ac:var(--grass); animation-delay:0.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>3</div>
+        <div class="emoji">🌗</div>
+      </div>
+      <h3>Who Am I?</h3>
+      <div class="theme-en">Growing up bilingual and bicultural — what the research actually says.</div>
+      <div class="theme-fr">Grandir bilingue et biculturel — ce que dit vraiment la recherche.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>October / Octobre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Hugo_Lesson4_CheeseAndFood.html" style="--ac:var(--grape); animation-delay:0.14s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>4</div>
+        <div class="emoji">🧀</div>
+      </div>
+      <h3>Cheese & Food Traditions</h3>
+      <div class="theme-en">AOC law, fast food, and why two countries eat so differently.</div>
+      <div class="theme-fr">La loi AOC, le fast-food, et pourquoi deux pays mangent si différemment.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson5_HistoryPart1.html" style="--ac:var(--tangerine); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>5</div>
+        <div class="emoji">🏺</div>
+      </div>
+      <h3>History of the World, Part 1</h3>
+      <div class="theme-en">Ancient Mesopotamia, Egypt, and Greece — the ideas that started it all.</div>
+      <div class="theme-fr">La Mésopotamie, l'Égypte et la Grèce anciennes — les idées qui ont tout commencé.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson6_TeenLife.html" style="--ac:var(--sky); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>6</div>
+        <div class="emoji">🎒</div>
+      </div>
+      <h3>Teen Life: Europe vs. America</h3>
+      <div class="theme-en">Independence, driving age, and how school shapes social life.</div>
+      <div class="theme-fr">Indépendance, âge de conduite, et comment l'école façonne la vie sociale.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson7_MysteriesAndLogic.html" style="--ac:var(--berry); animation-delay:0.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>7</div>
+        <div class="emoji">🕵️</div>
+      </div>
+      <h3>Mysteries & Logic</h3>
+      <div class="theme-en">Real detective techniques — elimination, deduction, and spotting a bad argument.</div>
+      <div class="theme-fr">De vraies techniques de détective — élimination, déduction, et repérer un mauvais argument.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson8_ToussaintVsHalloween.html" style="--ac:var(--grass); animation-delay:0.14s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>8</div>
+        <div class="emoji">🍂</div>
+      </div>
+      <h3>Toussaint vs. Halloween</h3>
+      <div class="theme-en">Two holidays, one ancient root — and how they grew apart.</div>
+      <div class="theme-fr">Deux fêtes, une racine ancienne — et comment elles se sont éloignées.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>November / Novembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Hugo_Lesson9_HistoryPart2.html" style="--ac:var(--grape); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>9</div>
+        <div class="emoji">🏰</div>
+      </div>
+      <h3>History of the World, Part 2</h3>
+      <div class="theme-en">Feudalism, the Black Death, and how disaster set up the Renaissance.</div>
+      <div class="theme-fr">Le féodalisme, la peste noire, et comment le désastre a préparé la Renaissance.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson10_SpaceAndBigQuestions.html" style="--ac:var(--tangerine); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>10</div>
+        <div class="emoji">🚀</div>
+      </div>
+      <h3>Space & Big Questions</h3>
+      <div class="theme-en">Are we alone? Could we live on Mars? Is it even worth the money?</div>
+      <div class="theme-fr">Sommes-nous seuls? Pourrait-on vivre sur Mars? Est-ce que ça vaut le coût?</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>December / Décembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Hugo_Lesson11_MoneyWorkFuture.html" style="--ac:var(--sky); animation-delay:0.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>11</div>
+        <div class="emoji">💼</div>
+      </div>
+      <h3>Money, Work & the Future</h3>
+      <div class="theme-en">Vacation law, healthcare, and job security — France vs. America.</div>
+      <div class="theme-fr">Congés, santé, et sécurité de l'emploi — la France contre les États-Unis.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson12_SportsBeyondSoccer.html" style="--ac:var(--berry); animation-delay:0.14s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>12</div>
+        <div class="emoji">🏈</div>
+      </div>
+      <h3>Sports Beyond Soccer</h3>
+      <div class="theme-en">American football, basketball, and the draft system explained.</div>
+      <div class="theme-fr">Le football américain, le basket, et le système de draft expliqué.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson13_WinterHolidays.html" style="--ac:var(--grass); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>13</div>
+        <div class="emoji">🎄</div>
+      </div>
+      <h3>Winter Holidays: Europe vs. America</h3>
+      <div class="theme-en">Christmas markets, Santa's makeover, and le réveillon — the last lesson before break.</div>
+      <div class="theme-fr">Marchés de Noël, le relookage du Père Noël, et le réveillon — la dernière leçon avant les vacances.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>January / Janvier</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Hugo_Lesson14_HistoryPart3.html" style="--ac:var(--grape); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>14</div>
+        <div class="emoji">⚔️</div>
+      </div>
+      <h3>History of the World, Part 3</h3>
+      <div class="theme-en">The American and French Revolutions — and 200 years of ripple effects.</div>
+      <div class="theme-fr">Les révolutions américaine et française — et 200 ans de répercussions.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson15_MediaAndTechnology.html" style="--ac:var(--tangerine); animation-delay:0.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>15</div>
+        <div class="emoji">📱</div>
+      </div>
+      <h3>Media & Technology</h3>
+      <div class="theme-en">How algorithms actually work, and why misinformation spreads faster than truth.</div>
+      <div class="theme-fr">Comment les algorithmes fonctionnent vraiment, et pourquoi la désinformation se répand plus vite.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson16_EnvironmentAndPlanet.html" style="--ac:var(--sky); animation-delay:0.14s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>16</div>
+        <div class="emoji">🌍</div>
+      </div>
+      <h3>Environment & the Planet</h3>
+      <div class="theme-en">Nuclear power, solar costs, and real tradeoffs behind the climate debate.</div>
+      <div class="theme-fr">Le nucléaire, le coût du solaire, et les vrais compromis du débat climatique.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Hugo_Lesson17_WhoDoIWantToBecome.html" style="--ac:var(--berry); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>17</div>
+        <div class="emoji">🌟</div>
+      </div>
+      <h3>Who Do I Want to Become?</h3>
+      <div class="theme-en">The capstone — tying the whole year back to where it started.</div>
+      <div class="theme-fr">Le point d'orgue — qui relie toute l'année à son point de départ.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <footer>
+    <span><span class="name">KingCretot Experience</span> &nbsp;·&nbsp; English lessons for Hugo</span>
+    <span><a href="https://kingcretot.com">kingcretot.com</a> &nbsp;·&nbsp; <a href="mailto:kce@kingcretot.com">kce@kingcretot.com</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
