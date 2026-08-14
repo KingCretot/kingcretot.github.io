@@ -190,13 +190,42 @@
   .confetti-piece{ position:fixed; top:-20px; z-index:200; pointer-events:none; font-size:22px; animation:confettiFall linear forwards; }
   @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(400deg); opacity:0.2; } }
 
+
+  /* ===== Skill teaching box ===== */
+  .skill-box{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; }
+  .skill-table{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
+  .skill-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; background:var(--card); border:1px solid var(--rim); border-radius:12px; padding:12px 16px; align-items:center; }
+  @media (max-width:680px){ .skill-row{ grid-template-columns:1fr; } }
+  .skill-en{ font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; color:var(--white); }
+  .skill-en .sample{ display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:14px; color:var(--teal); margin-top:3px; font-style:italic; }
+  .skill-fr{ font-size:14px; color:var(--violet); font-style:italic; line-height:1.4; }
+  .skill-tryit{ margin-top:14px; font-size:14px; color:var(--muted); text-align:center; font-style:italic; }
+
+  /* ===== Speaking task (the real climax) ===== */
+  .speak-card{ background:linear-gradient(135deg, rgba(15,212,184,0.10), rgba(164,122,255,0.08)); border:2px solid rgba(15,212,184,0.35); border-radius:20px; padding:28px 26px; margin:18px 0; }
+  .speak-card .speak-icon{ font-size:40px; display:block; margin-bottom:10px; text-align:center; }
+  .speak-card .bi-en, .speak-card .bi-fr{ background:transparent; border:none; padding:0; text-align:center; }
+  .speak-card .bi-en{ font-size:21px; font-weight:600; }
+  .nudge-toggle{ display:block; margin:16px auto 0; background:none; border:none; color:var(--teal); font-weight:700; font-size:14px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
+  .nudge-box{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:12px; padding:14px 18px; margin-top:14px; }
+  .nudge-box.show{ display:block; }
+  .nudge-box .starter{ font-family:'Poppins',sans-serif; font-weight:700; color:var(--amber); font-size:15px; margin:4px 0; }
+  .done-talking-btn{ display:block; margin:20px auto 0; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; padding:13px 30px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
+  .done-talking-btn:disabled{ opacity:.5; cursor:default; }
+  .talk-confirm{ text-align:center; margin-top:16px; font-weight:700; color:var(--lime); display:none; }
+  .talk-confirm.show{ display:block; }
+
+  /* ===== Bonus wheel framing ===== */
+  .bonus-frame{ text-align:center; margin-bottom:6px; }
+  .bonus-frame .bi-en, .bonus-frame .bi-fr{ background:transparent; border:none; padding:0 0 4px; text-align:center; }
+
   footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:var(--muted); }
 </style>
 </head>
 <body class="notranslate" translate="no">
 
 <div class="hud">
-  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 11</span></div>
+  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 7</span></div>
   <div style="display:flex; gap:10px; align-items:center;">
     <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
   </div>
@@ -212,180 +241,135 @@
     <div class="brandbar" style="justify-content:center;"><span class="dot"></span> KingCretot Experience</div>
     <span class="hero-emoji">🎙️</span>
     <h1>Season One, Episode One:<br><span class="accent">On Air</span></h1>
-    <div class="hero-sub-en">Bienvenue à new school year, Berenice. This year has one big goal: you TALKING.</div>
-    <div class="hero-sub-fr">Bienvenue à la nouvelle année, Bérénice. Cette année a un seul grand objectif : que TU PARLES.</div>
+    <div class="hero-sub-en">You already understand more English than you give yourself credit for. This year, the goal isn't more listening — it's you talking, live, unscripted.</div>
+    <div class="hero-sub-fr">Tu comprends déjà plus d'anglais que tu ne le penses. Cette année, l'objectif n'est pas d'écouter plus — c'est de parler, en direct, sans script.</div>
     <div class="bi-cols" style="margin-top:24px; text-align:left;">
-      <div class="bi-en"><strong>Not more listening.</strong> Not more silently understanding and nodding. This year, every lesson ends with you talking — live, unscripted, in English.</div>
-      <div class="bi-fr"><strong>Pas plus d'écoute.</strong> Pas plus de compréhension silencieuse en hochant la tête. Cette année, chaque leçon se termine avec toi qui parles — en direct, sans script, en anglais.</div>
+      <div class="bi-en">Today has one focus: asking a genuinely good follow-up question — the kind that makes someone want to keep talking to you, not just answer and stop.</div>
+      <div class="bi-fr">Aujourd'hui, un seul objectif : poser une vraie bonne question de suivi — le genre qui donne envie à l'autre de continuer à parler, pas juste de répondre et s'arrêter.</div>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 1: THE DEAL -->
-<div class="slide" data-title="The Deal">
+<!-- SLIDE 1: THE SKILL -->
+<div class="slide" data-title="The Skill">
   <div class="card">
-    <span class="badge-tag">Before We Start · Avant de commencer</span>
-    <h2>🎧 Here's the deal this year</h2>
+    <span class="badge-tag">Today's Skill · La compétence du jour</span>
+    <h2>🎯 Asking a Better Follow-Up Question</h2>
     <div class="bi-cols">
-      <div class="bi-en">You understand a LOT already — more than you give yourself credit for. The gap isn't comprehension. It's the courage to open your mouth before you're 100% sure you're right.</div>
-      <div class="bi-fr">Tu comprends déjà BEAUCOUP — plus que tu ne le penses. L'écart n'est pas la compréhension. C'est le courage d'ouvrir la bouche avant d'être sûre à 100% d'avoir raison.</div>
+      <div class="bi-en">A basic follow-up just gets information: "Who did you go with?" A <strong>great</strong> one shows you're actually listening — and it changes the whole feel of the conversation.</div>
+      <div class="bi-fr">Une question de suivi basique récupère juste une info : « Who did you go with? » Une <strong>excellente</strong> question montre que tu écoutes vraiment — et ça change toute l'ambiance de la conversation.</div>
     </div>
-    <div class="bi-cols">
-      <div class="bi-en"><strong>So the rule this year:</strong> imperfect and spoken beats perfect and silent. Every single time.</div>
-      <div class="bi-fr"><strong>Donc la règle cette année :</strong> imparfait et parlé bat parfait et silencieux. À chaque fois.</div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 2: VOCAB — ON AIR WORDS -->
-<div class="slide" data-title="On-Air Words">
-  <div class="card">
-    <span class="badge-tag">Vocabulary · Vocabulaire</span>
-    <h2>🎬 Talk Show Words</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Tap each card to flip it and see the French + an example.</div>
-      <div class="bi-fr">Touche chaque carte pour voir le français + un exemple.</div>
+    <div class="skill-box">
+      <div class="skill-table">
+        <div class="skill-row">
+          <div class="skill-en">Direct — you want a fact<span class="sample">"Who did you go with?"</span></div>
+          <div class="skill-fr">Direct — tu veux une info précise.</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-en">Softer / curious<span class="sample">"I was wondering who you went with."</span></div>
+          <div class="skill-fr">Plus doux, tu sembles curieuse sans insister.</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-en">Surprised / impressed<span class="sample">"What made you decide to go?"</span></div>
+          <div class="skill-fr">Tu montres que tu es surprise ou impressionnée.</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-en">Casual, close friend<span class="sample">"How come you didn't tell me?"</span></div>
+          <div class="skill-fr">Familier, entre amis proches.</div>
+        </div>
+      </div>
+      <div class="skill-tryit">You'll use these for real with me in a few minutes. / Tu vas les utiliser pour de vrai avec moi dans quelques minutes.</div>
     </div>
     <div class="vocab-grid" id="vocabGrid"></div>
     <p style="font-size:15px; color:var(--muted); margin-top:8px;" id="vocabHint">Flip at least 5 cards to unlock Next. / Retourne au moins 5 cartes pour débloquer Suivant.</p>
   </div>
 </div>
 
-<!-- SLIDE 3: VOCAB MATCH -->
-<div class="slide" data-title="Word Match">
-  <div class="card" style="text-align:center;">
-    <span class="badge-tag">Quick Match · Association rapide</span>
-    <h2>🔗 Match the word</h2>
-    <div class="bi-cols" style="text-align:left;">
-      <div class="bi-en">Tap the English word that matches the French one shown.</div>
-      <div class="bi-fr">Touche le mot anglais qui correspond au mot français affiché.</div>
-    </div>
-    <div class="match-progress" id="matchProgress"></div>
-    <div class="match-round-label">Round <span id="matchRoundNum">1</span> / 4</div>
-    <div class="match-fr-word" id="matchFrWord"></div>
-    <div class="match-grid" id="matchGrid"></div>
-    <div class="feedback-banner" id="matchFeedback"></div>
-  </div>
-</div>
-
-<!-- SLIDE 4: BUILD A QUESTION 1 -->
-<div class="slide" data-title="Build a Question">
-  <div class="card">
-    <span class="badge-tag">Warm-Up · Échauffement</span>
-    <h2>❓ Build the question (1/2)</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Good conversation = good questions. Tap the words in order to build this one.</div>
-      <div class="bi-fr">Une bonne conversation = de bonnes questions. Touche les mots dans l'ordre pour construire celle-ci.</div>
-    </div>
-    <div class="word-bank-wrap">
-      <div class="sentence-slot" id="sentenceSlot"></div>
-      <div class="word-bank" id="wordBank"></div>
-    </div>
-    <div class="feedback-banner" id="phraseFeedback"></div>
-  </div>
-</div>
-
-<!-- SLIDE 5: BUILD A QUESTION 2 -->
-<div class="slide" data-title="Build a Question 2">
-  <div class="card">
-    <span class="badge-tag">Warm-Up · Échauffement</span>
-    <h2>❓ Build the question (2/2)</h2>
-    <div class="bi-cols">
-      <div class="bi-en">One more. This one is a little longer — take your time.</div>
-      <div class="bi-fr">Encore une. Celle-ci est un peu plus longue — prends ton temps.</div>
-    </div>
-    <div class="word-bank-wrap">
-      <div class="sentence-slot" id="sentenceSlot2"></div>
-      <div class="word-bank" id="wordBank2"></div>
-    </div>
-    <div class="feedback-banner" id="phraseFeedback2"></div>
-  </div>
-</div>
-
-<!-- SLIDE 6: QUICK CHECK 1 -->
-<div class="slide" data-title="Quick Check 1">
-  <div class="card">
-    <span class="badge-tag">Quick Check · Vérification</span>
-    <h2>🧠 Which question fits? (1/2)</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Your friend says: "I went to Paris last weekend." What do you ask?</div>
-      <div class="bi-fr">Ton amie dit : « Je suis allée à Paris le week-end dernier. » Tu demandes quoi ?</div>
-    </div>
-    <div class="mcq-options" data-gid="q1">
-      <button class="mcq-opt" data-ans="A">A) Do you go to Paris?<span class="opt-fr">Tu vas à Paris ?</span></button>
-      <button class="mcq-opt" data-ans="B">B) Who did you go with?<span class="opt-fr">Avec qui es-tu allée ?</span></button>
-      <button class="mcq-opt" data-ans="C">C) You went to Paris tomorrow?<span class="opt-fr">Tu es allée à Paris demain ?</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedback1"></div>
-  </div>
-</div>
-
-<!-- SLIDE 7: QUICK CHECK 2 -->
-<div class="slide" data-title="Quick Check 2">
-  <div class="card">
-    <span class="badge-tag">Quick Check · Vérification</span>
-    <h2>🧠 Which question fits? (2/2)</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Your friend says: "My sister lives in London." What do you ask?</div>
-      <div class="bi-fr">Ton amie dit : « Ma sœur habite à Londres. » Tu demandes quoi ?</div>
-    </div>
-    <div class="mcq-options" data-gid="q2">
-      <button class="mcq-opt" data-ans="A">A) How long has she lived there?<span class="opt-fr">Depuis quand y habite-t-elle ?</span></button>
-      <button class="mcq-opt" data-ans="B">B) She lives in London?<span class="opt-fr">Elle habite à Londres ?</span></button>
-      <button class="mcq-opt" data-ans="C">C) Do you living in London?<span class="opt-fr">Tu habites à Londres ?</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedback2"></div>
-  </div>
-</div>
-
-<!-- SLIDE 8: READING COMPREHENSION -->
+<!-- SLIDE 2: GUEST BIO -->
 <div class="slide" data-title="Guest Bio">
   <div class="card">
     <span class="badge-tag">Precision Check · Vérification précise</span>
-    <h2>📋 Meet today's guest</h2>
+    <h2>📋 Meet Today's Guest</h2>
     <div class="bi-cols">
-      <div class="bi-en">Read carefully. The questions test EXACT details, not just the general idea.</div>
-      <div class="bi-fr">Lis attentivement. Les questions testent des détails EXACTS, pas juste l'idée générale.</div>
+      <div class="bi-en">Read carefully. These questions ask you to figure things out, not just find a sentence that matches.</div>
+      <div class="bi-fr">Lis attentivement. Ces questions te demandent de comprendre, pas juste de retrouver une phrase identique.</div>
     </div>
     <div class="passage-card">
       <div class="ptitle">Guest Bio · Fiche invité</div>
-      <p>Meet today's guest: Léa Toussaint, 16, from Marseille. She has two older brothers and one younger sister. She loves rock climbing but hates the smell of chalk on her hands. Her dream is to become a marine biologist.</p>
+      <p>Meet today's guest: Léa Toussaint, 16, from Marseille. Léa has two older brothers and one younger sister, and she says being the middle child taught her to speak up early — otherwise nobody hears you. She's been rock climbing for three years, even though her hands always end up covered in chalk and a little sore by the end of a session. What keeps her going back? The feeling right before she reaches the top, when she's not sure if she can make the last move. Two years ago, a school trip to the aquarium in Marseille changed something for her — she hasn't stopped thinking about the ocean since. Now her dream is to become a marine biologist.</p>
     </div>
-    <div class="bi-en" style="margin-bottom:6px;">How many siblings does Léa have in total?</div>
-    <div class="bi-fr" style="margin-bottom:6px;">Combien de frères et sœurs Léa a-t-elle au total ?</div>
+    <div class="bi-en" style="margin-bottom:6px;">Why does Léa think being the middle child helped her?</div>
+    <div class="bi-fr" style="margin-bottom:6px;">Pourquoi Léa pense-t-elle que le fait d'être l'enfant du milieu l'a aidée ?</div>
     <div class="mcq-options" data-gid="r1">
-      <button class="mcq-opt" data-ans="A">A) Two<span class="opt-fr">Deux</span></button>
-      <button class="mcq-opt" data-ans="B">B) Three<span class="opt-fr">Trois</span></button>
-      <button class="mcq-opt" data-ans="C">C) Four<span class="opt-fr">Quatre</span></button>
+      <button class="mcq-opt" data-ans="A">A) It made her the favorite child<span class="opt-fr">Ça l'a rendue préférée</span></button>
+      <button class="mcq-opt" data-ans="B">B) It taught her to speak up so people would listen<span class="opt-fr">Ça lui a appris à s'exprimer pour être entendue</span></button>
+      <button class="mcq-opt" data-ans="C">C) It gave her more free time<span class="opt-fr">Ça lui a donné plus de temps libre</span></button>
     </div>
     <div class="feedback-banner" id="mcqFeedbackR1"></div>
 
     <div style="margin-top:24px;">
-      <div class="bi-en" style="margin-bottom:6px;">What does Léa want to become?</div>
-      <div class="bi-fr" style="margin-bottom:6px;">Que veut devenir Léa ?</div>
+      <div class="bi-en" style="margin-bottom:6px;">What most likely sparked Léa's interest in marine biology?</div>
+      <div class="bi-fr" style="margin-bottom:6px;">Qu'est-ce qui a probablement déclenché l'intérêt de Léa pour la biologie marine ?</div>
     </div>
     <div class="mcq-options" data-gid="r2">
-      <button class="mcq-opt" data-ans="A">A) A rock climbing coach<span class="opt-fr">Coach d'escalade</span></button>
-      <button class="mcq-opt" data-ans="B">B) A marine biologist<span class="opt-fr">Biologiste marine</span></button>
-      <button class="mcq-opt" data-ans="C">C) A journalist<span class="opt-fr">Journaliste</span></button>
+      <button class="mcq-opt" data-ans="A">A) A documentary about sharks<span class="opt-fr">Un documentaire sur les requins</span></button>
+      <button class="mcq-opt" data-ans="B">B) A school trip to the aquarium, two years ago<span class="opt-fr">Une sortie scolaire à l'aquarium, il y a deux ans</span></button>
+      <button class="mcq-opt" data-ans="C">C) Her brothers studying biology<span class="opt-fr">Ses frères qui étudient la biologie</span></button>
     </div>
     <div class="feedback-banner" id="mcqFeedbackR2"></div>
   </div>
 </div>
 
-<!-- SLIDE 9: THE WHEEL -->
-<div class="slide" data-title="The Wheel">
+<!-- SLIDE 3: APPLY IT -->
+<div class="slide" data-title="Apply It">
   <div class="card">
-    <span class="badge-tag">Main Event · L'événement principal</span>
-    <h2>🎡 The Conversation Wheel</h2>
-    <div class="bridge-line">
-      <span class="bridge-icon">🎙️</span>
-      <div class="bridge-en">Léa answered your questions. Now it's your turn to be the guest — I'm listening.</div>
-      <div class="bridge-fr">Léa a répondu à tes questions. Maintenant c'est ton tour d'être l'invitée — je t'écoute.</div>
-    </div>
+    <span class="badge-tag">Apply It · Mets-le en pratique</span>
+    <h2>🧠 Which Follow-Up Actually Works?</h2>
     <div class="bi-cols">
-      <div class="bi-en">This is our lesson centerpiece, every week. Spin it — or pick a category — and just <strong>talk</strong>. No perfect grammar required. I want to hear you think out loud. Along the way, try asking one follow-up question of your own — just like you practiced today. Spin at least 3 times before we wrap up.</div>
-      <div class="bi-fr">C'est le cœur de notre leçon, chaque semaine. Fais-le tourner — ou choisis une catégorie — et <strong>parle</strong>. Pas besoin d'une grammaire parfaite. En chemin, essaie de poser une question de suivi toi-même — comme tu l'as pratiqué aujourd'hui. Fais tourner au moins 3 fois avant qu'on termine.</div>
+      <div class="bi-en">All three options below are grammatically fine. Only one actually sounds like genuine interest. Pick that one.</div>
+      <div class="bi-fr">Les trois options ci-dessous sont grammaticalement correctes. Une seule sonne comme un vrai intérêt. Choisis celle-là.</div>
+    </div>
+    <div class="passage-card" style="text-align:center; font-style:italic;">
+      Léa just said: <strong>"Turns out, I actually got to the top on my first try this time."</strong>
+    </div>
+    <div class="mcq-options" data-gid="q1">
+      <button class="mcq-opt" data-ans="A">A) You went to the top?<span class="opt-fr">Tu es allée au sommet ?</span></button>
+      <button class="mcq-opt" data-ans="B">B) What made this time different?<span class="opt-fr">Qu'est-ce qui a changé cette fois ?</span></button>
+      <button class="mcq-opt" data-ans="C">C) Did you go to the top or not?<span class="opt-fr">Tu es allée au sommet ou pas ?</span></button>
+    </div>
+    <div class="feedback-banner" id="mcqFeedback1"></div>
+  </div>
+</div>
+
+<!-- SLIDE 4: YOUR TURN — SPEAKING TASK (the real climax) -->
+<div class="slide" data-title="Your Turn">
+  <div class="card">
+    <span class="badge-tag">The Real Work · Le vrai travail</span>
+    <h2>🎤 Your Turn — Live</h2>
+    <div class="speak-card">
+      <span class="speak-icon">💬</span>
+      <div class="bi-en">Tell me about something you decided to do, even though it made you a little nervous. When I respond, I'll expect a real follow-up from you — using one of today's patterns, not just "did you...?"</div>
+      <div class="bi-fr">Raconte-moi quelque chose que tu as décidé de faire, même si ça te rendait un peu nerveuse. Quand je répondrai, j'attends une vraie question de suivi de ta part — avec l'un des modèles d'aujourd'hui, pas juste « did you...? ».</div>
+      <button class="nudge-toggle" id="nudgeToggle">Need a nudge? / Besoin d'un coup de pouce ?</button>
+      <div class="nudge-box" id="nudgeBox">
+        <div class="starter">"I decided to... even though..."</div>
+        <div class="starter">"What made you...?"</div>
+        <div class="starter">"I was wondering..."</div>
+      </div>
+      <button class="done-talking-btn" id="doneTalkingBtn">✅ We talked it through</button>
+      <div class="talk-confirm" id="talkConfirm">Nice work. That's the real lesson — you just did it. 🌟</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: BONUS ROUND (OPTIONAL WHEEL) -->
+<div class="slide" data-title="Bonus Round">
+  <div class="card">
+    <span class="badge-tag" style="background:rgba(255,184,48,0.14); color:var(--amber); border-color:rgba(255,184,48,0.3);">Optional · Facultatif</span>
+    <h2>🎡 Bonus Round — Only If We Have Time</h2>
+    <div class="bonus-frame">
+      <div class="bi-en">This part is completely optional. If we finish early or you want to keep talking about something new, spin the wheel and pick a topic. If not — no problem, the real work for today is already done.</div>
+      <div class="bi-fr">Cette partie est totalement facultative. Si on a fini en avance ou si tu veux continuer sur un autre sujet, fais tourner la roue. Sinon, pas de souci — le vrai travail d'aujourd'hui est déjà fait.</div>
     </div>
     <div class="wheel-frame">
       <div class="wheel-main">
@@ -397,25 +381,24 @@
               <span class="spin-ico">↻</span><span class="word">SPIN</span>
             </button>
           </div>
-          <div class="wheel-hint" id="whint">Tap SPIN to begin / Touche SPIN pour commencer</div>
+          <div class="wheel-hint" id="whint">Tap SPIN if you want to / Touche SPIN si tu veux</div>
           <div class="wheel-legend" id="wlegend"></div>
         </div>
         <div class="wheel-right">
           <div class="wpanel" id="wpanel">
-            <div class="wplaceholder" id="wplaceholder">Your first topic will appear here. / Ton premier sujet apparaîtra ici.</div>
+            <div class="wplaceholder" id="wplaceholder">Totally optional — spin only if there's time left. / Facultatif — fais tourner seulement s'il reste du temps.</div>
           </div>
           <div class="wactions" id="wactions" style="display:none">
             <button class="wbtn wbtn-ghost" id="wagainBtn">Another in this topic</button>
             <button class="wbtn wbtn-primary" id="wspinBtn">Spin again</button>
           </div>
-          <div class="wspin-count" id="wspinCount">Spins so far: 0 / 3</div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 10: CELEBRATION -->
+<!-- SLIDE 6: CELEBRATION -->
 <div class="slide" data-title="Great Start">
   <div class="card" style="text-align:center;">
     <span class="badge-tag">Episode Wrap · Fin de l'épisode</span>
@@ -425,9 +408,9 @@
       <div class="bi-fr">Regarde ce que tu as vraiment fait aujourd'hui — pas juste compris, <strong>fait</strong>.</div>
     </div>
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num" id="statWords">0</div><div class="stat-lbl">Words learned</div><div class="stat-lbl-fr">Mots appris</div></div>
-      <div class="stat-card"><div class="stat-num" id="statQuestions">0</div><div class="stat-lbl">Questions built</div><div class="stat-lbl-fr">Questions construites</div></div>
-      <div class="stat-card"><div class="stat-num" id="statSpins">0</div><div class="stat-lbl">Topics discussed live</div><div class="stat-lbl-fr">Sujets discutés en direct</div></div>
+      <div class="stat-card"><div class="stat-num" id="statWords">0</div><div class="stat-lbl">Words &amp; chunks learned</div><div class="stat-lbl-fr">Mots et expressions appris</div></div>
+      <div class="stat-card"><div class="stat-num" id="statQuestions">4</div><div class="stat-lbl">Question forms practiced</div><div class="stat-lbl-fr">Formes de questions pratiquées</div></div>
+      <div class="stat-card"><div class="stat-num" id="statSpeak">1</div><div class="stat-lbl">Real conversation, live</div><div class="stat-lbl-fr">Vraie conversation, en direct</div></div>
     </div>
     <button class="celebrate-btn" id="celebrateBtn">🎉 Open Your Episode Badge</button>
     <div class="badge-reveal" id="badgeReveal">
@@ -443,7 +426,7 @@
 
 <div class="nav-row">
   <button class="nav-btn back" id="backBtn">⬅ Back</button>
-  <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
+  <span class="progress-label" id="progressLabel">Slide 1 / 7</span>
   <button class="nav-btn next" id="nextBtn">Next ➡</button>
 </div>
 
@@ -453,7 +436,7 @@ const slides = document.querySelectorAll('.slide');
 const total = slides.length;
 let current = 0;
 let xp = 0;
-const locks = {2:false, 3:false, 4:false, 5:false, 6:false, 7:false, 8:false, 9:false};
+const locks = {1:false, 2:false, 3:false};
 
 function addXP(n){ xp += n; document.getElementById('xpCount').textContent = xp;
   const pop = document.getElementById('xpPop'); pop.textContent = '+' + n + ' XP';
@@ -496,17 +479,16 @@ document.getElementById('backBtn').addEventListener('click', ()=>changeSlide(-1)
 document.getElementById('nextBtn').addEventListener('click', ()=>changeSlide(1));
 function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
 
-/* ============ VOCAB CARDS ============ */
+/* ============ VOCAB CARDS (functional chunks + content vocab) ============ */
 const vocabData = [
-  {e:'🎙️', en:'microphone', fr:'microphone', ex:'"Speak into the microphone."'},
-  {e:'🎧', en:'host', fr:'animateur / animatrice', ex:'"She is the host of the show."'},
-  {e:'🙋', en:'guest', fr:'invité(e)', ex:'"Our guest today is amazing."'},
-  {e:'👥', en:'audience', fr:'public', ex:'"The audience is listening."'},
-  {e:'🔴', en:'live', fr:'en direct', ex:'"We are live right now!"'},
-  {e:'📝', en:'script', fr:'script', ex:'"I forgot my script."'},
-  {e:'💬', en:'off the cuff', fr:'à l\'improviste', ex:'"Just talk off the cuff."'},
-  {e:'🎬', en:'episode', fr:'épisode', ex:'"This is episode one."'},
-  {e:'🗣️', en:'interview', fr:'entretien / interview', ex:'"Let\'s interview each other."'},
+  {e:"🤔", en:"curious", fr:"curieux / curieuse", ex:"\"I'm curious what happened next.\""},
+  {e:"❌", en:"assume", fr:"supposer", ex:"\"Don't assume — just ask!\""},
+  {e:"💭", en:"mention", fr:"mentionner", ex:"\"She didn't mention the date.\""},
+  {e:"😲", en:"turns out", fr:"il s'avère que", ex:"\"Turns out, she'd never been before.\""},
+  {e:"🗨️", en:"I was wondering", fr:"je me demandais", ex:"\"I was wondering how it went.\""},
+  {e:"❓", en:"what made you", fr:"qu'est-ce qui t'a poussé(e) à", ex:"\"What made you say yes?\""},
+  {e:"🙋", en:"how come", fr:"comment ça se fait que", ex:"\"How come you didn't call?\""},
+  {e:"👏", en:"impressed", fr:"impressionné(e)", ex:"\"I'm impressed you tried it.\""},
 ];
 let vocabFlipped = 0;
 function buildVocab(){
@@ -517,168 +499,32 @@ function buildVocab(){
     card.addEventListener('click', ()=>{
       if(!card.classList.contains('flipped')){
         card.classList.add('flipped'); vocabFlipped++;
-        if(vocabFlipped >= 5 && !locks[2]){ locks[2] = true; addXP(1); document.getElementById('vocabHint').textContent = 'Nice! Next is unlocked. / Bien joué ! Suivant est débloqué.'; refreshNav(); }
+        if(vocabFlipped >= 5 && !locks[1]){ locks[1] = true; addXP(1); document.getElementById('vocabHint').textContent = 'Nice! Next is unlocked. / Bien joué ! Suivant est débloqué.'; refreshNav(); }
       }
     });
     grid.appendChild(card);
   });
 }
 
-/* ============ VOCAB MATCH MINI-QUIZ ============ */
-const matchWords = [ vocabData[1], vocabData[2], vocabData[4], vocabData[8] ]; // host, guest, live, interview
-let matchRound = 0;
-function buildMatchProgress(){
-  const wrap = document.getElementById('matchProgress');
-  for(let i=0;i<matchWords.length;i++){
-    const d = document.createElement('span'); d.className='match-dot'; d.id='mdot'+i;
-    wrap.appendChild(d);
-  }
-}
-function renderMatchRound(){
-  const item = matchWords[matchRound];
-  document.getElementById('matchRoundNum').textContent = matchRound+1;
-  document.getElementById('matchFrWord').textContent = item.fr;
-  document.getElementById('matchFeedback').innerHTML = '';
-  const grid = document.getElementById('matchGrid');
-  grid.innerHTML = '';
-  const distractors = shuffle(vocabData.filter(v=>v.en!==item.en)).slice(0,3);
-  const options = shuffle([item, ...distractors]);
-  options.forEach(opt=>{
-    const btn = document.createElement('button'); btn.className='match-opt'; btn.textContent = opt.en;
-    btn.addEventListener('click', ()=>{
-      if(btn.classList.contains('disabled')) return;
-      const grid2 = document.getElementById('matchGrid');
-      if(opt.en === item.en){
-        btn.classList.add('correct');
-        grid2.querySelectorAll('.match-opt').forEach(o=>o.classList.add('disabled'));
-        addXP(1);
-        const dot = document.getElementById('mdot'+matchRound); if(dot) dot.classList.add('done');
-        document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">Yes! 🎉</span>';
-        setTimeout(()=>{
-          matchRound++;
-          if(matchRound >= matchWords.length){
-            if(!locks[3]){ locks[3] = true; refreshNav(); }
-            document.getElementById('matchFrWord').textContent = '✅';
-            document.getElementById('matchGrid').innerHTML = '';
-            document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">All done! Next is unlocked.</span><span class="fb-fr">Terminé ! Suivant est débloqué.</span>';
-          } else {
-            renderMatchRound();
-          }
-        }, 700);
-      } else {
-        btn.classList.add('incorrect'); setTimeout(()=>btn.classList.remove('incorrect'), 450);
-      }
-    });
-    grid.appendChild(btn);
-  });
-}
-
-/* ============ BUILD-A-QUESTION 1 ============ */
-const displayPhrase = ['Who', 'did', 'you', 'go', 'with?'];
-const bankWords = shuffle(['with?', 'Who', 'go', 'did', 'you']);
-let placedWords = [];
-function buildPhraseScreen(){
-  const bank = document.getElementById('wordBank');
-  bankWords.forEach(word=>{
-    const chip = document.createElement('div'); chip.className = 'word-chip';
-    chip.textContent = word;
-    chip.addEventListener('click', ()=>{
-      if(chip.classList.contains('used')) return;
-      placedWords.push(word); chip.classList.add('used');
-      renderSlot(); checkPhrase();
-    });
-    bank.appendChild(chip);
-  });
-  renderSlot();
-}
-function renderSlot(){
-  const slot = document.getElementById('sentenceSlot');
-  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
-}
-function checkPhrase(){
-  const fb = document.getElementById('phraseFeedback');
-  if(placedWords.length < displayPhrase.length) return;
-  const correct = placedWords.join(' ') === displayPhrase.join(' ');
-  if(correct){
-    addXP(2);
-    fb.innerHTML = '<span class="fb-en">Perfect! "Who did you go with?" 🌟</span><span class="fb-fr">Parfait ! « Avec qui es-tu allée ? »</span>';
-    fb.className = 'feedback-banner good';
-    locks[4] = true; refreshNav();
-  } else {
-    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
-    fb.appendChild(resetBtn);
-  }
-}
-
-/* ============ BUILD-A-QUESTION 2 ============ */
-const displayPhrase2 = ['How', 'long', 'has', 'she', 'lived', 'there?'];
-const bankWords2 = shuffle(['there?', 'How', 'lived', 'has', 'long', 'she']);
-let placedWords2 = [];
-function buildPhraseScreen2(){
-  const bank = document.getElementById('wordBank2');
-  bankWords2.forEach(word=>{
-    const chip = document.createElement('div'); chip.className = 'word-chip';
-    chip.textContent = word;
-    chip.addEventListener('click', ()=>{
-      if(chip.classList.contains('used')) return;
-      placedWords2.push(word); chip.classList.add('used');
-      renderSlot2(); checkPhrase2();
-    });
-    bank.appendChild(chip);
-  });
-  renderSlot2();
-}
-function renderSlot2(){
-  const slot = document.getElementById('sentenceSlot2');
-  slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
-}
-function checkPhrase2(){
-  const fb = document.getElementById('phraseFeedback2');
-  if(placedWords2.length < displayPhrase2.length) return;
-  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
-  if(correct){
-    addXP(2);
-    fb.innerHTML = '<span class="fb-en">Perfect! "How long has she lived there?" 🌟</span><span class="fb-fr">Parfait ! « Depuis quand y habite-t-elle ? »</span>';
-    fb.className = 'feedback-banner good';
-    locks[5] = true; refreshNav();
-  } else {
-    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = ()=>{ placedWords2 = []; document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot2(); };
-    fb.appendChild(resetBtn);
-  }
-}
-
-/* ============ MCQ (quick checks + reading) ============ */
+/* ============ MCQ (guest bio + apply-it) ============ */
 const FB = {
-  q1: { lockKey:6, ok:'B', expl:{
-    A:{en:'That asks about a habit, not her trip — try again!', fr:'Ça demande une habitude, pas son voyage — réessaie !'},
-    B:{en:'Yes! A natural follow-up question. 🎉', fr:'Oui ! Une question de suivi naturelle.'},
-    C:{en:'Mixing past and future — try again!', fr:'Tu mélanges passé et futur — réessaie !'}
+  r1: { lockKey:2, ok:"B", expl:{
+    A:{en:"Not what the bio says — try again!", fr:"Ce n'est pas ce que dit la fiche — réessaie !"},
+    B:{en:"Yes! Being heard is exactly the point she makes. 🎉", fr:"Oui ! Se faire entendre, c'est exactement son propos."},
+    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
   }},
-  q2: { lockKey:7, ok:'A', expl:{
-    A:{en:'Yes! Perfect natural question. 🎉', fr:'Oui ! Question parfaitement naturelle.'},
-    B:{en:'That works but sounds surprised, not curious — try the other one.', fr:'Ça marche mais ça sonne surpris, pas curieux — essaie l\'autre.'},
-    C:{en:'Grammar slip: "Do you living" isn\'t correct — try again!', fr:'Erreur de grammaire : « Do you living » n\'est pas correct — réessaie !'}
+  r2: { lockKey:2, ok:"B", expl:{
+    A:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
+    B:{en:"Yes! That aquarium trip is the moment the bio points to. 🎉", fr:"Oui ! Cette sortie à l'aquarium est le moment clé de la fiche."},
+    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
   }},
-  r1: { lockKey:8, ok:'B', expl:{
-    A:{en:'Recount: two brothers PLUS one sister — try again!', fr:'Recompte : deux frères PLUS une sœur — réessaie !'},
-    B:{en:'Yes! Two brothers + one sister = three. 🎉', fr:'Oui ! Deux frères + une sœur = trois.'},
-    C:{en:'That\'s one too many — try again!', fr:'C\'est un de trop — réessaie !'}
-  }},
-  r2: { lockKey:8, ok:'B', expl:{
-    A:{en:'That\'s her hobby, not her dream job — try again!', fr:'C\'est son loisir, pas son métier de rêve — réessaie !'},
-    B:{en:'Yes! Exactly what the bio said. 🎉', fr:'Oui ! Exactement ce que disait la fiche.'},
-    C:{en:'Not mentioned in the bio — try again!', fr:'Pas mentionné dans la fiche — réessaie !'}
+  q1: { lockKey:3, ok:"B", expl:{
+    A:{en:"Grammatically fine, but it just restates what she said — flat, not curious.", fr:"Correct grammaticalement, mais ça ne fait que répéter — plat, pas curieux."},
+    B:{en:"Yes! This shows genuine interest in WHY it was different. 🎉", fr:"Oui ! Ça montre un vrai intérêt pour POURQUOI c'était différent."},
+    C:{en:"Technically fine, but the tone is blunt — almost like you doubt her.", fr:"Correct techniquement, mais le ton est brusque — comme si tu doutais d'elle."}
   }}
 };
-let mcqAnswered = {q1:false, q2:false, r1:false, r2:false};
+let mcqAnswered = {r1:false, r2:false, q1:false};
 function checkLockGroup(lockKey, members){
   const allDone = members.every(m=>mcqAnswered[m]);
   if(allDone && !locks[lockKey]){ locks[lockKey] = true; refreshNav(); }
@@ -697,9 +543,8 @@ function initMCQ(gid, feedbackId){
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
         fb.className = 'feedback-banner good';
         mcqAnswered[gid] = true;
-        if(gid === 'q1') checkLockGroup(6, ['q1']);
-        if(gid === 'q2') checkLockGroup(7, ['q2']);
-        if(gid === 'r1' || gid === 'r2') checkLockGroup(8, ['r1','r2']);
+        if(gid === 'r1' || gid === 'r2') checkLockGroup(2, ['r1','r2']);
+        if(gid === 'q1') checkLockGroup(3, ['q1']);
       } else {
         opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
@@ -709,7 +554,20 @@ function initMCQ(gid, feedbackId){
   });
 }
 
-/* ============ CONVERSATION WHEEL ============ */
+/* ============ SPEAKING TASK ============ */
+document.getElementById('nudgeToggle').addEventListener('click', (e)=>{
+  const box = document.getElementById('nudgeBox');
+  box.classList.toggle('show');
+  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
+});
+document.getElementById('doneTalkingBtn').addEventListener('click', function(){
+  document.getElementById('talkConfirm').classList.add('show');
+  this.disabled = true;
+  this.textContent = '✅ Done';
+  addXP(5);
+});
+
+/* ============ CONVERSATION WHEEL (optional bonus — never gates progress) ============ */
 const WCATS = [
   { name:'About Me', emoji:'🙋', color:'#0fd4b8', text:'#00251f',
     qs:[
@@ -803,11 +661,8 @@ const whub=document.getElementById('whub');
 const whint=document.getElementById('whint');
 const wpanel=document.getElementById('wpanel');
 const wactions=document.getElementById('wactions');
-const wspinCountEl = document.getElementById('wspinCount');
 const wchips=[...document.querySelectorAll('.wchip')];
 let wrotation=0, wspinning=false, wcurrentCat=null, wlastQ={}; const wdecks={};
-let wheelSpinTally = 0;
-const WHEEL_SPIN_TARGET = 3;
 
 function wsetDisabled(state){
   wspinning=state; whub.disabled=state;
@@ -842,7 +697,7 @@ function wreveal(i){
     box.classList.toggle('show');
     e.target.textContent = box.classList.contains('show') ? 'Hide' : 'Take it further →';
   });
-  whint.textContent = 'Talk it through, then spin again. / Parle, puis fais tourner à nouveau.';
+  whint.textContent = 'Talk it through, then spin again if you like. / Parle, puis fais tourner à nouveau si tu veux.';
   wsetDisabled(false);
 }
 function spinWheelTo(i){
@@ -858,13 +713,7 @@ function spinWheelTo(i){
   wrotation = wrotation + turns*360 + delta;
   wheelEl.style.transform = `rotate(${wrotation}deg)`;
   const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const afterSpin = ()=>{
-    wreveal(i);
-    wheelSpinTally++;
-    wspinCountEl.textContent = 'Spins so far: ' + Math.min(wheelSpinTally,WHEEL_SPIN_TARGET) + ' / ' + WHEEL_SPIN_TARGET;
-    if(wheelSpinTally === 1) addXP(3);
-    if(wheelSpinTally >= WHEEL_SPIN_TARGET && !locks[9]){ locks[9] = true; addXP(2); refreshNav(); }
-  };
+  const afterSpin = ()=>{ wreveal(i); };
   if(reduce){ afterSpin(); return; }
   const onEnd = ()=>{ wheelEl.removeEventListener('transitionend', onEnd); afterSpin(); };
   wheelEl.addEventListener('transitionend', onEnd);
@@ -888,8 +737,6 @@ function animateCount(el, target, duration){
 function runCelebrationEntry(){
   if(celebrationRan) return; celebrationRan = true;
   animateCount(document.getElementById('statWords'), vocabFlipped, 700);
-  animateCount(document.getElementById('statQuestions'), 2, 700);
-  animateCount(document.getElementById('statSpins'), wheelSpinTally, 700);
 }
 function spawnConfetti(){
   const pieces = ['🎉','⭐','🎊','🎙️','✨'];
@@ -912,14 +759,9 @@ document.getElementById('celebrateBtn').addEventListener('click', function(){
 
 /* ============ INIT ============ */
 buildVocab();
-buildMatchProgress();
-renderMatchRound();
-buildPhraseScreen();
-buildPhraseScreen2();
-initMCQ('q1', 'mcqFeedback1');
-initMCQ('q2', 'mcqFeedback2');
 initMCQ('r1', 'mcqFeedbackR1');
 initMCQ('r2', 'mcqFeedbackR2');
+initMCQ('q1', 'mcqFeedback1');
 refreshNav();
 setTimeout(checkScrollCue, 100);
 </script>
