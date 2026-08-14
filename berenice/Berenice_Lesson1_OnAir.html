@@ -16,7 +16,7 @@
     --shadow:rgba(0,0,0,0.35);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
-  html,body{height:100%;overflow-x:hidden}
+  html,body{height:100%;overflow:hidden}
   .notranslate{translate:no;}
   body{
     font-family:'Inter',sans-serif; font-size:22px; line-height:1.5; color:var(--white);
@@ -25,7 +25,7 @@
       radial-gradient(900px 500px at 12% -5%, rgba(15,212,184,0.14), transparent 60%),
       radial-gradient(800px 480px at 95% 8%, rgba(164,122,255,0.12), transparent 60%),
       radial-gradient(900px 600px at 50% 115%, rgba(255,184,48,0.10), transparent 60%);
-    min-height:100vh; padding-bottom:100px; position:relative; overflow:hidden;
+    position:relative;
   }
   .hud{ position:fixed; top:14px; left:14px; right:14px; display:flex; justify-content:space-between; align-items:center; z-index:50; gap:10px; flex-wrap:wrap; }
   .hud-pill{ background:var(--card); border:1px solid var(--rim); color:var(--white); padding:9px 16px; border-radius:999px; font-weight:700; font-size:16px; box-shadow:0 4px 14px var(--shadow); display:flex; align-items:center; gap:7px; }
@@ -34,9 +34,21 @@
   .xp-pop{ position:fixed; top:76px; left:50%; transform:translateX(-50%) translateY(-16px); background:linear-gradient(135deg,var(--coral),var(--amber)); color:#fff; padding:11px 22px; border-radius:999px; font-weight:800; font-size:22px; box-shadow:0 6px 20px rgba(255,90,66,0.4); opacity:0; pointer-events:none; z-index:80; transition:all .4s cubic-bezier(.4,0,.2,1); }
   .xp-pop.show{ opacity:1; transform:translateX(-50%) translateY(0); }
 
-  .slide{ display:none; max-width:1180px; margin:78px auto 20px; padding:30px 24px; position:relative; z-index:1; animation:slideIn .45s ease; }
+  .slide{ display:none; max-width:1180px; margin:0 auto; padding:22px 24px 30px; position:relative; z-index:1; animation:slideIn .35s ease; }
   .slide.active{ display:block; }
-  @keyframes slideIn{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes slideIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ===== Scroll viewport (sits cleanly between fixed HUD and fixed nav bar) ===== */
+  .slide-viewport{ position:fixed; top:66px; left:0; right:0; bottom:78px; overflow-y:auto; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
+  .slide-viewport::-webkit-scrollbar{ width:8px; }
+  .slide-viewport::-webkit-scrollbar-thumb{ background:var(--rim); border-radius:8px; }
+  .scroll-cue{ position:fixed; left:50%; bottom:92px; transform:translateX(-50%) translateY(6px); z-index:55;
+    background:var(--card); border:1px solid var(--rim); color:var(--white); font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    padding:8px 16px; border-radius:999px; box-shadow:0 6px 16px var(--shadow); display:flex; align-items:center; gap:6px;
+    opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; }
+  .scroll-cue.show{ opacity:1; transform:translateX(-50%) translateY(0); animation:cueBounce 1.6s ease-in-out infinite; }
+  .scroll-cue .arrow{ font-size:14px; }
+  @keyframes cueBounce{ 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(4px); } }
 
   .card{ background:var(--card); border:1px solid var(--rim); border-radius:26px; padding:36px 34px; box-shadow:0 16px 40px var(--shadow); }
   .brandbar{ display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-weight:800; letter-spacing:.5px; color:var(--amber); font-size:12px; text-transform:uppercase; margin-bottom:16px; }
@@ -67,16 +79,16 @@
   .nav-btn.locked{ background:#2a3550; color:#6b7a9a; }
   .progress-label{ font-size:13px; color:var(--muted); font-weight:700; }
 
-  .vocab-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:20px 0; }
+  .vocab-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0; }
   @media (max-width:680px){ .vocab-grid{ grid-template-columns:repeat(2,1fr); } }
-  .vocab-card{ background:var(--deep); border:2px solid var(--rim); border-radius:18px; padding:18px 14px; text-align:center; cursor:pointer; transition:transform .15s ease, border-color .15s ease; min-height:120px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .vocab-card{ background:var(--deep); border:2px solid var(--rim); border-radius:16px; padding:14px 10px; text-align:center; cursor:pointer; transition:transform .15s ease, border-color .15s ease; min-height:96px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
   .vocab-card:hover{ transform:translateY(-3px); border-color:var(--teal); }
-  .vocab-card .emoji{ font-size:36px; display:block; margin-bottom:6px; }
-  .vocab-card .word{ font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; color:var(--white); }
-  .vocab-card .fr{ font-size:13px; color:var(--violet); font-style:italic; margin-top:2px; display:none; }
+  .vocab-card .emoji{ font-size:28px; display:block; margin-bottom:4px; }
+  .vocab-card .word{ font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--white); }
+  .vocab-card .fr{ font-size:12px; color:var(--violet); font-style:italic; margin-top:2px; display:none; }
   .vocab-card.flipped{ border-color:var(--amber); background:rgba(255,184,48,0.08); }
   .vocab-card.flipped .fr{ display:block; }
-  .vocab-card.flipped .word{ font-size:15px; }
+  .vocab-card.flipped .word{ font-size:13.5px; }
 
   .word-bank-wrap{ margin:20px 0; }
   .sentence-slot{ min-height:64px; background:var(--deep); border:2px dashed var(--rim); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:12px; font-family:'Poppins',sans-serif; font-size:21px; font-weight:700; margin-bottom:14px; }
@@ -121,8 +133,8 @@
   .wheel-main{ display:flex; flex-direction:column; align-items:center; gap:10px; }
   @media (min-width:780px){ .wheel-main{ flex-direction:row; align-items:stretch; gap:30px; } }
   .wheel-left{ display:flex; flex-direction:column; align-items:center; }
-  .wheel-wrap{ position:relative; width:280px; height:280px; max-width:78vw; max-height:78vw; }
-  @media (min-width:780px){ .wheel-wrap{ width:300px; height:300px; max-width:none; max-height:none; } }
+  .wheel-wrap{ position:relative; width:240px; height:240px; max-width:68vw; max-height:68vw; }
+  @media (min-width:780px){ .wheel-wrap{ width:260px; height:260px; max-width:none; max-height:none; } }
   .wheel-pointer{ position:absolute; top:-4px; left:50%; transform:translateX(-50%); z-index:5; width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent; border-top:24px solid var(--amber); filter:drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
   .wheel-svg{ width:100%; height:100%; border-radius:50%; transition:transform 4.2s cubic-bezier(.15,.9,.25,1); filter:drop-shadow(0 10px 22px rgba(0,0,0,0.4)); }
   .wheel-hub{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:4; width:86px; height:86px; border-radius:50%; background:var(--ink); border:3px solid var(--amber); color:var(--amber); cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; box-shadow:0 6px 14px rgba(0,0,0,0.5); transition:transform .15s ease; }
@@ -186,6 +198,9 @@
   </div>
 </div>
 <div class="xp-pop" id="xpPop"></div>
+<div class="scroll-cue" id="scrollCue"><span>Scroll for more / Fais defiler</span><span class="arrow">&#8595;</span></div>
+
+<div class="slide-viewport" id="slideViewport">
 
 <!-- SLIDE 0: HERO -->
 <div class="slide active" data-title="On Air">
@@ -415,6 +430,8 @@
   </div>
 </div>
 
+</div>
+
 <div class="nav-row">
   <button class="nav-btn back" id="backBtn">⬅ Back</button>
   <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
@@ -444,6 +461,18 @@ function refreshNav(){
   document.getElementById('progText').textContent = (current+1) + ' / ' + total;
   if(current === total-1) runCelebrationEntry();
 }
+const slideViewport = document.getElementById('slideViewport');
+const scrollCue = document.getElementById('scrollCue');
+function checkScrollCue(){
+  const overflowing = slideViewport.scrollHeight > slideViewport.clientHeight + 4;
+  const atTop = slideViewport.scrollTop < 12;
+  scrollCue.classList.toggle('show', overflowing && atTop);
+}
+slideViewport.addEventListener('scroll', ()=>{
+  if(slideViewport.scrollTop > 12) scrollCue.classList.remove('show');
+  else checkScrollCue();
+});
+window.addEventListener('resize', checkScrollCue);
 function changeSlide(delta){
   const newIdx = current + delta;
   if(newIdx < 0 || newIdx >= total) return;
@@ -451,7 +480,8 @@ function changeSlide(delta){
   current = newIdx;
   slides[current].classList.add('active');
   refreshNav();
-  window.scrollTo({top:0, behavior:'smooth'});
+  slideViewport.scrollTo({top:0, behavior:'auto'});
+  setTimeout(checkScrollCue, 60);
 }
 document.getElementById('backBtn').addEventListener('click', ()=>changeSlide(-1));
 document.getElementById('nextBtn').addEventListener('click', ()=>changeSlide(1));
@@ -882,6 +912,7 @@ initMCQ('q2', 'mcqFeedback2');
 initMCQ('r1', 'mcqFeedbackR1');
 initMCQ('r2', 'mcqFeedbackR2');
 refreshNav();
+setTimeout(checkScrollCue, 100);
 </script>
 </body>
 </html>
