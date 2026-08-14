@@ -1,1 +1,333 @@
-/home/claude/berenice_rebuild/berenice_index_v2.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Berenice — English Lessons · KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#09111f; --deep:#0d1829; --card:#131f38; --rim:#1c2d4a;
+  --white:#e8f0ff; --muted:#8095bb;
+  --teal:#0fd4b8; --amber:#ffb830; --coral:#ff5a42; --violet:#a47aff; --lime:#3ee88a;
+  --shadow:rgba(0,0,0,0.35);
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+.notranslate{ translate:no; }
+body{
+  font-family:'Inter',sans-serif; font-size:20px; line-height:1.6; color:var(--white);
+  background:var(--ink);
+  background-image:
+    radial-gradient(900px 500px at 12% -5%, rgba(15,212,184,0.14), transparent 60%),
+    radial-gradient(800px 480px at 95% 8%, rgba(164,122,255,0.12), transparent 60%),
+    radial-gradient(900px 600px at 50% 115%, rgba(255,184,48,0.10), transparent 60%);
+  min-height:100vh; -webkit-font-smoothing:antialiased;
+}
+.wrap{ max-width:1120px; margin:0 auto; padding:40px 22px 64px; }
+
+.brandbar{ display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-weight:800; letter-spacing:.5px; color:var(--amber); font-size:12px; text-transform:uppercase; }
+.brandbar .dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow:0 0 12px var(--amber); }
+
+.hero{ margin-top:22px; background:var(--card); border:1px solid var(--rim); border-radius:26px; padding:36px 34px; box-shadow:0 16px 40px var(--shadow); position:relative; overflow:hidden; }
+.hero .mascot{ font-size:52px; display:block; margin-bottom:10px; }
+.hero h1{ font-family:'Poppins',sans-serif; font-weight:900; font-size:2.7rem; line-height:1.1; color:var(--white); letter-spacing:-.5px; }
+.hero h1 .accent{ color:var(--amber); }
+.hero .fr{ color:var(--violet); font-weight:600; font-style:italic; font-size:1.2rem; margin-top:8px; }
+.hero p.lead{ color:var(--muted); font-size:1.05rem; margin-top:16px; max-width:640px; }
+.hero .meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.chip{ background:var(--deep); border:1px solid var(--rim); border-radius:999px; padding:8px 16px; font-size:.88rem; font-weight:700; color:var(--white); display:flex; align-items:center; gap:7px; }
+
+.seclabel{ margin:40px 4px 16px; display:flex; align-items:center; gap:12px; }
+.seclabel h2{ font-family:'Poppins',sans-serif; font-weight:800; font-size:1.3rem; color:var(--white); }
+.seclabel .line{ flex:1; height:2px; background:var(--rim); border-radius:2px; }
+
+.grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:18px; }
+.lesson{
+  display:block; text-decoration:none; background:var(--card); border:1px solid var(--rim); border-radius:22px;
+  padding:22px 20px; position:relative; overflow:hidden; transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  opacity:0; transform:translateY(14px); animation:rise .5s ease forwards;
+}
+@keyframes rise{ to{ opacity:1; transform:translateY(0); } }
+.lesson::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:6px; background:var(--ac); }
+.lesson:hover{ transform:translateY(-5px); border-color:var(--ac); box-shadow:0 14px 28px rgba(0,0,0,0.35); }
+.lesson .row1{ display:flex; align-items:center; justify-content:space-between; }
+.lesson .num{ font-family:'Poppins',sans-serif; font-weight:800; font-size:2.1rem; color:var(--ac); line-height:1; }
+.lesson .num small{ display:block; font-size:.55rem; letter-spacing:2px; color:var(--muted); font-weight:700; margin-bottom:3px; }
+.lesson .emoji{ font-size:1.9rem; filter:drop-shadow(0 3px 6px rgba(0,0,0,0.3)); }
+.lesson h3{ font-family:'Poppins',sans-serif; font-weight:800; font-size:1.2rem; margin-top:14px; color:var(--white); }
+.lesson .theme-en{ color:var(--white); font-size:.92rem; margin-top:6px; font-weight:500; }
+.lesson .theme-fr{ color:var(--violet); font-size:.86rem; margin-top:3px; font-weight:500; font-style:italic; }
+.lesson .go{ margin-top:14px; display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:.92rem; color:var(--ac); }
+.lesson .go .arr{ transition:transform .18s ease; }
+.lesson:hover .go .arr{ transform:translateX(5px); }
+.badge-new{ position:absolute; top:14px; right:14px; background:var(--lime); color:#00251f; font-family:'Poppins',sans-serif; font-weight:800; font-size:.6rem; letter-spacing:1px; padding:4px 10px; border-radius:999px; }
+
+footer{ margin-top:48px; padding-top:24px; border-top:1px solid var(--rim); display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center; justify-content:space-between; color:var(--muted); font-size:.9rem; }
+footer .name{ font-family:'Poppins',sans-serif; font-weight:800; color:var(--amber); }
+footer a{ color:var(--muted); text-decoration:none; }
+footer a:hover{ color:var(--white); }
+
+@media (max-width:620px){
+  .wrap{ padding:28px 14px 46px; }
+  .hero{ padding:26px 20px 24px; }
+  .hero h1{ font-size:2rem; }
+  .grid{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body class="notranslate" translate="no">
+<div class="wrap">
+
+  <div class="brandbar"><span class="dot"></span> KingCretot Experience</div>
+
+  <header class="hero">
+    <span class="mascot">🎙️</span>
+    <h1>Berenice's <span class="accent">English Lessons</span></h1>
+    <div class="fr">Les leçons d'anglais de Bérénice</div>
+    <p class="lead">Season One: a talk-show format where every lesson ends with you talking — live, unscripted, in English. Pick an episode below to begin. / Saison Un : un format d'émission où chaque leçon se termine avec toi qui parles — en direct, sans script, en anglais.</p>
+    <div class="meta">
+      <span class="chip">📚 16 episodes</span>
+      <span class="chip">🎡 Conversation Wheel every episode</span>
+      <span class="chip">🇫🇷🇺🇸 Full Bilingual</span>
+      <span class="chip">📅 Wednesdays, 2:15 PM ET</span>
+    </div>
+  </header>
+
+  <div class="seclabel">
+    <h2>September / Septembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Berenice_Lesson1_OnAir.html" style="--ac:var(--teal); animation-delay:0.02s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>1</div>
+        <div class="emoji">🎙️</div>
+      </div>
+      <h3>On Air!</h3>
+      <div class="theme-en">You already understand more English than you give yourself credit for. This year, the goal isn&#x27;t more listening — it&#x27;s you talking, live, unscripted.</div>
+      <div class="theme-fr">Tu comprends déjà plus d&#x27;anglais que tu ne le penses. Cette année, l&#x27;objectif n&#x27;est pas d&#x27;écouter plus — c&#x27;est de parler, en direct, sans script.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson2_TheInterview.html" style="--ac:var(--coral); animation-delay:0.06s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>2</div>
+        <div class="emoji">🎤</div>
+      </div>
+      <h3>The Interview</h3>
+      <div class="theme-en">Last episode was about asking questions. This time, you&#x27;re in the hot seat — telling YOUR story, in order, so it actually flows.</div>
+      <div class="theme-fr">Le dernier épisode, c&#x27;était poser des questions. Cette fois, c&#x27;est toi qu&#x27;on interviewe — tu racontes TON histoire, dans l&#x27;ordre, pour qu&#x27;elle coule bien.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson3_HeadToHead.html" style="--ac:var(--violet); animation-delay:0.10s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>3</div>
+        <div class="emoji">⚖️</div>
+      </div>
+      <h3>Head to Head</h3>
+      <div class="theme-en">Today you&#x27;ll learn to put two things side by side and actually say how they&#x27;re different — or surprisingly alike.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à mettre deux choses côte à côte et à dire vraiment en quoi elles diffèrent — ou se ressemblent, étonnamment.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson4_SayWhatYouThink.html" style="--ac:var(--amber); animation-delay:0.14s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>4</div>
+        <div class="emoji">💡</div>
+      </div>
+      <h3>Say What You Think</h3>
+      <div class="theme-en">Today isn&#x27;t about having the &quot;right&quot; opinion. It&#x27;s about stating one clearly, and backing it up with a reason.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, il ne s&#x27;agit pas d&#x27;avoir la « bonne » opinion. Il s&#x27;agit d&#x27;en exprimer une clairement, et de la justifier.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>October / Octobre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Berenice_Lesson5_WhatHappensIf.html" style="--ac:var(--lime); animation-delay:0.02s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>5</div>
+        <div class="emoji">⚽</div>
+      </div>
+      <h3>What Happens If...?</h3>
+      <div class="theme-en">Today you&#x27;ll learn to talk about real things that might happen — and what you&#x27;ll do either way.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à parler de choses réelles qui pourraient arriver — et de ce que tu feras, dans un cas comme dans l&#x27;autre.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson6_TwoSidesOfYuki.html" style="--ac:var(--teal); animation-delay:0.06s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>6</div>
+        <div class="emoji">🥁</div>
+      </div>
+      <h3>Two Sides of Yuki</h3>
+      <div class="theme-en">Today you&#x27;ll learn to describe people with more color — not just &quot;nice&quot; or &quot;funny,&quot; but exactly how much, and in what way.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à décrire les gens avec plus de nuance — pas juste « nice » ou « funny », mais à quel point, et de quelle manière.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson7_ISeeYourPointBut.html" style="--ac:var(--coral); animation-delay:0.10s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>7</div>
+        <div class="emoji">♟️</div>
+      </div>
+      <h3>I See Your Point, But...</h3>
+      <div class="theme-en">Today you&#x27;ll learn to disagree with someone without sounding rude — and without just giving up your own opinion either.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à ne pas être d&#x27;accord avec quelqu&#x27;un sans paraître impolie — et sans abandonner ton propre avis non plus.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson8_UsuallyButSometimes.html" style="--ac:var(--violet); animation-delay:0.14s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>8</div>
+        <div class="emoji">🔭</div>
+      </div>
+      <h3>Usually... But Sometimes</h3>
+      <div class="theme-en">Today you&#x27;ll learn to describe your habits with more nuance — what&#x27;s true most of the time, and what breaks the pattern.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à décrire tes habitudes avec plus de nuance — ce qui est vrai la plupart du temps, et ce qui casse le schéma.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>November / Novembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Berenice_Lesson9_IfIWere.html" style="--ac:var(--amber); animation-delay:0.02s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>9</div>
+        <div class="emoji">🏛️</div>
+      </div>
+      <h3>If I Were...</h3>
+      <div class="theme-en">Today you&#x27;ll learn to talk about imagined, unreal situations — not what might really happen, but what you&#x27;d do in a world that isn&#x27;t real.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à parler de situations imaginaires, irréelles — pas ce qui pourrait vraiment arriver, mais ce que tu ferais dans un monde qui n&#x27;existe pas.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson10_ThatMustHaveBeen.html" style="--ac:var(--lime); animation-delay:0.06s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>10</div>
+        <div class="emoji">🫂</div>
+      </div>
+      <h3>That Must Have Been...</h3>
+      <div class="theme-en">Today you&#x27;ll learn to respond to someone else&#x27;s story with real empathy — not just &quot;that&#x27;s sad,&quot; but language that shows you actually felt it with them.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à répondre à l&#x27;histoire de quelqu&#x27;un avec une vraie empathie — pas juste « c&#x27;est triste », mais un langage qui montre que tu l&#x27;as vraiment ressenti avec elle.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>December / Décembre</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Berenice_Lesson11_HaveYouThoughtAbout.html" style="--ac:var(--teal); animation-delay:0.02s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>11</div>
+        <div class="emoji">💡</div>
+      </div>
+      <h3>Have You Thought About...?</h3>
+      <div class="theme-en">Today you&#x27;ll learn to give advice that&#x27;s actually useful — specific enough that someone could act on it tomorrow.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à donner des conseils vraiment utiles — assez précis pour que quelqu&#x27;un puisse agir dès demain.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson12_BigPlansAhead.html" style="--ac:var(--coral); animation-delay:0.06s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>12</div>
+        <div class="emoji">🗓️</div>
+      </div>
+      <h3>Big Plans Ahead</h3>
+      <div class="theme-en">Today you&#x27;ll learn to talk about the future — real plans, not just wishes.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à parler de l&#x27;avenir — de vrais projets, pas seulement des souhaits.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson13_ThenVsNow.html" style="--ac:var(--violet); animation-delay:0.10s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>13</div>
+        <div class="emoji">⏳</div>
+      </div>
+      <h3>Then vs. Now</h3>
+      <div class="theme-en">Today you&#x27;ll learn to describe how something has changed — from what you used to do, to what you do now.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à décrire comment quelque chose a changé — de ce que tu faisais avant, à ce que tu fais maintenant.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div class="seclabel">
+    <h2>January / Janvier</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" href="Berenice_Lesson14_FirstThenFinally.html" style="--ac:var(--amber); animation-delay:0.02s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>14</div>
+        <div class="emoji">🛹</div>
+      </div>
+      <h3>First, Then, Finally</h3>
+      <div class="theme-en">Today you&#x27;ll learn to explain a process step by step — clearly enough that someone could actually follow along.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à expliquer un processus étape par étape — assez clairement pour que quelqu&#x27;un puisse vraiment suivre.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson15_OnOneHand.html" style="--ac:var(--lime); animation-delay:0.06s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>15</div>
+        <div class="emoji">⚖️</div>
+      </div>
+      <h3>On One Hand...</h3>
+      <div class="theme-en">Today you&#x27;ll learn to weigh two sides of a decision out loud — without sounding stuck or confused.</div>
+      <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à peser les deux côtés d&#x27;une décision à voix haute — sans avoir l&#x27;air coincée ou confuse.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+    <a class="lesson" href="Berenice_Lesson16_LookingBackMovingForward.html" style="--ac:var(--teal); animation-delay:0.10s">
+      <span class="badge-new">FINALE</span>
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>16</div>
+        <div class="emoji">🌱</div>
+      </div>
+      <h3>Looking Back, Moving Forward</h3>
+      <div class="theme-en">Today is a special one — we&#x27;re going to look back at how far you&#x27;ve come, using everything you&#x27;ve learned this year.</div>
+      <div class="theme-fr">Aujourd&#x27;hui est spécial — on va regarder le chemin parcouru, en utilisant tout ce que tu as appris cette année.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <footer>
+    <span><span class="name">KingCretot Experience</span> &nbsp;·&nbsp; English lessons for Bérénice</span>
+    <span><a href="https://kingcretot.com">kingcretot.com</a> &nbsp;·&nbsp; <a href="mailto:kce@kingcretot.com">kce@kingcretot.com</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
