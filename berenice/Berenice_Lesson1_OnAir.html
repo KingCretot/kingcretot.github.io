@@ -129,6 +129,10 @@
   .match-dot.done{ background:var(--lime); }
 
   /* ===== Conversation Wheel ===== */
+  .bridge-line{ background:linear-gradient(135deg, rgba(255,184,48,0.14), rgba(255,90,66,0.08)); border:1px solid rgba(255,184,48,0.4); border-radius:16px; padding:16px 20px; margin:16px 0; text-align:center; }
+  .bridge-line .bridge-icon{ font-size:24px; display:block; margin-bottom:6px; }
+  .bridge-line .bridge-en{ font-size:18px; font-weight:700; color:var(--white); line-height:1.4; }
+  .bridge-line .bridge-fr{ font-size:14px; color:var(--violet); font-style:italic; margin-top:4px; line-height:1.4; }
   .wheel-frame{ background:var(--deep); border:1px solid var(--rim); border-radius:22px; padding:24px 18px; margin-top:14px; }
   .wheel-main{ display:flex; flex-direction:column; align-items:center; gap:10px; }
   @media (min-width:780px){ .wheel-main{ flex-direction:row; align-items:stretch; gap:30px; } }
@@ -374,9 +378,14 @@
   <div class="card">
     <span class="badge-tag">Main Event · L'événement principal</span>
     <h2>🎡 The Conversation Wheel</h2>
+    <div class="bridge-line">
+      <span class="bridge-icon">🎙️</span>
+      <div class="bridge-en">Léa answered your questions. Now it's your turn to be the guest — I'm listening.</div>
+      <div class="bridge-fr">Léa a répondu à tes questions. Maintenant c'est ton tour d'être l'invitée — je t'écoute.</div>
+    </div>
     <div class="bi-cols">
-      <div class="bi-en">This is our lesson centerpiece, every week. Spin it — or pick a category — and just <strong>talk</strong>. No perfect grammar required. I want to hear you think out loud. Spin at least 3 times before we wrap up.</div>
-      <div class="bi-fr">C'est le cœur de notre leçon, chaque semaine. Fais-le tourner — ou choisis une catégorie — et <strong>parle</strong>. Pas besoin d'une grammaire parfaite. Fais tourner au moins 3 fois avant qu'on termine.</div>
+      <div class="bi-en">This is our lesson centerpiece, every week. Spin it — or pick a category — and just <strong>talk</strong>. No perfect grammar required. I want to hear you think out loud. Along the way, try asking one follow-up question of your own — just like you practiced today. Spin at least 3 times before we wrap up.</div>
+      <div class="bi-fr">C'est le cœur de notre leçon, chaque semaine. Fais-le tourner — ou choisis une catégorie — et <strong>parle</strong>. Pas besoin d'une grammaire parfaite. En chemin, essaie de poser une question de suivi toi-même — comme tu l'as pratiqué aujourd'hui. Fais tourner au moins 3 fois avant qu'on termine.</div>
     </div>
     <div class="wheel-frame">
       <div class="wheel-main">
