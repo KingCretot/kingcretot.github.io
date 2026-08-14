@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Lesson 9 — If I Were... | Berenice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#09111f; --deep:#0d1829; --card:#131f38; --rim:#1c2d4a;
+    --white:#e8f0ff; --muted:#8095bb;
+    --teal:#0fd4b8; --amber:#ffb830; --coral:#ff5a42; --violet:#a47aff; --lime:#3ee88a; --aqua:#00d4ff;
+    --shadow:rgba(0,0,0,0.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+  html,body{height:100%;overflow:hidden}
+  .notranslate{translate:no;}
+  body{
+    font-family:'Inter',sans-serif; font-size:22px; line-height:1.5; color:var(--white);
+    background:var(--ink);
+    background-image:
+      radial-gradient(900px 500px at 12% -5%, rgba(15,212,184,0.14), transparent 60%),
+      radial-gradient(800px 480px at 95% 8%, rgba(164,122,255,0.12), transparent 60%),
+      radial-gradient(900px 600px at 50% 115%, rgba(255,184,48,0.10), transparent 60%);
+    position:relative;
+  }
+  .hud{ position:fixed; top:14px; left:14px; right:14px; display:flex; justify-content:space-between; align-items:center; z-index:50; gap:10px; flex-wrap:wrap; }
+  .hud-pill{ background:var(--card); border:1px solid var(--rim); color:var(--white); padding:9px 16px; border-radius:999px; font-weight:700; font-size:16px; box-shadow:0 4px 14px var(--shadow); display:flex; align-items:center; gap:7px; }
+  .xp-pill{ background:linear-gradient(135deg,var(--amber),#c9861a); color:#2a1c00; }
+  .sound-toggle{ background:var(--card); border:1px solid var(--rim); color:var(--white); border-radius:50%; width:42px; height:42px; font-size:19px; cursor:pointer; box-shadow:0 4px 12px var(--shadow); }
+  .xp-pop{ position:fixed; top:76px; left:50%; transform:translateX(-50%) translateY(-16px); background:linear-gradient(135deg,var(--coral),var(--amber)); color:#fff; padding:11px 22px; border-radius:999px; font-weight:800; font-size:22px; box-shadow:0 6px 20px rgba(255,90,66,0.4); opacity:0; pointer-events:none; z-index:80; transition:all .4s cubic-bezier(.4,0,.2,1); }
+  .xp-pop.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  .slide{ display:none; max-width:1180px; margin:0 auto; padding:22px 24px 30px; position:relative; z-index:1; animation:slideIn .35s ease; }
+  .slide.active{ display:block; }
+  @keyframes slideIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ===== Scroll viewport (sits cleanly between fixed HUD and fixed nav bar) ===== */
+  .slide-viewport{ position:fixed; top:66px; left:0; right:0; bottom:78px; overflow-y:auto; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
+  .slide-viewport::-webkit-scrollbar{ width:8px; }
+  .slide-viewport::-webkit-scrollbar-thumb{ background:var(--rim); border-radius:8px; }
+  .scroll-cue{ position:fixed; left:50%; bottom:92px; transform:translateX(-50%) translateY(6px); z-index:55;
+    background:var(--card); border:1px solid var(--rim); color:var(--white); font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    padding:8px 16px; border-radius:999px; box-shadow:0 6px 16px var(--shadow); display:flex; align-items:center; gap:6px;
+    opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; }
+  .scroll-cue.show{ opacity:1; transform:translateX(-50%) translateY(0); animation:cueBounce 1.6s ease-in-out infinite; }
+  .scroll-cue .arrow{ font-size:14px; }
+  @keyframes cueBounce{ 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(4px); } }
+
+  .card{ background:var(--card); border:1px solid var(--rim); border-radius:26px; padding:36px 34px; box-shadow:0 16px 40px var(--shadow); }
+  .brandbar{ display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-weight:800; letter-spacing:.5px; color:var(--amber); font-size:12px; text-transform:uppercase; margin-bottom:16px; }
+  .brandbar .dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow:0 0 12px var(--amber); }
+
+  h1{ font-family:'Poppins',sans-serif; font-size:44px; font-weight:900; line-height:1.12; letter-spacing:-.5px; color:var(--white); }
+  h1 .accent{ color:var(--amber); }
+  h2{ font-family:'Poppins',sans-serif; font-size:30px; font-weight:800; color:var(--white); margin-bottom:14px; }
+  .badge-tag{ display:inline-block; background:rgba(15,212,184,0.14); color:var(--teal); font-weight:700; font-size:12.5px; letter-spacing:.6px; text-transform:uppercase; padding:6px 16px; border-radius:999px; margin-bottom:16px; border:1px solid rgba(15,212,184,0.3); }
+
+  .hero-emoji{ font-size:74px; display:block; margin-bottom:12px; }
+  .hero-sub-en{ font-size:21px; color:var(--white); margin:10px 0 4px; font-weight:500; }
+  .hero-sub-fr{ font-size:18px; color:var(--violet); font-weight:600; font-style:italic; }
+
+  .bi-cols{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:18px 0; }
+  @media (max-width:680px){ .bi-cols{ grid-template-columns:1fr; } }
+  .bi-en, .bi-fr{ padding:18px 22px; border-radius:16px; font-size:20px; line-height:1.5; }
+  .bi-en{ background:rgba(15,212,184,0.09); color:var(--white); border-left:5px solid var(--teal); }
+  .bi-fr{ background:rgba(164,122,255,0.10); color:#d8c9ff; border-left:5px solid var(--violet); font-style:italic; }
+  .bi-en strong, .bi-fr strong{ font-weight:700; color:inherit; }
+
+  .nav-row{ position:fixed; bottom:0; left:0; right:0; background:var(--deep); border-top:1px solid var(--rim); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; z-index:60; }
+  .nav-btn{ font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; padding:13px 28px; border-radius:50px; border:none; cursor:pointer; color:#fff; transition:transform .1s ease; }
+  .nav-btn:active{ transform:translateY(3px); }
+  .nav-btn.back{ background:#2a3a5c; }
+  .nav-btn.next{ background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
+  .nav-btn:disabled{ opacity:.35; cursor:not-allowed; }
+  .nav-btn.locked{ background:#2a3550; color:#6b7a9a; }
+  .progress-label{ font-size:13px; color:var(--muted); font-weight:700; }
+
+  .vocab-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0; }
+  @media (max-width:680px){ .vocab-grid{ grid-template-columns:repeat(2,1fr); } }
+  .vocab-card{ background:var(--deep); border:2px solid var(--rim); border-radius:16px; padding:14px 10px; text-align:center; cursor:pointer; transition:transform .15s ease, border-color .15s ease; min-height:96px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .vocab-card:hover{ transform:translateY(-3px); border-color:var(--teal); }
+  .vocab-card .emoji{ font-size:28px; display:block; margin-bottom:4px; }
+  .vocab-card .word{ font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--white); }
+  .vocab-card .fr{ font-size:12px; color:var(--violet); font-style:italic; margin-top:2px; display:none; }
+  .vocab-card.flipped{ border-color:var(--amber); background:rgba(255,184,48,0.08); }
+  .vocab-card.flipped .fr{ display:block; }
+  .vocab-card.flipped .word{ font-size:13.5px; }
+
+  .word-bank-wrap{ margin:20px 0; }
+  .sentence-slot{ min-height:64px; background:var(--deep); border:2px dashed var(--rim); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:12px; font-family:'Poppins',sans-serif; font-size:21px; font-weight:700; margin-bottom:14px; }
+  .sentence-slot .placed{ background:var(--teal); color:#00251f; padding:7px 13px; border-radius:10px; }
+  .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .word-chip{ background:var(--coral); color:#fff; padding:9px 16px; border-radius:14px; font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; cursor:pointer; box-shadow:0 5px 0 #b8341f; transition:transform .1s ease; }
+  .word-chip:active{ transform:translateY(4px); box-shadow:0 1px 0 #b8341f; }
+  .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
+  .replay-btn{ background:var(--amber); color:#2a1c00; border:none; border-radius:50px; padding:10px 20px; font-size:15px; font-weight:700; cursor:pointer; box-shadow:0 5px 0 #b8790f; margin-top:10px; }
+
+  .feedback-banner{ margin-top:14px; font-weight:800; font-size:19px; min-height:44px; }
+  .feedback-banner .fb-fr{ display:block; font-size:15px; color:var(--violet); font-weight:600; margin-top:2px; }
+  .feedback-banner.good .fb-en{ color:var(--lime); }
+  .feedback-banner.retry .fb-en{ color:var(--coral); }
+
+  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:560px; margin:16px auto 0; }
+  .mcq-opt{ font-family:'Inter',sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; text-align:left; transition:transform .08s ease,background .15s ease,border-color .15s ease; width:100%; }
+  .mcq-opt .opt-fr{ display:block; font-size:14px; color:var(--violet); font-weight:600; margin-top:3px; font-style:italic; }
+  .mcq-opt:hover{ transform:translateY(-2px); }
+  .mcq-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
+  .mcq-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
+  .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
+  @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-7px);} 75%{transform:translateX(7px);} }
+
+  .passage-card{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; font-size:20px; line-height:1.6; }
+  .passage-card .ptitle{ font-family:'Poppins',sans-serif; font-weight:800; color:var(--amber); font-size:13px; text-transform:uppercase; letter-spacing:.6px; margin-bottom:10px; }
+
+  .match-round-label{ font-size:14px; color:var(--muted); font-weight:700; margin-bottom:6px; }
+  .match-fr-word{ font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:var(--amber); margin-bottom:16px; }
+  .match-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:560px; margin:0 auto; }
+  @media (max-width:520px){ .match-grid{ grid-template-columns:1fr; } }
+  .match-opt{ font-family:'Inter',sans-serif; font-size:18px; font-weight:600; padding:14px 16px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; }
+  .match-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
+  .match-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
+  .match-opt.disabled{ pointer-events:none; opacity:.4; }
+  .match-progress{ display:flex; gap:6px; justify-content:center; margin-bottom:18px; }
+  .match-dot{ width:10px; height:10px; border-radius:50%; background:var(--rim); }
+  .match-dot.done{ background:var(--lime); }
+
+  /* ===== Conversation Wheel ===== */
+  .bridge-line{ background:linear-gradient(135deg, rgba(255,184,48,0.14), rgba(255,90,66,0.08)); border:1px solid rgba(255,184,48,0.4); border-radius:16px; padding:16px 20px; margin:16px 0; text-align:center; }
+  .bridge-line .bridge-icon{ font-size:24px; display:block; margin-bottom:6px; }
+  .bridge-line .bridge-en{ font-size:18px; font-weight:700; color:var(--white); line-height:1.4; }
+  .bridge-line .bridge-fr{ font-size:14px; color:var(--violet); font-style:italic; margin-top:4px; line-height:1.4; }
+  .wheel-frame{ background:var(--deep); border:1px solid var(--rim); border-radius:22px; padding:24px 18px; margin-top:14px; }
+  .wheel-main{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+  @media (min-width:780px){ .wheel-main{ flex-direction:row; align-items:stretch; gap:30px; } }
+  .wheel-left{ display:flex; flex-direction:column; align-items:center; }
+  .wheel-wrap{ position:relative; width:240px; height:240px; max-width:68vw; max-height:68vw; }
+  @media (min-width:780px){ .wheel-wrap{ width:260px; height:260px; max-width:none; max-height:none; } }
+  .wheel-pointer{ position:absolute; top:-4px; left:50%; transform:translateX(-50%); z-index:5; width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent; border-top:24px solid var(--amber); filter:drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
+  .wheel-svg{ width:100%; height:100%; border-radius:50%; transition:transform 4.2s cubic-bezier(.15,.9,.25,1); filter:drop-shadow(0 10px 22px rgba(0,0,0,0.4)); }
+  .wheel-hub{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:4; width:86px; height:86px; border-radius:50%; background:var(--ink); border:3px solid var(--amber); color:var(--amber); cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; box-shadow:0 6px 14px rgba(0,0,0,0.5); transition:transform .15s ease; }
+  .wheel-hub:hover{ transform:translate(-50%,-50%) scale(1.05); }
+  .wheel-hub:active{ transform:translate(-50%,-50%) scale(.96); }
+  .wheel-hub:disabled{ cursor:default; opacity:.85; }
+  .wheel-hub .word{ font-weight:800; font-size:13px; letter-spacing:.1em; }
+  .wheel-hub .spin-ico{ font-size:14px; margin-bottom:1px; }
+  .wheel-hint{ color:var(--muted); font-size:12px; margin:10px 0 4px; text-align:center; }
+  .wheel-legend{ display:flex; flex-wrap:wrap; gap:6px; justify-content:center; padding:2px 0 4px; max-width:320px; }
+  .wchip{ border:none; cursor:pointer; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:11px; padding:5px 10px; border-radius:999px; display:inline-flex; align-items:center; gap:5px; opacity:.9; }
+  .wchip:hover{ opacity:1; }
+  .wchip:disabled{ cursor:default; opacity:.5; }
+  .wheel-right{ width:100%; display:flex; flex-direction:column; justify-content:center; }
+  .wpanel{ background:var(--card); border:1px solid var(--rim); border-radius:16px; padding:22px 20px; text-align:center; min-height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; opacity:0; transform:translateY(6px); transition:opacity .4s ease, transform .4s ease; }
+  .wpanel.show{ opacity:1; transform:none; }
+  @media (min-width:780px){ .wpanel{ min-height:230px; padding:26px 24px; } }
+  .wcat-chip{ font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#fff; padding:5px 12px; border-radius:999px; }
+  .wq{ font-family:'Poppins',sans-serif; font-weight:700; font-size:clamp(19px,2.2vw,26px); line-height:1.3; color:var(--white); }
+  .wqf{ font-family:'Inter',sans-serif; font-style:italic; font-weight:500; font-size:clamp(14px,1.6vw,17px); line-height:1.3; color:var(--violet); }
+  .wplaceholder{ color:var(--muted); font-size:14px; font-style:italic; }
+  .wpush-toggle{ background:none; border:none; color:var(--teal); font-weight:700; font-size:13px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
+  .wpush{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:10px; padding:10px 14px; max-width:440px; }
+  .wpush.show{ display:block; }
+  .wpush .lbl{ font-weight:800; font-size:9px; letter-spacing:.12px; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:3px; }
+  .wpush .txt{ font-size:14.5px; color:var(--white); font-weight:600; }
+  .wpush .txt-fr{ display:block; font-style:italic; font-weight:600; font-size:13px; color:var(--violet); margin-top:6px; }
+  .wactions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
+  .wbtn{ font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; padding:10px 18px; border-radius:10px; cursor:pointer; border:2px solid transparent; }
+  .wbtn-primary{ background:var(--amber); color:#2a1c00; }
+  .wbtn-ghost{ background:transparent; color:var(--white); border-color:var(--rim); }
+  .wbtn:disabled{ opacity:.5; cursor:default; }
+  .wspin-count{ font-size:13px; color:var(--muted); margin-top:8px; text-align:center; }
+
+  /* ===== Celebration slide ===== */
+  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0; }
+  @media (max-width:680px){ .stat-grid{ grid-template-columns:1fr; } }
+  .stat-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px; text-align:center; }
+  .stat-num{ font-family:'Poppins',sans-serif; font-weight:900; font-size:34px; color:var(--amber); }
+  .stat-lbl{ font-size:13px; color:var(--muted); font-weight:700; margin-top:2px; }
+  .stat-lbl-fr{ font-size:12px; color:var(--violet); font-style:italic; }
+  .celebrate-btn{ display:block; margin:24px auto 4px; font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; padding:16px 38px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--coral),var(--amber)); color:#2a1c00; box-shadow:0 8px 22px rgba(255,90,66,0.35); transition:transform .1s ease; }
+  .celebrate-btn:active{ transform:translateY(3px) scale(.98); }
+  .celebrate-btn:disabled{ opacity:.5; cursor:default; }
+  .badge-reveal{ text-align:center; margin-top:18px; opacity:0; transform:scale(.7); transition:all .5s cubic-bezier(.34,1.56,.64,1); }
+  .badge-reveal.show{ opacity:1; transform:scale(1); }
+  .badge-reveal .badge-emoji{ font-size:90px; display:block; }
+  .badge-reveal .badge-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--amber); margin-top:6px; }
+  .confetti-piece{ position:fixed; top:-20px; z-index:200; pointer-events:none; font-size:22px; animation:confettiFall linear forwards; }
+  @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(400deg); opacity:0.2; } }
+
+
+  /* ===== Skill teaching box ===== */
+  .skill-box{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; }
+  .skill-table{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
+  .skill-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; background:var(--card); border:1px solid var(--rim); border-radius:12px; padding:12px 16px; align-items:center; }
+  @media (max-width:680px){ .skill-row{ grid-template-columns:1fr; } }
+  .skill-en{ font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; color:var(--white); }
+  .skill-en .sample{ display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:14px; color:var(--teal); margin-top:3px; font-style:italic; }
+  .skill-fr{ font-size:14px; color:var(--violet); font-style:italic; line-height:1.4; }
+  .skill-tryit{ margin-top:14px; font-size:14px; color:var(--muted); text-align:center; font-style:italic; }
+
+  /* ===== Speaking task (the real climax) ===== */
+  .speak-card{ background:linear-gradient(135deg, rgba(15,212,184,0.10), rgba(164,122,255,0.08)); border:2px solid rgba(15,212,184,0.35); border-radius:20px; padding:28px 26px; margin:18px 0; }
+  .speak-card .speak-icon{ font-size:40px; display:block; margin-bottom:10px; text-align:center; }
+  .speak-card .bi-en, .speak-card .bi-fr{ background:transparent; border:none; padding:0; text-align:center; }
+  .speak-card .bi-en{ font-size:21px; font-weight:600; }
+  .nudge-toggle{ display:block; margin:16px auto 0; background:none; border:none; color:var(--teal); font-weight:700; font-size:14px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
+  .nudge-box{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:12px; padding:14px 18px; margin-top:14px; }
+  .nudge-box.show{ display:block; }
+  .nudge-box .starter{ font-family:'Poppins',sans-serif; font-weight:700; color:var(--amber); font-size:15px; margin:4px 0; }
+  .done-talking-btn{ display:block; margin:20px auto 0; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; padding:13px 30px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
+  .done-talking-btn:disabled{ opacity:.5; cursor:default; }
+  .talk-confirm{ text-align:center; margin-top:16px; font-weight:700; color:var(--lime); display:none; }
+  .talk-confirm.show{ display:block; }
+
+  /* ===== Bonus wheel framing ===== */
+  .bonus-frame{ text-align:center; margin-bottom:6px; }
+  .bonus-frame .bi-en, .bonus-frame .bi-fr{ background:transparent; border:none; padding:0 0 4px; text-align:center; }
+
+  /* ===== True/False quick response ===== */
+  .tf-row{ display:flex; gap:16px; justify-content:center; max-width:480px; margin:18px auto 0; }
+  .tf-btn{ flex:1; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; padding:20px 14px; border-radius:16px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; transition:transform .08s ease,background .15s ease,border-color .15s ease; }
+  .tf-btn:hover{ transform:translateY(-2px); }
+  .tf-btn.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
+  .tf-btn.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
+  .tf-btn.disabled{ pointer-events:none; opacity:.55; }
+
+  /* ===== Two-column compare cards ===== */
+  .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0; }
+  @media (max-width:600px){ .compare-grid{ grid-template-columns:1fr; } }
+  .compare-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px 16px; }
+  .compare-card .cc-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--amber); margin-bottom:10px; text-align:center; }
+  .compare-card ul{ margin:0; padding-left:18px; font-size:15px; line-height:1.7; color:var(--white); }
+
+  footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:var(--muted); }
+</style>
+</head>
+<body class="notranslate" translate="no">
+
+<div class="hud">
+  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 11</span></div>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
+  </div>
+</div>
+<div class="xp-pop" id="xpPop"></div>
+<div class="scroll-cue" id="scrollCue"><span>Scroll for more / Fais defiler</span><span class="arrow">&#8595;</span></div>
+
+<div class="slide-viewport" id="slideViewport">
+
+<!-- SLIDE 0: HERO -->
+<div class="slide active" data-title="If I Were...">
+  <div class="card" style="text-align:center;">
+    <div class="brandbar" style="justify-content:center;"><span class="dot"></span> KingCretot Experience</div>
+    <span class="hero-emoji">🏛️</span>
+    <h1>Season One, Episode Nine:<br><span class="accent">If I Were...</span></h1>
+    <div class="hero-sub-en">Today you'll learn to talk about imagined, unreal situations — not what might really happen, but what you'd do in a world that isn't real.</div>
+    <div class="hero-sub-fr">Aujourd'hui, tu vas apprendre à parler de situations imaginaires, irréelles — pas ce qui pourrait vraiment arriver, mais ce que tu ferais dans un monde qui n'existe pas.</div>
+    <div class="bi-cols" style="margin-top:24px; text-align:left;">
+      <div class="bi-en">Today's guest has thought through an imaginary job in incredible detail — down to the exact streets he'd fix first.</div>
+      <div class="bi-fr">L'invité d'aujourd'hui a réfléchi à un poste imaginaire dans les moindres détails — jusqu'aux rues exactes qu'il réparerait en premier.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 1: THE SKILL -->
+<div class="slide" data-title="The Skill">
+  <div class="card">
+    <span class="badge-tag">Today's Skill · La compétence du jour</span>
+    <h2>🎯 Imagined Realities: If I Were..., I Would...</h2>
+    <div class="bi-cols">
+      <div class="bi-en">This is different from Episode 5's "real possibility." This is for things that are NOT true right now, and probably never will be.</div>
+      <div class="bi-fr">C'est différent de la « possibilité réelle » de l'Épisode 5. Ceci sert pour des choses qui ne sont PAS vraies en ce moment, et qui ne le seront probablement jamais.</div>
+    </div>
+    <div class="skill-box">
+      <div class="skill-table">
+        <div class="skill-row">
+          <div class="skill-en">The pattern<span class="sample">If + past tense, ... would + base verb</span></div>
+          <div class="skill-fr">If + passé, ... would + verbe de base.</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-en">Special rule<span class="sample">Always use "were," even for "I": "If I were..."</span></div>
+          <div class="skill-fr">Toujours « were », même pour « I ».</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-en">Example<span class="sample">"If I were mayor, I would plant trees."</span></div>
+          <div class="skill-fr">Un vrai souhait imaginaire, pas un vrai projet.</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-en">Compare to Episode 5<span class="sample">If I make the team... (real) vs. If I were captain... (imaginary)</span></div>
+          <div class="skill-fr">Compare avec l'Épisode 5 : réel vs. imaginaire.</div>
+        </div>
+      </div>
+      <div class="skill-tryit">You'll use these for real with me in a few minutes. / Tu vas les utiliser pour de vrai avec moi dans quelques minutes.</div>
+    </div>
+    <div class="vocab-grid" id="vocabGrid"></div>
+    <p style="font-size:15px; color:var(--muted); margin-top:8px;" id="vocabHint">Flip at least 5 cards to unlock Next. / Retourne au moins 5 cartes pour débloquer Suivant.</p>
+  </div>
+</div>
+
+<!-- SLIDE 2: QUICK PRACTICE — MCQ MODE -->
+<div class="slide" data-title="Quick Practice">
+  <div class="card">
+    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
+    <h2>🎯 Real or Imaginary?</h2>
+    <div class="bi-cols">
+      <div class="bi-en">Which sentence correctly describes an IMAGINARY situation (something not really true)?</div>
+      <div class="bi-fr">Quelle phrase décrit correctement une situation IMAGINAIRE (quelque chose qui n'est pas vraiment vrai) ?</div>
+    </div>
+    <div class="mcq-options" data-gid="qp1">
+      <button class="mcq-opt" data-ans="A">A) If I am rich, I will travel the world.<span class="opt-fr">Ça, c'est une possibilité réelle</span></button>
+      <button class="mcq-opt" data-ans="B">B) If I were rich, I would travel the world.<span class="opt-fr">« were » + « would » = imaginaire</span></button>
+      <button class="mcq-opt" data-ans="C">C) If I was rich, I travel the world.<span class="opt-fr">Grammaire incorrecte</span></button>
+    </div>
+    <div class="feedback-banner" id="mcqFeedbackQP1"></div>
+  </div>
+</div>
+
+<!-- SLIDE 3: QUICK PRACTICE 2 — SENTENCE BUILDER MODE -->
+<div class="slide" data-title="Build the Imagined World">
+  <div class="card">
+    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
+    <h2>🧩 Build the Imagined World</h2>
+    <div class="bi-cols">
+      <div class="bi-en">Tap the pieces in order to build a correct imaginary-situation sentence.</div>
+      <div class="bi-fr">Touche les pièces dans l'ordre pour construire une phrase de situation imaginaire correcte.</div>
+    </div>
+    <div class="word-bank-wrap">
+      <div class="sentence-slot" id="sentenceSlot"></div>
+      <div class="word-bank" id="wordBank"></div>
+    </div>
+    <div class="feedback-banner" id="phraseFeedback"></div>
+  </div>
+</div>
+
+<!-- SLIDE 4: GUEST BIO — READING ONLY -->
+<div class="slide" data-title="Guest Bio">
+  <div class="card">
+    <span class="badge-tag">Meet the Guest · Rencontre avec l'invité</span>
+    <h2>📋 Meet Today's Guest</h2>
+    <div class="bi-cols">
+      <div class="bi-en">Read carefully — notice how detailed Kwame's imaginary plan is, even though it isn't real.</div>
+      <div class="bi-fr">Lis attentivement — remarque à quel point le plan imaginaire de Kwame est détaillé, même s'il n'est pas réel.</div>
+    </div>
+    <div class="passage-card">
+      <div class="ptitle">Guest Bio · Fiche invité</div>
+      <p>Meet today's guest: Kwame Mensah, 15, from Accra. Kwame isn't mayor of his city — he's just a ninth grader — but he thinks about it a lot. If he were mayor, he says, he would plant trees along every major road, because the heat in Accra has gotten worse every year. He would also build free water stations downtown, since so many people can't afford bottled water during the dry season. His teacher once asked the class what they would change if they had unlimited power, and Kwame's answer was so detailed — with actual numbers and street names — that she suggested he write to the real mayor's office instead of just imagining it. He hasn't sent the letter yet, but he says if he ever did, he wouldn't sugarcoat anything.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: COMPREHENSION CHECK -->
+<div class="slide" data-title="What Did You Catch?">
+  <div class="card">
+    <span class="badge-tag">Precision Check · Vérification précise</span>
+    <h2>🧠 What Did You Catch?</h2>
+    <div class="bi-cols">
+      <div class="bi-en">These questions ask you to figure things out, not just find a matching sentence.</div>
+      <div class="bi-fr">Ces questions te demandent de comprendre, pas juste de retrouver une phrase identique.</div>
+    </div>
+    <div class="bi-en" style="margin-bottom:6px;">What would Kwame do if he were mayor?</div>
+    <div class="bi-fr" style="margin-bottom:6px;">Que ferait Kwame s'il était maire ?</div>
+    <div class="mcq-options" data-gid="r1">
+      <button class="mcq-opt" data-ans="A">A) Plant trees along every major road<span class="opt-fr">Planter des arbres le long des grandes routes</span></button>
+      <button class="mcq-opt" data-ans="B">B) Build a new school<span class="opt-fr">Construire une nouvelle école</span></button>
+      <button class="mcq-opt" data-ans="C">C) Lower everyone's taxes<span class="opt-fr">Baisser les impôts de tout le monde</span></button>
+    </div>
+    <div class="feedback-banner" id="mcqFeedbackR1"></div>
+
+    <div style="margin-top:24px;">
+      <div class="bi-en" style="margin-bottom:6px;">Why did his teacher suggest he write to the real mayor's office?</div>
+      <div class="bi-fr" style="margin-bottom:6px;">Pourquoi son enseignante lui a-t-elle suggéré d'écrire au vrai bureau du maire ?</div>
+    </div>
+    <div class="mcq-options" data-gid="r2">
+      <button class="mcq-opt" data-ans="A">A) His answer was so detailed, with real numbers and street names<span class="opt-fr">Sa réponse était si détaillée, avec de vrais chiffres et noms de rues</span></button>
+      <button class="mcq-opt" data-ans="B">B) He was already friends with the mayor<span class="opt-fr">Il était déjà ami avec le maire</span></button>
+      <button class="mcq-opt" data-ans="C">C) The class was writing letters for homework<span class="opt-fr">La classe écrivait des lettres pour un devoir</span></button>
+    </div>
+    <div class="feedback-banner" id="mcqFeedbackR2"></div>
+  </div>
+</div>
+
+<!-- SLIDE 6: APPLY IT — TRUE/FALSE MODE -->
+<div class="slide" data-title="True or False?">
+  <div class="card" style="text-align:center;">
+    <span class="badge-tag">Apply It · Mets-le en pratique</span>
+    <h2>✅❌ True or False?</h2>
+    <div class="bi-cols" style="text-align:left;">
+      <div class="bi-en">This tests the grammar rule itself — not the guest bio.</div>
+      <div class="bi-fr">Ceci teste la règle de grammaire elle-même — pas la fiche invité.</div>
+    </div>
+    <div class="passage-card" style="font-style:italic;">
+      "If I were mayor, I will change everything." — Is this correct English?
+    </div>
+    <div class="tf-row">
+      <button class="tf-btn" id="tfTrue" data-ans="true">✅ True / Vrai</button>
+      <button class="tf-btn" id="tfFalse" data-ans="false">❌ False / Faux</button>
+    </div>
+    <div class="feedback-banner" id="tfFeedback"></div>
+  </div>
+</div>
+
+<!-- SLIDE 7: YOUR TURN — SPEAKING TASK -->
+<div class="slide" data-title="Your Turn">
+  <div class="card">
+    <span class="badge-tag">The Real Work · Le vrai travail</span>
+    <h2>🎤 Your Turn — Live</h2>
+    <div class="speak-card">
+      <span class="speak-icon">💬</span>
+      <div class="bi-en">If you were in charge of something — your school, your town, anything — what's ONE thing you would change? Use "If I were..., I would..."</div>
+      <div class="bi-fr">Si tu étais responsable de quelque chose — ton école, ta ville, n'importe quoi — quelle est UNE chose que tu changerais ? Utilise « If I were..., I would... »</div>
+      <button class="nudge-toggle" id="nudgeToggle">Need a nudge? / Besoin d'un coup de pouce ?</button>
+      <div class="nudge-box" id="nudgeBox">
+        <div class="starter">"If I were..., I would..."</div>
+        <div class="starter">"If I had..., I would..."</div>
+      </div>
+      <button class="done-talking-btn" id="doneTalkingBtn">✅ We talked it through</button>
+      <div class="talk-confirm" id="talkConfirm">Nice work. That's the real lesson — you just did it. 🌟</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: DEBRIEF -->
+<div class="slide" data-title="Debrief">
+  <div class="card">
+    <span class="badge-tag">Reflect · Réflexion</span>
+    <h2>💭 Quick Debrief</h2>
+    <div class="speak-card">
+      <span class="speak-icon">🌟</span>
+      <div class="bi-en">Was it hard to imagine something that's not real? What did you learn about yourself from what you chose to change?</div>
+      <div class="bi-fr">Était-ce difficile d'imaginer quelque chose qui n'est pas réel ? Qu'as-tu appris sur toi-même à partir de ce que tu as choisi de changer ?</div>
+      <button class="nudge-toggle" id="nudgeToggle2">Need a nudge? / Besoin d'un coup de pouce ?</button>
+      <div class="nudge-box" id="nudgeBox2">
+        <div class="starter">"It was hard/easy because..."</div>
+        <div class="starter">"I learned that I..."</div>
+      </div>
+      <button class="done-talking-btn" id="doneTalkingBtn2">✅ We talked it through</button>
+      <div class="talk-confirm" id="talkConfirm2">Good noticing that — that awareness is how you get better. 🌟</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: BONUS ROUND (OPTIONAL WHEEL) -->
+<div class="slide" data-title="Bonus Round">
+  <div class="card">
+    <span class="badge-tag" style="background:rgba(255,184,48,0.14); color:var(--amber); border-color:rgba(255,184,48,0.3);">Optional · Facultatif</span>
+    <h2>🎡 Bonus Round — Only If We Have Time</h2>
+    <div class="bonus-frame">
+      <div class="bi-en">This part is completely optional. If we finish early or you want to keep talking about something new, spin the wheel and pick a topic. If not — no problem, the real work for today is already done.</div>
+      <div class="bi-fr">Cette partie est totalement facultative. Si on a fini en avance ou si tu veux continuer sur un autre sujet, fais tourner la roue. Sinon, pas de souci — le vrai travail d'aujourd'hui est déjà fait.</div>
+    </div>
+    <div class="wheel-frame">
+      <div class="wheel-main">
+        <div class="wheel-left">
+          <div class="wheel-wrap">
+            <div class="wheel-pointer"></div>
+            <svg class="wheel-svg" id="wheel" viewBox="0 0 300 300" aria-hidden="true"></svg>
+            <button class="wheel-hub" id="whub" aria-label="Spin the wheel">
+              <span class="spin-ico">↻</span><span class="word">SPIN</span>
+            </button>
+          </div>
+          <div class="wheel-hint" id="whint">Tap SPIN if you want to / Touche SPIN si tu veux</div>
+          <div class="wheel-legend" id="wlegend"></div>
+        </div>
+        <div class="wheel-right">
+          <div class="wpanel" id="wpanel">
+            <div class="wplaceholder" id="wplaceholder">Totally optional — spin only if there's time left. / Facultatif — fais tourner seulement s'il reste du temps.</div>
+          </div>
+          <div class="wactions" id="wactions" style="display:none">
+            <button class="wbtn wbtn-ghost" id="wagainBtn">Another in this topic</button>
+            <button class="wbtn wbtn-primary" id="wspinBtn">Spin again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10: CELEBRATION -->
+<div class="slide" data-title="Great Ninth Episode">
+  <div class="card" style="text-align:center;">
+    <span class="badge-tag">Episode Wrap · Fin de l'épisode</span>
+    <h1>Great ninth episode, <span class="accent">Berenice!</span></h1>
+    <div class="bi-cols" style="margin-top:20px; text-align:left;">
+      <div class="bi-en">Look what you actually did today — not just understood, <strong>did</strong>.</div>
+      <div class="bi-fr">Regarde ce que tu as vraiment fait aujourd'hui — pas juste compris, <strong>fait</strong>.</div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num" id="statWords">0</div><div class="stat-lbl">Words &amp; chunks learned</div><div class="stat-lbl-fr">Mots et expressions appris</div></div>
+      <div class="stat-card"><div class="stat-num" id="statQuestions">4</div><div class="stat-lbl">Imaginary patterns practiced</div><div class="stat-lbl-fr">Modèles imaginaires pratiqués</div></div>
+      <div class="stat-card"><div class="stat-num" id="statSpeak">1</div><div class="stat-lbl">Imagined world, live</div><div class="stat-lbl-fr">Monde imaginaire, en direct</div></div>
+    </div>
+    <button class="celebrate-btn" id="celebrateBtn">🎉 Open Your Episode Badge</button>
+    <div class="badge-reveal" id="badgeReveal">
+      <span class="badge-emoji">🏅</span>
+      <div class="badge-title">Dream Builder — Episode 9 Complete!</div>
+      <div class="hero-sub-fr" style="margin-top:6px;">Bâtisseuse de rêves — Épisode 9 terminé !</div>
+    </div>
+    <p style="margin-top:20px; font-size:17px; color:var(--muted);">Welcome to November's episodes. 🍂</p>
+  </div>
+</div>
+
+</div>
+
+<div class="nav-row">
+  <button class="nav-btn back" id="backBtn">⬅ Back</button>
+  <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
+  <button class="nav-btn next" id="nextBtn">Next ➡</button>
+</div>
+
+<script>
+/* ============ CORE NAV / XP ============ */
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+let current = 0;
+let xp = 0;
+const locks = {1:false, 2:false, 3:false, 5:false, 6:false};
+
+function addXP(n){ xp += n; document.getElementById('xpCount').textContent = xp;
+  const pop = document.getElementById('xpPop'); pop.textContent = '+' + n + ' XP';
+  pop.classList.add('show'); setTimeout(()=>pop.classList.remove('show'), 900); }
+
+function refreshNav(){
+  document.getElementById('backBtn').disabled = (current === 0);
+  const nextBtn = document.getElementById('nextBtn');
+  const locked = locks.hasOwnProperty(current) && !locks[current];
+  nextBtn.disabled = locked || current === total-1;
+  nextBtn.classList.toggle('locked', locked);
+  nextBtn.textContent = current === total-1 ? 'Finished! 🎉' : 'Next ➡';
+  document.getElementById('progressLabel').textContent = 'Slide ' + (current+1) + ' / ' + total;
+  document.getElementById('progText').textContent = (current+1) + ' / ' + total;
+  if(current === total-1) runCelebrationEntry();
+}
+const slideViewport = document.getElementById('slideViewport');
+const scrollCue = document.getElementById('scrollCue');
+function checkScrollCue(){
+  const overflowing = slideViewport.scrollHeight > slideViewport.clientHeight + 4;
+  const atTop = slideViewport.scrollTop < 12;
+  scrollCue.classList.toggle('show', overflowing && atTop);
+}
+slideViewport.addEventListener('scroll', ()=>{
+  if(slideViewport.scrollTop > 12) scrollCue.classList.remove('show');
+  else checkScrollCue();
+});
+window.addEventListener('resize', checkScrollCue);
+function changeSlide(delta){
+  const newIdx = current + delta;
+  if(newIdx < 0 || newIdx >= total) return;
+  slides[current].classList.remove('active');
+  current = newIdx;
+  slides[current].classList.add('active');
+  refreshNav();
+  slideViewport.scrollTo({top:0, behavior:'auto'});
+  setTimeout(checkScrollCue, 60);
+}
+document.getElementById('backBtn').addEventListener('click', ()=>changeSlide(-1));
+document.getElementById('nextBtn').addEventListener('click', ()=>changeSlide(1));
+function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
+
+/* ============ VOCAB CARDS ============ */
+const vocabData = [
+  {e:"👑", en:"in charge", fr:"aux commandes", ex:"\"If I were in charge...\""},
+  {e:"🌳", en:"plant trees", fr:"planter des arbres", ex:"\"I would plant trees.\""},
+  {e:"💧", en:"water station", fr:"point d'eau", ex:"\"Free water stations for everyone.\""},
+  {e:"♾️", en:"unlimited power", fr:"pouvoir illimité", ex:"\"With unlimited power...\""},
+  {e:"📝", en:"detailed", fr:"détaillé(e)", ex:"\"His plan was very detailed.\""},
+  {e:"✉️", en:"write to", fr:"écrire à", ex:"\"I would write to the mayor.\""},
+  {e:"🍯", en:"sugarcoat", fr:"enjoliver / édulcorer", ex:"\"I wouldn't sugarcoat it.\""},
+  {e:"🌡️", en:"heat", fr:"chaleur", ex:"\"The heat has gotten worse.\""},
+];
+let vocabFlipped = 0;
+function buildVocab(){
+  const grid = document.getElementById('vocabGrid');
+  vocabData.forEach(item=>{
+    const card = document.createElement('div'); card.className = 'vocab-card';
+    card.innerHTML = `<span class="emoji">${item.e}</span><span class="word">${item.en}</span><span class="fr">${item.fr}<br><span style="font-size:11px;">${item.ex}</span></span>`;
+    card.addEventListener('click', ()=>{
+      if(!card.classList.contains('flipped')){
+        card.classList.add('flipped'); vocabFlipped++;
+        if(vocabFlipped >= 5 && !locks[1]){ locks[1] = true; addXP(1); document.getElementById('vocabHint').textContent = 'Nice! Next is unlocked. / Bien joué ! Suivant est débloqué.'; refreshNav(); }
+      }
+    });
+    grid.appendChild(card);
+  });
+}
+
+/* ============ SENTENCE BUILDER ============ */
+const displayPhrase = ['If', 'I', 'were', 'mayor,', 'I', 'would', 'plant', 'trees.'];
+const bankWords = shuffle(['would', 'If', 'mayor,', 'I', 'were', 'plant', 'I', 'trees.']);
+let placedWords = [];
+function buildPhraseScreen(){
+  const bank = document.getElementById('wordBank');
+  bankWords.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip';
+    chip.textContent = word;
+    chip.addEventListener('click', ()=>{
+      if(chip.classList.contains('used')) return;
+      placedWords.push(word); chip.classList.add('used');
+      renderSlot(); checkPhrase();
+    });
+    bank.appendChild(chip);
+  });
+  renderSlot();
+}
+function renderSlot(){
+  const slot = document.getElementById('sentenceSlot');
+  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
+    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
+}
+function checkPhrase(){
+  const fb = document.getElementById('phraseFeedback');
+  if(placedWords.length < displayPhrase.length) return;
+  const correct = placedWords.join(' ') === displayPhrase.join(' ');
+  if(correct){
+    addXP(2);
+    fb.innerHTML = '<span class="fb-en">Perfect! "If I were mayor, I would plant trees." 🌟</span><span class="fb-fr">Parfait ! « Si j\'étais maire, je planterais des arbres. »</span>';
+    fb.className = 'feedback-banner good';
+    locks[3] = true; refreshNav();
+  } else {
+    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
+    fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
+    fb.appendChild(resetBtn);
+  }
+}
+
+/* ============ MCQ ============ */
+const FB = {
+  qp1: { lockKey:2, ok:"B", expl:{
+    A:{en:"That's a real possibility (like Episode 5), not an imaginary one — try again!", fr:"C'est une possibilité réelle (comme l'Épisode 5), pas imaginaire — réessaie !"},
+    B:{en:"Yes! \"Were\" + \"would\" signals an imagined, unreal situation. 🎉", fr:"Oui ! « Were » + « would » signale une situation imaginaire, irréelle."},
+    C:{en:"The grammar is broken here — no \"would\" in the result. Try again!", fr:"La grammaire est incorrecte ici — pas de « would » dans le résultat. Réessaie !"}
+  }},
+  r1: { lockKey:5, ok:"A", expl:{
+    A:{en:"Yes! Planting trees along every major road is exactly what the bio says. 🎉", fr:"Oui ! Planter des arbres le long des grandes routes, c'est exactement ce que dit la fiche."},
+    B:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
+    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
+  }},
+  r2: { lockKey:5, ok:"A", expl:{
+    A:{en:"Yes! Real numbers and street names made it feel almost like a real proposal. 🎉", fr:"Oui ! De vrais chiffres et noms de rues, ça ressemblait presque à une vraie proposition."},
+    B:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
+    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
+  }}
+};
+let mcqAnswered = {qp1:false, r1:false, r2:false};
+function checkLockGroup(lockKey, members){
+  const allDone = members.every(m=>mcqAnswered[m]);
+  if(allDone && !locks[lockKey]){ locks[lockKey] = true; refreshNav(); }
+}
+function initMCQ(gid, feedbackId){
+  const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
+  const fb = document.getElementById(feedbackId);
+  block.querySelectorAll('.mcq-opt').forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      if(block.classList.contains('answered')) return;
+      const ans = opt.dataset.ans; const isCorrect = ans === FB[gid].ok;
+      if(isCorrect){
+        opt.classList.add('correct'); block.classList.add('answered');
+        block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
+        addXP(2);
+        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
+        fb.className = 'feedback-banner good';
+        mcqAnswered[gid] = true;
+        if(gid === 'qp1') checkLockGroup(2, ['qp1']);
+        if(gid === 'r1' || gid === 'r2') checkLockGroup(5, ['r1','r2']);
+      } else {
+        opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
+        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
+        fb.className = 'feedback-banner retry';
+      }
+    });
+  });
+}
+
+/* ============ TRUE/FALSE ============ */
+const tfTrue = document.getElementById('tfTrue');
+const tfFalse = document.getElementById('tfFalse');
+const tfFeedback = document.getElementById('tfFeedback');
+let tfAnswered = false;
+function handleTF(choseTrue){
+  if(tfAnswered) return;
+  tfAnswered = true;
+  tfTrue.classList.add('disabled'); tfFalse.classList.add('disabled');
+  if(!choseTrue){
+    tfFalse.classList.add('correct');
+    tfFeedback.innerHTML = '<span class="fb-en">Yes! It should be "would," not "will" — this is an imaginary situation. 🎉</span><span class="fb-fr">Oui ! Il faut dire « would », pas « will » — c\'est une situation imaginaire.</span>';
+    tfFeedback.className = 'feedback-banner good';
+    addXP(2);
+  } else {
+    tfTrue.classList.add('incorrect');
+    tfFeedback.innerHTML = '<span class="fb-en">Not quite — imaginary situations need "would," not "will." It should be "If I were mayor, I would change everything."</span><span class="fb-fr">Pas tout à fait — les situations imaginaires ont besoin de « would », pas « will ». Il faut dire « If I were mayor, I would change everything. »</span>';
+    tfFeedback.className = 'feedback-banner retry';
+  }
+  if(!locks[6]){ locks[6] = true; refreshNav(); }
+}
+tfTrue.addEventListener('click', ()=>handleTF(true));
+tfFalse.addEventListener('click', ()=>handleTF(false));
+
+/* ============ SPEAKING TASK + DEBRIEF ============ */
+document.getElementById('nudgeToggle').addEventListener('click', (e)=>{
+  const box = document.getElementById('nudgeBox');
+  box.classList.toggle('show');
+  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
+});
+document.getElementById('doneTalkingBtn').addEventListener('click', function(){
+  document.getElementById('talkConfirm').classList.add('show');
+  this.disabled = true;
+  this.textContent = '✅ Done';
+  addXP(5);
+});
+document.getElementById('nudgeToggle2').addEventListener('click', (e)=>{
+  const box = document.getElementById('nudgeBox2');
+  box.classList.toggle('show');
+  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
+});
+document.getElementById('doneTalkingBtn2').addEventListener('click', function(){
+  document.getElementById('talkConfirm2').classList.add('show');
+  this.disabled = true;
+  this.textContent = '✅ Done';
+  addXP(3);
+});
+
+/* ============ CONVERSATION WHEEL (optional bonus — never gates progress) ============ */
+const WCATS = [
+  { name:'About Me', emoji:'🙋', color:'#0fd4b8', text:'#00251f',
+    qs:[
+      {q:"What's one thing about you most people don't know?", qf:"Quelle est une chose sur toi que la plupart des gens ne savent pas ?", push:"Now tell me why you don't usually share it.", pushf:"Maintenant, dis-moi pourquoi tu ne le partages pas d'habitude."},
+      {q:"Describe yourself in three words. Explain the middle one.", qf:"Décris-toi en trois mots. Explique celui du milieu.", push:"Now give me a word your friends would use instead.", pushf:"Maintenant, donne un mot que tes amis utiliseraient à la place."},
+      {q:"What's something you're proud of this year?", qf:"De quoi es-tu fière cette année ?", push:"Now tell me what it took to get there.", pushf:"Maintenant, dis-moi ce qu'il a fallu pour y arriver."},
+      {q:"Are you more of a morning person or a night person?", qf:"Tu es plutôt du matin ou du soir ?", push:"Now describe what happens on the wrong side of that.", pushf:"Maintenant, décris ce qui se passe du mauvais côté."},
+      {q:"What's a small habit that says a lot about you?", qf:"Quelle petite habitude en dit long sur toi ?", push:"Now tell me when you noticed it.", pushf:"Maintenant, dis-moi quand tu l'as remarquée."},
+      {q:"If a stranger watched your day, what would surprise them?", qf:"Si un inconnu observait ta journée, qu'est-ce qui le surprendrait ?", push:"Now tell me if it would surprise you too.", pushf:"Maintenant, dis-moi si ça te surprendrait aussi."}
+    ]},
+  { name:'Home & Town', emoji:'🏠', color:'#ffb830', text:'#2a1c00',
+    qs:[
+      {q:"Give me a 30-second tour of your town for a visitor.", qf:"Fais-moi visiter ta ville en 30 secondes pour un visiteur.", push:"Now tell me the one place you'd save for last.", pushf:"Maintenant, dis-moi l'endroit que tu garderais pour la fin."},
+      {q:"What's the best-kept secret in your town?", qf:"Quel est le secret le mieux gardé de ta ville ?", push:"Now tell me who told you about it.", pushf:"Maintenant, dis-moi qui te l'a dit."},
+      {q:"Describe your bedroom in five sentences.", qf:"Décris ta chambre en cinq phrases.", push:"Now tell me which object you'd save in a fire.", pushf:"Maintenant, dis-moi quel objet tu sauverais dans un incendie."},
+      {q:"What's changed in your town since you were small?", qf:"Qu'est-ce qui a changé dans ta ville depuis que tu es petite ?", push:"Now tell me if that's better or worse.", pushf:"Maintenant, dis-moi si c'est mieux ou moins bien."},
+      {q:"Where do you go when you want to be alone?", qf:"Où tu vas quand tu veux être seule ?", push:"Now tell me what you do there.", pushf:"Maintenant, dis-moi ce que tu y fais."},
+      {q:"City center or middle of nowhere? Pick one and defend it.", qf:"Centre-ville ou milieu de nulle part ? Choisis et défends.", push:"Now tell me what you'd hate about your own choice.", pushf:"Maintenant, dis-moi ce que tu détesterais dans ton propre choix."}
+    ]},
+  { name:'School & Friends', emoji:'🎒', color:'#ff5a42', text:'#fff',
+    qs:[
+      {q:"How did you meet your closest friend?", qf:"Comment as-tu rencontré ta meilleure amie ?", push:"Now tell me the first thing you ever said to each other.", pushf:"Maintenant, dis-moi la première chose que vous vous êtes dite."},
+      {q:"What do you and your friends argue about most?", qf:"De quoi vous disputez-vous le plus avec tes amis ?", push:"Now tell me who usually wins.", pushf:"Maintenant, dis-moi qui gagne d'habitude."},
+      {q:"What's a running joke in your friend group?", qf:"Quelle est la blague récurrente dans ton groupe d'amis ?", push:"Now explain why it's funny to someone outside it.", pushf:"Maintenant, explique pourquoi c'est drôle à quelqu'un d'extérieur."},
+      {q:"Which subject this year are you actually looking forward to?", qf:"Quelle matière cette année tu attends vraiment avec impatience ?", push:"Now tell me which one you're dreading.", pushf:"Maintenant, dis-moi laquelle tu redoutes."},
+      {q:"Do you make the plans, or wait to be invited?", qf:"Tu proposes les plans, ou tu attends d'être invitée ?", push:"Now tell me which one you wish you were.", pushf:"Maintenant, dis-moi lequel tu aimerais être."},
+      {q:"Tell me about a time you laughed so hard you couldn't breathe.", qf:"Raconte-moi une fois où tu as tellement ri que tu ne pouvais plus respirer.", push:"Now tell me if it's still funny.", pushf:"Maintenant, dis-moi si c'est encore drôle."}
+    ]},
+  { name:'Favorites & Free Time', emoji:'🎧', color:'#a47aff', text:'#fff',
+    qs:[
+      {q:"What show or series would you make the whole world watch?", qf:"Quelle série ferais-tu regarder au monde entier ?", push:"Give me three reasons — no using the word 'good.'", pushf:"Donne trois raisons — interdit d'utiliser le mot « bien »."},
+      {q:"What's the last song stuck in your head? Describe it without singing.", qf:"Quelle est la dernière chanson coincée dans ta tête ? Décris-la sans chanter.", push:"Now tell me why it stuck.", pushf:"Maintenant, dis-moi pourquoi elle est restée."},
+      {q:"Sweet or savory? Pick your side for life.", qf:"Sucré ou salé ? Choisis ton camp pour la vie.", push:"Now name the one exception you'd allow.", pushf:"Maintenant, nomme la seule exception que tu t'autoriserais."},
+      {q:"Describe your perfect Saturday, hour by hour.", qf:"Décris ton samedi parfait, heure par heure.", push:"Now tell me the last time you actually had one.", pushf:"Maintenant, dis-moi la dernière fois que tu en as vraiment eu un."},
+      {q:"What's your comfort meal after a bad day?", qf:"Quel est ton plat réconfort après une mauvaise journée ?", push:"Now tell me who makes it best.", pushf:"Maintenant, dis-moi qui le fait le mieux."},
+      {q:"What's the most useless skill you have?", qf:"Quel est le talent le plus inutile que tu aies ?", push:"Now explain exactly how it works.", pushf:"Maintenant, explique exactement comment ça marche."}
+    ]},
+  { name:'Dreams & Future', emoji:'✨', color:'#3ee88a', text:'#00251f',
+    qs:[
+      {q:"Where do you want to be at 25? Paint me the picture.", qf:"Où veux-tu être à 25 ans ? Dépeins-moi le tableau.", push:"Now tell me what has to happen first.", pushf:"Maintenant, dis-moi ce qui doit se passer d'abord."},
+      {q:"If money didn't matter, what job would you choose?", qf:"Si l'argent n'avait aucune importance, quel métier choisirais-tu ?", push:"Now walk me through a normal Tuesday in that job.", pushf:"Maintenant, décris-moi un mardi ordinaire dans ce métier."},
+      {q:"One country you'd move to tomorrow — why there?", qf:"Un pays où tu déménagerais dès demain — pourquoi là-bas ?", push:"Now tell me what scares you about it.", pushf:"Maintenant, dis-moi ce qui te fait peur là-bas."},
+      {q:"What's a goal you're a little scared to say out loud?", qf:"Quel objectif as-tu un peu peur de dire à voix haute ?", push:"Now say one reason it matters to you.", pushf:"Maintenant, donne une raison pour laquelle il compte pour toi."},
+      {q:"What do you want to be able to say in English by Christmas?", qf:"Qu'est-ce que tu veux savoir dire en anglais d'ici Noël ?", push:"Now tell me what would make that possible.", pushf:"Maintenant, dis-moi ce qui rendrait ça possible."},
+      {q:"A whole free year anywhere, doing anything. Where and what?", qf:"Une année libre n'importe où, à faire n'importe quoi. Où et quoi ?", push:"Now tell me what you'd bring back.", pushf:"Maintenant, dis-moi ce que tu en ramènerais."}
+    ]},
+  { name:'Imagine!', emoji:'🎲', color:'#00d4ff', text:'#00251f',
+    qs:[
+      {q:"You wake up speaking perfect English. First thing you do?", qf:"Tu te réveilles en parlant anglais parfaitement. Tu fais quoi en premier ?", push:"Now tell me who you call.", pushf:"Maintenant, dis-moi qui tu appelles."},
+      {q:"Dinner with anyone, living or dead. Who, and what do you ask?", qf:"Un dîner avec qui tu veux, vivant ou mort. Qui, et tu demandes quoi ?", push:"Now tell me what they'd ask you.", pushf:"Maintenant, dis-moi ce qu'il te demanderait."},
+      {q:"You're invisible for 24 hours. Where do you go?", qf:"Tu es invisible pendant 24 heures. Tu vas où ?", push:"Now tell me what you'd never do.", pushf:"Maintenant, dis-moi ce que tu ne ferais jamais."},
+      {q:"Animals can talk for one day. Which one do you want to hear from?", qf:"Les animaux parlent pendant une journée. Lequel tu veux entendre ?", push:"Now tell me what it says about us.", pushf:"Maintenant, dis-moi ce qu'il pense de nous."},
+      {q:"You can delete one invention from history. Which one?", qf:"Tu peux effacer une invention de l'histoire. Laquelle ?", push:"Now tell me what breaks because of that.", pushf:"Maintenant, dis-moi ce que ça casse."},
+      {q:"One sentence to yourself at age ten. What is it?", qf:"Une phrase à toi-même à dix ans. C'est quoi ?", push:"Now tell me if she'd listen.", pushf:"Maintenant, dis-moi si elle écouterait."}
+    ]}
+];
+
+const SVGNS = "http://www.w3.org/2000/svg";
+const wheelEl = document.getElementById('wheel');
+const NW = WCATS.length, wseg = 360/NW, wcx=150, wcy=150, wr=148;
+function wpolar(rr, angDeg){ const a=(angDeg)*Math.PI/180; return [wcx + rr*Math.sin(a), wcy - rr*Math.cos(a)]; }
+WCATS.forEach((c,i)=>{
+  const start=i*wseg, end=(i+1)*wseg;
+  const [x1,y1]=wpolar(wr,start), [x2,y2]=wpolar(wr,end);
+  const large = wseg>180?1:0;
+  const path=document.createElementNS(SVGNS,'path');
+  path.setAttribute('d',`M${wcx},${wcy} L${x1.toFixed(2)},${y1.toFixed(2)} A${wr},${wr} 0 ${large} 1 ${x2.toFixed(2)},${y2.toFixed(2)} Z`);
+  path.setAttribute('fill',c.color); path.setAttribute('stroke','#09111f'); path.setAttribute('stroke-width','2');
+  wheelEl.appendChild(path);
+  const mid=start+wseg/2; const [ex,ey]=wpolar(wr*0.66, mid);
+  const t=document.createElementNS(SVGNS,'text');
+  t.setAttribute('x',ex.toFixed(2)); t.setAttribute('y',(ey+8).toFixed(2));
+  t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','22'); t.textContent=c.emoji;
+  wheelEl.appendChild(t);
+});
+const wrim=document.createElementNS(SVGNS,'circle');
+wrim.setAttribute('cx',wcx); wrim.setAttribute('cy',wcy); wrim.setAttribute('r',wr);
+wrim.setAttribute('fill','none'); wrim.setAttribute('stroke','#ffb830'); wrim.setAttribute('stroke-width','4');
+wheelEl.appendChild(wrim);
+
+const wlegend = document.getElementById('wlegend');
+WCATS.forEach((c,i)=>{
+  const b=document.createElement('button'); b.className='wchip';
+  b.style.background=c.color; b.style.color=c.text;
+  b.innerHTML=`<span>${c.emoji}</span> ${c.name}`;
+  b.addEventListener('click', ()=>spinWheelTo(i));
+  wlegend.appendChild(b);
+});
+
+const whub=document.getElementById('whub');
+const whint=document.getElementById('whint');
+const wpanel=document.getElementById('wpanel');
+const wactions=document.getElementById('wactions');
+const wchips=[...document.querySelectorAll('.wchip')];
+let wrotation=0, wspinning=false, wcurrentCat=null, wlastQ={}; const wdecks={};
+
+function wsetDisabled(state){
+  wspinning=state; whub.disabled=state;
+  const sb=document.getElementById('wspinBtn'), ab=document.getElementById('wagainBtn');
+  if(sb) sb.disabled=state; if(ab) ab.disabled=state;
+  wchips.forEach(ch=>ch.disabled=state);
+}
+function wpickQuestion(i){
+  const list = WCATS[i].qs;
+  if(!wdecks[i] || wdecks[i].length===0){
+    wdecks[i] = list.map((_,k)=>k);
+    for(let k=wdecks[i].length-1;k>0;k--){ const j=Math.floor(Math.random()*(k+1)); [wdecks[i][k],wdecks[i][j]]=[wdecks[i][j],wdecks[i][k]]; }
+    if(list.length>1 && wdecks[i][wdecks[i].length-1]===wlastQ[i]){ [wdecks[i][0],wdecks[i][wdecks[i].length-1]]=[wdecks[i][wdecks[i].length-1],wdecks[i][0]]; }
+  }
+  const idx = wdecks[i].pop(); wlastQ[i]=idx; return list[idx];
+}
+function wreveal(i){
+  const c = WCATS[i]; const item = wpickQuestion(i); wcurrentCat = i;
+  wpanel.classList.remove('show');
+  wpanel.innerHTML = `
+    <span class="wcat-chip" style="background:${c.color};color:${c.text}">${c.emoji} ${c.name}</span>
+    <div class="wq">${item.q}</div>
+    <div class="wqf" lang="fr">${item.qf}</div>
+    <button class="wpush-toggle" id="wpushToggle">Take it further →</button>
+    <div class="wpush" id="wpushBox"><span class="lbl">Take it further · Pour aller plus loin</span><span class="txt">${item.push}</span><span class="txt-fr" lang="fr">${item.pushf}</span></div>
+  `;
+  wactions.style.display = 'flex';
+  void wpanel.offsetWidth;
+  wpanel.classList.add('show');
+  document.getElementById('wpushToggle').addEventListener('click', (e)=>{
+    const box = document.getElementById('wpushBox');
+    box.classList.toggle('show');
+    e.target.textContent = box.classList.contains('show') ? 'Hide' : 'Take it further →';
+  });
+  whint.textContent = 'Talk it through, then spin again if you like. / Parle, puis fais tourner à nouveau si tu veux.';
+  wsetDisabled(false);
+}
+function spinWheelTo(i){
+  if(wspinning) return;
+  wsetDisabled(true); whint.textContent = 'Spinning…';
+  const center = i*wseg + wseg/2;
+  const jitter = (Math.random()*2-1)*(wseg/2 - 9);
+  const target = (center + jitter);
+  const align = ((360 - (target % 360)) % 360);
+  const currentMod = ((wrotation % 360)+360)%360;
+  let delta = (align - currentMod + 360)%360;
+  const turns = 5 + Math.floor(Math.random()*3);
+  wrotation = wrotation + turns*360 + delta;
+  wheelEl.style.transform = `rotate(${wrotation}deg)`;
+  const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const afterSpin = ()=>{ wreveal(i); };
+  if(reduce){ afterSpin(); return; }
+  const onEnd = ()=>{ wheelEl.removeEventListener('transitionend', onEnd); afterSpin(); };
+  wheelEl.addEventListener('transitionend', onEnd);
+}
+function spinWheelRandom(){ spinWheelTo(Math.floor(Math.random()*NW)); }
+whub.addEventListener('click', spinWheelRandom);
+document.getElementById('wspinBtn').addEventListener('click', spinWheelRandom);
+document.getElementById('wagainBtn').addEventListener('click', ()=>{ if(wcurrentCat!==null) wreveal(wcurrentCat); });
+
+/* ============ CELEBRATION SLIDE ============ */
+let celebrationRan = false;
+function animateCount(el, target, duration){
+  const start = performance.now();
+  function frame(now){
+    const p = Math.min((now-start)/duration, 1);
+    el.textContent = Math.round(p * target);
+    if(p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+function runCelebrationEntry(){
+  if(celebrationRan) return; celebrationRan = true;
+  animateCount(document.getElementById('statWords'), vocabFlipped, 700);
+}
+function spawnConfetti(){
+  const pieces = ['🎉','⭐','🎊','🎙️','✨'];
+  for(let i=0;i<26;i++){
+    const el = document.createElement('span'); el.className = 'confetti-piece';
+    el.textContent = pieces[Math.floor(Math.random()*pieces.length)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.animationDuration = (2 + Math.random()*1.6) + 's';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(), 4000);
+  }
+}
+document.getElementById('celebrateBtn').addEventListener('click', function(){
+  spawnConfetti();
+  document.getElementById('badgeReveal').classList.add('show');
+  addXP(5);
+  this.disabled = true;
+  this.textContent = '🏅 Badge Unlocked!';
+});
+
+/* ============ INIT ============ */
+buildVocab();
+buildPhraseScreen();
+initMCQ('qp1', 'mcqFeedbackQP1');
+initMCQ('r1', 'mcqFeedbackR1');
+initMCQ('r2', 'mcqFeedbackR2');
+refreshNav();
+setTimeout(checkScrollCue, 100);
+</script>
+</body>
+</html>
