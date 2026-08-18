@@ -38,7 +38,6 @@
   .slide.active{ display:block; }
   @keyframes slideIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
 
-  /* ===== Scroll viewport (sits cleanly between fixed HUD and fixed nav bar) ===== */
   .slide-viewport{ position:fixed; top:66px; left:0; right:0; bottom:78px; overflow-y:auto; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
   .slide-viewport::-webkit-scrollbar{ width:8px; }
   .slide-viewport::-webkit-scrollbar-thumb{ background:var(--rim); border-radius:8px; }
@@ -128,7 +127,6 @@
   .match-dot{ width:10px; height:10px; border-radius:50%; background:var(--rim); }
   .match-dot.done{ background:var(--lime); }
 
-  /* ===== Conversation Wheel ===== */
   .bridge-line{ background:linear-gradient(135deg, rgba(255,184,48,0.14), rgba(255,90,66,0.08)); border:1px solid rgba(255,184,48,0.4); border-radius:16px; padding:16px 20px; margin:16px 0; text-align:center; }
   .bridge-line .bridge-icon{ font-size:24px; display:block; margin-bottom:6px; }
   .bridge-line .bridge-en{ font-size:18px; font-weight:700; color:var(--white); line-height:1.4; }
@@ -173,7 +171,6 @@
   .wbtn:disabled{ opacity:.5; cursor:default; }
   .wspin-count{ font-size:13px; color:var(--muted); margin-top:8px; text-align:center; }
 
-  /* ===== Celebration slide ===== */
   .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0; }
   @media (max-width:680px){ .stat-grid{ grid-template-columns:1fr; } }
   .stat-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px; text-align:center; }
@@ -190,8 +187,6 @@
   .confetti-piece{ position:fixed; top:-20px; z-index:200; pointer-events:none; font-size:22px; animation:confettiFall linear forwards; }
   @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(400deg); opacity:0.2; } }
 
-
-  /* ===== Skill teaching box ===== */
   .skill-box{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; }
   .skill-table{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
   .skill-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; background:var(--card); border:1px solid var(--rim); border-radius:12px; padding:12px 16px; align-items:center; }
@@ -201,7 +196,6 @@
   .skill-fr{ font-size:14px; color:var(--violet); font-style:italic; line-height:1.4; }
   .skill-tryit{ margin-top:14px; font-size:14px; color:var(--muted); text-align:center; font-style:italic; }
 
-  /* ===== Speaking task (the real climax) ===== */
   .speak-card{ background:linear-gradient(135deg, rgba(15,212,184,0.10), rgba(164,122,255,0.08)); border:2px solid rgba(15,212,184,0.35); border-radius:20px; padding:28px 26px; margin:18px 0; }
   .speak-card .speak-icon{ font-size:40px; display:block; margin-bottom:10px; text-align:center; }
   .speak-card .bi-en, .speak-card .bi-fr{ background:transparent; border:none; padding:0; text-align:center; }
@@ -215,7 +209,6 @@
   .talk-confirm{ text-align:center; margin-top:16px; font-weight:700; color:var(--lime); display:none; }
   .talk-confirm.show{ display:block; }
 
-  /* ===== Bonus wheel framing ===== */
   .bonus-frame{ text-align:center; margin-bottom:6px; }
   .bonus-frame .bi-en, .bonus-frame .bi-fr{ background:transparent; border:none; padding:0 0 4px; text-align:center; }
 
@@ -225,7 +218,7 @@
 <body class="notranslate" translate="no">
 
 <div class="hud">
-  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 7</span></div>
+  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 11</span></div>
   <div style="display:flex; gap:10px; align-items:center;">
     <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
   </div>
@@ -285,10 +278,45 @@
   </div>
 </div>
 
-<!-- SLIDE 2: GUEST BIO -->
+<!-- SLIDE 2: QUICK PRACTICE — MCQ MODE -->
+<div class="slide" data-title="Quick Practice">
+  <div class="card">
+    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
+    <h2>🎯 Direct or Curious?</h2>
+    <div class="bi-cols">
+      <div class="bi-en">Which question shows genuine curiosity — not just a request for a fact?</div>
+      <div class="bi-fr">Quelle question montre une vraie curiosité — pas juste une demande d'information ?</div>
+    </div>
+    <div class="mcq-options" data-gid="qp1">
+      <button class="mcq-opt" data-ans="A">A) Who did you go with?<span class="opt-fr">Direct, juste une info</span></button>
+      <button class="mcq-opt" data-ans="B">B) What made you decide to go?<span class="opt-fr">Curieuse, montre de l'intérêt</span></button>
+      <button class="mcq-opt" data-ans="C">C) Did you go or not?<span class="opt-fr">Brusque, presque un reproche</span></button>
+    </div>
+    <div class="feedback-banner" id="mcqFeedbackQP1"></div>
+  </div>
+</div>
+
+<!-- SLIDE 3: QUICK PRACTICE 2 — MATCH GAME MODE -->
+<div class="slide" data-title="Match the Tone">
+  <div class="card" style="text-align:center;">
+    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
+    <h2>🔗 Match the Tone</h2>
+    <div class="bi-cols" style="text-align:left;">
+      <div class="bi-en">Tap the English question that matches the tone shown in French.</div>
+      <div class="bi-fr">Touche la question anglaise qui correspond au ton indiqué en français.</div>
+    </div>
+    <div class="match-progress" id="matchProgress"></div>
+    <div class="match-round-label">Round <span id="matchRoundNum">1</span> / 3</div>
+    <div class="match-fr-word" id="matchFrWord"></div>
+    <div class="match-grid" id="matchGrid"></div>
+    <div class="feedback-banner" id="matchFeedback"></div>
+  </div>
+</div>
+
+<!-- SLIDE 4: GUEST BIO — READING ONLY -->
 <div class="slide" data-title="Guest Bio">
   <div class="card">
-    <span class="badge-tag">Precision Check · Vérification précise</span>
+    <span class="badge-tag">Meet the Guest · Rencontre avec l'invitée</span>
     <h2>📋 Meet Today's Guest</h2>
     <div class="bi-cols">
       <div class="bi-en">Read carefully. These questions ask you to figure things out, not just find a sentence that matches.</div>
@@ -297,6 +325,18 @@
     <div class="passage-card">
       <div class="ptitle">Guest Bio · Fiche invité</div>
       <p>Meet today's guest: Léa Toussaint, 16, from Marseille. Léa has two older brothers and one younger sister, and she says being the middle child taught her to speak up early — otherwise nobody hears you. She's been rock climbing for three years, even though her hands always end up covered in chalk and a little sore by the end of a session. What keeps her going back? The feeling right before she reaches the top, when she's not sure if she can make the last move. Two years ago, a school trip to the aquarium in Marseille changed something for her — she hasn't stopped thinking about the ocean since. Now her dream is to become a marine biologist.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: COMPREHENSION CHECK -->
+<div class="slide" data-title="What Did You Catch?">
+  <div class="card">
+    <span class="badge-tag">Precision Check · Vérification précise</span>
+    <h2>🧠 What Did You Catch?</h2>
+    <div class="bi-cols">
+      <div class="bi-en">These questions ask you to figure things out, not just find a matching sentence.</div>
+      <div class="bi-fr">Ces questions te demandent de comprendre, pas juste de retrouver une phrase identique.</div>
     </div>
     <div class="bi-en" style="margin-bottom:6px;">Why does Léa think being the middle child helped her?</div>
     <div class="bi-fr" style="margin-bottom:6px;">Pourquoi Léa pense-t-elle que le fait d'être l'enfant du milieu l'a aidée ?</div>
@@ -320,28 +360,24 @@
   </div>
 </div>
 
-<!-- SLIDE 3: APPLY IT -->
-<div class="slide" data-title="Apply It">
+<!-- SLIDE 6: APPLY IT — SENTENCE BUILDER MODE -->
+<div class="slide" data-title="Build the Question">
   <div class="card">
     <span class="badge-tag">Apply It · Mets-le en pratique</span>
-    <h2>🧠 Which Follow-Up Actually Works?</h2>
+    <h2>🧩 Build a Curious Follow-Up</h2>
     <div class="bi-cols">
-      <div class="bi-en">All three options below are grammatically fine. Only one actually sounds like genuine interest. Pick that one.</div>
-      <div class="bi-fr">Les trois options ci-dessous sont grammaticalement correctes. Une seule sonne comme un vrai intérêt. Choisis celle-là.</div>
+      <div class="bi-en">Léa just said: "Turns out, I actually got to the top on my first try this time." Tap the pieces in order to build a genuinely curious follow-up.</div>
+      <div class="bi-fr">Léa vient de dire : « Turns out, I actually got to the top on my first try this time. » Touche les pièces dans l'ordre pour construire une question de suivi vraiment curieuse.</div>
     </div>
-    <div class="passage-card" style="text-align:center; font-style:italic;">
-      Léa just said: <strong>"Turns out, I actually got to the top on my first try this time."</strong>
+    <div class="word-bank-wrap">
+      <div class="sentence-slot" id="sentenceSlot"></div>
+      <div class="word-bank" id="wordBank"></div>
     </div>
-    <div class="mcq-options" data-gid="q1">
-      <button class="mcq-opt" data-ans="A">A) You went to the top?<span class="opt-fr">Tu es allée au sommet ?</span></button>
-      <button class="mcq-opt" data-ans="B">B) What made this time different?<span class="opt-fr">Qu'est-ce qui a changé cette fois ?</span></button>
-      <button class="mcq-opt" data-ans="C">C) Did you go to the top or not?<span class="opt-fr">Tu es allée au sommet ou pas ?</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedback1"></div>
+    <div class="feedback-banner" id="phraseFeedback"></div>
   </div>
 </div>
 
-<!-- SLIDE 4: YOUR TURN — SPEAKING TASK (the real climax) -->
+<!-- SLIDE 7: YOUR TURN — SPEAKING TASK (the real climax) -->
 <div class="slide" data-title="Your Turn">
   <div class="card">
     <span class="badge-tag">The Real Work · Le vrai travail</span>
@@ -362,7 +398,27 @@
   </div>
 </div>
 
-<!-- SLIDE 5: BONUS ROUND (OPTIONAL WHEEL) -->
+<!-- SLIDE 8: DEBRIEF -->
+<div class="slide" data-title="Debrief">
+  <div class="card">
+    <span class="badge-tag">Reflect · Réflexion</span>
+    <h2>💭 Quick Debrief</h2>
+    <div class="speak-card">
+      <span class="speak-icon">🌟</span>
+      <div class="bi-en">Which tone felt most natural to use just now — curious, surprised, or casual? Why do you think that one?</div>
+      <div class="bi-fr">Quel ton t'a semblé le plus naturel à l'instant — curieux, surpris, ou familier ? Pourquoi celui-là selon toi ?</div>
+      <button class="nudge-toggle" id="nudgeToggle2">Need a nudge? / Besoin d'un coup de pouce ?</button>
+      <div class="nudge-box" id="nudgeBox2">
+        <div class="starter">"The curious one felt easiest because..."</div>
+        <div class="starter">"I think I used more of a... tone because..."</div>
+      </div>
+      <button class="done-talking-btn" id="doneTalkingBtn2">✅ We talked it through</button>
+      <div class="talk-confirm" id="talkConfirm2">Good noticing that — that awareness is how you get better. 🌟</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: BONUS ROUND (OPTIONAL WHEEL) -->
 <div class="slide" data-title="Bonus Round">
   <div class="card">
     <span class="badge-tag" style="background:rgba(255,184,48,0.14); color:var(--amber); border-color:rgba(255,184,48,0.3);">Optional · Facultatif</span>
@@ -398,7 +454,7 @@
   </div>
 </div>
 
-<!-- SLIDE 6: CELEBRATION -->
+<!-- SLIDE 10: CELEBRATION -->
 <div class="slide" data-title="Great Start">
   <div class="card" style="text-align:center;">
     <span class="badge-tag">Episode Wrap · Fin de l'épisode</span>
@@ -426,7 +482,7 @@
 
 <div class="nav-row">
   <button class="nav-btn back" id="backBtn">⬅ Back</button>
-  <span class="progress-label" id="progressLabel">Slide 1 / 7</span>
+  <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
   <button class="nav-btn next" id="nextBtn">Next ➡</button>
 </div>
 
@@ -436,7 +492,7 @@ const slides = document.querySelectorAll('.slide');
 const total = slides.length;
 let current = 0;
 let xp = 0;
-const locks = {1:false, 2:false, 3:false};
+const locks = {1:false, 2:false, 3:false, 5:false, 6:false};
 
 function addXP(n){ xp += n; document.getElementById('xpCount').textContent = xp;
   const pop = document.getElementById('xpPop'); pop.textContent = '+' + n + ' XP';
@@ -506,25 +562,118 @@ function buildVocab(){
   });
 }
 
-/* ============ MCQ (guest bio + apply-it) ============ */
+/* ============ MATCH GAME (tone matching) ============ */
+const matchWords = [
+  {fr: "ton curieux, doux", en: "I was wondering who you went with.", wrong1: "Who did you go with?", wrong2: "How come you didn't tell me?"},
+  {fr: "ton surpris, impressionné", en: "What made you decide to go?", wrong1: "Who did you go with?", wrong2: "I was wondering who you went with."},
+  {fr: "ton familier, entre amis", en: "How come you didn't tell me?", wrong1: "What made you decide to go?", wrong2: "Who did you go with?"}
+];
+let matchRound = 0;
+function buildMatchProgress(){
+  const wrap = document.getElementById('matchProgress');
+  for(let i=0;i<matchWords.length;i++){
+    const d = document.createElement('span'); d.className='match-dot'; d.id='mdot'+i;
+    wrap.appendChild(d);
+  }
+}
+function renderMatchRound(){
+  const item = matchWords[matchRound];
+  document.getElementById('matchRoundNum').textContent = matchRound+1;
+  document.getElementById('matchFrWord').textContent = item.fr;
+  document.getElementById('matchFeedback').innerHTML = '';
+  const grid = document.getElementById('matchGrid');
+  grid.innerHTML = '';
+  const options = shuffle([item.en, item.wrong1, item.wrong2]);
+  options.forEach(opt=>{
+    const btn = document.createElement('button'); btn.className='match-opt'; btn.textContent = opt;
+    btn.addEventListener('click', ()=>{
+      if(btn.classList.contains('disabled')) return;
+      const grid2 = document.getElementById('matchGrid');
+      if(opt === item.en){
+        btn.classList.add('correct');
+        grid2.querySelectorAll('.match-opt').forEach(o=>o.classList.add('disabled'));
+        addXP(1);
+        const dot = document.getElementById('mdot'+matchRound); if(dot) dot.classList.add('done');
+        document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">Yes! 🎉</span>';
+        setTimeout(()=>{
+          matchRound++;
+          if(matchRound >= matchWords.length){
+            if(!locks[3]){ locks[3] = true; refreshNav(); }
+            document.getElementById('matchFrWord').textContent = '✅';
+            document.getElementById('matchGrid').innerHTML = '';
+            document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">All done! Next is unlocked.</span><span class="fb-fr">Terminé ! Suivant est débloqué.</span>';
+          } else {
+            renderMatchRound();
+          }
+        }, 700);
+      } else {
+        btn.classList.add('incorrect'); setTimeout(()=>btn.classList.remove('incorrect'), 450);
+      }
+    });
+    grid.appendChild(btn);
+  });
+}
+
+/* ============ SENTENCE BUILDER (curious follow-up) ============ */
+const displayPhrase = ['What', 'made', 'you', 'decide', 'to', 'go?'];
+const bankWords = shuffle(['decide', 'What', 'go?', 'made', 'you', 'to']);
+let placedWords = [];
+function buildPhraseScreen(){
+  const bank = document.getElementById('wordBank');
+  bankWords.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip';
+    chip.textContent = word;
+    chip.addEventListener('click', ()=>{
+      if(chip.classList.contains('used')) return;
+      placedWords.push(word); chip.classList.add('used');
+      renderSlot(); checkPhrase();
+    });
+    bank.appendChild(chip);
+  });
+  renderSlot();
+}
+function renderSlot(){
+  const slot = document.getElementById('sentenceSlot');
+  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
+    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
+}
+function checkPhrase(){
+  const fb = document.getElementById('phraseFeedback');
+  if(placedWords.length < displayPhrase.length) return;
+  const correct = placedWords.join(' ') === displayPhrase.join(' ');
+  if(correct){
+    addXP(2);
+    fb.innerHTML = '<span class="fb-en">Perfect! "What made you decide to go?" 🌟</span><span class="fb-fr">Parfait ! « Qu\\'est-ce qui t\\'a poussée à y aller ? »</span>';
+    fb.className = 'feedback-banner good';
+    locks[6] = true; refreshNav();
+  } else {
+    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
+    fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
+    fb.appendChild(resetBtn);
+  }
+}
+
+/* ============ MCQ (quick practice + guest bio comprehension) ============ */
 const FB = {
-  r1: { lockKey:2, ok:"B", expl:{
+  qp1: { lockKey:2, ok:"B", expl:{
+    A:{en:"Grammatically fine, but it just restates what she said — flat, not curious. Try again!", fr:"Correct grammaticalement, mais ça ne fait que répéter — plat, pas curieux. Réessaie !"},
+    B:{en:"Yes! This shows genuine interest in WHY it was different. 🎉", fr:"Oui ! Ça montre un vrai intérêt pour POURQUOI c'était différent."},
+    C:{en:"Technically fine, but the tone is blunt — almost like you doubt her. Try again!", fr:"Correct techniquement, mais le ton est brusque — comme si tu doutais d'elle. Réessaie !"}
+  }},
+  r1: { lockKey:5, ok:"B", expl:{
     A:{en:"Not what the bio says — try again!", fr:"Ce n'est pas ce que dit la fiche — réessaie !"},
     B:{en:"Yes! Being heard is exactly the point she makes. 🎉", fr:"Oui ! Se faire entendre, c'est exactement son propos."},
     C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
   }},
-  r2: { lockKey:2, ok:"B", expl:{
+  r2: { lockKey:5, ok:"B", expl:{
     A:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
     B:{en:"Yes! That aquarium trip is the moment the bio points to. 🎉", fr:"Oui ! Cette sortie à l'aquarium est le moment clé de la fiche."},
     C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
-  }},
-  q1: { lockKey:3, ok:"B", expl:{
-    A:{en:"Grammatically fine, but it just restates what she said — flat, not curious.", fr:"Correct grammaticalement, mais ça ne fait que répéter — plat, pas curieux."},
-    B:{en:"Yes! This shows genuine interest in WHY it was different. 🎉", fr:"Oui ! Ça montre un vrai intérêt pour POURQUOI c'était différent."},
-    C:{en:"Technically fine, but the tone is blunt — almost like you doubt her.", fr:"Correct techniquement, mais le ton est brusque — comme si tu doutais d'elle."}
   }}
 };
-let mcqAnswered = {r1:false, r2:false, q1:false};
+let mcqAnswered = {qp1:false, r1:false, r2:false};
 function checkLockGroup(lockKey, members){
   const allDone = members.every(m=>mcqAnswered[m]);
   if(allDone && !locks[lockKey]){ locks[lockKey] = true; refreshNav(); }
@@ -543,8 +692,8 @@ function initMCQ(gid, feedbackId){
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
         fb.className = 'feedback-banner good';
         mcqAnswered[gid] = true;
-        if(gid === 'r1' || gid === 'r2') checkLockGroup(2, ['r1','r2']);
-        if(gid === 'q1') checkLockGroup(3, ['q1']);
+        if(gid === 'qp1') checkLockGroup(2, ['qp1']);
+        if(gid === 'r1' || gid === 'r2') checkLockGroup(5, ['r1','r2']);
       } else {
         opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
@@ -554,7 +703,7 @@ function initMCQ(gid, feedbackId){
   });
 }
 
-/* ============ SPEAKING TASK ============ */
+/* ============ SPEAKING TASK + DEBRIEF ============ */
 document.getElementById('nudgeToggle').addEventListener('click', (e)=>{
   const box = document.getElementById('nudgeBox');
   box.classList.toggle('show');
@@ -565,6 +714,17 @@ document.getElementById('doneTalkingBtn').addEventListener('click', function(){
   this.disabled = true;
   this.textContent = '✅ Done';
   addXP(5);
+});
+document.getElementById('nudgeToggle2').addEventListener('click', (e)=>{
+  const box = document.getElementById('nudgeBox2');
+  box.classList.toggle('show');
+  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
+});
+document.getElementById('doneTalkingBtn2').addEventListener('click', function(){
+  document.getElementById('talkConfirm2').classList.add('show');
+  this.disabled = true;
+  this.textContent = '✅ Done';
+  addXP(3);
 });
 
 /* ============ CONVERSATION WHEEL (optional bonus — never gates progress) ============ */
@@ -759,9 +919,12 @@ document.getElementById('celebrateBtn').addEventListener('click', function(){
 
 /* ============ INIT ============ */
 buildVocab();
+buildMatchProgress();
+renderMatchRound();
+buildPhraseScreen();
+initMCQ('qp1', 'mcqFeedbackQP1');
 initMCQ('r1', 'mcqFeedbackR1');
 initMCQ('r2', 'mcqFeedbackR2');
-initMCQ('q1', 'mcqFeedback1');
 refreshNav();
 setTimeout(checkScrollCue, 100);
 </script>
