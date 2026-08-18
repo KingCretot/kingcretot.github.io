@@ -38,7 +38,6 @@
   .slide.active{ display:block; }
   @keyframes slideIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
 
-  /* ===== Scroll viewport (sits cleanly between fixed HUD and fixed nav bar) ===== */
   .slide-viewport{ position:fixed; top:66px; left:0; right:0; bottom:78px; overflow-y:auto; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
   .slide-viewport::-webkit-scrollbar{ width:8px; }
   .slide-viewport::-webkit-scrollbar-thumb{ background:var(--rim); border-radius:8px; }
@@ -128,7 +127,6 @@
   .match-dot{ width:10px; height:10px; border-radius:50%; background:var(--rim); }
   .match-dot.done{ background:var(--lime); }
 
-  /* ===== Conversation Wheel ===== */
   .bridge-line{ background:linear-gradient(135deg, rgba(255,184,48,0.14), rgba(255,90,66,0.08)); border:1px solid rgba(255,184,48,0.4); border-radius:16px; padding:16px 20px; margin:16px 0; text-align:center; }
   .bridge-line .bridge-icon{ font-size:24px; display:block; margin-bottom:6px; }
   .bridge-line .bridge-en{ font-size:18px; font-weight:700; color:var(--white); line-height:1.4; }
@@ -173,7 +171,6 @@
   .wbtn:disabled{ opacity:.5; cursor:default; }
   .wspin-count{ font-size:13px; color:var(--muted); margin-top:8px; text-align:center; }
 
-  /* ===== Celebration slide ===== */
   .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0; }
   @media (max-width:680px){ .stat-grid{ grid-template-columns:1fr; } }
   .stat-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px; text-align:center; }
@@ -190,8 +187,6 @@
   .confetti-piece{ position:fixed; top:-20px; z-index:200; pointer-events:none; font-size:22px; animation:confettiFall linear forwards; }
   @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(400deg); opacity:0.2; } }
 
-
-  /* ===== Skill teaching box ===== */
   .skill-box{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; }
   .skill-table{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
   .skill-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; background:var(--card); border:1px solid var(--rim); border-radius:12px; padding:12px 16px; align-items:center; }
@@ -201,7 +196,6 @@
   .skill-fr{ font-size:14px; color:var(--violet); font-style:italic; line-height:1.4; }
   .skill-tryit{ margin-top:14px; font-size:14px; color:var(--muted); text-align:center; font-style:italic; }
 
-  /* ===== Speaking task (the real climax) ===== */
   .speak-card{ background:linear-gradient(135deg, rgba(15,212,184,0.10), rgba(164,122,255,0.08)); border:2px solid rgba(15,212,184,0.35); border-radius:20px; padding:28px 26px; margin:18px 0; }
   .speak-card .speak-icon{ font-size:40px; display:block; margin-bottom:10px; text-align:center; }
   .speak-card .bi-en, .speak-card .bi-fr{ background:transparent; border:none; padding:0; text-align:center; }
@@ -215,7 +209,6 @@
   .talk-confirm{ text-align:center; margin-top:16px; font-weight:700; color:var(--lime); display:none; }
   .talk-confirm.show{ display:block; }
 
-  /* ===== Bonus wheel framing ===== */
   .bonus-frame{ text-align:center; margin-bottom:6px; }
   .bonus-frame .bi-en, .bonus-frame .bi-fr{ background:transparent; border:none; padding:0 0 4px; text-align:center; }
 
@@ -225,7 +218,7 @@
 <body class="notranslate" translate="no">
 
 <div class="hud">
-  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 7</span></div>
+  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 11</span></div>
   <div style="display:flex; gap:10px; align-items:center;">
     <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
   </div>
@@ -285,10 +278,45 @@
   </div>
 </div>
 
-<!-- SLIDE 2: GUEST BIO -->
+<!-- SLIDE 2: QUICK PRACTICE — MCQ MODE -->
+<div class="slide" data-title="Quick Practice">
+  <div class="card">
+    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
+    <h2>🎯 Which Connector Fits First?</h2>
+    <div class="bi-cols">
+      <div class="bi-en">You're starting a story with no earlier event to refer back to yet. Which connector fits?</div>
+      <div class="bi-fr">Tu commences une histoire, sans événement antérieur à évoquer. Quel connecteur convient ?</div>
+    </div>
+    <div class="mcq-options" data-gid="qp1">
+      <button class="mcq-opt" data-ans="A">A) Eventually, I broke my leg on a ski trip.<span class="opt-fr">« Eventually » implique trop de temps écoulé</span></button>
+      <button class="mcq-opt" data-ans="B">B) Last year, I broke my leg on a ski trip.<span class="opt-fr">Bon point de départ, pas de connecteur nécessaire encore</span></button>
+      <button class="mcq-opt" data-ans="C">C) It turned out that I broke my leg on a ski trip.<span class="opt-fr">« It turned out » a besoin d'un contexte avant</span></button>
+    </div>
+    <div class="feedback-banner" id="mcqFeedbackQP1"></div>
+  </div>
+</div>
+
+<!-- SLIDE 3: QUICK PRACTICE 2 — MATCH GAME MODE -->
+<div class="slide" data-title="Match the Connector">
+  <div class="card" style="text-align:center;">
+    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
+    <h2>🔗 Match the Connector</h2>
+    <div class="bi-cols" style="text-align:left;">
+      <div class="bi-en">Tap the English connector that matches the meaning shown in French.</div>
+      <div class="bi-fr">Touche le connecteur anglais qui correspond au sens indiqué en français.</div>
+    </div>
+    <div class="match-progress" id="matchProgress"></div>
+    <div class="match-round-label">Round <span id="matchRoundNum">1</span> / 3</div>
+    <div class="match-fr-word" id="matchFrWord"></div>
+    <div class="match-grid" id="matchGrid"></div>
+    <div class="feedback-banner" id="matchFeedback"></div>
+  </div>
+</div>
+
+<!-- SLIDE 4: GUEST BIO — READING ONLY -->
 <div class="slide" data-title="Guest Bio">
   <div class="card">
-    <span class="badge-tag">Precision Check · Vérification précise</span>
+    <span class="badge-tag">Meet the Guest · Rencontre avec l'invitée</span>
     <h2>📋 Meet Today's Guest</h2>
     <div class="bi-cols">
       <div class="bi-en">Notice how the connectors below carry the story forward. Read carefully — the questions ask you to figure things out, not just find a matching sentence.</div>
@@ -297,6 +325,18 @@
     <div class="passage-card">
       <div class="ptitle">Guest Bio · Fiche invité</div>
       <p>Meet today's guest: Théo Marchand, 15, from Lyon. Last year, during a ski trip with his class, Théo fell awkwardly on an icy slope and broke his leg in two places. At first, doctors weren't sure he'd be able to walk normally again. Then, after weeks of physical therapy, he slowly started to improve — even though some days felt like they weren't working at all. Eventually, he was back on skis, and that's when something shifted: he realized he wanted to help other people recover the way his physical therapist had helped him. His best friend brought him homework every single day he missed school, and Théo says that's part of why he never gave up. Now his dream is to become a physical therapist himself.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: COMPREHENSION CHECK -->
+<div class="slide" data-title="What Did You Catch?">
+  <div class="card">
+    <span class="badge-tag">Precision Check · Vérification précise</span>
+    <h2>🧠 What Did You Catch?</h2>
+    <div class="bi-cols">
+      <div class="bi-en">These questions ask you to figure things out, not just find a matching sentence.</div>
+      <div class="bi-fr">Ces questions te demandent de comprendre, pas juste de retrouver une phrase identique.</div>
     </div>
     <div class="bi-en" style="margin-bottom:6px;">What does the story suggest about Théo's early recovery?</div>
     <div class="bi-fr" style="margin-bottom:6px;">Que suggère l'histoire sur le début de la guérison de Théo ?</div>
@@ -320,28 +360,24 @@
   </div>
 </div>
 
-<!-- SLIDE 3: APPLY IT -->
-<div class="slide" data-title="Apply It">
+<!-- SLIDE 6: APPLY IT — SENTENCE BUILDER MODE -->
+<div class="slide" data-title="Build the Story">
   <div class="card">
     <span class="badge-tag">Apply It · Mets-le en pratique</span>
-    <h2>🧠 Which Connector Fits?</h2>
+    <h2>🧩 Build the Next Step</h2>
     <div class="bi-cols">
-      <div class="bi-en">Same idea, three connector choices. Only one matches the timing and tone of the story so far.</div>
-      <div class="bi-fr">Même idée, trois connecteurs possibles. Un seul correspond au moment et au ton de l'histoire.</div>
+      <div class="bi-en">Théo broke his leg on a ski trip. Tap the pieces in order to build the next part of his story, using today's connector.</div>
+      <div class="bi-fr">Théo s'est cassé la jambe en ski. Touche les pièces dans l'ordre pour construire la suite de son histoire, avec le connecteur d'aujourd'hui.</div>
     </div>
-    <div class="passage-card" style="text-align:center; font-style:italic;">
-      "Théo broke his leg on a ski trip. <strong>___</strong>, doctors said he might need surgery."
+    <div class="word-bank-wrap">
+      <div class="sentence-slot" id="sentenceSlot"></div>
+      <div class="word-bank" id="wordBank"></div>
     </div>
-    <div class="mcq-options" data-gid="q1">
-      <button class="mcq-opt" data-ans="A">A) First,<span class="opt-fr">D'abord, (sans événement avant)</span></button>
-      <button class="mcq-opt" data-ans="B">B) At first,<span class="opt-fr">Au début,</span></button>
-      <button class="mcq-opt" data-ans="C">C) Eventually,<span class="opt-fr">Finalement, (implique beaucoup de temps)</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedback1"></div>
+    <div class="feedback-banner" id="phraseFeedback"></div>
   </div>
 </div>
 
-<!-- SLIDE 4: YOUR TURN — SPEAKING TASK (the real climax) -->
+<!-- SLIDE 7: YOUR TURN — SPEAKING TASK (the real climax) -->
 <div class="slide" data-title="Your Turn">
   <div class="card">
     <span class="badge-tag">The Real Work · Le vrai travail</span>
@@ -363,7 +399,27 @@
   </div>
 </div>
 
-<!-- SLIDE 5: BONUS ROUND (OPTIONAL WHEEL) -->
+<!-- SLIDE 8: DEBRIEF -->
+<div class="slide" data-title="Debrief">
+  <div class="card">
+    <span class="badge-tag">Reflect · Réflexion</span>
+    <h2>💭 Quick Debrief</h2>
+    <div class="speak-card">
+      <span class="speak-icon">🌟</span>
+      <div class="bi-en">Which connector did you use most in your story — and did it change the ending compared to just listing facts?</div>
+      <div class="bi-fr">Quel connecteur as-tu le plus utilisé dans ton histoire — et a-t-il changé la fin par rapport à une simple liste de faits ?</div>
+      <button class="nudge-toggle" id="nudgeToggle2">Need a nudge? / Besoin d'un coup de pouce ?</button>
+      <div class="nudge-box" id="nudgeBox2">
+        <div class="starter">"I used 'eventually' the most because..."</div>
+        <div class="starter">"Without a connector, my story would sound like..."</div>
+      </div>
+      <button class="done-talking-btn" id="doneTalkingBtn2">✅ We talked it through</button>
+      <div class="talk-confirm" id="talkConfirm2">Good noticing that — that awareness is how you get better. 🌟</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: BONUS ROUND (OPTIONAL WHEEL) -->
 <div class="slide" data-title="Bonus Round">
   <div class="card">
     <span class="badge-tag" style="background:rgba(255,184,48,0.14); color:var(--amber); border-color:rgba(255,184,48,0.3);">Optional · Facultatif</span>
@@ -399,7 +455,7 @@
   </div>
 </div>
 
-<!-- SLIDE 6: CELEBRATION -->
+<!-- SLIDE 10: CELEBRATION -->
 <div class="slide" data-title="Great Second Episode">
   <div class="card" style="text-align:center;">
     <span class="badge-tag">Episode Wrap · Fin de l'épisode</span>
@@ -427,7 +483,7 @@
 
 <div class="nav-row">
   <button class="nav-btn back" id="backBtn">⬅ Back</button>
-  <span class="progress-label" id="progressLabel">Slide 1 / 7</span>
+  <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
   <button class="nav-btn next" id="nextBtn">Next ➡</button>
 </div>
 
@@ -437,7 +493,7 @@ const slides = document.querySelectorAll('.slide');
 const total = slides.length;
 let current = 0;
 let xp = 0;
-const locks = {1:false, 2:false, 3:false};
+const locks = {1:false, 2:false, 3:false, 5:false, 6:false};
 
 function addXP(n){ xp += n; document.getElementById('xpCount').textContent = xp;
   const pop = document.getElementById('xpPop'); pop.textContent = '+' + n + ' XP';
@@ -507,25 +563,118 @@ function buildVocab(){
   });
 }
 
-/* ============ MCQ (guest bio + apply-it) ============ */
+/* ============ MATCH GAME (connector matching) ============ */
+const matchWords = [
+  {fr: "d'abord, puis", en: "First, ... Then, ...", wrong1: "Eventually, ...", wrong2: "It turned out that..."},
+  {fr: "finalement, avec le temps", en: "Eventually, ...", wrong1: "First, ... Then, ...", wrong2: "I ended up + -ing"},
+  {fr: "j'ai fini par", en: "I ended up + -ing", wrong1: "It turned out that...", wrong2: "First, ... Then, ..."}
+];
+let matchRound = 0;
+function buildMatchProgress(){
+  const wrap = document.getElementById('matchProgress');
+  for(let i=0;i<matchWords.length;i++){
+    const d = document.createElement('span'); d.className='match-dot'; d.id='mdot'+i;
+    wrap.appendChild(d);
+  }
+}
+function renderMatchRound(){
+  const item = matchWords[matchRound];
+  document.getElementById('matchRoundNum').textContent = matchRound+1;
+  document.getElementById('matchFrWord').textContent = item.fr;
+  document.getElementById('matchFeedback').innerHTML = '';
+  const grid = document.getElementById('matchGrid');
+  grid.innerHTML = '';
+  const options = shuffle([item.en, item.wrong1, item.wrong2]);
+  options.forEach(opt=>{
+    const btn = document.createElement('button'); btn.className='match-opt'; btn.textContent = opt;
+    btn.addEventListener('click', ()=>{
+      if(btn.classList.contains('disabled')) return;
+      const grid2 = document.getElementById('matchGrid');
+      if(opt === item.en){
+        btn.classList.add('correct');
+        grid2.querySelectorAll('.match-opt').forEach(o=>o.classList.add('disabled'));
+        addXP(1);
+        const dot = document.getElementById('mdot'+matchRound); if(dot) dot.classList.add('done');
+        document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">Yes! 🎉</span>';
+        setTimeout(()=>{
+          matchRound++;
+          if(matchRound >= matchWords.length){
+            if(!locks[3]){ locks[3] = true; refreshNav(); }
+            document.getElementById('matchFrWord').textContent = '✅';
+            document.getElementById('matchGrid').innerHTML = '';
+            document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">All done! Next is unlocked.</span><span class="fb-fr">Terminé ! Suivant est débloqué.</span>';
+          } else {
+            renderMatchRound();
+          }
+        }, 700);
+      } else {
+        btn.classList.add('incorrect'); setTimeout(()=>btn.classList.remove('incorrect'), 450);
+      }
+    });
+    grid.appendChild(btn);
+  });
+}
+
+/* ============ SENTENCE BUILDER (story continuation) ============ */
+const displayPhrase = ['Eventually,', 'he', 'was', 'back', 'on', 'skis.'];
+const bankWords = shuffle(['back', 'Eventually,', 'skis.', 'was', 'he', 'on']);
+let placedWords = [];
+function buildPhraseScreen(){
+  const bank = document.getElementById('wordBank');
+  bankWords.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip';
+    chip.textContent = word;
+    chip.addEventListener('click', ()=>{
+      if(chip.classList.contains('used')) return;
+      placedWords.push(word); chip.classList.add('used');
+      renderSlot(); checkPhrase();
+    });
+    bank.appendChild(chip);
+  });
+  renderSlot();
+}
+function renderSlot(){
+  const slot = document.getElementById('sentenceSlot');
+  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
+    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
+}
+function checkPhrase(){
+  const fb = document.getElementById('phraseFeedback');
+  if(placedWords.length < displayPhrase.length) return;
+  const correct = placedWords.join(' ') === displayPhrase.join(' ');
+  if(correct){
+    addXP(2);
+    fb.innerHTML = '<span class="fb-en">Perfect! "Eventually, he was back on skis." 🌟</span><span class="fb-fr">Parfait ! « Finalement, il a retrouvé ses skis. »</span>';
+    fb.className = 'feedback-banner good';
+    locks[6] = true; refreshNav();
+  } else {
+    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
+    fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
+    fb.appendChild(resetBtn);
+  }
+}
+
+/* ============ MCQ (quick practice + guest bio comprehension) ============ */
 const FB = {
-  r1: { lockKey:2, ok:"B", expl:{
+  qp1: { lockKey:2, ok:"B", expl:{
+    A:{en:"\"Eventually\" implies a lot of time passed — too soon for the start of a story. Try again!", fr:"« Eventually » sous-entend beaucoup de temps écoulé — trop tôt ici. Réessaie !"},
+    B:{en:"Yes! No connector needed yet — this is where the story begins. 🎉", fr:"Oui ! Pas besoin de connecteur ici — c'est le début de l'histoire."},
+    C:{en:"\"It turned out\" needs an earlier expectation to contrast with — try again!", fr:"« It turned out » a besoin d'une attente antérieure à contredire — réessaie !"}
+  }},
+  r1: { lockKey:5, ok:"B", expl:{
     A:{en:"The story says the opposite — try again!", fr:"L'histoire dit le contraire — réessaie !"},
     B:{en:"Yes! \"Some days felt like they weren't working at all\" signals exactly that. 🎉", fr:"Oui ! « Some days felt like they weren't working at all » le montre bien."},
     C:{en:"The bio directly mentions physical therapy — try again!", fr:"La fiche mentionne directement la kinésithérapie — réessaie !"}
   }},
-  r2: { lockKey:2, ok:"B", expl:{
+  r2: { lockKey:5, ok:"B", expl:{
     A:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
     B:{en:"Yes! \"He realized he wanted to help other people recover the way his physical therapist had helped him\" is the key line. 🎉", fr:"Oui ! C'est exactement ce que dit la fiche."},
     C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
-  }},
-  q1: { lockKey:3, ok:"B", expl:{
-    A:{en:"\"First\" needs an earlier event to follow — there isn't one here.", fr:"« First » a besoin d'un événement précédent — il n'y en a pas ici."},
-    B:{en:"Yes! \"At first\" signals an early reaction, right after the injury. 🎉", fr:"Oui ! « At first » marque une réaction précoce, juste après la blessure."},
-    C:{en:"\"Eventually\" implies a lot of time passed — too soon for that here.", fr:"« Eventually » sous-entend beaucoup de temps écoulé — trop tôt ici."}
   }}
 };
-let mcqAnswered = {r1:false, r2:false, q1:false};
+let mcqAnswered = {qp1:false, r1:false, r2:false};
 function checkLockGroup(lockKey, members){
   const allDone = members.every(m=>mcqAnswered[m]);
   if(allDone && !locks[lockKey]){ locks[lockKey] = true; refreshNav(); }
@@ -544,8 +693,8 @@ function initMCQ(gid, feedbackId){
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
         fb.className = 'feedback-banner good';
         mcqAnswered[gid] = true;
-        if(gid === 'r1' || gid === 'r2') checkLockGroup(2, ['r1','r2']);
-        if(gid === 'q1') checkLockGroup(3, ['q1']);
+        if(gid === 'qp1') checkLockGroup(2, ['qp1']);
+        if(gid === 'r1' || gid === 'r2') checkLockGroup(5, ['r1','r2']);
       } else {
         opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
@@ -555,7 +704,7 @@ function initMCQ(gid, feedbackId){
   });
 }
 
-/* ============ SPEAKING TASK ============ */
+/* ============ SPEAKING TASK + DEBRIEF ============ */
 document.getElementById('nudgeToggle').addEventListener('click', (e)=>{
   const box = document.getElementById('nudgeBox');
   box.classList.toggle('show');
@@ -566,6 +715,17 @@ document.getElementById('doneTalkingBtn').addEventListener('click', function(){
   this.disabled = true;
   this.textContent = '✅ Done';
   addXP(5);
+});
+document.getElementById('nudgeToggle2').addEventListener('click', (e)=>{
+  const box = document.getElementById('nudgeBox2');
+  box.classList.toggle('show');
+  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
+});
+document.getElementById('doneTalkingBtn2').addEventListener('click', function(){
+  document.getElementById('talkConfirm2').classList.add('show');
+  this.disabled = true;
+  this.textContent = '✅ Done';
+  addXP(3);
 });
 
 /* ============ CONVERSATION WHEEL (optional bonus — never gates progress) ============ */
@@ -740,7 +900,7 @@ function runCelebrationEntry(){
   animateCount(document.getElementById('statWords'), vocabFlipped, 700);
 }
 function spawnConfetti(){
-  const pieces = ['🎉','⭐','🎊','🎙️','✨'];
+  const pieces = ['🎉','⭐','🎊','🎤','✨'];
   for(let i=0;i<26;i++){
     const el = document.createElement('span'); el.className = 'confetti-piece';
     el.textContent = pieces[Math.floor(Math.random()*pieces.length)];
@@ -760,9 +920,12 @@ document.getElementById('celebrateBtn').addEventListener('click', function(){
 
 /* ============ INIT ============ */
 buildVocab();
+buildMatchProgress();
+renderMatchRound();
+buildPhraseScreen();
+initMCQ('qp1', 'mcqFeedbackQP1');
 initMCQ('r1', 'mcqFeedbackR1');
 initMCQ('r2', 'mcqFeedbackR2');
-initMCQ('q1', 'mcqFeedback1');
 refreshNav();
 setTimeout(checkScrollCue, 100);
 </script>
