@@ -43,12 +43,18 @@
   .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:14px; color:var(--french); margin-top:1px;}
   .card-audio-row{ display:flex; gap:6px; justify-content:center; margin-top:8px; } .card-audio-btn{ border:none; border-radius:10px; font-size:12px; font-weight:800; padding:5px 9px; cursor:pointer; color:#fff; }
   .card-audio-btn.en{ background:var(--sky); } .card-audio-btn.fr{ background:var(--french); }
-  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:flex; flex-direction:column; gap:14px; min-width:160px;}
+  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
   .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
   .match-tile .main-txt{ font-size:22px; font-weight:700; display:block; } .match-tile.emoji-tile .main-txt{ font-size:34px; }
   .match-tile .sub-fr{ font-size:12px; color:var(--french); font-weight:700; display:block; margin-top:3px; }
   .match-tile.selected{ border-color: var(--grape); background:#E9DBFF; transform:scale(1.03); } .match-tile.correct{ border-color: var(--grass); background:#D9FFE0; cursor:default; }
   .match-tile.wrong{ animation: shake .4s ease; border-color: var(--berry); background:#FFE0E8;} @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 75%{transform:translateX(8px);} }
+  .sentence-slot{ min-height:70px; background:#F6F6FF; border:3px dashed #C7C7EE; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; padding:14px; margin:16px 0; font-family:'Baloo 2', sans-serif; font-size:22px; font-weight:700; }
+  .sentence-slot .placed{ background:var(--sun); padding:8px 14px; border-radius:12px; color:#4A3600; }
+  .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
+  .word-chip{ background:var(--berry); color:#fff; padding:10px 18px; border-radius:16px; font-family:'Baloo 2', sans-serif; font-weight:700; font-size:19px; cursor:pointer; box-shadow:0 6px 0 #C24868; transition: transform .1s ease; text-align:center; }
+  .word-chip .fr-hint{ display:block; font-size:11px; font-weight:600; opacity:.85; margin-top:2px; } .word-chip:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; } .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
+  .replay-btn{ background:var(--tangerine); color:#fff; border:none; border-radius:50px; padding:12px 22px; font-size:17px; font-weight:700; cursor:pointer; box-shadow:0 6px 0 #C86B1E; margin-top:12px; }
   .costume-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:18px 0; }
   .costume-pick{ background:var(--cream); border:3px solid #D9A9FF; border-radius:18px; padding:14px 10px; font-size:44px; cursor:pointer; transition:transform .1s ease, border-color .15s ease; }
   .costume-pick.picked{ border-color: var(--grape); background:#EEE6FF; transform:scale(1.05); }
@@ -84,7 +90,7 @@
 <div id="app">
   <div class="topbar">
     <div class="brand"><span class="emoji">🦇</span> Elina's Halloween Party</div>
-    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 10</div></div>
+    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 13</div></div>
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
   </div>
@@ -120,6 +126,17 @@
 
   <section class="screen" data-screen="3">
     <div class="card">
+      <span class="section-tag">Build a Sentence / Construis une phrase</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">I see a scary ghost!</span><span class="fr" style="font-size:24px;">Je vois un fantôme effrayant !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="sentence-slot" id="sentenceSlot"></div>
+      <div class="word-bank" id="wordBank"></div>
+      <div class="feedback-banner" id="phraseFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="4">
+    <div class="card">
       <span class="section-tag">I Am A&hellip; / Je suis un(e)&hellip;</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What costume do you want to wear?</span><span class="fr" style="font-size:24px;">Quel costume veux-tu porter ?</span></div>
       <div class="costume-row" id="costumeRow"></div>
@@ -127,7 +144,18 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="4">
+  <section class="screen" data-screen="5">
+    <div class="card">
+      <span class="section-tag">Build Another Sentence / Construis une autre phrase</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">I want candy, please!</span><span class="fr" style="font-size:24px;">Je veux des bonbons, s'il te plaît !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="sentence-slot" id="sentenceSlot2"></div>
+      <div class="word-bank" id="wordBank2"></div>
+      <div class="feedback-banner" id="phraseFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="6">
     <div class="card">
       <span class="section-tag">Trick or Treat! / Bonbon ou un sort !</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Let's practice trick-or-treating!</span><span class="fr" style="font-size:24px;">Pratiquons « bonbon ou un sort » !</span></div>
@@ -142,7 +170,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="5">
+  <section class="screen" data-screen="7">
     <div class="card">
       <span class="section-tag">I Like&hellip; / J'aime&hellip;</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which Halloween things do you like?</span><span class="fr" style="font-size:24px;">Quelles choses d'Halloween aimes-tu ?</span></div>
@@ -151,7 +179,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="6">
+  <section class="screen" data-screen="8">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What do you say at the door?</span><span class="fr" style="font-size:24px;">Que dis-tu à la porte ?</span></div>
@@ -164,7 +192,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="7">
+  <section class="screen" data-screen="9">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What do ghosts say?</span><span class="fr" style="font-size:24px;">Que disent les fantômes ?</span></div>
@@ -177,7 +205,20 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="8">
+  <section class="screen" data-screen="10">
+    <div class="card">
+      <span class="section-tag">Answer Practice / Pratique</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Which one flies at night?</span><span class="fr" style="font-size:24px;">Lequel vole la nuit ?</span></div>
+      <div class="mcq-options" data-gid="q3">
+        <button class="mcq-opt" data-ans="A">A) Bat<span class="opt-fr">Chauve-souris</span></button>
+        <button class="mcq-opt" data-ans="B">B) Pumpkin<span class="opt-fr">Citrouille</span></button>
+        <button class="mcq-opt" data-ans="C">C) Candy<span class="opt-fr">Bonbon</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback3"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="11">
     <div class="card">
       <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Tell Bibi what costume you like!</span><span class="fr" style="font-size:24px;">Dis à Bibi quel costume tu aimes !</span></div>
@@ -188,7 +229,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="9">
+  <section class="screen" data-screen="12">
     <div class="card">
       <div class="confetti"><span>🎉</span><span>🎃</span><span>🦇</span><span>👻</span><span>🎉</span></div>
       <div class="bi-header"><span class="en">Happy Halloween, Elina!</span><span class="fr">Joyeux Halloween, Elina !</span></div>
@@ -228,10 +269,9 @@ function speakFR(text){ if(!soundOn || !('speechSynthesis' in window)) return; w
 function toggleSound(){ soundOn = !soundOn; const btn = document.getElementById('soundToggle'); btn.classList.toggle('off', !soundOn); document.getElementById('soundToggleLabel').textContent = soundOn ? 'Sound On' : 'Sound Off'; if(!soundOn && 'speechSynthesis' in window) window.speechSynthesis.cancel(); }
 
 const screens = document.querySelectorAll('.screen'); let current = 0; const totalScreens = screens.length;
-const screenLocks = {2:false, 3:false, 4:false, 5:false, 6:false, 7:false, 8:false};
 function updateProgress(){ document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%'; document.getElementById('progressLabel').textContent = (current+1) + ' / ' + totalScreens; }
-function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn'); const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked || current === totalScreens-1; nextBtn.classList.toggle('locked', locked); nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡'; }
+function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn');
+  nextBtn.disabled = false; nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡'; }
 function changeScreen(delta){ const newIdx = current + delta; if(newIdx < 0 || newIdx >= totalScreens) return; screens[current].classList.remove('active'); current = newIdx; screens[current].classList.add('active');
   updateProgress(); refreshNavButtons(); window.scrollTo({top:0, behavior:'smooth'}); if(current === totalScreens-1){ setTimeout(()=>{ burstConfetti(currentCard()); playFanfare(); }, 200); } }
 let stars = 0; function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
@@ -276,12 +316,70 @@ function buildMatch(){
         const matched = dataset.find(d=>d.en===tile.dataset.key);
         fb.innerHTML = `<span class="fb-en">Yes! ${matched.en}! 🎉</span><span class="fb-fr">Oui ! ${matched.fr} !</span>`; fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= dataset.length && !screenLocks[2]){ screenLocks[2] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+        if(matchesFound >= dataset.length){ setTimeout(()=>playFanfare(),300); }
       } else { tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400); playIncorrect();
         fb.innerHTML = `<span class="fb-en">Try again!</span><span class="fb-fr">Réessaie !</span>`; fb.className = 'feedback-banner retry'; }
     });
     picCol.appendChild(tile);
   });
+}
+
+const displayPhrase = ['I', 'see', 'a', 'scary', 'ghost.'];
+const frHints = {'I':'Je', 'see':'vois', 'a':'un', 'scary':'effrayant', 'ghost.':'fantôme.'};
+const bankWords = shuffle(['ghost.', 'I', 'scary', 'see', 'a']);
+let placedWords = [];
+function buildPhraseScreen(){
+  const bank = document.getElementById('wordBank');
+  bankWords.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip'; chip.innerHTML = `${word}<span class="fr-hint">${frHints[word]}</span>`;
+    chip.addEventListener('click', ()=>{ if(chip.classList.contains('used')) return; placedWords.push(word); chip.classList.add('used'); renderSlot(); checkPhrase(); });
+    bank.appendChild(chip);
+  });
+  renderSlot();
+}
+function renderSlot(){ const slot = document.getElementById('sentenceSlot'); slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') || '<span style="color:#aaa; font-size:16px;">Tap the words below&hellip;</span>'; }
+function checkPhrase(){
+  const fb = document.getElementById('phraseFeedback'); if(placedWords.length < displayPhrase.length) return;
+  const correct = placedWords.join(' ') === displayPhrase.join(' ');
+  if(correct){
+    playFanfare(); addStar(2); burstConfetti(currentCard());
+    fb.innerHTML = '<span class="fb-en">Perfect! "I see a scary ghost." 🌟</span><span class="fb-fr">Parfait ! « Je vois un fantôme effrayant. »</span>';
+    fb.className = 'feedback-banner good'; speakEN('I see a scary ghost.');
+  } else {
+    playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
+    fb.appendChild(resetBtn);
+  }
+}
+
+const displayPhrase2 = ['I', 'want', 'candy,', 'please.'];
+const frHints2 = {'I':'Je', 'want':'veux', 'candy,':'bonbons,', 'please.':"s'il te plaît."};
+const bankWords2 = shuffle(['please.', 'I', 'candy,', 'want']);
+let placedWords2 = [];
+function buildPhraseScreen2(){
+  const bank = document.getElementById('wordBank2');
+  bankWords2.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip'; chip.innerHTML = `${word}<span class="fr-hint">${frHints2[word]}</span>`;
+    chip.addEventListener('click', ()=>{ if(chip.classList.contains('used')) return; placedWords2.push(word); chip.classList.add('used'); renderSlot2(); checkPhrase2(); });
+    bank.appendChild(chip);
+  });
+  renderSlot2();
+}
+function renderSlot2(){ const slot = document.getElementById('sentenceSlot2'); slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') || '<span style="color:#aaa; font-size:16px;">Tap the words below&hellip;</span>'; }
+function checkPhrase2(){
+  const fb = document.getElementById('phraseFeedback2'); if(placedWords2.length < displayPhrase2.length) return;
+  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
+  if(correct){
+    playFanfare(); addStar(2); burstConfetti(currentCard());
+    fb.innerHTML = '<span class="fb-en">Perfect! "I want candy, please." 🌟</span><span class="fb-fr">Parfait ! « Je veux des bonbons, s\'il te plaît. »</span>';
+    fb.className = 'feedback-banner good'; speakEN('I want candy, please.');
+  } else {
+    playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords2 = []; document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot2(); };
+    fb.appendChild(resetBtn);
+  }
 }
 
 const costumeOptions = [
@@ -296,7 +394,6 @@ function buildCostumePicker(){
       const enS = `I am a ${item.en}!`; const frS = `Je suis un(e) ${item.fr} !`;
       resp.innerHTML = `<span class="en">${enS}</span><span class="fr">${frS}</span>`;
       speakEN(enS); burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[3]){ screenLocks[3] = true; refreshNavButtons(); }
     });
     row.appendChild(pick);
   });
@@ -309,7 +406,7 @@ function buildCandyDialogue(){
     const enS = 'Here you go! Happy Halloween!'; const frS = 'Voilà ! Joyeux Halloween !';
     speakEN(enS); burstConfetti(currentCard()); playFanfare();
     fb.innerHTML = `<span class="fb-en">${enS} 🍬🎉</span><span class="fb-fr">${frS}</span>`; fb.className = 'feedback-banner good';
-    if(!clicked){ clicked = true; addStar(2); if(!screenLocks[4]){ screenLocks[4] = true; refreshNavButtons(); } }
+    if(!clicked){ clicked = true; addStar(2); }
   });
 }
 
@@ -326,8 +423,7 @@ function buildHalloweenOpinion(){
       const enS = liked ? `I like ${item.en.toLowerCase()}s.` : `I don't like ${item.en.toLowerCase()}s.`;
       const frS = liked ? `J'aime les ${item.fr}s.` : `Je n'aime pas les ${item.fr}s.`;
       saidEl.innerHTML = enS + '<br>' + frS; speakEN(enS);
-      if(!already){ card.classList.add('answered'); halloweenOpinionAnswered++; burstConfetti(currentCard()); playCorrect();
-        if(halloweenOpinionAnswered >= 3 && !screenLocks[5]){ screenLocks[5] = true; refreshNavButtons(); } }
+      if(!already){ card.classList.add('answered'); halloweenOpinionAnswered++; burstConfetti(currentCard()); playCorrect(); }
     };
     likeBtn.addEventListener('click', ()=> respond(true)); dislikeBtn.addEventListener('click', ()=> respond(false));
     grid.appendChild(card);
@@ -336,7 +432,8 @@ function buildHalloweenOpinion(){
 
 const FB = {
   q1: { ok: 'B', expl: { A: {en:'That\'s for bedtime! Try again.', fr:'C\'est pour aller au lit ! Réessaie.'}, B: {en:'Yes! Trick or treat! 🎉', fr:'Oui ! Bonbon ou un sort !'}, C: {en:'That comes after you get candy! Try again.', fr:'Ça vient après avoir eu des bonbons ! Réessaie.'} } },
-  q2: { ok: 'A', expl: { A: {en:'Yes! Boo! 🎉', fr:'Oui ! Bouh !'}, B: {en:'That\'s a regular greeting! Try again.', fr:'C\'est une salutation normale ! Réessaie.'}, C: {en:'That\'s a regular goodbye! Try again.', fr:'C\'est un au revoir normal ! Réessaie.'} } }
+  q2: { ok: 'A', expl: { A: {en:'Yes! Boo! 🎉', fr:'Oui ! Bouh !'}, B: {en:'That\'s a regular greeting! Try again.', fr:'C\'est une salutation normale ! Réessaie.'}, C: {en:'That\'s a regular goodbye! Try again.', fr:'C\'est un au revoir normal ! Réessaie.'} } },
+  q3: { ok: 'A', expl: { A: {en:'Yes! Bats fly at night! 🎉', fr:'Oui ! Les chauves-souris volent la nuit !'}, B: {en:'Pumpkins don\'t fly! Try again.', fr:'Les citrouilles ne volent pas ! Réessaie.'}, C: {en:'Candy doesn\'t fly! Try again.', fr:'Les bonbons ne volent pas ! Réessaie.'} } }
 };
 function initMCQ(gid, lockKey, feedbackId){
   const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`); const fb = document.getElementById(feedbackId);
@@ -346,7 +443,6 @@ function initMCQ(gid, lockKey, feedbackId){
       if(isCorrect){ opt.classList.add('correct'); block.classList.add('answered'); block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
         playCorrect(); addStar(2); burstConfetti(currentCard());
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner good';
-        screenLocks[lockKey] = true; refreshNavButtons();
       } else { opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500); playIncorrect();
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner retry'; }
     });
@@ -362,14 +458,13 @@ function buildRecap(){
       const sentence = `I like the ${item.en} costume!`;
       sentenceEl.textContent = sentence; sentenceFrEl.textContent = `J'aime le costume de ${item.fr} !`;
       speakEN(sentence); burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[8]){ screenLocks[8] = true; refreshNavButtons(); }
     });
     row.appendChild(chip);
   });
 }
 
-buildHalloweenGrid(); buildMatch(); buildCostumePicker(); buildCandyDialogue(); buildHalloweenOpinion();
-initMCQ('q1', 6, 'mcqFeedback'); initMCQ('q2', 7, 'mcqFeedback2'); buildRecap();
+buildHalloweenGrid(); buildMatch(); buildPhraseScreen(); buildCostumePicker(); buildPhraseScreen2(); buildCandyDialogue(); buildHalloweenOpinion();
+initMCQ('q1', 8, 'mcqFeedback'); initMCQ('q2', 9, 'mcqFeedback2'); initMCQ('q3', 10, 'mcqFeedback3'); buildRecap();
 updateProgress(); refreshNavButtons();
 </script>
 </body>
