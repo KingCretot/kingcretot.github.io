@@ -68,7 +68,7 @@
   .letter-bank-btn:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; }
   .letter-bank-btn.used{ opacity:.25; pointer-events:none; box-shadow:none; }
   .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; }
-  .match-col{display:flex; flex-direction:column; gap:14px; min-width:160px;}
+  .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
   .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
   .match-tile .main-txt{ font-size:26px; font-weight:700; display:block; }
   .match-tile.emoji-tile .main-txt{ font-size:34px; }
@@ -110,7 +110,7 @@
     <div class="brand"><span class="emoji">🔤</span> Elina's Word Building</div>
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">1 / 11</div>
+      <div class="progress-label" id="progressLabel">1 / 13</div>
     </div>
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
@@ -133,7 +133,7 @@
       <span class="section-tag">Letter Review / Révision des lettres</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Let's review some letter sounds!</span><span class="fr" style="font-size:24px;">Révisons des sons de lettres !</span></div>
       <div class="abc-grid" id="reviewGrid"></div>
-      <p style="font-size:15px; color:#6b6b85; margin-top:10px;" id="reviewHint">Tap 6 letters to unlock Next. / Touche 6 lettres pour continuer.</p>
+      <p style="font-size:15px; color:#6b6b85; margin-top:10px;" id="reviewHint">Tap letters to hear them! / Touche les lettres pour les entendre.</p>
     </div>
   </section>
 
@@ -183,6 +183,17 @@
 
   <section class="screen" data-screen="6">
     <div class="card">
+      <span class="section-tag">Build a Word / Construis un mot</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Build the word: BAT</span><span class="fr" style="font-size:24px;">Construis le mot : BAT</span></div>
+      <div class="word-picture">🏏</div>
+      <div class="letter-slot-row" id="slotsRow4"></div>
+      <div class="letter-bank" id="bankRow4"></div>
+      <div class="feedback-banner" id="fb4"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="7">
+    <div class="card">
       <span class="section-tag">Word Game / Jeu de mots</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Match the word to the picture!</span><span class="fr" style="font-size:24px;">Associe le mot à l'image !</span></div>
       <div class="match-wrap">
@@ -193,7 +204,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="7">
+  <section class="screen" data-screen="8">
     <div class="card">
       <span class="section-tag">Same Sound? / Même son ?</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which word starts like "car"?</span><span class="fr" style="font-size:24px;">Quel mot commence comme « car » ?</span></div>
@@ -206,7 +217,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="8">
+  <section class="screen" data-screen="9">
     <div class="card">
       <span class="section-tag">Same Sound? / Même son ?</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which word starts like "hop"?</span><span class="fr" style="font-size:24px;">Quel mot commence comme « hop » ?</span></div>
@@ -219,7 +230,20 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="9">
+  <section class="screen" data-screen="10">
+    <div class="card">
+      <span class="section-tag">Same Sound? / Même son ?</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Which word starts like "ball"?</span><span class="fr" style="font-size:24px;">Quel mot commence comme « ball » ?</span></div>
+      <div class="mcq-options" data-gid="q3">
+        <button class="mcq-opt" data-ans="A">A) bat<span class="opt-fr">batte</span></button>
+        <button class="mcq-opt" data-ans="B">B) cat<span class="opt-fr">chat</span></button>
+        <button class="mcq-opt" data-ans="C">C) sun<span class="opt-fr">soleil</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback3"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="11">
     <div class="card">
       <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Tap a word to hear it!</span><span class="fr" style="font-size:24px;">Touche un mot pour l'entendre !</span></div>
@@ -229,11 +253,11 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="10">
+  <section class="screen" data-screen="12">
     <div class="card">
       <div class="confetti"><span>🎉</span><span>🔤</span><span>📖</span><span>⭐</span><span>🎉</span></div>
       <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
-      <div class="bi-body"><span class="en">You built real words: cat, dog, sun, and hat!</span><span class="fr">Tu as construit de vrais mots : cat, dog, sun, et hat !</span></div>
+      <div class="bi-body"><span class="en">You built real words: cat, dog, sun, hat, and bat!</span><span class="fr">Tu as construit de vrais mots : cat, dog, sun, hat, et bat !</span></div>
       <div class="dual-audio-row">
         <button class="lang-btn en-btn" onclick="speakEN('Great job, Elina!')">🔊 EN</button>
         <button class="lang-btn fr-btn" onclick="speakFR('Bravo, Elina !')">🔊 FR</button>
@@ -320,7 +344,6 @@ function toggleSound(){
 const screens = document.querySelectorAll('.screen');
 let current = 0;
 const totalScreens = screens.length;
-const screenLocks = {1:false, 2:false, 3:false, 4:false, 5:false, 6:false, 7:false, 8:false, 9:false};
 
 function updateProgress(){
   document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%';
@@ -329,9 +352,7 @@ function updateProgress(){
 function refreshNavButtons(){
   document.getElementById('backBtn').disabled = (current === 0);
   const nextBtn = document.getElementById('nextBtn');
-  const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked || current === totalScreens-1;
-  nextBtn.classList.toggle('locked', locked);
+  nextBtn.disabled = false;
   nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡';
 }
 function changeScreen(delta){
@@ -354,6 +375,7 @@ const reviewLetters = [
   {l:'T', w:'Tree', fr:'arbre', e:'🌳'}, {l:'B', w:'Ball', fr:'balle', e:'⚽'}
 ];
 const tappedReview = new Set();
+let allReviewCelebrated = false;
 function buildReviewGrid(){
   const grid = document.getElementById('reviewGrid');
   reviewLetters.forEach(item=>{
@@ -364,10 +386,9 @@ function buildReviewGrid(){
       speakEN(`${item.l.toLowerCase()} is for ${item.w}.`);
       tile.classList.add('said');
       tappedReview.add(item.l);
-      if(tappedReview.size >= 6 && !screenLocks[1]){
-        screenLocks[1] = true; playCorrect(); addStar(1);
+      if(tappedReview.size >= 6 && !allReviewCelebrated){
+        allReviewCelebrated = true; playCorrect(); addStar(1);
         document.getElementById('reviewHint').textContent = 'Great! Tap Next when ready. ✨ / Super ! Continue quand tu es prête.';
-        refreshNavButtons();
       }
     });
     grid.appendChild(tile);
@@ -377,10 +398,11 @@ function buildReviewGrid(){
 function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
 
 const cvcWords = [
-  {word:'CAT', fr:'chat', slotsId:'slotsRow0', bankId:'bankRow0', fbId:'fb0', lock:2},
-  {word:'DOG', fr:'chien', slotsId:'slotsRow1', bankId:'bankRow1', fbId:'fb1', lock:3},
-  {word:'SUN', fr:'soleil', slotsId:'slotsRow2', bankId:'bankRow2', fbId:'fb2', lock:4},
-  {word:'HAT', fr:'chapeau', slotsId:'slotsRow3', bankId:'bankRow3', fbId:'fb3', lock:5}
+  {word:'CAT', fr:'chat', slotsId:'slotsRow0', bankId:'bankRow0', fbId:'fb0'},
+  {word:'DOG', fr:'chien', slotsId:'slotsRow1', bankId:'bankRow1', fbId:'fb1'},
+  {word:'SUN', fr:'soleil', slotsId:'slotsRow2', bankId:'bankRow2', fbId:'fb2'},
+  {word:'HAT', fr:'chapeau', slotsId:'slotsRow3', bankId:'bankRow3', fbId:'fb3'},
+  {word:'BAT', fr:'batte', slotsId:'slotsRow4', bankId:'bankRow4', fbId:'fb4'}
 ];
 function buildWordScreen(cfg){
   const slotsRow = document.getElementById(cfg.slotsId);
@@ -425,7 +447,6 @@ function buildWordScreen(cfg){
       speakEN(cfg.word);
       fb.innerHTML = `<span class="fb-en">Perfect! You built "${cfg.word}"! 🌟</span><span class="fb-fr">Parfait ! Tu as construit « ${cfg.fr} » !</span>`;
       fb.className = 'feedback-banner good';
-      screenLocks[cfg.lock] = true; refreshNavButtons();
     } else {
       playIncorrect();
       fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
@@ -448,7 +469,8 @@ function buildWordMatch(){
   const picCol = document.getElementById('matchPics');
   const dataset = [
     {w:'CAT', e:'🐱', fr:'chat'}, {w:'DOG', e:'🐶', fr:'chien'},
-    {w:'SUN', e:'☀️', fr:'soleil'}, {w:'HAT', e:'🎩', fr:'chapeau'}
+    {w:'SUN', e:'☀️', fr:'soleil'}, {w:'HAT', e:'🎩', fr:'chapeau'},
+    {w:'BAT', e:'🏏', fr:'batte'}
   ];
   const shuffledWords = shuffle(dataset);
   const shuffledPics = shuffle(dataset);
@@ -484,7 +506,7 @@ function buildWordMatch(){
         fb.innerHTML = `<span class="fb-en">Yes! That's ${matched.w}! 🎉</span><span class="fb-fr">Oui ! C'est ${matched.fr} !</span>`;
         fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= dataset.length && !screenLocks[6]){ screenLocks[6] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+        if(matchesFound >= dataset.length){ setTimeout(()=>playFanfare(),300); }
       } else {
         tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
         playIncorrect();
@@ -506,6 +528,11 @@ const FB = {
     A: {en:'"sun" starts with an s sound - try again!', fr:'« sun » commence par le son s - réessaie !'},
     B: {en:'"dog" starts with a d sound - try again!', fr:'« dog » commence par le son d - réessaie !'},
     C: {en:'Yes! "hop" and "hat" both start with the h sound! 🎉', fr:'Oui ! « hop » et « hat » commencent par le son h !'}
+  }},
+  q3: { ok: 'A', expl: {
+    A: {en:'Yes! "ball" and "bat" both start with the b sound! 🎉', fr:'Oui ! « ball » et « bat » commencent par le son b !'},
+    B: {en:'"cat" starts with a c sound - try again!', fr:'« cat » commence par le son c - réessaie !'},
+    C: {en:'"sun" starts with an s sound - try again!', fr:'« sun » commence par le son s - réessaie !'}
   }}
 };
 function initMCQ(gid, lockKey, feedbackId){
@@ -522,7 +549,6 @@ function initMCQ(gid, lockKey, feedbackId){
         playCorrect(); addStar(2); burstConfetti(currentCard());
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
         fb.className = 'feedback-banner good';
-        screenLocks[lockKey] = true; refreshNavButtons();
       } else {
         opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
         playIncorrect();
@@ -539,7 +565,8 @@ function buildRecap(){
   const sentenceFrEl = document.getElementById('recapSentenceFr');
   const pool = [
     {w:'CAT', fr:'chat', e:'🐱'}, {w:'DOG', fr:'chien', e:'🐶'},
-    {w:'SUN', fr:'soleil', e:'☀️'}, {w:'HAT', fr:'chapeau', e:'🎩'}
+    {w:'SUN', fr:'soleil', e:'☀️'}, {w:'HAT', fr:'chapeau', e:'🎩'},
+    {w:'BAT', fr:'batte', e:'🏏'}
   ];
   pool.forEach(item=>{
     const chip = document.createElement('div');
@@ -551,7 +578,6 @@ function buildRecap(){
       sentenceFrEl.textContent = item.fr;
       speakEN(item.w);
       burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[9]){ screenLocks[9] = true; refreshNavButtons(); }
     });
     row.appendChild(chip);
   });
@@ -560,8 +586,9 @@ function buildRecap(){
 buildReviewGrid();
 cvcWords.forEach(buildWordScreen);
 buildWordMatch();
-initMCQ('q1', 7, 'mcqFeedback');
-initMCQ('q2', 8, 'mcqFeedback2');
+initMCQ('q1', 8, 'mcqFeedback');
+initMCQ('q2', 9, 'mcqFeedback2');
+initMCQ('q3', 10, 'mcqFeedback3');
 buildRecap();
 updateProgress();
 refreshNavButtons();
