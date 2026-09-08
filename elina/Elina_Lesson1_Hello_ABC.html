@@ -508,12 +508,18 @@ function updateProgress(){
 function refreshNavButtons(){
   document.getElementById('backBtn').disabled = (current === 0);
   const nextBtn = document.getElementById('nextBtn');
+  const isLast = current === totalScreens-1;
   const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked || current === totalScreens-1;
-  nextBtn.classList.toggle('locked', locked);
-  nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡';
+  nextBtn.disabled = locked && !isLast;
+  nextBtn.classList.toggle('locked', locked && !isLast);
+  nextBtn.textContent = isLast ? 'Finished! 🎉' : 'Next ➡';
 }
 function changeScreen(delta){
+  // On the last screen, "Finished!" exits back to the lesson hub instead of advancing.
+  if(current === totalScreens-1 && delta === 1){
+    window.location.href = 'index.html';
+    return;
+  }
   const newIdx = current + delta;
   if(newIdx < 0 || newIdx >= totalScreens) return;
   screens[current].classList.remove('active');
