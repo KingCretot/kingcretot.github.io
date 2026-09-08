@@ -262,6 +262,8 @@
     display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:17px; color:var(--ink); margin-top:6px;
   }
   .shape-card .cap-fr{ display:block; font-size:14px; color:var(--french); font-style:italic; margin-top:1px;}
+  .shape-card.correct-quiz{ border-color: var(--grass); background:#D9FFE0; cursor:default; }
+  .shape-card.wrong-quiz{ animation: shake .4s ease; border-color: var(--berry); background:#FFE0E8; }
 
   .sentence-slot{
     min-height:70px;
@@ -335,7 +337,7 @@
     <div class="brand"><span class="emoji">🌈</span> Elina's ABC Adventure</div>
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">1 / 7</div>
+      <div class="progress-label" id="progressLabel">1 / 13</div>
     </div>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
     <button id="autoListenBtn" class="auto-listen-btn" onclick="toggleAutoListen()" title="Tap to turn all lesson audio on or off — auto-play AND tap-to-hear">🔊 Speech: ON</button>
@@ -371,6 +373,15 @@
 
   <section class="screen" data-screen="2">
     <div class="card">
+      <h1 class="eng" style="font-size:32px;">How are you today?</h1>
+      <p class="fr-sub">Comment vas-tu aujourd'hui ?</p>
+      <p class="eng-body">Tap a feeling and say it out loud!</p>
+      <div class="shape-grid" id="feelGrid"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="3">
+    <div class="card">
       <h1 class="eng" style="font-size:32px;">Tap a letter. Hear the sound!</h1>
       <p class="fr-sub">Touche une lettre. Écoute le son !</p>
       <div class="abc-grid" id="abcGrid"></div>
@@ -378,7 +389,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="3">
+  <section class="screen" data-screen="4">
     <div class="card">
       <h1 class="eng" style="font-size:32px;">Match the letter to the picture!</h1>
       <p class="fr-sub">Associe la lettre à l'image !</p>
@@ -390,7 +401,28 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="4">
+  <section class="screen" data-screen="5">
+    <div class="card">
+      <h1 class="eng" style="font-size:32px;">Numbers 1 to 10!</h1>
+      <p class="fr-sub">Les nombres de 1 à 10 !</p>
+      <div class="abc-grid" id="numGrid"></div>
+      <p class="eng-body" id="numHint" style="font-size:18px; color:#6b6b85;">Tap 8 numbers to unlock Next.</p>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="6">
+    <div class="card">
+      <h1 class="eng" style="font-size:32px;">Match the number to the dots!</h1>
+      <p class="fr-sub">Associe le nombre aux points !</p>
+      <div class="match-wrap">
+        <div class="match-col" id="numMatchLeft"></div>
+        <div class="match-col" id="numMatchRight"></div>
+      </div>
+      <div class="feedback-banner" id="numMatchFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="7">
     <div class="card">
       <h1 class="eng" style="font-size:32px;">Shapes, Colors &amp; Sizes</h1>
       <p class="fr-sub">Formes, couleurs et tailles</p>
@@ -403,7 +435,19 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="5">
+  <section class="screen" data-screen="8">
+    <div class="card">
+      <h1 class="eng" style="font-size:32px;">Match the color to the swatch!</h1>
+      <p class="fr-sub">Associe la couleur à la pastille !</p>
+      <div class="match-wrap">
+        <div class="match-col" id="colorMatchLeft"></div>
+        <div class="match-col" id="colorMatchRight"></div>
+      </div>
+      <div class="feedback-banner" id="colorMatchFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="9">
     <div class="card">
       <h1 class="eng" style="font-size:32px;">Build your sentence!</h1>
       <p class="fr-sub">Construis ta phrase !</p>
@@ -414,14 +458,36 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="6" data-autospeak="Great job Elina! Hi! My name is Elina. What is your name?">
+  <section class="screen" data-screen="10">
+    <div class="card">
+      <h1 class="eng" style="font-size:32px;">Build another sentence!</h1>
+      <p class="fr-sub">Construis une autre phrase !</p>
+      <p class="eng-body">Tap the words in order:</p>
+      <div class="sentence-slot" id="sentenceSlot2"></div>
+      <div class="word-bank" id="wordBank2"></div>
+      <div class="feedback-banner" id="phraseFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="11">
+    <div class="card">
+      <h1 class="eng" style="font-size:32px;">Quick Review!</h1>
+      <p class="fr-sub">Petite révision !</p>
+      <p class="eng-body" id="quizProgress" style="font-size:16px; color:#6b6b85;"></p>
+      <p class="eng-body" id="quizQuestion" style="font-size:26px; font-weight:700;"></p>
+      <div class="shape-grid" id="quizOptions"></div>
+      <div class="feedback-banner" id="quizFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="12" data-autospeak="Great job Elina! You learned so much today! Hi! My name is Elina. What is your name?">
     <div class="card">
       <div class="confetti"><span>🎉</span><span>⭐</span><span>🎊</span><span>⭐</span><span>🎉</span></div>
       <h1 class="eng">Great job, Elina!</h1>
       <p class="fr-sub">Bravo, Elina !</p>
-      <p class="eng-body">You learned letters, sounds, shapes, colors, and your first English sentence!</p>
+      <p class="eng-body">You learned letters, numbers, feelings, shapes, colors, and two English sentences!</p>
       <p class="eng-body" style="font-weight:700;">"Hi! My name is Elina. What is your name?"</p>
-      <button class="replay-btn" onclick="speak('Great job Elina! Hi! My name is Elina. What is your name?')">🔊 Hear it again</button>
+      <button class="replay-btn" onclick="speak('Great job Elina! You learned so much today! Hi! My name is Elina. What is your name?')">🔊 Hear it again</button>
     </div>
   </section>
 
@@ -499,7 +565,7 @@ function autoSpeakScreen(idx){
 const screens = document.querySelectorAll('.screen');
 let current = 0;
 const totalScreens = screens.length;
-const screenLocks = {2:false, 3:false, 5:false};
+const screenLocks = {3:false, 4:false, 5:false, 6:false, 8:false, 9:false, 10:false, 11:false};
 
 function updateProgress(){
   document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%';
@@ -537,6 +603,123 @@ function addStar(n=1){
   document.getElementById('starCount').textContent = stars;
 }
 
+function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
+
+// --- Generic matching-game builder, reused for letters, numbers, and colors ---
+function buildMatchGame(leftColId, rightColId, feedbackId, pairs, lockIndex, speakFn, msgFn){
+  const leftCol = document.getElementById(leftColId);
+  const rightCol = document.getElementById(rightColId);
+  const shuffledLeft = shuffle(pairs);
+  const shuffledRight = shuffle(pairs);
+  let selectedTile = null;
+  let found = 0;
+
+  shuffledLeft.forEach(item=>{
+    const tile = document.createElement('div');
+    tile.className = 'match-tile';
+    tile.innerHTML = item.leftDisplay;
+    tile.dataset.key = item.key;
+    tile.addEventListener('click', ()=>{
+      if(tile.classList.contains('correct')) return;
+      leftCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
+      tile.classList.add('selected');
+      selectedTile = tile;
+      speak(speakFn(item));
+    });
+    leftCol.appendChild(tile);
+  });
+
+  shuffledRight.forEach(item=>{
+    const tile = document.createElement('div');
+    tile.className = 'match-tile emoji-tile';
+    tile.innerHTML = item.rightDisplay;
+    tile.dataset.key = item.key;
+    tile.addEventListener('click', ()=>{
+      if(tile.classList.contains('correct') || !selectedTile) return;
+      const isMatch = selectedTile.dataset.key === tile.dataset.key;
+      const fb = document.getElementById(feedbackId);
+      if(isMatch){
+        tile.classList.add('correct');
+        selectedTile.classList.add('correct');
+        selectedTile.classList.remove('selected');
+        playCorrect();
+        addStar(1);
+        found++;
+        fb.textContent = msgFn(item);
+        fb.className = 'feedback-banner good';
+        selectedTile = null;
+        if(found >= pairs.length && !screenLocks[lockIndex]){
+          screenLocks[lockIndex] = true;
+          setTimeout(()=>{ playFanfare(); }, 300);
+          refreshNavButtons();
+        }
+      } else {
+        tile.classList.add('wrong');
+        setTimeout(()=>tile.classList.remove('wrong'),400);
+        playIncorrect();
+        fb.textContent = 'Try again! Listen and look carefully.';
+        fb.className = 'feedback-banner retry';
+      }
+    });
+    rightCol.appendChild(tile);
+  });
+}
+
+// --- Generic sentence-builder, reused for both sentence screens ---
+function buildSentenceBuilder(bankId, slotId, feedbackId, targetWords, bankWordsShuffled, lockIndex, correctMsg, speakOnCorrect){
+  let placed = [];
+  const bank = document.getElementById(bankId);
+  const slot = document.getElementById(slotId);
+  function render(){
+    slot.innerHTML = placed.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
+      '<span style="color:#aaa; font-size:18px; font-weight:500;">Tap the words below&hellip;</span>';
+  }
+  function reset(){
+    placed = [];
+    bank.querySelectorAll('.word-chip').forEach(c=>c.classList.remove('used'));
+    document.getElementById(feedbackId).textContent = '';
+    render();
+  }
+  function check(){
+    const fb = document.getElementById(feedbackId);
+    if(placed.length < targetWords.length) return;
+    const correct = placed.join(' ') === targetWords.join(' ');
+    if(correct){
+      playFanfare();
+      addStar(2);
+      fb.textContent = correctMsg;
+      fb.className = 'feedback-banner good';
+      if(speakOnCorrect) speak(speakOnCorrect);
+      screenLocks[lockIndex] = true;
+      refreshNavButtons();
+    } else {
+      playIncorrect();
+      fb.textContent = 'Almost! Tap Reset and try the order again.';
+      fb.className = 'feedback-banner retry';
+      const resetBtn = document.createElement('button');
+      resetBtn.className = 'replay-btn';
+      resetBtn.textContent = '🔄 Reset';
+      resetBtn.onclick = reset;
+      fb.appendChild(document.createElement('br'));
+      fb.appendChild(resetBtn);
+    }
+  }
+  bankWordsShuffled.forEach(word=>{
+    const chip = document.createElement('div');
+    chip.className = 'word-chip';
+    chip.textContent = word;
+    chip.addEventListener('click', ()=>{
+      if(chip.classList.contains('used')) return;
+      placed.push(word);
+      chip.classList.add('used');
+      render();
+      check();
+    });
+    bank.appendChild(chip);
+  });
+  render();
+}
+
 const alphabetData = [
   {l:'A', w:'Apple', fr:'pomme', e:'🍎'}, {l:'B', w:'Ball', fr:'balle', e:'⚽'},
   {l:'C', w:'Cat', fr:'chat', e:'🐱'}, {l:'D', w:'Dog', fr:'chien', e:'🐶'},
@@ -564,8 +747,8 @@ function buildAlphabetGrid(){
       speak(`${item.l}. ${item.l} is for ${item.w}.`);
       tile.classList.add('said');
       tappedLetters.add(item.l);
-      if(tappedLetters.size >= 6 && !screenLocks[2]){
-        screenLocks[2] = true;
+      if(tappedLetters.size >= 6 && !screenLocks[3]){
+        screenLocks[3] = true;
         playCorrect();
         addStar(1);
         document.getElementById('abcHint').textContent = 'Great listening! Tap Next when ready. ✨';
@@ -577,68 +760,65 @@ function buildAlphabetGrid(){
 }
 
 const matchSet = [
-  {l:'C', w:'Cat', e:'🐱'}, {l:'D', w:'Dog', e:'🐶'}, {l:'S', w:'Sun', e:'☀️'}, {l:'T', w:'Tree', e:'🌳'}
+  {key:'C', leftDisplay:'C', rightDisplay:'🐱', word:'Cat'},
+  {key:'D', leftDisplay:'D', rightDisplay:'🐶', word:'Dog'},
+  {key:'S', leftDisplay:'S', rightDisplay:'☀️', word:'Sun'},
+  {key:'T', leftDisplay:'T', rightDisplay:'🌳', word:'Tree'},
+  {key:'A', leftDisplay:'A', rightDisplay:'🍎', word:'Apple'},
+  {key:'B', leftDisplay:'B', rightDisplay:'⚽', word:'Ball'},
+  {key:'F', leftDisplay:'F', rightDisplay:'🐟', word:'Fish'},
+  {key:'L', leftDisplay:'L', rightDisplay:'🦁', word:'Lion'}
 ];
-let selectedLetterTile = null;
-let matchesFound = 0;
-function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
 
-function buildMatchingGame(){
-  const letterCol = document.getElementById('matchLetters');
-  const pictureCol = document.getElementById('matchPictures');
-  const shuffledLetters = shuffle(matchSet);
-  const shuffledPictures = shuffle(matchSet);
-
-  shuffledLetters.forEach(item=>{
-    const tile = document.createElement('div');
-    tile.className = 'match-tile';
-    tile.textContent = item.l;
-    tile.dataset.letter = item.l;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct')) return;
-      document.querySelectorAll('#matchLetters .match-tile').forEach(t=>t.classList.remove('selected'));
-      tile.classList.add('selected');
-      selectedLetterTile = tile;
-      speak(item.l);
-    });
-    letterCol.appendChild(tile);
-  });
-
-  shuffledPictures.forEach(item=>{
-    const tile = document.createElement('div');
-    tile.className = 'match-tile emoji-tile';
-    tile.textContent = item.e;
-    tile.dataset.letter = item.l;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct') || !selectedLetterTile) return;
-      const isMatch = selectedLetterTile.dataset.letter === tile.dataset.letter;
-      const fb = document.getElementById('matchFeedback');
-      if(isMatch){
-        tile.classList.add('correct');
-        selectedLetterTile.classList.add('correct');
-        selectedLetterTile.classList.remove('selected');
-        playCorrect();
-        addStar(1);
-        matchesFound++;
-        fb.textContent = 'Yes! ' + tile.dataset.letter + ' is for ' + matchSet.find(m=>m.l===tile.dataset.letter).w + '! 🎉';
-        fb.className = 'feedback-banner good';
-        selectedLetterTile = null;
-        if(matchesFound >= matchSet.length && !screenLocks[3]){
-          screenLocks[3] = true;
-          setTimeout(()=>{ playFanfare(); }, 300);
-          refreshNavButtons();
-        }
-      } else {
-        tile.classList.add('wrong');
-        setTimeout(()=>tile.classList.remove('wrong'),400);
-        playIncorrect();
-        fb.textContent = 'Try again! Listen and look carefully.';
-        fb.className = 'feedback-banner retry';
-      }
-    });
-    pictureCol.appendChild(tile);
+const feelingsData = [
+  {emoji:'😊', en:'I am happy.', fr:"Je suis content(e)."},
+  {emoji:'😴', en:'I am tired.', fr:"Je suis fatigué(e)."},
+  {emoji:'🤩', en:'I am excited.', fr:"Je suis excité(e)."},
+  {emoji:'😢', en:'I am sad.', fr:'Je suis triste.'}
+];
+function buildFeelingsGrid(){
+  const grid = document.getElementById('feelGrid');
+  feelingsData.forEach(item=>{
+    const card = document.createElement('div');
+    card.className = 'shape-card';
+    card.innerHTML = `${item.emoji}<span class="cap">${item.en}</span><span class="cap-fr">${item.fr}</span>`;
+    card.addEventListener('click', ()=> speak(item.en));
+    grid.appendChild(card);
   });
 }
+
+const numbersData = [
+  {n:1,w:'One',fr:'un'},{n:2,w:'Two',fr:'deux'},{n:3,w:'Three',fr:'trois'},{n:4,w:'Four',fr:'quatre'},
+  {n:5,w:'Five',fr:'cinq'},{n:6,w:'Six',fr:'six'},{n:7,w:'Seven',fr:'sept'},{n:8,w:'Eight',fr:'huit'},
+  {n:9,w:'Nine',fr:'neuf'},{n:10,w:'Ten',fr:'dix'}
+];
+const tappedNumbers = new Set();
+function buildNumberGrid(){
+  const grid = document.getElementById('numGrid');
+  numbersData.forEach(item=>{
+    const tile = document.createElement('div');
+    tile.className = 'letter-tile';
+    tile.dataset.num = item.n;
+    tile.innerHTML = `${item.n}<span class="word-emoji">${'●'.repeat(item.n)}</span><span class="word-label">${item.w} / ${item.fr.charAt(0).toUpperCase()+item.fr.slice(1)}</span>`;
+    tile.addEventListener('click', ()=>{
+      speak(`${item.n}. ${item.w}.`);
+      tile.classList.add('said');
+      tappedNumbers.add(item.n);
+      if(tappedNumbers.size >= 8 && !screenLocks[5]){
+        screenLocks[5] = true;
+        playCorrect();
+        addStar(1);
+        document.getElementById('numHint').textContent = 'Great counting! Tap Next when ready. ✨';
+        refreshNavButtons();
+      }
+    });
+    grid.appendChild(tile);
+  });
+}
+const numMatchSet = [1,2,3,4,5,6].map(n=>{
+  const item = numbersData.find(x=>x.n===n);
+  return {key:String(n), leftDisplay:String(n), rightDisplay:'●'.repeat(n), word:item.w};
+});
 
 const tabData = {
   shapes: [
@@ -670,68 +850,80 @@ function showTab(tab){
   });
 }
 
-const targetPhrase = ['Hi', ',', 'my', 'name', 'is', 'Elina', '.'];
-const displayPhrase = ['Hi,', 'my', 'name', 'is', 'Elina.'];
-const bankWords = shuffle(['Hi,', 'name', 'my', 'Elina.', 'is']);
-let placedWords = [];
+const colorMatchSet = [
+  {key:'Red', leftDisplay:'Red', rightDisplay:'🔴', word:'rouge'},
+  {key:'Yellow', leftDisplay:'Yellow', rightDisplay:'🟡', word:'jaune'},
+  {key:'Blue', leftDisplay:'Blue', rightDisplay:'🔵', word:'bleu'},
+  {key:'Green', leftDisplay:'Green', rightDisplay:'🟢', word:'vert'},
+  {key:'Purple', leftDisplay:'Purple', rightDisplay:'🟣', word:'violet'},
+  {key:'Orange', leftDisplay:'Orange', rightDisplay:'🟠', word:'orange'}
+];
 
-function buildPhraseScreen(){
-  const bank = document.getElementById('wordBank');
-  bankWords.forEach(word=>{
-    const chip = document.createElement('div');
-    chip.className = 'word-chip';
-    chip.textContent = word;
-    chip.addEventListener('click', ()=>{
-      if(chip.classList.contains('used')) return;
-      placedWords.push(word);
-      chip.classList.add('used');
-      renderSlot();
-      checkPhrase();
-    });
-    bank.appendChild(chip);
-  });
-  renderSlot();
-}
-function renderSlot(){
-  const slot = document.getElementById('sentenceSlot');
-  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#aaa; font-size:18px; font-weight:500;">Tap the words below&hellip;</span>';
-}
-function checkPhrase(){
-  const fb = document.getElementById('phraseFeedback');
-  if(placedWords.length < displayPhrase.length) return;
-  const correct = placedWords.join(' ') === displayPhrase.join(' ');
-  if(correct){
-    playFanfare();
-    addStar(2);
-    fb.textContent = 'Perfect! "Hi, my name is Elina." 🌟';
-    fb.className = 'feedback-banner good';
-    speak('Hi! My name is Elina.');
-    screenLocks[5] = true;
-    refreshNavButtons();
-  } else {
-    playIncorrect();
-    fb.textContent = 'Almost! Tap Reset and try the order again.';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button');
-    resetBtn.className = 'replay-btn';
-    resetBtn.textContent = '🔄 Reset';
-    resetBtn.onclick = resetPhrase;
-    fb.appendChild(document.createElement('br'));
-    fb.appendChild(resetBtn);
+const reviewQuestions = [
+  {q:'Which letter is for 🐱 Cat?', options:['A','C','T','S'], correct:'C'},
+  {q:'How many? 🍎🍎🍎', options:['2','3','4','5'], correct:'3'},
+  {q:"Which color means 'rouge' in French?", options:['Blue','Red','Green','Yellow'], correct:'Red'},
+  {q:'Which letter is for 🐶 Dog?', options:['D','B','L','F'], correct:'D'},
+  {q:"What number is 'dix' in French?", options:['8','9','10','7'], correct:'10'}
+];
+let quizIdx = 0;
+function renderQuizQuestion(){
+  const qEl = document.getElementById('quizQuestion');
+  const optsEl = document.getElementById('quizOptions');
+  const fb = document.getElementById('quizFeedback');
+  fb.textContent = '';
+  if(quizIdx >= reviewQuestions.length){
+    qEl.textContent = 'All done! Great review! 🌟';
+    optsEl.innerHTML = '';
+    document.getElementById('quizProgress').textContent = '';
+    if(!screenLocks[11]){
+      screenLocks[11] = true;
+      playFanfare();
+      refreshNavButtons();
+    }
+    return;
   }
-}
-function resetPhrase(){
-  placedWords = [];
-  document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used'));
-  document.getElementById('phraseFeedback').textContent = '';
-  renderSlot();
+  const item = reviewQuestions[quizIdx];
+  qEl.textContent = item.q;
+  document.getElementById('quizProgress').textContent = 'Question ' + (quizIdx+1) + ' of ' + reviewQuestions.length;
+  optsEl.innerHTML = '';
+  shuffle(item.options.slice()).forEach(opt=>{
+    const card = document.createElement('div');
+    card.className = 'shape-card';
+    card.textContent = opt;
+    card.style.fontSize = '30px';
+    card.style.fontFamily = "'Baloo 2', sans-serif";
+    card.style.fontWeight = '800';
+    card.addEventListener('click', ()=>{
+      if(opt === item.correct){
+        card.classList.add('correct-quiz');
+        playCorrect();
+        addStar(1);
+        fb.textContent = 'Yes! 🎉';
+        fb.className = 'feedback-banner good';
+        setTimeout(()=>{ quizIdx++; renderQuizQuestion(); }, 700);
+      } else {
+        card.classList.add('wrong-quiz');
+        playIncorrect();
+        fb.textContent = 'Try again!';
+        fb.className = 'feedback-banner retry';
+        setTimeout(()=>card.classList.remove('wrong-quiz'), 400);
+      }
+    });
+    optsEl.appendChild(card);
+  });
 }
 
 buildAlphabetGrid();
-buildMatchingGame();
+buildFeelingsGrid();
+buildMatchGame('matchLetters','matchPictures','matchFeedback', matchSet, 4, item=>item.key, item=>`Yes! ${item.key} is for ${item.word}! 🎉`);
+buildNumberGrid();
+buildMatchGame('numMatchLeft','numMatchRight','numMatchFeedback', numMatchSet, 6, item=>item.key, item=>`Yes! ${item.key} is ${item.word}! 🎉`);
 showTab('shapes');
-buildPhraseScreen();
+buildMatchGame('colorMatchLeft','colorMatchRight','colorMatchFeedback', colorMatchSet, 8, item=>item.key, item=>`Yes! ${item.key} is ${item.word} in French! 🎉`);
+buildSentenceBuilder('wordBank','sentenceSlot','phraseFeedback', ['Hi,','my','name','is','Elina.'], shuffle(['Hi,','name','my','Elina.','is']), 9, 'Perfect! "Hi, my name is Elina." 🌟', 'Hi! My name is Elina.');
+buildSentenceBuilder('wordBank2','sentenceSlot2','phraseFeedback2', ['What','is','your','name?'], shuffle(['your','is','name?','What']), 10, 'Perfect! "What is your name?" 🌟', 'What is your name?');
+renderQuizQuestion();
 updateProgress();
 refreshNavButtons();
 autoSpeakScreen(0);
