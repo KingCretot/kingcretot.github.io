@@ -43,7 +43,7 @@
   .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; color:var(--french); margin-top:1px;}
   .card-audio-row{ display:flex; gap:5px; justify-content:center; margin-top:7px; } .card-audio-btn{ border:none; border-radius:9px; font-size:11px; font-weight:800; padding:4px 8px; cursor:pointer; color:#fff; }
   .card-audio-btn.en{ background:var(--sky); } .card-audio-btn.fr{ background:var(--french); }
-  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:flex; flex-direction:column; gap:14px; min-width:160px;}
+  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
   .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
   .match-tile .main-txt{ font-size:22px; font-weight:700; display:block; } .match-tile.emoji-tile .main-txt{ font-size:34px; }
   .match-tile .sub-fr{ font-size:12px; color:var(--french); font-weight:700; display:block; margin-top:3px; }
@@ -87,7 +87,7 @@
 <div id="app">
   <div class="topbar">
     <div class="brand"><span class="emoji">🦇</span> Elina's Weather &amp; Days</div>
-    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 11</div></div>
+    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 13</div></div>
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
   </div>
@@ -142,6 +142,15 @@
 
   <section class="screen" data-screen="5">
     <div class="card">
+      <span class="section-tag">Weather Game / Jeu de météo</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Match the weather word to the picture!</span><span class="fr" style="font-size:24px;">Associe le mot à la météo !</span></div>
+      <div class="match-wrap"><div class="match-col" id="matchWeatherWords"></div><div class="match-col" id="matchWeatherPics"></div></div>
+      <div class="feedback-banner" id="matchFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="6">
+    <div class="card">
       <span class="section-tag">Build a Sentence / Construis une phrase</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Today is Monday!</span><span class="fr" style="font-size:24px;">Aujourd'hui c'est lundi !</span></div>
       <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
@@ -151,7 +160,18 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="6">
+  <section class="screen" data-screen="7">
+    <div class="card">
+      <span class="section-tag">Build Another Sentence / Construis une autre phrase</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">It is sunny today!</span><span class="fr" style="font-size:24px;">Il fait ensoleillé aujourd'hui !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="sentence-slot" id="sentenceSlot2"></div>
+      <div class="word-bank" id="wordBank2"></div>
+      <div class="feedback-banner" id="phraseFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="8">
     <div class="card">
       <span class="section-tag">I Like&hellip; / J'aime&hellip;</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which weather do you like?</span><span class="fr" style="font-size:24px;">Quel temps aimes-tu ?</span></div>
@@ -160,7 +180,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="7">
+  <section class="screen" data-screen="9">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What day comes after Monday?</span><span class="fr" style="font-size:24px;">Quel jour vient après lundi ?</span></div>
@@ -173,7 +193,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="8">
+  <section class="screen" data-screen="10">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What day comes before Saturday?</span><span class="fr" style="font-size:24px;">Quel jour vient avant samedi ?</span></div>
@@ -186,7 +206,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="9">
+  <section class="screen" data-screen="11">
     <div class="card">
       <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Tell Bibi the day and weather!</span><span class="fr" style="font-size:24px;">Dis le jour et la météo à Bibi !</span></div>
@@ -197,7 +217,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="10">
+  <section class="screen" data-screen="12">
     <div class="card">
       <div class="confetti"><span>🎉</span><span>🦇</span><span>☀️</span><span>⭐</span><span>🎉</span></div>
       <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
@@ -237,10 +257,9 @@ function speakFR(text){ if(!soundOn || !('speechSynthesis' in window)) return; w
 function toggleSound(){ soundOn = !soundOn; const btn = document.getElementById('soundToggle'); btn.classList.toggle('off', !soundOn); document.getElementById('soundToggleLabel').textContent = soundOn ? 'Sound On' : 'Sound Off'; if(!soundOn && 'speechSynthesis' in window) window.speechSynthesis.cancel(); }
 
 const screens = document.querySelectorAll('.screen'); let current = 0; const totalScreens = screens.length;
-const screenLocks = {3:false, 4:false, 5:false, 6:false, 7:false, 8:false, 9:false};
 function updateProgress(){ document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%'; document.getElementById('progressLabel').textContent = (current+1) + ' / ' + totalScreens; }
-function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn'); const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked || current === totalScreens-1; nextBtn.classList.toggle('locked', locked); nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡'; }
+function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn');
+  nextBtn.disabled = false; nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡'; }
 function changeScreen(delta){ const newIdx = current + delta; if(newIdx < 0 || newIdx >= totalScreens) return; screens[current].classList.remove('active'); current = newIdx; screens[current].classList.add('active');
   updateProgress(); refreshNavButtons(); window.scrollTo({top:0, behavior:'smooth'}); if(current === totalScreens-1){ setTimeout(()=>{ burstConfetti(currentCard()); playFanfare(); }, 200); } }
 let stars = 0; function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
@@ -301,11 +320,40 @@ function buildDaysMatch(){
         const matched = dataset.find(d=>d.en===tile.dataset.key);
         fb.innerHTML = `<span class="fb-en">Yes! ${matched.en}! 🎉</span><span class="fb-fr">Oui ! ${matched.fr} !</span>`; fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= dataset.length && !screenLocks[3]){ screenLocks[3] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+        if(matchesFound >= dataset.length){ setTimeout(()=>playFanfare(),300); }
       } else { tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400); playIncorrect();
         fb.innerHTML = `<span class="fb-en">Try again!</span><span class="fb-fr">Réessaie !</span>`; fb.className = 'feedback-banner retry'; }
     });
     frCol.appendChild(tile);
+  });
+}
+
+function buildWeatherMatch(){
+  const wordCol = document.getElementById('matchWeatherWords'); const picCol = document.getElementById('matchWeatherPics');
+  const shuffledWords = shuffle(weatherData); const shuffledPics = shuffle(weatherData);
+  let selectedTile2 = null; let matchesFound2 = 0; const fb2 = document.getElementById('matchFeedback2');
+  shuffledWords.forEach(item=>{
+    const tile = document.createElement('div'); tile.className = 'match-tile'; tile.innerHTML = `<span class="main-txt">${item.en}</span><span class="sub-fr">${item.fr}</span>`; tile.dataset.key = item.en;
+    tile.addEventListener('click', ()=>{ if(tile.classList.contains('correct')) return; wordCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
+      tile.classList.add('selected'); selectedTile2 = tile; speakEN(item.en); });
+    wordCol.appendChild(tile);
+  });
+  shuffledPics.forEach(item=>{
+    const tile = document.createElement('div'); tile.className = 'match-tile emoji-tile'; tile.innerHTML = `<span class="main-txt">${item.e}</span>`; tile.dataset.key = item.en;
+    tile.addEventListener('click', ()=>{
+      if(tile.classList.contains('correct') || !selectedTile2) return;
+      const isMatch = selectedTile2.dataset.key === tile.dataset.key;
+      if(isMatch){
+        tile.classList.add('correct'); selectedTile2.classList.add('correct'); selectedTile2.classList.remove('selected');
+        playCorrect(); addStar(1); matchesFound2++; burstConfetti(currentCard());
+        const matched = weatherData.find(d=>d.en===tile.dataset.key);
+        fb2.innerHTML = `<span class="fb-en">Yes! ${matched.en}! 🎉</span><span class="fb-fr">Oui ! ${matched.fr} !</span>`; fb2.className = 'feedback-banner good';
+        selectedTile2 = null;
+        if(matchesFound2 >= weatherData.length){ setTimeout(()=>playFanfare(),300); }
+      } else { tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400); playIncorrect();
+        fb2.innerHTML = `<span class="fb-en">Try again!</span><span class="fb-fr">Réessaie !</span>`; fb2.className = 'feedback-banner retry'; }
+    });
+    picCol.appendChild(tile);
   });
 }
 
@@ -318,7 +366,6 @@ function buildWeatherDialogue(){
       const enS = `It's ${item.en.toLowerCase()}.`; const frS = `Il fait ${item.fr}.`;
       resp.innerHTML = `<span class="en">${enS}</span><span class="fr">${frS}</span>`;
       speakEN(enS); burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[4]){ screenLocks[4] = true; refreshNavButtons(); }
     });
     row.appendChild(pick);
   });
@@ -344,11 +391,40 @@ function checkPhrase(){
   if(correct){
     playFanfare(); addStar(2); burstConfetti(currentCard());
     fb.innerHTML = '<span class="fb-en">Perfect! "Today is Monday." 🌟</span><span class="fb-fr">Parfait ! « Aujourd\'hui c\'est lundi. »</span>';
-    fb.className = 'feedback-banner good'; speakEN('Today is Monday.'); screenLocks[5] = true; refreshNavButtons();
+    fb.className = 'feedback-banner good'; speakEN('Today is Monday.');
   } else {
     playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
     const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
     resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
+    fb.appendChild(resetBtn);
+  }
+}
+
+const displayPhrase2 = ['It', 'is', 'sunny', 'today.'];
+const frHints2 = {'It':'Il', 'is':'fait', 'sunny':'ensoleillé', 'today.':'aujourd\'hui.'};
+const bankWords2 = shuffle(['today.', 'It', 'sunny', 'is']);
+let placedWords2 = [];
+function buildPhraseScreen2(){
+  const bank = document.getElementById('wordBank2');
+  bankWords2.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip'; chip.innerHTML = `${word}<span class="fr-hint">${frHints2[word]}</span>`;
+    chip.addEventListener('click', ()=>{ if(chip.classList.contains('used')) return; placedWords2.push(word); chip.classList.add('used'); renderSlot2(); checkPhrase2(); });
+    bank.appendChild(chip);
+  });
+  renderSlot2();
+}
+function renderSlot2(){ const slot = document.getElementById('sentenceSlot2'); slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') || '<span style="color:#aaa; font-size:16px;">Tap the words below&hellip;</span>'; }
+function checkPhrase2(){
+  const fb = document.getElementById('phraseFeedback2'); if(placedWords2.length < displayPhrase2.length) return;
+  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
+  if(correct){
+    playFanfare(); addStar(2); burstConfetti(currentCard());
+    fb.innerHTML = '<span class="fb-en">Perfect! "It is sunny today." 🌟</span><span class="fb-fr">Parfait ! « Il fait ensoleillé aujourd\'hui. »</span>';
+    fb.className = 'feedback-banner good'; speakEN('It is sunny today.');
+  } else {
+    playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords2 = []; document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot2(); };
     fb.appendChild(resetBtn);
   }
 }
@@ -366,8 +442,7 @@ function buildWeatherOpinion(){
       const enS = liked ? `I like ${item.en.toLowerCase()} weather.` : `I don't like ${item.en.toLowerCase()} weather.`;
       const frS = liked ? `J'aime le temps ${item.fr}.` : `Je n'aime pas le temps ${item.fr}.`;
       saidEl.innerHTML = enS + '<br>' + frS; speakEN(enS);
-      if(!already){ card.classList.add('answered'); weatherOpinionAnswered++; burstConfetti(currentCard()); playCorrect();
-        if(weatherOpinionAnswered >= 3 && !screenLocks[6]){ screenLocks[6] = true; refreshNavButtons(); } }
+      if(!already){ card.classList.add('answered'); weatherOpinionAnswered++; burstConfetti(currentCard()); playCorrect(); }
     };
     likeBtn.addEventListener('click', ()=> respond(true)); dislikeBtn.addEventListener('click', ()=> respond(false));
     grid.appendChild(card);
@@ -386,7 +461,6 @@ function initMCQ(gid, lockKey, feedbackId){
       if(isCorrect){ opt.classList.add('correct'); block.classList.add('answered'); block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
         playCorrect(); addStar(2); burstConfetti(currentCard());
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner good';
-        screenLocks[lockKey] = true; refreshNavButtons();
       } else { opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500); playIncorrect();
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner retry'; }
     });
@@ -402,14 +476,13 @@ function buildRecap(){
       document.querySelectorAll('.recap-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active');
       sentenceEl.textContent = item.en; sentenceFrEl.textContent = item.fr;
       speakEN(item.en); burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[9]){ screenLocks[9] = true; refreshNavButtons(); }
     });
     row.appendChild(chip);
   });
 }
 
-buildDaysGrid(); buildWeatherGrid(); buildDaysMatch(); buildWeatherDialogue(); buildPhraseScreen(); buildWeatherOpinion();
-initMCQ('q1', 7, 'mcqFeedback'); initMCQ('q2', 8, 'mcqFeedback2'); buildRecap();
+buildDaysGrid(); buildWeatherGrid(); buildDaysMatch(); buildWeatherDialogue(); buildWeatherMatch(); buildPhraseScreen(); buildPhraseScreen2(); buildWeatherOpinion();
+initMCQ('q1', 9, 'mcqFeedback'); initMCQ('q2', 10, 'mcqFeedback2'); buildRecap();
 updateProgress(); refreshNavButtons();
 </script>
 </body>
