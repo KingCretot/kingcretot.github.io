@@ -81,7 +81,7 @@
   .card-audio-btn.fr{ background:var(--french); }
 
   .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; }
-  .match-col{display:flex; flex-direction:column; gap:14px; min-width:160px;}
+  .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
   .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
   .match-tile .main-txt{ font-size:22px; font-weight:700; display:block; }
   .match-tile.emoji-tile .main-txt{ font-size:34px; }
@@ -451,7 +451,6 @@ function toggleSound(){
 const screens = document.querySelectorAll('.screen');
 let current = 0;
 const totalScreens = screens.length;
-const screenLocks = {3:false, 4:false, 6:false, 9:false, 10:false, 11:false, 12:false};
 
 function updateProgress(){
   document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%';
@@ -460,9 +459,7 @@ function updateProgress(){
 function refreshNavButtons(){
   document.getElementById('backBtn').disabled = (current === 0);
   const nextBtn = document.getElementById('nextBtn');
-  const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked || current === totalScreens-1;
-  nextBtn.classList.toggle('locked', locked);
+  nextBtn.disabled = false;
   nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡';
 }
 function changeScreen(delta){
@@ -578,10 +575,8 @@ function buildMatchingGame(wordColId, picColId, feedbackId, dataset, lockKey){
         fb.innerHTML = `<span class="fb-en">Yes! That's ${matchItem.en}! 🎉</span><span class="fb-fr">Oui ! C'est ${matchItem.fr} !</span>`;
         fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= dataset.length && !screenLocks[lockKey]){
-          screenLocks[lockKey] = true;
+        if(matchesFound >= dataset.length){
           setTimeout(()=>{ playFanfare(); }, 300);
-          refreshNavButtons();
         }
       } else {
         tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
@@ -627,7 +622,6 @@ function checkPhrase(){
     fb.innerHTML = '<span class="fb-en">Perfect! "This is my mom." 🌟</span><span class="fb-fr">Parfait ! « Voici ma maman. »</span>';
     fb.className = 'feedback-banner good';
     speakEN('This is my mom.');
-    screenLocks[4] = true; refreshNavButtons();
   } else {
     playIncorrect();
     fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
@@ -682,7 +676,6 @@ function buildHomeOpinion(){
         homeAnswered++;
         burstConfetti(currentCard());
         playCorrect();
-        if(homeAnswered >= 3 && !screenLocks[9]){ screenLocks[9] = true; refreshNavButtons(); }
       }
     };
     likeBtn.addEventListener('click', ()=> respond(true));
@@ -717,7 +710,6 @@ function initMCQ(gid, lockKey, feedbackId){
         playCorrect(); addStar(2); burstConfetti(currentCard());
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
         fb.className = 'feedback-banner good';
-        screenLocks[lockKey] = true; refreshNavButtons();
       } else {
         opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
         playIncorrect();
@@ -750,7 +742,6 @@ function buildRecap(){
       sentenceFrEl.textContent = item.frPhrase;
       speakEN(item.enPhrase);
       burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[12]){ screenLocks[12] = true; refreshNavButtons(); }
     });
     row.appendChild(chip);
   });
