@@ -65,7 +65,7 @@
   .card-audio-btn.fr{ background:var(--french); }
   .swatch-card{ width:100%; height:44px; border-radius:12px; margin:0 auto; }
   .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; }
-  .match-col{display:flex; flex-direction:column; gap:14px; min-width:160px;}
+  .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
   .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
   .match-tile .main-txt{ font-size:22px; font-weight:700; display:block; }
   .match-tile.selected{ border-color: var(--grape); background:#E9DBFF; transform:scale(1.03); }
@@ -126,7 +126,7 @@
     <div class="brand"><span class="emoji">🔢</span> Elina's Numbers &amp; Colors</div>
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">1 / 12</div>
+      <div class="progress-label" id="progressLabel">1 / 13</div>
     </div>
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
@@ -205,6 +205,17 @@
 
   <section class="screen" data-screen="7">
     <div class="card">
+      <span class="section-tag">Build Another Sentence / Construis une autre phrase</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">My favorite color is pink!</span><span class="fr" style="font-size:24px;">Ma couleur préférée, c'est le rose !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="sentence-slot" id="sentenceSlot2"></div>
+      <div class="word-bank" id="wordBank2"></div>
+      <div class="feedback-banner" id="phraseFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="8">
+    <div class="card">
       <span class="section-tag">I Like&hellip; / J'aime&hellip;</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which new colors do you like?</span><span class="fr" style="font-size:24px;">Quelles nouvelles couleurs aimes-tu ?</span></div>
       <p style="font-size:16px; color:#7a7a95; margin:0 0 10px;">Tap ❤️ or 🚫 on at least 4. / Touche ❤️ ou 🚫 sur au moins 4.</p>
@@ -212,7 +223,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="8">
+  <section class="screen" data-screen="9">
     <div class="card">
       <span class="section-tag">How Many? / Combien ?</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">How many stars do you see?</span><span class="fr" style="font-size:24px;">Combien d'étoiles vois-tu ?</span></div>
@@ -226,7 +237,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="9">
+  <section class="screen" data-screen="10">
     <div class="card">
       <span class="section-tag">What Color? / Quelle couleur ?</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What color is the sun?</span><span class="fr" style="font-size:24px;">De quelle couleur est le soleil ?</span></div>
@@ -240,7 +251,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="10">
+  <section class="screen" data-screen="11">
     <div class="card">
       <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Tell Fox a number and a color!</span><span class="fr" style="font-size:24px;">Dis un nombre et une couleur à Renard !</span></div>
@@ -251,7 +262,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="11">
+  <section class="screen" data-screen="12">
     <div class="card">
       <div class="confetti"><span>🎉</span><span>🔢</span><span>🎨</span><span>⭐</span><span>🎉</span></div>
       <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
@@ -342,7 +353,6 @@ function toggleSound(){
 const screens = document.querySelectorAll('.screen');
 let current = 0;
 const totalScreens = screens.length;
-const screenLocks = {3:false, 5:false, 6:false, 7:false, 8:false, 9:false, 10:false};
 
 function updateProgress(){
   document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%';
@@ -351,9 +361,7 @@ function updateProgress(){
 function refreshNavButtons(){
   document.getElementById('backBtn').disabled = (current === 0);
   const nextBtn = document.getElementById('nextBtn');
-  const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked || current === totalScreens-1;
-  nextBtn.classList.toggle('locked', locked);
+  nextBtn.disabled = false;
   nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡';
 }
 function changeScreen(delta){
@@ -430,7 +438,7 @@ function buildCountingMatch(){
         fb.innerHTML = `<span class="fb-en">Yes! That's ${numberNames[n]}! 🎉</span><span class="fb-fr">Oui ! C'est ${numberNamesFr[n]} !</span>`;
         fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= nums.length && !screenLocks[3]){ screenLocks[3] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+        if(matchesFound >= nums.length){ setTimeout(()=>playFanfare(),300); }
       } else {
         tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
         playIncorrect();
@@ -504,7 +512,7 @@ function buildColorMatch(){
         fb.innerHTML = `<span class="fb-en">Yes! That's ${matched.en}! 🎉</span><span class="fb-fr">Oui ! C'est ${matched.fr} !</span>`;
         fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= moreColors.length && !screenLocks[5]){ screenLocks[5] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+        if(matchesFound >= moreColors.length){ setTimeout(()=>playFanfare(),300); }
       } else {
         tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
         playIncorrect();
@@ -549,7 +557,6 @@ function checkPhrase(){
     fb.innerHTML = '<span class="fb-en">Perfect! "I have three cats." 🌟</span><span class="fb-fr">Parfait ! « J\'ai trois chats. »</span>';
     fb.className = 'feedback-banner good';
     speakEN('I have three cats.');
-    screenLocks[6] = true; refreshNavButtons();
   } else {
     playIncorrect();
     fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
@@ -565,6 +572,56 @@ function resetPhrase(){
   document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used'));
   document.getElementById('phraseFeedback').innerHTML = '';
   renderSlot();
+}
+
+const displayPhrase2 = ['My', 'favorite', 'color', 'is', 'pink.'];
+const frHints2 = {'My':'Ma', 'favorite':'préférée', 'color':'couleur', 'is':"c'est", 'pink.':'rose.'};
+const bankWords2 = shuffle(['color', 'My', 'pink.', 'is', 'favorite']);
+let placedWords2 = [];
+function buildPhraseScreen2(){
+  const bank = document.getElementById('wordBank2');
+  bankWords2.forEach(word=>{
+    const chip = document.createElement('div');
+    chip.className = 'word-chip';
+    chip.innerHTML = `${word}<span class="fr-hint">${frHints2[word]}</span>`;
+    chip.addEventListener('click', ()=>{
+      if(chip.classList.contains('used')) return;
+      placedWords2.push(word); chip.classList.add('used');
+      renderSlot2(); checkPhrase2();
+    });
+    bank.appendChild(chip);
+  });
+  renderSlot2();
+}
+function renderSlot2(){
+  const slot = document.getElementById('sentenceSlot2');
+  slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
+    '<span style="color:#aaa; font-size:16px; font-weight:500;">Tap the words below&hellip; / Touche les mots ci-dessous&hellip;</span>';
+}
+function checkPhrase2(){
+  const fb = document.getElementById('phraseFeedback2');
+  if(placedWords2.length < displayPhrase2.length) return;
+  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
+  if(correct){
+    playFanfare(); addStar(2); burstConfetti(currentCard());
+    fb.innerHTML = '<span class="fb-en">Perfect! "My favorite color is pink." 🌟</span><span class="fb-fr">Parfait ! « Ma couleur préférée, c\'est le rose. »</span>';
+    fb.className = 'feedback-banner good';
+    speakEN('My favorite color is pink.');
+  } else {
+    playIncorrect();
+    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
+    fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button');
+    resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = resetPhrase2;
+    fb.appendChild(resetBtn);
+  }
+}
+function resetPhrase2(){
+  placedWords2 = [];
+  document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used'));
+  document.getElementById('phraseFeedback2').innerHTML = '';
+  renderSlot2();
 }
 
 let colorOpinionAnswered = 0;
@@ -597,7 +654,6 @@ function buildColorOpinion(){
       if(!already){
         card.classList.add('answered'); colorOpinionAnswered++;
         burstConfetti(currentCard()); playCorrect();
-        if(colorOpinionAnswered >= 4 && !screenLocks[7]){ screenLocks[7] = true; refreshNavButtons(); }
       }
     };
     likeBtn.addEventListener('click', ()=> respond(true));
@@ -632,7 +688,6 @@ function initMCQ(gid, lockKey, feedbackId){
         playCorrect(); addStar(2); burstConfetti(currentCard());
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
         fb.className = 'feedback-banner good';
-        screenLocks[lockKey] = true; refreshNavButtons();
       } else {
         opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
         playIncorrect();
@@ -665,7 +720,6 @@ function buildRecap(){
       sentenceFrEl.textContent = item.frPhrase;
       speakEN(item.enPhrase);
       burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[10]){ screenLocks[10] = true; refreshNavButtons(); }
     });
     row.appendChild(chip);
   });
@@ -677,6 +731,7 @@ buildCountingMatch();
 buildMoreColorsGrid();
 buildColorMatch();
 buildPhraseScreen();
+buildPhraseScreen2();
 buildColorOpinion();
 initMCQ('q1', 8, 'mcqFeedback');
 initMCQ('q2', 9, 'mcqFeedback2');
