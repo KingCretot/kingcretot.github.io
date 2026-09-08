@@ -338,7 +338,7 @@
       <div class="progress-label" id="progressLabel">1 / 7</div>
     </div>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
-    <button id="autoListenBtn" class="auto-listen-btn" onclick="toggleAutoListen()" title="When on, each screen plays its audio automatically">🔊 Auto-listen: ON</button>
+    <button id="autoListenBtn" class="auto-listen-btn" onclick="toggleAutoListen()" title="Tap to turn all lesson audio on or off — auto-play AND tap-to-hear">🔊 Speech: ON</button>
   </div>
 
   <section class="screen active" data-screen="0" data-autospeak="Hi! My name is Fox. Let's learn English together!">
@@ -457,8 +457,12 @@ function playFanfare(){
   [523.25,659.25,783.99,1046.5,1318.5].forEach((f,i)=> tone(f, i*0.13, .3, 'triangle', 0.2));
 }
 
+// --- Speech control: ONE toggle controls ALL speech in this lesson (auto AND tap-to-hear) ---
+let autoListen = true;
+
 function speak(text){
   if(!('speechSynthesis' in window)) return;
+  if(!autoListen) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = 'en-US';
@@ -466,13 +470,10 @@ function speak(text){
   u.pitch = 1.05;
   window.speechSynthesis.speak(u);
 }
-
-// --- Auto-listen: plays each screen's main prompt automatically, no button press needed ---
-let autoListen = true;
 function toggleAutoListen(){
   autoListen = !autoListen;
   const btn = document.getElementById('autoListenBtn');
-  btn.textContent = autoListen ? '🔊 Auto-listen: ON' : '🔇 Auto-listen: OFF';
+  btn.textContent = autoListen ? '🔊 Speech: ON' : '🔇 Speech: OFF';
   btn.classList.toggle('off', !autoListen);
   if(!autoListen) window.speechSynthesis.cancel();
 }
@@ -552,7 +553,7 @@ function buildAlphabetGrid(){
     const tile = document.createElement('div');
     tile.className = 'letter-tile';
     tile.dataset.letter = item.l;
-    tile.innerHTML = `${item.l}<span class="word-emoji">${item.e}</span><span class="word-label">${item.w}</span>`;
+    tile.innerHTML = `${item.l}<span class="word-emoji">${item.e}</span><span class="word-label">${item.w} / ${item.fr.charAt(0).toUpperCase()+item.fr.slice(1)}</span>`;
     tile.addEventListener('click', ()=>{
       speak(`${item.l}. ${item.l} is for ${item.w}.`);
       tile.classList.add('said');
