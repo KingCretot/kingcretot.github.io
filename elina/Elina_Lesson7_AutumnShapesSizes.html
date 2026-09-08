@@ -43,7 +43,7 @@
   .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; color:var(--french); margin-top:1px;}
   .card-audio-row{ display:flex; gap:6px; justify-content:center; margin-top:8px; } .card-audio-btn{ border:none; border-radius:10px; font-size:12px; font-weight:800; padding:5px 9px; cursor:pointer; color:#fff; }
   .card-audio-btn.en{ background:var(--sky); } .card-audio-btn.fr{ background:var(--french); }
-  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:flex; flex-direction:column; gap:14px; min-width:160px;}
+  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
   .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
   .match-tile .main-txt{ font-size:20px; font-weight:700; display:block; } .match-tile.emoji-tile .main-txt{ font-size:34px; }
   .match-tile.selected{ border-color: var(--grape); background:#E9DBFF; transform:scale(1.03); } .match-tile.correct{ border-color: var(--grass); background:#D9FFE0; cursor:default; }
@@ -81,7 +81,7 @@
 <div id="app">
   <div class="topbar">
     <div class="brand"><span class="emoji">🦇</span> Elina's Autumn Shapes</div>
-    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 9</div></div>
+    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 13</div></div>
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
   </div>
@@ -108,6 +108,23 @@
 
   <section class="screen" data-screen="2">
     <div class="card">
+      <span class="section-tag">Shapes of Autumn / Formes d'automne</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Round, pointed, oval, and long!</span><span class="fr" style="font-size:24px;">Rond, pointue, ovale, et longue !</span></div>
+      <div class="shape-grid" id="shapesGrid"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="3">
+    <div class="card">
+      <span class="section-tag">Shapes Game / Jeu des formes</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Match the shape word to the thing!</span><span class="fr" style="font-size:24px;">Associe la forme à la chose !</span></div>
+      <div class="match-wrap"><div class="match-col" id="matchShapeWords"></div><div class="match-col" id="matchShapePics"></div></div>
+      <div class="feedback-banner" id="matchFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="4">
+    <div class="card">
       <span class="section-tag">Autumn Game / Jeu d'automne</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Match the description to the picture!</span><span class="fr" style="font-size:24px;">Associe la description à l'image !</span></div>
       <div class="match-wrap"><div class="match-col" id="matchWords"></div><div class="match-col" id="matchPics"></div></div>
@@ -115,7 +132,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="3">
+  <section class="screen" data-screen="5">
     <div class="card">
       <span class="section-tag">Build a Sentence / Construis une phrase</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">The pumpkin is big and orange!</span><span class="fr" style="font-size:24px;">La citrouille est grande et orange !</span></div>
@@ -126,7 +143,18 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="4">
+  <section class="screen" data-screen="6">
+    <div class="card">
+      <span class="section-tag">Build Another Sentence / Construis une autre phrase</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">The leaf is small and red!</span><span class="fr" style="font-size:24px;">La feuille est petite et rouge !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="sentence-slot" id="sentenceSlot2"></div>
+      <div class="word-bank" id="wordBank2"></div>
+      <div class="feedback-banner" id="phraseFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="7">
     <div class="card">
       <span class="section-tag">Bigger or Smaller? / Plus grand ou plus petit ?</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which is bigger?</span><span class="fr" style="font-size:24px;">Lequel est plus grand ?</span></div>
@@ -139,7 +167,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="5">
+  <section class="screen" data-screen="8">
     <div class="card">
       <span class="section-tag">Bigger or Smaller? / Plus grand ou plus petit ?</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which is smaller?</span><span class="fr" style="font-size:24px;">Lequel est plus petit ?</span></div>
@@ -152,7 +180,20 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="6">
+  <section class="screen" data-screen="9">
+    <div class="card">
+      <span class="section-tag">Longer or Shorter? / Plus long ou plus court ?</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Which is longer?</span><span class="fr" style="font-size:24px;">Lequel est plus long ?</span></div>
+      <div class="compare-row"><div class="compare-item">🧣<span class="lbl">Scarf</span></div><span style="font-size:24px; font-weight:800;">vs</span><div class="compare-item">🌰<span class="lbl">Acorn</span></div></div>
+      <div class="mcq-options" data-gid="q3">
+        <button class="mcq-opt" data-ans="A">A) The acorn is longer.<span class="opt-fr">Le gland est plus long.</span></button>
+        <button class="mcq-opt" data-ans="B">B) The scarf is longer.<span class="opt-fr">L'écharpe est plus longue.</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback3"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="10">
     <div class="card">
       <span class="section-tag">I Like&hellip; / J'aime&hellip;</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which autumn things do you like?</span><span class="fr" style="font-size:24px;">Quelles choses d'automne aimes-tu ?</span></div>
@@ -161,7 +202,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="7">
+  <section class="screen" data-screen="11">
     <div class="card">
       <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Describe an autumn thing!</span><span class="fr" style="font-size:24px;">Décris une chose d'automne !</span></div>
@@ -172,7 +213,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="8">
+  <section class="screen" data-screen="12">
     <div class="card">
       <div class="confetti"><span>🎉</span><span>🍂</span><span>🎃</span><span>⭐</span><span>🎉</span></div>
       <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
@@ -212,10 +253,9 @@ function speakFR(text){ if(!soundOn || !('speechSynthesis' in window)) return; w
 function toggleSound(){ soundOn = !soundOn; const btn = document.getElementById('soundToggle'); btn.classList.toggle('off', !soundOn); document.getElementById('soundToggleLabel').textContent = soundOn ? 'Sound On' : 'Sound Off'; if(!soundOn && 'speechSynthesis' in window) window.speechSynthesis.cancel(); }
 
 const screens = document.querySelectorAll('.screen'); let current = 0; const totalScreens = screens.length;
-const screenLocks = {2:false, 3:false, 4:false, 5:false, 6:false, 7:false};
 function updateProgress(){ document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%'; document.getElementById('progressLabel').textContent = (current+1) + ' / ' + totalScreens; }
-function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn'); const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked || current === totalScreens-1; nextBtn.classList.toggle('locked', locked); nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡'; }
+function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn');
+  nextBtn.disabled = false; nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡'; }
 function changeScreen(delta){ const newIdx = current + delta; if(newIdx < 0 || newIdx >= totalScreens) return; screens[current].classList.remove('active'); current = newIdx; screens[current].classList.add('active');
   updateProgress(); refreshNavButtons(); window.scrollTo({top:0, behavior:'smooth'}); if(current === totalScreens-1){ setTimeout(()=>{ burstConfetti(currentCard()); playFanfare(); }, 200); } }
 let stars = 0; function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
@@ -235,6 +275,53 @@ function buildAutumnGrid(){
     card.querySelector('.card-audio-btn.en').addEventListener('click', ()=> speakEN(item.en));
     card.querySelector('.card-audio-btn.fr').addEventListener('click', ()=> speakFR(item.fr));
     grid.appendChild(card);
+  });
+}
+
+const shapesData = [
+  {e:'🎃', shape:'Round', shapeFr:'ronde', obj:'pumpkin', objFr:'citrouille'},
+  {e:'🍂', shape:'Pointed', shapeFr:'pointue', obj:'leaf', objFr:'feuille'},
+  {e:'🌰', shape:'Oval', shapeFr:'ovale', obj:'acorn', objFr:'gland'},
+  {e:'🧣', shape:'Long', shapeFr:'longue', obj:'scarf', objFr:'écharpe'}
+];
+function buildShapesGrid(){
+  const grid = document.getElementById('shapesGrid');
+  shapesData.forEach(item=>{
+    const card = document.createElement('div'); card.className = 'shape-card';
+    card.innerHTML = `${item.e}<span class="cap-en">${item.shape}</span><span class="cap-fr">${item.shapeFr}</span>
+      <div class="card-audio-row"><button class="card-audio-btn en" type="button">EN</button><button class="card-audio-btn fr" type="button">FR</button></div>`;
+    card.querySelector('.card-audio-btn.en').addEventListener('click', ()=> speakEN(`The ${item.obj} is ${item.shape.toLowerCase()}.`));
+    card.querySelector('.card-audio-btn.fr').addEventListener('click', ()=> speakFR(`La ${item.objFr} est ${item.shapeFr}.`));
+    grid.appendChild(card);
+  });
+}
+
+function buildShapesMatch(){
+  const wordCol = document.getElementById('matchShapeWords'); const picCol = document.getElementById('matchShapePics');
+  const shuffledWords = shuffle(shapesData); const shuffledPics = shuffle(shapesData);
+  let selectedTile3 = null; let matchesFound3 = 0; const fb3 = document.getElementById('matchFeedback2');
+  shuffledWords.forEach(item=>{
+    const tile = document.createElement('div'); tile.className = 'match-tile'; tile.innerHTML = `<span class="main-txt">${item.shape}</span>`; tile.dataset.key = item.shape;
+    tile.addEventListener('click', ()=>{ if(tile.classList.contains('correct')) return; wordCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
+      tile.classList.add('selected'); selectedTile3 = tile; speakEN(item.shape); });
+    wordCol.appendChild(tile);
+  });
+  shuffledPics.forEach(item=>{
+    const tile = document.createElement('div'); tile.className = 'match-tile emoji-tile'; tile.innerHTML = `<span class="main-txt">${item.e}</span>`; tile.dataset.key = item.shape;
+    tile.addEventListener('click', ()=>{
+      if(tile.classList.contains('correct') || !selectedTile3) return;
+      const isMatch = selectedTile3.dataset.key === tile.dataset.key;
+      if(isMatch){
+        tile.classList.add('correct'); selectedTile3.classList.add('correct'); selectedTile3.classList.remove('selected');
+        playCorrect(); addStar(1); matchesFound3++; burstConfetti(currentCard());
+        const matched = shapesData.find(d=>d.shape===tile.dataset.key);
+        fb3.innerHTML = `<span class="fb-en">Yes! ${matched.shape}! 🎉</span><span class="fb-fr">Oui ! ${matched.shapeFr} !</span>`; fb3.className = 'feedback-banner good';
+        selectedTile3 = null;
+        if(matchesFound3 >= shapesData.length){ setTimeout(()=>playFanfare(),300); }
+      } else { tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400); playIncorrect();
+        fb3.innerHTML = `<span class="fb-en">Try again!</span><span class="fb-fr">Réessaie !</span>`; fb3.className = 'feedback-banner retry'; }
+    });
+    picCol.appendChild(tile);
   });
 }
 
@@ -260,7 +347,7 @@ function buildMatch(){
         const matched = dataset.find(d=>d.en===tile.dataset.key);
         fb.innerHTML = `<span class="fb-en">Yes! ${matched.en}! 🎉</span><span class="fb-fr">Oui ! ${matched.fr} !</span>`; fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= dataset.length && !screenLocks[2]){ screenLocks[2] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+        if(matchesFound >= dataset.length){ setTimeout(()=>playFanfare(),300); }
       } else { tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400); playIncorrect();
         fb.innerHTML = `<span class="fb-en">Try again!</span><span class="fb-fr">Réessaie !</span>`; fb.className = 'feedback-banner retry'; }
     });
@@ -288,7 +375,7 @@ function checkPhrase(){
   if(correct){
     playFanfare(); addStar(2); burstConfetti(currentCard());
     fb.innerHTML = '<span class="fb-en">Perfect! "The pumpkin is big and orange." 🌟</span><span class="fb-fr">Parfait ! « La citrouille est grande et orange. »</span>';
-    fb.className = 'feedback-banner good'; speakEN('The pumpkin is big and orange.'); screenLocks[3] = true; refreshNavButtons();
+    fb.className = 'feedback-banner good'; speakEN('The pumpkin is big and orange.');
   } else {
     playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
     const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
@@ -297,9 +384,39 @@ function checkPhrase(){
   }
 }
 
+const displayPhrase2 = ['The', 'leaf', 'is', 'small', 'and', 'red.'];
+const frHints2 = {'The':'La', 'leaf':'feuille', 'is':'est', 'small':'petite', 'and':'et', 'red.':'rouge.'};
+const bankWords2 = shuffle(['and', 'The', 'red.', 'leaf', 'is', 'small']);
+let placedWords2 = [];
+function buildPhraseScreen2(){
+  const bank = document.getElementById('wordBank2');
+  bankWords2.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip'; chip.innerHTML = `${word}<span class="fr-hint">${frHints2[word]}</span>`;
+    chip.addEventListener('click', ()=>{ if(chip.classList.contains('used')) return; placedWords2.push(word); chip.classList.add('used'); renderSlot2(); checkPhrase2(); });
+    bank.appendChild(chip);
+  });
+  renderSlot2();
+}
+function renderSlot2(){ const slot = document.getElementById('sentenceSlot2'); slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') || '<span style="color:#aaa; font-size:16px;">Tap the words below&hellip;</span>'; }
+function checkPhrase2(){
+  const fb = document.getElementById('phraseFeedback2'); if(placedWords2.length < displayPhrase2.length) return;
+  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
+  if(correct){
+    playFanfare(); addStar(2); burstConfetti(currentCard());
+    fb.innerHTML = '<span class="fb-en">Perfect! "The leaf is small and red." 🌟</span><span class="fb-fr">Parfait ! « La feuille est petite et rouge. »</span>';
+    fb.className = 'feedback-banner good'; speakEN('The leaf is small and red.');
+  } else {
+    playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords2 = []; document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot2(); };
+    fb.appendChild(resetBtn);
+  }
+}
+
 const FB = {
   q1: { ok: 'B', expl: { A: {en:'Look again - the pumpkin is much bigger!', fr:'Regarde encore - la citrouille est bien plus grande !'}, B: {en:'Yes! The pumpkin is bigger! 🎉', fr:'Oui ! La citrouille est plus grande !'} } },
-  q2: { ok: 'B', expl: { A: {en:'Look again - the tree is much bigger!', fr:'Regarde encore - l\'arbre est bien plus grand !'}, B: {en:'Yes! The leaf is smaller! 🎉', fr:'Oui ! La feuille est plus petite !'} } }
+  q2: { ok: 'B', expl: { A: {en:'Look again - the tree is much bigger!', fr:'Regarde encore - l\'arbre est bien plus grand !'}, B: {en:'Yes! The leaf is smaller! 🎉', fr:'Oui ! La feuille est plus petite !'} } },
+  q3: { ok: 'B', expl: { A: {en:'Look again - the scarf is much longer!', fr:'Regarde encore - l\'écharpe est bien plus longue !'}, B: {en:'Yes! The scarf is longer! 🎉', fr:'Oui ! L\'écharpe est plus longue !'} } }
 };
 function initMCQ(gid, lockKey, feedbackId){
   const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`); const fb = document.getElementById(feedbackId);
@@ -309,7 +426,6 @@ function initMCQ(gid, lockKey, feedbackId){
       if(isCorrect){ opt.classList.add('correct'); block.classList.add('answered'); block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
         playCorrect(); addStar(2); burstConfetti(currentCard());
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner good';
-        screenLocks[lockKey] = true; refreshNavButtons();
       } else { opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500); playIncorrect();
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner retry'; }
     });
@@ -329,8 +445,7 @@ function buildAutumnOpinion(){
       const enS = liked ? `I like the ${item.en}.` : `I don't like the ${item.en}.`;
       const frS = liked ? `J'aime la ${item.fr}.` : `Je n'aime pas la ${item.fr}.`;
       saidEl.innerHTML = enS + '<br>' + frS; speakEN(enS);
-      if(!already){ card.classList.add('answered'); autumnOpinionAnswered++; burstConfetti(currentCard()); playCorrect();
-        if(autumnOpinionAnswered >= 3 && !screenLocks[6]){ screenLocks[6] = true; refreshNavButtons(); } }
+      if(!already){ card.classList.add('answered'); autumnOpinionAnswered++; burstConfetti(currentCard()); playCorrect(); }
     };
     likeBtn.addEventListener('click', ()=> respond(true)); dislikeBtn.addEventListener('click', ()=> respond(false));
     grid.appendChild(card);
@@ -346,14 +461,13 @@ function buildRecap(){
       const sentence = `It's a ${item.en}.`;
       sentenceEl.textContent = sentence; sentenceFrEl.textContent = `C'est une ${item.fr}.`;
       speakEN(sentence); burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[7]){ screenLocks[7] = true; refreshNavButtons(); }
     });
     row.appendChild(chip);
   });
 }
 
-buildAutumnGrid(); buildMatch(); buildPhraseScreen(); buildAutumnOpinion();
-initMCQ('q1', 4, 'mcqFeedback'); initMCQ('q2', 5, 'mcqFeedback2'); buildRecap();
+buildAutumnGrid(); buildShapesGrid(); buildShapesMatch(); buildMatch(); buildPhraseScreen(); buildPhraseScreen2(); buildAutumnOpinion();
+initMCQ('q1', 7, 'mcqFeedback'); initMCQ('q2', 8, 'mcqFeedback2'); initMCQ('q3', 9, 'mcqFeedback3'); buildRecap();
 updateProgress(); refreshNavButtons();
 </script>
 </body>
