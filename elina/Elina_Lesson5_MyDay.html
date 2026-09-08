@@ -54,7 +54,7 @@
   .sequence-bank{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
   .seq-btn{ background:var(--berry); border:none; border-radius:16px; padding:12px 16px; font-size:32px; cursor:pointer; box-shadow:0 6px 0 #C24868; }
   .seq-btn:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; } .seq-btn.used{ opacity:.25; pointer-events:none; box-shadow:none; }
-  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:flex; flex-direction:column; gap:14px; min-width:160px;}
+  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
   .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
   .match-tile .main-txt{ font-size:24px; font-weight:700; display:block; } .match-tile.emoji-tile .main-txt{ font-size:34px; }
   .match-tile .sub-fr{ font-size:12px; color:var(--french); font-weight:700; display:block; margin-top:3px; }
@@ -92,7 +92,7 @@
 <div id="app">
   <div class="topbar">
     <div class="brand"><span class="emoji">🦇</span> Elina's My Day Adventure</div>
-    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 10</div></div>
+    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 13</div></div>
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
   </div>
@@ -119,6 +119,14 @@
 
   <section class="screen" data-screen="2">
     <div class="card">
+      <span class="section-tag">Times of Day / Moments de la journée</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Morning, afternoon, evening, night!</span><span class="fr" style="font-size:24px;">Matin, après-midi, soir, nuit !</span></div>
+      <div class="shape-grid" id="timesGrid"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="3">
+    <div class="card">
       <span class="section-tag">Put It In Order / Mets dans l'ordre</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Tap in the right order!</span><span class="fr" style="font-size:24px;">Touche dans le bon ordre !</span></div>
       <p style="font-size:15px; color:#7a7a95; margin:0 0 6px;">What do you do first? / Que fais-tu en premier ?</p>
@@ -128,7 +136,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="3">
+  <section class="screen" data-screen="4">
     <div class="card">
       <span class="section-tag">My Day Game / Jeu de la journée</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Match the word to the picture!</span><span class="fr" style="font-size:24px;">Associe le mot à l'image !</span></div>
@@ -137,7 +145,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="4">
+  <section class="screen" data-screen="5">
     <div class="card">
       <span class="section-tag">Build a Sentence / Construis une phrase</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">I eat breakfast!</span><span class="fr" style="font-size:24px;">Je mange le petit-déjeuner !</span></div>
@@ -148,7 +156,18 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="5">
+  <section class="screen" data-screen="6">
+    <div class="card">
+      <span class="section-tag">Build Another Sentence / Construis une autre phrase</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">I play in the afternoon!</span><span class="fr" style="font-size:24px;">Je joue l'après-midi !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="sentence-slot" id="sentenceSlot2"></div>
+      <div class="word-bank" id="wordBank2"></div>
+      <div class="feedback-banner" id="phraseFeedback2"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="7">
     <div class="card">
       <span class="section-tag">I Like&hellip; / J'aime&hellip;</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which parts of your day do you like?</span><span class="fr" style="font-size:24px;">Quelles parties de ta journée aimes-tu ?</span></div>
@@ -157,7 +176,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="6">
+  <section class="screen" data-screen="8">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What do you do first in the morning?</span><span class="fr" style="font-size:24px;">Que fais-tu en premier le matin ?</span></div>
@@ -170,7 +189,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="7">
+  <section class="screen" data-screen="9">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What do you do before bed?</span><span class="fr" style="font-size:24px;">Que fais-tu avant de dormir ?</span></div>
@@ -183,7 +202,20 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="8">
+  <section class="screen" data-screen="10">
+    <div class="card">
+      <span class="section-tag">Answer Practice / Pratique</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">What time of day do you sleep?</span><span class="fr" style="font-size:24px;">À quel moment de la journée dors-tu ?</span></div>
+      <div class="mcq-options" data-gid="q3">
+        <button class="mcq-opt" data-ans="A">A) Morning<span class="opt-fr">Matin</span></button>
+        <button class="mcq-opt" data-ans="B">B) Afternoon<span class="opt-fr">Après-midi</span></button>
+        <button class="mcq-opt" data-ans="C">C) Night<span class="opt-fr">Nuit</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback3"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="11">
     <div class="card">
       <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Tell Bibi about your day!</span><span class="fr" style="font-size:24px;">Parle de ta journée à Bibi !</span></div>
@@ -194,7 +226,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="9">
+  <section class="screen" data-screen="12">
     <div class="card">
       <div class="confetti"><span>🎉</span><span>🦇</span><span>🍂</span><span>⭐</span><span>🎉</span></div>
       <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
@@ -234,10 +266,9 @@ function speakFR(text){ if(!soundOn || !('speechSynthesis' in window)) return; w
 function toggleSound(){ soundOn = !soundOn; const btn = document.getElementById('soundToggle'); btn.classList.toggle('off', !soundOn); document.getElementById('soundToggleLabel').textContent = soundOn ? 'Sound On' : 'Sound Off'; if(!soundOn && 'speechSynthesis' in window) window.speechSynthesis.cancel(); }
 
 const screens = document.querySelectorAll('.screen'); let current = 0; const totalScreens = screens.length;
-const screenLocks = {2:false, 3:false, 4:false, 5:false, 6:false, 7:false, 8:false};
 function updateProgress(){ document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%'; document.getElementById('progressLabel').textContent = (current+1) + ' / ' + totalScreens; }
-function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn'); const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked || current === totalScreens-1; nextBtn.classList.toggle('locked', locked); nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡'; }
+function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn');
+  nextBtn.disabled = false; nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡'; }
 function changeScreen(delta){ const newIdx = current + delta; if(newIdx < 0 || newIdx >= totalScreens) return; screens[current].classList.remove('active'); current = newIdx; screens[current].classList.add('active');
   updateProgress(); refreshNavButtons(); window.scrollTo({top:0, behavior:'smooth'}); if(current === totalScreens-1){ setTimeout(()=>{ burstConfetti(currentCard()); playFanfare(); }, 200); } }
 let stars = 0; function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
@@ -251,6 +282,22 @@ const routineData = [
 function buildRoutineGrid(){
   const grid = document.getElementById('routineGrid');
   routineData.forEach(item=>{
+    const card = document.createElement('div'); card.className = 'shape-card';
+    card.innerHTML = `${item.e}<span class="cap-en">${item.en}</span><span class="cap-fr">${item.fr}</span>
+      <div class="card-audio-row"><button class="card-audio-btn en" type="button">EN</button><button class="card-audio-btn fr" type="button">FR</button></div>`;
+    card.querySelector('.card-audio-btn.en').addEventListener('click', ()=> speakEN(item.en));
+    card.querySelector('.card-audio-btn.fr').addEventListener('click', ()=> speakFR(item.fr));
+    grid.appendChild(card);
+  });
+}
+
+const timesData = [
+  {e:'☀️', en:'Morning', fr:'matin'}, {e:'🌤️', en:'Afternoon', fr:'après-midi'},
+  {e:'🌆', en:'Evening', fr:'soir'}, {e:'🌙', en:'Night', fr:'nuit'}
+];
+function buildTimesGrid(){
+  const grid = document.getElementById('timesGrid');
+  timesData.forEach(item=>{
     const card = document.createElement('div'); card.className = 'shape-card';
     card.innerHTML = `${item.e}<span class="cap-en">${item.en}</span><span class="cap-fr">${item.fr}</span>
       <div class="card-audio-row"><button class="card-audio-btn en" type="button">EN</button><button class="card-audio-btn fr" type="button">FR</button></div>`;
@@ -295,7 +342,6 @@ function buildSequence(){
       playFanfare(); addStar(2); burstConfetti(currentCard());
       fb.innerHTML = '<span class="fb-en">Perfect order! 🌟</span><span class="fb-fr">Ordre parfait !</span>';
       fb.className = 'feedback-banner good';
-      screenLocks[2] = true; refreshNavButtons();
     } else {
       playIncorrect();
       fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
@@ -332,7 +378,7 @@ function buildMatch(){
         const matched = dataset.find(d=>d.en===tile.dataset.key);
         fb.innerHTML = `<span class="fb-en">Yes! ${matched.en}! 🎉</span><span class="fb-fr">Oui ! ${matched.fr} !</span>`; fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= dataset.length && !screenLocks[3]){ screenLocks[3] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+        if(matchesFound >= dataset.length){ setTimeout(()=>playFanfare(),300); }
       } else {
         tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400); playIncorrect();
         fb.innerHTML = `<span class="fb-en">Try again!</span><span class="fb-fr">Réessaie !</span>`; fb.className = 'feedback-banner retry';
@@ -363,11 +409,41 @@ function checkPhrase(){
   if(correct){
     playFanfare(); addStar(2); burstConfetti(currentCard());
     fb.innerHTML = '<span class="fb-en">Perfect! "I eat breakfast." 🌟</span><span class="fb-fr">Parfait ! « Je mange le petit-déjeuner. »</span>';
-    fb.className = 'feedback-banner good'; speakEN('I eat breakfast.'); screenLocks[4] = true; refreshNavButtons();
+    fb.className = 'feedback-banner good'; speakEN('I eat breakfast.');
   } else {
     playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
     const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
     resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
+    fb.appendChild(resetBtn);
+  }
+}
+
+const displayPhrase2 = ['I', 'play', 'in', 'the', 'afternoon.'];
+const frHints2 = {'I':'Je', 'play':'joue', 'in':'dans', 'the':"l'", 'afternoon.':'après-midi.'};
+const bankWords2 = shuffle(['afternoon.', 'I', 'the', 'play', 'in']);
+let placedWords2 = [];
+function buildPhraseScreen2(){
+  const bank = document.getElementById('wordBank2');
+  bankWords2.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip'; chip.innerHTML = `${word}<span class="fr-hint">${frHints2[word]}</span>`;
+    chip.addEventListener('click', ()=>{ if(chip.classList.contains('used')) return; placedWords2.push(word); chip.classList.add('used'); renderSlot2(); checkPhrase2(); });
+    bank.appendChild(chip);
+  });
+  renderSlot2();
+}
+function renderSlot2(){ const slot = document.getElementById('sentenceSlot2');
+  slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') || '<span style="color:#aaa; font-size:16px;">Tap the words below&hellip;</span>'; }
+function checkPhrase2(){
+  const fb = document.getElementById('phraseFeedback2'); if(placedWords2.length < displayPhrase2.length) return;
+  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
+  if(correct){
+    playFanfare(); addStar(2); burstConfetti(currentCard());
+    fb.innerHTML = '<span class="fb-en">Perfect! "I play in the afternoon." 🌟</span><span class="fb-fr">Parfait ! « Je joue l\'après-midi. »</span>';
+    fb.className = 'feedback-banner good'; speakEN('I play in the afternoon.');
+  } else {
+    playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords2 = []; document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot2(); };
     fb.appendChild(resetBtn);
   }
 }
@@ -385,8 +461,7 @@ function buildDayOpinion(){
       const enS = liked ? `I like ${item.en.toLowerCase()}.` : `I don't like ${item.en.toLowerCase()}.`;
       const frS = liked ? `J'aime ${item.fr}.` : `Je n'aime pas ${item.fr}.`;
       saidEl.innerHTML = enS + '<br>' + frS; speakEN(enS);
-      if(!already){ card.classList.add('answered'); dayOpinionAnswered++; burstConfetti(currentCard()); playCorrect();
-        if(dayOpinionAnswered >= 3 && !screenLocks[5]){ screenLocks[5] = true; refreshNavButtons(); } }
+      if(!already){ card.classList.add('answered'); dayOpinionAnswered++; burstConfetti(currentCard()); playCorrect(); }
     };
     likeBtn.addEventListener('click', ()=> respond(true)); dislikeBtn.addEventListener('click', ()=> respond(false));
     grid.appendChild(card);
@@ -395,7 +470,8 @@ function buildDayOpinion(){
 
 const FB = {
   q1: { ok: 'B', expl: { A: {en:'That\'s at the end of the day! Try again.', fr:'Ça c\'est la fin de la journée ! Réessaie.'}, B: {en:'Yes! We wake up first! 🎉', fr:'Oui ! On se réveille en premier !'}, C: {en:'That\'s at night! Try again.', fr:'Ça c\'est le soir ! Réessaie.'} } },
-  q2: { ok: 'C', expl: { A: {en:'That\'s in the morning! Try again.', fr:'Ça c\'est le matin ! Réessaie.'}, B: {en:'That\'s during the day! Try again.', fr:'Ça c\'est pendant la journée ! Réessaie.'}, C: {en:'Yes! We sleep before bed! 🎉', fr:'Oui ! On dort avant de se coucher !'} } }
+  q2: { ok: 'C', expl: { A: {en:'That\'s in the morning! Try again.', fr:'Ça c\'est le matin ! Réessaie.'}, B: {en:'That\'s during the day! Try again.', fr:'Ça c\'est pendant la journée ! Réessaie.'}, C: {en:'Yes! We sleep before bed! 🎉', fr:'Oui ! On dort avant de se coucher !'} } },
+  q3: { ok: 'C', expl: { A: {en:'That\'s when we wake up! Try again.', fr:'C\'est quand on se réveille ! Réessaie.'}, B: {en:'That\'s when we play! Try again.', fr:'C\'est quand on joue ! Réessaie.'}, C: {en:'Yes! We sleep at night! 🎉', fr:'Oui ! On dort la nuit !'} } }
 };
 function initMCQ(gid, lockKey, feedbackId){
   const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`); const fb = document.getElementById(feedbackId);
@@ -405,7 +481,6 @@ function initMCQ(gid, lockKey, feedbackId){
       if(isCorrect){ opt.classList.add('correct'); block.classList.add('answered'); block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
         playCorrect(); addStar(2); burstConfetti(currentCard());
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner good';
-        screenLocks[lockKey] = true; refreshNavButtons();
       } else { opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500); playIncorrect();
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner retry'; }
     });
@@ -421,14 +496,13 @@ function buildRecap(){
       const sentence = `I ${item.en.toLowerCase()}.`;
       sentenceEl.textContent = sentence; sentenceFrEl.textContent = `Je ${item.fr}.`;
       speakEN(sentence); burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[8]){ screenLocks[8] = true; refreshNavButtons(); }
     });
     row.appendChild(chip);
   });
 }
 
-buildRoutineGrid(); buildSequence(); buildMatch(); buildPhraseScreen(); buildDayOpinion();
-initMCQ('q1', 6, 'mcqFeedback'); initMCQ('q2', 7, 'mcqFeedback2'); buildRecap();
+buildRoutineGrid(); buildTimesGrid(); buildSequence(); buildMatch(); buildPhraseScreen(); buildPhraseScreen2(); buildDayOpinion();
+initMCQ('q1', 8, 'mcqFeedback'); initMCQ('q2', 9, 'mcqFeedback2'); initMCQ('q3', 10, 'mcqFeedback3'); buildRecap();
 updateProgress(); refreshNavButtons();
 </script>
 </body>
