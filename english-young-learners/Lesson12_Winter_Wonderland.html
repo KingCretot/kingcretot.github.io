@@ -44,12 +44,18 @@
   .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:14px; color:var(--french); margin-top:1px;}
   .card-audio-row{ display:flex; gap:6px; justify-content:center; margin-top:8px; } .card-audio-btn{ border:none; border-radius:10px; font-size:12px; font-weight:800; padding:5px 9px; cursor:pointer; color:#fff; }
   .card-audio-btn.en{ background:var(--sky); } .card-audio-btn.fr{ background:var(--french); }
-  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:flex; flex-direction:column; gap:14px; min-width:160px;}
+  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
   .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
   .match-tile .main-txt{ font-size:22px; font-weight:700; display:block; } .match-tile.emoji-tile .main-txt{ font-size:34px; }
   .match-tile .sub-fr{ font-size:12px; color:var(--french); font-weight:700; display:block; margin-top:3px; }
   .match-tile.selected{ border-color: var(--grape); background:#E9DBFF; transform:scale(1.03); } .match-tile.correct{ border-color: var(--grass); background:#D9FFE0; cursor:default; }
   .match-tile.wrong{ animation: shake .4s ease; border-color: var(--berry); background:#FFE0E8;} @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 75%{transform:translateX(8px);} }
+  .sentence-slot{ min-height:70px; background:#F6F6FF; border:3px dashed #C7C7EE; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; padding:14px; margin:16px 0; font-family:'Baloo 2', sans-serif; font-size:22px; font-weight:700; }
+  .sentence-slot .placed{ background:var(--sun); padding:8px 14px; border-radius:12px; color:#4A3600; }
+  .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
+  .word-chip{ background:var(--berry); color:#fff; padding:10px 18px; border-radius:16px; font-family:'Baloo 2', sans-serif; font-weight:700; font-size:19px; cursor:pointer; box-shadow:0 6px 0 #C24868; transition: transform .1s ease; text-align:center; }
+  .word-chip .fr-hint{ display:block; font-size:11px; font-weight:600; opacity:.85; margin-top:2px; } .word-chip:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; } .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
+  .replay-btn{ background:var(--tangerine); color:#fff; border:none; border-radius:50px; padding:12px 22px; font-size:17px; font-weight:700; cursor:pointer; box-shadow:0 6px 0 #C86B1E; margin-top:12px; }
   .costume-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:18px 0; }
   .costume-pick{ background:var(--cream); border:3px solid #D9A9FF; border-radius:18px; padding:14px 10px; font-size:44px; cursor:pointer; transition:transform .1s ease, border-color .15s ease; }
   .costume-pick.picked{ border-color: var(--grape); background:#EEE6FF; transform:scale(1.05); }
@@ -89,7 +95,7 @@
 <div id="app">
   <div class="topbar">
     <div class="brand"><span class="emoji">❄️</span> Winter Fun</div>
-    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 10</div></div>
+    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 13</div></div>
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
   </div>
@@ -122,13 +128,33 @@
   </section>
   <section class="screen" data-screen="3">
     <div class="card">
+      <span class="section-tag">Build a Sentence / Construis une phrase</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">I build a snowman!</span><span class="fr" style="font-size:24px;">Je fais un bonhomme de neige !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="sentence-slot" id="sentenceSlot"></div>
+      <div class="word-bank" id="wordBank"></div>
+      <div class="feedback-banner" id="phraseFeedback"></div>
+    </div>
+  </section>
+  <section class="screen" data-screen="4">
+    <div class="card">
       <span class="section-tag">Winter Fun / Amusement d&#x27;hiver</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What do you like to do in winter?</span><span class="fr" style="font-size:24px;">Qu&#x27;aimes-tu faire en hiver ?</span></div>
       <div class="costume-row" id="pickerRow"></div>
       <div class="costume-response" id="pickerResponse"></div>
     </div>
   </section>
-  <section class="screen" data-screen="4">
+  <section class="screen" data-screen="5">
+    <div class="card">
+      <span class="section-tag">Build Another Sentence / Construis une autre phrase</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">I wear mittens in winter!</span><span class="fr" style="font-size:24px;">Je porte des moufles en hiver !</span></div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="sentence-slot" id="sentenceSlot2"></div>
+      <div class="word-bank" id="wordBank2"></div>
+      <div class="feedback-banner" id="phraseFeedback2"></div>
+    </div>
+  </section>
+  <section class="screen" data-screen="6">
     <div class="card">
       <span class="section-tag">Bundle Up! / Habille-toi bien !</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">It&#x27;s cold outside! Let&#x27;s bundle up!</span><span class="fr" style="font-size:24px;">Il fait froid dehors ! Habillons-nous bien !</span></div>
@@ -142,7 +168,7 @@
       <div class="feedback-banner" id="actionFeedback"></div>
     </div>
   </section>
-  <section class="screen" data-screen="5">
+  <section class="screen" data-screen="7">
     <div class="card">
       <span class="section-tag">I Like… / J&#x27;aime…</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which winter things do you like?</span><span class="fr" style="font-size:24px;">Quelles choses d&#x27;hiver aimes-tu ?</span></div>
@@ -150,7 +176,7 @@
       <div class="opinion-grid" id="opinionGrid"></div>
     </div>
   </section>
-  <section class="screen" data-screen="6">
+  <section class="screen" data-screen="8">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What do you build with snow?</span><span class="fr" style="font-size:24px;">Que construis-tu avec la neige ?</span></div>
@@ -163,7 +189,7 @@
       <div class="feedback-banner" id="mcqFeedback"></div>
     </div>
   </section>
-  <section class="screen" data-screen="7">
+  <section class="screen" data-screen="9">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">When do you drink hot chocolate?</span><span class="fr" style="font-size:24px;">Quand bois-tu du chocolat chaud ?</span></div>
@@ -176,7 +202,19 @@
       <div class="feedback-banner" id="mcqFeedback2"></div>
     </div>
   </section>
-  <section class="screen" data-screen="8">
+  <section class="screen" data-screen="10">
+    <div class="card">
+      <span class="section-tag">Answer Practice / Pratique</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">What keeps your hands warm?</span><span class="fr" style="font-size:24px;">Qu&#x27;est-ce qui garde tes mains au chaud ?</span></div>
+      <div class="mcq-options" data-gid="q3">
+        <button class="mcq-opt" data-ans="A">A) Mittens<span class="opt-fr">Des moufles</span></button>
+        <button class="mcq-opt" data-ans="B">B) Sandals<span class="opt-fr">Des sandales</span></button>
+        <button class="mcq-opt" data-ans="C">C) Sunglasses<span class="opt-fr">Lunettes de soleil</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback3"></div>
+    </div>
+  </section>
+  <section class="screen" data-screen="11">
     <div class="card">
       <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Tell Bibi what you love about winter!</span><span class="fr" style="font-size:24px;">Dis à Bibi ce que tu aimes de l&#x27;hiver !</span></div>
@@ -186,7 +224,7 @@
       <div class="recap-sentence-fr" id="recapSentenceFr">&hellip;</div>
     </div>
   </section>
-  <section class="screen" data-screen="9">
+  <section class="screen" data-screen="12">
     <div class="card">
       <div class="confetti"><span>❄️</span><span>⛄</span><span>☕</span><span>🧤</span></div>
       <div class="bi-header"><span class="en">Winter Wonderland</span><span class="fr">Le pays d&#x27;hiver</span></div>
@@ -227,10 +265,9 @@ function speakFR(text){ if(!soundOn || !('speechSynthesis' in window)) return; w
 function toggleSound(){ soundOn = !soundOn; const btn = document.getElementById('soundToggle'); btn.classList.toggle('off', !soundOn); document.getElementById('soundToggleLabel').textContent = soundOn ? 'Sound On' : 'Sound Off'; if(!soundOn && 'speechSynthesis' in window) window.speechSynthesis.cancel(); }
 
 const screens = document.querySelectorAll('.screen'); let current = 0; const totalScreens = screens.length;
-const screenLocks = {2:false, 3:false, 4:false, 5:false, 6:false, 7:false, 8:false};
 function updateProgress(){ document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%'; document.getElementById('progressLabel').textContent = (current+1) + ' / ' + totalScreens; }
-function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn'); const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked || current === totalScreens-1; nextBtn.classList.toggle('locked', locked); nextBtn.textContent = current === totalScreens-1 ? 'Finished! \ud83c\udf89' : 'Next \u27a1'; }
+function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn');
+  nextBtn.disabled = false; nextBtn.textContent = current === totalScreens-1 ? 'Finished! \ud83c\udf89' : 'Next \u27a1'; }
 function changeScreen(delta){ const newIdx = current + delta; if(newIdx < 0 || newIdx >= totalScreens) return; screens[current].classList.remove('active'); current = newIdx; screens[current].classList.add('active');
   updateProgress(); refreshNavButtons(); window.scrollTo({top:0, behavior:'smooth'}); if(current === totalScreens-1){ setTimeout(()=>{ burstConfetti(currentCard()); playFanfare(); }, 200); } }
 let stars = 0; function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
@@ -240,7 +277,7 @@ const vocabData = [{"e": "❄️", "en": "Snow", "fr": "neige"}, {"e": "⛄", "e
 const matchPool = [{"e": "❄️", "en": "Snow", "fr": "neige"}, {"e": "⛄", "en": "Snowman", "fr": "bonhomme de neige"}, {"e": "🧤", "en": "Mittens", "fr": "moufles"}, {"e": "🔥", "en": "Fireplace", "fr": "cheminée"}];
 const opinionData = [{"e": "❄️", "en": "snow", "fr": "la neige"}, {"e": "⛄", "en": "snowmen", "fr": "les bonhommes de neige"}, {"e": "☕", "en": "hot chocolate", "fr": "le chocolat chaud"}, {"e": "🛷", "en": "sledding", "fr": "la luge"}, {"e": "🧤", "en": "mittens", "fr": "les moufles"}, {"e": "🔥", "en": "the fireplace", "fr": "la cheminée"}];
 const recapData = [{"e": "❄️", "en": "snow", "fr": "la neige"}, {"e": "⛄", "en": "snowmen", "fr": "les bonhommes de neige"}, {"e": "☕", "en": "hot chocolate", "fr": "le chocolat chaud"}, {"e": "🛷", "en": "sledding", "fr": "la luge"}];
-const FB = {"q1": {"ok": "B", "expl": {"A": {"en": "That's with sand at the beach! Try again.", "fr": "C'est avec du sable à la plage ! Réessaie."}, "B": {"en": "Yes! A snowman! ⛄", "fr": "Oui ! Un bonhomme de neige !"}, "C": {"en": "Houses aren't made of snow! Try again.", "fr": "Les maisons ne sont pas en neige ! Réessaie."}}}, "q2": {"ok": "B", "expl": {"A": {"en": "That would be too hot! Try again.", "fr": "Ce serait trop chaud ! Réessaie."}, "B": {"en": "Yes! It warms you up! ☕", "fr": "Oui ! Ça te réchauffe !"}, "C": {"en": "That's too warm a place! Try again.", "fr": "C'est un endroit trop chaud ! Réessaie."}}}};
+const FB = {"q1": {"ok": "B", "expl": {"A": {"en": "That's with sand at the beach! Try again.", "fr": "C'est avec du sable à la plage ! Réessaie."}, "B": {"en": "Yes! A snowman! ⛄", "fr": "Oui ! Un bonhomme de neige !"}, "C": {"en": "Houses aren't made of snow! Try again.", "fr": "Les maisons ne sont pas en neige ! Réessaie."}}}, "q2": {"ok": "B", "expl": {"A": {"en": "That would be too hot! Try again.", "fr": "Ce serait trop chaud ! Réessaie."}, "B": {"en": "Yes! It warms you up! ☕", "fr": "Oui ! Ça te réchauffe !"}, "C": {"en": "That's too warm a place! Try again.", "fr": "C'est un endroit trop chaud ! Réessaie."}}}, "q3": {"ok": "A", "expl": {"A": {"en": "Yes! Mittens keep your hands warm! 🎉", "fr": "Oui ! Les moufles gardent tes mains au chaud !"}, "B": {"en": "Those are for summer! Try again.", "fr": "C'est pour l'été ! Réessaie."}, "C": {"en": "Those don't warm your hands! Try again.", "fr": "Ça ne réchauffe pas les mains ! Réessaie."}}}};
 
 const pickerOptions = [{"e": "⛄", "en": "build a snowman", "fr": "faire un bonhomme de neige"}, {"e": "⛸️", "en": "go ice skating", "fr": "faire du patin à glace"}, {"e": "🛷", "en": "go sledding", "fr": "faire de la luge"}, {"e": "☕", "en": "drink hot chocolate", "fr": "boire du chocolat chaud"}];
 function buildPicker(){
@@ -252,10 +289,67 @@ function buildPicker(){
       const enS = `I like to ___ in winter!`.replace('___', item.en); const frS = `J'aime ___ en hiver !`.replace('___', item.fr);
       resp.innerHTML = `<span class="en">${enS}</span><span class="fr">${frS}</span>`;
       speakEN(enS); burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[3]){ screenLocks[3] = true; refreshNavButtons(); }
     });
     row.appendChild(pick);
   });
+}
+
+const displayPhrase = ['I', 'build', 'a', 'snowman.'];
+const frHints = {'I':'Je', 'build':'fais', 'a':'un', 'snowman.':'bonhomme de neige.'};
+const bankWords = shuffle(['snowman.', 'I', 'a', 'build']);
+let placedWords = [];
+function buildPhraseScreen(){
+  const bank = document.getElementById('wordBank');
+  bankWords.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip'; chip.innerHTML = `${word}<span class="fr-hint">${frHints[word]}</span>`;
+    chip.addEventListener('click', ()=>{ if(chip.classList.contains('used')) return; placedWords.push(word); chip.classList.add('used'); renderSlot(); checkPhrase(); });
+    bank.appendChild(chip);
+  });
+  renderSlot();
+}
+function renderSlot(){ const slot = document.getElementById('sentenceSlot'); slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') || '<span style="color:#aaa; font-size:16px;">Tap the words below&hellip;</span>'; }
+function checkPhrase(){
+  const fb = document.getElementById('phraseFeedback'); if(placedWords.length < displayPhrase.length) return;
+  const correct = placedWords.join(' ') === displayPhrase.join(' ');
+  if(correct){
+    playFanfare(); addStar(2); burstConfetti(currentCard());
+    fb.innerHTML = '<span class="fb-en">Perfect! "I build a snowman." 🌟</span><span class="fb-fr">Parfait ! « Je fais un bonhomme de neige. »</span>';
+    fb.className = 'feedback-banner good'; speakEN('I build a snowman.');
+  } else {
+    playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
+    fb.appendChild(resetBtn);
+  }
+}
+
+const displayPhrase2 = ['I', 'wear', 'mittens', 'in', 'winter.'];
+const frHints2 = {'I':'Je', 'wear':'porte', 'mittens':'des moufles', 'in':'en', 'winter.':'hiver.'};
+const bankWords2 = shuffle(['winter.', 'I', 'mittens', 'wear', 'in']);
+let placedWords2 = [];
+function buildPhraseScreen2(){
+  const bank = document.getElementById('wordBank2');
+  bankWords2.forEach(word=>{
+    const chip = document.createElement('div'); chip.className = 'word-chip'; chip.innerHTML = `${word}<span class="fr-hint">${frHints2[word]}</span>`;
+    chip.addEventListener('click', ()=>{ if(chip.classList.contains('used')) return; placedWords2.push(word); chip.classList.add('used'); renderSlot2(); checkPhrase2(); });
+    bank.appendChild(chip);
+  });
+  renderSlot2();
+}
+function renderSlot2(){ const slot = document.getElementById('sentenceSlot2'); slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') || '<span style="color:#aaa; font-size:16px;">Tap the words below&hellip;</span>'; }
+function checkPhrase2(){
+  const fb = document.getElementById('phraseFeedback2'); if(placedWords2.length < displayPhrase2.length) return;
+  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
+  if(correct){
+    playFanfare(); addStar(2); burstConfetti(currentCard());
+    fb.innerHTML = '<span class="fb-en">Perfect! "I wear mittens in winter." 🌟</span><span class="fb-fr">Parfait ! « Je porte des moufles en hiver. »</span>';
+    fb.className = 'feedback-banner good'; speakEN('I wear mittens in winter.');
+  } else {
+    playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
+    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+    resetBtn.onclick = ()=>{ placedWords2 = []; document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot2(); };
+    fb.appendChild(resetBtn);
+  }
 }
 
 function buildAction(){
@@ -265,7 +359,7 @@ function buildAction(){
     const enS = `Now you're warm and cozy!`; const frS = `Maintenant tu es au chaud et douillet !`;
     speakEN(enS); burstConfetti(currentCard()); playFanfare();
     fb.innerHTML = `<span class="fb-en">${enS} ⛄❄️</span><span class="fb-fr">${frS}</span>`; fb.className = 'feedback-banner good';
-    if(!clicked){ clicked = true; addStar(2); if(!screenLocks[4]){ screenLocks[4] = true; refreshNavButtons(); } }
+    if(!clicked){ clicked = true; addStar(2); }
   });
 }
 
@@ -303,7 +397,7 @@ function buildMatch(){
         const matched = dataset.find(d=>d.en===tile.dataset.key);
         fb.innerHTML = `<span class="fb-en">Yes! ${matched.en}! 🎉</span><span class="fb-fr">Oui ! ${matched.fr} !</span>`; fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= dataset.length && !screenLocks[2]){ screenLocks[2] = true; setTimeout(()=>playFanfare(),300); refreshNavButtons(); }
+        if(matchesFound >= dataset.length){ setTimeout(()=>playFanfare(),300); }
       } else { tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400); playIncorrect();
         fb.innerHTML = `<span class="fb-en">Try again!</span><span class="fb-fr">Réessaie !</span>`; fb.className = 'feedback-banner retry'; }
     });
@@ -324,8 +418,7 @@ function buildOpinion(){
       const enS = liked ? `I like ${item.en.toLowerCase()}.` : `I don't like ${item.en.toLowerCase()}.`;
       const frS = liked ? `J'aime ${item.fr}.` : `Je n'aime pas ${item.fr}.`;
       saidEl.innerHTML = enS + '<br>' + frS; speakEN(enS);
-      if(!already){ card.classList.add('answered'); opinionAnswered++; burstConfetti(currentCard()); playCorrect();
-        if(opinionAnswered >= 3 && !screenLocks[5]){ screenLocks[5] = true; refreshNavButtons(); } }
+      if(!already){ card.classList.add('answered'); opinionAnswered++; burstConfetti(currentCard()); playCorrect(); }
     };
     likeBtn.addEventListener('click', ()=> respond(true)); dislikeBtn.addEventListener('click', ()=> respond(false));
     grid.appendChild(card);
@@ -340,7 +433,6 @@ function initMCQ(gid, lockKey, feedbackId){
       if(isCorrect){ opt.classList.add('correct'); block.classList.add('answered'); block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
         playCorrect(); addStar(2); burstConfetti(currentCard());
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner good';
-        screenLocks[lockKey] = true; refreshNavButtons();
       } else { opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500); playIncorrect();
         fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner retry'; }
     });
@@ -356,14 +448,13 @@ function buildRecap(){
       const sentence = `I love ___!`.replace('___', item.en);
       sentenceEl.textContent = sentence; sentenceFrEl.textContent = `J'aime ___ !`.replace('___', item.fr);
       speakEN(sentence); burstConfetti(currentCard()); playCorrect();
-      if(!screenLocks[8]){ screenLocks[8] = true; refreshNavButtons(); }
     });
     row.appendChild(chip);
   });
 }
 
-buildVocabGrid(); buildMatch(); buildPicker(); buildAction(); buildOpinion();
-initMCQ('q1', 6, 'mcqFeedback'); initMCQ('q2', 7, 'mcqFeedback2'); buildRecap();
+buildVocabGrid(); buildMatch(); buildPhraseScreen(); buildPicker(); buildPhraseScreen2(); buildAction(); buildOpinion();
+initMCQ('q1', 8, 'mcqFeedback'); initMCQ('q2', 9, 'mcqFeedback2'); initMCQ('q3', 10, 'mcqFeedback3'); buildRecap();
 updateProgress(); refreshNavButtons();
 
 </script>
