@@ -172,7 +172,6 @@
   .nav-btn.back{background:#B9B9C9; box-shadow:0 8px 0 #92929F;}
   .nav-btn.next{background:var(--grass); box-shadow:0 8px 0 #429A4C;}
   .nav-btn:disabled{opacity:.35; cursor:not-allowed;}
-  .nav-btn.locked{background:#D8D8E4; box-shadow:0 8px 0 #B4B4C2; color:#8888a0;}
 
   .mascot{
     font-size:64px;
@@ -212,25 +211,36 @@
 
   .match-wrap{
     display:flex;
-    gap:26px;
+    gap:18px;
     justify-content:center;
     flex-wrap:wrap;
-    margin:22px 0;
+    margin:20px 0;
   }
-  .match-col{display:flex; flex-direction:column; gap:14px; min-width:150px;}
+  .match-col{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+    min-width:220px;
+    max-width:340px;
+    flex:1;
+  }
   .match-tile{
     background:#F1F1FF;
     border:3px solid #D6D6FF;
-    border-radius:16px;
-    padding:16px;
-    font-size:28px;
+    border-radius:14px;
+    padding:10px 6px;
+    font-size:20px;
     font-weight:700;
     cursor:pointer;
     text-align:center;
     transition: transform .1s ease, background .15s ease, border-color .15s ease;
     font-family:'Baloo 2', sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:52px;
   }
-  .match-tile.emoji-tile{font-size:38px;}
+  .match-tile.emoji-tile{font-size:26px;}
   .match-tile.selected{ border-color: var(--grape); background:#E9DBFF; transform:scale(1.05); }
   .match-tile.correct{ border-color: var(--grass); background:#D9FFE0; cursor:default; }
   .match-tile.wrong{ animation: shake .4s ease; border-color: var(--berry); background:#FFE0E8;}
@@ -310,6 +320,14 @@
   }
   .feedback-banner.good{color:#2F9E44;}
   .feedback-banner.retry{color:#E8590C;}
+  .feedback-banner .fr-line{
+    display:block;
+    font-size:17px;
+    font-weight:600;
+    font-style:italic;
+    color:var(--french);
+    margin-top:4px;
+  }
 
   .confetti{
     font-size:44px;
@@ -385,7 +403,7 @@
       <h1 class="eng" style="font-size:32px;">Tap a letter. Hear the sound!</h1>
       <p class="fr-sub">Touche une lettre. Écoute le son !</p>
       <div class="abc-grid" id="abcGrid"></div>
-      <p class="eng-body" id="abcHint" style="font-size:18px; color:#6b6b85;">Tap 6 letters to unlock Next.</p>
+      <p class="eng-body" id="abcHint" style="font-size:18px; color:#6b6b85;">Tap letters to hear them!</p>
     </div>
   </section>
 
@@ -406,7 +424,7 @@
       <h1 class="eng" style="font-size:32px;">Numbers 1 to 10!</h1>
       <p class="fr-sub">Les nombres de 1 à 10 !</p>
       <div class="abc-grid" id="numGrid"></div>
-      <p class="eng-body" id="numHint" style="font-size:18px; color:#6b6b85;">Tap 8 numbers to unlock Next.</p>
+      <p class="eng-body" id="numHint" style="font-size:18px; color:#6b6b85;">Tap numbers to hear them!</p>
     </div>
   </section>
 
@@ -432,6 +450,7 @@
         <button class="tab-btn" data-tab="sizes" onclick="showTab('sizes')">📏 Sizes</button>
       </div>
       <div class="shape-grid" id="tabGrid"></div>
+      <div class="feedback-banner" id="tabFeedback"></div>
     </div>
   </section>
 
@@ -565,7 +584,6 @@ function autoSpeakScreen(idx){
 const screens = document.querySelectorAll('.screen');
 let current = 0;
 const totalScreens = screens.length;
-const screenLocks = {3:false, 4:false, 5:false, 6:false, 8:false, 9:false, 10:false, 11:false};
 
 function updateProgress(){
   document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%';
@@ -575,9 +593,7 @@ function refreshNavButtons(){
   document.getElementById('backBtn').disabled = (current === 0);
   const nextBtn = document.getElementById('nextBtn');
   const isLast = current === totalScreens-1;
-  const locked = screenLocks.hasOwnProperty(current) && !screenLocks[current];
-  nextBtn.disabled = locked && !isLast;
-  nextBtn.classList.toggle('locked', locked && !isLast);
+  nextBtn.disabled = false;
   nextBtn.textContent = isLast ? 'Finished! 🎉' : 'Next ➡';
 }
 function changeScreen(delta){
@@ -606,13 +622,12 @@ function addStar(n=1){
 function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
 
 // --- Generic matching-game builder, reused for letters, numbers, and colors ---
-function buildMatchGame(leftColId, rightColId, feedbackId, pairs, lockIndex, speakFn, msgFn){
+function buildMatchGame(leftColId, rightColId, feedbackId, pairs, speakFn, msgFn){
   const leftCol = document.getElementById(leftColId);
   const rightCol = document.getElementById(rightColId);
   const shuffledLeft = shuffle(pairs);
   const shuffledRight = shuffle(pairs);
   let selectedTile = null;
-  let found = 0;
 
   shuffledLeft.forEach(item=>{
     const tile = document.createElement('div');
@@ -644,15 +659,9 @@ function buildMatchGame(leftColId, rightColId, feedbackId, pairs, lockIndex, spe
         selectedTile.classList.remove('selected');
         playCorrect();
         addStar(1);
-        found++;
         fb.textContent = msgFn(item);
         fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(found >= pairs.length && !screenLocks[lockIndex]){
-          screenLocks[lockIndex] = true;
-          setTimeout(()=>{ playFanfare(); }, 300);
-          refreshNavButtons();
-        }
       } else {
         tile.classList.add('wrong');
         setTimeout(()=>tile.classList.remove('wrong'),400);
@@ -666,7 +675,7 @@ function buildMatchGame(leftColId, rightColId, feedbackId, pairs, lockIndex, spe
 }
 
 // --- Generic sentence-builder, reused for both sentence screens ---
-function buildSentenceBuilder(bankId, slotId, feedbackId, targetWords, bankWordsShuffled, lockIndex, correctMsg, speakOnCorrect){
+function buildSentenceBuilder(bankId, slotId, feedbackId, targetWords, bankWordsShuffled, correctMsg, correctMsgFr, speakOnCorrect){
   let placed = [];
   const bank = document.getElementById(bankId);
   const slot = document.getElementById(slotId);
@@ -687,11 +696,9 @@ function buildSentenceBuilder(bankId, slotId, feedbackId, targetWords, bankWords
     if(correct){
       playFanfare();
       addStar(2);
-      fb.textContent = correctMsg;
+      fb.innerHTML = correctMsg + '<span class="fr-line">' + correctMsgFr + '</span>';
       fb.className = 'feedback-banner good';
       if(speakOnCorrect) speak(speakOnCorrect);
-      screenLocks[lockIndex] = true;
-      refreshNavButtons();
     } else {
       playIncorrect();
       fb.textContent = 'Almost! Tap Reset and try the order again.';
@@ -747,13 +754,6 @@ function buildAlphabetGrid(){
       speak(`${item.l}. ${item.l} is for ${item.w}.`);
       tile.classList.add('said');
       tappedLetters.add(item.l);
-      if(tappedLetters.size >= 6 && !screenLocks[3]){
-        screenLocks[3] = true;
-        playCorrect();
-        addStar(1);
-        document.getElementById('abcHint').textContent = 'Great listening! Tap Next when ready. ✨';
-        refreshNavButtons();
-      }
     });
     grid.appendChild(tile);
   });
@@ -804,13 +804,6 @@ function buildNumberGrid(){
       speak(`${item.n}. ${item.w}.`);
       tile.classList.add('said');
       tappedNumbers.add(item.n);
-      if(tappedNumbers.size >= 8 && !screenLocks[5]){
-        screenLocks[5] = true;
-        playCorrect();
-        addStar(1);
-        document.getElementById('numHint').textContent = 'Great counting! Tap Next when ready. ✨';
-        refreshNavButtons();
-      }
     });
     grid.appendChild(tile);
   });
@@ -820,32 +813,48 @@ const numMatchSet = [1,2,3,4,5,6].map(n=>{
   return {key:String(n), leftDisplay:String(n), rightDisplay:'●'.repeat(n), word:item.w};
 });
 
+// --- Shapes / Colors / Sizes now teach "I like / I prefer / I do not like" sentence frames ---
 const tabData = {
   shapes: [
-    {emoji:'⭐', en:'Star', fr:'étoile'}, {emoji:'⚪', en:'Circle', fr:'cercle'},
-    {emoji:'🔺', en:'Triangle', fr:'triangle'}, {emoji:'🟦', en:'Square', fr:'carré'},
-    {emoji:'💛', en:'Heart', fr:'cœur'}, {emoji:'🔶', en:'Diamond', fr:'losange'}
+    {emoji:'⭐', cap:'Star', capFr:'étoile', en:'I like the star.', fr:"J'aime l'étoile."},
+    {emoji:'⚪', cap:'Circle', capFr:'cercle', en:'I prefer the circle.', fr:'Je préfère le cercle.'},
+    {emoji:'🔺', cap:'Triangle', capFr:'triangle', en:'I do not like the triangle.', fr:"Je n’aime pas le triangle."},
+    {emoji:'🟦', cap:'Square', capFr:'carré', en:'I like the square.', fr:"J’aime le carré."},
+    {emoji:'💛', cap:'Heart', capFr:'cœur', en:'I prefer the heart.', fr:'Je préfère le cœur.'},
+    {emoji:'🔶', cap:'Diamond', capFr:'losange', en:'I do not like the diamond.', fr:"Je n’aime pas le losange."}
   ],
   colors: [
-    {emoji:'🔴', en:'Red', fr:'rouge'}, {emoji:'🟡', en:'Yellow', fr:'jaune'},
-    {emoji:'🔵', en:'Blue', fr:'bleu'}, {emoji:'🟢', en:'Green', fr:'vert'},
-    {emoji:'🟣', en:'Purple', fr:'violet'}, {emoji:'🟠', en:'Orange', fr:'orange'}
+    {emoji:'🔴', cap:'Red', capFr:'rouge', en:'I like red.', fr:"J’aime le rouge."},
+    {emoji:'🟡', cap:'Yellow', capFr:'jaune', en:'I prefer yellow.', fr:'Je préfère le jaune.'},
+    {emoji:'🔵', cap:'Blue', capFr:'bleu', en:'I do not like blue.', fr:"Je n’aime pas le bleu."},
+    {emoji:'🟢', cap:'Green', capFr:'vert', en:'I like green.', fr:"J’aime le vert."},
+    {emoji:'🟣', cap:'Purple', capFr:'violet', en:'I prefer purple.', fr:'Je préfère le violet.'},
+    {emoji:'🟠', cap:'Orange', capFr:'orange', en:'I do not like orange.', fr:"Je n’aime pas l’orange."}
   ],
   sizes: [
-    {emoji:'🐜', en:'Small', fr:'petit'}, {emoji:'🐶', en:'Medium', fr:'moyen'},
-    {emoji:'🐘', en:'Big', fr:'grand'}, {emoji:'🔎', en:'Tiny', fr:'minuscule'},
-    {emoji:'🦕', en:'Huge', fr:'énorme'}, {emoji:'📏', en:'Long', fr:'long'}
+    {emoji:'🐜', cap:'Small', capFr:'petit', en:'I like small things.', fr:"J’aime les petites choses."},
+    {emoji:'🐶', cap:'Medium', capFr:'moyen', en:'I prefer medium things.', fr:'Je préfère les choses moyennes.'},
+    {emoji:'🐘', cap:'Big', capFr:'grand', en:'I do not like big things.', fr:"Je n’aime pas les grandes choses."},
+    {emoji:'🔎', cap:'Tiny', capFr:'minuscule', en:'I like tiny things.', fr:"J’aime les choses minuscules."},
+    {emoji:'🦕', cap:'Huge', capFr:'énorme', en:'I prefer huge things.', fr:'Je préfère les choses énormes.'},
+    {emoji:'📏', cap:'Long', capFr:'long', en:'I do not like long things.', fr:"Je n’aime pas les choses longues."}
   ]
 };
 function showTab(tab){
   document.querySelectorAll('.tab-btn').forEach(b=> b.classList.toggle('active', b.dataset.tab===tab));
   const grid = document.getElementById('tabGrid');
   grid.innerHTML = '';
+  document.getElementById('tabFeedback').textContent = '';
   tabData[tab].forEach(item=>{
     const card = document.createElement('div');
     card.className = 'shape-card';
-    card.innerHTML = `${item.emoji}<span class="cap">${item.en}</span><span class="cap-fr">${item.fr}</span>`;
-    card.addEventListener('click', ()=> speak(item.en));
+    card.innerHTML = `${item.emoji}<span class="cap">${item.cap}</span><span class="cap-fr">${item.capFr}</span>`;
+    card.addEventListener('click', ()=> {
+      speak(item.en);
+      const fb = document.getElementById('tabFeedback');
+      fb.innerHTML = '"' + item.en + '"<span class="fr-line">"' + item.fr + '"</span>';
+      fb.className = 'feedback-banner good';
+    });
     grid.appendChild(card);
   });
 }
@@ -876,11 +885,6 @@ function renderQuizQuestion(){
     qEl.textContent = 'All done! Great review! 🌟';
     optsEl.innerHTML = '';
     document.getElementById('quizProgress').textContent = '';
-    if(!screenLocks[11]){
-      screenLocks[11] = true;
-      playFanfare();
-      refreshNavButtons();
-    }
     return;
   }
   const item = reviewQuestions[quizIdx];
@@ -916,13 +920,13 @@ function renderQuizQuestion(){
 
 buildAlphabetGrid();
 buildFeelingsGrid();
-buildMatchGame('matchLetters','matchPictures','matchFeedback', matchSet, 4, item=>item.key, item=>`Yes! ${item.key} is for ${item.word}! 🎉`);
+buildMatchGame('matchLetters','matchPictures','matchFeedback', matchSet, item=>item.key, item=>`Yes! ${item.key} is for ${item.word}! 🎉`);
 buildNumberGrid();
-buildMatchGame('numMatchLeft','numMatchRight','numMatchFeedback', numMatchSet, 6, item=>item.key, item=>`Yes! ${item.key} is ${item.word}! 🎉`);
+buildMatchGame('numMatchLeft','numMatchRight','numMatchFeedback', numMatchSet, item=>item.key, item=>`Yes! ${item.key} is ${item.word}! 🎉`);
 showTab('shapes');
-buildMatchGame('colorMatchLeft','colorMatchRight','colorMatchFeedback', colorMatchSet, 8, item=>item.key, item=>`Yes! ${item.key} is ${item.word} in French! 🎉`);
-buildSentenceBuilder('wordBank','sentenceSlot','phraseFeedback', ['Hi,','my','name','is','Elina.'], shuffle(['Hi,','name','my','Elina.','is']), 9, 'Perfect! "Hi, my name is Elina." 🌟', 'Hi! My name is Elina.');
-buildSentenceBuilder('wordBank2','sentenceSlot2','phraseFeedback2', ['What','is','your','name?'], shuffle(['your','is','name?','What']), 10, 'Perfect! "What is your name?" 🌟', 'What is your name?');
+buildMatchGame('colorMatchLeft','colorMatchRight','colorMatchFeedback', colorMatchSet, item=>item.key, item=>`Yes! ${item.key} is ${item.word} in French! 🎉`);
+buildSentenceBuilder('wordBank','sentenceSlot','phraseFeedback', ['Hi,','my','name','is','Elina.'], shuffle(['Hi,','name','my','Elina.','is']), 'Perfect! "Hi, my name is Elina." 🌟', "Salut, je m'appelle Elina.", 'Hi! My name is Elina.');
+buildSentenceBuilder('wordBank2','sentenceSlot2','phraseFeedback2', ['What','is','your','name?'], shuffle(['your','is','name?','What']), 'Perfect! "What is your name?" 🌟', "Comment t'appelles-tu ?", 'What is your name?');
 renderQuizQuestion();
 updateProgress();
 refreshNavButtons();
