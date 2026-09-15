@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google" content="notranslate">
-<title>Elina's Family & House Adventure! / L'aventure de la famille d'Elina !</title>
+<title>Elina's Family & House Adventure!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -26,14 +26,14 @@
   .topbar{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
   .brand{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:22px; color:var(--grape); display:flex; align-items:center; gap:8px; }
   .brand span.emoji{font-size:26px;}
-  .progress-wrap{ flex:1; min-width:170px; max-width:280px; background:#fff; border-radius:20px; padding:6px 10px; box-shadow: var(--shadow); display:flex; align-items:center; gap:8px; }
+  .progress-wrap{ flex:1; min-width:150px; max-width:240px; background:#fff; border-radius:20px; padding:6px 10px; box-shadow: var(--shadow); display:flex; align-items:center; gap:8px; }
   .progress-track{ flex:1; height:14px; background:#EDEDF7; border-radius:10px; overflow:hidden; }
   .progress-fill{ height:100%; width:0%; background:linear-gradient(90deg, var(--berry), var(--tangerine)); border-radius:10px; transition:width .5s ease; }
   .progress-label{font-weight:700; font-size:13px; color:var(--ink); white-space:nowrap;}
   .star-count{ display:flex; align-items:center; gap:5px; background:#fff; border-radius:20px; padding:6px 14px; box-shadow: var(--shadow); font-weight:800; font-size:16px; color:var(--sun); }
-  .sound-toggle{ display:flex; align-items:center; gap:6px; background:#fff; border-radius:20px; padding:6px 14px; box-shadow: var(--shadow); font-weight:700; font-size:14px; color:var(--ink); cursor:pointer; border:none; font-family:'Poppins',sans-serif; }
-  .sound-toggle .dot{width:9px; height:9px; border-radius:50%; background:var(--grass);}
-  .sound-toggle.off .dot{background:#c9c9d6;}
+  .auto-listen-btn{ display:flex; align-items:center; gap:6px; border:none; border-radius:999px; padding:8px 14px; font-family:inherit; font-weight:800; font-size:13px; cursor:pointer; background:#E8FBEF; color:#1a7a3c; box-shadow:0 3px 0 #bfe9cf; transition:transform .1s; white-space:nowrap; }
+  .auto-listen-btn:active{ transform:translateY(2px); box-shadow:0 1px 0 #bfe9cf; }
+  .auto-listen-btn.off{ background:#f1f1f6; color:#8b8ba3; box-shadow:0 3px 0 #d8d8e4; }
 
   .screen{display:none; animation: pop .35s ease;}
   .screen.active{display:block;}
@@ -68,7 +68,6 @@
   .nav-btn.back{background:#B9B9C9; box-shadow:0 8px 0 #92929F;}
   .nav-btn.next{background:var(--grass); box-shadow:0 8px 0 #429A4C;}
   .nav-btn:disabled{opacity:.35; cursor:not-allowed;}
-  .nav-btn.locked{background:#D8D8E4; box-shadow:0 8px 0 #B4B4C2; color:#8888a0;}
 
   .shape-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:20px 0; }
   @media (max-width:640px){ .shape-grid{grid-template-columns:repeat(2,1fr);} }
@@ -112,6 +111,10 @@
   .word-chip .fr-hint{ display:block; font-size:11px; font-weight:600; opacity:.85; margin-top:2px; }
   .word-chip:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; }
   .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
+  .round-label{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:14px; color:var(--grape); background:#F1F1FF; display:inline-block; padding:5px 14px; border-radius:20px; margin-bottom:10px; }
+  .hear-first-btn{ display:inline-flex; align-items:center; gap:6px; background:var(--sky); color:#fff; border:none; border-radius:50px; padding:9px 18px; font-size:14px; font-weight:700; font-family:'Poppins', sans-serif; cursor:pointer; box-shadow:0 5px 0 #2E9DBF; transition: transform .08s ease; margin-bottom:8px; }
+  .hear-first-btn:active{ transform:translateY(4px); box-shadow:0 1px 0 #2E9DBF; }
+  .say-it-tutor-note{ display:block; font-size:11px; font-weight:600; color:#8b8ba3; margin-top:6px; font-style:italic; }
 
   .feedback-banner{ margin-top:14px; font-weight:800; font-size:20px; min-height:52px; }
   .feedback-banner .fb-fr{ display:block; font-size:16px; color:var(--french); font-weight:700; }
@@ -125,13 +128,6 @@
   .mcq-opt.correct{ background:#D9FFE0; border-color:var(--grass); }
   .mcq-opt.incorrect{ background:#FFE0E8; border-color:var(--berry); animation: shake .4s ease;}
   .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
-
-  .recap-chip-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
-  .recap-chip{ background:#fff; border:3px solid #D6D6FF; border-radius:16px; padding:10px 14px; font-size:30px; cursor:pointer; transition: transform .1s ease, border-color .15s ease;}
-  .recap-chip:hover{ transform:translateY(-3px); }
-  .recap-chip.active{ border-color:var(--grape); background:#EEE6FF; }
-  .recap-sentence-en{ font-family:'Baloo 2', sans-serif; font-size:26px; font-weight:800; min-height:38px; margin:14px 0 2px; color:var(--ink); }
-  .recap-sentence-fr{ font-family:'Baloo 2', sans-serif; font-size:23px; font-weight:800; min-height:32px; color:var(--french); }
 
   .confetti{ font-size:40px; display:flex; justify-content:center; gap:12px; margin:10px 0 6px; }
   .confetti span{ display:inline-block; animation: spin 1.6s linear infinite; }
@@ -150,6 +146,29 @@
   .family-card .rel-fr{ font-family:'Baloo 2',sans-serif; font-weight:800; font-size:16px; color:var(--french); display:block; }
   .family-card .name-tag{ font-size:15px; font-weight:600; color:#8b6b45; display:block; margin-top:4px; }
 
+  /* --- NEW: speaking-practice screens --- */
+  .say-it-row{ display:flex; flex-direction:column; gap:16px; margin:18px 0; }
+  .say-it-item{ background:#FAFAFF; border:2px solid #ECECFA; border-radius:20px; padding:18px 16px; }
+  .say-it-item.said{ background:#EEFFF2; border-color:var(--grass); }
+  .say-it-prompt{ font-size:15px; font-weight:700; color:#7a7a95; text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
+  .say-it-check-btn{ margin-top:12px; display:inline-flex; align-items:center; gap:8px; background:var(--grass); color:#fff; border:none; border-radius:50px; padding:12px 22px; font-size:17px; font-weight:800; font-family:'Poppins', sans-serif; cursor:pointer; box-shadow:0 6px 0 #429A4C; transition: transform .08s ease; }
+  .say-it-check-btn:active{ transform:translateY(5px); box-shadow:0 1px 0 #429A4C; }
+  .say-it-check-btn.done{ background:#B9E9C4; color:#2F6E3B; box-shadow:0 6px 0 #96C7A2; cursor:default; }
+  .say-it-banner{ margin-top:18px; font-weight:800; font-size:19px; color:#2F9E44; min-height:24px; }
+  .say-it-banner .fr{ display:block; font-size:15px; color:var(--french); font-weight:700; }
+
+  .story-pool{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:16px 0; }
+  .story-chip{ background:#fff; border:3px solid #D6D6FF; border-radius:16px; padding:10px 16px; cursor:pointer; text-align:left; max-width:230px; transition: transform .1s ease, border-color .15s ease; }
+  .story-chip:hover{ transform:translateY(-2px); }
+  .story-chip .sc-en{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size:16px; color:var(--ink); display:block; }
+  .story-chip .sc-fr{ font-size:12px; color:var(--french); font-weight:600; display:block; margin-top:2px; }
+  .story-chip.used{ opacity:.3; pointer-events:none; }
+  .story-line-wrap{ min-height:90px; background:#FFF9EC; border:3px dashed #FFE1A8; border-radius:18px; padding:16px; margin:16px 0; text-align:left; }
+  .story-line-wrap .placeholder{ color:#b0a48a; font-size:15px; text-align:center; }
+  .story-line{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size:19px; color:var(--ink); margin-bottom:6px; }
+  .story-line .fr{ font-size:15px; color:var(--french); font-weight:600; }
+  .story-line .num{ color:var(--tangerine); margin-right:6px; }
+
   footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:#8b8ba3; }
 </style>
 </head>
@@ -160,13 +179,14 @@
     <div class="brand"><span class="emoji">🏡</span> Elina's Family &amp; House</div>
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">1 / 14</div>
+      <div class="progress-label" id="progressLabel">1 / 19</div>
     </div>
-    <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
+    <button class="auto-listen-btn" id="autoListenBtn" onclick="toggleAutoListen()" title="Turns all lesson audio on or off">🔊 Speech: ON</button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
   </div>
 
-  <section class="screen active" data-screen="0">
+  <!-- 0: Welcome -->
+  <section class="screen active" data-screen="0" data-autospeak-en="Welcome back Elina! Today we visit your family and your house. And today, YOU get to speak too!" data-autospeak-fr="Bon retour Elina ! Aujourd'hui, on visite ta famille et ta maison. Et aujourd'hui, c'est TOI qui vas parler !">
     <div class="card">
       <span class="mascot">🦊</span>
       <div class="bi-header">
@@ -174,17 +194,18 @@
         <span class="fr">Bon retour, Elina !</span>
       </div>
       <div class="bi-body">
-        <span class="en">Today we talk about family and home!</span>
-        <span class="fr">Aujourd'hui, on parle de la famille et de la maison !</span>
+        <span class="en">Today we visit your family and your house — and YOU will say new sentences out loud!</span>
+        <span class="fr">Aujourd'hui, on visite ta famille et ta maison — et TOI, tu vas dire de nouvelles phrases à voix haute !</span>
       </div>
       <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Hi again Elina! Today we talk about family and home!')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('Salut encore Elina ! Aujourd\'hui, on parle de la famille et de la maison !')">🔊 FR</button>
+        <button class="lang-btn en-btn" onclick="speakEN('Welcome back Elina! Today we visit your family and your house. And today, you get to speak too!')">🔊 EN</button>
+        <button class="lang-btn fr-btn" onclick="speakFR('Bon retour Elina ! Aujourd\'hui, on visite ta famille et ta maison. Et aujourd\'hui, c\'est toi qui vas parler !')">🔊 FR</button>
       </div>
     </div>
   </section>
 
-  <section class="screen" data-screen="1">
+  <!-- 1: Family words -->
+  <section class="screen" data-screen="1" data-autospeak-en="Meet the family words!" data-autospeak-fr="Découvre les mots de famille !">
     <div class="card">
       <span class="section-tag">Family Words / Mots de famille</span>
       <div class="bi-header">
@@ -195,7 +216,8 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="2">
+  <!-- 2: My family -->
+  <section class="screen" data-screen="2" data-autospeak-en="This is my family!" data-autospeak-fr="Voici ma famille !">
     <div class="card">
       <span class="section-tag">My Family / Ma famille</span>
       <div class="bi-header">
@@ -206,6 +228,7 @@
     </div>
   </section>
 
+  <!-- 3: Family match -->
   <section class="screen" data-screen="3">
     <div class="card">
       <span class="section-tag">Family Game / Jeu de famille</span>
@@ -221,21 +244,38 @@
     </div>
   </section>
 
+  <!-- 4: Sentence builder - family (3 rounds: mom, dad, sister) -->
   <section class="screen" data-screen="4">
     <div class="card">
       <span class="section-tag">Build a Sentence / Construis une phrase</span>
       <div class="bi-header">
-        <span class="en" style="font-size:26px;">Build a family sentence!</span>
-        <span class="fr" style="font-size:24px;">Construis une phrase de famille !</span>
+        <span class="en" style="font-size:26px;">Build THREE family sentences!</span>
+        <span class="fr" style="font-size:24px;">Construis TROIS phrases de famille !</span>
       </div>
+      <div id="roundLabel-family" class="round-label">Round 1 of 3</div>
       <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
-      <div class="sentence-slot" id="sentenceSlot"></div>
-      <div class="word-bank" id="wordBank"></div>
-      <div class="feedback-banner" id="phraseFeedback"></div>
+      <button class="hear-first-btn" id="hear-family" type="button">🔊 Hear it first / Écoute d'abord</button>
+      <div class="sentence-slot" id="slot-family"></div>
+      <div class="word-bank" id="bank-family"></div>
+      <div class="feedback-banner" id="fb-family"></div>
     </div>
   </section>
 
+  <!-- 5: Say it - family (mom, dad, sister) -->
   <section class="screen" data-screen="5">
+    <div class="card">
+      <span class="mascot">🗣️</span>
+      <span class="section-tag">Say It! / Dis-le !</span>
+      <div class="bi-header">
+        <span class="en" style="font-size:24px;">Now say your three family sentences out loud!</span>
+        <span class="fr" style="font-size:22px;">Dis tes trois phrases de famille à voix haute !</span>
+      </div>
+      <div class="say-it-row" id="sayit-family"></div>
+    </div>
+  </section>
+
+  <!-- 6: House words -->
+  <section class="screen" data-screen="6" data-autospeak-en="Now let's visit the house!" data-autospeak-fr="Maintenant, visitons la maison !">
     <div class="card">
       <span class="section-tag">My House / Ma maison</span>
       <div class="bi-header">
@@ -246,7 +286,8 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="6">
+  <!-- 7: House match -->
+  <section class="screen" data-screen="7">
     <div class="card">
       <span class="section-tag">House Game / Jeu de maison</span>
       <div class="bi-header">
@@ -261,37 +302,82 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="7">
-    <div class="card">
-      <span class="mascot">🏠</span>
-      <span class="section-tag">Where I Live / Où j'habite</span>
-      <div class="bi-header">
-        <span class="en" style="font-size:26px;">I live in Le Mans, France!</span>
-        <span class="fr" style="font-size:24px;">J'habite au Mans, en France !</span>
-      </div>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('I live in Le Mans, France.')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('J\'habite au Mans, en France.')">🔊 FR</button>
-      </div>
-    </div>
-  </section>
-
+  <!-- 8: Sentence builder - house -->
   <section class="screen" data-screen="8">
     <div class="card">
-      <span class="mascot">👧</span>
-      <span class="section-tag">My Family Size / Ma famille</span>
+      <span class="section-tag">Build a Sentence / Construis une phrase</span>
       <div class="bi-header">
-        <span class="en" style="font-size:26px;">I have one sister!</span>
-        <span class="fr" style="font-size:24px;">J'ai une sœur !</span>
+        <span class="en" style="font-size:26px;">Build a house sentence!</span>
+        <span class="fr" style="font-size:24px;">Construis une phrase de maison !</span>
       </div>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('I have one sister. Her name is Berenice.')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('J\'ai une s\u0153ur. Elle s\'appelle Berenice.')">🔊 FR</button>
-      </div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <button class="hear-first-btn" id="hear-house" type="button">🔊 Hear it first / Écoute d'abord</button>
+      <div class="sentence-slot" id="slot-house"></div>
+      <div class="word-bank" id="bank-house"></div>
+      <div class="feedback-banner" id="fb-house"></div>
     </div>
   </section>
 
+  <!-- 9: Say it - house -->
   <section class="screen" data-screen="9">
+    <div class="card">
+      <span class="mascot">🗣️</span>
+      <span class="section-tag">Say It! / Dis-le !</span>
+      <div class="bi-header">
+        <span class="en" style="font-size:24px;">Say your house sentence out loud!</span>
+        <span class="fr" style="font-size:22px;">Dis ta phrase de maison à voix haute !</span>
+      </div>
+      <div class="say-it-row" id="sayit-house"></div>
+    </div>
+  </section>
+
+  <!-- 10: Sentence builder - sister -->
+  <section class="screen" data-screen="10">
+    <div class="card">
+      <span class="section-tag">More About Me / Plus sur moi</span>
+      <div class="bi-header">
+        <span class="en" style="font-size:26px;">Build a sentence about you!</span>
+        <span class="fr" style="font-size:24px;">Construis une phrase sur toi !</span>
+      </div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <button class="hear-first-btn" id="hear-sister" type="button">🔊 Hear it first / Écoute d'abord</button>
+      <div class="sentence-slot" id="slot-sister"></div>
+      <div class="word-bank" id="bank-sister"></div>
+      <div class="feedback-banner" id="fb-sister"></div>
+    </div>
+  </section>
+
+  <!-- 11: Sentence builder - le mans -->
+  <section class="screen" data-screen="11">
+    <div class="card">
+      <span class="section-tag">More About Me / Plus sur moi</span>
+      <div class="bi-header">
+        <span class="en" style="font-size:26px;">Build one more sentence!</span>
+        <span class="fr" style="font-size:24px;">Construis une phrase de plus !</span>
+      </div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <button class="hear-first-btn" id="hear-lemans" type="button">🔊 Hear it first / Écoute d'abord</button>
+      <div class="sentence-slot" id="slot-lemans"></div>
+      <div class="word-bank" id="bank-lemans"></div>
+      <div class="feedback-banner" id="fb-lemans"></div>
+    </div>
+  </section>
+
+  <!-- 12: Say it combo - sister + le mans -->
+  <section class="screen" data-screen="12">
+    <div class="card">
+      <span class="mascot">🗣️</span>
+      <span class="section-tag">Say It! / Dis-le !</span>
+      <div class="bi-header">
+        <span class="en" style="font-size:24px;">Big challenge — say BOTH sentences!</span>
+        <span class="fr" style="font-size:22px;">Grand défi — dis les DEUX phrases !</span>
+      </div>
+      <div class="say-it-row" id="sayit-combo"></div>
+    </div>
+  </section>
+
+  <!-- 13: Opinion -->
+  <section class="screen" data-screen="13">
     <div class="card">
       <span class="section-tag">I Like&hellip; / J'aime&hellip;</span>
       <div class="bi-header">
@@ -303,7 +389,8 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="10">
+  <!-- 14: MCQ 1 -->
+  <section class="screen" data-screen="14">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique de réponse</span>
       <div class="bi-header">
@@ -320,7 +407,8 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="11">
+  <!-- 15: MCQ 2 -->
+  <section class="screen" data-screen="15">
     <div class="card">
       <span class="section-tag">Answer Practice / Pratique de réponse</span>
       <div class="bi-header">
@@ -336,21 +424,41 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="12">
+  <!-- 16: MCQ 3 -->
+  <section class="screen" data-screen="16">
     <div class="card">
-      <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
+      <span class="section-tag">Answer Practice / Pratique de réponse</span>
       <div class="bi-header">
-        <span class="en" style="font-size:26px;">Tell Fox about your family and house!</span>
-        <span class="fr" style="font-size:24px;">Parle de ta famille et ta maison à Renard !</span>
+        <span class="en" style="font-size:26px;">Fox asks: How many sisters do you have?</span>
+        <span class="fr" style="font-size:24px;">Renard demande : Combien de sœurs as-tu ?</span>
       </div>
-      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap anything below! / Touche n'importe quoi ci-dessous !</p>
-      <div class="recap-chip-row" id="recapChips"></div>
-      <div class="recap-sentence-en" id="recapSentence">This is my&hellip;</div>
-      <div class="recap-sentence-fr" id="recapSentenceFr">Voici mon/ma&hellip;</div>
+      <div class="mcq-options" data-gid="q3">
+        <button class="mcq-opt" data-ans="A">A) Two sisters.<span class="opt-fr">Deux sœurs.</span></button>
+        <button class="mcq-opt" data-ans="B">B) One sister.<span class="opt-fr">Une sœur.</span></button>
+        <button class="mcq-opt" data-ans="C">C) No sisters.<span class="opt-fr">Pas de sœur.</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback3"></div>
     </div>
   </section>
 
-  <section class="screen" data-screen="13">
+  <!-- 17: Finale story builder -->
+  <section class="screen" data-screen="17">
+    <div class="card">
+      <span class="mascot">📖</span>
+      <span class="section-tag">Your Story / Ton histoire</span>
+      <div class="bi-header">
+        <span class="en" style="font-size:26px;">Build YOUR family &amp; house story!</span>
+        <span class="fr" style="font-size:24px;">Construis TON histoire de famille et de maison !</span>
+      </div>
+      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap 3 sentences to build your story. / Touche 3 phrases pour construire ton histoire.</p>
+      <div class="story-pool" id="storyPool"></div>
+      <div class="story-line-wrap" id="storyBuilt"><div class="placeholder">Your story will appear here&hellip; / Ton histoire va apparaître ici&hellip;</div></div>
+      <button class="replay-btn" id="storyResetBtn" onclick="resetStory()" style="display:none;">🔄 Start Over / Recommencer</button>
+    </div>
+  </section>
+
+  <!-- 18: Celebration -->
+  <section class="screen" data-screen="18" data-autospeak-en="Great job Elina! You built and said new sentences about your family and your house!" data-autospeak-fr="Bravo Elina ! Tu as construit et dit de nouvelles phrases sur ta famille et ta maison !">
     <div class="card">
       <div class="confetti"><span>🎉</span><span>🏡</span><span>🎊</span><span>💛</span><span>🎉</span></div>
       <div class="bi-header">
@@ -358,8 +466,8 @@
         <span class="fr">Bravo, Elina !</span>
       </div>
       <div class="bi-body">
-        <span class="en">You learned family words, house words, and how to talk about YOUR family!</span>
-        <span class="fr">Tu as appris les mots de famille, les mots de la maison, et comment parler de TA famille !</span>
+        <span class="en">You learned family words, house words — AND you built and SAID new sentences all by yourself!</span>
+        <span class="fr">Tu as appris les mots de famille, les mots de la maison — ET tu as construit et DIT de nouvelles phrases toute seule !</span>
       </div>
       <div class="dual-audio-row">
         <button class="lang-btn en-btn" onclick="speakEN('Great job, Elina!')">🔊 EN</button>
@@ -409,6 +517,7 @@ function burstConfetti(cardEl){
 }
 function currentCard(){ return document.querySelector('.screen.active .card'); }
 
+// --- Single master audio toggle controls EVERYTHING: auto-play on screen entry AND every tap-to-hear button ---
 let soundOn = true;
 let voiceEN = null, voiceFR = null;
 function pickVoices(){
@@ -428,7 +537,7 @@ function speakEN(text){
   if(!soundOn || !('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US'; u.rate = 0.92; u.pitch = 1.0;
+  u.lang = 'en-US'; u.rate = 0.88; u.pitch = 1.0;
   if(voiceEN) u.voice = voiceEN;
   window.speechSynthesis.speak(u);
 }
@@ -436,16 +545,34 @@ function speakFR(text){
   if(!soundOn || !('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'fr-FR'; u.rate = 0.92; u.pitch = 1.0;
+  u.lang = 'fr-FR'; u.rate = 0.9; u.pitch = 1.0;
   if(voiceFR) u.voice = voiceFR;
   window.speechSynthesis.speak(u);
 }
-function toggleSound(){
+function toggleAutoListen(){
   soundOn = !soundOn;
-  const btn = document.getElementById('soundToggle');
+  const btn = document.getElementById('autoListenBtn');
+  btn.textContent = soundOn ? '🔊 Speech: ON' : '🔇 Speech: OFF';
   btn.classList.toggle('off', !soundOn);
-  document.getElementById('soundToggleLabel').textContent = soundOn ? 'Sound On' : 'Sound Off';
   if(!soundOn && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+}
+function autoSpeakScreen(idx){
+  if(!soundOn) return;
+  const el = screens[idx];
+  const en = el.dataset.autospeakEn;
+  if(!en) return;
+  window.speechSynthesis.cancel();
+  const u1 = new SpeechSynthesisUtterance(en);
+  u1.lang = 'en-US'; u1.rate = 0.88; u1.pitch = 1.0; if(voiceEN) u1.voice = voiceEN;
+  const fr = el.dataset.autospeakFr;
+  if(fr){
+    u1.onend = () => {
+      const u2 = new SpeechSynthesisUtterance(fr);
+      u2.lang = 'fr-FR'; u2.rate = 0.9; u2.pitch = 1.0; if(voiceFR) u2.voice = voiceFR;
+      window.speechSynthesis.speak(u2);
+    };
+  }
+  window.speechSynthesis.speak(u1);
 }
 
 const screens = document.querySelectorAll('.screen');
@@ -470,6 +597,7 @@ function changeScreen(delta){
   screens[current].classList.add('active');
   updateProgress(); refreshNavButtons();
   window.scrollTo({top:0, behavior:'smooth'});
+  autoSpeakScreen(current);
   if(current === totalScreens-1){
     setTimeout(()=>{ burstConfetti(currentCard()); playFanfare(); }, 200);
   }
@@ -477,10 +605,25 @@ function changeScreen(delta){
 let stars = 0;
 function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
 
+function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
+
 const familyWords = [
   {emoji:'👩', en:'Mom', fr:'maman'}, {emoji:'👨', en:'Dad', fr:'papa'},
   {emoji:'👧', en:'Sister', fr:'sœur'}, {emoji:'👦', en:'Brother', fr:'frère'},
-  {emoji:'👶', en:'Baby', fr:'bébé'}, {emoji:'👪', en:'Family', fr:'famille'}
+  {emoji:'👶', en:'Baby', fr:'bébé'}, {emoji:'👪', en:'Family', fr:'famille'},
+  {emoji:'👵', en:'Grandma', fr:'mamie'}, {emoji:'👴', en:'Grandpa', fr:'papy'},
+  {emoji:'👩\u200d🦱', en:'Aunt', fr:'tante'}, {emoji:'👨\u200d🦲', en:'Uncle', fr:'oncle'},
+  {emoji:'🧑', en:'Cousin', fr:'cousin(e)'}
+];
+const familyMatchSet = [
+  {emoji:'👩', en:'Mom', fr:'maman'}, {emoji:'👨', en:'Dad', fr:'papa'},
+  {emoji:'👧', en:'Sister', fr:'sœur'}, {emoji:'👦', en:'Brother', fr:'frère'},
+  {emoji:'👵', en:'Grandma', fr:'mamie'}, {emoji:'👴', en:'Grandpa', fr:'papy'}
+];
+const familySentenceRounds = [
+  { target:['This','is','my','mom.'], hints:{'This':'Ceci','is':'est','my':'ma/mon','mom.':'maman.'}, frFull:'Voici ma maman.' },
+  { target:['This','is','my','dad.'], hints:{'This':'Ceci','is':'est','my':'ma/mon','dad.':'papa.'}, frFull:'Voici mon papa.' },
+  { target:['This','is','my','sister.'], hints:{'This':'Ceci','is':'est','my':'ma/mon','sister.':'sœur.'}, frFull:'Voici ma sœur.' }
 ];
 const myFamily = [
   {emoji:'👩', relEn:'My Mom', relFr:'Ma maman', name:'Charline'},
@@ -534,9 +677,7 @@ function buildMyFamily(){
   });
 }
 
-function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
-
-function buildMatchingGame(wordColId, picColId, feedbackId, dataset, lockKey){
+function buildMatchingGame(wordColId, picColId, feedbackId, dataset){
   const wordCol = document.getElementById(wordColId);
   const picCol = document.getElementById(picColId);
   const shuffledWords = shuffle(dataset);
@@ -575,9 +716,7 @@ function buildMatchingGame(wordColId, picColId, feedbackId, dataset, lockKey){
         fb.innerHTML = `<span class="fb-en">Yes! That's ${matchItem.en}! 🎉</span><span class="fb-fr">Oui ! C'est ${matchItem.fr} !</span>`;
         fb.className = 'feedback-banner good';
         selectedTile = null;
-        if(matchesFound >= dataset.length){
-          setTimeout(()=>{ playFanfare(); }, 300);
-        }
+        if(matchesFound >= dataset.length){ setTimeout(()=>{ playFanfare(); }, 300); }
       } else {
         tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
         playIncorrect();
@@ -589,54 +728,168 @@ function buildMatchingGame(wordColId, picColId, feedbackId, dataset, lockKey){
   });
 }
 
-const displayPhrase = ['This', 'is', 'my', 'mom.'];
-const frHints = {'This':'Ceci', 'is':'est', 'my':'ma/mon', 'mom.':'maman.'};
-const bankWords = shuffle(['is', 'This', 'mom.', 'my']);
-let placedWords = [];
-function buildPhraseScreen(){
-  const bank = document.getElementById('wordBank');
-  bankWords.forEach(word=>{
+// --- Reusable sentence builder: pass a config object, get a fully wired build-a-sentence screen ---
+function buildSentenceBuilder(cfg){
+  const bank = document.getElementById(cfg.bankId);
+  const slot = document.getElementById(cfg.slotId);
+  const fb = document.getElementById(cfg.fbId);
+  let placed = [];
+  const bankWordsShuffled = shuffle(cfg.target.slice());
+
+  if(cfg.hearBtnId){
+    const hearBtn = document.getElementById(cfg.hearBtnId);
+    if(hearBtn) hearBtn.addEventListener('click', ()=> speakEN(cfg.target.join(' ')));
+  }
+
+  function render(){
+    slot.innerHTML = placed.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
+      '<span style="color:#aaa; font-size:16px; font-weight:500;">Tap the words below&hellip; / Touche les mots ci-dessous&hellip;</span>';
+  }
+  function reset(){
+    placed = [];
+    bank.querySelectorAll('.word-chip').forEach(c=>c.classList.remove('used'));
+    fb.innerHTML = '';
+    render();
+  }
+  function check(){
+    if(placed.length < cfg.target.length) return;
+    const correct = placed.join(' ') === cfg.target.join(' ');
+    if(correct){
+      playFanfare(); addStar(2); burstConfetti(currentCard());
+      fb.innerHTML = `<span class="fb-en">Perfect! "${cfg.target.join(' ')}" 🌟</span><span class="fb-fr">${cfg.frFull}</span>`;
+      fb.className = 'feedback-banner good';
+      speakEN(cfg.target.join(' '));
+    } else {
+      playIncorrect();
+      fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
+      fb.className = 'feedback-banner retry';
+      const resetBtn = document.createElement('button');
+      resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+      resetBtn.onclick = reset;
+      fb.appendChild(document.createElement('br'));
+      fb.appendChild(resetBtn);
+    }
+  }
+  bankWordsShuffled.forEach(word=>{
     const chip = document.createElement('div');
     chip.className = 'word-chip';
-    chip.innerHTML = `${word}<span class="fr-hint">${frHints[word]}</span>`;
+    chip.innerHTML = `${word}<span class="fr-hint">${cfg.hints[word] || ''}</span>`;
     chip.addEventListener('click', ()=>{
       if(chip.classList.contains('used')) return;
-      placedWords.push(word); chip.classList.add('used');
-      renderSlot(); checkPhrase();
+      placed.push(word); chip.classList.add('used');
+      render(); check();
     });
     bank.appendChild(chip);
   });
-  renderSlot();
+  render();
 }
-function renderSlot(){
-  const slot = document.getElementById('sentenceSlot');
-  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#aaa; font-size:16px; font-weight:500;">Tap the words below&hellip; / Touche les mots ci-dessous&hellip;</span>';
-}
-function checkPhrase(){
-  const fb = document.getElementById('phraseFeedback');
-  if(placedWords.length < displayPhrase.length) return;
-  const correct = placedWords.join(' ') === displayPhrase.join(' ');
-  if(correct){
-    playFanfare(); addStar(2); burstConfetti(currentCard());
-    fb.innerHTML = '<span class="fb-en">Perfect! "This is my mom." 🌟</span><span class="fb-fr">Parfait ! « Voici ma maman. »</span>';
-    fb.className = 'feedback-banner good';
-    speakEN('This is my mom.');
-  } else {
-    playIncorrect();
-    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button');
-    resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = resetPhrase;
-    fb.appendChild(resetBtn);
+
+// --- Multi-round sentence builder: same mechanic as buildSentenceBuilder, but cycles through several
+//     target sentences one at a time inside ONE screen (used for the family unit: mom -> dad -> sister)
+//     so covering more relatives never costs an extra screen or extra Next-taps for the child. ---
+function buildSentenceRounds(cfg){
+  const bank = document.getElementById(cfg.bankId);
+  const slot = document.getElementById(cfg.slotId);
+  const fb = document.getElementById(cfg.fbId);
+  const roundLabel = document.getElementById(cfg.roundLabelId);
+  const hearBtn = cfg.hearBtnId ? document.getElementById(cfg.hearBtnId) : null;
+  let roundIdx = 0;
+  let placed = [];
+
+  function currentRound(){ return cfg.rounds[roundIdx]; }
+  function renderRoundLabel(){ roundLabel.textContent = `Round ${roundIdx+1} of ${cfg.rounds.length}`; }
+  function renderSlot(){
+    slot.innerHTML = placed.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
+      '<span style="color:#aaa; font-size:16px; font-weight:500;">Tap the words below&hellip; / Touche les mots ci-dessous&hellip;</span>';
   }
+  function renderBank(){
+    bank.innerHTML = '';
+    shuffle(currentRound().target.slice()).forEach(word=>{
+      const chip = document.createElement('div');
+      chip.className = 'word-chip';
+      chip.innerHTML = `${word}<span class="fr-hint">${currentRound().hints[word] || ''}</span>`;
+      chip.addEventListener('click', ()=>{
+        if(chip.classList.contains('used')) return;
+        placed.push(word); chip.classList.add('used');
+        renderSlot(); check();
+      });
+      bank.appendChild(chip);
+    });
+  }
+  function resetRound(){
+    placed = []; fb.innerHTML = '';
+    renderSlot(); renderBank();
+  }
+  function nextRound(){
+    roundIdx++; placed = []; fb.innerHTML = '';
+    if(roundIdx >= cfg.rounds.length){
+      roundLabel.textContent = 'All 3 done! 🌟 / Les 3 sont faites !';
+      slot.innerHTML = '<span style="color:#2F9E44; font-size:18px; font-weight:700;">Great work! Tap Next to continue. / Bravo ! Touche Suivant pour continuer.</span>';
+      bank.innerHTML = '';
+      return;
+    }
+    renderRoundLabel(); renderSlot(); renderBank();
+  }
+  function check(){
+    if(placed.length < currentRound().target.length) return;
+    const correct = placed.join(' ') === currentRound().target.join(' ');
+    if(correct){
+      playFanfare(); addStar(2); burstConfetti(currentCard());
+      fb.innerHTML = `<span class="fb-en">Perfect! "${currentRound().target.join(' ')}" 🌟</span><span class="fb-fr">${currentRound().frFull}</span>`;
+      fb.className = 'feedback-banner good';
+      speakEN(currentRound().target.join(' '));
+      setTimeout(nextRound, 1500);
+    } else {
+      playIncorrect();
+      fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
+      fb.className = 'feedback-banner retry';
+      const resetBtn = document.createElement('button');
+      resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+      resetBtn.onclick = resetRound;
+      fb.appendChild(document.createElement('br'));
+      fb.appendChild(resetBtn);
+    }
+  }
+  if(hearBtn) hearBtn.addEventListener('click', ()=> speakEN(currentRound().target.join(' ')));
+  renderRoundLabel(); renderSlot(); renderBank();
 }
-function resetPhrase(){
-  placedWords = [];
-  document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used'));
-  document.getElementById('phraseFeedback').innerHTML = '';
-  renderSlot();
+
+// --- Reusable "Say It!" screen: renders one or more sentences with Listen + self-report buttons ---
+function buildSayIt(containerId, sentences){
+  const row = document.getElementById(containerId);
+  let doneCount = 0;
+  sentences.forEach((s, i)=>{
+    const item = document.createElement('div');
+    item.className = 'say-it-item';
+    item.innerHTML = `
+      <div class="say-it-prompt">Sentence ${i+1} / Phrase ${i+1}</div>
+      <div class="phrase-block" style="background:transparent; border:none; padding:0;">
+        <div class="en-txt">${s.en}</div>
+        <div class="fr-txt">${s.fr}</div>
+      </div>
+      <div class="dual-audio-row" style="margin:8px 0;">
+        <button class="lang-btn en-btn" type="button">🔊 Listen</button>
+      </div>
+      <button class="say-it-check-btn" type="button">🗣️ I said it!</button>
+      <span class="say-it-tutor-note">For the tutor: tap once Elina has said the sentence out loud.</span>
+    `;
+    item.querySelector('.lang-btn.en-btn').addEventListener('click', ()=> speakEN(s.en));
+    const checkBtn = item.querySelector('.say-it-check-btn');
+    checkBtn.addEventListener('click', ()=>{
+      if(checkBtn.classList.contains('done')) return;
+      checkBtn.classList.add('done');
+      checkBtn.innerHTML = '✅ Said it!';
+      item.classList.add('said');
+      addStar(2); playCorrect(); burstConfetti(currentCard());
+      doneCount++;
+      if(doneCount === sentences.length){
+        setTimeout(()=>{ playFanfare(); }, 250);
+      }
+    });
+    row.appendChild(item);
+  });
+  // Auto-model the first sentence once the screen is built
+  if(sentences.length) setTimeout(()=> speakEN(sentences[0].en), 500);
 }
 
 const homeOpinionData = [
@@ -644,7 +897,6 @@ const homeOpinionData = [
   {emoji:'🛋️', en:'the living room', fr:'le salon'}, {emoji:'👪', en:'my family', fr:'ma famille'},
   {emoji:'🏠', en:'my house', fr:'ma maison'}, {emoji:'👧', en:'my sister', fr:'ma sœur'}
 ];
-let homeAnswered = 0;
 function buildHomeOpinion(){
   const grid = document.getElementById('homeOpinionGrid');
   homeOpinionData.forEach(item=>{
@@ -671,12 +923,7 @@ function buildHomeOpinion(){
       const frSentence = liked ? `J'aime ${item.fr}.` : `Je n'aime pas ${item.fr}.`;
       saidEl.innerHTML = enSentence + '<br>' + frSentence;
       speakEN(enSentence);
-      if(!already){
-        card.classList.add('answered');
-        homeAnswered++;
-        burstConfetti(currentCard());
-        playCorrect();
-      }
+      if(!already){ card.classList.add('answered'); burstConfetti(currentCard()); playCorrect(); addStar(1); }
     };
     likeBtn.addEventListener('click', ()=> respond(true));
     dislikeBtn.addEventListener('click', ()=> respond(false));
@@ -694,9 +941,14 @@ const FB = {
     A: {en:'That\'s where we cook - try again!', fr:'C\'est là qu\'on cuisine - réessaie !'},
     B: {en:'That\'s where we wash up - try again!', fr:'C\'est là qu\'on se lave - réessaie !'},
     C: {en:'Yes! We sleep in the bedroom! 🎉', fr:'Oui ! On dort dans la chambre !'}
+  }},
+  q3: { ok: 'B', expl: {
+    A: {en:'Not quite - listen to your sentence again!', fr:'Pas tout à fait - réécoute ta phrase !'},
+    B: {en:'Yes! "I have one sister." 🎉', fr:'Oui ! « J\'ai une sœur. »'},
+    C: {en:'Not quite - you DO have a sister!', fr:'Pas tout à fait - tu AS une sœur !'}
   }}
 };
-function initMCQ(gid, lockKey, feedbackId){
+function initMCQ(gid, feedbackId){
   const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
   const fb = document.getElementById(feedbackId);
   block.querySelectorAll('.mcq-opt').forEach(opt=>{
@@ -720,45 +972,88 @@ function initMCQ(gid, lockKey, feedbackId){
   });
 }
 
-function buildRecap(){
-  const row = document.getElementById('recapChips');
-  const sentenceEl = document.getElementById('recapSentence');
-  const sentenceFrEl = document.getElementById('recapSentenceFr');
-  const pool = [
-    {enPhrase:'This is my mom.', frPhrase:'Voici ma maman.', e:'👩'},
-    {enPhrase:'This is my dad.', frPhrase:'Voici mon papa.', e:'👨'},
-    {enPhrase:'This is my sister.', frPhrase:'Voici ma sœur.', e:'👧'},
-    {enPhrase:'This is my house.', frPhrase:'Voici ma maison.', e:'🏠'},
-    {enPhrase:'This is my bedroom.', frPhrase:'Voici ma chambre.', e:'🛏️'},
-    {enPhrase:'I live in Le Mans.', frPhrase:'J\'habite au Mans.', e:'📍'}
-  ];
-  pool.forEach(item=>{
+// --- Finale: pick 3 of 7 known sentences to build a personal mini-story, then feeds screen 18 ---
+const storyPool = [
+  {en:'This is my mom.', fr:'Voici ma maman.'},
+  {en:'This is my dad.', fr:'Voici mon papa.'},
+  {en:'This is my sister.', fr:'Voici ma sœur.'},
+  {en:'I have one sister.', fr:'J\'ai une sœur.'},
+  {en:'My house has a kitchen.', fr:'Ma maison a une cuisine.'},
+  {en:'I live in Le Mans, France.', fr:'J\'habite au Mans, en France.'},
+  {en:'I like my bedroom.', fr:'J\'aime ma chambre.'}
+];
+let storyChosen = [];
+function buildStoryPool(){
+  const pool = document.getElementById('storyPool');
+  pool.innerHTML = '';
+  storyPool.forEach((item)=>{
     const chip = document.createElement('div');
-    chip.className = 'recap-chip'; chip.textContent = item.e;
+    chip.className = 'story-chip';
+    if(storyChosen.find(c=>c.en===item.en)) chip.classList.add('used');
+    chip.innerHTML = `<span class="sc-en">${item.en}</span><span class="sc-fr">${item.fr}</span>`;
     chip.addEventListener('click', ()=>{
-      document.querySelectorAll('.recap-chip').forEach(c=>c.classList.remove('active'));
-      chip.classList.add('active');
-      sentenceEl.textContent = item.enPhrase;
-      sentenceFrEl.textContent = item.frPhrase;
-      speakEN(item.enPhrase);
-      burstConfetti(currentCard()); playCorrect();
+      if(storyChosen.length >= 3) return;
+      storyChosen.push(item);
+      speakEN(item.en);
+      renderStoryBuilt();
+      buildStoryPool();
+      if(storyChosen.length === 3){
+        setTimeout(()=>{ playFanfare(); burstConfetti(currentCard()); addStar(3); }, 300);
+        document.getElementById('storyResetBtn').style.display = 'inline-block';
+      }
     });
-    row.appendChild(chip);
+    pool.appendChild(chip);
   });
+}
+function renderStoryBuilt(){
+  const wrap = document.getElementById('storyBuilt');
+  if(!storyChosen.length){
+    wrap.innerHTML = '<div class="placeholder">Your story will appear here&hellip; / Ton histoire va apparaître ici&hellip;</div>';
+    return;
+  }
+  wrap.innerHTML = storyChosen.map((s,i)=>`<div class="story-line"><span class="num">${i+1}.</span>${s.en}<div class="fr">${s.fr}</div></div>`).join('');
+}
+function resetStory(){
+  storyChosen = [];
+  document.getElementById('storyResetBtn').style.display = 'none';
+  renderStoryBuilt();
+  buildStoryPool();
 }
 
 buildFlashGrid('familyWordsGrid', familyWords);
 buildMyFamily();
-buildMatchingGame('matchWords','matchFaces','matchFeedback', familyWords.slice(0,4), 3);
-buildPhraseScreen();
+buildMatchingGame('matchWords','matchFaces','matchFeedback', familyMatchSet);
+buildSentenceRounds({ bankId:'bank-family', slotId:'slot-family', fbId:'fb-family', roundLabelId:'roundLabel-family', hearBtnId:'hear-family', rounds: familySentenceRounds });
+buildSayIt('sayit-family', [
+  {en:'This is my mom.', fr:'Voici ma maman.'},
+  {en:'This is my dad.', fr:'Voici mon papa.'},
+  {en:'This is my sister.', fr:'Voici ma sœur.'}
+]);
+
 buildFlashGrid('houseWordsGrid', houseWords);
-buildMatchingGame('matchRoomWords','matchRoomPics','matchFeedback2', houseWords.slice(0,4), 6);
+buildMatchingGame('matchRoomWords','matchRoomPics','matchFeedback2', houseWords.slice(0,4));
+buildSentenceBuilder({ bankId:'bank-house', slotId:'slot-house', fbId:'fb-house', hearBtnId:'hear-house',
+  target:['My','house','has','a','kitchen.'], hints:{'My':'Ma','house':'maison','has':'a','a':'une','kitchen.':'cuisine.'}, frFull:'Ma maison a une cuisine.' });
+buildSayIt('sayit-house', [{en:'My house has a kitchen.', fr:'Ma maison a une cuisine.'}]);
+
+buildSentenceBuilder({ bankId:'bank-sister', slotId:'slot-sister', fbId:'fb-sister', hearBtnId:'hear-sister',
+  target:['I','have','one','sister.'], hints:{'I':'Je','have':'ai','one':'une','sister.':'sœur.'}, frFull:'J\'ai une sœur.' });
+buildSentenceBuilder({ bankId:'bank-lemans', slotId:'slot-lemans', fbId:'fb-lemans', hearBtnId:'hear-lemans',
+  target:['I','live','in','Le Mans,','France.'], hints:{'I':'J\'','live':'habite','in':'au','Le Mans,':'Le Mans','France.':'France.'}, frFull:'J\'habite au Mans, en France.' });
+buildSayIt('sayit-combo', [
+  {en:'I have one sister.', fr:'J\'ai une sœur.'},
+  {en:'I live in Le Mans, France.', fr:'J\'habite au Mans, en France.'}
+]);
+
 buildHomeOpinion();
-initMCQ('q1', 10, 'mcqFeedback');
-initMCQ('q2', 11, 'mcqFeedback2');
-buildRecap();
+initMCQ('q1','mcqFeedback');
+initMCQ('q2','mcqFeedback2');
+initMCQ('q3','mcqFeedback3');
+buildStoryPool();
+
 updateProgress();
 refreshNavButtons();
+autoSpeakScreen(0);
 </script>
 </body>
 </html>
