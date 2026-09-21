@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google" content="notranslate">
-<title>Elina's Numbers & Colors Adventure! / L'aventure des nombres et couleurs !</title>
+<title>Elina's Numbers & Colors Challenge! / Le défi des nombres et couleurs !</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -37,6 +37,7 @@
   .bi-header .en{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:32px; color:var(--ink); display:block; line-height:1.2; }
   .bi-header .fr{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:30px; color:var(--french); display:block; line-height:1.2; margin-top:2px; }
   .section-tag{ display:inline-block; background:#F1F1FF; color:var(--grape); font-weight:700; font-size:13px; letter-spacing:.5px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:10px; }
+  .obj-tag{ display:block; font-size:13px; color:#8b8ba3; font-weight:600; margin:-4px 0 14px; }
   .bi-body{ margin:10px 0 16px; }
   .bi-body .en{ font-size:21px; font-weight:600; color:var(--ink); display:block; line-height:1.45; }
   .bi-body .fr{ font-size:20px; font-weight:600; color:var(--french); display:block; line-height:1.45; margin-top:2px; }
@@ -53,24 +54,33 @@
   .nav-btn.back{background:#B9B9C9; box-shadow:0 8px 0 #92929F;}
   .nav-btn.next{background:var(--grass); box-shadow:0 8px 0 #429A4C;}
   .nav-btn:disabled{opacity:.35; cursor:not-allowed;}
-  .nav-btn.locked{background:#D8D8E4; box-shadow:0 8px 0 #B4B4C2; color:#8888a0;}
-  .shape-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin:20px 0; }
+  .shape-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:20px 0; }
   @media (max-width:640px){ .shape-grid{grid-template-columns:repeat(3,1fr);} }
-  .shape-card{ background:var(--cream); border-radius:20px; border:3px solid #FFE1A8; padding:14px 6px 8px; font-size:34px; }
-  .shape-card .cap-en{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:14px; color:var(--ink); margin-top:4px; }
-  .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; color:var(--french); margin-top:1px;}
-  .card-audio-row{ display:flex; gap:5px; justify-content:center; margin-top:6px; }
-  .card-audio-btn{ border:none; border-radius:8px; font-size:11px; font-weight:800; padding:4px 7px; cursor:pointer; color:#fff; }
-  .card-audio-btn.en{ background:var(--sky); }
-  .card-audio-btn.fr{ background:var(--french); }
-  .swatch-card{ width:100%; height:44px; border-radius:12px; margin:0 auto; }
-  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; }
-  .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
-  .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
-  .match-tile .main-txt{ font-size:22px; font-weight:700; display:block; }
-  .match-tile.selected{ border-color: var(--grape); background:#E9DBFF; transform:scale(1.03); }
-  .match-tile.correct{ border-color: var(--grass); background:#D9FFE0; cursor:default; }
-  .match-tile.wrong{ animation: shake .4s ease; border-color: var(--berry); background:#FFE0E8;}
+  .shape-card{ background:var(--cream); border-radius:18px; border:3px solid #FFE1A8; padding:12px 4px 8px; font-size:26px; cursor:pointer; transition:transform .1s ease; }
+  .shape-card:hover{transform:translateY(-3px);}
+  .shape-card .cap-en{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; color:var(--ink); margin-top:4px; }
+  .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:12px; color:var(--french); margin-top:1px;}
+  .swatch-card{ width:100%; height:38px; border-radius:10px; margin:0 auto; }
+  .relay-row{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:18px 0; }
+  .relay-slot{ width:56px; height:56px; border-radius:14px; background:#F6F6FF; border:3px dashed #C7C7EE; display:flex; align-items:center; justify-content:center; font-family:'Baloo 2',sans-serif; font-weight:800; font-size:22px; color:var(--ink); }
+  .relay-slot.given{ background:var(--cream); border:3px solid #FFE1A8; color:#8b8ba3; }
+  .relay-slot.filled{ background:#D9FFE0; border:3px solid var(--grass); color:var(--ink); }
+  .relay-slot.blank{ cursor:pointer; }
+  .relay-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
+  .relay-chip{ background:var(--sky); color:#fff; width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-family:'Baloo 2',sans-serif; font-weight:800; font-size:20px; cursor:pointer; box-shadow:0 6px 0 #2E9DBF; transition:transform .1s ease; }
+  .relay-chip:active{ transform:translateY(5px); box-shadow:0 1px 0 #2E9DBF; }
+  .relay-chip.used{ opacity:.2; pointer-events:none; box-shadow:none; }
+  .relay-label{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size:15px; color:var(--grape); margin:10px 0 2px; }
+  .story-box{ background:var(--cream); border:3px solid #FFE1A8; border-radius:20px; padding:16px 20px; margin:14px 0; text-align:left; }
+  .story-box .st-en{ font-size:18px; font-weight:600; display:block; line-height:1.5; }
+  .story-box .st-fr{ font-size:15px; color:var(--french); font-weight:600; display:block; margin-top:4px; }
+  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:520px; margin:18px auto 0; }
+  .mcq-opt{ font-family:'Poppins', sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:16px; border:3px solid #D6D6FF; background:#F8F8FF; cursor:pointer; text-align:left; transition: transform .08s ease, background .15s ease, border-color .15s ease; }
+  .mcq-opt .opt-fr{ display:block; font-size:15px; color:var(--french); font-weight:600; margin-top:3px; }
+  .mcq-opt:hover{ transform: translateY(-2px); }
+  .mcq-opt.correct{ background:#D9FFE0; border-color:var(--grass); }
+  .mcq-opt.incorrect{ background:#FFE0E8; border-color:var(--berry); animation: shake .4s ease;}
+  .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
   @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 75%{transform:translateX(8px);} }
   .opinion-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:20px 0; }
   @media (max-width:640px){ .opinion-grid{grid-template-columns:repeat(2,1fr);} }
@@ -85,38 +95,42 @@
   .opinion-btn.dislike.picked{ background:#FFE0E8; }
   .opinion-card.answered{ border-color: var(--grass); }
   .opinion-said{ margin-top:6px; font-size:11px; font-weight:700; color:var(--grass); min-height:26px; line-height:1.3; }
-  .sentence-slot{ min-height:70px; background:#F6F6FF; border:3px dashed #C7C7EE; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; padding:14px; margin:16px 0; font-family:'Baloo 2', sans-serif; font-size:24px; font-weight:700; }
+  .reason-row{ display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-top:8px; }
+  .reason-chip{ background:#fff; border:2px solid #E4D9FF; border-radius:12px; padding:4px 8px; font-size:10px; font-weight:700; cursor:pointer; color:var(--grape); }
+  .reason-chip.picked{ background:var(--grape); color:#fff; border-color:var(--grape); }
+  .sentence-slot{ min-height:70px; background:#F6F6FF; border:3px dashed #C7C7EE; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; padding:14px; margin:16px 0; font-family:'Baloo 2', sans-serif; font-size:22px; font-weight:700; }
   .sentence-slot .placed{ background:var(--sun); padding:8px 14px; border-radius:12px; color:#4A3600; }
   .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
-  .word-chip{ background:var(--berry); color:#fff; padding:10px 18px; border-radius:16px; font-family:'Baloo 2', sans-serif; font-weight:700; font-size:20px; cursor:pointer; box-shadow:0 6px 0 #C24868; transition: transform .1s ease; text-align:center; }
+  .bank-label{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size:13px; color:#9a9ab5; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px; }
+  .word-chip{ background:var(--berry); color:#fff; padding:10px 18px; border-radius:16px; font-family:'Baloo 2', sans-serif; font-weight:700; font-size:19px; cursor:pointer; box-shadow:0 6px 0 #C24868; transition: transform .1s ease; text-align:center; }
   .word-chip .fr-hint{ display:block; font-size:11px; font-weight:600; opacity:.85; margin-top:2px; }
   .word-chip:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; }
   .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
-  .feedback-banner{ margin-top:14px; font-weight:800; font-size:20px; min-height:52px; }
-  .feedback-banner .fb-fr{ display:block; font-size:16px; color:var(--french); font-weight:700; }
+  .word-chip.numbank{ background:var(--sky); box-shadow:0 6px 0 #2E9DBF; }
+  .word-chip.colbank{ background:var(--grape); box-shadow:0 6px 0 #6B3FC7; }
+  .word-chip.objbank{ background:var(--tangerine); box-shadow:0 6px 0 #C86B1E; }
+  .word-chip.connbank{ background:var(--grass); box-shadow:0 6px 0 #429A4C; }
+  .word-chip.reasonbank{ background:#B96BFF; box-shadow:0 6px 0 #7A3FC7; font-size:15px; padding:9px 14px; }
+  .feedback-banner{ margin-top:14px; font-weight:800; font-size:19px; min-height:52px; }
+  .feedback-banner .fb-fr{ display:block; font-size:15px; color:var(--french); font-weight:700; }
   .feedback-banner.good .fb-en{color:#2F9E44;}
   .feedback-banner.retry .fb-en{color:#E8590C;}
-  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:520px; margin:18px auto 0; }
-  .mcq-opt{ font-family:'Poppins', sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:16px; border:3px solid #D6D6FF; background:#F8F8FF; cursor:pointer; text-align:left; transition: transform .08s ease, background .15s ease, border-color .15s ease; }
-  .mcq-opt .opt-fr{ display:block; font-size:15px; color:var(--french); font-weight:600; margin-top:3px; }
-  .mcq-opt:hover{ transform: translateY(-2px); }
-  .mcq-opt.correct{ background:#D9FFE0; border-color:var(--grass); }
-  .mcq-opt.incorrect{ background:#FFE0E8; border-color:var(--berry); animation: shake .4s ease;}
-  .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
-  .recap-chip-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
-  .recap-chip{ background:#fff; border:3px solid #D6D6FF; border-radius:16px; padding:10px 14px; font-size:26px; cursor:pointer; transition: transform .1s ease, border-color .15s ease;}
-  .recap-chip:hover{ transform:translateY(-3px); }
-  .recap-chip.active{ border-color:var(--grape); background:#EEE6FF; }
-  .recap-sentence-en{ font-family:'Baloo 2', sans-serif; font-size:26px; font-weight:800; min-height:38px; margin:14px 0 2px; color:var(--ink); }
-  .recap-sentence-fr{ font-family:'Baloo 2', sans-serif; font-size:23px; font-weight:800; min-height:32px; color:var(--french); }
   .confetti{ font-size:40px; display:flex; justify-content:center; gap:12px; margin:10px 0 6px; }
   .confetti span{ display:inline-block; animation: spin 1.6s linear infinite; }
   @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
   .confetti-burst{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:5; }
   .confetti-piece{ position:absolute; top:-20px; font-size:20px; animation: fall linear forwards; }
   @keyframes fall{ to{ transform: translateY(420px) rotate(360deg); opacity:0; } }
-  .replay-btn{ background:var(--tangerine); color:#fff; border:none; border-radius:50px; padding:12px 22px; font-size:17px; font-weight:700; cursor:pointer; box-shadow:0 6px 0 #C86B1E; margin-top:12px; }
-  .count-display{ font-size:44px; letter-spacing:6px; margin:10px 0; }
+  .replay-btn{ background:var(--tangerine); color:#fff; border:none; border-radius:50px; padding:12px 22px; font-size:16px; font-weight:700; cursor:pointer; box-shadow:0 6px 0 #C86B1E; margin-top:12px; }
+  .talk-prompt{ background:var(--cream); border:3px solid #FFE1A8; border-radius:20px; padding:16px; margin:14px 0; text-align:left; }
+  .talk-prompt .tp-en{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size:18px; color:var(--ink); display:block; }
+  .talk-prompt .tp-fr{ font-size:14px; color:var(--french); font-weight:600; display:block; margin-top:2px; }
+  .talk-input{ width:100%; margin-top:10px; border:2px solid #D6D6FF; border-radius:14px; padding:10px 12px; font-family:'Poppins', sans-serif; font-size:15px; color:var(--ink); resize:vertical; min-height:52px; }
+  .talk-input:focus{ outline:none; border-color:var(--grape); }
+  .talk-mic{ font-size:13px; color:#9a9ab5; font-weight:700; margin-top:6px; display:block; }
+  .talk-done-badge{ display:none; margin-top:8px; font-size:13px; font-weight:800; color:#2F9E44; }
+  .talk-prompt.done .talk-done-badge{ display:block; }
+  .teacher-note{ background:#EEF3FF; border-left:4px solid var(--sky); border-radius:10px; padding:8px 14px; margin:0 0 16px; font-size:12.5px; color:#3a5a80; text-align:left; font-weight:600; }
   footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:#8b8ba3; }
 </style>
 </head>
@@ -126,7 +140,7 @@
     <div class="brand"><span class="emoji">🔢</span> Elina's Numbers &amp; Colors</div>
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">1 / 13</div>
+      <div class="progress-label" id="progressLabel">1 / 15</div>
     </div>
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
@@ -136,137 +150,206 @@
     <div class="card">
       <span class="mascot">🦊</span>
       <div class="bi-header"><span class="en">Welcome back, Elina!</span><span class="fr">Bon retour, Elina !</span></div>
-      <div class="bi-body"><span class="en">Today: numbers and new colors!</span><span class="fr">Aujourd'hui : les nombres et de nouvelles couleurs !</span></div>
+      <div class="bi-body"><span class="en">You already know your numbers to 20 and your basic colors — today we go further: numbers up to 30, harder colors, and a LOT of real talking.</span><span class="fr">Tu connais déjà tes nombres jusqu'à 20 et tes couleurs de base — aujourd'hui on va plus loin : les nombres jusqu'à 30, des couleurs plus difficiles, et on parle BEAUCOUP.</span></div>
       <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Hi Elina! Today we count and learn new colors!')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('Salut Elina ! Aujourd\'hui on compte et on apprend des couleurs !')">🔊 FR</button>
+        <button class="lang-btn en-btn" onclick="speakEN('Hi Elina! Today we go further than before, all the way to thirty, and we talk a lot!')">🔊 EN</button>
+        <button class="lang-btn fr-btn" onclick="speakFR('Salut Elina ! Aujourd\'hui on va plus loin qu\'avant, jusqu\'à trente, et on parle beaucoup !')">🔊 FR</button>
       </div>
     </div>
   </section>
 
   <section class="screen" data-screen="1">
     <div class="card">
-      <span class="section-tag">Numbers 1-10 / Nombres 1 à 10</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Let's count to ten!</span><span class="fr" style="font-size:24px;">Comptons jusqu'à dix !</span></div>
-      <div class="shape-grid" id="numbers1to10Grid"></div>
+      <span class="section-tag">Counting Relay / Relais de comptage</span>
+      <span class="obj-tag">Goal: count fluently to 30 in three patterns / Objectif : compter jusqu'à 30 de trois façons</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Fill in the missing numbers!</span><span class="fr" style="font-size:22px;">Remplis les nombres manquants !</span></div>
+      <div class="teacher-note">👩‍🏫 Say each number out loud as you place it — three rounds: by 1s, by 2s, by 5s.</div>
+      <div class="relay-label" id="relayRoundLabel">Round 1: Counting by 1s, 21–30</div>
+      <div class="relay-row" id="relayRow"></div>
+      <div class="relay-bank" id="relayBank"></div>
+      <div class="feedback-banner" id="relayFeedback"></div>
     </div>
   </section>
 
   <section class="screen" data-screen="2">
     <div class="card">
-      <span class="section-tag">Numbers 11-20 / Nombres 11 à 20</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Now let's count higher!</span><span class="fr" style="font-size:24px;">Comptons encore plus haut !</span></div>
-      <div class="shape-grid" id="numbers11to20Grid"></div>
+      <span class="section-tag">Number Story / Histoire de nombres</span>
+      <span class="obj-tag">Goal: solve it, then say the full sentence out loud / Objectif : résous, puis dis la phrase entière</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Solve the story, then say it!</span><span class="fr" style="font-size:22px;">Résous l'histoire, puis dis-la !</span></div>
+      <div class="story-box">
+        <span class="st-en" id="storyEnText"></span>
+        <span class="st-fr" id="storyFrText"></span>
+      </div>
+      <div class="word-bank" id="storyBank"></div>
+      <div class="feedback-banner" id="storyFeedback"></div>
     </div>
   </section>
 
   <section class="screen" data-screen="3">
     <div class="card">
-      <span class="section-tag">Counting Game / Jeu de comptage</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Match the number to the dots!</span><span class="fr" style="font-size:24px;">Associe le nombre aux points !</span></div>
-      <div class="match-wrap">
-        <div class="match-col" id="matchNumWords"></div>
-        <div class="match-col" id="matchNumDots"></div>
-      </div>
-      <div class="feedback-banner" id="matchFeedback"></div>
+      <span class="section-tag">New Colors / Nouvelles couleurs</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Six trickier colors</span><span class="fr" style="font-size:22px;">Six couleurs plus difficiles</span></div>
+      <div class="shape-grid" id="moreColorsGrid"></div>
+      <p style="font-size:14px; color:#7a7a95; margin:14px 0 4px;">Tap one, then describe something that color out loud to your teacher! / Touche-en une, puis décris quelque chose de cette couleur à voix haute !</p>
     </div>
   </section>
 
   <section class="screen" data-screen="4">
     <div class="card">
-      <span class="section-tag">More Colors / Plus de couleurs</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Six new colors!</span><span class="fr" style="font-size:24px;">Six nouvelles couleurs !</span></div>
-      <div class="shape-grid" id="moreColorsGrid"></div>
+      <span class="section-tag">I Like&hellip; Because&hellip; / J'aime&hellip; Parce que&hellip;</span>
+      <span class="obj-tag">Give TWO real opinions with real reasons / Donne DEUX vraies opinions avec de vraies raisons</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Which colors do you like? Why?</span><span class="fr" style="font-size:22px;">Quelles couleurs aimes-tu ? Pourquoi ?</span></div>
+      <p style="font-size:14px; color:#7a7a95; margin:0 0 8px;">Pick ❤️ or 🚫 for at least TWO colors, then choose a real reason for each. / Choisis ❤️ ou 🚫 pour au moins DEUX couleurs, puis une vraie raison pour chacune.</p>
+      <div class="opinion-grid" id="colorOpinionGrid"></div>
     </div>
   </section>
 
   <section class="screen" data-screen="5">
     <div class="card">
-      <span class="section-tag">Color Game / Jeu de couleurs</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Match the color word to the swatch!</span><span class="fr" style="font-size:24px;">Associe le mot à la couleur !</span></div>
-      <div class="match-wrap">
-        <div class="match-col" id="matchColorWords"></div>
-        <div class="match-col" id="matchColorSwatch"></div>
-      </div>
-      <div class="feedback-banner" id="matchFeedback2"></div>
+      <span class="section-tag">I Need&hellip; / J'ai besoin de&hellip;</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">What do you need for school?</span><span class="fr" style="font-size:22px;">De quoi as-tu besoin pour l'école ?</span></div>
+      <p style="font-size:15px; color:#7a7a95; margin:0 0 6px;">Build your own sentence — numbers now go up to 30! / Construis ta propre phrase — les nombres vont maintenant jusqu'à 30 !</p>
+      <div class="sentence-slot" id="needSlot">I need ___ ___ ___.</div>
+      <div class="bank-label">1. How many? / Combien ?</div>
+      <div class="word-bank" id="needBankNum"></div>
+      <div class="bank-label">2. What color? / Quelle couleur ?</div>
+      <div class="word-bank" id="needBankCol"></div>
+      <div class="bank-label">3. What thing? / Quelle chose ?</div>
+      <div class="word-bank" id="needBankObj"></div>
+      <div class="feedback-banner" id="needFeedback"></div>
     </div>
   </section>
 
   <section class="screen" data-screen="6">
     <div class="card">
+      <span class="section-tag">And / But / Et / Mais</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Connect two full ideas!</span><span class="fr" style="font-size:22px;">Relie deux idées complètes !</span></div>
+      <p style="font-size:15px; color:#7a7a95; margin:0 0 6px;">This time, give a REASON for each side too. / Cette fois, donne aussi une RAISON pour chaque côté.</p>
+      <div class="sentence-slot" id="connSlot">I like ___ because ___, but I don't like ___ because ___.</div>
+      <div class="bank-label">Colors you like / don't like / Couleurs que tu aimes / n'aimes pas</div>
+      <div class="word-bank" id="connBankColor"></div>
+      <div class="bank-label">Reasons / Raisons</div>
+      <div class="word-bank" id="connBankReason"></div>
+      <div class="feedback-banner" id="connFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="7">
+    <div class="card">
       <span class="section-tag">Build a Sentence / Construis une phrase</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">I have three cats!</span><span class="fr" style="font-size:24px;">J'ai trois chats !</span></div>
-      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
+      <div class="bi-header"><span class="en" style="font-size:26px;">I have twenty-two comic books!</span><span class="fr" style="font-size:22px;">J'ai vingt-deux bandes dessinées !</span></div>
+      <p style="font-size:15px; color:#7a7a95; margin:0 0 6px;">Tap the words in order, then say YOUR real number of something out loud. / Touche les mots dans l'ordre, puis dis TON vrai nombre à voix haute.</p>
       <div class="sentence-slot" id="sentenceSlot"></div>
       <div class="word-bank" id="wordBank"></div>
       <div class="feedback-banner" id="phraseFeedback"></div>
     </div>
   </section>
 
-  <section class="screen" data-screen="7">
-    <div class="card">
-      <span class="section-tag">Build Another Sentence / Construis une autre phrase</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">My favorite color is pink!</span><span class="fr" style="font-size:24px;">Ma couleur préférée, c'est le rose !</span></div>
-      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
-      <div class="sentence-slot" id="sentenceSlot2"></div>
-      <div class="word-bank" id="wordBank2"></div>
-      <div class="feedback-banner" id="phraseFeedback2"></div>
-    </div>
-  </section>
-
   <section class="screen" data-screen="8">
     <div class="card">
-      <span class="section-tag">I Like&hellip; / J'aime&hellip;</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Which new colors do you like?</span><span class="fr" style="font-size:24px;">Quelles nouvelles couleurs aimes-tu ?</span></div>
-      <p style="font-size:16px; color:#7a7a95; margin:0 0 10px;">Tap ❤️ or 🚫 on at least 4. / Touche ❤️ ou 🚫 sur au moins 4.</p>
-      <div class="opinion-grid" id="colorOpinionGrid"></div>
+      <span class="section-tag">Which Is More? / Lequel est plus grand ?</span>
+      <span class="obj-tag">Goal: compare and explain your reasoning out loud / Objectif : compare et explique à voix haute</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Which number is bigger — and why?</span><span class="fr" style="font-size:22px;">Quel nombre est le plus grand — et pourquoi ?</span></div>
+      <div id="compareNums" style="font-size:38px; font-weight:800; font-family:'Baloo 2',sans-serif; margin:14px 0;"></div>
+      <div class="mcq-options" id="compareOptions"></div>
+      <div class="feedback-banner" id="compareFeedback"></div>
     </div>
   </section>
 
   <section class="screen" data-screen="9">
     <div class="card">
-      <span class="section-tag">How Many? / Combien ?</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">How many stars do you see?</span><span class="fr" style="font-size:24px;">Combien d'étoiles vois-tu ?</span></div>
-      <div class="count-display">⭐⭐⭐⭐</div>
-      <div class="mcq-options" data-gid="q1">
-        <button class="mcq-opt" data-ans="A">A) Two<span class="opt-fr">Deux</span></button>
-        <button class="mcq-opt" data-ans="B">B) Four<span class="opt-fr">Quatre</span></button>
-        <button class="mcq-opt" data-ans="C">C) Six<span class="opt-fr">Six</span></button>
+      <span class="mascot">🦊</span>
+      <div class="bi-header"><span class="en">Let's Talk! Real questions, real answers.</span><span class="fr">Parlons ! De vraies questions, de vraies réponses.</span></div>
+      <div class="teacher-note">👩‍🏫 Say your answer out loud first, in a FULL sentence — then type a little too.</div>
+      <div class="talk-prompt" id="talkPrompt1">
+        <span class="tp-en">🔢 Count from twenty to thirty out loud. Then: name two things you own MORE than twenty of.</span>
+        <span class="tp-fr">Compte de vingt à trente à voix haute. Puis : nomme deux choses que tu possèdes en PLUS de vingt.</span>
+        <textarea class="talk-input" placeholder="I have more than twenty... / J'ai plus de vingt..."></textarea>
+        <span class="talk-mic">🗣️ Say it out loud to your teacher first!</span>
+        <span class="talk-done-badge">✓ Nice talking!</span>
       </div>
-      <div class="feedback-banner" id="mcqFeedback"></div>
+      <div class="talk-prompt" id="talkPrompt2">
+        <span class="tp-en">🎨 What is your favorite color, and what is one color you really don't like? Explain both.</span>
+        <span class="tp-fr">Quelle est ta couleur préférée, et une couleur que tu n'aimes vraiment pas ? Explique les deux.</span>
+        <textarea class="talk-input" placeholder="My favorite color is... because... I don't like... because..."></textarea>
+        <span class="talk-mic">🗣️ Say it out loud to your teacher first!</span>
+        <span class="talk-done-badge">✓ Nice talking!</span>
+      </div>
+      <div class="talk-prompt" id="talkPrompt3">
+        <span class="tp-en">🎒 Tell me something you need AND something you don't need for school this week.</span>
+        <span class="tp-fr">Dis-moi quelque chose dont tu as besoin ET quelque chose dont tu n'as pas besoin pour l'école cette semaine.</span>
+        <textarea class="talk-input" placeholder="I need... but I don't need..."></textarea>
+        <span class="talk-mic">🗣️ Say it out loud to your teacher first!</span>
+        <span class="talk-done-badge">✓ Nice talking!</span>
+      </div>
+      <div class="feedback-banner" id="talkFeedback"></div>
     </div>
   </section>
 
   <section class="screen" data-screen="10">
     <div class="card">
-      <span class="section-tag">What Color? / Quelle couleur ?</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">What color is the sun?</span><span class="fr" style="font-size:24px;">De quelle couleur est le soleil ?</span></div>
-      <div style="font-size:48px; margin:8px 0;">☀️</div>
-      <div class="mcq-options" data-gid="q2">
-        <button class="mcq-opt" data-ans="A">A) Black<span class="opt-fr">Noir</span></button>
-        <button class="mcq-opt" data-ans="B">B) Brown<span class="opt-fr">Marron</span></button>
-        <button class="mcq-opt" data-ans="C">C) Gold<span class="opt-fr">Doré</span></button>
+      <span class="section-tag">Word Problem / Problème</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Solve it!</span><span class="fr" style="font-size:22px;">Résous-le !</span></div>
+      <div class="story-box">
+        <span class="st-en">Elina has 19 stickers. Her friend gives her 6 more. How many stickers does she have now?</span>
+        <span class="st-fr">Elina a 19 autocollants. Son amie lui en donne 6 de plus. Combien en a-t-elle maintenant ?</span>
       </div>
-      <div class="feedback-banner" id="mcqFeedback2"></div>
+      <div class="mcq-options" data-gid="q1">
+        <button class="mcq-opt" data-ans="A">A) Twenty-three<span class="opt-fr">Vingt-trois</span></button>
+        <button class="mcq-opt" data-ans="B">B) Twenty-five<span class="opt-fr">Vingt-cinq</span></button>
+        <button class="mcq-opt" data-ans="C">C) Twenty-eight<span class="opt-fr">Vingt-huit</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback"></div>
     </div>
   </section>
 
   <section class="screen" data-screen="11">
     <div class="card">
-      <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Tell Fox a number and a color!</span><span class="fr" style="font-size:24px;">Dis un nombre et une couleur à Renard !</span></div>
-      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap anything below! / Touche n'importe quoi ci-dessous !</p>
-      <div class="recap-chip-row" id="recapChips"></div>
-      <div class="recap-sentence-en" id="recapSentence">&hellip;</div>
-      <div class="recap-sentence-fr" id="recapSentenceFr">&hellip;</div>
+      <span class="section-tag">Think About It / Réfléchis</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Which color usually means "stop" or "danger"?</span><span class="fr" style="font-size:22px;">Quelle couleur signifie souvent « stop » ou « danger » ?</span></div>
+      <div class="mcq-options" data-gid="q2">
+        <button class="mcq-opt" data-ans="A">A) Gold<span class="opt-fr">Doré</span></button>
+        <button class="mcq-opt" data-ans="B">B) Red<span class="opt-fr">Rouge</span></button>
+        <button class="mcq-opt" data-ans="C">C) Pink<span class="opt-fr">Rose</span></button>
+      </div>
+      <div class="feedback-banner" id="mcqFeedback2"></div>
     </div>
   </section>
 
   <section class="screen" data-screen="12">
     <div class="card">
+      <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Put it ALL together!</span><span class="fr" style="font-size:22px;">Mets TOUT ensemble !</span></div>
+      <p style="font-size:15px; color:#7a7a95; margin:0 0 6px;">One word from each row builds one big sentence with a connector. / Un mot de chaque ligne construit une grande phrase avec un connecteur.</p>
+      <div class="sentence-slot" id="finalSlot">I have ___ ___, and I like ___ because it's ___, but I don't like ___.</div>
+      <div class="bank-label">How many? (up to 30) / Combien ?</div>
+      <div class="word-bank" id="finalBankNum"></div>
+      <div class="bank-label">What thing? / Quelle chose ?</div>
+      <div class="word-bank" id="finalBankObj"></div>
+      <div class="bank-label">A color you like / Une couleur que tu aimes</div>
+      <div class="word-bank" id="finalBankCol"></div>
+      <div class="bank-label">Why? / Pourquoi ?</div>
+      <div class="word-bank" id="finalBankWhy"></div>
+      <div class="bank-label">A color you DON'T like / Une couleur que tu N'aimes PAS</div>
+      <div class="word-bank" id="finalBankDislike"></div>
+      <div class="feedback-banner" id="finalFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="13">
+    <div class="card">
+      <span class="mascot">🦊</span>
+      <div class="bi-header"><span class="en">One more thing before we finish!</span><span class="fr">Encore une chose avant de finir !</span></div>
+      <div class="bi-body"><span class="en">Tell Fox your WHOLE final sentence out loud, one more time, all by yourself — no reading, just talking.</span><span class="fr">Dis toute ta phrase finale à Renard à voix haute, encore une fois, toute seule — sans lire, juste en parlant.</span></div>
+      <div class="talk-mic" style="font-size:16px; margin-top:6px;">🗣️🦊 No app can hear you — but your teacher can!</div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="14">
+    <div class="card">
       <div class="confetti"><span>🎉</span><span>🔢</span><span>🎨</span><span>⭐</span><span>🎉</span></div>
       <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
-      <div class="bi-body"><span class="en">You can count to twenty and name twelve colors!</span><span class="fr">Tu sais compter jusqu'à vingt et nommer douze couleurs !</span></div>
+      <div class="bi-body"><span class="en">You counted to THIRTY, solved number stories, and talked about YOU the whole time — what you have, like, don't like, and need!</span><span class="fr">Tu as compté jusqu'à TRENTE, résolu des histoires de nombres, et parlé de TOI tout le temps — ce que tu as, aimes, n'aimes pas, et dont tu as besoin !</span></div>
       <div class="dual-audio-row">
         <button class="lang-btn en-btn" onclick="speakEN('Great job, Elina!')">🔊 EN</button>
         <button class="lang-btn fr-btn" onclick="speakFR('Bravo, Elina !')">🔊 FR</button>
@@ -278,9 +361,8 @@
     <button class="nav-btn back" id="backBtn" onclick="changeScreen(-1)">⬅ Back</button>
     <button class="nav-btn next" id="nextBtn" onclick="changeScreen(1)">Next ➡</button>
   </div>
-  <footer class="credit">KingCretot Experience &middot; Elina &middot; Lesson 3: Numbers 1-20 &amp; More Colors &middot; Phase 1 (Full Bilingual)</footer>
+  <footer class="credit">KingCretot Experience &middot; Elina &middot; Lesson 3: Counting to 30, More Colors &amp; Talking About Me &middot; Phase 2 (Full Bilingual)</footer>
 </div>
-
 <script>
 let audioCtx;
 function getCtx(){ if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } return audioCtx; }
@@ -377,79 +459,129 @@ function changeScreen(delta){
 let stars = 0;
 function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
 
-const numberNames = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty'];
-const numberNamesFr = ['zéro','un','deux','trois','quatre','cinq','six','sept','huit','neuf','dix','onze','douze','treize','quatorze','quinze','seize','dix-sept','dix-huit','dix-neuf','vingt'];
-function buildNumberGrid(gridId, start, end){
-  const grid = document.getElementById(gridId);
-  for(let n=start;n<=end;n++){
-    const card = document.createElement('div');
-    card.className = 'shape-card';
-    card.innerHTML = `
-      ${n}
-      <span class="cap-en">${numberNames[n]}</span>
-      <span class="cap-fr">${numberNamesFr[n]}</span>
-      <div class="card-audio-row">
-        <button class="card-audio-btn en" type="button">EN</button>
-        <button class="card-audio-btn fr" type="button">FR</button>
-      </div>
-    `;
-    card.querySelector('.card-audio-btn.en').addEventListener('click', ()=> speakEN(numberNames[n]));
-    card.querySelector('.card-audio-btn.fr').addEventListener('click', ()=> speakFR(numberNamesFr[n]));
-    grid.appendChild(card);
-  }
-}
-
+const numberNames = {
+  20:'twenty',21:'twenty-one',22:'twenty-two',23:'twenty-three',24:'twenty-four',25:'twenty-five',
+  26:'twenty-six',27:'twenty-seven',28:'twenty-eight',29:'twenty-nine',30:'thirty',
+  6:'six',9:'nine',12:'twelve',14:'fourteen',19:'nineteen'
+};
+const numberNamesFr = {
+  20:'vingt',21:'vingt et un',22:'vingt-deux',23:'vingt-trois',24:'vingt-quatre',25:'vingt-cinq',
+  26:'vingt-six',27:'vingt-sept',28:'vingt-huit',29:'vingt-neuf',30:'trente',
+  6:'six',9:'neuf',12:'douze',14:'quatorze',19:'dix-neuf'
+};
 function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
 
-function buildCountingMatch(){
-  const wordCol = document.getElementById('matchNumWords');
-  const dotCol = document.getElementById('matchNumDots');
-  const nums = [3,5,7,9];
-  const shuffledWords = shuffle(nums);
-  const shuffledDots = shuffle(nums);
-  let selectedTile = null; let matchesFound = 0;
-  const fb = document.getElementById('matchFeedback');
-
-  shuffledWords.forEach(n=>{
-    const tile = document.createElement('div');
-    tile.className = 'match-tile';
-    tile.innerHTML = `<span class="main-txt">${n} / ${numberNames[n]}</span>`;
-    tile.dataset.key = n;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct')) return;
-      wordCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
-      tile.classList.add('selected'); selectedTile = tile;
-      speakEN(numberNames[n]);
-    });
-    wordCol.appendChild(tile);
+/* ---- Screen 1: Counting relay 21-30, three rounds (by 1s, by 2s, by 5s) ---- */
+const relayRounds = [
+  { label_en:'Round 1: Counting by 1s, 21–30', label_fr:'Manche 1 : Compter de 1 en 1, 21–30',
+    seq:[21,22,23,24,25,26,27,28,29,30], blanks:[22,24,26,28,30] },
+  { label_en:'Round 2: Counting by 2s, up to 30', label_fr:'Manche 2 : Compter de 2 en 2, jusqu\'à 30',
+    seq:[20,22,24,26,28,30], blanks:[22,26,30] },
+  { label_en:'Round 3: Counting by 5s, up to 30', label_fr:'Manche 3 : Compter de 5 en 5, jusqu\'à 30',
+    seq:[5,10,15,20,25,30], blanks:[10,20,30] }
+];
+let relayRoundIdx = 0;
+function nameNum(n){
+  if(numberNames[n]) return numberNames[n];
+  return String(n);
+}
+function nameNumFr(n){
+  if(numberNamesFr[n]) return numberNamesFr[n];
+  return String(n);
+}
+function buildRelayRound(){
+  const round = relayRounds[relayRoundIdx];
+  document.getElementById('relayRoundLabel').textContent = round.label_en + ' / ' + round.label_fr;
+  const row = document.getElementById('relayRow');
+  const bank = document.getElementById('relayBank');
+  row.innerHTML = ''; bank.innerHTML = '';
+  const fb = document.getElementById('relayFeedback');
+  fb.innerHTML = ''; fb.className = 'feedback-banner';
+  let filledCount = 0;
+  round.seq.forEach(n=>{
+    const slot = document.createElement('div');
+    if(round.blanks.includes(n)){
+      slot.className = 'relay-slot blank';
+      slot.dataset.answer = n;
+    } else {
+      slot.className = 'relay-slot given';
+      slot.textContent = n;
+    }
+    row.appendChild(slot);
   });
-  shuffledDots.forEach(n=>{
-    const tile = document.createElement('div');
-    tile.className = 'match-tile';
-    tile.innerHTML = `<span class="main-txt">${'🔴'.repeat(n)}</span>`;
-    tile.dataset.key = n;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct') || !selectedTile) return;
-      const isMatch = String(selectedTile.dataset.key) === String(tile.dataset.key);
-      if(isMatch){
-        tile.classList.add('correct'); selectedTile.classList.add('correct'); selectedTile.classList.remove('selected');
-        playCorrect(); addStar(1); matchesFound++;
-        burstConfetti(currentCard());
-        fb.innerHTML = `<span class="fb-en">Yes! That's ${numberNames[n]}! 🎉</span><span class="fb-fr">Oui ! C'est ${numberNamesFr[n]} !</span>`;
-        fb.className = 'feedback-banner good';
-        selectedTile = null;
-        if(matchesFound >= nums.length){ setTimeout(()=>playFanfare(),300); }
-      } else {
-        tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
-        playIncorrect();
-        fb.innerHTML = `<span class="fb-en">Try again! Count carefully.</span><span class="fb-fr">Réessaie ! Compte bien.</span>`;
-        fb.className = 'feedback-banner retry';
+  shuffle(round.blanks).forEach(n=>{
+    const chip = document.createElement('div');
+    chip.className = 'relay-chip';
+    chip.textContent = n;
+    chip.addEventListener('click', ()=>{
+      if(chip.classList.contains('used')) return;
+      const targetSlot = row.querySelector(`.relay-slot.blank:not(.filled)[data-answer="${n}"]`);
+      if(targetSlot){
+        targetSlot.textContent = n;
+        targetSlot.classList.add('filled');
+        chip.classList.add('used');
+        speakEN(nameNum(n));
+        playCorrect(); addStar(1); filledCount++;
+        if(filledCount >= round.blanks.length){
+          burstConfetti(currentCard());
+          if(relayRoundIdx < relayRounds.length - 1){
+            fb.innerHTML = `<span class="fb-en">Great counting! Say the whole sequence out loud, then tap Next Round.</span><span class="fb-fr">Bien compté ! Dis toute la suite à voix haute, puis touche Manche suivante.</span>`;
+            fb.className = 'feedback-banner good';
+            const nextRoundBtn = document.createElement('button');
+            nextRoundBtn.className = 'replay-btn';
+            nextRoundBtn.textContent = 'Next Round ➡ / Manche suivante';
+            nextRoundBtn.onclick = ()=>{ relayRoundIdx++; buildRelayRound(); };
+            fb.appendChild(nextRoundBtn);
+          } else {
+            playFanfare();
+            fb.innerHTML = `<span class="fb-en">You counted all the way to thirty in three different ways! 🎉 Say "twenty-one to thirty" out loud one more time.</span><span class="fb-fr">Tu as compté jusqu'à trente de trois façons différentes ! 🎉</span>`;
+            fb.className = 'feedback-banner good';
+          }
+        }
       }
     });
-    dotCol.appendChild(tile);
+    bank.appendChild(chip);
   });
 }
 
+/* ---- Screen 2: Number story production (addition, real sentence output) ---- */
+function buildNumberStory(){
+  document.getElementById('storyEnText').textContent = 'Elina has 12 pencils. Her teacher gives her 6 more pencils. How many pencils does she have now?';
+  document.getElementById('storyFrText').textContent = 'Elina a 12 crayons. Sa maîtresse lui donne 6 crayons de plus. Combien de crayons a-t-elle maintenant ?';
+  const bank = document.getElementById('storyBank');
+  const fb = document.getElementById('storyFeedback');
+  const answer = 18;
+  const choices = shuffle([14,16,18,20]);
+  choices.forEach(n=>{
+    const chip = document.createElement('div');
+    chip.className = 'word-chip numbank';
+    chip.innerHTML = `${n}<span class="fr-hint">${nameNumFr(n)}</span>`;
+    chip.addEventListener('click', ()=>{
+      if(bank.querySelector('.used')) return;
+      document.querySelectorAll('#storyBank .word-chip').forEach(c=>c.classList.add('used'));
+      if(n === answer){
+        playFanfare(); addStar(3); burstConfetti(currentCard());
+        fb.innerHTML = `<span class="fb-en">Yes! "She has eighteen pencils now." Say the WHOLE sentence out loud!</span><span class="fb-fr">Oui ! « Elle a dix-huit crayons maintenant. » Dis toute la phrase à voix haute !</span>`;
+        fb.className = 'feedback-banner good';
+        speakEN('She has eighteen pencils now.');
+      } else {
+        playIncorrect();
+        fb.innerHTML = `<span class="fb-en">Not quite — twelve plus six. Try counting on your fingers, then tap Reset.</span><span class="fb-fr">Pas tout à fait — douze plus six. Essaie de compter sur tes doigts, puis touche Recommencer.</span>`;
+        fb.className = 'feedback-banner retry';
+        const resetBtn = document.createElement('button');
+        resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
+        resetBtn.onclick = ()=>{
+          document.querySelectorAll('#storyBank .word-chip').forEach(c=>c.classList.remove('used'));
+          fb.innerHTML=''; fb.className='feedback-banner';
+        };
+        fb.appendChild(resetBtn);
+      }
+    });
+    bank.appendChild(chip);
+  });
+}
+
+/* ---- Screen 3: New colors grid (kept brief, tap for audio, feeds into next screens) ---- */
 const moreColors = [
   {en:'Pink', fr:'rose', hex:'#FF9AC1'}, {en:'Black', fr:'noir', hex:'#2C2A4A'},
   {en:'White', fr:'blanc', hex:'#F5F5F5'}, {en:'Brown', fr:'marron', hex:'#A9714B'},
@@ -464,166 +596,51 @@ function buildMoreColorsGrid(){
       <div class="swatch-card" style="background:${item.hex}; border:2px solid #eee;"></div>
       <span class="cap-en">${item.en}</span>
       <span class="cap-fr">${item.fr}</span>
-      <div class="card-audio-row">
-        <button class="card-audio-btn en" type="button">EN</button>
-        <button class="card-audio-btn fr" type="button">FR</button>
-      </div>
     `;
-    card.querySelector('.card-audio-btn.en').addEventListener('click', ()=> speakEN(item.en));
-    card.querySelector('.card-audio-btn.fr').addEventListener('click', ()=> speakFR(item.fr));
+    card.addEventListener('click', ()=>{ speakEN(item.en); setTimeout(()=>speakFR(item.fr), 700); });
     grid.appendChild(card);
   });
 }
 
-function buildColorMatch(){
-  const wordCol = document.getElementById('matchColorWords');
-  const swatchCol = document.getElementById('matchColorSwatch');
-  const shuffledWords = shuffle(moreColors);
-  const shuffledSwatches = shuffle(moreColors);
-  let selectedTile = null; let matchesFound = 0;
-  const fb = document.getElementById('matchFeedback2');
-
-  shuffledWords.forEach(item=>{
-    const tile = document.createElement('div');
-    tile.className = 'match-tile';
-    tile.innerHTML = `<span class="main-txt">${item.en}</span>`;
-    tile.dataset.key = item.en;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct')) return;
-      wordCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
-      tile.classList.add('selected'); selectedTile = tile;
-      speakEN(item.en);
-    });
-    wordCol.appendChild(tile);
-  });
-  shuffledSwatches.forEach(item=>{
-    const tile = document.createElement('div');
-    tile.className = 'match-tile';
-    tile.innerHTML = `<div class="swatch-card" style="background:${item.hex}; border:2px solid #eee;"></div>`;
-    tile.dataset.key = item.en;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct') || !selectedTile) return;
-      const isMatch = selectedTile.dataset.key === tile.dataset.key;
-      if(isMatch){
-        tile.classList.add('correct'); selectedTile.classList.add('correct'); selectedTile.classList.remove('selected');
-        playCorrect(); addStar(1); matchesFound++;
-        burstConfetti(currentCard());
-        const matched = moreColors.find(c=>c.en===tile.dataset.key);
-        fb.innerHTML = `<span class="fb-en">Yes! That's ${matched.en}! 🎉</span><span class="fb-fr">Oui ! C'est ${matched.fr} !</span>`;
-        fb.className = 'feedback-banner good';
-        selectedTile = null;
-        if(matchesFound >= moreColors.length){ setTimeout(()=>playFanfare(),300); }
-      } else {
-        tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
-        playIncorrect();
-        fb.innerHTML = `<span class="fb-en">Try again! Look carefully.</span><span class="fb-fr">Réessaie ! Regarde bien.</span>`;
-        fb.className = 'feedback-banner retry';
-      }
-    });
-    swatchCol.appendChild(tile);
-  });
-}
-
-const displayPhrase = ['I', 'have', 'three', 'cats.'];
-const frHints = {'I':'Je', 'have':'ai', 'three':'trois', 'cats.':'chats.'};
-const bankWords = shuffle(['three', 'I', 'cats.', 'have']);
-let placedWords = [];
-function buildPhraseScreen(){
-  const bank = document.getElementById('wordBank');
-  bankWords.forEach(word=>{
+/* ---- Generic tap-in-order sentence builder ---- */
+function makeSentenceBuilder(opts){
+  const bank = document.getElementById(opts.bankId);
+  const slot = document.getElementById(opts.slotId);
+  const fb = document.getElementById(opts.feedbackId);
+  let placed = [];
+  const chips = shuffle(opts.targetWords.map((w,i)=>({...w, _idx:i})));
+  chips.forEach(w=>{
     const chip = document.createElement('div');
-    chip.className = 'word-chip';
-    chip.innerHTML = `${word}<span class="fr-hint">${frHints[word]}</span>`;
+    chip.className = 'word-chip' + (w.cls ? ' '+w.cls : '');
+    chip.innerHTML = `${w.word}${w.fr ? `<span class="fr-hint">${w.fr}</span>` : ''}`;
     chip.addEventListener('click', ()=>{
       if(chip.classList.contains('used')) return;
-      placedWords.push(word); chip.classList.add('used');
-      renderSlot(); checkPhrase();
+      placed.push({word:w.word, idx:w._idx}); chip.classList.add('used');
+      renderSlot(); checkDone();
     });
     bank.appendChild(chip);
   });
-  renderSlot();
-}
-function renderSlot(){
-  const slot = document.getElementById('sentenceSlot');
-  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#aaa; font-size:16px; font-weight:500;">Tap the words below&hellip; / Touche les mots ci-dessous&hellip;</span>';
-}
-function checkPhrase(){
-  const fb = document.getElementById('phraseFeedback');
-  if(placedWords.length < displayPhrase.length) return;
-  const correct = placedWords.join(' ') === displayPhrase.join(' ');
-  if(correct){
-    playFanfare(); addStar(2); burstConfetti(currentCard());
-    fb.innerHTML = '<span class="fb-en">Perfect! "I have three cats." 🌟</span><span class="fb-fr">Parfait ! « J\'ai trois chats. »</span>';
-    fb.className = 'feedback-banner good';
-    speakEN('I have three cats.');
-  } else {
-    playIncorrect();
-    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button');
-    resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = resetPhrase;
-    fb.appendChild(resetBtn);
+  function renderSlot(){
+    slot.innerHTML = placed.map(p=>`<span class="placed">${p.word}</span>`).join(' ') ||
+      `<span style="color:#aaa; font-size:16px; font-weight:500;">${opts.placeholder}</span>`;
   }
-}
-function resetPhrase(){
-  placedWords = [];
-  document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used'));
-  document.getElementById('phraseFeedback').innerHTML = '';
+  function checkDone(){
+    if(placed.length < opts.targetWords.length) return;
+    playFanfare(); addStar(opts.starAward || 2); burstConfetti(currentCard());
+    fb.innerHTML = `<span class="fb-en">${opts.successEn}</span><span class="fb-fr">${opts.successFr}</span>`;
+    fb.className = 'feedback-banner good';
+    if(opts.spokenEn) speakEN(opts.spokenEn);
+  }
   renderSlot();
 }
 
-const displayPhrase2 = ['My', 'favorite', 'color', 'is', 'pink.'];
-const frHints2 = {'My':'Ma', 'favorite':'préférée', 'color':'couleur', 'is':"c'est", 'pink.':'rose.'};
-const bankWords2 = shuffle(['color', 'My', 'pink.', 'is', 'favorite']);
-let placedWords2 = [];
-function buildPhraseScreen2(){
-  const bank = document.getElementById('wordBank2');
-  bankWords2.forEach(word=>{
-    const chip = document.createElement('div');
-    chip.className = 'word-chip';
-    chip.innerHTML = `${word}<span class="fr-hint">${frHints2[word]}</span>`;
-    chip.addEventListener('click', ()=>{
-      if(chip.classList.contains('used')) return;
-      placedWords2.push(word); chip.classList.add('used');
-      renderSlot2(); checkPhrase2();
-    });
-    bank.appendChild(chip);
-  });
-  renderSlot2();
-}
-function renderSlot2(){
-  const slot = document.getElementById('sentenceSlot2');
-  slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#aaa; font-size:16px; font-weight:500;">Tap the words below&hellip; / Touche les mots ci-dessous&hellip;</span>';
-}
-function checkPhrase2(){
-  const fb = document.getElementById('phraseFeedback2');
-  if(placedWords2.length < displayPhrase2.length) return;
-  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
-  if(correct){
-    playFanfare(); addStar(2); burstConfetti(currentCard());
-    fb.innerHTML = '<span class="fb-en">Perfect! "My favorite color is pink." 🌟</span><span class="fb-fr">Parfait ! « Ma couleur préférée, c\'est le rose. »</span>';
-    fb.className = 'feedback-banner good';
-    speakEN('My favorite color is pink.');
-  } else {
-    playIncorrect();
-    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button');
-    resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = resetPhrase2;
-    fb.appendChild(resetBtn);
-  }
-}
-function resetPhrase2(){
-  placedWords2 = [];
-  document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used'));
-  document.getElementById('phraseFeedback2').innerHTML = '';
-  renderSlot2();
-}
-
+/* ---- Screen 4: I Like... Because... upgraded reason bank, require 2 answers ---- */
+const reasonBank = [
+  {en:"it's bold and bright", fr:"c'est vif et audacieux"}, {en:"it's calm and cool", fr:"c'est apaisant et frais"},
+  {en:"it reminds me of the sky", fr:"ça me rappelle le ciel"}, {en:"it reminds me of the ocean", fr:"ça me rappelle l'océan"},
+  {en:"it feels warm", fr:"c'est chaleureux"}, {en:"it's too dark for me", fr:"c'est trop sombre pour moi"},
+  {en:"it's my favorite", fr:"c'est ma préférée"}, {en:"it's boring to look at", fr:"c'est ennuyeux à regarder"}
+];
 let colorOpinionAnswered = 0;
 function buildColorOpinion(){
   const grid = document.getElementById('colorOpinionGrid');
@@ -638,23 +655,39 @@ function buildColorOpinion(){
         <button class="opinion-btn like">❤️</button>
         <button class="opinion-btn dislike">🚫</button>
       </div>
+      <div class="reason-row"></div>
       <div class="opinion-said"></div>
     `;
     const likeBtn = card.querySelector('.like');
     const dislikeBtn = card.querySelector('.dislike');
+    const reasonRow = card.querySelector('.reason-row');
     const saidEl = card.querySelector('.opinion-said');
+    let liking = null;
     const respond = (liked)=>{
-      const already = card.classList.contains('answered');
+      liking = liked;
       likeBtn.classList.toggle('picked', liked);
       dislikeBtn.classList.toggle('picked', !liked);
-      const enSentence = liked ? `I like ${item.en.toLowerCase()}.` : `I don't like ${item.en.toLowerCase()}.`;
-      const frSentence = liked ? `J'aime le ${item.fr}.` : `Je n'aime pas le ${item.fr}.`;
-      saidEl.innerHTML = enSentence + '<br>' + frSentence;
-      speakEN(enSentence);
-      if(!already){
-        card.classList.add('answered'); colorOpinionAnswered++;
-        burstConfetti(currentCard()); playCorrect();
-      }
+      reasonRow.innerHTML = '';
+      shuffle(reasonBank).slice(0,3).forEach(r=>{
+        const chip = document.createElement('span');
+        chip.className = 'reason-chip';
+        chip.textContent = r.en;
+        chip.addEventListener('click', ()=>{
+          reasonRow.querySelectorAll('.reason-chip').forEach(c=>c.classList.remove('picked'));
+          chip.classList.add('picked');
+          const verb = liking ? 'like' : "don't like";
+          const enSentence = `I ${verb} ${item.en.toLowerCase()} because ${r.en}.`;
+          const frVerb = liking ? "J'aime" : "Je n'aime pas";
+          const frSentence = `${frVerb} le ${item.fr} parce que ${r.fr}.`;
+          saidEl.innerHTML = enSentence + '<br>' + frSentence;
+          speakEN(enSentence);
+          if(!card.classList.contains('answered')){
+            card.classList.add('answered'); colorOpinionAnswered++;
+            burstConfetti(currentCard()); playCorrect(); addStar(1);
+          }
+        });
+        reasonRow.appendChild(chip);
+      });
     };
     likeBtn.addEventListener('click', ()=> respond(true));
     dislikeBtn.addEventListener('click', ()=> respond(false));
@@ -662,19 +695,177 @@ function buildColorOpinion(){
   });
 }
 
+/* ---- Screen 5: I need [number up to 30] [color] [object] ---- */
+function buildNeedSentence(){
+  const numBank = document.getElementById('needBankNum');
+  const colBank = document.getElementById('needBankCol');
+  const objBank = document.getElementById('needBankObj');
+  const slot = document.getElementById('needSlot');
+  const fb = document.getElementById('needFeedback');
+  const nums = [15,20,24,30];
+  const cols = [{en:'gray',fr:'gris'},{en:'gold',fr:'doré'},{en:'brown',fr:'marron'},{en:'pink',fr:'rose'}];
+  const objs = [{en:'pencils',fr:'crayons'},{en:'notebooks',fr:'cahiers'},{en:'markers',fr:'marqueurs'},{en:'folders',fr:'chemises'}];
+  const picked = {num:null, col:null, obj:null};
+  function refreshSlot(){
+    slot.innerHTML = `I need <span class="placed">${picked.num ?? '___'}</span> <span class="placed">${picked.col ?? '___'}</span> <span class="placed">${picked.obj ?? '___'}</span>.`;
+    if(picked.num && picked.col && picked.obj){
+      playFanfare(); addStar(2); burstConfetti(currentCard());
+      const enS = `I need ${picked.num} ${picked.col} ${picked.obj}.`;
+      fb.innerHTML = `<span class="fb-en">Great sentence: "${enS}" Now say it out loud!</span><span class="fb-fr">Belle phrase ! Dis-la maintenant à voix haute !</span>`;
+      fb.className = 'feedback-banner good';
+      speakEN(enS);
+    }
+  }
+  shuffle(nums).forEach(n=>{
+    const c = document.createElement('div'); c.className='word-chip numbank';
+    c.innerHTML = `${n}<span class="fr-hint">${nameNumFr(n)}</span>`;
+    c.addEventListener('click', ()=>{ if(c.classList.contains('used'))return; document.querySelectorAll('#needBankNum .word-chip').forEach(x=>x.classList.add('used')); picked.num=n; refreshSlot(); });
+    numBank.appendChild(c);
+  });
+  shuffle(cols).forEach(cObj=>{
+    const c = document.createElement('div'); c.className='word-chip colbank';
+    c.innerHTML = `${cObj.en}<span class="fr-hint">${cObj.fr}</span>`;
+    c.addEventListener('click', ()=>{ if(c.classList.contains('used'))return; document.querySelectorAll('#needBankCol .word-chip').forEach(x=>x.classList.add('used')); picked.col=cObj.en; refreshSlot(); });
+    colBank.appendChild(c);
+  });
+  shuffle(objs).forEach(oObj=>{
+    const c = document.createElement('div'); c.className='word-chip objbank';
+    c.innerHTML = `${oObj.en}<span class="fr-hint">${oObj.fr}</span>`;
+    c.addEventListener('click', ()=>{ if(c.classList.contains('used'))return; document.querySelectorAll('#needBankObj .word-chip').forEach(x=>x.classList.add('used')); picked.obj=oObj.en; refreshSlot(); });
+    objBank.appendChild(c);
+  });
+}
+
+/* ---- Screen 6: And/But with required reasons on both sides ---- */
+function buildConnector(){
+  const colorBank = document.getElementById('connBankColor');
+  const reasonBankEl = document.getElementById('connBankReason');
+  const slot = document.getElementById('connSlot');
+  const fb = document.getElementById('connFeedback');
+  const picked = {like:null, likeWhy:null, dislike:null, dislikeWhy:null};
+  let stage = 'like';
+  function refreshSlot(){
+    slot.innerHTML = `I like <span class="placed">${picked.like ?? '___'}</span> because <span class="placed">${picked.likeWhy ?? '___'}</span>, but I don't like <span class="placed">${picked.dislike ?? '___'}</span> because <span class="placed">${picked.dislikeWhy ?? '___'}</span>.`;
+    if(picked.like && picked.likeWhy && picked.dislike && picked.dislikeWhy){
+      playFanfare(); addStar(3); burstConfetti(currentCard());
+      const enS = `I like ${picked.like} because ${picked.likeWhy}, but I don't like ${picked.dislike} because ${picked.dislikeWhy}.`;
+      fb.innerHTML = `<span class="fb-en">"${enS}" Now say your whole sentence out loud!</span><span class="fb-fr">Dis maintenant ta phrase entière à voix haute !</span>`;
+      fb.className = 'feedback-banner good';
+      speakEN(enS);
+    }
+  }
+  moreColors.forEach(item=>{
+    const c = document.createElement('div'); c.className='word-chip connbank';
+    c.innerHTML = `${item.en.toLowerCase()}<span class="fr-hint">${item.fr}</span>`;
+    c.addEventListener('click', ()=>{
+      if(c.classList.contains('used')) return;
+      if(stage === 'like'){ picked.like = item.en.toLowerCase(); c.classList.add('used'); stage='likeWhy'; }
+      else if(stage === 'dislike' && item.en.toLowerCase() !== picked.like){ picked.dislike = item.en.toLowerCase(); c.classList.add('used'); stage='dislikeWhy'; }
+      refreshSlot();
+    });
+    colorBank.appendChild(c);
+  });
+  reasonBank.forEach(r=>{
+    const c = document.createElement('div'); c.className='word-chip reasonbank';
+    c.innerHTML = `${r.en}<span class="fr-hint">${r.fr}</span>`;
+    c.addEventListener('click', ()=>{
+      if(c.classList.contains('used')) return;
+      if(stage === 'likeWhy'){ picked.likeWhy = r.en; c.classList.add('used'); stage='dislike'; }
+      else if(stage === 'dislikeWhy'){ picked.dislikeWhy = r.en; c.classList.add('used'); stage='done'; }
+      refreshSlot();
+    });
+    reasonBankEl.appendChild(c);
+  });
+}
+
+/* ---- Screen 7: I have twenty-two comic books (larger-range sentence, prompts real number after) ---- */
+function buildPhraseScreen(){
+  makeSentenceBuilder({
+    slotId:'sentenceSlot', bankId:'wordBank', feedbackId:'phraseFeedback',
+    targetWords:[{word:'I',fr:'Je'},{word:'have',fr:'ai'},{word:'twenty-two',fr:'vingt-deux'},{word:'comic',fr:'bandes'},{word:'books.',fr:'dessinées.'}],
+    placeholder:'Tap the words below… / Touche les mots ci-dessous…',
+    successEn:'Perfect! "I have twenty-two comic books." 🌟 Now try YOUR OWN real number out loud — how many books, games, or cards do you actually have?',
+    successFr:'Parfait ! « J\'ai vingt-deux bandes dessinées. » Essaie maintenant TON vrai nombre à voix haute !',
+    spokenEn:'I have twenty-two comic books.', starAward:2
+  });
+}
+
+/* ---- Screen 8: Which is more? comparison with reasoning ---- */
+const CMP = { ok:'B', pairs:[27,19] };
+function buildCompare(){
+  document.getElementById('compareNums').textContent = `${CMP.pairs[0]}  or  ${CMP.pairs[1]}?`;
+  const wrap = document.getElementById('compareOptions');
+  const fb = document.getElementById('compareFeedback');
+  const opts = [
+    {ans:'A', en:`${CMP.pairs[1]} is more`, fr:`${CMP.pairs[1]} est plus grand`},
+    {ans:'B', en:`${CMP.pairs[0]} is more`, fr:`${CMP.pairs[0]} est plus grand`},
+    {ans:'C', en:'They are the same', fr:'C\'est pareil'}
+  ];
+  opts.forEach(o=>{
+    const btn = document.createElement('button');
+    btn.className = 'mcq-opt';
+    btn.innerHTML = `${o.en}<span class="opt-fr">${o.fr}</span>`;
+    btn.addEventListener('click', ()=>{
+      if(wrap.classList.contains('answered')) return;
+      if(o.ans === CMP.ok){
+        btn.classList.add('correct'); wrap.classList.add('answered');
+        wrap.querySelectorAll('.mcq-opt').forEach(x=>x.classList.add('disabled'));
+        playCorrect(); addStar(2); burstConfetti(currentCard());
+        const enS = `Twenty-seven is more than nineteen because it's closer to thirty.`;
+        fb.innerHTML = `<span class="fb-en">Yes! ${enS} Say the reason out loud!</span><span class="fb-fr">Oui ! Vingt-sept est plus grand que dix-neuf. Dis la raison à voix haute !</span>`;
+        fb.className = 'feedback-banner good';
+        speakEN(enS);
+      } else {
+        btn.classList.add('incorrect'); setTimeout(()=>btn.classList.remove('incorrect'),500);
+        playIncorrect();
+        fb.innerHTML = `<span class="fb-en">Think again — count up from nineteen. Which one do you reach first?</span><span class="fb-fr">Réfléchis encore — compte à partir de dix-neuf.</span>`;
+        fb.className = 'feedback-banner retry';
+      }
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+/* ---- Screen 9: Let's Talk! free-response, requires real typed content ---- */
+function buildFreeTalk(){
+  const fb = document.getElementById('talkFeedback');
+  ['talkPrompt1','talkPrompt2','talkPrompt3'].forEach(id=>{
+    const prompt = document.getElementById(id);
+    const ta = prompt.querySelector('.talk-input');
+    const enText = prompt.querySelector('.tp-en').textContent;
+    ta.addEventListener('focus', ()=>{ speakEN(enText); }, {once:true});
+    ta.addEventListener('input', ()=>{
+      if(ta.value.trim().length > 8 && !prompt.classList.contains('done')){
+        prompt.classList.add('done');
+        addStar(1); playCorrect();
+        checkAllTalked();
+      }
+    });
+  });
+  function checkAllTalked(){
+    const all = document.querySelectorAll('.talk-prompt.done').length;
+    if(all >= 3){
+      burstConfetti(currentCard()); playFanfare();
+      fb.innerHTML = '<span class="fb-en">Wonderful talking, Elina! 🎉</span><span class="fb-fr">Superbe conversation, Elina ! 🎉</span>';
+      fb.className = 'feedback-banner good';
+    }
+  }
+}
+
+/* ---- Screens 10-11: MCQ word problem + logic ---- */
 const FB = {
   q1: { ok: 'B', expl: {
-    A: {en:'Count again - look closely!', fr:'Recompte - regarde bien !'},
-    B: {en:'Yes! Four stars! 🎉', fr:'Oui ! Quatre étoiles !'},
-    C: {en:'Count again - look closely!', fr:'Recompte - regarde bien !'}
+    A: {en:'Too low — recount from nineteen, adding six.', fr:'Trop bas — recompte à partir de dix-neuf, en ajoutant six.'},
+    B: {en:'Yes! Nineteen plus six is twenty-five! 🎉', fr:'Oui ! Dix-neuf plus six égale vingt-cinq !'},
+    C: {en:'Too high — try counting on again.', fr:'Trop élevé — recompte.'}
   }},
-  q2: { ok: 'C', expl: {
-    A: {en:'The sun isn\'t black - try again!', fr:'Le soleil n\'est pas noir - réessaie !'},
-    B: {en:'The sun isn\'t brown - try again!', fr:'Le soleil n\'est pas marron - réessaie !'},
-    C: {en:'Yes! The sun is gold/yellow! 🎉', fr:'Oui ! Le soleil est doré !'}
+  q2: { ok: 'B', expl: {
+    A: {en:'Gold usually means caution or a prize, not danger.', fr:'Le doré signifie souvent prudence, pas danger.'},
+    B: {en:'Yes! Red usually means stop or danger! 🎉', fr:'Oui ! Le rouge signifie souvent stop ou danger !'},
+    C: {en:'Pink isn\'t usually a warning color.', fr:'Le rose n\'est pas une couleur d\'alerte.'}
   }}
 };
-function initMCQ(gid, lockKey, feedbackId){
+function initMCQ(gid, feedbackId){
   const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
   const fb = document.getElementById(feedbackId);
   block.querySelectorAll('.mcq-opt').forEach(opt=>{
@@ -698,44 +889,72 @@ function initMCQ(gid, lockKey, feedbackId){
   });
 }
 
-function buildRecap(){
-  const row = document.getElementById('recapChips');
-  const sentenceEl = document.getElementById('recapSentence');
-  const sentenceFrEl = document.getElementById('recapSentenceFr');
-  const pool = [
-    {enPhrase:'I have five stars.', frPhrase:'J\'ai cinq étoiles.', e:'⭐'},
-    {enPhrase:'I like pink.', frPhrase:'J\'aime le rose.', e:'🥷'},
-    {enPhrase:'I have ten fingers.', frPhrase:'J\'ai dix doigts.', e:'✋'},
-    {enPhrase:'I like gold.', frPhrase:'J\'aime le doré.', e:'✨'},
-    {enPhrase:'I have twenty stickers.', frPhrase:'J\'ai vingt autocollants.', e:'🌟'},
-    {enPhrase:'I like gray.', frPhrase:'J\'aime le gris.', e:'☁️'}
-  ];
-  pool.forEach(item=>{
-    const chip = document.createElement('div');
-    chip.className = 'recap-chip'; chip.textContent = item.e;
-    chip.addEventListener('click', ()=>{
-      document.querySelectorAll('.recap-chip').forEach(c=>c.classList.remove('active'));
-      chip.classList.add('active');
-      sentenceEl.textContent = item.enPhrase;
-      sentenceFrEl.textContent = item.frPhrase;
-      speakEN(item.enPhrase);
-      burstConfetti(currentCard()); playCorrect();
-    });
-    row.appendChild(chip);
+/* ---- Screen 12: Final synthesis — five categories, connector required ---- */
+function buildFinalSynthesis(){
+  const numBank = document.getElementById('finalBankNum');
+  const objBank = document.getElementById('finalBankObj');
+  const colBank = document.getElementById('finalBankCol');
+  const whyBank = document.getElementById('finalBankWhy');
+  const dislikeBank = document.getElementById('finalBankDislike');
+  const slot = document.getElementById('finalSlot');
+  const fb = document.getElementById('finalFeedback');
+  const nums = [16,21,25,30];
+  const objs = [{en:'stickers',fr:'autocollants'},{en:'crayons',fr:'crayons'},{en:'books',fr:'livres'},{en:'marbles',fr:'billes'}];
+  const picked = {num:null, obj:null, col:null, why:null, dislike:null};
+  function refreshSlot(){
+    slot.innerHTML = `I have <span class="placed">${picked.num ?? '___'}</span> <span class="placed">${picked.obj ?? '___'}</span>, and I like <span class="placed">${picked.col ?? '___'}</span> because it's <span class="placed">${picked.why ?? '___'}</span>, but I don't like <span class="placed">${picked.dislike ?? '___'}</span>.`;
+    if(picked.num && picked.obj && picked.col && picked.why && picked.dislike){
+      playFanfare(); addStar(4); burstConfetti(currentCard());
+      const enS = `I have ${picked.num} ${picked.obj}, and I like ${picked.col} because it's ${picked.why}, but I don't like ${picked.dislike}.`;
+      fb.innerHTML = `<span class="fb-en">Amazing! "${enS}" Say your WHOLE sentence out loud now!</span><span class="fb-fr">Incroyable ! Dis maintenant ta phrase ENTIÈRE à voix haute !</span>`;
+      fb.className = 'feedback-banner good';
+      speakEN(enS);
+    }
+  }
+  shuffle(nums).forEach(n=>{
+    const c = document.createElement('div'); c.className='word-chip numbank';
+    c.innerHTML = `${n}<span class="fr-hint">${nameNumFr(n)}</span>`;
+    c.addEventListener('click', ()=>{ if(c.classList.contains('used'))return; document.querySelectorAll('#finalBankNum .word-chip').forEach(x=>x.classList.add('used')); picked.num=n; refreshSlot(); });
+    numBank.appendChild(c);
+  });
+  shuffle(objs).forEach(o=>{
+    const c = document.createElement('div'); c.className='word-chip objbank';
+    c.innerHTML = `${o.en}<span class="fr-hint">${o.fr}</span>`;
+    c.addEventListener('click', ()=>{ if(c.classList.contains('used'))return; document.querySelectorAll('#finalBankObj .word-chip').forEach(x=>x.classList.add('used')); picked.obj=o.en; refreshSlot(); });
+    objBank.appendChild(c);
+  });
+  shuffle(moreColors).forEach(item=>{
+    const c = document.createElement('div'); c.className='word-chip colbank';
+    c.innerHTML = `${item.en.toLowerCase()}<span class="fr-hint">${item.fr}</span>`;
+    c.addEventListener('click', ()=>{ if(c.classList.contains('used'))return; document.querySelectorAll('#finalBankCol .word-chip').forEach(x=>x.classList.add('used')); picked.col=item.en.toLowerCase(); refreshSlot(); });
+    colBank.appendChild(c);
+  });
+  shuffle(reasonBank).forEach(r=>{
+    const c = document.createElement('div'); c.className='word-chip reasonbank';
+    c.innerHTML = `${r.en.replace("it's ",'')}<span class="fr-hint">${r.fr}</span>`;
+    c.addEventListener('click', ()=>{ if(c.classList.contains('used'))return; document.querySelectorAll('#finalBankWhy .word-chip').forEach(x=>x.classList.add('used')); picked.why=r.en.replace("it's ",''); refreshSlot(); });
+    whyBank.appendChild(c);
+  });
+  shuffle(moreColors).forEach(item=>{
+    const c = document.createElement('div'); c.className='word-chip connbank';
+    c.innerHTML = `${item.en.toLowerCase()}<span class="fr-hint">${item.fr}</span>`;
+    c.addEventListener('click', ()=>{ if(c.classList.contains('used'))return; document.querySelectorAll('#finalBankDislike .word-chip').forEach(x=>x.classList.add('used')); picked.dislike=item.en.toLowerCase(); refreshSlot(); });
+    dislikeBank.appendChild(c);
   });
 }
 
-buildNumberGrid('numbers1to10Grid', 1, 10);
-buildNumberGrid('numbers11to20Grid', 11, 20);
-buildCountingMatch();
+buildRelayRound();
+buildNumberStory();
 buildMoreColorsGrid();
-buildColorMatch();
-buildPhraseScreen();
-buildPhraseScreen2();
 buildColorOpinion();
-initMCQ('q1', 8, 'mcqFeedback');
-initMCQ('q2', 9, 'mcqFeedback2');
-buildRecap();
+buildNeedSentence();
+buildConnector();
+buildPhraseScreen();
+buildCompare();
+buildFreeTalk();
+initMCQ('q1', 'mcqFeedback');
+initMCQ('q2', 'mcqFeedback2');
+buildFinalSynthesis();
 updateProgress();
 refreshNavButtons();
 </script>
