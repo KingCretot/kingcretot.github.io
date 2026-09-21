@@ -32,7 +32,7 @@
   .screen{display:none; animation: pop .35s ease;}
   .screen.active{display:block;}
   @keyframes pop{ from{opacity:0; transform:scale(.96);} to{opacity:1; transform:scale(1);} }
-  .card{ background:var(--white); border-radius:28px; padding:32px 28px; box-shadow: 0 16px 0 rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.08); text-align:center; position:relative; overflow:hidden; }
+  .card{ background:var(--white); border-radius:28px; padding:32px 28px; box-shadow: 0 16px 0 rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.08); text-align:center; position:relative; }
   .bi-header{ margin:4px 0 18px; }
   .bi-header .en{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:32px; color:var(--ink); display:block; line-height:1.2; }
   .bi-header .fr{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:30px; color:var(--french); display:block; line-height:1.2; margin-top:2px; }
@@ -58,8 +58,13 @@
   @media (max-width:640px){ .shape-grid{grid-template-columns:repeat(3,1fr);} }
   .shape-card{ background:var(--cream); border-radius:18px; border:3px solid #FFE1A8; padding:12px 4px 8px; font-size:26px; cursor:pointer; transition:transform .1s ease; }
   .shape-card:hover{transform:translateY(-3px);}
-  .shape-card .cap-en{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; color:var(--ink); margin-top:4px; }
-  .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:12px; color:var(--french); margin-top:1px;}
+  .shape-card .cap-en{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:17px; color:var(--ink); margin-top:6px; }
+  .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:15px; color:var(--french); margin-top:2px;}
+  .shape-card .cap-ex{ display:block; font-size:13px; color:#5a5a75; font-weight:600; margin-top:8px; line-height:1.4; }
+  .shape-grid.big{ grid-template-columns:repeat(3,1fr); gap:18px; }
+  @media (max-width:640px){ .shape-grid.big{grid-template-columns:repeat(2,1fr);} }
+  .shape-grid.big .shape-card{ padding:18px 12px 14px; }
+  .shape-grid.big .swatch-card{ height:56px; }
   .swatch-card{ width:100%; height:38px; border-radius:10px; margin:0 auto; }
   .relay-row{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:18px 0; }
   .relay-slot{ width:56px; height:56px; border-radius:14px; background:#F6F6FF; border:3px dashed #C7C7EE; display:flex; align-items:center; justify-content:center; font-family:'Baloo 2',sans-serif; font-weight:800; font-size:22px; color:var(--ink); }
@@ -96,21 +101,21 @@
   .opinion-card.answered{ border-color: var(--grass); }
   .opinion-said{ margin-top:6px; font-size:11px; font-weight:700; color:var(--grass); min-height:26px; line-height:1.3; }
   .reason-row{ display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-top:8px; }
-  .reason-chip{ background:#fff; border:2px solid #E4D9FF; border-radius:12px; padding:4px 8px; font-size:10px; font-weight:700; cursor:pointer; color:var(--grape); }
+  .reason-chip{ background:#fff; border:2px solid #E4D9FF; border-radius:12px; padding:7px 12px; font-size:14px; font-weight:700; cursor:pointer; color:var(--grape); }
   .reason-chip.picked{ background:var(--grape); color:#fff; border-color:var(--grape); }
   .sentence-slot{ min-height:70px; background:#F6F6FF; border:3px dashed #C7C7EE; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; padding:14px; margin:16px 0; font-family:'Baloo 2', sans-serif; font-size:22px; font-weight:700; }
   .sentence-slot .placed{ background:var(--sun); padding:8px 14px; border-radius:12px; color:#4A3600; }
   .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
   .bank-label{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size:13px; color:#9a9ab5; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px; }
   .word-chip{ background:var(--berry); color:#fff; padding:10px 18px; border-radius:16px; font-family:'Baloo 2', sans-serif; font-weight:700; font-size:19px; cursor:pointer; box-shadow:0 6px 0 #C24868; transition: transform .1s ease; text-align:center; }
-  .word-chip .fr-hint{ display:block; font-size:11px; font-weight:600; opacity:.85; margin-top:2px; }
+  .word-chip .fr-hint{ display:block; font-size:14px; font-weight:600; opacity:.9; margin-top:2px; }
   .word-chip:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; }
   .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
   .word-chip.numbank{ background:var(--sky); box-shadow:0 6px 0 #2E9DBF; }
   .word-chip.colbank{ background:var(--grape); box-shadow:0 6px 0 #6B3FC7; }
   .word-chip.objbank{ background:var(--tangerine); box-shadow:0 6px 0 #C86B1E; }
   .word-chip.connbank{ background:var(--grass); box-shadow:0 6px 0 #429A4C; }
-  .word-chip.reasonbank{ background:#B96BFF; box-shadow:0 6px 0 #7A3FC7; font-size:15px; padding:9px 14px; }
+  .word-chip.reasonbank{ background:#B96BFF; box-shadow:0 6px 0 #7A3FC7; font-size:18px; padding:11px 16px; }
   .feedback-banner{ margin-top:14px; font-weight:800; font-size:19px; min-height:52px; }
   .feedback-banner .fb-fr{ display:block; font-size:15px; color:var(--french); font-weight:700; }
   .feedback-banner.good .fb-en{color:#2F9E44;}
@@ -131,6 +136,26 @@
   .talk-done-badge{ display:none; margin-top:8px; font-size:13px; font-weight:800; color:#2F9E44; }
   .talk-prompt.done .talk-done-badge{ display:block; }
   .teacher-note{ background:#EEF3FF; border-left:4px solid var(--sky); border-radius:10px; padding:8px 14px; margin:0 0 16px; font-size:12.5px; color:#3a5a80; text-align:left; font-weight:600; }
+  .lang-tip{ background:var(--cream); border-left:5px solid var(--sun); border-radius:14px; padding:14px 18px; margin:16px 0; text-align:left; }
+  .lang-tip .lt-title{ font-family:'Baloo 2',sans-serif; font-weight:800; font-size:15px; color:#8A6D1F; display:block; margin-bottom:4px; }
+  .lang-tip .lt-en{ font-size:15px; font-weight:600; color:var(--ink); display:block; line-height:1.5; }
+  .lang-tip .lt-fr{ font-size:14px; font-weight:600; color:var(--french); display:block; margin-top:3px; line-height:1.5; }
+  .mood-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0; }
+  @media (max-width:640px){ .mood-grid{grid-template-columns:repeat(2,1fr);} }
+  .mood-card{ background:var(--cream); border:3px solid #FFE1A8; border-radius:18px; padding:14px 8px; cursor:pointer; transition:transform .1s ease, border-color .15s ease; }
+  .mood-card:hover{ transform:translateY(-3px); }
+  .mood-card.picked{ border-color:var(--grass); background:#D9FFE0; }
+  .mood-card .mood-emoji{ font-size:34px; display:block; }
+  .mood-card .mood-en{ font-family:'Baloo 2',sans-serif; font-weight:700; font-size:15px; display:block; margin-top:4px; }
+  .mood-card .mood-fr{ font-size:13px; color:var(--french); font-weight:600; display:block; }
+  .weather-row{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:14px 0; }
+  .weather-card{ background:#EEF3FF; border:3px solid #C9DDFF; border-radius:16px; padding:12px 14px; cursor:pointer; transition:transform .1s ease, border-color .15s ease; min-width:78px; }
+  .weather-card:hover{ transform:translateY(-3px); }
+  .weather-card.picked{ border-color:var(--sky); background:#D3F3FF; }
+  .weather-card .w-emoji{ font-size:28px; display:block; }
+  .weather-card .w-en{ font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; display:block; margin-top:3px; }
+  .weather-card .w-fr{ font-size:11px; color:var(--french); font-weight:600; display:block; }
+  #finalSlot{ position:sticky; top:8px; z-index:8; box-shadow:0 8px 18px rgba(0,0,0,0.15); }
   footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:#8b8ba3; }
 </style>
 </head>
@@ -140,7 +165,7 @@
     <div class="brand"><span class="emoji">🔢</span> Elina's Numbers &amp; Colors</div>
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">1 / 15</div>
+      <div class="progress-label" id="progressLabel">1 / 16</div>
     </div>
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
     <div class="star-count">⭐ <span id="starCount">0</span></div>
@@ -160,6 +185,32 @@
 
   <section class="screen" data-screen="1">
     <div class="card">
+      <span class="section-tag">Warm-Up / Échauffement</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">Hello! How are you feeling today?</span><span class="fr" style="font-size:22px;">Salut ! Comment te sens-tu aujourd'hui ?</span></div>
+      <div class="mood-grid" id="moodGrid"></div>
+
+      <div class="bi-header" style="margin-top:20px;"><span class="en" style="font-size:20px;">How's the weather today?</span><span class="fr" style="font-size:18px;">Quel temps fait-il aujourd'hui ?</span></div>
+      <div class="weather-row" id="weatherRow"></div>
+
+      <div class="lang-tip">
+        <span class="lt-title">🗨️ Language Tip! / Astuce de langue !</span>
+        <span class="lt-en">When someone asks you a question, ask it back! "How are you?" → "I'm good — and you?" Try it right now: ask your teacher "And how are you?" out loud.</span>
+        <span class="lt-fr">Quand quelqu'un te pose une question, repose-la ! « Comment vas-tu ? » → « Ça va bien — et toi ? » Essaie maintenant : demande à ton professeur « Et toi, comment vas-tu ? » à voix haute.</span>
+      </div>
+
+      <div class="talk-prompt" id="weekendPrompt">
+        <span class="tp-en">Did you have a good weekend? Tell me what you did!</span>
+        <span class="tp-fr">As-tu passé un bon week-end ? Dis-moi ce que tu as fait !</span>
+        <textarea class="talk-input" placeholder="This weekend I... / Ce week-end, j'ai..."></textarea>
+        <span class="talk-mic">🗣️ Say it out loud to your teacher first — then remember to ask "And you?"</span>
+        <span class="talk-done-badge">✓ Great warm-up!</span>
+      </div>
+      <div class="feedback-banner" id="warmupFeedback"></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="2">
+    <div class="card">
       <span class="section-tag">Counting Relay / Relais de comptage</span>
       <span class="obj-tag">Goal: count fluently to 30 in three patterns / Objectif : compter jusqu'à 30 de trois façons</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Fill in the missing numbers!</span><span class="fr" style="font-size:22px;">Remplis les nombres manquants !</span></div>
@@ -171,7 +222,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="2">
+  <section class="screen" data-screen="3">
     <div class="card">
       <span class="section-tag">Number Story / Histoire de nombres</span>
       <span class="obj-tag">Goal: solve it, then say the full sentence out loud / Objectif : résous, puis dis la phrase entière</span>
@@ -185,16 +236,16 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="3">
+  <section class="screen" data-screen="4">
     <div class="card">
       <span class="section-tag">New Colors / Nouvelles couleurs</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Six trickier colors</span><span class="fr" style="font-size:22px;">Six couleurs plus difficiles</span></div>
-      <div class="shape-grid" id="moreColorsGrid"></div>
-      <p style="font-size:14px; color:#7a7a95; margin:14px 0 4px;">Tap one, then describe something that color out loud to your teacher! / Touche-en une, puis décris quelque chose de cette couleur à voix haute !</p>
+      <p style="font-size:15px; color:#7a7a95; margin:0 0 10px;">Tap a color to hear it, then tap 🔊 to hear the example sentence! / Touche une couleur pour l'entendre, puis 🔊 pour entendre la phrase exemple !</p>
+      <div class="shape-grid big" id="moreColorsGrid"></div>
     </div>
   </section>
 
-  <section class="screen" data-screen="4">
+  <section class="screen" data-screen="5">
     <div class="card">
       <span class="section-tag">I Like&hellip; Because&hellip; / J'aime&hellip; Parce que&hellip;</span>
       <span class="obj-tag">Give TWO real opinions with real reasons / Donne DEUX vraies opinions avec de vraies raisons</span>
@@ -204,7 +255,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="5">
+  <section class="screen" data-screen="6">
     <div class="card">
       <span class="section-tag">I Need&hellip; / J'ai besoin de&hellip;</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">What do you need for school?</span><span class="fr" style="font-size:22px;">De quoi as-tu besoin pour l'école ?</span></div>
@@ -220,7 +271,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="6">
+  <section class="screen" data-screen="7">
     <div class="card">
       <span class="section-tag">And / But / Et / Mais</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Connect two full ideas!</span><span class="fr" style="font-size:22px;">Relie deux idées complètes !</span></div>
@@ -234,7 +285,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="7">
+  <section class="screen" data-screen="8">
     <div class="card">
       <span class="section-tag">Build a Sentence / Construis une phrase</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">I have twenty-two comic books!</span><span class="fr" style="font-size:22px;">J'ai vingt-deux bandes dessinées !</span></div>
@@ -245,7 +296,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="8">
+  <section class="screen" data-screen="9">
     <div class="card">
       <span class="section-tag">Which Is More? / Lequel est plus grand ?</span>
       <span class="obj-tag">Goal: compare and explain your reasoning out loud / Objectif : compare et explique à voix haute</span>
@@ -256,15 +307,15 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="9">
+  <section class="screen" data-screen="10">
     <div class="card">
       <span class="mascot">🦊</span>
       <div class="bi-header"><span class="en">Let's Talk! Real questions, real answers.</span><span class="fr">Parlons ! De vraies questions, de vraies réponses.</span></div>
       <div class="teacher-note">👩‍🏫 Say your answer out loud first, in a FULL sentence — then type a little too.</div>
       <div class="talk-prompt" id="talkPrompt1">
-        <span class="tp-en">🔢 Count from twenty to thirty out loud. Then: name two things you own MORE than twenty of.</span>
-        <span class="tp-fr">Compte de vingt à trente à voix haute. Puis : nomme deux choses que tu possèdes en PLUS de vingt.</span>
-        <textarea class="talk-input" placeholder="I have more than twenty... / J'ai plus de vingt..."></textarea>
+        <span class="tp-en">🔢 Count from twenty to thirty out loud. Then tell me: is there a number between twenty and thirty that means something to you — a birthday, a house number, a favorite number? Why?</span>
+        <span class="tp-fr">Compte de vingt à trente à voix haute. Puis dis-moi : y a-t-il un nombre entre vingt et trente qui compte pour toi — un anniversaire, un numéro de maison, un nombre préféré ? Pourquoi ?</span>
+        <textarea class="talk-input" placeholder="A number that means something to me is... because... / Un nombre qui compte pour moi est... parce que..."></textarea>
         <span class="talk-mic">🗣️ Say it out loud to your teacher first!</span>
         <span class="talk-done-badge">✓ Nice talking!</span>
       </div>
@@ -286,7 +337,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="10">
+  <section class="screen" data-screen="11">
     <div class="card">
       <span class="section-tag">Word Problem / Problème</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Solve it!</span><span class="fr" style="font-size:22px;">Résous-le !</span></div>
@@ -303,7 +354,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="11">
+  <section class="screen" data-screen="12">
     <div class="card">
       <span class="section-tag">Think About It / Réfléchis</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Which color usually means "stop" or "danger"?</span><span class="fr" style="font-size:22px;">Quelle couleur signifie souvent « stop » ou « danger » ?</span></div>
@@ -316,7 +367,7 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="12">
+  <section class="screen" data-screen="13">
     <div class="card">
       <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
       <div class="bi-header"><span class="en" style="font-size:26px;">Put it ALL together!</span><span class="fr" style="font-size:22px;">Mets TOUT ensemble !</span></div>
@@ -336,23 +387,34 @@
     </div>
   </section>
 
-  <section class="screen" data-screen="13">
+  <section class="screen" data-screen="14">
     <div class="card">
-      <span class="mascot">🦊</span>
-      <div class="bi-header"><span class="en">One more thing before we finish!</span><span class="fr">Encore une chose avant de finir !</span></div>
-      <div class="bi-body"><span class="en">Tell Fox your WHOLE final sentence out loud, one more time, all by yourself — no reading, just talking.</span><span class="fr">Dis toute ta phrase finale à Renard à voix haute, encore une fois, toute seule — sans lire, juste en parlant.</span></div>
-      <div class="talk-mic" style="font-size:16px; margin-top:6px;">🗣️🦊 No app can hear you — but your teacher can!</div>
+      <span class="section-tag">Quick Review / Révision rapide</span>
+      <div class="bi-header"><span class="en" style="font-size:26px;">What do you remember from today?</span><span class="fr" style="font-size:22px;">Qu'est-ce que tu te rappelles d'aujourd'hui ?</span></div>
+      <div id="reviewQ1" style="margin:16px 0;">
+        <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:18px; margin:0 0 8px;">1. What number comes right after 27?</p>
+        <div class="mcq-options" data-gid="rq1"></div>
+      </div>
+      <div id="reviewQ2" style="margin:20px 0;">
+        <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:18px; margin:0 0 8px;">2. Which word means "doré" in English?</p>
+        <div class="mcq-options" data-gid="rq2"></div>
+      </div>
+      <div id="reviewQ3" style="margin:20px 0 4px;">
+        <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:18px; margin:0 0 8px;">3. Finish it: "I like blue because it's ___."</p>
+        <div class="mcq-options" data-gid="rq3"></div>
+      </div>
+      <div class="feedback-banner" id="reviewFeedback"></div>
     </div>
   </section>
 
-  <section class="screen" data-screen="14">
+  <section class="screen" data-screen="15">
     <div class="card">
       <div class="confetti"><span>🎉</span><span>🔢</span><span>🎨</span><span>⭐</span><span>🎉</span></div>
-      <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
-      <div class="bi-body"><span class="en">You counted to THIRTY, solved number stories, and talked about YOU the whole time — what you have, like, don't like, and need!</span><span class="fr">Tu as compté jusqu'à TRENTE, résolu des histoires de nombres, et parlé de TOI tout le temps — ce que tu as, aimes, n'aimes pas, et dont tu as besoin !</span></div>
+      <div class="bi-header"><span class="en">See you next week, Elina!</span><span class="fr">À la semaine prochaine, Elina !</span></div>
+      <div class="bi-body"><span class="en">Next time: Lesson 4 — More Letters &amp; Sounds!</span><span class="fr">La prochaine fois : Leçon 4 — Plus de lettres et de sons !</span></div>
       <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Great job, Elina!')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('Bravo, Elina !')">🔊 FR</button>
+        <button class="lang-btn en-btn" onclick="speakEN('See you next week, Elina! Next time is Lesson 4, More Letters and Sounds!')">🔊 EN</button>
+        <button class="lang-btn fr-btn" onclick="speakFR('À la semaine prochaine, Elina !')">🔊 FR</button>
       </div>
     </div>
   </section>
@@ -583,9 +645,12 @@ function buildNumberStory(){
 
 /* ---- Screen 3: New colors grid (kept brief, tap for audio, feeds into next screens) ---- */
 const moreColors = [
-  {en:'Pink', fr:'rose', hex:'#FF9AC1'}, {en:'Black', fr:'noir', hex:'#2C2A4A'},
-  {en:'White', fr:'blanc', hex:'#F5F5F5'}, {en:'Brown', fr:'marron', hex:'#A9714B'},
-  {en:'Gray', fr:'gris', hex:'#A8A8B3'}, {en:'Gold', fr:'doré', hex:'#E4B94B'}
+  {en:'Pink', fr:'rose', hex:'#FF9AC1', exEn:'I like pink flowers.', exFr:'J\'aime les fleurs roses.'},
+  {en:'Black', fr:'noir', hex:'#2C2A4A', exEn:'My cat is black.', exFr:'Mon chat est noir.'},
+  {en:'White', fr:'blanc', hex:'#F5F5F5', exEn:'The snow is white.', exFr:'La neige est blanche.'},
+  {en:'Brown', fr:'marron', hex:'#A9714B', exEn:'My hair is brown.', exFr:'Mes cheveux sont marron.'},
+  {en:'Gray', fr:'gris', hex:'#A8A8B3', exEn:'My favorite color is gray.', exFr:'Ma couleur préférée est le gris.'},
+  {en:'Gold', fr:'doré', hex:'#E4B94B', exEn:'The trophy is gold.', exFr:'Le trophée est doré.'}
 ];
 function buildMoreColorsGrid(){
   const grid = document.getElementById('moreColorsGrid');
@@ -596,7 +661,14 @@ function buildMoreColorsGrid(){
       <div class="swatch-card" style="background:${item.hex}; border:2px solid #eee;"></div>
       <span class="cap-en">${item.en}</span>
       <span class="cap-fr">${item.fr}</span>
+      <span class="cap-ex">"${item.exEn}"<br>« ${item.exFr} »</span>
+      <div class="card-audio-row">
+        <button class="card-audio-btn en" type="button">🔊 EN</button>
+        <button class="card-audio-btn fr" type="button">🔊 FR</button>
+      </div>
     `;
+    card.querySelector('.card-audio-btn.en').addEventListener('click', (e)=>{ e.stopPropagation(); speakEN(item.exEn); });
+    card.querySelector('.card-audio-btn.fr').addEventListener('click', (e)=>{ e.stopPropagation(); speakFR(item.exFr); });
     card.addEventListener('click', ()=>{ speakEN(item.en); setTimeout(()=>speakFR(item.fr), 700); });
     grid.appendChild(card);
   });
@@ -943,6 +1015,105 @@ function buildFinalSynthesis(){
   });
 }
 
+/* ---- Screen 1: Warm-Up / ice-breaker (mood, weather, weekend recap, reciprocity tip) ---- */
+const moods = [
+  {en:'Happy', fr:'Content(e)', emoji:'😊'}, {en:'Tired', fr:'Fatigué(e)', emoji:'😴'},
+  {en:'Excited', fr:'Enthousiaste', emoji:'🤩'}, {en:'Okay', fr:'Ça va', emoji:'😐'},
+  {en:'Sad', fr:'Triste', emoji:'😢'}, {en:'Good', fr:'Bien', emoji:'🤗'}
+];
+function buildMoodGrid(){
+  const grid = document.getElementById('moodGrid');
+  moods.forEach(m=>{
+    const card = document.createElement('div');
+    card.className = 'mood-card';
+    card.innerHTML = `<span class="mood-emoji">${m.emoji}</span><span class="mood-en">${m.en}</span><span class="mood-fr">${m.fr}</span>`;
+    card.addEventListener('click', ()=>{
+      grid.querySelectorAll('.mood-card').forEach(c=>c.classList.remove('picked'));
+      card.classList.add('picked');
+      const enS = `I feel ${m.en.toLowerCase()} today.`;
+      speakEN(enS); playCorrect(); addStar(1);
+    });
+    grid.appendChild(card);
+  });
+}
+const weathers = [
+  {en:'Sunny', fr:'Ensoleillé', emoji:'☀️'}, {en:'Rainy', fr:'Pluvieux', emoji:'🌧️'},
+  {en:'Cloudy', fr:'Nuageux', emoji:'☁️'}, {en:'Hot', fr:'Chaud', emoji:'🔥'}, {en:'Cold', fr:'Froid', emoji:'❄️'}
+];
+function buildWeatherRow(){
+  const row = document.getElementById('weatherRow');
+  weathers.forEach(w=>{
+    const card = document.createElement('div');
+    card.className = 'weather-card';
+    card.innerHTML = `<span class="w-emoji">${w.emoji}</span><span class="w-en">${w.en}</span><span class="w-fr">${w.fr}</span>`;
+    card.addEventListener('click', ()=>{
+      row.querySelectorAll('.weather-card').forEach(c=>c.classList.remove('picked'));
+      card.classList.add('picked');
+      speakEN(`It's ${w.en.toLowerCase()} today.`); playCorrect(); addStar(1);
+    });
+    row.appendChild(card);
+  });
+}
+function buildWarmupTalk(){
+  const prompt = document.getElementById('weekendPrompt');
+  const ta = prompt.querySelector('.talk-input');
+  const fb = document.getElementById('warmupFeedback');
+  ta.addEventListener('focus', ()=>{ speakEN('Did you have a good weekend? Tell me what you did!'); }, {once:true});
+  ta.addEventListener('input', ()=>{
+    if(ta.value.trim().length > 8 && !prompt.classList.contains('done')){
+      prompt.classList.add('done'); addStar(2); playFanfare(); burstConfetti(currentCard());
+      fb.innerHTML = `<span class="fb-en">Nice! Don't forget to ask your teacher "And you?" 🎉</span><span class="fb-fr">Bien ! N'oublie pas de demander « Et toi ? » à ton professeur !</span>`;
+      fb.className = 'feedback-banner good';
+    }
+  });
+}
+
+/* ---- Screen 14: Quick Review — 3 recall items mixing numbers, colors, sentence pattern ---- */
+const REVIEW = {
+  rq1: { ok:'B', opts:[
+    {ans:'A', en:'26', fr:'26'}, {ans:'B', en:'28', fr:'28'}, {ans:'C', en:'30', fr:'30'}
+  ], correctMsgEn:'Yes! Twenty-eight comes right after twenty-seven!', correctMsgFr:'Oui ! Vingt-huit vient juste après vingt-sept !' },
+  rq2: { ok:'B', opts:[
+    {ans:'A', en:'Brown', fr:'Marron'}, {ans:'B', en:'Gold', fr:'Doré'}, {ans:'C', en:'Gray', fr:'Gris'}
+  ], correctMsgEn:'Yes! "Doré" means Gold!', correctMsgFr:'Oui ! « Doré » veut dire Gold !' },
+  rq3: { ok:'B', opts:[
+    {ans:'A', en:'a banana', fr:'une banane'}, {ans:'B', en:"it's calm and cool", fr:"c'est apaisant et frais"}, {ans:'C', en:'Tuesday', fr:'mardi'}
+  ], correctMsgEn:'Yes! "I like blue because it\'s calm and cool."', correctMsgFr:'Oui ! « J\'aime le bleu parce que c\'est apaisant et frais. »' }
+};
+let reviewCorrectCount = 0;
+function buildQuickReview(){
+  const fb = document.getElementById('reviewFeedback');
+  Object.keys(REVIEW).forEach(gid=>{
+    const wrap = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
+    const q = REVIEW[gid];
+    q.opts.forEach(o=>{
+      const btn = document.createElement('button');
+      btn.className = 'mcq-opt';
+      btn.innerHTML = `${o.en}<span class="opt-fr">${o.fr}</span>`;
+      btn.addEventListener('click', ()=>{
+        if(wrap.classList.contains('answered')) return;
+        if(o.ans === q.ok){
+          btn.classList.add('correct'); wrap.classList.add('answered');
+          wrap.querySelectorAll('.mcq-opt').forEach(x=>x.classList.add('disabled'));
+          playCorrect(); addStar(1); reviewCorrectCount++;
+          if(reviewCorrectCount >= 3){
+            burstConfetti(currentCard()); playFanfare();
+            fb.innerHTML = `<span class="fb-en">You remembered everything from today! 🎉</span><span class="fb-fr">Tu t'es rappelé de tout aujourd'hui ! 🎉</span>`;
+            fb.className = 'feedback-banner good';
+          }
+        } else {
+          btn.classList.add('incorrect'); setTimeout(()=>btn.classList.remove('incorrect'), 500);
+          playIncorrect();
+        }
+      });
+      wrap.appendChild(btn);
+    });
+  });
+}
+
+buildMoodGrid();
+buildWeatherRow();
+buildWarmupTalk();
 buildRelayRound();
 buildNumberStory();
 buildMoreColorsGrid();
@@ -955,6 +1126,7 @@ buildFreeTalk();
 initMCQ('q1', 'mcqFeedback');
 initMCQ('q2', 'mcqFeedback2');
 buildFinalSynthesis();
+buildQuickReview();
 updateProgress();
 refreshNavButtons();
 </script>
