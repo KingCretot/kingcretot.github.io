@@ -130,8 +130,6 @@
   .talk-prompt{ background:var(--cream); border:3px solid #FFE1A8; border-radius:20px; padding:16px; margin:14px 0; text-align:left; }
   .talk-prompt .tp-en{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size:18px; color:var(--ink); display:block; }
   .talk-prompt .tp-fr{ font-size:14px; color:var(--french); font-weight:600; display:block; margin-top:2px; }
-  .talk-input{ width:100%; margin-top:10px; border:2px solid #D6D6FF; border-radius:14px; padding:10px 12px; font-family:'Poppins', sans-serif; font-size:15px; color:var(--ink); resize:vertical; min-height:52px; }
-  .talk-input:focus{ outline:none; border-color:var(--grape); }
   .talk-mic{ font-size:13px; color:#9a9ab5; font-weight:700; margin-top:6px; display:block; }
   .talk-done-badge{ display:none; margin-top:8px; font-size:13px; font-weight:800; color:#2F9E44; }
   .talk-prompt.done .talk-done-badge{ display:block; }
@@ -201,8 +199,8 @@
       <div class="talk-prompt" id="weekendPrompt">
         <span class="tp-en">Did you have a good weekend? Tell me what you did!</span>
         <span class="tp-fr">As-tu passé un bon week-end ? Dis-moi ce que tu as fait !</span>
-        <textarea class="talk-input" placeholder="This weekend I... / Ce week-end, j'ai..."></textarea>
-        <span class="talk-mic">🗣️ Say it out loud to your teacher first — then remember to ask "And you?"</span>
+        <span class="talk-mic">🗣️ Say it out loud to your teacher — then remember to ask "And you?"</span>
+        <button class="replay-btn" id="weekendDoneBtn">✓ We talked about it! / On en a parlé !</button>
         <span class="talk-done-badge">✓ Great warm-up!</span>
       </div>
       <div class="feedback-banner" id="warmupFeedback"></div>
@@ -311,26 +309,23 @@
     <div class="card">
       <span class="mascot">🦊</span>
       <div class="bi-header"><span class="en">Let's Talk! Real questions, real answers.</span><span class="fr">Parlons ! De vraies questions, de vraies réponses.</span></div>
-      <div class="teacher-note">👩‍🏫 Say your answer out loud first, in a FULL sentence — then type a little too.</div>
+      <div class="teacher-note">👩‍🏫 Ask each question, have her answer out loud in a full sentence, then tap the button below it.</div>
       <div class="talk-prompt" id="talkPrompt1">
         <span class="tp-en">🔢 Count from twenty to thirty out loud. Then tell me: is there a number between twenty and thirty that means something to you — a birthday, a house number, a favorite number? Why?</span>
         <span class="tp-fr">Compte de vingt à trente à voix haute. Puis dis-moi : y a-t-il un nombre entre vingt et trente qui compte pour toi — un anniversaire, un numéro de maison, un nombre préféré ? Pourquoi ?</span>
-        <textarea class="talk-input" placeholder="A number that means something to me is... because... / Un nombre qui compte pour moi est... parce que..."></textarea>
-        <span class="talk-mic">🗣️ Say it out loud to your teacher first!</span>
+        <button class="replay-btn talk-done-trigger">✓ We talked about it! / On en a parlé !</button>
         <span class="talk-done-badge">✓ Nice talking!</span>
       </div>
       <div class="talk-prompt" id="talkPrompt2">
         <span class="tp-en">🎨 What is your favorite color, and what is one color you really don't like? Explain both.</span>
         <span class="tp-fr">Quelle est ta couleur préférée, et une couleur que tu n'aimes vraiment pas ? Explique les deux.</span>
-        <textarea class="talk-input" placeholder="My favorite color is... because... I don't like... because..."></textarea>
-        <span class="talk-mic">🗣️ Say it out loud to your teacher first!</span>
+        <button class="replay-btn talk-done-trigger">✓ We talked about it! / On en a parlé !</button>
         <span class="talk-done-badge">✓ Nice talking!</span>
       </div>
       <div class="talk-prompt" id="talkPrompt3">
         <span class="tp-en">🎒 Tell me something you need AND something you don't need for school this week.</span>
         <span class="tp-fr">Dis-moi quelque chose dont tu as besoin ET quelque chose dont tu n'as pas besoin pour l'école cette semaine.</span>
-        <textarea class="talk-input" placeholder="I need... but I don't need..."></textarea>
-        <span class="talk-mic">🗣️ Say it out loud to your teacher first!</span>
+        <button class="replay-btn talk-done-trigger">✓ We talked about it! / On en a parlé !</button>
         <span class="talk-done-badge">✓ Nice talking!</span>
       </div>
       <div class="feedback-banner" id="talkFeedback"></div>
@@ -396,11 +391,11 @@
         <div class="mcq-options" data-gid="rq1"></div>
       </div>
       <div id="reviewQ2" style="margin:20px 0;">
-        <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:18px; margin:0 0 8px;">2. Which word means "doré" in English?</p>
+        <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:18px; margin:0 0 8px;">2. In our example sentence, what color is the trophy?</p>
         <div class="mcq-options" data-gid="rq2"></div>
       </div>
       <div id="reviewQ3" style="margin:20px 0 4px;">
-        <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:18px; margin:0 0 8px;">3. Finish it: "I like blue because it's ___."</p>
+        <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:18px; margin:0 0 8px;">3. "I like blue, ___ I don't like brown." Which word goes in the blank?</p>
         <div class="mcq-options" data-gid="rq3"></div>
       </div>
       <div class="feedback-banner" id="reviewFeedback"></div>
@@ -903,15 +898,13 @@ function buildFreeTalk(){
   const fb = document.getElementById('talkFeedback');
   ['talkPrompt1','talkPrompt2','talkPrompt3'].forEach(id=>{
     const prompt = document.getElementById(id);
-    const ta = prompt.querySelector('.talk-input');
     const enText = prompt.querySelector('.tp-en').textContent;
-    ta.addEventListener('focus', ()=>{ speakEN(enText); }, {once:true});
-    ta.addEventListener('input', ()=>{
-      if(ta.value.trim().length > 8 && !prompt.classList.contains('done')){
-        prompt.classList.add('done');
-        addStar(1); playCorrect();
-        checkAllTalked();
-      }
+    const btn = prompt.querySelector('.talk-done-trigger');
+    btn.addEventListener('click', ()=>{
+      if(prompt.classList.contains('done')) return;
+      prompt.classList.add('done');
+      addStar(1); playCorrect(); burstConfetti(currentCard());
+      checkAllTalked();
     });
   });
   function checkAllTalked(){
@@ -1056,15 +1049,13 @@ function buildWeatherRow(){
 }
 function buildWarmupTalk(){
   const prompt = document.getElementById('weekendPrompt');
-  const ta = prompt.querySelector('.talk-input');
+  const btn = document.getElementById('weekendDoneBtn');
   const fb = document.getElementById('warmupFeedback');
-  ta.addEventListener('focus', ()=>{ speakEN('Did you have a good weekend? Tell me what you did!'); }, {once:true});
-  ta.addEventListener('input', ()=>{
-    if(ta.value.trim().length > 8 && !prompt.classList.contains('done')){
-      prompt.classList.add('done'); addStar(2); playFanfare(); burstConfetti(currentCard());
-      fb.innerHTML = `<span class="fb-en">Nice! Don't forget to ask your teacher "And you?" 🎉</span><span class="fb-fr">Bien ! N'oublie pas de demander « Et toi ? » à ton professeur !</span>`;
-      fb.className = 'feedback-banner good';
-    }
+  btn.addEventListener('click', ()=>{
+    if(prompt.classList.contains('done')) return;
+    prompt.classList.add('done'); addStar(2); playFanfare(); burstConfetti(currentCard());
+    fb.innerHTML = `<span class="fb-en">Nice! Don't forget to ask your teacher "And you?" 🎉</span><span class="fb-fr">Bien ! N'oublie pas de demander « Et toi ? » à ton professeur !</span>`;
+    fb.className = 'feedback-banner good';
   });
 }
 
@@ -1075,10 +1066,10 @@ const REVIEW = {
   ], correctMsgEn:'Yes! Twenty-eight comes right after twenty-seven!', correctMsgFr:'Oui ! Vingt-huit vient juste après vingt-sept !' },
   rq2: { ok:'B', opts:[
     {ans:'A', en:'Brown', fr:'Marron'}, {ans:'B', en:'Gold', fr:'Doré'}, {ans:'C', en:'Gray', fr:'Gris'}
-  ], correctMsgEn:'Yes! "Doré" means Gold!', correctMsgFr:'Oui ! « Doré » veut dire Gold !' },
+  ], correctMsgEn:'Yes! "The trophy is gold."', correctMsgFr:'Oui ! « Le trophée est doré. »' },
   rq3: { ok:'B', opts:[
-    {ans:'A', en:'a banana', fr:'une banane'}, {ans:'B', en:"it's calm and cool", fr:"c'est apaisant et frais"}, {ans:'C', en:'Tuesday', fr:'mardi'}
-  ], correctMsgEn:'Yes! "I like blue because it\'s calm and cool."', correctMsgFr:'Oui ! « J\'aime le bleu parce que c\'est apaisant et frais. »' }
+    {ans:'A', en:'and', fr:'et'}, {ans:'B', en:'but', fr:'mais'}, {ans:'C', en:'because', fr:'parce que'}
+  ], correctMsgEn:"Yes! \"I like blue, but I don't like brown.\"", correctMsgFr:"Oui ! « J'aime le bleu, mais je n'aime pas le marron. »" }
 };
 let reviewCorrectCount = 0;
 function buildQuickReview(){
@@ -1099,6 +1090,9 @@ function buildQuickReview(){
           if(reviewCorrectCount >= 3){
             burstConfetti(currentCard()); playFanfare();
             fb.innerHTML = `<span class="fb-en">You remembered everything from today! 🎉</span><span class="fb-fr">Tu t'es rappelé de tout aujourd'hui ! 🎉</span>`;
+            fb.className = 'feedback-banner good';
+          } else {
+            fb.innerHTML = `<span class="fb-en">${q.correctMsgEn}</span><span class="fb-fr">${q.correctMsgFr}</span>`;
             fb.className = 'feedback-banner good';
           }
         } else {
