@@ -286,7 +286,7 @@
   <section class="screen" data-screen="8">
     <div class="card">
       <span class="section-tag">Build a Sentence / Construis une phrase</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">I have twenty-two comic books!</span><span class="fr" style="font-size:22px;">J'ai vingt-deux bandes dessinées !</span></div>
+      <div class="bi-header"><span class="en" style="font-size:26px;">I have twenty-two friendship bracelets!</span><span class="fr" style="font-size:22px;">J'ai vingt-deux bracelets d'amitié !</span></div>
       <p style="font-size:15px; color:#7a7a95; margin:0 0 6px;">Tap the words in order, then say YOUR real number of something out loud. / Touche les mots dans l'ordre, puis dis TON vrai nombre à voix haute.</p>
       <div class="sentence-slot" id="sentenceSlot"></div>
       <div class="word-bank" id="wordBank"></div>
@@ -845,15 +845,15 @@ function buildConnector(){
   });
 }
 
-/* ---- Screen 7: I have twenty-two comic books (larger-range sentence, prompts real number after) ---- */
+/* ---- Screen 7: I have twenty-two friendship bracelets (larger-range sentence, prompts real number after) ---- */
 function buildPhraseScreen(){
   makeSentenceBuilder({
     slotId:'sentenceSlot', bankId:'wordBank', feedbackId:'phraseFeedback',
-    targetWords:[{word:'I',fr:'Je'},{word:'have',fr:'ai'},{word:'twenty-two',fr:'vingt-deux'},{word:'comic',fr:'bandes'},{word:'books.',fr:'dessinées.'}],
+    targetWords:[{word:'I',fr:'Je'},{word:'have',fr:'ai'},{word:'twenty-two',fr:'vingt-deux'},{word:'friendship',fr:'amitié'},{word:'bracelets.',fr:'bracelets.'}],
     placeholder:'Tap the words below… / Touche les mots ci-dessous…',
-    successEn:'Perfect! "I have twenty-two comic books." 🌟 Now try YOUR OWN real number out loud — how many books, games, or cards do you actually have?',
-    successFr:'Parfait ! « J\'ai vingt-deux bandes dessinées. » Essaie maintenant TON vrai nombre à voix haute !',
-    spokenEn:'I have twenty-two comic books.', starAward:2
+    successEn:'Perfect! "I have twenty-two friendship bracelets." 🌟 Now try YOUR OWN real number out loud — how many bracelets, stickers, or stuffed animals do you actually have?',
+    successFr:'Parfait ! « J\'ai vingt-deux bracelets d\'amitié. » Essaie maintenant TON vrai nombre à voix haute !',
+    spokenEn:'I have twenty-two friendship bracelets.', starAward:2
   });
 }
 
