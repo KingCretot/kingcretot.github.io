@@ -293,8 +293,20 @@
     </div>
   </section>
 
-  <!-- SLIDE 19: Finale -->
+  <!-- SLIDE 19: High-Five Recap (final review, leads into the ceremony) -->
   <section class="slide" id="slide-19" data-slide="19">
+    <div class="card" style="text-align:center;">
+      <span class="kicker">Before the Ceremony!</span>
+      <h2 class="title">High-Five Your Words!<span class="fr-title">Tape la main sur tes mots !</span></h2>
+      <p class="body-en">Tap each word one more time — then it's time for your Awards Ceremony!</p>
+      <p class="body-fr">Touche chaque mot une dernière fois — puis c'est l'heure de ta cérémonie !</p>
+      <div class="recap-grid" id="recapGrid"></div>
+      <div class="activity-feedback" id="recapFeedback"></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 20: Finale -->
+  <section class="slide" id="slide-20" data-slide="20">
     <div class="card" style="text-align:center;">
       <span class="kicker">Ceremony</span>
       <h2 class="title">Aqua Stars Awards Ceremony!<span class="fr-title">Cérémonie des Aqua Stars !</span></h2>
@@ -313,18 +325,6 @@
         <p>Elina, you understand and use real English sentences now!</p>
         <p class="fr">Elina, tu comprends et utilises de vraies phrases en anglais maintenant !</p>
       </div>
-    </div>
-  </section>
-
-  <!-- SLIDE 20: High-Five Recap -->
-  <section class="slide" id="slide-20" data-slide="20">
-    <div class="card" style="text-align:center;">
-      <span class="kicker">One More Time!</span>
-      <h2 class="title">High-Five Your Words!<span class="fr-title">Tape la main sur tes mots !</span></h2>
-      <p class="body-en">Tap each word one last time to celebrate everything you learned!</p>
-      <p class="body-fr">Touche chaque mot une dernière fois pour célébrer tout ce que tu as appris !</p>
-      <div class="recap-grid" id="recapGrid"></div>
-      <div class="activity-feedback" id="recapFeedback"></div>
     </div>
   </section>
 
@@ -465,7 +465,10 @@
     { emo:"😊", en:"Happy", fr:"Content(e)" },
     { emo:"😃", en:"Excited", fr:"Excité(e)" },
     { emo:"😐", en:"Okay", fr:"Ça va" },
-    { emo:"😴", en:"Tired", fr:"Fatigué(e)" }
+    { emo:"😴", en:"Tired", fr:"Fatigué(e)" },
+    { emo:"😢", en:"Sad", fr:"Triste" },
+    { emo:"😬", en:"Nervous", fr:"Nerveux(se)" },
+    { emo:"😕", en:"Confused", fr:"Confus(e)" }
   ];
   (function(){
     var row = document.getElementById("moodRow");
@@ -1034,7 +1037,7 @@
     backBtn.disabled = (i === 0);
     nextBtn.disabled = (i === slides.length - 1);
     window.scrollTo({ top:0, behavior:"smooth" });
-    if(slides[i] && slides[i].id === "slide-19"){ animateCounters(); }
+    if(slides[i] && slides[i].id === "slide-20"){ animateCounters(); }
   }
 
   backBtn.addEventListener("click", function(){ goToSlide(currentSlide - 1); });
