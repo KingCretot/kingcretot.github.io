@@ -84,8 +84,10 @@
   .talk-card{background:#f4fbfc;border:1px solid #d7ecef;border-radius:16px;padding:16px 18px;margin:12px 0;}
   .talk-card .q-en{font-size:20px;font-weight:700;color:var(--deep);margin:0 0 2px;}
   .talk-card .q-fr{font-size:16px;color:var(--violet);font-weight:600;margin:0 0 10px;}
+  .frame-en{font-size:20px;font-weight:700;color:var(--deep);margin:8px 0 2px;}
+  .frame-fr{font-size:16px;color:var(--violet);font-weight:600;margin:0 0 10px;}
   .talk-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
-  .said-btn{background:#e6fbe9;color:#1f7a3d;border:2px solid #3bc16a;font-family:'Inter',Arial,sans-serif;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;cursor:pointer;}
+  .said-btn{background:#e6fbe9;color:#1f7a3d;border:2px solid #3bc16a;font-family:'Inter',Arial,sans-serif;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;cursor:pointer;margin-top:12px;}
   .said-btn.done{opacity:.55;pointer-events:none;}
 
   /* vocab cards */
@@ -105,6 +107,7 @@
   .word-bank{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0 4px;}
   .bank-tile{min-width:80px;padding:10px 16px;border-radius:14px;border:none;font-family:'Inter',Arial,sans-serif;font-size:16px;font-weight:700;color:#fff;background:var(--coral);cursor:pointer;box-shadow:0 6px 14px rgba(255,111,111,.4);}
   .bank-tile.used{opacity:0;pointer-events:none;}
+  .bank-tile.heard{opacity:.8;}
 
   /* reminder banner on comprehension slides */
   .word-reminder{background:#f0fbfc;border:1.5px dashed var(--pool2);border-radius:14px;padding:12px 14px;margin:14px 0;}
@@ -209,26 +212,26 @@
       <div class="talk-card">
         <p class="q-en">How was your weekend?</p>
         <p class="q-fr">Comment s'est passé ton week-end ?</p>
-        <div class="talk-row">
-          <button class="hear-btn en" data-say="How was your weekend?" data-lang="en">🔊 Hear it</button>
-          <button class="said-btn" data-star="1">🎤 I said it! ✓</button>
-        </div>
+        <p class="frame-en">My weekend was <span class="fill-slot" id="ib1-en">____</span> .</p>
+        <p class="frame-fr">Mon week-end était <span class="fill-slot" id="ib1-fr">____</span> .</p>
+        <div class="word-bank" id="ib1-bank"></div>
+        <button class="said-btn" data-star="1">🎤 I said it! ✓</button>
       </div>
       <div class="talk-card">
         <p class="q-en">How is school going?</p>
         <p class="q-fr">Comment ça se passe à l'école ?</p>
-        <div class="talk-row">
-          <button class="hear-btn en" data-say="How is school going?" data-lang="en">🔊 Hear it</button>
-          <button class="said-btn" data-star="1">🎤 I said it! ✓</button>
-        </div>
+        <p class="frame-en">School is going <span class="fill-slot" id="ib2-en">____</span> .</p>
+        <p class="frame-fr">Ça se passe <span class="fill-slot" id="ib2-fr">____</span> .</p>
+        <div class="word-bank" id="ib2-bank"></div>
+        <button class="said-btn" data-star="1">🎤 I said it! ✓</button>
       </div>
       <div class="talk-card">
         <p class="q-en">What is your favorite thing about swimming this week?</p>
         <p class="q-fr">Qu'est-ce que tu préfères dans la natation cette semaine ?</p>
-        <div class="talk-row">
-          <button class="hear-btn en" data-say="What is your favorite thing about swimming this week?" data-lang="en">🔊 Hear it</button>
-          <button class="said-btn" data-star="1">🎤 I said it! ✓</button>
-        </div>
+        <p class="frame-en">My favorite thing was <span class="fill-slot" id="ib3-en">____</span> .</p>
+        <p class="frame-fr">Ma chose préférée était <span class="fill-slot" id="ib3-fr">____</span> .</p>
+        <div class="word-bank" id="ib3-bank"></div>
+        <button class="said-btn" data-star="1">🎤 I said it! ✓</button>
       </div>
       <button class="cta-btn" id="startBtn">Let's Learn! ➡ / Apprenons ! ➡</button>
     </div>
@@ -493,6 +496,44 @@
       playCorrect();
       var r = btn.getBoundingClientRect();
       burstConfetti(r.left + r.width/2, r.top, 10);
+    });
+  });
+
+  /* ---------- Icebreaker sentence frames: tap a word to fill the blank AND hear the whole modeled sentence ---------- */
+  var icebreakerFrames = [
+    { id:"ib1", enPre:"My weekend was ", enPost:" .",
+      words:[
+        { en:"fun", fr:"amusant" }, { en:"good", fr:"bien" }, { en:"great", fr:"super" },
+        { en:"busy", fr:"occupé" }, { en:"quiet", fr:"calme" }, { en:"tiring", fr:"fatigant" }
+      ] },
+    { id:"ib2", enPre:"School is going ", enPost:" .",
+      words:[
+        { en:"well", fr:"bien" }, { en:"great", fr:"très bien" }, { en:"okay", fr:"pas mal" },
+        { en:"fun", fr:"amusant" }, { en:"hard", fr:"difficile" }, { en:"boring", fr:"ennuyeux" }
+      ] },
+    { id:"ib3", enPre:"My favorite thing was ", enPost:" .",
+      words:[
+        { en:"my friends", fr:"mes amis" }, { en:"the water", fr:"l'eau" }, { en:"racing", fr:"la course" },
+        { en:"winning", fr:"gagner" }, { en:"practicing", fr:"m'entraîner" }, { en:"the team", fr:"l'équipe" }
+      ] }
+  ];
+  icebreakerFrames.forEach(function(frame){
+    var enBlank = document.getElementById(frame.id + "-en");
+    var frBlank = document.getElementById(frame.id + "-fr");
+    var bank = document.getElementById(frame.id + "-bank");
+    frame.words.forEach(function(w){
+      var chip = document.createElement("button");
+      chip.className = "bank-tile";
+      chip.innerHTML = w.en + ' <span style="opacity:.85;font-size:13px;">/ ' + w.fr + '</span>';
+      chip.addEventListener("click", function(){
+        enBlank.textContent = w.en;
+        enBlank.classList.add("filled");
+        frBlank.textContent = w.fr;
+        frBlank.classList.add("filled");
+        chip.classList.add("heard");
+        speak(frame.enPre + w.en + frame.enPost, "en");
+      });
+      bank.appendChild(chip);
     });
   });
 
