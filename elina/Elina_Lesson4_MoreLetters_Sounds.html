@@ -61,6 +61,16 @@
   .cta-btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none;}
   .cta-btn:not(:disabled):active{transform:scale(.98);}
 
+  /* KCE branded welcome slide */
+  .welcome-card{text-align:center;background:linear-gradient(160deg,#fff8e1 0%,#fff 55%);border:3px solid var(--gold);position:relative;overflow:hidden;}
+  .kce-badge{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--gold));color:#fff;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:20px;letter-spacing:.03em;box-shadow:0 8px 18px rgba(255,111,111,.4);margin:0 auto 6px;}
+  .kce-tagline{font-size:14px;font-weight:700;color:var(--pool1);text-transform:uppercase;letter-spacing:.08em;margin:0 0 18px;}
+  .welcome-title{font-family:'Poppins',Arial,sans-serif;font-size:44px;font-weight:800;color:var(--deep);margin:0 0 6px;}
+  .welcome-title .sparkle{font-size:32px;margin-left:6px;display:inline-block;animation:pulse 1.4s ease infinite;}
+  .welcome-sub-en{font-size:24px;font-weight:700;color:var(--coral);margin:4px 0 2px;}
+  .welcome-sub-fr{font-size:19px;font-weight:600;color:var(--violet);margin:0 0 18px;}
+  .welcome-mascot{font-size:48px;margin:10px 0 22px;letter-spacing:14px;}
+
   /* mood picker (greeting slide) */
   .mood-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0;}
   .mood-btn{background:#f4fbfc;border:2px solid #d7ecef;border-radius:16px;padding:16px 14px;min-width:100px;cursor:pointer;text-align:center;}
@@ -171,8 +181,21 @@
     <button class="sound-btn" id="soundToggle">🔊 Sound On</button>
   </div>
 
-  <!-- SLIDE 0: Greeting / Icebreaker -->
+  <!-- SLIDE 0: KCE Branded Welcome -->
   <section class="slide active" id="slide-0" data-slide="0">
+    <div class="card welcome-card">
+      <div class="kce-badge">KCE</div>
+      <p class="kce-tagline">KingCretot Experience</p>
+      <h1 class="welcome-title">Aqua Stars<span class="sparkle">✨</span></h1>
+      <p class="welcome-sub-en">Bigger Words, Real Sentences!</p>
+      <p class="welcome-sub-fr">Des mots plus grands, de vraies phrases !</p>
+      <div class="welcome-mascot">🦊 🏅 🌊</div>
+      <button class="cta-btn" id="welcomeStartBtn">Start Today's Lesson! ➡ / Commence la leçon ! ➡</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 1: Greeting / Icebreaker -->
+  <section class="slide" id="slide-1" data-slide="1">
     <div class="card">
       <span class="kicker warm">Hello!</span>
       <h2 class="title">How Are You Feeling Today?<span class="fr-title">Comment te sens-tu aujourd'hui ?</span></h2>
@@ -205,8 +228,8 @@
     </div>
   </section>
 
-  <!-- SLIDE 1: Vocabulary + activity -->
-  <section class="slide" id="slide-1" data-slide="1">
+  <!-- SLIDE 2: Vocabulary + activity -->
+  <section class="slide" id="slide-2" data-slide="2">
     <div class="card">
       <span class="kicker">New Vocabulary</span>
       <h2 class="title">Six New Words<span class="fr-title">Six nouveaux mots</span></h2>
@@ -223,14 +246,14 @@
     </div>
   </section>
 
-  <!-- SLIDES 2-7: comprehension checks (generated) -->
+  <!-- SLIDES 3-8: comprehension checks (generated) -->
   <div id="compSlidesContainer"></div>
 
-  <!-- SLIDES 8-12: sentence building (generated) -->
+  <!-- SLIDES 9-13: sentence building (generated) -->
   <div id="sentenceSlidesContainer"></div>
 
-  <!-- SLIDE 13: Reading passage -->
-  <section class="slide" id="slide-13" data-slide="13">
+  <!-- SLIDE 14: Reading passage -->
+  <section class="slide" id="slide-14" data-slide="14">
     <div class="card">
       <span class="kicker hard">Read the Story</span>
       <h2 class="title">Before the Big Meet<span class="fr-title">Avant la grande compétition</span></h2>
@@ -247,11 +270,11 @@
     </div>
   </section>
 
-  <!-- SLIDES 14-16: reading comprehension (generated) -->
+  <!-- SLIDES 15-17: reading comprehension (generated) -->
   <div id="readingSlidesContainer"></div>
 
-  <!-- SLIDE 17: Match game -->
-  <section class="slide" id="slide-17" data-slide="17">
+  <!-- SLIDE 18: Match game -->
+  <section class="slide" id="slide-18" data-slide="18">
     <div class="card">
       <span class="kicker">Team Game</span>
       <h2 class="title">Match Each Word to Its Meaning<span class="fr-title">Associe chaque mot à son sens</span></h2>
@@ -264,8 +287,8 @@
     </div>
   </section>
 
-  <!-- SLIDE 18: Finale -->
-  <section class="slide" id="slide-18" data-slide="18">
+  <!-- SLIDE 19: Finale -->
+  <section class="slide" id="slide-19" data-slide="19">
     <div class="card" style="text-align:center;">
       <span class="kicker">Ceremony</span>
       <h2 class="title">Aqua Stars Awards Ceremony!<span class="fr-title">Cérémonie des Aqua Stars !</span></h2>
@@ -411,6 +434,7 @@
     });
   });
 
+  document.getElementById("welcomeStartBtn").addEventListener("click", function(){ goToSlide(currentSlide + 1); });
   document.getElementById("startBtn").addEventListener("click", function(){ goToSlide(currentSlide + 1); });
 
   /* ---------- Shuffle ---------- */
@@ -590,7 +614,7 @@
   /* SLIDES 2-7: generate comprehension slides */
   var compContainer = document.getElementById("compSlidesContainer");
   compChecks.forEach(function(check, idx){
-    var slideNum = 2 + idx;
+    var slideNum = 3 + idx;
     var v = vocab[idx];
     var letters = ["a","b","c"];
     var section = document.createElement("section");
@@ -646,7 +670,7 @@
 
   var sentContainer = document.getElementById("sentenceSlidesContainer");
   sentenceUnits.forEach(function(unit, idx){
-    var slideNum = 8 + idx;
+    var slideNum = 9 + idx;
     var section = document.createElement("section");
     section.className = "slide";
     section.id = "slide-" + slideNum;
@@ -751,7 +775,7 @@
 
   var readingContainer = document.getElementById("readingSlidesContainer");
   readingChecks.forEach(function(check, idx){
-    var slideNum = 14 + idx;
+    var slideNum = 15 + idx;
     var letters = ["a","b","c"];
     var section = document.createElement("section");
     section.className = "slide";
