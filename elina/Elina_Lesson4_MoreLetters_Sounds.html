@@ -69,7 +69,8 @@
   .welcome-title .sparkle{font-size:32px;margin-left:6px;display:inline-block;animation:pulse 1.4s ease infinite;}
   .welcome-sub-en{font-size:24px;font-weight:700;color:var(--coral);margin:4px 0 2px;}
   .welcome-sub-fr{font-size:19px;font-weight:600;color:var(--violet);margin:0 0 18px;}
-  .welcome-mascot{font-size:48px;margin:10px 0 22px;letter-spacing:14px;}
+  .welcome-mascot{display:flex;gap:18px;justify-content:center;font-size:48px;margin:10px 0 22px;}
+  .welcome-cta{max-width:520px;font-size:16px;line-height:1.4;padding:16px 18px;}
 
   /* mood picker (greeting slide) */
   .mood-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0;}
@@ -189,8 +190,8 @@
       <h1 class="welcome-title">Aqua Stars<span class="sparkle">✨</span></h1>
       <p class="welcome-sub-en">Bigger Words, Real Sentences!</p>
       <p class="welcome-sub-fr">Des mots plus grands, de vraies phrases !</p>
-      <div class="welcome-mascot">🦊 🏅 🌊</div>
-      <button class="cta-btn" id="welcomeStartBtn">Start Today's Lesson! ➡ / Commence la leçon ! ➡</button>
+      <div class="welcome-mascot"><span>🦊</span><span>🏅</span><span>🌊</span></div>
+      <button class="cta-btn welcome-cta" id="welcomeStartBtn">Start Today's Lesson! ➡ / Commence la leçon ! ➡</button>
     </div>
   </section>
 
