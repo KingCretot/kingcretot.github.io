@@ -1,597 +1,921 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google" content="notranslate">
-<title>Elina's Word-Building Adventure! / L'aventure des mots d'Elina !</title>
+<title>Elina's Aqua Stars — More Letters &amp; Sounds</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --sun:#FFC93C; --sky:#4AC7EC; --grass:#6BCB77; --berry:#FF6F91;
-    --grape:#9B6BFF; --tangerine:#FF9142; --ink:#2C2A4A; --white:#FFFFFF;
-    --cream:#FFF9EC; --french:#7B3FE4; --shadow: 0 10px 0 rgba(0,0,0,0.12);
+    --deep:#012a3d;
+    --pool1:#00637a;
+    --pool2:#00a7b5;
+    --pool3:#5be0d8;
+    --white:#ffffff;
+    --ink:#012a38;
+    --gold:#ffcc4d;
+    --coral:#ff6f6f;
+    --violet:#8b5cf6;
+    --card:#ffffff;
+    --card-shadow: 0 14px 34px rgba(1,42,56,.28);
+    --radius:20px;
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{ font-family:'Poppins', sans-serif; background: linear-gradient(160deg, #FFF3E0 0%, #E3FCEF 55%, #E8F1FF 100%); min-height:100vh; overflow-x:hidden; color:var(--ink); }
-  .notranslate{translate:no;}
-  #app{ max-width:1000px; margin:0 auto; padding:18px 18px 60px; position:relative; }
-  .topbar{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
-  .brand{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:22px; color:var(--grape); display:flex; align-items:center; gap:8px; }
-  .brand span.emoji{font-size:26px;}
-  .progress-wrap{ flex:1; min-width:170px; max-width:280px; background:#fff; border-radius:20px; padding:6px 10px; box-shadow: var(--shadow); display:flex; align-items:center; gap:8px; }
-  .progress-track{ flex:1; height:14px; background:#EDEDF7; border-radius:10px; overflow:hidden; }
-  .progress-fill{ height:100%; width:0%; background:linear-gradient(90deg, var(--berry), var(--tangerine)); border-radius:10px; transition:width .5s ease; }
-  .progress-label{font-weight:700; font-size:13px; color:var(--ink); white-space:nowrap;}
-  .star-count{ display:flex; align-items:center; gap:5px; background:#fff; border-radius:20px; padding:6px 14px; box-shadow: var(--shadow); font-weight:800; font-size:16px; color:var(--sun); }
-  .sound-toggle{ display:flex; align-items:center; gap:6px; background:#fff; border-radius:20px; padding:6px 14px; box-shadow: var(--shadow); font-weight:700; font-size:14px; color:var(--ink); cursor:pointer; border:none; font-family:'Poppins',sans-serif; }
-  .sound-toggle .dot{width:9px; height:9px; border-radius:50%; background:var(--grass);}
-  .sound-toggle.off .dot{background:#c9c9d6;}
-  .screen{display:none; animation: pop .35s ease;}
-  .screen.active{display:block;}
-  @keyframes pop{ from{opacity:0; transform:scale(.96);} to{opacity:1; transform:scale(1);} }
-  .card{ background:var(--white); border-radius:28px; padding:32px 28px; box-shadow: 0 16px 0 rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.08); text-align:center; position:relative; overflow:hidden; }
-  .bi-header{ margin:4px 0 18px; }
-  .bi-header .en{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:32px; color:var(--ink); display:block; line-height:1.2; }
-  .bi-header .fr{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:30px; color:var(--french); display:block; line-height:1.2; margin-top:2px; }
-  .section-tag{ display:inline-block; background:#F1F1FF; color:var(--grape); font-weight:700; font-size:13px; letter-spacing:.5px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:10px; }
-  .bi-body{ margin:10px 0 16px; }
-  .bi-body .en{ font-size:21px; font-weight:600; color:var(--ink); display:block; line-height:1.45; }
-  .bi-body .fr{ font-size:20px; font-weight:600; color:var(--french); display:block; line-height:1.45; margin-top:2px; }
-  .mascot{ font-size:56px; display:block; margin-bottom:6px; animation: bob 2.4s ease-in-out infinite; }
-  @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
-  .dual-audio-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin:14px 0; }
-  .lang-btn{ display:inline-flex; align-items:center; gap:8px; color:#fff; border:none; border-radius:50px; padding:12px 20px; font-size:19px; font-weight:700; font-family:'Poppins', sans-serif; cursor:pointer; transition: transform .08s ease; }
-  .lang-btn:active{ transform: translateY(5px); }
-  .lang-btn.en-btn{ background:var(--sky); box-shadow: 0 7px 0 #2E9DBF; }
-  .lang-btn.fr-btn{ background:var(--french); box-shadow: 0 7px 0 #5A2BAE; }
-  .nav-row{ display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:22px auto 0; padding:0 6px; }
-  .nav-btn{ font-family:'Poppins', sans-serif; font-weight:700; font-size:20px; padding:14px 30px; border-radius:50px; border:none; cursor:pointer; color:#fff; box-shadow: var(--shadow); transition: transform .08s ease; }
-  .nav-btn:active{transform:translateY(6px); box-shadow:0 2px 0 rgba(0,0,0,0.15);}
-  .nav-btn.back{background:#B9B9C9; box-shadow:0 8px 0 #92929F;}
-  .nav-btn.next{background:var(--grass); box-shadow:0 8px 0 #429A4C;}
-  .nav-btn:disabled{opacity:.35; cursor:not-allowed;}
-  .nav-btn.locked{background:#D8D8E4; box-shadow:0 8px 0 #B4B4C2; color:#8888a0;}
-  .abc-grid{ display:grid; grid-template-columns:repeat(6, 1fr); gap:12px; margin:20px 0; }
-  @media (max-width:640px){ .abc-grid{grid-template-columns:repeat(4,1fr);} }
-  .letter-tile{ position:relative; background:var(--cream); border:3px solid #FFE1A8; border-radius:18px; padding:14px 6px; cursor:pointer; font-family:'Baloo 2', sans-serif; font-weight:800; font-size:26px; color:var(--ink); transition: transform .12s ease, background .12s ease; user-select:none; }
-  .letter-tile:hover{ transform: translateY(-3px); }
-  .letter-tile.said{ background: linear-gradient(160deg, #D9FFE0, #C9F4FF); border-color: var(--grass); }
-  .word-picture{ font-size:64px; margin:10px 0; }
-  .letter-slot-row{ display:flex; gap:12px; justify-content:center; margin:18px 0; }
-  .letter-slot{ width:64px; height:64px; border:3px dashed #C7C7EE; border-radius:14px; display:flex; align-items:center; justify-content:center; font-family:'Baloo 2', sans-serif; font-size:32px; font-weight:800; background:#F6F6FF; }
-  .letter-slot.filled{ background:var(--sun); border-style:solid; color:#4A3600; }
-  .letter-bank{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
-  .letter-bank-btn{ width:56px; height:56px; border-radius:14px; border:none; background:var(--berry); color:#fff; font-family:'Baloo 2',sans-serif; font-weight:800; font-size:26px; cursor:pointer; box-shadow:0 6px 0 #C24868; }
-  .letter-bank-btn:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; }
-  .letter-bank-btn.used{ opacity:.25; pointer-events:none; box-shadow:none; }
-  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; }
-  .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
-  .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
-  .match-tile .main-txt{ font-size:26px; font-weight:700; display:block; }
-  .match-tile.emoji-tile .main-txt{ font-size:34px; }
-  .match-tile .sub-fr{ font-size:12px; color:var(--french); font-weight:700; display:block; margin-top:3px; }
-  .match-tile.selected{ border-color: var(--grape); background:#E9DBFF; transform:scale(1.03); }
-  .match-tile.correct{ border-color: var(--grass); background:#D9FFE0; cursor:default; }
-  .match-tile.wrong{ animation: shake .4s ease; border-color: var(--berry); background:#FFE0E8;}
-  @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 75%{transform:translateX(8px);} }
-  .feedback-banner{ margin-top:14px; font-weight:800; font-size:20px; min-height:52px; }
-  .feedback-banner .fb-fr{ display:block; font-size:16px; color:var(--french); font-weight:700; }
-  .feedback-banner.good .fb-en{color:#2F9E44;}
-  .feedback-banner.retry .fb-en{color:#E8590C;}
-  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:520px; margin:18px auto 0; }
-  .mcq-opt{ font-family:'Poppins', sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:16px; border:3px solid #D6D6FF; background:#F8F8FF; cursor:pointer; text-align:left; transition: transform .08s ease, background .15s ease, border-color .15s ease; }
-  .mcq-opt .opt-fr{ display:block; font-size:15px; color:var(--french); font-weight:600; margin-top:3px; }
-  .mcq-opt:hover{ transform: translateY(-2px); }
-  .mcq-opt.correct{ background:#D9FFE0; border-color:var(--grass); }
-  .mcq-opt.incorrect{ background:#FFE0E8; border-color:var(--berry); animation: shake .4s ease;}
-  .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
-  .recap-chip-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
-  .recap-chip{ background:#fff; border:3px solid #D6D6FF; border-radius:16px; padding:10px 14px; font-size:30px; cursor:pointer; transition: transform .1s ease, border-color .15s ease;}
-  .recap-chip:hover{ transform:translateY(-3px); }
-  .recap-chip.active{ border-color:var(--grape); background:#EEE6FF; }
-  .recap-sentence-en{ font-family:'Baloo 2', sans-serif; font-size:30px; font-weight:800; min-height:38px; margin:14px 0 2px; color:var(--ink); }
-  .recap-sentence-fr{ font-family:'Baloo 2', sans-serif; font-size:23px; font-weight:800; min-height:32px; color:var(--french); }
-  .confetti{ font-size:40px; display:flex; justify-content:center; gap:12px; margin:10px 0 6px; }
-  .confetti span{ display:inline-block; animation: spin 1.6s linear infinite; }
-  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-  .confetti-burst{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:5; }
-  .confetti-piece{ position:absolute; top:-20px; font-size:20px; animation: fall linear forwards; }
-  @keyframes fall{ to{ transform: translateY(420px) rotate(360deg); opacity:0; } }
-  .replay-btn{ background:var(--tangerine); color:#fff; border:none; border-radius:50px; padding:12px 22px; font-size:17px; font-weight:700; cursor:pointer; box-shadow:0 6px 0 #C86B1E; margin-top:12px; }
-  footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:#8b8ba3; }
+  html,body{margin:0;padding:0;height:100%;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 10% 15%, rgba(255,255,255,.18) 0, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(255,255,255,.14) 0, transparent 45%),
+      linear-gradient(160deg, var(--deep) 0%, var(--pool1) 42%, var(--pool2) 75%, var(--pool3) 100%);
+    background-attachment:fixed;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Poppins',sans-serif;}
+  #app{max-width:920px;margin:0 auto;padding:14px 16px 110px;min-height:100vh;}
+
+  /* ===== HUD ===== */
+  .hud{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    background:rgba(1,42,56,.35);
+    border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(6px);
+    border-radius:16px;padding:8px 12px;margin-bottom:14px;
+    position:sticky;top:8px;z-index:50;
+  }
+  .mascot{display:flex;align-items:center;gap:6px;color:#fff;font-weight:600;font-size:14px;white-space:nowrap;}
+  .mascot .icon{font-size:26px;line-height:1;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));}
+  .dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;flex:1;}
+  .dot{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0;transition:transform .2s, background .2s;}
+  .dot.active{background:var(--gold);transform:scale(1.35);}
+  .dot.done{background:var(--pool3);}
+  .stars{color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+  .sound-btn{
+    background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4);
+    border-radius:999px;padding:7px 12px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;
+  }
+  .sound-btn:hover{background:rgba(255,255,255,.3);}
+
+  /* ===== Slides ===== */
+  .slide{display:none;animation:fadeIn .35s ease;}
+  .slide.active{display:block;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  .card{
+    background:var(--card);border-radius:var(--radius);box-shadow:var(--card-shadow);
+    padding:26px 24px;margin-bottom:16px;
+  }
+  .kicker{
+    display:inline-block;background:linear-gradient(90deg,var(--coral),var(--gold));
+    color:#fff;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;
+    padding:5px 14px;border-radius:999px;margin-bottom:10px;
+  }
+  h2.title{font-size:26px;margin:0 0 6px;color:var(--deep);}
+  h2.title .fr-title{display:block;font-size:18px;color:var(--violet);font-weight:600;margin-top:2px;}
+  p.body-en{font-size:22px;line-height:1.5;margin:10px 0 2px;color:var(--ink);}
+  p.body-fr{font-size:19px;line-height:1.45;margin:0 0 10px;color:var(--violet);font-weight:600;}
+  .coach-note{
+    display:flex;gap:10px;align-items:flex-start;background:#f0fbfc;border:1.5px dashed var(--pool2);
+    border-radius:14px;padding:12px 14px;margin:14px 0;
+  }
+  .coach-note .icon{font-size:26px;}
+  .coach-note p{margin:0;font-size:19px;line-height:1.4;}
+  .coach-note .en{font-weight:600;color:var(--deep);}
+  .coach-note .fr{color:var(--violet);font-size:17px;margin-top:3px;}
+
+  .hear-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+  .hear-btn{
+    font-family:'Inter',sans-serif;font-size:16px;font-weight:700;cursor:pointer;
+    border:none;border-radius:12px;padding:10px 18px;color:#fff;
+  }
+  .hear-btn.en{background:var(--pool1);}
+  .hear-btn.fr{background:var(--violet);}
+  .hear-btn:active{transform:scale(.96);}
+
+  .cta-btn{
+    display:block;width:100%;max-width:380px;margin:18px auto 4px;
+    background:linear-gradient(90deg,var(--coral),var(--gold));color:#fff;border:none;
+    font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;padding:16px 20px;
+    border-radius:999px;cursor:pointer;box-shadow:0 10px 22px rgba(255,111,111,.35);
+  }
+  .cta-btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none;}
+  .cta-btn:not(:disabled):active{transform:scale(.98);}
+
+  /* ===== Mood check-in ===== */
+  .mood-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:16px 0;}
+  .mood-btn{
+    background:#f4fbfc;border:2px solid #d7ecef;border-radius:16px;padding:16px 8px;text-align:center;
+    font-family:'Inter',sans-serif;cursor:pointer;font-size:16px;font-weight:700;color:var(--deep);
+  }
+  .mood-btn .emoji{font-size:34px;display:block;margin-bottom:6px;}
+  .mood-btn .fr{display:block;font-size:14px;color:var(--violet);font-weight:600;margin-top:2px;}
+  .mood-btn.selected{border-color:var(--coral);background:#fff3ee;transform:scale(1.03);}
+  .mood-response{
+    background:#f0fbfc;border-radius:14px;padding:14px 16px;margin-top:6px;
+  }
+  .mood-response p{margin:4px 0;}
+
+  /* ===== Vocab intro grid ===== */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:16px;}
+  .vocab-item{background:#f4fbfc;border-radius:16px;padding:16px;text-align:center;border:1px solid #d7ecef;}
+  .vocab-item .emoji{font-size:40px;display:block;margin-bottom:6px;}
+  .vocab-item .en{font-size:20px;font-weight:700;color:var(--deep);display:block;}
+  .vocab-item .fr{font-size:17px;color:var(--violet);font-weight:600;display:block;margin-bottom:8px;}
+
+  /* ===== Letter review ===== */
+  .letter-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:18px 0;}
+  .letter-tile{
+    width:64px;height:64px;border-radius:16px;border:none;font-family:'Poppins',sans-serif;
+    font-size:28px;font-weight:800;color:#fff;background:var(--pool1);cursor:pointer;
+    box-shadow:0 6px 14px rgba(0,99,122,.35);
+  }
+  .letter-tile.new{background:linear-gradient(160deg,var(--coral),var(--gold));position:relative;}
+  .letter-tile.new::after{
+    content:"NEW";position:absolute;top:-9px;right:-9px;background:var(--deep);color:#fff;font-size:9px;
+    font-family:'Inter',sans-serif;font-weight:700;padding:3px 6px;border-radius:999px;
+  }
+  .letter-tile:active{transform:scale(.92);}
+  .pulse{animation:pulse .35s ease;}
+  @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.15);}100%{transform:scale(1);}}
+
+  /* ===== Word builder ===== */
+  .swim-scene{font-size:52px;text-align:center;margin:6px 0 10px;}
+  .blanks{display:flex;gap:10px;justify-content:center;margin:16px 0;}
+  .blank{
+    width:52px;height:60px;border-radius:12px;border:3px solid var(--pool2);
+    display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;
+    font-size:28px;font-weight:800;color:var(--deep);background:#eafcfd;
+  }
+  .blank.filled{background:var(--gold);border-color:var(--gold);color:#fff;}
+  .tiles{display:flex;gap:12px;justify-content:center;margin:14px 0 6px;}
+  .tile{
+    width:56px;height:56px;border-radius:14px;border:none;font-family:'Poppins',sans-serif;
+    font-size:26px;font-weight:800;color:#fff;background:var(--coral);cursor:pointer;
+    box-shadow:0 6px 14px rgba(255,111,111,.4);
+  }
+  .tile.used{opacity:0;pointer-events:none;}
+  .tile.shake{animation:shake .35s ease;}
+  @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+  .hear-word-btn{
+    display:block;margin:14px auto 0;background:var(--pool1);color:#fff;border:none;
+    font-family:'Inter',sans-serif;font-weight:700;font-size:16px;padding:10px 20px;border-radius:12px;cursor:pointer;
+  }
+  .hear-word-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+  /* ===== Match game ===== */
+  .match-wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:14px;}
+  .match-col{flex:1;min-width:150px;display:flex;flex-direction:column;gap:10px;}
+  .match-col h4{text-align:center;color:var(--deep);font-size:16px;margin:0 0 4px;font-family:'Poppins',sans-serif;}
+  .match-item{
+    background:#f4fbfc;border:2px solid #d7ecef;border-radius:12px;padding:12px;text-align:center;
+    font-size:22px;font-weight:700;color:var(--deep);cursor:pointer;
+  }
+  .match-item.word{font-family:'Poppins',sans-serif;}
+  .match-item.image{font-size:32px;}
+  .match-item.selected{border-color:var(--gold);background:#fff8e1;}
+  .match-item.matched{border-color:var(--pool3);background:#e6fbf7;opacity:.55;pointer-events:none;}
+  .match-item.wrong{animation:shake .35s ease;border-color:var(--coral);}
+
+  /* ===== MCQ ===== */
+  .mcq p.prompt{font-size:24px;font-weight:700;line-height:1.4;margin:0 0 6px;color:var(--deep);}
+  .mcq p.prompt .fr{display:block;font-size:19px;color:var(--violet);font-weight:600;margin-top:2px;}
+  .opt{
+    display:block;width:100%;text-align:left;background:#f4fbfc;border:2px solid #d7ecef;border-radius:14px;
+    padding:14px 16px;margin:10px 0;font-size:20px;font-weight:600;color:var(--ink);cursor:pointer;
+    font-family:'Inter',sans-serif;
+  }
+  .opt.correct{background:#e6fbe9;border-color:#3bc16a;color:#1f7a3d;}
+  .opt.incorrect{background:#fdeaea;border-color:var(--coral);color:#b23a3a;}
+  .opt[disabled]{cursor:default;}
+  .feedback{margin-top:12px;background:#f0fbfc;border-radius:12px;padding:12px 14px;}
+  .feedback p{margin:3px 0;}
+
+  /* ===== Sentence cards ===== */
+  .sentence-card{background:#f4fbfc;border-radius:16px;padding:18px;margin:14px 0;border:1px solid #d7ecef;}
+  .sentence-card p.en{font-size:24px;font-weight:700;color:var(--deep);margin:0 0 4px;}
+  .sentence-card p.fr{font-size:19px;color:var(--violet);font-weight:600;margin:0 0 10px;}
+
+  /* ===== Finale ===== */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
+  .stat{background:#f4fbfc;border-radius:16px;padding:16px 8px;text-align:center;}
+  .stat-num{display:block;font-family:'Poppins',sans-serif;font-size:34px;font-weight:800;color:var(--coral);}
+  .stat span:last-child{font-size:13px;font-weight:600;color:var(--deep);display:block;margin-top:4px;}
+  #medalReveal{text-align:center;margin-top:18px;}
+  #medalReveal .medal{font-size:90px;animation:pulse 1.1s ease infinite;}
+  #medalReveal p{font-size:22px;font-weight:700;color:var(--deep);margin:4px 0;}
+  #medalReveal p.fr{color:var(--violet);font-size:19px;font-weight:600;}
+
+  /* ===== Bottom nav ===== */
+  .bottomnav{
+    position:fixed;left:0;right:0;bottom:0;background:rgba(1,42,56,.9);backdrop-filter:blur(6px);
+    display:flex;justify-content:space-between;padding:12px 18px;z-index:60;
+  }
+  .bottomnav button{
+    font-family:'Inter',sans-serif;font-weight:700;font-size:16px;padding:12px 22px;border-radius:999px;
+    border:none;cursor:pointer;
+  }
+  #backBtn{background:rgba(255,255,255,.2);color:#fff;}
+  #nextBtn{background:linear-gradient(90deg,var(--coral),var(--gold));color:#fff;}
+  .bottomnav button:disabled{opacity:.35;cursor:not-allowed;}
+
+  .confetti-piece{
+    position:fixed;width:9px;height:9px;border-radius:2px;pointer-events:none;z-index:999;
+    transform:translate(0,0) rotate(0deg);opacity:1;
+    transition:transform .9s cubic-bezier(.2,.8,.3,1), opacity .9s ease-out;
+  }
+  .confetti-piece.go{transform:translate(var(--dx), calc(var(--dy) + 170px)) rotate(540deg);opacity:0;}
+
+  footer.credit{color:rgba(255,255,255,.75);font-size:12px;text-align:center;margin-top:20px;}
 </style>
 </head>
-<body class="notranslate" translate="no">
+<body>
 <div id="app">
-  <div class="topbar">
-    <div class="brand"><span class="emoji">🔤</span> Elina's Word Building</div>
-    <div class="progress-wrap">
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">1 / 13</div>
-    </div>
-    <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
-    <div class="star-count">⭐ <span id="starCount">0</span></div>
+
+  <div class="hud">
+    <div class="mascot"><span class="icon">🦊</span> Coach Fox</div>
+    <div class="dots" id="dots"></div>
+    <div class="stars">⭐ <span id="starCount">0</span></div>
+    <button class="sound-btn" id="soundToggle">🔊 Sound On</button>
   </div>
 
-  <section class="screen active" data-screen="0">
+  <!-- SLIDE 0: Welcome + Mood Check-in -->
+  <section class="slide active" id="slide-0" data-slide="0">
     <div class="card">
-      <span class="mascot">🦊</span>
-      <div class="bi-header"><span class="en">Welcome back, Elina!</span><span class="fr">Bon retour, Elina !</span></div>
-      <div class="bi-body"><span class="en">Today we build real words with letters!</span><span class="fr">Aujourd'hui, on construit de vrais mots avec des lettres !</span></div>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Hi Elina! Today we build words together!')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('Salut Elina ! Aujourd\'hui on construit des mots ensemble !')">🔊 FR</button>
+      <span class="kicker">Aqua Stars Practice · Lesson 4</span>
+      <h2 class="title">Hello Elina! How are you feeling today?<span class="fr-title">Bonjour Elina ! Comment te sens-tu aujourd'hui ?</span></h2>
+      <p class="body-en">Before we dive in, tell Coach Fox how you're feeling right now.</p>
+      <p class="body-fr">Avant de plonger, dis à Coach Fox comment tu te sens en ce moment.</p>
+      <div class="mood-options">
+        <button class="mood-btn" data-mood="excited"><span class="emoji">🤩</span>Excited<span class="fr">Excitée</span></button>
+        <button class="mood-btn" data-mood="happy"><span class="emoji">😊</span>Happy<span class="fr">Contente</span></button>
+        <button class="mood-btn" data-mood="calm"><span class="emoji">😌</span>Calm<span class="fr">Calme</span></button>
+        <button class="mood-btn" data-mood="tired"><span class="emoji">😴</span>A little tired<span class="fr">Un peu fatiguée</span></button>
+      </div>
+      <div class="mood-response" id="moodResponse" hidden></div>
+      <div class="coach-note">
+        <span class="icon">🦊</span>
+        <div>
+          <p class="en">Coach Fox says: Today the Aqua Stars are learning new letters and building new words at the pool!</p>
+          <p class="fr">Coach Fox dit : Aujourd'hui, les Aqua Stars apprennent de nouvelles lettres et construisent de nouveaux mots à la piscine !</p>
+        </div>
+      </div>
+      <button class="cta-btn" id="diveInBtn" disabled>Let's Dive In! ➡ / On plonge ! ➡</button>
+    </div>
+  </section>
+
+  <!-- SLIDE 1: Meet the Aqua Stars vocab -->
+  <section class="slide" id="slide-1" data-slide="1">
+    <div class="card">
+      <span class="kicker">Team Talk</span>
+      <h2 class="title">Meet the Aqua Stars!<span class="fr-title">Rencontre les Aqua Stars !</span></h2>
+      <p class="body-en">Every practice starts with our team words. Tap each one to hear it.</p>
+      <p class="body-fr">Chaque entraînement commence par les mots de l'équipe. Touche chacun pour l'entendre.</p>
+      <div class="vocab-grid">
+        <div class="vocab-item">
+          <span class="emoji">🤝</span>
+          <span class="en">team</span><span class="fr">équipe</span>
+          <div class="hear-row">
+            <button class="hear-btn en" data-say="team" data-lang="en">🔊 EN</button>
+            <button class="hear-btn fr" data-say="équipe" data-lang="fr">🔊 FR</button>
+          </div>
+        </div>
+        <div class="vocab-item">
+          <span class="emoji">🏊‍♀️</span>
+          <span class="en">pool</span><span class="fr">piscine</span>
+          <div class="hear-row">
+            <button class="hear-btn en" data-say="pool" data-lang="en">🔊 EN</button>
+            <button class="hear-btn fr" data-say="piscine" data-lang="fr">🔊 FR</button>
+          </div>
+        </div>
+        <div class="vocab-item">
+          <span class="emoji">💃</span>
+          <span class="en">routine</span><span class="fr">routine</span>
+          <div class="hear-row">
+            <button class="hear-btn en" data-say="routine" data-lang="en">🔊 EN</button>
+            <button class="hear-btn fr" data-say="routine" data-lang="fr">🔊 FR</button>
+          </div>
+        </div>
+        <div class="vocab-item">
+          <span class="emoji">💦</span>
+          <span class="en">splash</span><span class="fr">éclaboussure</span>
+          <div class="hear-row">
+            <button class="hear-btn en" data-say="splash" data-lang="en">🔊 EN</button>
+            <button class="hear-btn fr" data-say="éclaboussure" data-lang="fr">🔊 FR</button>
+          </div>
+        </div>
+        <div class="vocab-item">
+          <span class="emoji">🏆</span>
+          <span class="en">champion</span><span class="fr">championne</span>
+          <div class="hear-row">
+            <button class="hear-btn en" data-say="champion" data-lang="en">🔊 EN</button>
+            <button class="hear-btn fr" data-say="championne" data-lang="fr">🔊 FR</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="screen" data-screen="1">
+  <!-- SLIDE 2: Warm-Up Letter Review -->
+  <section class="slide" id="slide-2" data-slide="2">
     <div class="card">
-      <span class="section-tag">Letter Review / Révision des lettres</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Let's review some letter sounds!</span><span class="fr" style="font-size:24px;">Révisons des sons de lettres !</span></div>
-      <div class="abc-grid" id="reviewGrid"></div>
-      <p style="font-size:15px; color:#6b6b85; margin-top:10px;" id="reviewHint">Tap letters to hear them! / Touche les lettres pour les entendre.</p>
+      <span class="kicker">Warm-Up</span>
+      <h2 class="title">Letter Warm-Up!<span class="fr-title">Échauffement des lettres !</span></h2>
+      <p class="body-en">Before every routine, the Aqua Stars warm up. Tap each letter to hear it.</p>
+      <p class="body-fr">Avant chaque chorégraphie, les Aqua Stars s'échauffent. Touche chaque lettre pour l'entendre.</p>
+      <div class="letter-row">
+        <button class="letter-tile hear-btn" data-say="C" data-lang="en">C</button>
+        <button class="letter-tile hear-btn" data-say="A" data-lang="en">A</button>
+        <button class="letter-tile hear-btn" data-say="S" data-lang="en">S</button>
+        <button class="letter-tile hear-btn" data-say="U" data-lang="en">U</button>
+        <button class="letter-tile hear-btn" data-say="N" data-lang="en">N</button>
+        <button class="letter-tile hear-btn" data-say="T" data-lang="en">T</button>
+        <button class="letter-tile hear-btn" data-say="D" data-lang="en">D</button>
+      </div>
     </div>
   </section>
 
-  <section class="screen" data-screen="2">
+  <!-- SLIDE 3: New Letters -->
+  <section class="slide" id="slide-3" data-slide="3">
     <div class="card">
-      <span class="section-tag">Build a Word / Construis un mot</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Build the word: CAT</span><span class="fr" style="font-size:24px;">Construis le mot : CAT</span></div>
-      <div class="word-picture">🐱</div>
-      <div class="letter-slot-row" id="slotsRow0"></div>
-      <div class="letter-bank" id="bankRow0"></div>
-      <div class="feedback-banner" id="fb0"></div>
+      <span class="kicker">New Moves</span>
+      <h2 class="title">New Moves, New Letters!<span class="fr-title">Nouveaux mouvements, nouvelles lettres !</span></h2>
+      <p class="body-en">Today the Aqua Stars learn four brand-new letter sounds. Tap each one!</p>
+      <p class="body-fr">Aujourd'hui, les Aqua Stars apprennent quatre tout nouveaux sons. Touche chacun !</p>
+      <div class="letter-row">
+        <button class="letter-tile new hear-btn" data-say="P" data-lang="en">P</button>
+        <button class="letter-tile new hear-btn" data-say="F" data-lang="en">F</button>
+        <button class="letter-tile new hear-btn" data-say="M" data-lang="en">M</button>
+        <button class="letter-tile new hear-btn" data-say="I" data-lang="en">I</button>
+      </div>
+      <div class="coach-note">
+        <span class="icon">🦊</span>
+        <div>
+          <p class="en">Coach Fox says: Great! Now let's use these letters to build real words.</p>
+          <p class="fr">Coach Fox dit : Super ! Maintenant, utilisons ces lettres pour construire de vrais mots.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="screen" data-screen="3">
+  <!-- SLIDE 4: Build a Word — CAP -->
+  <section class="slide" id="slide-4" data-slide="4">
     <div class="card">
-      <span class="section-tag">Build a Word / Construis un mot</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Build the word: DOG</span><span class="fr" style="font-size:24px;">Construis le mot : DOG</span></div>
-      <div class="word-picture">🐶</div>
-      <div class="letter-slot-row" id="slotsRow1"></div>
-      <div class="letter-bank" id="bankRow1"></div>
-      <div class="feedback-banner" id="fb1"></div>
+      <span class="kicker">Build a Word</span>
+      <h2 class="title">Build a Word!<span class="fr-title">Construis un mot !</span></h2>
+      <p class="body-en">Put on your swim cap!</p>
+      <p class="body-fr">Mets ton bonnet de bain !</p>
+      <div class="swim-scene">🧢</div>
+      <div class="word-builder" data-target="CAP">
+        <div class="blanks"></div>
+        <div class="tiles">
+          <button class="tile" data-letter="P">P</button>
+          <button class="tile" data-letter="C">C</button>
+          <button class="tile" data-letter="A">A</button>
+        </div>
+        <button class="hear-word-btn" data-say="cap" data-lang="en" disabled>🔊 Hear the word</button>
+      </div>
     </div>
   </section>
 
-  <section class="screen" data-screen="4">
+  <!-- SLIDE 5: Build a Word — FAN -->
+  <section class="slide" id="slide-5" data-slide="5">
     <div class="card">
-      <span class="section-tag">Build a Word / Construis un mot</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Build the word: SUN</span><span class="fr" style="font-size:24px;">Construis le mot : SUN</span></div>
-      <div class="word-picture">☀️</div>
-      <div class="letter-slot-row" id="slotsRow2"></div>
-      <div class="letter-bank" id="bankRow2"></div>
-      <div class="feedback-banner" id="fb2"></div>
+      <span class="kicker">Build a Word</span>
+      <h2 class="title">Build a Word!<span class="fr-title">Construis un mot !</span></h2>
+      <p class="body-en">The fans cheer for you!</p>
+      <p class="body-fr">Les supporters t'encouragent !</p>
+      <div class="swim-scene">📣</div>
+      <div class="word-builder" data-target="FAN">
+        <div class="blanks"></div>
+        <div class="tiles">
+          <button class="tile" data-letter="N">N</button>
+          <button class="tile" data-letter="F">F</button>
+          <button class="tile" data-letter="A">A</button>
+        </div>
+        <button class="hear-word-btn" data-say="fan" data-lang="en" disabled>🔊 Hear the word</button>
+      </div>
     </div>
   </section>
 
-  <section class="screen" data-screen="5">
+  <!-- SLIDE 6: Build a Word — MAT -->
+  <section class="slide" id="slide-6" data-slide="6">
     <div class="card">
-      <span class="section-tag">Build a Word / Construis un mot</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Build the word: HAT</span><span class="fr" style="font-size:24px;">Construis le mot : HAT</span></div>
-      <div class="word-picture">🎩</div>
-      <div class="letter-slot-row" id="slotsRow3"></div>
-      <div class="letter-bank" id="bankRow3"></div>
-      <div class="feedback-banner" id="fb3"></div>
+      <span class="kicker">Build a Word</span>
+      <h2 class="title">Build a Word!<span class="fr-title">Construis un mot !</span></h2>
+      <p class="body-en">Stretch on the mat.</p>
+      <p class="body-fr">Étire-toi sur le tapis.</p>
+      <div class="swim-scene">🧘‍♀️</div>
+      <div class="word-builder" data-target="MAT">
+        <div class="blanks"></div>
+        <div class="tiles">
+          <button class="tile" data-letter="T">T</button>
+          <button class="tile" data-letter="A">A</button>
+          <button class="tile" data-letter="M">M</button>
+        </div>
+        <button class="hear-word-btn" data-say="mat" data-lang="en" disabled>🔊 Hear the word</button>
+      </div>
     </div>
   </section>
 
-  <section class="screen" data-screen="6">
+  <!-- SLIDE 7: Build a Word — TAN -->
+  <section class="slide" id="slide-7" data-slide="7">
     <div class="card">
-      <span class="section-tag">Build a Word / Construis un mot</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Build the word: BAT</span><span class="fr" style="font-size:24px;">Construis le mot : BAT</span></div>
-      <div class="word-picture">🏏</div>
-      <div class="letter-slot-row" id="slotsRow4"></div>
-      <div class="letter-bank" id="bankRow4"></div>
-      <div class="feedback-banner" id="fb4"></div>
+      <span class="kicker">Build a Word</span>
+      <h2 class="title">Build a Word!<span class="fr-title">Construis un mot !</span></h2>
+      <p class="body-en">The sun gives you a tan.</p>
+      <p class="body-fr">Le soleil te donne un bronzage.</p>
+      <div class="swim-scene">🌞</div>
+      <div class="word-builder" data-target="TAN">
+        <div class="blanks"></div>
+        <div class="tiles">
+          <button class="tile" data-letter="N">N</button>
+          <button class="tile" data-letter="T">T</button>
+          <button class="tile" data-letter="A">A</button>
+        </div>
+        <button class="hear-word-btn" data-say="tan" data-lang="en" disabled>🔊 Hear the word</button>
+      </div>
     </div>
   </section>
 
-  <section class="screen" data-screen="7">
+  <!-- SLIDE 8: Build a Word — SUN -->
+  <section class="slide" id="slide-8" data-slide="8">
     <div class="card">
-      <span class="section-tag">Word Game / Jeu de mots</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Match the word to the picture!</span><span class="fr" style="font-size:24px;">Associe le mot à l'image !</span></div>
+      <span class="kicker">Build a Word</span>
+      <h2 class="title">Build a Word!<span class="fr-title">Construis un mot !</span></h2>
+      <p class="body-en">The sun is shining today!</p>
+      <p class="body-fr">Le soleil brille aujourd'hui !</p>
+      <div class="swim-scene">☀️</div>
+      <div class="word-builder" data-target="SUN">
+        <div class="blanks"></div>
+        <div class="tiles">
+          <button class="tile" data-letter="N">N</button>
+          <button class="tile" data-letter="S">S</button>
+          <button class="tile" data-letter="U">U</button>
+        </div>
+        <button class="hear-word-btn" data-say="sun" data-lang="en" disabled>🔊 Hear the word</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: Build a Word — DIP -->
+  <section class="slide" id="slide-9" data-slide="9">
+    <div class="card">
+      <span class="kicker">Build a Word</span>
+      <h2 class="title">Build a Word!<span class="fr-title">Construis un mot !</span></h2>
+      <p class="body-en">Take a dip in the pool!</p>
+      <p class="body-fr">Fais un plongeon dans la piscine !</p>
+      <div class="swim-scene">💦</div>
+      <div class="word-builder" data-target="DIP">
+        <div class="blanks"></div>
+        <div class="tiles">
+          <button class="tile" data-letter="P">P</button>
+          <button class="tile" data-letter="D">D</button>
+          <button class="tile" data-letter="I">I</button>
+        </div>
+        <button class="hear-word-btn" data-say="dip" data-lang="en" disabled>🔊 Hear the word</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: Word Match Game -->
+  <section class="slide" id="slide-10" data-slide="10">
+    <div class="card">
+      <span class="kicker">Team Game</span>
+      <h2 class="title">Match the Words!<span class="fr-title">Associe les mots !</span></h2>
+      <p class="body-en">Tap a word, then tap its matching picture.</p>
+      <p class="body-fr">Touche un mot, puis touche l'image qui va avec.</p>
       <div class="match-wrap">
-        <div class="match-col" id="matchWords"></div>
-        <div class="match-col" id="matchPics"></div>
-      </div>
-      <div class="feedback-banner" id="matchFeedback"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="8">
-    <div class="card">
-      <span class="section-tag">Same Sound? / Même son ?</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Which word starts like "car"?</span><span class="fr" style="font-size:24px;">Quel mot commence comme « car » ?</span></div>
-      <div class="mcq-options" data-gid="q1">
-        <button class="mcq-opt" data-ans="A">A) dog<span class="opt-fr">chien</span></button>
-        <button class="mcq-opt" data-ans="B">B) cat<span class="opt-fr">chat</span></button>
-        <button class="mcq-opt" data-ans="C">C) sun<span class="opt-fr">soleil</span></button>
-      </div>
-      <div class="feedback-banner" id="mcqFeedback"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="9">
-    <div class="card">
-      <span class="section-tag">Same Sound? / Même son ?</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Which word starts like "hop"?</span><span class="fr" style="font-size:24px;">Quel mot commence comme « hop » ?</span></div>
-      <div class="mcq-options" data-gid="q2">
-        <button class="mcq-opt" data-ans="A">A) sun<span class="opt-fr">soleil</span></button>
-        <button class="mcq-opt" data-ans="B">B) dog<span class="opt-fr">chien</span></button>
-        <button class="mcq-opt" data-ans="C">C) hat<span class="opt-fr">chapeau</span></button>
-      </div>
-      <div class="feedback-banner" id="mcqFeedback2"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="10">
-    <div class="card">
-      <span class="section-tag">Same Sound? / Même son ?</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Which word starts like "ball"?</span><span class="fr" style="font-size:24px;">Quel mot commence comme « ball » ?</span></div>
-      <div class="mcq-options" data-gid="q3">
-        <button class="mcq-opt" data-ans="A">A) bat<span class="opt-fr">batte</span></button>
-        <button class="mcq-opt" data-ans="B">B) cat<span class="opt-fr">chat</span></button>
-        <button class="mcq-opt" data-ans="C">C) sun<span class="opt-fr">soleil</span></button>
-      </div>
-      <div class="feedback-banner" id="mcqFeedback3"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="11">
-    <div class="card">
-      <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Tap a word to hear it!</span><span class="fr" style="font-size:24px;">Touche un mot pour l'entendre !</span></div>
-      <div class="recap-chip-row" id="recapChips"></div>
-      <div class="recap-sentence-en" id="recapSentence">&hellip;</div>
-      <div class="recap-sentence-fr" id="recapSentenceFr">&hellip;</div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="12">
-    <div class="card">
-      <div class="confetti"><span>🎉</span><span>🔤</span><span>📖</span><span>⭐</span><span>🎉</span></div>
-      <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
-      <div class="bi-body"><span class="en">You built real words: cat, dog, sun, hat, and bat!</span><span class="fr">Tu as construit de vrais mots : cat, dog, sun, hat, et bat !</span></div>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Great job, Elina!')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('Bravo, Elina !')">🔊 FR</button>
+        <div class="match-col" id="matchWords">
+          <h4>Words / Mots</h4>
+          <button class="match-item word" data-match="cap">cap</button>
+          <button class="match-item word" data-match="sun">sun</button>
+          <button class="match-item word" data-match="dip">dip</button>
+          <button class="match-item word" data-match="fan">fan</button>
+          <button class="match-item word" data-match="mat">mat</button>
+          <button class="match-item word" data-match="tan">tan</button>
+        </div>
+        <div class="match-col" id="matchImages">
+          <h4>Pictures / Images</h4>
+          <button class="match-item image" data-match="mat">🧘‍♀️</button>
+          <button class="match-item image" data-match="dip">💦</button>
+          <button class="match-item image" data-match="tan">🌞</button>
+          <button class="match-item image" data-match="cap">🧢</button>
+          <button class="match-item image" data-match="fan">📣</button>
+          <button class="match-item image" data-match="sun">☀️</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="nav-row">
-    <button class="nav-btn back" id="backBtn" onclick="changeScreen(-1)">⬅ Back</button>
-    <button class="nav-btn next" id="nextBtn" onclick="changeScreen(1)">Next ➡</button>
+  <!-- SLIDE 11: MCQ q1 -->
+  <section class="slide" id="slide-11" data-slide="11">
+    <div class="card">
+      <span class="kicker">Same Sound?</span>
+      <h2 class="title">Listen for the Sound!<span class="fr-title">Écoute le son !</span></h2>
+      <div class="mcq" data-gid="q1">
+        <p class="prompt">Which word starts like "pool"?<span class="fr">Quel mot commence comme « pool » ?</span></p>
+        <button class="opt" data-ans="a">A) fan — supporter</button>
+        <button class="opt" data-ans="b">B) cap — casquette</button>
+        <button class="opt" data-ans="c">C) mat — tapis</button>
+        <div class="feedback" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: MCQ q2 -->
+  <section class="slide" id="slide-12" data-slide="12">
+    <div class="card">
+      <span class="kicker">Same Sound?</span>
+      <h2 class="title">Listen for the Sound!<span class="fr-title">Écoute le son !</span></h2>
+      <div class="mcq" data-gid="q2">
+        <p class="prompt">Which word starts like "fun"?<span class="fr">Quel mot commence comme « fun » ?</span></p>
+        <button class="opt" data-ans="a">A) fan — supporter</button>
+        <button class="opt" data-ans="b">B) dip — plongeon</button>
+        <button class="opt" data-ans="c">C) tan — bronzage</button>
+        <div class="feedback" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 13: MCQ q3 -->
+  <section class="slide" id="slide-13" data-slide="13">
+    <div class="card">
+      <span class="kicker">Same Sound?</span>
+      <h2 class="title">Listen for the Sound!<span class="fr-title">Écoute le son !</span></h2>
+      <div class="mcq" data-gid="q3">
+        <p class="prompt">Which word starts like "medal"?<span class="fr">Quel mot commence comme « medal » ?</span></p>
+        <button class="opt" data-ans="a">A) sun — soleil</button>
+        <button class="opt" data-ans="b">B) dip — plongeon</button>
+        <button class="opt" data-ans="c">C) mat — tapis</button>
+        <div class="feedback" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 14: Read & Cheer -->
+  <section class="slide" id="slide-14" data-slide="14">
+    <div class="card">
+      <span class="kicker">Read &amp; Cheer</span>
+      <h2 class="title">Read &amp; Cheer!<span class="fr-title">Lis et encourage !</span></h2>
+      <p class="body-en">You built these words — now let's read them together in a sentence. Tap to hear!</p>
+      <p class="body-fr">Tu as construit ces mots — lisons-les ensemble dans une phrase. Touche pour écouter !</p>
+      <div class="sentence-card">
+        <p class="en">I can dip.</p>
+        <p class="fr">Je peux plonger.</p>
+        <div class="hear-row">
+          <button class="hear-btn en" data-say="I can dip." data-lang="en">🔊 EN</button>
+          <button class="hear-btn fr" data-say="Je peux plonger." data-lang="fr">🔊 FR</button>
+        </div>
+      </div>
+      <div class="sentence-card">
+        <p class="en">I am on the mat.</p>
+        <p class="fr">Je suis sur le tapis.</p>
+        <div class="hear-row">
+          <button class="hear-btn en" data-say="I am on the mat." data-lang="en">🔊 EN</button>
+          <button class="hear-btn fr" data-say="Je suis sur le tapis." data-lang="fr">🔊 FR</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 15: Finale — Aqua Stars Awards Ceremony -->
+  <section class="slide" id="slide-15" data-slide="15">
+    <div class="card" style="text-align:center;">
+      <span class="kicker">Ceremony</span>
+      <h2 class="title">Aqua Stars Awards Ceremony!<span class="fr-title">Cérémonie des Aqua Stars !</span></h2>
+      <p class="body-en">Look what you did today!</p>
+      <p class="body-fr">Regarde tout ce que tu as fait aujourd'hui !</p>
+      <div class="stats">
+        <div class="stat"><span class="stat-num" id="statWords" data-target="6">0</span><span>Words Built<br>Mots construits</span></div>
+        <div class="stat"><span class="stat-num" id="statLetters" data-target="4">0</span><span>New Sounds<br>Nouveaux sons</span></div>
+        <div class="stat"><span class="stat-num" id="statStars" data-target="0">0</span><span>Stars Earned<br>Étoiles gagnées</span></div>
+      </div>
+      <button class="cta-btn" id="openMedalBtn">🥇 Open Your Medal! / Ouvre ta médaille !</button>
+      <div id="medalReveal" hidden>
+        <div class="medal">🥇</div>
+        <p>Champion of the Day!</p>
+        <p class="fr">Championne du jour !</p>
+        <p>Elina, you're officially an Aqua Star!</p>
+        <p class="fr">Elina, tu es officiellement une Aqua Star !</p>
+      </div>
+    </div>
+    <footer class="credit">KingCretot Experience · Elina · Lesson 4: More Letters &amp; Sounds · Phase 1 (Full Bilingual)</footer>
+  </section>
+
+  <div class="bottomnav">
+    <button id="backBtn">⬅ Back</button>
+    <button id="nextBtn">Next ➡</button>
   </div>
-  <footer class="credit">KingCretot Experience &middot; Elina &middot; Lesson 4: More Letters &amp; Sounds &middot; Phase 1 (Full Bilingual)</footer>
+
 </div>
 
 <script>
-let audioCtx;
-function getCtx(){ if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } return audioCtx; }
-function tone(freq, start, dur, type='sine', vol=0.22){
-  const ctx = getCtx(); const osc = ctx.createOscillator(); const gain = ctx.createGain();
-  osc.type = type; osc.frequency.value = freq;
-  gain.gain.setValueAtTime(vol, ctx.currentTime + start);
-  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
-  osc.connect(gain).connect(ctx.destination);
-  osc.start(ctx.currentTime + start); osc.stop(ctx.currentTime + start + dur);
-}
-function playCorrect(){ tone(523.25,0,.14); tone(659.25,.14,.14); tone(783.99,.28,.14); tone(1046.5,.42,.22); }
-function playIncorrect(){ tone(330,0,.18,'sawtooth',0.15); tone(220,.15,.25,'sawtooth',0.15); }
-function playFanfare(){ [523.25,659.25,783.99,1046.5,1318.5].forEach((f,i)=> tone(f, i*0.13, .3, 'triangle', 0.2)); }
+(function(){
+  "use strict";
 
-const confettiEmojis = ['🎉','⭐','🎊','✨','💫'];
-function burstConfetti(cardEl){
-  let layer = cardEl.querySelector('.confetti-burst');
-  if(!layer){ layer = document.createElement('div'); layer.className = 'confetti-burst'; cardEl.appendChild(layer); }
-  for(let i=0;i<16;i++){
-    const piece = document.createElement('span');
-    piece.className = 'confetti-piece';
-    piece.textContent = confettiEmojis[Math.floor(Math.random()*confettiEmojis.length)];
-    piece.style.left = (Math.random()*94)+'%';
-    piece.style.animationDuration = (0.8 + Math.random()*0.9)+'s';
-    piece.style.fontSize = (16 + Math.random()*18)+'px';
-    layer.appendChild(piece);
-    setTimeout(()=> piece.remove(), 1900);
+  /* ---------- Sound toggle ---------- */
+  var soundOn = true;
+  var soundToggle = document.getElementById("soundToggle");
+  soundToggle.addEventListener("click", function(){
+    soundOn = !soundOn;
+    soundToggle.textContent = soundOn ? "🔊 Sound On" : "🔇 Sound Off";
+    if(!soundOn && window.speechSynthesis){ speechSynthesis.cancel(); }
+  });
+
+  /* ---------- Speech synthesis ---------- */
+  function speak(text, lang){
+    if(!soundOn) return;
+    if(!("speechSynthesis" in window)) return;
+    try{
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = (lang === "fr") ? "fr-FR" : "en-US";
+      u.rate = 0.92;
+      speechSynthesis.speak(u);
+    }catch(e){ /* fail silently, never block the lesson */ }
   }
-}
-function currentCard(){ return document.querySelector('.screen.active .card'); }
-
-let soundOn = true;
-let voiceEN = null, voiceFR = null;
-function pickVoices(){
-  const voices = window.speechSynthesis.getVoices();
-  voiceEN = voices.find(v=> v.name.includes('Google') && v.lang === 'en-US')
-         || voices.find(v=> v.name.includes('Google') && v.lang.startsWith('en'))
-         || voices.find(v=> ['Samantha','Alex'].includes(v.name))
-         || voices.find(v=> v.lang === 'en-US') || voices[0] || null;
-  voiceFR = voices.find(v=> v.name.includes('Google') && v.lang === 'fr-FR')
-         || voices.find(v=> v.name.includes('Google') && v.lang.startsWith('fr'))
-         || voices.find(v=> v.lang && v.lang.startsWith('fr')) || null;
-}
-if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged = pickVoices; pickVoices(); }
-function speakEN(text){
-  if(!soundOn || !('speechSynthesis' in window)) return;
-  window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US'; u.rate = 0.92; u.pitch = 1.0;
-  if(voiceEN) u.voice = voiceEN;
-  window.speechSynthesis.speak(u);
-}
-function speakFR(text){
-  if(!soundOn || !('speechSynthesis' in window)) return;
-  window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'fr-FR'; u.rate = 0.92; u.pitch = 1.0;
-  if(voiceFR) u.voice = voiceFR;
-  window.speechSynthesis.speak(u);
-}
-function toggleSound(){
-  soundOn = !soundOn;
-  const btn = document.getElementById('soundToggle');
-  btn.classList.toggle('off', !soundOn);
-  document.getElementById('soundToggleLabel').textContent = soundOn ? 'Sound On' : 'Sound Off';
-  if(!soundOn && 'speechSynthesis' in window) window.speechSynthesis.cancel();
-}
-
-const screens = document.querySelectorAll('.screen');
-let current = 0;
-const totalScreens = screens.length;
-
-function updateProgress(){
-  document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%';
-  document.getElementById('progressLabel').textContent = (current+1) + ' / ' + totalScreens;
-}
-function refreshNavButtons(){
-  document.getElementById('backBtn').disabled = (current === 0);
-  const nextBtn = document.getElementById('nextBtn');
-  nextBtn.disabled = false;
-  nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡';
-}
-function changeScreen(delta){
-  const newIdx = current + delta;
-  if(newIdx < 0 || newIdx >= totalScreens) return;
-  screens[current].classList.remove('active');
-  current = newIdx;
-  screens[current].classList.add('active');
-  updateProgress(); refreshNavButtons();
-  window.scrollTo({top:0, behavior:'smooth'});
-  if(current === totalScreens-1){ setTimeout(()=>{ burstConfetti(currentCard()); playFanfare(); }, 200); }
-}
-let stars = 0;
-function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
-
-const reviewLetters = [
-  {l:'C', w:'Cat', fr:'chat', e:'🐱'}, {l:'D', w:'Dog', fr:'chien', e:'🐶'},
-  {l:'S', w:'Sun', fr:'soleil', e:'☀️'}, {l:'H', w:'Hat', fr:'chapeau', e:'🎩'},
-  {l:'A', w:'Apple', fr:'pomme', e:'🍎'}, {l:'M', w:'Moon', fr:'lune', e:'🌙'},
-  {l:'T', w:'Tree', fr:'arbre', e:'🌳'}, {l:'B', w:'Ball', fr:'balle', e:'⚽'}
-];
-const tappedReview = new Set();
-let allReviewCelebrated = false;
-function buildReviewGrid(){
-  const grid = document.getElementById('reviewGrid');
-  reviewLetters.forEach(item=>{
-    const tile = document.createElement('div');
-    tile.className = 'letter-tile';
-    tile.innerHTML = `${item.l}`;
-    tile.addEventListener('click', ()=>{
-      speakEN(`${item.l.toLowerCase()} is for ${item.w}.`);
-      tile.classList.add('said');
-      tappedReview.add(item.l);
-      if(tappedReview.size >= 6 && !allReviewCelebrated){
-        allReviewCelebrated = true; playCorrect(); addStar(1);
-        document.getElementById('reviewHint').textContent = 'Great! Tap Next when ready. ✨ / Super ! Continue quand tu es prête.';
-      }
+  document.querySelectorAll(".hear-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      speak(btn.getAttribute("data-say"), btn.getAttribute("data-lang"));
+      btn.classList.add("pulse");
+      setTimeout(function(){ btn.classList.remove("pulse"); }, 350);
     });
-    grid.appendChild(tile);
-  });
-}
-
-function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
-
-const cvcWords = [
-  {word:'CAT', fr:'chat', slotsId:'slotsRow0', bankId:'bankRow0', fbId:'fb0'},
-  {word:'DOG', fr:'chien', slotsId:'slotsRow1', bankId:'bankRow1', fbId:'fb1'},
-  {word:'SUN', fr:'soleil', slotsId:'slotsRow2', bankId:'bankRow2', fbId:'fb2'},
-  {word:'HAT', fr:'chapeau', slotsId:'slotsRow3', bankId:'bankRow3', fbId:'fb3'},
-  {word:'BAT', fr:'batte', slotsId:'slotsRow4', bankId:'bankRow4', fbId:'fb4'}
-];
-function buildWordScreen(cfg){
-  const slotsRow = document.getElementById(cfg.slotsId);
-  const bankRow = document.getElementById(cfg.bankId);
-  const fb = document.getElementById(cfg.fbId);
-  const letters = cfg.word.split('');
-  let placed = [];
-
-  letters.forEach(()=>{
-    const slot = document.createElement('div');
-    slot.className = 'letter-slot';
-    slotsRow.appendChild(slot);
   });
 
-  const shuffledLetters = shuffle(letters.map((l,i)=>({l, id:i})));
-  shuffledLetters.forEach(item=>{
-    const btn = document.createElement('button');
-    btn.className = 'letter-bank-btn';
-    btn.textContent = item.l;
-    btn.addEventListener('click', ()=>{
-      if(btn.classList.contains('used')) return;
-      placed.push(item.l);
-      btn.classList.add('used');
-      renderWordSlots();
-      checkWord();
-    });
-    bankRow.appendChild(btn);
-  });
-
-  function renderWordSlots(){
-    const slotEls = slotsRow.querySelectorAll('.letter-slot');
-    slotEls.forEach((s,i)=>{
-      if(placed[i]){ s.textContent = placed[i]; s.classList.add('filled'); }
-      else { s.textContent = ''; s.classList.remove('filled'); }
-    });
+  /* ---------- Web Audio feedback tones ---------- */
+  var audioCtx = null;
+  function getCtx(){
+    if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    return audioCtx;
   }
-  function checkWord(){
-    if(placed.length < letters.length) return;
-    const correct = placed.join('') === cfg.word;
-    if(correct){
-      playFanfare(); addStar(2); burstConfetti(currentCard());
-      speakEN(cfg.word);
-      fb.innerHTML = `<span class="fb-en">Perfect! You built "${cfg.word}"! 🌟</span><span class="fb-fr">Parfait ! Tu as construit « ${cfg.fr} » !</span>`;
-      fb.className = 'feedback-banner good';
-    } else {
-      playIncorrect();
-      fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-      fb.className = 'feedback-banner retry';
-      const resetBtn = document.createElement('button');
-      resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-      resetBtn.onclick = ()=>{
-        placed = [];
-        bankRow.querySelectorAll('.letter-bank-btn').forEach(b=>b.classList.remove('used'));
-        fb.innerHTML = '';
-        renderWordSlots();
-      };
-      fb.appendChild(resetBtn);
+  function tone(freq, start, dur, type, gain){
+    if(!soundOn) return;
+    type = type || "sine"; gain = gain || 0.2;
+    var ctx = getCtx();
+    var osc = ctx.createOscillator();
+    var g = ctx.createGain();
+    osc.type = type; osc.frequency.value = freq;
+    osc.connect(g); g.connect(ctx.destination);
+    var t0 = ctx.currentTime + start;
+    g.gain.setValueAtTime(gain, t0);
+    g.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
+    osc.start(t0); osc.stop(t0 + dur + 0.02);
+  }
+  function playCorrect(){
+    tone(523.25,0,0.14); tone(659.25,0.1,0.14); tone(783.99,0.2,0.14); tone(1046.50,0.32,0.3);
+  }
+  function playIncorrect(){
+    tone(400,0,0.16,"sine",0.14); tone(280,0.13,0.28,"sine",0.14);
+  }
+  function playFanfare(){
+    tone(523.25,0,0.16); tone(659.25,0.13,0.16); tone(783.99,0.26,0.16);
+    tone(1046.50,0.39,0.16); tone(1318.51,0.52,0.45,"triangle",0.26);
+  }
+
+  /* ---------- Confetti ---------- */
+  function burstConfetti(x, y, count){
+    count = count || 20;
+    var colors = ["#ffcc4d","#ff6f6f","#00a7b5","#ffffff","#8b5cf6"];
+    for(var i=0;i<count;i++){
+      (function(){
+        var p = document.createElement("div");
+        p.className = "confetti-piece";
+        p.style.left = x + "px";
+        p.style.top = y + "px";
+        p.style.background = colors[Math.floor(Math.random()*colors.length)];
+        var angle = Math.random()*Math.PI*2;
+        var dist = 60 + Math.random()*130;
+        var dx = Math.cos(angle)*dist;
+        var dy = Math.sin(angle)*dist - 40;
+        p.style.setProperty("--dx", dx+"px");
+        p.style.setProperty("--dy", dy+"px");
+        document.body.appendChild(p);
+        requestAnimationFrame(function(){ p.classList.add("go"); });
+        setTimeout(function(){ p.remove(); }, 950);
+      })();
     }
   }
-}
 
-function buildWordMatch(){
-  const wordCol = document.getElementById('matchWords');
-  const picCol = document.getElementById('matchPics');
-  const dataset = [
-    {w:'CAT', e:'🐱', fr:'chat'}, {w:'DOG', e:'🐶', fr:'chien'},
-    {w:'SUN', e:'☀️', fr:'soleil'}, {w:'HAT', e:'🎩', fr:'chapeau'},
-    {w:'BAT', e:'🏏', fr:'batte'}
-  ];
-  const shuffledWords = shuffle(dataset);
-  const shuffledPics = shuffle(dataset);
-  let selectedTile = null; let matchesFound = 0;
-  const fb = document.getElementById('matchFeedback');
+  /* ---------- Stars ---------- */
+  var stars = 0;
+  var starCountEl = document.getElementById("starCount");
+  function addStar(){
+    stars++;
+    starCountEl.textContent = stars;
+  }
 
-  shuffledWords.forEach(item=>{
-    const tile = document.createElement('div');
-    tile.className = 'match-tile';
-    tile.innerHTML = `<span class="main-txt">${item.w}</span><span class="sub-fr">${item.fr}</span>`;
-    tile.dataset.key = item.w;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct')) return;
-      wordCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
-      tile.classList.add('selected'); selectedTile = tile;
-      speakEN(item.w);
+  /* ---------- Mood check-in ---------- */
+  var moodResponses = {
+    excited: { en:"Yay! Let's bring that energy to the pool today!", fr:"Youpi ! Apportons cette énergie à la piscine aujourd'hui !" },
+    happy: { en:"So happy to hear that! Let's have a great practice.", fr:"Super content de l'entendre ! On va avoir un bel entraînement." },
+    calm: { en:"Calm and ready — perfect for a focused practice!", fr:"Calme et prête — parfait pour un entraînement concentré !" },
+    tired: { en:"That's okay! Take it slow — Coach Fox is proud of you for showing up.", fr:"Ce n'est pas grave ! Vas-y doucement — Coach Fox est fier de toi d'être venue." }
+  };
+  var moodBtns = document.querySelectorAll(".mood-btn");
+  var moodResponse = document.getElementById("moodResponse");
+  var diveInBtn = document.getElementById("diveInBtn");
+  moodBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      moodBtns.forEach(function(b){ b.classList.remove("selected"); });
+      btn.classList.add("selected");
+      var mood = btn.getAttribute("data-mood");
+      var r = moodResponses[mood];
+      moodResponse.innerHTML = '<p class="body-en">'+r.en+'</p><p class="body-fr">'+r.fr+'</p>';
+      moodResponse.hidden = false;
+      diveInBtn.disabled = false;
     });
-    wordCol.appendChild(tile);
   });
-  shuffledPics.forEach(item=>{
-    const tile = document.createElement('div');
-    tile.className = 'match-tile emoji-tile';
-    tile.innerHTML = `<span class="main-txt">${item.e}</span>`;
-    tile.dataset.key = item.w;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct') || !selectedTile) return;
-      const isMatch = selectedTile.dataset.key === tile.dataset.key;
-      if(isMatch){
-        tile.classList.add('correct'); selectedTile.classList.add('correct'); selectedTile.classList.remove('selected');
-        playCorrect(); addStar(1); matchesFound++;
-        burstConfetti(currentCard());
-        const matched = dataset.find(d=>d.w===tile.dataset.key);
-        fb.innerHTML = `<span class="fb-en">Yes! That's ${matched.w}! 🎉</span><span class="fb-fr">Oui ! C'est ${matched.fr} !</span>`;
-        fb.className = 'feedback-banner good';
-        selectedTile = null;
-        if(matchesFound >= dataset.length){ setTimeout(()=>playFanfare(),300); }
+  diveInBtn.addEventListener("click", function(){ goToSlide(currentSlide + 1); });
+
+  /* ---------- Word builders ---------- */
+  var builders = document.querySelectorAll(".word-builder");
+  builders.forEach(function(wb){
+    var target = wb.getAttribute("data-target");
+    var blanksEl = wb.querySelector(".blanks");
+    var progress = 0;
+    for(var i=0;i<target.length;i++){
+      var b = document.createElement("div");
+      b.className = "blank";
+      blanksEl.appendChild(b);
+    }
+    var blankEls = blanksEl.querySelectorAll(".blank");
+    var hearBtn = wb.querySelector(".hear-word-btn");
+    var tiles = wb.querySelectorAll(".tile");
+    tiles.forEach(function(tile){
+      tile.addEventListener("click", function(){
+        var letter = tile.getAttribute("data-letter");
+        speak(letter, "en");
+        if(progress < target.length && letter === target[progress]){
+          blankEls[progress].textContent = letter;
+          blankEls[progress].classList.add("filled");
+          tile.classList.add("used");
+          progress++;
+          if(progress === target.length){
+            playCorrect();
+            hearBtn.disabled = false;
+            addStar();
+            var r = wb.getBoundingClientRect();
+            burstConfetti(r.left + r.width/2, r.top + 40, 16);
+            setTimeout(function(){ speak(target.toLowerCase(), "en"); }, 250);
+          }
+        } else {
+          tile.classList.add("shake");
+          setTimeout(function(){ tile.classList.remove("shake"); }, 350);
+        }
+      });
+    });
+  });
+
+  /* ---------- Word match game ---------- */
+  var matchItems = document.querySelectorAll(".match-item");
+  var selectedMatch = null;
+  matchItems.forEach(function(item){
+    item.addEventListener("click", function(){
+      if(item.classList.contains("matched")) return;
+      var type = item.classList.contains("word") ? "word" : "image";
+      if(!selectedMatch){
+        selectedMatch = item;
+        item.classList.add("selected");
+        return;
+      }
+      var selType = selectedMatch.classList.contains("word") ? "word" : "image";
+      if(selType === type){
+        selectedMatch.classList.remove("selected");
+        selectedMatch = item;
+        item.classList.add("selected");
+        return;
+      }
+      if(selectedMatch.getAttribute("data-match") === item.getAttribute("data-match")){
+        selectedMatch.classList.remove("selected");
+        selectedMatch.classList.add("matched");
+        item.classList.add("matched");
+        playCorrect();
+        addStar();
+        var r = item.getBoundingClientRect();
+        burstConfetti(r.left + r.width/2, r.top + 20, 14);
+        selectedMatch = null;
       } else {
-        tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400);
+        item.classList.add("wrong");
+        selectedMatch.classList.add("wrong");
         playIncorrect();
-        fb.innerHTML = `<span class="fb-en">Try again! Listen and look carefully.</span><span class="fb-fr">Réessaie ! Écoute et regarde bien.</span>`;
-        fb.className = 'feedback-banner retry';
+        var a = selectedMatch, b2 = item;
+        setTimeout(function(){
+          a.classList.remove("selected","wrong");
+          b2.classList.remove("wrong");
+        }, 500);
+        selectedMatch = null;
       }
     });
-    picCol.appendChild(tile);
   });
-}
 
-const FB = {
-  q1: { ok: 'B', expl: {
-    A: {en:'"dog" starts with a d sound - try again!', fr:'« dog » commence par le son d - réessaie !'},
-    B: {en:'Yes! "car" and "cat" both start with the c sound! 🎉', fr:'Oui ! « car » et « cat » commencent par le son c !'},
-    C: {en:'"sun" starts with an s sound - try again!', fr:'« sun » commence par le son s - réessaie !'}
-  }},
-  q2: { ok: 'C', expl: {
-    A: {en:'"sun" starts with an s sound - try again!', fr:'« sun » commence par le son s - réessaie !'},
-    B: {en:'"dog" starts with a d sound - try again!', fr:'« dog » commence par le son d - réessaie !'},
-    C: {en:'Yes! "hop" and "hat" both start with the h sound! 🎉', fr:'Oui ! « hop » et « hat » commencent par le son h !'}
-  }},
-  q3: { ok: 'A', expl: {
-    A: {en:'Yes! "ball" and "bat" both start with the b sound! 🎉', fr:'Oui ! « ball » et « bat » commencent par le son b !'},
-    B: {en:'"cat" starts with a c sound - try again!', fr:'« cat » commence par le son c - réessaie !'},
-    C: {en:'"sun" starts with an s sound - try again!', fr:'« sun » commence par le son s - réessaie !'}
-  }}
-};
-function initMCQ(gid, lockKey, feedbackId){
-  const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
-  const fb = document.getElementById(feedbackId);
-  block.querySelectorAll('.mcq-opt').forEach(opt=>{
-    opt.addEventListener('click', ()=>{
-      if(block.classList.contains('answered')) return;
-      const ans = opt.dataset.ans;
-      const isCorrect = ans === FB[gid].ok;
-      if(isCorrect){
-        opt.classList.add('correct'); block.classList.add('answered');
-        block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
-        playCorrect(); addStar(2); burstConfetti(currentCard());
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner good';
-      } else {
-        opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
-        playIncorrect();
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner retry';
-      }
+  /* ---------- MCQ (FB pattern) ---------- */
+  var FB = {
+    q1: { ok:"b", en:"\"Pool\" and \"cap\" both start with the P sound!", fr:"« Pool » et « cap » commencent tous les deux par le son P !" },
+    q2: { ok:"a", en:"\"Fun\" and \"fan\" both start with the F sound!", fr:"« Fun » et « fan » commencent tous les deux par le son F !" },
+    q3: { ok:"c", en:"\"Medal\" and \"mat\" both start with the M sound!", fr:"« Medal » et « mat » commencent tous les deux par le son M !" }
+  };
+  document.querySelectorAll(".mcq").forEach(function(mcqEl){
+    var gid = mcqEl.getAttribute("data-gid");
+    var answered = false;
+    var opts = mcqEl.querySelectorAll(".opt");
+    var feedback = mcqEl.querySelector(".feedback");
+    opts.forEach(function(opt){
+      opt.addEventListener("click", function(){
+        if(answered) return;
+        answered = true;
+        var ans = opt.getAttribute("data-ans");
+        var fbEntry = FB[gid];
+        opts.forEach(function(o){ o.disabled = true; });
+        if(ans === fbEntry.ok){
+          opt.classList.add("correct");
+          playCorrect();
+          addStar();
+          var r = opt.getBoundingClientRect();
+          burstConfetti(r.left + r.width/2, r.top + 10, 16);
+        } else {
+          opt.classList.add("incorrect");
+          playIncorrect();
+          mcqEl.querySelector('.opt[data-ans="'+fbEntry.ok+'"]').classList.add("correct");
+        }
+        feedback.innerHTML = '<p class="body-en">'+fbEntry.en+'</p><p class="body-fr">'+fbEntry.fr+'</p>';
+        feedback.hidden = false;
+      });
     });
   });
-}
 
-function buildRecap(){
-  const row = document.getElementById('recapChips');
-  const sentenceEl = document.getElementById('recapSentence');
-  const sentenceFrEl = document.getElementById('recapSentenceFr');
-  const pool = [
-    {w:'CAT', fr:'chat', e:'🐱'}, {w:'DOG', fr:'chien', e:'🐶'},
-    {w:'SUN', fr:'soleil', e:'☀️'}, {w:'HAT', fr:'chapeau', e:'🎩'},
-    {w:'BAT', fr:'batte', e:'🏏'}
-  ];
-  pool.forEach(item=>{
-    const chip = document.createElement('div');
-    chip.className = 'recap-chip'; chip.textContent = item.e;
-    chip.addEventListener('click', ()=>{
-      document.querySelectorAll('.recap-chip').forEach(c=>c.classList.remove('active'));
-      chip.classList.add('active');
-      sentenceEl.textContent = item.w;
-      sentenceFrEl.textContent = item.fr;
-      speakEN(item.w);
-      burstConfetti(currentCard()); playCorrect();
+  /* ---------- Finale ---------- */
+  var finaleAnimated = false;
+  function animateCounters(){
+    if(finaleAnimated) return;
+    finaleAnimated = true;
+    document.getElementById("statStars").setAttribute("data-target", stars);
+    document.querySelectorAll(".stat-num").forEach(function(el){
+      var target = parseInt(el.getAttribute("data-target"), 10) || 0;
+      var current = 0;
+      if(target === 0){ el.textContent = "0"; return; }
+      var step = Math.max(1, Math.round(target / 20));
+      var iv = setInterval(function(){
+        current += step;
+        if(current >= target){ current = target; clearInterval(iv); }
+        el.textContent = current;
+      }, 45);
     });
-    row.appendChild(chip);
+  }
+  var openMedalBtn = document.getElementById("openMedalBtn");
+  var medalReveal = document.getElementById("medalReveal");
+  openMedalBtn.addEventListener("click", function(){
+    medalReveal.hidden = false;
+    openMedalBtn.disabled = true;
+    playFanfare();
+    burstConfetti(window.innerWidth/2, 120, 40);
+    setTimeout(function(){ burstConfetti(window.innerWidth*0.25, 200, 22); }, 200);
+    setTimeout(function(){ burstConfetti(window.innerWidth*0.75, 200, 22); }, 350);
   });
-}
 
-buildReviewGrid();
-cvcWords.forEach(buildWordScreen);
-buildWordMatch();
-initMCQ('q1', 8, 'mcqFeedback');
-initMCQ('q2', 9, 'mcqFeedback2');
-initMCQ('q3', 10, 'mcqFeedback3');
-buildRecap();
-updateProgress();
-refreshNavButtons();
+  /* ---------- Slide navigation ---------- */
+  var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+  var dotsWrap = document.getElementById("dots");
+  var currentSlide = 0;
+  slides.forEach(function(s, i){
+    var d = document.createElement("button");
+    d.className = "dot" + (i===0 ? " active" : "");
+    d.addEventListener("click", function(){ goToSlide(i); });
+    dotsWrap.appendChild(d);
+  });
+  var dotEls = dotsWrap.querySelectorAll(".dot");
+  var backBtn = document.getElementById("backBtn");
+  var nextBtn = document.getElementById("nextBtn");
+
+  function goToSlide(i){
+    if(i < 0) i = 0;
+    if(i > slides.length - 1) i = slides.length - 1;
+    slides.forEach(function(s, idx){ s.classList.toggle("active", idx === i); });
+    dotEls.forEach(function(d, idx){
+      d.classList.toggle("active", idx === i);
+      d.classList.toggle("done", idx < i);
+    });
+    currentSlide = i;
+    backBtn.disabled = (i === 0);
+    nextBtn.disabled = (i === slides.length - 1);
+    window.scrollTo({ top:0, behavior:"smooth" });
+    if(i === slides.length - 1){ animateCounters(); }
+  }
+
+  backBtn.addEventListener("click", function(){ goToSlide(currentSlide - 1); });
+  nextBtn.addEventListener("click", function(){ goToSlide(currentSlide + 1); });
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowRight" && !nextBtn.disabled) goToSlide(currentSlide + 1);
+    if(e.key === "ArrowLeft" && !backBtn.disabled) goToSlide(currentSlide - 1);
+  });
+
+  goToSlide(0);
+})();
 </script>
 </body>
 </html>
