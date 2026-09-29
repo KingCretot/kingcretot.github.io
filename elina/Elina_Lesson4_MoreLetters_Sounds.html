@@ -126,6 +126,11 @@
   .activity-feedback.good{background:#e6fbe9;}
   .reset-btn{display:block;margin:10px auto 0;background:#fdeaea;color:#b23a3a;border:2px solid var(--coral);font-family:'Inter',Arial,sans-serif;font-weight:700;font-size:13px;padding:7px 14px;border-radius:999px;cursor:pointer;}
 
+  /* closing recap chips */
+  .recap-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px;}
+  .recap-chip{background:#f4fbfc;border:2px solid #d7ecef;border-radius:999px;padding:14px 22px;font-family:'Poppins',Arial,sans-serif;font-size:18px;font-weight:700;color:var(--deep);cursor:pointer;}
+  .recap-chip.done{background:#e6fbe9;border-color:#3bc16a;color:#1f7a3d;}
+
   /* passage */
   .passage-box{background:#f4fbfc;border-radius:16px;padding:20px;border:1px solid #d7ecef;margin-top:14px;}
   .passage-box .en{font-size:19px;line-height:1.7;color:var(--ink);margin:0 0 12px;}
@@ -308,6 +313,59 @@
         <p>Elina, you understand and use real English sentences now!</p>
         <p class="fr">Elina, tu comprends et utilises de vraies phrases en anglais maintenant !</p>
       </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 20: High-Five Recap -->
+  <section class="slide" id="slide-20" data-slide="20">
+    <div class="card" style="text-align:center;">
+      <span class="kicker">One More Time!</span>
+      <h2 class="title">High-Five Your Words!<span class="fr-title">Tape la main sur tes mots !</span></h2>
+      <p class="body-en">Tap each word one last time to celebrate everything you learned!</p>
+      <p class="body-fr">Touche chaque mot une dernière fois pour célébrer tout ce que tu as appris !</p>
+      <div class="recap-grid" id="recapGrid"></div>
+      <div class="activity-feedback" id="recapFeedback"></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 21: Reflection speaking prompts -->
+  <section class="slide" id="slide-21" data-slide="21">
+    <div class="card">
+      <span class="kicker warm">Before We Go</span>
+      <h2 class="title">Tell Your Fox Friend!<span class="fr-title">Dis-le à ton ami renard !</span></h2>
+      <p class="body-en">Look back at today's words. Then answer out loud!</p>
+      <p class="body-fr">Regarde les mots d'aujourd'hui. Puis réponds à voix haute !</p>
+      <div class="talk-card">
+        <p class="q-en">What is one new word you learned today?</p>
+        <p class="q-fr">Quel est un nouveau mot que tu as appris aujourd'hui ?</p>
+        <div class="talk-row">
+          <button class="hear-btn en" data-say="What is one new word you learned today?" data-lang="en">🔊 Hear it</button>
+          <button class="said-btn" data-star="1">🎤 I said it! ✓</button>
+        </div>
+      </div>
+      <div class="talk-card">
+        <p class="q-en">Which sentence was your favorite to build?</p>
+        <p class="q-fr">Quelle phrase as-tu préféré construire ?</p>
+        <div class="talk-row">
+          <button class="hear-btn en" data-say="Which sentence was your favorite to build?" data-lang="en">🔊 Hear it</button>
+          <button class="said-btn" data-star="1">🎤 I said it! ✓</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 22: See You Next Week -->
+  <section class="slide" id="slide-22" data-slide="22">
+    <div class="card welcome-card">
+      <div class="kce-badge">KCE</div>
+      <p class="kce-tagline">KingCretot Experience</p>
+      <h1 class="welcome-title">Great Job, Elina!<span class="sparkle">🎉</span></h1>
+      <p class="welcome-sub-en">You worked so hard today.</p>
+      <p class="welcome-sub-fr">Tu as tellement bien travaillé aujourd'hui.</p>
+      <div class="welcome-mascot"><span>🦊</span><span>👋</span><span>🌟</span></div>
+      <p class="body-en" style="margin-top:4px;">See you next week for more big words and real sentences!</p>
+      <p class="body-fr">À la semaine prochaine pour encore plus de grands mots et de vraies phrases !</p>
+      <button class="cta-btn welcome-cta" id="byeBtn">Bye Bye! 👋 / Au revoir ! 👋</button>
     </div>
     <footer class="credit">KingCretot Experience · Elina · Lesson 4: Bigger Words, Real Sentences · Phase 1 (Full Bilingual)</footer>
   </section>
@@ -910,6 +968,48 @@
     setTimeout(function(){ burstConfetti(window.innerWidth*0.75, 200, 22); }, 350);
   });
 
+  /* ---------- High-Five Recap (slide 20) ---------- */
+  (function(){
+    var grid = document.getElementById("recapGrid");
+    var fbEl = document.getElementById("recapFeedback");
+    var doneCount = 0;
+    vocab.forEach(function(v){
+      var chip = document.createElement("button");
+      chip.className = "recap-chip";
+      chip.textContent = v.word;
+      chip.addEventListener("click", function(){
+        if(chip.classList.contains("done")) return;
+        chip.classList.add("done");
+        speak(v.word, "en");
+        playCorrect(); addStar();
+        var r = chip.getBoundingClientRect();
+        burstConfetti(r.left + r.width/2, r.top, 8);
+        doneCount++;
+        if(doneCount === vocab.length){
+          playFanfare();
+          var gr = grid.getBoundingClientRect();
+          burstConfetti(gr.left + gr.width/2, gr.top, 24);
+          fbEl.className = "activity-feedback good";
+          fbEl.innerHTML = '<p class="body-en" style="margin:0;">You know them all! 🌟</p><p class="body-fr" style="margin:0;">Tu les connais tous !</p>';
+        }
+      });
+      grid.appendChild(chip);
+    });
+  })();
+
+  /* ---------- Goodbye (slide 22) ---------- */
+  var byeBtn = document.getElementById("byeBtn");
+  byeBtn.addEventListener("click", function(){
+    byeBtn.disabled = true;
+    byeBtn.textContent = "See You Soon! 🌟 / À bientôt ! 🌟";
+    playFanfare();
+    speak("See you next week, Elina! Great job today!", "en");
+    burstConfetti(window.innerWidth/2, window.innerHeight/2, 36);
+  });
+
+  /* ---------- Bind every hear-btn in the document (catches static ones the vocab-grid-only call missed) ---------- */
+  bindHearButtons(document);
+
   /* ---------- Slide navigation (built AFTER all dynamic slides exist) ---------- */
   wireAllMCQs();
   var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
@@ -934,7 +1034,7 @@
     backBtn.disabled = (i === 0);
     nextBtn.disabled = (i === slides.length - 1);
     window.scrollTo({ top:0, behavior:"smooth" });
-    if(i === slides.length - 1){ animateCounters(); }
+    if(slides[i] && slides[i].id === "slide-19"){ animateCounters(); }
   }
 
   backBtn.addEventListener("click", function(){ goToSlide(currentSlide - 1); });
