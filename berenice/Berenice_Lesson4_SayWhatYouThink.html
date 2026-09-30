@@ -65,6 +65,12 @@ h2{font-family:'Poppins',sans-serif;font-size:30px;font-weight:800;margin-bottom
 .skill-fr{font-size:14px;color:var(--violet);font-style:italic;line-height:1.4}
 .skill-row.avoid{border-style:dashed;border-color:rgba(255,90,66,0.45)}
 .skill-row.avoid .sample{color:var(--coral)}
+.warm-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+@media (max-width:680px){.warm-grid{grid-template-columns:1fr}}
+.warm-card{background:var(--deep);border:1px solid var(--rim);border-radius:16px;padding:18px 20px}
+.warm-card .wq-en{font-family:'Poppins',sans-serif;font-weight:700;font-size:20px}
+.warm-card .wq-fr{font-size:15px;color:var(--violet);font-style:italic;margin-top:4px}
+.ask-back{background:rgba(255,184,48,0.12);border:1px dashed var(--amber);border-radius:14px;padding:14px 18px;margin-top:16px;text-align:center}
 .ref-note{text-align:center;font-size:15px;color:var(--muted);margin-top:14px;font-style:italic}
 .ok-ico{margin-right:6px}
 .mcq-options{display:flex;flex-direction:column;gap:12px;max-width:620px;margin:14px auto 0}
@@ -182,6 +188,33 @@ h2{font-family:'Poppins',sans-serif;font-size:30px;font-weight:800;margin-bottom
     <div class="bi-cols" style="margin-top:24px;text-align:left;">
       <div class="bi-en">Today's guest disagrees with her grandmother about phones at school. Watch how she keeps the conversation friendly.</div>
       <div class="bi-fr">L'invitée d'aujourd'hui n'est pas d'accord avec sa grand-mère sur les téléphones à l'école. Regarde comment elle garde la conversation amicale.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 1b WARM-UP -->
+<div class="slide">
+  <div class="card">
+    <span class="badge-tag">Warm-Up &#183; On discute</span>
+    <h2>&#128075; Let's Catch Up First</h2>
+    <div class="bi-cols">
+      <div class="bi-en">Before the lesson, let's just talk. Answer in full sentences, and don't forget to ask me back!</div>
+      <div class="bi-fr">Avant la le&#231;on, on discute. R&#233;ponds avec des phrases compl&#232;tes, et n'oublie pas de me poser la question en retour !</div>
+    </div>
+    <div class="warm-grid">
+      <div class="warm-card"><div class="wq-en">&#128522; How are you today?</div><div class="wq-fr">Comment tu vas aujourd'hui ?</div></div>
+      <div class="warm-card"><div class="wq-en">&#127780;&#65039; How was your weekend? What did you do?</div><div class="wq-fr">Comment s'est pass&#233; ton week-end ? Qu'est-ce que tu as fait ?</div></div>
+      <div class="warm-card"><div class="wq-en">&#127890; How has school been this week?</div><div class="wq-fr">Comment &#231;a se passe &#224; l'&#233;cole cette semaine ?</div></div>
+      <div class="warm-card"><div class="wq-en">&#127946; How is swimming going?</div><div class="wq-fr">Comment &#231;a va, la natation ?</div></div>
+      <div class="warm-card" style="grid-column:1/-1;"><div class="wq-en">&#10024; What's new with you?</div><div class="wq-fr">Quoi de neuf ?</div></div>
+    </div>
+    <div class="starter-strip">
+      <span class="starter">I'm good, thanks!</span><span class="starter">Not bad, but&#8230;</span><span class="starter">Honestly, I'm a bit tired because&#8230;</span><span class="starter">It was great! I&#8230;</span>
+    </div>
+    <div class="ask-back">
+      <div style="font-weight:800;color:var(--amber);">&#128257; Your turn: ask me back!</div>
+      <div style="font-size:17px;margin-top:6px;">"And you? How are you?" &#183; "How was your weekend?" &#183; "What's new with you?"</div>
+      <div style="font-size:14px;color:var(--violet);font-style:italic;margin-top:4px;">&#192; toi : pose-moi la question en retour !</div>
     </div>
   </div>
 </div>
