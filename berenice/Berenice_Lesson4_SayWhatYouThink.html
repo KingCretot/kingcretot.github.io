@@ -4,322 +4,226 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google" content="notranslate">
-<title>Lesson 4 — Say What You Think | Berenice</title>
+<title>Lesson 4 — Say What You Think | Bérénice</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#09111f; --deep:#0d1829; --card:#131f38; --rim:#1c2d4a;
-    --white:#e8f0ff; --muted:#8095bb;
-    --teal:#0fd4b8; --amber:#ffb830; --coral:#ff5a42; --violet:#a47aff; --lime:#3ee88a; --aqua:#00d4ff;
-    --shadow:rgba(0,0,0,0.35);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
-  html,body{height:100%;overflow:hidden}
-  .notranslate{translate:no;}
-  body{
-    font-family:'Inter',sans-serif; font-size:22px; line-height:1.5; color:var(--white);
-    background:var(--ink);
-    background-image:
-      radial-gradient(900px 500px at 12% -5%, rgba(15,212,184,0.14), transparent 60%),
-      radial-gradient(800px 480px at 95% 8%, rgba(164,122,255,0.12), transparent 60%),
-      radial-gradient(900px 600px at 50% 115%, rgba(255,184,48,0.10), transparent 60%);
-    position:relative;
-  }
-  .hud{ position:fixed; top:14px; left:14px; right:14px; display:flex; justify-content:space-between; align-items:center; z-index:50; gap:10px; flex-wrap:wrap; }
-  .hud-pill{ background:var(--card); border:1px solid var(--rim); color:var(--white); padding:9px 16px; border-radius:999px; font-weight:700; font-size:16px; box-shadow:0 4px 14px var(--shadow); display:flex; align-items:center; gap:7px; }
-  .xp-pill{ background:linear-gradient(135deg,var(--amber),#c9861a); color:#2a1c00; }
-  .sound-toggle{ background:var(--card); border:1px solid var(--rim); color:var(--white); border-radius:50%; width:42px; height:42px; font-size:19px; cursor:pointer; box-shadow:0 4px 12px var(--shadow); }
-  .xp-pop{ position:fixed; top:76px; left:50%; transform:translateX(-50%) translateY(-16px); background:linear-gradient(135deg,var(--coral),var(--amber)); color:#fff; padding:11px 22px; border-radius:999px; font-weight:800; font-size:22px; box-shadow:0 6px 20px rgba(255,90,66,0.4); opacity:0; pointer-events:none; z-index:80; transition:all .4s cubic-bezier(.4,0,.2,1); }
-  .xp-pop.show{ opacity:1; transform:translateX(-50%) translateY(0); }
-
-  .slide{ display:none; max-width:1180px; margin:0 auto; padding:22px 24px 30px; position:relative; z-index:1; animation:slideIn .35s ease; }
-  .slide.active{ display:block; }
-  @keyframes slideIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
-
-  /* ===== Scroll viewport (sits cleanly between fixed HUD and fixed nav bar) ===== */
-  .slide-viewport{ position:fixed; top:66px; left:0; right:0; bottom:78px; overflow-y:auto; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
-  .slide-viewport::-webkit-scrollbar{ width:8px; }
-  .slide-viewport::-webkit-scrollbar-thumb{ background:var(--rim); border-radius:8px; }
-  .scroll-cue{ position:fixed; left:50%; bottom:92px; transform:translateX(-50%) translateY(6px); z-index:55;
-    background:var(--card); border:1px solid var(--rim); color:var(--white); font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
-    padding:8px 16px; border-radius:999px; box-shadow:0 6px 16px var(--shadow); display:flex; align-items:center; gap:6px;
-    opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; }
-  .scroll-cue.show{ opacity:1; transform:translateX(-50%) translateY(0); animation:cueBounce 1.6s ease-in-out infinite; }
-  .scroll-cue .arrow{ font-size:14px; }
-  @keyframes cueBounce{ 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(4px); } }
-
-  .card{ background:var(--card); border:1px solid var(--rim); border-radius:26px; padding:36px 34px; box-shadow:0 16px 40px var(--shadow); }
-  .brandbar{ display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-weight:800; letter-spacing:.5px; color:var(--amber); font-size:12px; text-transform:uppercase; margin-bottom:16px; }
-  .brandbar .dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow:0 0 12px var(--amber); }
-
-  h1{ font-family:'Poppins',sans-serif; font-size:44px; font-weight:900; line-height:1.12; letter-spacing:-.5px; color:var(--white); }
-  h1 .accent{ color:var(--amber); }
-  h2{ font-family:'Poppins',sans-serif; font-size:30px; font-weight:800; color:var(--white); margin-bottom:14px; }
-  .badge-tag{ display:inline-block; background:rgba(15,212,184,0.14); color:var(--teal); font-weight:700; font-size:12.5px; letter-spacing:.6px; text-transform:uppercase; padding:6px 16px; border-radius:999px; margin-bottom:16px; border:1px solid rgba(15,212,184,0.3); }
-
-  .hero-emoji{ font-size:74px; display:block; margin-bottom:12px; }
-  .hero-sub-en{ font-size:21px; color:var(--white); margin:10px 0 4px; font-weight:500; }
-  .hero-sub-fr{ font-size:18px; color:var(--violet); font-weight:600; font-style:italic; }
-
-  .bi-cols{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:18px 0; }
-  @media (max-width:680px){ .bi-cols{ grid-template-columns:1fr; } }
-  .bi-en, .bi-fr{ padding:18px 22px; border-radius:16px; font-size:20px; line-height:1.5; }
-  .bi-en{ background:rgba(15,212,184,0.09); color:var(--white); border-left:5px solid var(--teal); }
-  .bi-fr{ background:rgba(164,122,255,0.10); color:#d8c9ff; border-left:5px solid var(--violet); font-style:italic; }
-  .bi-en strong, .bi-fr strong{ font-weight:700; color:inherit; }
-
-  .nav-row{ position:fixed; bottom:0; left:0; right:0; background:var(--deep); border-top:1px solid var(--rim); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; z-index:60; }
-  .nav-btn{ font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; padding:13px 28px; border-radius:50px; border:none; cursor:pointer; color:#fff; transition:transform .1s ease; }
-  .nav-btn:active{ transform:translateY(3px); }
-  .nav-btn.back{ background:#2a3a5c; }
-  .nav-btn.next{ background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
-  .nav-btn:disabled{ opacity:.35; cursor:not-allowed; }
-  .nav-btn.locked{ background:#2a3550; color:#6b7a9a; }
-  .progress-label{ font-size:13px; color:var(--muted); font-weight:700; }
-
-  .vocab-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0; }
-  @media (max-width:680px){ .vocab-grid{ grid-template-columns:repeat(2,1fr); } }
-  .vocab-card{ background:var(--deep); border:2px solid var(--rim); border-radius:16px; padding:14px 10px; text-align:center; cursor:pointer; transition:transform .15s ease, border-color .15s ease; min-height:96px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-  .vocab-card:hover{ transform:translateY(-3px); border-color:var(--teal); }
-  .vocab-card .emoji{ font-size:28px; display:block; margin-bottom:4px; }
-  .vocab-card .word{ font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--white); }
-  .vocab-card .fr{ font-size:12px; color:var(--violet); font-style:italic; margin-top:2px; display:none; }
-  .vocab-card.flipped{ border-color:var(--amber); background:rgba(255,184,48,0.08); }
-  .vocab-card.flipped .fr{ display:block; }
-  .vocab-card.flipped .word{ font-size:13.5px; }
-
-  .word-bank-wrap{ margin:20px 0; }
-  .sentence-slot{ min-height:64px; background:var(--deep); border:2px dashed var(--rim); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:12px; font-family:'Poppins',sans-serif; font-size:21px; font-weight:700; margin-bottom:14px; }
-  .sentence-slot .placed{ background:var(--teal); color:#00251f; padding:7px 13px; border-radius:10px; }
-  .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-  .word-chip{ background:var(--coral); color:#fff; padding:9px 16px; border-radius:14px; font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; cursor:pointer; box-shadow:0 5px 0 #b8341f; transition:transform .1s ease; }
-  .word-chip:active{ transform:translateY(4px); box-shadow:0 1px 0 #b8341f; }
-  .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
-  .replay-btn{ background:var(--amber); color:#2a1c00; border:none; border-radius:50px; padding:10px 20px; font-size:15px; font-weight:700; cursor:pointer; box-shadow:0 5px 0 #b8790f; margin-top:10px; }
-
-  .feedback-banner{ margin-top:14px; font-weight:800; font-size:19px; min-height:44px; }
-  .feedback-banner .fb-fr{ display:block; font-size:15px; color:var(--violet); font-weight:600; margin-top:2px; }
-  .feedback-banner.good .fb-en{ color:var(--lime); }
-  .feedback-banner.retry .fb-en{ color:var(--coral); }
-
-  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:560px; margin:16px auto 0; }
-  .mcq-opt{ font-family:'Inter',sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; text-align:left; transition:transform .08s ease,background .15s ease,border-color .15s ease; width:100%; }
-  .mcq-opt .opt-fr{ display:block; font-size:14px; color:var(--violet); font-weight:600; margin-top:3px; font-style:italic; }
-  .mcq-opt:hover{ transform:translateY(-2px); }
-  .mcq-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .mcq-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
-  @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-7px);} 75%{transform:translateX(7px);} }
-
-  .passage-card{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; font-size:20px; line-height:1.6; }
-  .passage-card .ptitle{ font-family:'Poppins',sans-serif; font-weight:800; color:var(--amber); font-size:13px; text-transform:uppercase; letter-spacing:.6px; margin-bottom:10px; }
-
-  .match-round-label{ font-size:14px; color:var(--muted); font-weight:700; margin-bottom:6px; }
-  .match-fr-word{ font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:var(--amber); margin-bottom:16px; }
-  .match-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:560px; margin:0 auto; }
-  @media (max-width:520px){ .match-grid{ grid-template-columns:1fr; } }
-  .match-opt{ font-family:'Inter',sans-serif; font-size:18px; font-weight:600; padding:14px 16px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; }
-  .match-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .match-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .match-opt.disabled{ pointer-events:none; opacity:.4; }
-  .match-progress{ display:flex; gap:6px; justify-content:center; margin-bottom:18px; }
-  .match-dot{ width:10px; height:10px; border-radius:50%; background:var(--rim); }
-  .match-dot.done{ background:var(--lime); }
-
-  /* ===== Conversation Wheel ===== */
-  .bridge-line{ background:linear-gradient(135deg, rgba(255,184,48,0.14), rgba(255,90,66,0.08)); border:1px solid rgba(255,184,48,0.4); border-radius:16px; padding:16px 20px; margin:16px 0; text-align:center; }
-  .bridge-line .bridge-icon{ font-size:24px; display:block; margin-bottom:6px; }
-  .bridge-line .bridge-en{ font-size:18px; font-weight:700; color:var(--white); line-height:1.4; }
-  .bridge-line .bridge-fr{ font-size:14px; color:var(--violet); font-style:italic; margin-top:4px; line-height:1.4; }
-  .wheel-frame{ background:var(--deep); border:1px solid var(--rim); border-radius:22px; padding:24px 18px; margin-top:14px; }
-  .wheel-main{ display:flex; flex-direction:column; align-items:center; gap:10px; }
-  @media (min-width:780px){ .wheel-main{ flex-direction:row; align-items:stretch; gap:30px; } }
-  .wheel-left{ display:flex; flex-direction:column; align-items:center; }
-  .wheel-wrap{ position:relative; width:240px; height:240px; max-width:68vw; max-height:68vw; }
-  @media (min-width:780px){ .wheel-wrap{ width:260px; height:260px; max-width:none; max-height:none; } }
-  .wheel-pointer{ position:absolute; top:-4px; left:50%; transform:translateX(-50%); z-index:5; width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent; border-top:24px solid var(--amber); filter:drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
-  .wheel-svg{ width:100%; height:100%; border-radius:50%; transition:transform 4.2s cubic-bezier(.15,.9,.25,1); filter:drop-shadow(0 10px 22px rgba(0,0,0,0.4)); }
-  .wheel-hub{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:4; width:86px; height:86px; border-radius:50%; background:var(--ink); border:3px solid var(--amber); color:var(--amber); cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; box-shadow:0 6px 14px rgba(0,0,0,0.5); transition:transform .15s ease; }
-  .wheel-hub:hover{ transform:translate(-50%,-50%) scale(1.05); }
-  .wheel-hub:active{ transform:translate(-50%,-50%) scale(.96); }
-  .wheel-hub:disabled{ cursor:default; opacity:.85; }
-  .wheel-hub .word{ font-weight:800; font-size:13px; letter-spacing:.1em; }
-  .wheel-hub .spin-ico{ font-size:14px; margin-bottom:1px; }
-  .wheel-hint{ color:var(--muted); font-size:12px; margin:10px 0 4px; text-align:center; }
-  .wheel-legend{ display:flex; flex-wrap:wrap; gap:6px; justify-content:center; padding:2px 0 4px; max-width:320px; }
-  .wchip{ border:none; cursor:pointer; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:11px; padding:5px 10px; border-radius:999px; display:inline-flex; align-items:center; gap:5px; opacity:.9; }
-  .wchip:hover{ opacity:1; }
-  .wchip:disabled{ cursor:default; opacity:.5; }
-  .wheel-right{ width:100%; display:flex; flex-direction:column; justify-content:center; }
-  .wpanel{ background:var(--card); border:1px solid var(--rim); border-radius:16px; padding:22px 20px; text-align:center; min-height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; opacity:0; transform:translateY(6px); transition:opacity .4s ease, transform .4s ease; }
-  .wpanel.show{ opacity:1; transform:none; }
-  @media (min-width:780px){ .wpanel{ min-height:230px; padding:26px 24px; } }
-  .wcat-chip{ font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#fff; padding:5px 12px; border-radius:999px; }
-  .wq{ font-family:'Poppins',sans-serif; font-weight:700; font-size:clamp(19px,2.2vw,26px); line-height:1.3; color:var(--white); }
-  .wqf{ font-family:'Inter',sans-serif; font-style:italic; font-weight:500; font-size:clamp(14px,1.6vw,17px); line-height:1.3; color:var(--violet); }
-  .wplaceholder{ color:var(--muted); font-size:14px; font-style:italic; }
-  .wpush-toggle{ background:none; border:none; color:var(--teal); font-weight:700; font-size:13px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
-  .wpush{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:10px; padding:10px 14px; max-width:440px; }
-  .wpush.show{ display:block; }
-  .wpush .lbl{ font-weight:800; font-size:9px; letter-spacing:.12px; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:3px; }
-  .wpush .txt{ font-size:14.5px; color:var(--white); font-weight:600; }
-  .wpush .txt-fr{ display:block; font-style:italic; font-weight:600; font-size:13px; color:var(--violet); margin-top:6px; }
-  .wactions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
-  .wbtn{ font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; padding:10px 18px; border-radius:10px; cursor:pointer; border:2px solid transparent; }
-  .wbtn-primary{ background:var(--amber); color:#2a1c00; }
-  .wbtn-ghost{ background:transparent; color:var(--white); border-color:var(--rim); }
-  .wbtn:disabled{ opacity:.5; cursor:default; }
-  .wspin-count{ font-size:13px; color:var(--muted); margin-top:8px; text-align:center; }
-
-  /* ===== Celebration slide ===== */
-  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0; }
-  @media (max-width:680px){ .stat-grid{ grid-template-columns:1fr; } }
-  .stat-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px; text-align:center; }
-  .stat-num{ font-family:'Poppins',sans-serif; font-weight:900; font-size:34px; color:var(--amber); }
-  .stat-lbl{ font-size:13px; color:var(--muted); font-weight:700; margin-top:2px; }
-  .stat-lbl-fr{ font-size:12px; color:var(--violet); font-style:italic; }
-  .celebrate-btn{ display:block; margin:24px auto 4px; font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; padding:16px 38px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--coral),var(--amber)); color:#2a1c00; box-shadow:0 8px 22px rgba(255,90,66,0.35); transition:transform .1s ease; }
-  .celebrate-btn:active{ transform:translateY(3px) scale(.98); }
-  .celebrate-btn:disabled{ opacity:.5; cursor:default; }
-  .badge-reveal{ text-align:center; margin-top:18px; opacity:0; transform:scale(.7); transition:all .5s cubic-bezier(.34,1.56,.64,1); }
-  .badge-reveal.show{ opacity:1; transform:scale(1); }
-  .badge-reveal .badge-emoji{ font-size:90px; display:block; }
-  .badge-reveal .badge-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--amber); margin-top:6px; }
-  .confetti-piece{ position:fixed; top:-20px; z-index:200; pointer-events:none; font-size:22px; animation:confettiFall linear forwards; }
-  @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(400deg); opacity:0.2; } }
-
-
-  /* ===== Skill teaching box ===== */
-  .skill-box{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; }
-  .skill-table{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
-  .skill-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; background:var(--card); border:1px solid var(--rim); border-radius:12px; padding:12px 16px; align-items:center; }
-  @media (max-width:680px){ .skill-row{ grid-template-columns:1fr; } }
-  .skill-en{ font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; color:var(--white); }
-  .skill-en .sample{ display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:14px; color:var(--teal); margin-top:3px; font-style:italic; }
-  .skill-fr{ font-size:14px; color:var(--violet); font-style:italic; line-height:1.4; }
-  .skill-tryit{ margin-top:14px; font-size:14px; color:var(--muted); text-align:center; font-style:italic; }
-
-  /* ===== Speaking task (the real climax) ===== */
-  .speak-card{ background:linear-gradient(135deg, rgba(15,212,184,0.10), rgba(164,122,255,0.08)); border:2px solid rgba(15,212,184,0.35); border-radius:20px; padding:28px 26px; margin:18px 0; }
-  .speak-card .speak-icon{ font-size:40px; display:block; margin-bottom:10px; text-align:center; }
-  .speak-card .bi-en, .speak-card .bi-fr{ background:transparent; border:none; padding:0; text-align:center; }
-  .speak-card .bi-en{ font-size:21px; font-weight:600; }
-  .nudge-toggle{ display:block; margin:16px auto 0; background:none; border:none; color:var(--teal); font-weight:700; font-size:14px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
-  .nudge-box{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:12px; padding:14px 18px; margin-top:14px; }
-  .nudge-box.show{ display:block; }
-  .nudge-box .starter{ font-family:'Poppins',sans-serif; font-weight:700; color:var(--amber); font-size:15px; margin:4px 0; }
-  .done-talking-btn{ display:block; margin:20px auto 0; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; padding:13px 30px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
-  .done-talking-btn:disabled{ opacity:.5; cursor:default; }
-  .talk-confirm{ text-align:center; margin-top:16px; font-weight:700; color:var(--lime); display:none; }
-  .talk-confirm.show{ display:block; }
-
-  /* ===== Bonus wheel framing ===== */
-  .bonus-frame{ text-align:center; margin-bottom:6px; }
-  .bonus-frame .bi-en, .bonus-frame .bi-fr{ background:transparent; border:none; padding:0 0 4px; text-align:center; }
-
-  /* ===== True/False quick response ===== */
-  .tf-row{ display:flex; gap:16px; justify-content:center; max-width:480px; margin:18px auto 0; }
-  .tf-btn{ flex:1; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; padding:20px 14px; border-radius:16px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; transition:transform .08s ease,background .15s ease,border-color .15s ease; }
-  .tf-btn:hover{ transform:translateY(-2px); }
-  .tf-btn.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .tf-btn.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .tf-btn.disabled{ pointer-events:none; opacity:.55; }
-
-  /* ===== Two-column compare cards ===== */
-  .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0; }
-  @media (max-width:600px){ .compare-grid{ grid-template-columns:1fr; } }
-  .compare-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px 16px; }
-  .compare-card .cc-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--amber); margin-bottom:10px; text-align:center; }
-  .compare-card ul{ margin:0; padding-left:18px; font-size:15px; line-height:1.7; color:var(--white); }
-
-  footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:var(--muted); }
+:root{--ink:#09111f;--deep:#0d1829;--card:#131f38;--rim:#1c2d4a;--white:#e8f0ff;--muted:#8095bb;--teal:#0fd4b8;--amber:#ffb830;--coral:#ff5a42;--violet:#a47aff;--lime:#3ee88a;--aqua:#00d4ff;--shadow:rgba(0,0,0,0.35)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Inter',sans-serif;font-size:22px;line-height:1.5;color:var(--white);background:var(--ink);background-image:radial-gradient(900px 500px at 12% -5%,rgba(15,212,184,0.14),transparent 60%),radial-gradient(800px 480px at 95% 8%,rgba(164,122,255,0.12),transparent 60%),radial-gradient(900px 600px at 50% 115%,rgba(255,184,48,0.10),transparent 60%)}
+.hud{position:fixed;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;z-index:50;gap:10px}
+.hud-pill{background:var(--card);border:1px solid var(--rim);color:var(--white);padding:9px 16px;border-radius:999px;font-weight:700;font-size:16px;box-shadow:0 4px 14px var(--shadow);display:flex;align-items:center;gap:7px}
+.xp-pill{background:linear-gradient(135deg,var(--amber),#c9861a);color:#2a1c00}
+.xp-pop{position:fixed;top:76px;left:50%;transform:translateX(-50%) translateY(-16px);background:linear-gradient(135deg,var(--coral),var(--amber));color:#fff;padding:11px 22px;border-radius:999px;font-weight:800;font-size:22px;opacity:0;pointer-events:none;z-index:80;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.xp-pop.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.slide-viewport{position:fixed;top:66px;left:0;right:0;bottom:78px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.slide{display:none;max-width:1180px;margin:0 auto;padding:22px 24px 30px;animation:slideIn .35s ease}
+.slide.active{display:block}
+@keyframes slideIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.scroll-cue{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);z-index:55;background:var(--card);border:1px solid var(--rim);color:var(--white);font-family:'Poppins',sans-serif;font-weight:700;font-size:12.5px;padding:8px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.scroll-cue.show{opacity:1}
+.card{background:var(--card);border:1px solid var(--rim);border-radius:26px;padding:36px 34px;box-shadow:0 16px 40px var(--shadow)}
+.brandbar{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:.5px;color:var(--amber);font-size:12px;text-transform:uppercase;margin-bottom:16px}
+.brandbar .dot{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px var(--amber)}
+h1{font-family:'Poppins',sans-serif;font-size:44px;font-weight:900;line-height:1.12;letter-spacing:-.5px}
+h1 .accent{color:var(--amber)}
+h2{font-family:'Poppins',sans-serif;font-size:30px;font-weight:800;margin-bottom:14px}
+.badge-tag{display:inline-block;background:rgba(15,212,184,0.14);color:var(--teal);font-weight:700;font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:16px;border:1px solid rgba(15,212,184,0.3)}
+.badge-tag.opt{background:rgba(255,184,48,0.14);color:var(--amber);border-color:rgba(255,184,48,0.3)}
+.hero-emoji{font-size:74px;display:block;margin-bottom:12px}
+.hero-sub-en{font-size:21px;margin:10px 0 4px;font-weight:500}
+.hero-sub-fr{font-size:18px;color:var(--violet);font-weight:600;font-style:italic}
+.bi-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:18px 0}
+@media (max-width:680px){.bi-cols{grid-template-columns:1fr}}
+.bi-en,.bi-fr{padding:18px 22px;border-radius:16px;font-size:20px;line-height:1.5}
+.bi-en{background:rgba(15,212,184,0.09);border-left:5px solid var(--teal)}
+.bi-fr{background:rgba(164,122,255,0.10);color:#d8c9ff;border-left:5px solid var(--violet);font-style:italic}
+.nav-row{position:fixed;bottom:0;left:0;right:0;background:var(--deep);border-top:1px solid var(--rim);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;z-index:60}
+.nav-btn{font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;padding:13px 28px;border-radius:50px;border:none;cursor:pointer;color:#fff}
+.nav-btn.back{background:#2a3a5c}
+.nav-btn.next{background:linear-gradient(135deg,var(--teal),#0aa88f);color:#00251f}
+.nav-btn:disabled{opacity:.35;cursor:not-allowed}
+.progress-label{font-size:13px;color:var(--muted);font-weight:700}
+.vocab-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+@media (max-width:760px){.vocab-grid{grid-template-columns:repeat(2,1fr)}}
+.vocab-card{background:var(--deep);border:2px solid var(--rim);border-radius:16px;padding:14px 10px;text-align:center;cursor:pointer;min-height:104px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .15s ease,border-color .15s ease}
+.vocab-card:hover{transform:translateY(-3px);border-color:var(--teal)}
+.vocab-card .emoji{font-size:28px;display:block;margin-bottom:4px}
+.vocab-card .word{font-family:'Poppins',sans-serif;font-weight:700;font-size:15px}
+.vocab-card .fr{font-size:12px;color:var(--violet);font-style:italic;margin-top:2px;display:none}
+.vocab-card.flipped{border-color:var(--amber);background:rgba(255,184,48,0.08)}
+.vocab-card.flipped .fr{display:block}
+.hint{font-size:15px;color:var(--muted);margin-top:8px}
+.skill-box{background:var(--deep);border:1px solid var(--rim);border-radius:18px;padding:22px 24px;margin:18px 0}
+.skill-table{display:flex;flex-direction:column;gap:10px}
+.skill-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;background:var(--card);border:1px solid var(--rim);border-radius:12px;padding:12px 16px;align-items:center}
+@media (max-width:680px){.skill-row{grid-template-columns:1fr}}
+.skill-en{font-family:'Poppins',sans-serif;font-weight:700;font-size:17px}
+.skill-en .sample{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:15px;color:var(--teal);margin-top:3px;font-style:italic}
+.skill-fr{font-size:14px;color:var(--violet);font-style:italic;line-height:1.4}
+.skill-row.avoid{border-color:rgba(255,90,66,0.5)}
+.skill-row.avoid .sample{color:var(--coral)}
+.mcq-options{display:flex;flex-direction:column;gap:12px;max-width:620px;margin:14px auto 0}
+.mcq-opt{font-family:'Inter',sans-serif;font-size:19px;font-weight:600;padding:14px 18px;border-radius:14px;border:2px solid var(--rim);background:var(--deep);color:var(--white);cursor:pointer;text-align:left;width:100%}
+.mcq-opt:hover{transform:translateY(-2px)}
+.mcq-opt.correct{background:rgba(62,232,138,0.14);border-color:var(--lime)}
+.mcq-opt.incorrect{background:rgba(255,90,66,0.14);border-color:var(--coral);animation:shake .4s ease}
+.mcq-opt.disabled{pointer-events:none;opacity:.55}
+.mcq-opt.correct.disabled{opacity:1}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.q-block{margin-top:22px}
+.q-en{font-family:'Poppins',sans-serif;font-weight:700;font-size:20px}
+.q-fr{font-size:15px;color:var(--violet);font-style:italic}
+.feedback-banner{margin-top:12px;font-weight:800;font-size:18px;min-height:30px;text-align:center}
+.feedback-banner .fb-fr{display:block;font-size:15px;color:var(--violet);font-weight:600;margin-top:2px}
+.feedback-banner.good .fb-en{color:var(--lime)}
+.feedback-banner.retry .fb-en{color:var(--coral)}
+.passage-card{background:var(--deep);border:1px solid var(--rim);border-radius:18px;padding:22px 26px;margin:18px 0;font-size:20px;line-height:1.65}
+.passage-card p{margin-bottom:12px}
+.passage-card .ptitle{font-family:'Poppins',sans-serif;font-weight:800;color:var(--amber);font-size:13px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
+.passage-card .quote{color:var(--teal);font-weight:600}
+.fr-toggle{display:block;margin:6px auto 0;background:none;border:none;color:var(--violet);font-weight:700;font-size:14px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.fr-help{display:none;background:rgba(164,122,255,0.10);border-left:5px solid var(--violet);border-radius:12px;padding:14px 18px;margin-top:10px;font-size:16px;color:#d8c9ff;font-style:italic;line-height:1.55}
+.fr-help.show{display:block}
+.match-round-label{font-size:14px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.match-fr-word{font-family:'Poppins',sans-serif;font-weight:800;font-size:26px;color:var(--amber);margin-bottom:16px}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto}
+@media (max-width:520px){.match-grid{grid-template-columns:1fr}}
+.match-opt{font-family:'Inter',sans-serif;font-size:18px;font-weight:600;padding:14px 16px;border-radius:14px;border:2px solid var(--rim);background:var(--deep);color:var(--white);cursor:pointer}
+.match-opt.correct{background:rgba(62,232,138,0.14);border-color:var(--lime)}
+.match-opt.incorrect{background:rgba(255,90,66,0.14);border-color:var(--coral);animation:shake .4s ease}
+.match-opt.disabled{pointer-events:none;opacity:.4}
+.match-progress{display:flex;gap:6px;justify-content:center;margin-bottom:18px}
+.match-dot{width:10px;height:10px;border-radius:50%;background:var(--rim)}
+.match-dot.done{background:var(--lime)}
+.builder{margin:18px 0 26px}
+.builder-label{font-family:'Poppins',sans-serif;font-weight:800;font-size:15px;color:var(--amber);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.sentence-slot{min-height:64px;background:var(--deep);border:2px dashed var(--rim);border-radius:16px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px;font-family:'Poppins',sans-serif;font-size:21px;font-weight:700;margin-bottom:14px}
+.sentence-slot .placed{background:var(--teal);color:#00251f;padding:7px 13px;border-radius:10px}
+.slot-hint{color:#6b7a9a;font-size:16px}
+.word-bank{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.word-chip{background:var(--coral);color:#fff;padding:9px 16px;border-radius:14px;font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;cursor:pointer;box-shadow:0 5px 0 #b8341f}
+.word-chip.used{opacity:.25;pointer-events:none;box-shadow:none}
+.replay-btn{background:var(--amber);color:#2a1c00;border:none;border-radius:50px;padding:9px 18px;font-size:15px;font-weight:700;cursor:pointer;margin-top:8px}
+.speak-card{background:linear-gradient(135deg,rgba(15,212,184,0.10),rgba(164,122,255,0.08));border:2px solid rgba(15,212,184,0.35);border-radius:20px;padding:26px 24px;margin:18px 0;text-align:center}
+.speak-card .speak-icon{font-size:40px;display:block;margin-bottom:8px}
+.speak-en{font-size:21px;font-weight:600}
+.speak-fr{font-size:16px;color:var(--violet);font-style:italic;margin-top:6px}
+.prompt-card{background:var(--deep);border:2px solid var(--amber);border-radius:18px;padding:26px 22px;margin:16px auto;max-width:720px;text-align:center;min-height:140px;display:flex;flex-direction:column;justify-content:center}
+.prompt-num{font-size:13px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.prompt-en{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(22px,2.6vw,30px);line-height:1.3}
+.prompt-fr{font-size:16px;color:var(--violet);font-style:italic;margin-top:8px}
+.starter-strip{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+.starter{font-family:'Poppins',sans-serif;font-weight:700;color:#2a1c00;background:var(--amber);font-size:15px;padding:7px 14px;border-radius:999px}
+.starter.teal{background:var(--teal);color:#00251f}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.act-btn{font-family:'Poppins',sans-serif;font-weight:800;font-size:16px;padding:12px 24px;border-radius:50px;border:none;cursor:pointer}
+.act-btn.primary{background:linear-gradient(135deg,var(--teal),#0aa88f);color:#00251f}
+.act-btn.ghost{background:transparent;color:var(--white);border:2px solid var(--rim)}
+.counter{font-size:15px;color:var(--muted);font-weight:700;margin-top:10px;text-align:center}
+.counter b{color:var(--amber);font-size:20px}
+.steps{max-width:720px;margin:10px auto;text-align:left;font-size:18px}
+.steps li{margin:8px 0 8px 22px}
+.bridge-line{background:linear-gradient(135deg,rgba(255,184,48,0.14),rgba(255,90,66,0.08));border:1px solid rgba(255,184,48,0.4);border-radius:16px;padding:16px 20px;margin:16px 0;text-align:center}
+.wheel-frame{background:var(--deep);border:1px solid var(--rim);border-radius:22px;padding:24px 18px;margin-top:14px}
+.wheel-main{display:flex;flex-direction:column;align-items:center;gap:10px}
+@media (min-width:780px){.wheel-main{flex-direction:row;align-items:stretch;gap:30px}}
+.wheel-left{display:flex;flex-direction:column;align-items:center}
+.wheel-wrap{position:relative;width:240px;height:240px;max-width:68vw;max-height:68vw}
+@media (min-width:780px){.wheel-wrap{width:260px;height:260px;max-width:none;max-height:none}}
+.wheel-pointer{position:absolute;top:-4px;left:50%;transform:translateX(-50%);z-index:5;border-left:14px solid transparent;border-right:14px solid transparent;border-top:24px solid var(--amber)}
+.wheel-svg{width:100%;height:100%;border-radius:50%;transition:transform 4.2s cubic-bezier(.15,.9,.25,1)}
+.wheel-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:4;width:86px;height:86px;border-radius:50%;background:var(--ink);border:3px solid var(--amber);color:var(--amber);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:13px}
+.wheel-hint{color:var(--muted);font-size:12px;margin:10px 0 4px;text-align:center}
+.wheel-right{width:100%;display:flex;flex-direction:column;justify-content:center}
+.wpanel{background:var(--card);border:1px solid var(--rim);border-radius:16px;padding:22px 20px;text-align:center;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.wcat-chip{font-weight:800;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:5px 12px;border-radius:999px}
+.wq{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(19px,2.2vw,26px);line-height:1.3}
+.wqf{font-style:italic;font-size:clamp(14px,1.6vw,17px);color:var(--violet)}
+.wplaceholder{color:var(--muted);font-size:14px;font-style:italic}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+@media (max-width:680px){.stat-grid{grid-template-columns:1fr}}
+.stat-card{background:var(--deep);border:1px solid var(--rim);border-radius:16px;padding:18px;text-align:center}
+.stat-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:34px;color:var(--amber)}
+.stat-lbl{font-size:13px;color:var(--muted);font-weight:700;margin-top:2px}
+.stat-lbl-fr{font-size:12px;color:var(--violet);font-style:italic}
+.celebrate-btn{display:block;margin:24px auto 4px;font-family:'Poppins',sans-serif;font-weight:800;font-size:19px;padding:16px 38px;border-radius:50px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--coral),var(--amber));color:#2a1c00}
+.celebrate-btn:disabled{opacity:.5;cursor:default}
+.badge-reveal{text-align:center;margin-top:18px;opacity:0;transform:scale(.7);transition:all .5s cubic-bezier(.34,1.56,.64,1)}
+.badge-reveal.show{opacity:1;transform:scale(1)}
+.badge-reveal .badge-emoji{font-size:90px;display:block}
+.badge-reveal .badge-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--amber);margin-top:6px}
+.confetti-piece{position:fixed;top:-20px;z-index:200;pointer-events:none;font-size:22px;animation:confettiFall linear forwards}
+@keyframes confettiFall{to{transform:translateY(105vh) rotate(400deg);opacity:.2}}
 </style>
 </head>
 <body class="notranslate" translate="no">
-
 <div class="hud">
-  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 11</span></div>
-  <div style="display:flex; gap:10px; align-items:center;">
-    <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
-  </div>
+  <div class="hud-pill"><span>📍</span><span id="progText">1 / 15</span></div>
+  <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
 </div>
 <div class="xp-pop" id="xpPop"></div>
-<div class="scroll-cue" id="scrollCue"><span>Scroll for more / Fais defiler</span><span class="arrow">&#8595;</span></div>
+<div class="scroll-cue" id="scrollCue">Scroll for more / Fais défiler &#8595;</div>
 
 <div class="slide-viewport" id="slideViewport">
 
-<!-- SLIDE 0: HERO -->
-<div class="slide active" data-title="Say What You Think">
+<!-- 1 HERO -->
+<div class="slide active">
   <div class="card" style="text-align:center;">
     <div class="brandbar" style="justify-content:center;"><span class="dot"></span> KingCretot Experience</div>
     <span class="hero-emoji">💡</span>
     <h1>Season One, Episode Four:<br><span class="accent">Say What You Think</span></h1>
-    <div class="hero-sub-en">Today isn't about having the "right" opinion. It's about stating one clearly, and backing it up with a reason.</div>
-    <div class="hero-sub-fr">Aujourd'hui, il ne s'agit pas d'avoir la « bonne » opinion. Il s'agit d'en exprimer une clairement, et de la justifier.</div>
-    <div class="bi-cols" style="margin-top:24px; text-align:left;">
-      <div class="bi-en">Today's guest has a strong opinion most adults disagree with — and she's learned exactly how to explain why she holds it.</div>
-      <div class="bi-fr">L'invitée d'aujourd'hui a une opinion forte avec laquelle la plupart des adultes ne sont pas d'accord — et elle a appris exactement comment l'expliquer.</div>
+    <div class="hero-sub-en">Today you'll learn to say what you think, give a real reason, and answer someone who disagrees with you — politely, and in English.</div>
+    <div class="hero-sub-fr">Aujourd'hui, tu vas apprendre à dire ce que tu penses, à donner une vraie raison, et à répondre à quelqu'un qui n'est pas d'accord — poliment, et en anglais.</div>
+    <div class="bi-cols" style="margin-top:24px;text-align:left;">
+      <div class="bi-en">Today's guest disagrees with her grandmother about phones at school. Watch how she keeps the conversation friendly.</div>
+      <div class="bi-fr">L'invitée d'aujourd'hui n'est pas d'accord avec sa grand-mère sur les téléphones à l'école. Regarde comment elle garde la conversation amicale.</div>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 1: THE SKILL -->
-<div class="slide" data-title="The Skill">
+<!-- 2 SKILL A -->
+<div class="slide">
   <div class="card">
-    <span class="badge-tag">Today's Skill · La compétence du jour</span>
+    <span class="badge-tag">Part 1 · Say it with a reason</span>
     <h2>🎯 Stating an Opinion — With a Reason</h2>
     <div class="bi-cols">
-      <div class="bi-en">An opinion without a reason is just a feeling. Adding "because" turns it into an argument someone can actually respond to.</div>
-      <div class="bi-fr">Une opinion sans raison n'est qu'un ressenti. Ajouter « because » en fait un argument auquel on peut vraiment répondre.</div>
+      <div class="bi-en">An opinion without a reason is just a feeling. Add <strong>because</strong>, and now someone can really answer you.</div>
+      <div class="bi-fr">Une opinion sans raison n'est qu'un ressenti. Ajoute <strong>because</strong>, et on peut vraiment te répondre.</div>
     </div>
-    <div class="skill-box">
-      <div class="skill-table">
-        <div class="skill-row">
-          <div class="skill-en">Stating a view<span class="sample">"I think street art is real art."</span></div>
-          <div class="skill-fr">Pour donner un avis : I think... / In my opinion...</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">Giving the reason<span class="sample">"...because it takes real skill."</span></div>
-          <div class="skill-fr">Pour justifier : ...because...</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">Softer opinion<span class="sample">"I feel like... / It seems to me that..."</span></div>
-          <div class="skill-fr">Version plus douce, moins tranchée.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">Strong opinion<span class="sample">"I'm convinced that... / I firmly believe..."</span></div>
-          <div class="skill-fr">Opinion forte, assumée.</div>
-        </div>
-      </div>
-      <div class="skill-tryit">You'll use these for real with me in a few minutes. / Tu vas les utiliser pour de vrai avec moi dans quelques minutes.</div>
-    </div>
+    <div class="skill-box"><div class="skill-table">
+      <div class="skill-row"><div class="skill-en">Say your view<span class="sample">"I think… / In my opinion…"</span></div><div class="skill-fr">Pour donner ton avis.</div></div>
+      <div class="skill-row"><div class="skill-en">Give the reason<span class="sample">"…because…"</span></div><div class="skill-fr">Pour justifier ton avis.</div></div>
+      <div class="skill-row"><div class="skill-en">Softer<span class="sample">"I feel like… / It seems to me that…"</span></div><div class="skill-fr">Version plus douce, moins tranchée.</div></div>
+      <div class="skill-row"><div class="skill-en">Stronger<span class="sample">"I'm convinced that… / I firmly believe…"</span></div><div class="skill-fr">Opinion forte, assumée.</div></div>
+    </div></div>
+    <p class="hint" style="text-align:center;">Tap a card to see the French and an example. / Touche une carte pour voir le français et un exemple.</p>
     <div class="vocab-grid" id="vocabGrid"></div>
-    <p style="font-size:15px; color:var(--muted); margin-top:8px;" id="vocabHint">Flip at least 5 cards to unlock Next. / Retourne au moins 5 cartes pour débloquer Suivant.</p>
   </div>
 </div>
 
-<!-- SLIDE 2: QUICK PRACTICE — MCQ MODE -->
-<div class="slide" data-title="Quick Practice">
+<!-- 3 QUICK PRACTICE 1 -->
+<div class="slide">
   <div class="card">
     <span class="badge-tag">Quick Practice · Entraînement rapide</span>
-    <h2>🎯 Opinion or Just a Reason?</h2>
+    <h2>🎯 Which One Is a Complete Opinion?</h2>
     <div class="bi-cols">
-      <div class="bi-en">Which sentence is a COMPLETE opinion — a view AND a reason?</div>
-      <div class="bi-fr">Quelle phrase est une opinion COMPLÈTE — un avis ET une raison ?</div>
+      <div class="bi-en">A complete opinion has two parts: a view AND a reason. Which sentence has both?</div>
+      <div class="bi-fr">Une opinion complète a deux parties : un avis ET une raison. Quelle phrase a les deux ?</div>
     </div>
     <div class="mcq-options" data-gid="qp1">
-      <button class="mcq-opt" data-ans="A">A) It takes a lot of skill.<span class="opt-fr">Juste une raison, pas d'avis clair</span></button>
-      <button class="mcq-opt" data-ans="B">B) Street art is amazing.<span class="opt-fr">Juste un avis, aucune raison</span></button>
-      <button class="mcq-opt" data-ans="C">C) I think street art is amazing because it takes real skill.<span class="opt-fr">Avis + raison, complet</span></button>
+      <button class="mcq-opt" data-ans="A">A) Weekend homework is terrible.</button>
+      <button class="mcq-opt" data-ans="B">B) I think weekend homework is a bad idea because we need time to rest.</button>
+      <button class="mcq-opt" data-ans="C">C) Because we need time to rest.</button>
     </div>
-    <div class="feedback-banner" id="mcqFeedbackQP1"></div>
+    <div class="feedback-banner" id="fb-qp1"></div>
   </div>
 </div>
 
-<!-- SLIDE 3: QUICK PRACTICE 2 — MATCH GAME MODE -->
-<div class="slide" data-title="Match the Strength">
+<!-- 4 MATCH -->
+<div class="slide">
   <div class="card" style="text-align:center;">
     <span class="badge-tag">Quick Practice · Entraînement rapide</span>
     <h2>🔗 Match the Strength</h2>
@@ -335,160 +239,260 @@
   </div>
 </div>
 
-<!-- SLIDE 4: GUEST BIO — READING ONLY -->
-<div class="slide" data-title="Guest Bio">
+<!-- 5 SKILL B -->
+<div class="slide">
+  <div class="card">
+    <span class="badge-tag">Part 2 · When someone disagrees</span>
+    <h2>🤝 Answering Someone Who Disagrees</h2>
+    <div class="bi-cols">
+      <div class="bi-en">The secret: first show you listened, THEN give your view. People listen to you when you listen to them.</div>
+      <div class="bi-fr">Le secret : montre d'abord que tu as écouté, PUIS donne ton avis. On t'écoute quand tu écoutes les autres.</div>
+    </div>
+    <div class="skill-box"><div class="skill-table">
+      <div class="skill-row"><div class="skill-en">Show you listened<span class="sample">"I see your point, but…" / "That's fair, but…"</span></div><div class="skill-fr">Je comprends ton point de vue, mais… / C'est juste, mais…</div></div>
+      <div class="skill-row"><div class="skill-en">Agree with one part<span class="sample">"You're right that…, but I still think…"</span></div><div class="skill-fr">Tu as raison sur…, mais je pense quand même que…</div></div>
+      <div class="skill-row"><div class="skill-en">Disagree softly<span class="sample">"I'm not sure I agree, because…"</span></div><div class="skill-fr">Je ne suis pas sûre d'être d'accord, parce que…</div></div>
+      <div class="skill-row avoid"><div class="skill-en">Avoid — too rude<span class="sample">"You're wrong." / "That's stupid."</span></div><div class="skill-fr">À éviter : ça ferme la conversation.</div></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- 6 QUICK PRACTICE 2 -->
+<div class="slide">
+  <div class="card">
+    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
+    <h2>🤝 Polite or Not?</h2>
+    <div class="bi-cols">
+      <div class="bi-en">Your friend says: <strong>"Summer is the best season."</strong> You disagree. Which answer keeps the conversation friendly?</div>
+      <div class="bi-fr">Ton amie dit : « L'été est la meilleure saison. » Tu n'es pas d'accord. Quelle réponse garde la conversation amicale ?</div>
+    </div>
+    <div class="mcq-options" data-gid="qp2">
+      <button class="mcq-opt" data-ans="A">A) No. You're wrong.</button>
+      <button class="mcq-opt" data-ans="B">B) Summer is boring.</button>
+      <button class="mcq-opt" data-ans="C">C) I see your point, but I prefer autumn because it isn't too hot.</button>
+    </div>
+    <div class="feedback-banner" id="fb-qp2"></div>
+  </div>
+</div>
+
+<!-- 7 GUEST BIO -->
+<div class="slide">
   <div class="card">
     <span class="badge-tag">Meet the Guest · Rencontre avec l'invitée</span>
     <h2>📋 Meet Today's Guest</h2>
     <div class="bi-cols">
-      <div class="bi-en">Read carefully — notice not just WHAT Sofia believes, but WHY.</div>
-      <div class="bi-fr">Lis attentivement — remarque non seulement CE que Sofia pense, mais POURQUOI.</div>
+      <div class="bi-en">Read carefully. Notice WHAT Sofia thinks, WHY she thinks it, and HOW she answers her grandmother.</div>
+      <div class="bi-fr">Lis attentivement. Remarque CE que Sofia pense, POURQUOI elle le pense, et COMMENT elle répond à sa grand-mère.</div>
     </div>
     <div class="passage-card">
       <div class="ptitle">Guest Bio · Fiche invitée</div>
-      <p>Meet today's guest: Sofia Marchetti, 15, from Milan. Sofia firmly believes that street art is real art — not vandalism, like some adults in her neighborhood say. Her reason: it takes years of practice to spray-paint a wall in seconds, without any mistakes, before the police arrive. Last year, her older cousin was fined for painting a mural on an abandoned building, and Sofia thinks that was unfair, because the wall was ugly before and beautiful after. She's convinced that cities would be more interesting if more walls looked like that one. Not everyone agrees with her — her own grandmother calls it "just graffiti" — but Sofia has learned to explain her opinion instead of just getting upset about it.</p>
+      <p>Meet today's guest: Sofia Marchetti, 15, from Milan. This year, Sofia's school made a new rule: phones must stay in lockers all day. Sofia thinks the rule goes too far.</p>
+      <p>In her opinion, phones can be useful in class. Her English teacher sometimes asks students to look up a word or check a map. She also feels like teenagers should learn to manage their phones themselves, because they will have to do it as adults anyway.</p>
+      <p>Her grandmother, Nonna Lucia, completely disagrees. <span class="quote">"When I was young, we talked to each other at lunch,"</span> she says. <span class="quote">"Phones steal your attention."</span></p>
+      <p>Sofia used to get angry in these conversations. Now she tries something different. <span class="quote">"I see your point, Nonna. Phones can be distracting — that's fair. But I still think a total ban goes too far. Maybe phones could be allowed when the teacher says so."</span></p>
+      <p>Nonna laughed. <span class="quote">"Okay. That's more reasonable than I expected."</span> They still don't agree — but for the first time, they both really listened.</p>
     </div>
+    <button class="fr-toggle" data-target="bioFr">Need help? Voir un résumé en français</button>
+    <div class="fr-help" id="bioFr">Sofia, 15 ans, de Milan. Son école a interdit les téléphones toute la journée. Sofia pense que la règle va trop loin : les téléphones peuvent être utiles en classe, et les ados doivent apprendre à gérer leur téléphone eux-mêmes. Sa grand-mère n'est pas du tout d'accord : les téléphones volent l'attention. Avant, Sofia s'énervait. Maintenant, elle reconnaît d'abord que sa grand-mère a un point juste, puis elle donne son avis et propose une solution. Elles ne sont toujours pas d'accord, mais elles se sont vraiment écoutées.</div>
   </div>
 </div>
 
-<!-- SLIDE 5: COMPREHENSION CHECK -->
-<div class="slide" data-title="What Did You Catch?">
+<!-- 8 COMPREHENSION -->
+<div class="slide">
   <div class="card">
     <span class="badge-tag">Precision Check · Vérification précise</span>
     <h2>🧠 What Did You Catch?</h2>
-    <div class="bi-cols">
-      <div class="bi-en">These questions ask you to figure things out, not just find a matching sentence.</div>
-      <div class="bi-fr">Ces questions te demandent de comprendre, pas juste de retrouver une phrase identique.</div>
+    <div class="q-block">
+      <div class="q-en">1. What is ONE of Sofia's reasons?</div>
+      <div class="q-fr">Quelle est UNE des raisons de Sofia ?</div>
+      <div class="mcq-options" data-gid="r1">
+        <button class="mcq-opt" data-ans="A">A) Phones are cheaper than books</button>
+        <button class="mcq-opt" data-ans="B">B) Phones can help in class, like looking up a word</button>
+        <button class="mcq-opt" data-ans="C">C) All her friends have phones</button>
+      </div>
+      <div class="feedback-banner" id="fb-r1"></div>
     </div>
-    <div class="bi-en" style="margin-bottom:6px;">Why does Sofia think street art requires real skill?</div>
-    <div class="bi-fr" style="margin-bottom:6px;">Pourquoi Sofia pense-t-elle que le street art demande une vraie compétence ?</div>
-    <div class="mcq-options" data-gid="r1">
-      <button class="mcq-opt" data-ans="A">A) You have to paint fast and perfectly before police arrive<span class="opt-fr">Il faut peindre vite et parfaitement avant l'arrivée de la police</span></button>
-      <button class="mcq-opt" data-ans="B">B) You need expensive equipment<span class="opt-fr">Il faut du matériel coûteux</span></button>
-      <button class="mcq-opt" data-ans="C">C) Her grandmother taught her<span class="opt-fr">Sa grand-mère le lui a appris</span></button>
+    <div class="q-block">
+      <div class="q-en">2. Why does Nonna disagree?</div>
+      <div class="q-fr">Pourquoi Nonna n'est-elle pas d'accord ?</div>
+      <div class="mcq-options" data-gid="r2">
+        <button class="mcq-opt" data-ans="A">A) She thinks phones take people's attention away</button>
+        <button class="mcq-opt" data-ans="B">B) She thinks phones are too expensive</button>
+        <button class="mcq-opt" data-ans="C">C) She has never used a phone</button>
+      </div>
+      <div class="feedback-banner" id="fb-r2"></div>
     </div>
-    <div class="feedback-banner" id="mcqFeedbackR1"></div>
-
-    <div style="margin-top:24px;">
-      <div class="bi-en" style="margin-bottom:6px;">Why does Sofia think her cousin's fine was unfair?</div>
-      <div class="bi-fr" style="margin-bottom:6px;">Pourquoi Sofia pense-t-elle que l'amende de son cousin était injuste ?</div>
+    <div class="q-block">
+      <div class="q-en">3. Think about it: why did this conversation go better than before?</div>
+      <div class="q-fr">Réfléchis : pourquoi cette conversation s'est-elle mieux passée qu'avant ?</div>
+      <div class="mcq-options" data-gid="r3">
+        <button class="mcq-opt" data-ans="A">A) Sofia agreed that the rule is a good idea</button>
+        <button class="mcq-opt" data-ans="B">B) Nonna changed her mind</button>
+        <button class="mcq-opt" data-ans="C">C) Sofia said Nonna had a fair point before giving her own view</button>
+      </div>
+      <div class="feedback-banner" id="fb-r3"></div>
     </div>
-    <div class="mcq-options" data-gid="r2">
-      <button class="mcq-opt" data-ans="A">A) He didn't know it was illegal<span class="opt-fr">Il ne savait pas que c'était illégal</span></button>
-      <button class="mcq-opt" data-ans="B">B) The wall went from ugly to beautiful<span class="opt-fr">Le mur est passé de laid à magnifique</span></button>
-      <button class="mcq-opt" data-ans="C">C) The building's owner gave permission<span class="opt-fr">Le propriétaire avait donné son accord</span></button>
+    <div class="q-block">
+      <div class="q-en">4. Which of Sofia's sentences shows she listened first?</div>
+      <div class="q-fr">Quelle phrase de Sofia montre qu'elle a d'abord écouté ?</div>
+      <div class="mcq-options" data-gid="r4">
+        <button class="mcq-opt" data-ans="A">A) "Maybe phones could be allowed when the teacher says so."</button>
+        <button class="mcq-opt" data-ans="B">B) "I see your point, Nonna. Phones can be distracting — that's fair."</button>
+        <button class="mcq-opt" data-ans="C">C) "The rule goes too far."</button>
+      </div>
+      <div class="feedback-banner" id="fb-r4"></div>
     </div>
-    <div class="feedback-banner" id="mcqFeedbackR2"></div>
   </div>
 </div>
 
-<!-- SLIDE 6: APPLY IT — SENTENCE BUILDER MODE -->
-<div class="slide" data-title="Build Your Argument">
+<!-- 9 BUILDERS -->
+<div class="slide">
   <div class="card">
     <span class="badge-tag">Apply It · Mets-le en pratique</span>
-    <h2>🧩 Build the Argument</h2>
+    <h2>🧩 Build It</h2>
     <div class="bi-cols">
-      <div class="bi-en">Tap the pieces in order to build a complete opinion — a view AND a reason.</div>
-      <div class="bi-fr">Touche les pièces dans l'ordre pour construire une opinion complète — un avis ET une raison.</div>
+      <div class="bi-en">Tap the words in order to build each sentence.</div>
+      <div class="bi-fr">Touche les mots dans l'ordre pour construire chaque phrase.</div>
     </div>
-    <div class="word-bank-wrap">
-      <div class="sentence-slot" id="sentenceSlot"></div>
-      <div class="word-bank" id="wordBank"></div>
+    <div class="builder">
+      <div class="builder-label">1 · A view + a reason</div>
+      <div class="sentence-slot" id="slot-b1"></div>
+      <div class="word-bank" id="bank-b1"></div>
+      <div class="feedback-banner" id="fb-b1"></div>
     </div>
-    <div class="feedback-banner" id="phraseFeedback"></div>
+    <div class="builder">
+      <div class="builder-label">2 · Answering someone who disagrees</div>
+      <div class="sentence-slot" id="slot-b2"></div>
+      <div class="word-bank" id="bank-b2"></div>
+      <div class="feedback-banner" id="fb-b2"></div>
+    </div>
   </div>
 </div>
 
-<!-- SLIDE 7: YOUR TURN — SPEAKING TASK -->
-<div class="slide" data-title="Your Turn">
+<!-- 10 LIVE 1: QUICK FIRE -->
+<div class="slide">
   <div class="card">
-    <span class="badge-tag">The Real Work · Le vrai travail</span>
-    <h2>🎤 Your Turn — Live</h2>
-    <div class="speak-card">
-      <span class="speak-icon">💬</span>
-      <div class="bi-en">Tell me an opinion you have — about anything, big or small — and give me one real reason for it. Try starting with "I think..." or "I'm convinced that..."</div>
-      <div class="bi-fr">Dis-moi une opinion que tu as — sur n'importe quoi, grand ou petit — et donne-moi une vraie raison. Essaie de commencer par « I think... » ou « I'm convinced that... »</div>
-      <button class="nudge-toggle" id="nudgeToggle">Need a nudge? / Besoin d'un coup de pouce ?</button>
-      <div class="nudge-box" id="nudgeBox">
-        <div class="starter">"I think... because..."</div>
-        <div class="starter">"I'm convinced that..."</div>
-        <div class="starter">"It seems to me that..."</div>
-      </div>
-      <button class="done-talking-btn" id="doneTalkingBtn">✅ We talked it through</button>
-      <div class="talk-confirm" id="talkConfirm">Nice work. That's the real lesson — you just did it. 🌟</div>
+    <span class="badge-tag">The Real Work · Round 1</span>
+    <h2>🎤 Quick-Fire Opinions</h2>
+    <div class="speak-card" style="padding:18px 20px;">
+      <div class="speak-en">A topic appears. Give your opinion AND one real reason. Then I'll ask you one follow-up question.</div>
+      <div class="speak-fr">Un sujet apparaît. Donne ton avis ET une vraie raison. Ensuite, je te pose une question de plus.</div>
     </div>
+    <div class="prompt-card">
+      <div class="prompt-num" id="qfNum">Topic 1</div>
+      <div class="prompt-en" id="qfEn"></div>
+      <div class="prompt-fr" id="qfFr"></div>
+    </div>
+    <div class="starter-strip">
+      <span class="starter">I think… because…</span><span class="starter">In my opinion…</span><span class="starter">I feel like…</span><span class="starter">I'm convinced that…</span>
+    </div>
+    <div class="btn-row">
+      <button class="act-btn primary" id="qfDone">✅ She answered — next topic</button>
+      <button class="act-btn ghost" id="qfSkip">Skip this topic</button>
+    </div>
+    <div class="counter">Opinions given: <b id="qfCount">0</b></div>
   </div>
 </div>
 
-<!-- SLIDE 8: DEBRIEF -->
-<div class="slide" data-title="Debrief">
+<!-- 11 LIVE 2: DEBATE -->
+<div class="slide">
+  <div class="card">
+    <span class="badge-tag">The Real Work · Round 2</span>
+    <h2>⚖️ I Disagree With You!</h2>
+    <div class="speak-card" style="padding:18px 20px;">
+      <div class="speak-en">Pick one topic from Round 1. I'll take the other side and push back. Each time, answer me like Sofia: show you listened, then defend your view.</div>
+      <div class="speak-fr">Choisis un sujet du Round 1. Je prends le camp opposé. À chaque fois, réponds comme Sofia : montre que tu as écouté, puis défends ton avis.</div>
+    </div>
+    <div class="starter-strip">
+      <span class="starter teal">I see your point, but…</span><span class="starter teal">That's fair, but…</span><span class="starter teal">You're right that…, but I still think…</span><span class="starter teal">I'm not sure I agree, because…</span>
+    </div>
+    <ol class="steps">
+      <li>You give your opinion and reason.</li>
+      <li>I disagree with a counter-argument.</li>
+      <li>You answer with one of the phrases above, then give a new reason.</li>
+      <li>Three rounds, then we switch topics if there's time.</li>
+    </ol>
+    <div class="btn-row"><button class="act-btn primary" id="dbDone">✅ Debate round done</button></div>
+    <div class="counter">Debate rounds: <b id="dbCount">0</b></div>
+  </div>
+</div>
+
+<!-- 12 LIVE 3: SWITCH SIDES -->
+<div class="slide">
+  <div class="card">
+    <span class="badge-tag">The Real Work · Round 3</span>
+    <h2>🔄 Switch Sides</h2>
+    <div class="speak-card">
+      <span class="speak-icon">🎭</span>
+      <div class="speak-en">Now the challenge: defend the opinion you DON'T have. Find the best reason for the other side — even if you don't believe it.</div>
+      <div class="speak-fr">Maintenant le défi : défends l'opinion que tu N'AS PAS. Trouve la meilleure raison pour l'autre camp — même si tu n'y crois pas.</div>
+    </div>
+    <div class="starter-strip">
+      <span class="starter">Some people think… because…</span><span class="starter">One good reason is that…</span><span class="starter">I can understand why…</span>
+    </div>
+    <div class="bi-cols">
+      <div class="bi-en">Why do this? Understanding the other side makes your own argument stronger.</div>
+      <div class="bi-fr">Pourquoi ? Comprendre l'autre camp rend ton propre argument plus fort.</div>
+    </div>
+    <div class="btn-row"><button class="act-btn primary" id="swDone">✅ We did it</button></div>
+    <div class="counter" id="swMsg"></div>
+  </div>
+</div>
+
+<!-- 13 DEBRIEF -->
+<div class="slide">
   <div class="card">
     <span class="badge-tag">Reflect · Réflexion</span>
     <h2>💭 Quick Debrief</h2>
     <div class="speak-card">
       <span class="speak-icon">🌟</span>
-      <div class="bi-en">Was it easier to say WHAT you think, or WHY? What surprised you about that?</div>
-      <div class="bi-fr">Était-ce plus facile de dire CE que tu penses, ou POURQUOI ? Qu'est-ce qui t'a surprise ?</div>
-      <button class="nudge-toggle" id="nudgeToggle2">Need a nudge? / Besoin d'un coup de pouce ?</button>
-      <div class="nudge-box" id="nudgeBox2">
-        <div class="starter">"The 'what' was easier because..."</div>
-        <div class="starter">"The 'why' was harder because..."</div>
-      </div>
-      <button class="done-talking-btn" id="doneTalkingBtn2">✅ We talked it through</button>
-      <div class="talk-confirm" id="talkConfirm2">Good noticing that — that awareness is how you get better. 🌟</div>
+      <div class="speak-en">Which was harder: giving your own opinion, or answering someone who disagreed with you? Why?</div>
+      <div class="speak-fr">Qu'est-ce qui était le plus difficile : donner ton avis, ou répondre à quelqu'un qui n'était pas d'accord ? Pourquoi ?</div>
+    </div>
+    <div class="speak-card">
+      <span class="speak-icon">📝</span>
+      <div class="speak-en">Which ONE phrase from today will you try to use this week — in English or even in French?</div>
+      <div class="speak-fr">Quelle expression d'aujourd'hui vas-tu essayer d'utiliser cette semaine ?</div>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 9: BONUS ROUND (OPTIONAL WHEEL) -->
-<div class="slide" data-title="Bonus Round">
+<!-- 14 BONUS WHEEL -->
+<div class="slide">
   <div class="card">
-    <span class="badge-tag" style="background:rgba(255,184,48,0.14); color:var(--amber); border-color:rgba(255,184,48,0.3);">Optional · Facultatif</span>
+    <span class="badge-tag opt">Optional · Facultatif</span>
     <h2>🎡 Bonus Round — Only If We Have Time</h2>
-    <div class="bonus-frame">
-      <div class="bi-en">This part is completely optional. If we finish early or you want to keep talking about something new, spin the wheel and pick a topic. If not — no problem, the real work for today is already done.</div>
-      <div class="bi-fr">Cette partie est totalement facultative. Si on a fini en avance ou si tu veux continuer sur un autre sujet, fais tourner la roue. Sinon, pas de souci — le vrai travail d'aujourd'hui est déjà fait.</div>
+    <div class="bridge-line">
+      <div style="font-weight:700;">Spin, and give your opinion with a reason. Use a phrase from today!</div>
+      <div style="font-size:14px;color:var(--violet);font-style:italic;margin-top:4px;">Fais tourner, et donne ton avis avec une raison. Utilise une expression d'aujourd'hui !</div>
     </div>
-    <div class="wheel-frame">
-      <div class="wheel-main">
-        <div class="wheel-left">
-          <div class="wheel-wrap">
-            <div class="wheel-pointer"></div>
-            <svg class="wheel-svg" id="wheel" viewBox="0 0 300 300" aria-hidden="true"></svg>
-            <button class="wheel-hub" id="whub" aria-label="Spin the wheel">
-              <span class="spin-ico">↻</span><span class="word">SPIN</span>
-            </button>
-          </div>
-          <div class="wheel-hint" id="whint">Tap SPIN if you want to / Touche SPIN si tu veux</div>
-          <div class="wheel-legend" id="wlegend"></div>
+    <div class="wheel-frame"><div class="wheel-main">
+      <div class="wheel-left">
+        <div class="wheel-wrap">
+          <div class="wheel-pointer"></div>
+          <svg class="wheel-svg" id="wheel" viewBox="0 0 300 300" aria-hidden="true"></svg>
+          <button class="wheel-hub" id="whub">↻<br>SPIN</button>
         </div>
-        <div class="wheel-right">
-          <div class="wpanel" id="wpanel">
-            <div class="wplaceholder" id="wplaceholder">Totally optional — spin only if there's time left. / Facultatif — fais tourner seulement s'il reste du temps.</div>
-          </div>
-          <div class="wactions" id="wactions" style="display:none">
-            <button class="wbtn wbtn-ghost" id="wagainBtn">Another in this topic</button>
-            <button class="wbtn wbtn-primary" id="wspinBtn">Spin again</button>
-          </div>
-        </div>
+        <div class="wheel-hint" id="whint">Tap SPIN if there's time / Touche SPIN s'il reste du temps</div>
       </div>
-    </div>
+      <div class="wheel-right"><div class="wpanel" id="wpanel"><div class="wplaceholder">Totally optional. / Totalement facultatif.</div></div></div>
+    </div></div>
   </div>
 </div>
 
-<!-- SLIDE 10: CELEBRATION -->
-<div class="slide" data-title="Great Fourth Episode">
+<!-- 15 WRAP -->
+<div class="slide">
   <div class="card" style="text-align:center;">
     <span class="badge-tag">Episode Wrap · Fin de l'épisode</span>
-    <h1>Great fourth episode, <span class="accent">Berenice!</span></h1>
-    <div class="bi-cols" style="margin-top:20px; text-align:left;">
-      <div class="bi-en">Look what you actually did today — not just understood, <strong>did</strong>.</div>
-      <div class="bi-fr">Regarde ce que tu as vraiment fait aujourd'hui — pas juste compris, <strong>fait</strong>.</div>
+    <h1>Great fourth episode, <span class="accent">Bérénice!</span></h1>
+    <div class="bi-cols" style="margin-top:20px;text-align:left;">
+      <div class="bi-en">Today you didn't just learn how to give an opinion. You defended one — and you listened while you did it.</div>
+      <div class="bi-fr">Aujourd'hui, tu n'as pas seulement appris à donner ton avis. Tu l'as défendu — et tu as écouté en même temps.</div>
     </div>
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num" id="statWords">0</div><div class="stat-lbl">Words &amp; chunks learned</div><div class="stat-lbl-fr">Mots et expressions appris</div></div>
-      <div class="stat-card"><div class="stat-num" id="statQuestions">4</div><div class="stat-lbl">Opinion patterns practiced</div><div class="stat-lbl-fr">Modèles d'opinion pratiqués</div></div>
-      <div class="stat-card"><div class="stat-num" id="statSpeak">1</div><div class="stat-lbl">Real opinion, live</div><div class="stat-lbl-fr">Vraie opinion, en direct</div></div>
+      <div class="stat-card"><div class="stat-num" id="statOpinions">0</div><div class="stat-lbl">Opinions given, live</div><div class="stat-lbl-fr">Avis donnés, en direct</div></div>
+      <div class="stat-card"><div class="stat-num" id="statDebate">0</div><div class="stat-lbl">Debate rounds</div><div class="stat-lbl-fr">Tours de débat</div></div>
+      <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl">New phrases</div><div class="stat-lbl-fr">Nouvelles expressions</div></div>
     </div>
     <button class="celebrate-btn" id="celebrateBtn">🎉 Open Your Episode Badge</button>
     <div class="badge-reveal" id="badgeReveal">
@@ -496,7 +500,7 @@
       <div class="badge-title">Opinion Owner — Episode 4 Complete!</div>
       <div class="hero-sub-fr" style="margin-top:6px;">Maîtresse de l'opinion — Épisode 4 terminé !</div>
     </div>
-    <p style="margin-top:20px; font-size:17px; color:var(--muted);">See you next episode. 🎬</p>
+    <p style="margin-top:20px;font-size:17px;color:var(--muted);">See you next episode. 🎬</p>
   </div>
 </div>
 
@@ -504,451 +508,79 @@
 
 <div class="nav-row">
   <button class="nav-btn back" id="backBtn">⬅ Back</button>
-  <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
+  <span class="progress-label" id="progressLabel">Slide 1 / 15</span>
   <button class="nav-btn next" id="nextBtn">Next ➡</button>
 </div>
-
 <script>
-/* ============ CORE NAV / XP ============ */
-const slides = document.querySelectorAll('.slide');
-const total = slides.length;
-let current = 0;
-let xp = 0;
-const locks = {1:false, 2:false, 3:false, 5:false, 6:false};
+const slides=document.querySelectorAll('.slide');const total=slides.length;let current=0;let xp=0;
+function addXP(n){xp+=n;document.getElementById('xpCount').textContent=xp;const p=document.getElementById('xpPop');p.textContent='+'+n+' XP';p.classList.add('show');setTimeout(()=>p.classList.remove('show'),900);}
+const vp=document.getElementById('slideViewport');const cue=document.getElementById('scrollCue');
+function checkCue(){cue.classList.toggle('show',vp.scrollHeight>vp.clientHeight+4&&vp.scrollTop<12);}
+vp.addEventListener('scroll',checkCue);window.addEventListener('resize',checkCue);
+function refreshNav(){document.getElementById('backBtn').disabled=current===0;const n=document.getElementById('nextBtn');n.disabled=current===total-1;n.textContent=current===total-1?'Finished! 🎉':'Next ➡';document.getElementById('progressLabel').textContent='Slide '+(current+1)+' / '+total;document.getElementById('progText').textContent=(current+1)+' / '+total;if(current===total-1)runWrap();}
+function go(d){const i=current+d;if(i<0||i>=total)return;slides[current].classList.remove('active');current=i;slides[current].classList.add('active');refreshNav();vp.scrollTo({top:0});setTimeout(checkCue,60);}
+document.getElementById('backBtn').onclick=()=>go(-1);document.getElementById('nextBtn').onclick=()=>go(1);
+function shuffle(a){return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);}
 
-function addXP(n){ xp += n; document.getElementById('xpCount').textContent = xp;
-  const pop = document.getElementById('xpPop'); pop.textContent = '+' + n + ' XP';
-  pop.classList.add('show'); setTimeout(()=>pop.classList.remove('show'), 900); }
+/* cards */
+const vocab=[{e:"💭",en:"I think…",fr:"je pense que…",ex:"I think it's a good idea."},{e:"🔗",en:"because",fr:"parce que",ex:"…because we need rest."},{e:"🙂",en:"I feel like…",fr:"j'ai l'impression que…",ex:"I feel like it could work."},{e:"🎯",en:"I'm convinced that…",fr:"je suis convaincue que…",ex:"I'm convinced she's right."},{e:"👂",en:"I see your point",fr:"je comprends ton point de vue",ex:"I see your point, but…"},{e:"⚖️",en:"That's fair",fr:"c'est juste",ex:"That's fair, but I still think…"},{e:"🔄",en:"I still think…",fr:"je pense quand même que…",ex:"I still think it goes too far."},{e:"🤔",en:"I'm not sure I agree",fr:"je ne suis pas sûre d'être d'accord",ex:"I'm not sure I agree, because…"}];
+let flipped=0;
+(function(){const g=document.getElementById('vocabGrid');vocab.forEach(v=>{const c=document.createElement('div');c.className='vocab-card';c.innerHTML=`<span class="emoji">${v.e}</span><span class="word">${v.en}</span><span class="fr">${v.fr}<br><span style="font-size:11px;color:var(--teal)">"${v.ex}"</span></span>`;c.onclick=()=>{if(!c.classList.contains('flipped')){c.classList.add('flipped');flipped++;addXP(1);}};g.appendChild(c);});})();
 
-function refreshNav(){
-  document.getElementById('backBtn').disabled = (current === 0);
-  const nextBtn = document.getElementById('nextBtn');
-  const locked = locks.hasOwnProperty(current) && !locks[current];
-  nextBtn.disabled = locked || current === total-1;
-  nextBtn.classList.toggle('locked', locked);
-  nextBtn.textContent = current === total-1 ? 'Finished! 🎉' : 'Next ➡';
-  document.getElementById('progressLabel').textContent = 'Slide ' + (current+1) + ' / ' + total;
-  document.getElementById('progText').textContent = (current+1) + ' / ' + total;
-  if(current === total-1) runCelebrationEntry();
-}
-const slideViewport = document.getElementById('slideViewport');
-const scrollCue = document.getElementById('scrollCue');
-function checkScrollCue(){
-  const overflowing = slideViewport.scrollHeight > slideViewport.clientHeight + 4;
-  const atTop = slideViewport.scrollTop < 12;
-  scrollCue.classList.toggle('show', overflowing && atTop);
-}
-slideViewport.addEventListener('scroll', ()=>{
-  if(slideViewport.scrollTop > 12) scrollCue.classList.remove('show');
-  else checkScrollCue();
-});
-window.addEventListener('resize', checkScrollCue);
-function changeSlide(delta){
-  const newIdx = current + delta;
-  if(newIdx < 0 || newIdx >= total) return;
-  slides[current].classList.remove('active');
-  current = newIdx;
-  slides[current].classList.add('active');
-  refreshNav();
-  slideViewport.scrollTo({top:0, behavior:'auto'});
-  setTimeout(checkScrollCue, 60);
-}
-document.getElementById('backBtn').addEventListener('click', ()=>changeSlide(-1));
-document.getElementById('nextBtn').addEventListener('click', ()=>changeSlide(1));
-function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
-
-/* ============ VOCAB CARDS ============ */
-const vocabData = [
-  {e:"💭", en:"I think", fr:"je pense", ex:"\"I think it's a good idea.\""},
-  {e:"🔗", en:"because", fr:"parce que", ex:"\"...because it's true.\""},
-  {e:"🎯", en:"convinced", fr:"convaincu(e)", ex:"\"I'm convinced she's right.\""},
-  {e:"🙂", en:"I feel like", fr:"j'ai l'impression que", ex:"\"I feel like it could work.\""},
-  {e:"🎨", en:"vandalism", fr:"vandalisme", ex:"\"Some call it vandalism.\""},
-  {e:"⚖️", en:"unfair", fr:"injuste", ex:"\"That fine seemed unfair.\""},
-  {e:"🏛️", en:"abandoned", fr:"abandonné(e)", ex:"\"An abandoned building.\""},
-  {e:"🗣️", en:"firmly believe", fr:"croire fermement", ex:"\"I firmly believe this matters.\""},
-];
-let vocabFlipped = 0;
-function buildVocab(){
-  const grid = document.getElementById('vocabGrid');
-  vocabData.forEach(item=>{
-    const card = document.createElement('div'); card.className = 'vocab-card';
-    card.innerHTML = `<span class="emoji">${item.e}</span><span class="word">${item.en}</span><span class="fr">${item.fr}<br><span style="font-size:11px;">${item.ex}</span></span>`;
-    card.addEventListener('click', ()=>{
-      if(!card.classList.contains('flipped')){
-        card.classList.add('flipped'); vocabFlipped++;
-        if(vocabFlipped >= 5 && !locks[1]){ locks[1] = true; addXP(1); document.getElementById('vocabHint').textContent = 'Nice! Next is unlocked. / Bien joué ! Suivant est débloqué.'; refreshNav(); }
-      }
-    });
-    grid.appendChild(card);
-  });
-}
-
-/* ============ MATCH GAME (opinion strength) ============ */
-const matchWords = [
-  {fr: "opinion douce", en: "I feel like...", wrong1: "I'm convinced that...", wrong2: "I firmly believe..."},
-  {fr: "opinion forte", en: "I'm convinced that...", wrong1: "I feel like...", wrong2: "It seems to me that..."},
-  {fr: "opinion très forte", en: "I firmly believe...", wrong1: "I feel like...", wrong2: "I think maybe..."}
-];
-let matchRound = 0;
-function buildMatchProgress(){
-  const wrap = document.getElementById('matchProgress');
-  for(let i=0;i<matchWords.length;i++){
-    const d = document.createElement('span'); d.className='match-dot'; d.id='mdot'+i;
-    wrap.appendChild(d);
-  }
-}
-function renderMatchRound(){
-  const item = matchWords[matchRound];
-  document.getElementById('matchRoundNum').textContent = matchRound+1;
-  document.getElementById('matchFrWord').textContent = item.fr;
-  document.getElementById('matchFeedback').innerHTML = '';
-  const grid = document.getElementById('matchGrid');
-  grid.innerHTML = '';
-  const options = shuffle([item.en, item.wrong1, item.wrong2]);
-  options.forEach(opt=>{
-    const btn = document.createElement('button'); btn.className='match-opt'; btn.textContent = opt;
-    btn.addEventListener('click', ()=>{
-      if(btn.classList.contains('disabled')) return;
-      const grid2 = document.getElementById('matchGrid');
-      if(opt === item.en){
-        btn.classList.add('correct');
-        grid2.querySelectorAll('.match-opt').forEach(o=>o.classList.add('disabled'));
-        addXP(1);
-        const dot = document.getElementById('mdot'+matchRound); if(dot) dot.classList.add('done');
-        document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">Yes! 🎉</span>';
-        setTimeout(()=>{
-          matchRound++;
-          if(matchRound >= matchWords.length){
-            if(!locks[3]){ locks[3] = true; refreshNav(); }
-            document.getElementById('matchFrWord').textContent = '✅';
-            document.getElementById('matchGrid').innerHTML = '';
-            document.getElementById('matchFeedback').innerHTML = '<span class="fb-en" style="color:var(--lime)">All done! Next is unlocked.</span><span class="fb-fr">Terminé ! Suivant est débloqué.</span>';
-          } else {
-            renderMatchRound();
-          }
-        }, 700);
-      } else {
-        btn.classList.add('incorrect'); setTimeout(()=>btn.classList.remove('incorrect'), 450);
-      }
-    });
-    grid.appendChild(btn);
-  });
-}
-
-/* ============ SENTENCE BUILDER (opinion + reason) ============ */
-const displayPhrase = ['I', 'think', 'it', 'takes', 'real', 'skill.'];
-const bankWords = shuffle(['real', 'I', 'skill.', 'think', 'it', 'takes']);
-let placedWords = [];
-function buildPhraseScreen(){
-  const bank = document.getElementById('wordBank');
-  bankWords.forEach(word=>{
-    const chip = document.createElement('div'); chip.className = 'word-chip';
-    chip.textContent = word;
-    chip.addEventListener('click', ()=>{
-      if(chip.classList.contains('used')) return;
-      placedWords.push(word); chip.classList.add('used');
-      renderSlot(); checkPhrase();
-    });
-    bank.appendChild(chip);
-  });
-  renderSlot();
-}
-function renderSlot(){
-  const slot = document.getElementById('sentenceSlot');
-  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
-}
-function checkPhrase(){
-  const fb = document.getElementById('phraseFeedback');
-  if(placedWords.length < displayPhrase.length) return;
-  const correct = placedWords.join(' ') === displayPhrase.join(' ');
-  if(correct){
-    addXP(2);
-    fb.innerHTML = '<span class="fb-en">Perfect! "I think it takes real skill." 🌟</span><span class="fb-fr">Parfait ! « Je pense que ça demande une vraie compétence. »</span>';
-    fb.className = 'feedback-banner good';
-    locks[6] = true; refreshNav();
-  } else {
-    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
-    fb.appendChild(resetBtn);
-  }
-}
-
-/* ============ MCQ ============ */
-const FB = {
-  qp1: { lockKey:2, ok:"C", expl:{
-    A:{en:"Just a reason floating on its own — no clear view stated first. Try again!", fr:"Juste une raison sans avis clair d'abord — réessaie !"},
-    B:{en:"Just a view — no reason attached. Try again!", fr:"Juste un avis — pas de raison — réessaie !"},
-    C:{en:"Yes! View + reason = a complete opinion. 🎉", fr:"Oui ! Avis + raison = une opinion complète."}
-  }},
-  r1: { lockKey:5, ok:"A", expl:{
-    A:{en:"Yes! Painting fast and mistake-free before police arrive is her stated reason. 🎉", fr:"Oui ! Peindre vite et sans erreur avant l'arrivée de la police est sa raison."},
-    B:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
-    C:{en:"The bio says the opposite — her grandmother disagrees with her — try again!", fr:"La fiche dit le contraire — sa grand-mère n'est pas d'accord — réessaie !"}
-  }},
-  r2: { lockKey:5, ok:"B", expl:{
-    A:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
-    B:{en:"Yes! \"The wall was ugly before and beautiful after\" is her stated reason. 🎉", fr:"Oui ! « Le mur était laid avant et magnifique après » est sa raison."},
-    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
-  }}
+/* MCQ */
+const FB={
+ qp1:{ok:"B",m:{A:["That's a view, but where's the reason? Try again!","C'est un avis, mais où est la raison ? Réessaie !"],B:["Yes! A view + a reason = a complete opinion. 🎉","Oui ! Un avis + une raison = une opinion complète."],C:["That's only a reason — whose view is it? Try again!","C'est seulement une raison — quel est l'avis ? Réessaie !"]}},
+ qp2:{ok:"C",m:{A:["That closes the conversation. Try again!","Ça ferme la conversation. Réessaie !"],B:["That's a view, but it ignores your friend. Try again!","C'est un avis, mais tu ignores ton amie. Réessaie !"],C:["Yes! You listened first, then gave your view and a reason. 🎉","Oui ! Tu as écouté d'abord, puis donné ton avis et une raison."]}},
+ r1:{ok:"B",m:{A:["Not in the text. Try again!","Pas dans le texte. Réessaie !"],B:["Yes! Her teacher asks students to look up words or check a map. 🎉","Oui ! Son prof demande de chercher des mots ou de regarder une carte."],C:["Not in the text. Try again!","Pas dans le texte. Réessaie !"]}},
+ r2:{ok:"A",m:{A:["Yes! \"Phones steal your attention.\" 🎉","Oui ! « Les téléphones volent ton attention. »"],B:["Not in the text. Try again!","Pas dans le texte. Réessaie !"],C:["The text doesn't say that. Try again!","Le texte ne dit pas ça. Réessaie !"]}},
+ r3:{ok:"C",m:{A:["No — she still thinks the rule goes too far. Try again!","Non — elle pense toujours que la règle va trop loin."],B:["No — they still don't agree. Try again!","Non — elles ne sont toujours pas d'accord."],C:["Exactly! She showed she listened, so Nonna listened too. 🎉","Exactement ! Elle a montré qu'elle écoutait, alors Nonna a écouté aussi."]}},
+ r4:{ok:"B",m:{A:["That's her idea for a solution. Look for where she agrees first. Try again!","C'est sa solution. Cherche où elle est d'accord d'abord."],B:["Yes! She says Nonna has a fair point before giving her view. 🎉","Oui ! Elle dit que Nonna a raison sur un point avant de donner son avis."],C:["That's her opinion, not her listening. Try again!","C'est son avis, pas son écoute. Réessaie !"]}}
 };
-let mcqAnswered = {qp1:false, r1:false, r2:false};
-function checkLockGroup(lockKey, members){
-  const allDone = members.every(m=>mcqAnswered[m]);
-  if(allDone && !locks[lockKey]){ locks[lockKey] = true; refreshNav(); }
-}
-function initMCQ(gid, feedbackId){
-  const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
-  const fb = document.getElementById(feedbackId);
-  block.querySelectorAll('.mcq-opt').forEach(opt=>{
-    opt.addEventListener('click', ()=>{
-      if(block.classList.contains('answered')) return;
-      const ans = opt.dataset.ans; const isCorrect = ans === FB[gid].ok;
-      if(isCorrect){
-        opt.classList.add('correct'); block.classList.add('answered');
-        block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
-        addXP(2);
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner good';
-        mcqAnswered[gid] = true;
-        if(gid === 'qp1') checkLockGroup(2, ['qp1']);
-        if(gid === 'r1' || gid === 'r2') checkLockGroup(5, ['r1','r2']);
-      } else {
-        opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner retry';
-      }
-    });
-  });
-}
+Object.keys(FB).forEach(gid=>{const b=document.querySelector(`.mcq-options[data-gid="${gid}"]`);const fb=document.getElementById('fb-'+gid);b.querySelectorAll('.mcq-opt').forEach(o=>{o.onclick=()=>{if(b.dataset.done)return;const a=o.dataset.ans;const ok=a===FB[gid].ok;fb.innerHTML=`<span class="fb-en">${FB[gid].m[a][0]}</span><span class="fb-fr">${FB[gid].m[a][1]}</span>`;fb.className='feedback-banner '+(ok?'good':'retry');if(ok){o.classList.add('correct');b.dataset.done=1;b.querySelectorAll('.mcq-opt').forEach(x=>x.classList.add('disabled'));addXP(2);}else{o.classList.add('incorrect');setTimeout(()=>o.classList.remove('incorrect'),500);}};});});
 
-/* ============ SPEAKING TASK + DEBRIEF ============ */
-document.getElementById('nudgeToggle').addEventListener('click', (e)=>{
-  const box = document.getElementById('nudgeBox');
-  box.classList.toggle('show');
-  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
-});
-document.getElementById('doneTalkingBtn').addEventListener('click', function(){
-  document.getElementById('talkConfirm').classList.add('show');
-  this.disabled = true;
-  this.textContent = '✅ Done';
-  addXP(5);
-});
-document.getElementById('nudgeToggle2').addEventListener('click', (e)=>{
-  const box = document.getElementById('nudgeBox2');
-  box.classList.toggle('show');
-  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
-});
-document.getElementById('doneTalkingBtn2').addEventListener('click', function(){
-  document.getElementById('talkConfirm2').classList.add('show');
-  this.disabled = true;
-  this.textContent = '✅ Done';
-  addXP(3);
-});
+/* match */
+const MW=[{fr:"opinion douce",en:"I feel like…",w:["I'm convinced that…","I firmly believe…"]},{fr:"opinion forte",en:"I'm convinced that…",w:["I feel like…","It seems to me that…"]},{fr:"pas d'accord, mais poli",en:"I see your point, but…",w:["You're wrong.","That's stupid."]}];
+let mr=0;
+(function(){const w=document.getElementById('matchProgress');MW.forEach((_,i)=>{const d=document.createElement('span');d.className='match-dot';d.id='md'+i;w.appendChild(d);});})();
+function renderMatch(){const it=MW[mr];document.getElementById('matchRoundNum').textContent=mr+1;document.getElementById('matchFrWord').textContent=it.fr;document.getElementById('matchFeedback').innerHTML='';const g=document.getElementById('matchGrid');g.innerHTML='';shuffle([it.en,...it.w]).forEach(opt=>{const bt=document.createElement('button');bt.className='match-opt';bt.textContent=opt;bt.onclick=()=>{if(opt===it.en){bt.classList.add('correct');g.querySelectorAll('.match-opt').forEach(o=>o.classList.add('disabled'));addXP(1);document.getElementById('md'+mr).classList.add('done');document.getElementById('matchFeedback').innerHTML='<span class="fb-en" style="color:var(--lime)">Yes! 🎉</span>';setTimeout(()=>{mr++;if(mr>=MW.length){document.getElementById('matchFrWord').textContent='✅';g.innerHTML='';document.getElementById('matchFeedback').innerHTML='<span class="fb-en" style="color:var(--lime)">All done!</span><span class="fb-fr">Terminé !</span>';}else renderMatch();},700);}else{bt.classList.add('incorrect');setTimeout(()=>bt.classList.remove('incorrect'),450);}};g.appendChild(bt);});}
+renderMatch();
 
-/* ============ CONVERSATION WHEEL (optional bonus — never gates progress) ============ */
-const WCATS = [
-  { name:'About Me', emoji:'🙋', color:'#0fd4b8', text:'#00251f',
-    qs:[
-      {q:"What's one thing about you most people don't know?", qf:"Quelle est une chose sur toi que la plupart des gens ne savent pas ?", push:"Now tell me why you don't usually share it.", pushf:"Maintenant, dis-moi pourquoi tu ne le partages pas d'habitude."},
-      {q:"Describe yourself in three words. Explain the middle one.", qf:"Décris-toi en trois mots. Explique celui du milieu.", push:"Now give me a word your friends would use instead.", pushf:"Maintenant, donne un mot que tes amis utiliseraient à la place."},
-      {q:"What's something you're proud of this year?", qf:"De quoi es-tu fière cette année ?", push:"Now tell me what it took to get there.", pushf:"Maintenant, dis-moi ce qu'il a fallu pour y arriver."},
-      {q:"Are you more of a morning person or a night person?", qf:"Tu es plutôt du matin ou du soir ?", push:"Now describe what happens on the wrong side of that.", pushf:"Maintenant, décris ce qui se passe du mauvais côté."},
-      {q:"What's a small habit that says a lot about you?", qf:"Quelle petite habitude en dit long sur toi ?", push:"Now tell me when you noticed it.", pushf:"Maintenant, dis-moi quand tu l'as remarquée."},
-      {q:"If a stranger watched your day, what would surprise them?", qf:"Si un inconnu observait ta journée, qu'est-ce qui le surprendrait ?", push:"Now tell me if it would surprise you too.", pushf:"Maintenant, dis-moi si ça te surprendrait aussi."}
-    ]},
-  { name:'Home & Town', emoji:'🏠', color:'#ffb830', text:'#2a1c00',
-    qs:[
-      {q:"Give me a 30-second tour of your town for a visitor.", qf:"Fais-moi visiter ta ville en 30 secondes pour un visiteur.", push:"Now tell me the one place you'd save for last.", pushf:"Maintenant, dis-moi l'endroit que tu garderais pour la fin."},
-      {q:"What's the best-kept secret in your town?", qf:"Quel est le secret le mieux gardé de ta ville ?", push:"Now tell me who told you about it.", pushf:"Maintenant, dis-moi qui te l'a dit."},
-      {q:"Describe your bedroom in five sentences.", qf:"Décris ta chambre en cinq phrases.", push:"Now tell me which object you'd save in a fire.", pushf:"Maintenant, dis-moi quel objet tu sauverais dans un incendie."},
-      {q:"What's changed in your town since you were small?", qf:"Qu'est-ce qui a changé dans ta ville depuis que tu es petite ?", push:"Now tell me if that's better or worse.", pushf:"Maintenant, dis-moi si c'est mieux ou moins bien."},
-      {q:"Where do you go when you want to be alone?", qf:"Où tu vas quand tu veux être seule ?", push:"Now tell me what you do there.", pushf:"Maintenant, dis-moi ce que tu y fais."},
-      {q:"City center or middle of nowhere? Pick one and defend it.", qf:"Centre-ville ou milieu de nulle part ? Choisis et défends.", push:"Now tell me what you'd hate about your own choice.", pushf:"Maintenant, dis-moi ce que tu détesterais dans ton propre choix."}
-    ]},
-  { name:'School & Friends', emoji:'🎒', color:'#ff5a42', text:'#fff',
-    qs:[
-      {q:"How did you meet your closest friend?", qf:"Comment as-tu rencontré ta meilleure amie ?", push:"Now tell me the first thing you ever said to each other.", pushf:"Maintenant, dis-moi la première chose que vous vous êtes dite."},
-      {q:"What do you and your friends argue about most?", qf:"De quoi vous disputez-vous le plus avec tes amis ?", push:"Now tell me who usually wins.", pushf:"Maintenant, dis-moi qui gagne d'habitude."},
-      {q:"What's a running joke in your friend group?", qf:"Quelle est la blague récurrente dans ton groupe d'amis ?", push:"Now explain why it's funny to someone outside it.", pushf:"Maintenant, explique pourquoi c'est drôle à quelqu'un d'extérieur."},
-      {q:"Which subject this year are you actually looking forward to?", qf:"Quelle matière cette année tu attends vraiment avec impatience ?", push:"Now tell me which one you're dreading.", pushf:"Maintenant, dis-moi laquelle tu redoutes."},
-      {q:"Do you make the plans, or wait to be invited?", qf:"Tu proposes les plans, ou tu attends d'être invitée ?", push:"Now tell me which one you wish you were.", pushf:"Maintenant, dis-moi lequel tu aimerais être."},
-      {q:"Tell me about a time you laughed so hard you couldn't breathe.", qf:"Raconte-moi une fois où tu as tellement ri que tu ne pouvais plus respirer.", push:"Now tell me if it's still funny.", pushf:"Maintenant, dis-moi si c'est encore drôle."}
-    ]},
-  { name:'Favorites & Free Time', emoji:'🎧', color:'#a47aff', text:'#fff',
-    qs:[
-      {q:"What show or series would you make the whole world watch?", qf:"Quelle série ferais-tu regarder au monde entier ?", push:"Give me three reasons — no using the word 'good.'", pushf:"Donne trois raisons — interdit d'utiliser le mot « bien »."},
-      {q:"What's the last song stuck in your head? Describe it without singing.", qf:"Quelle est la dernière chanson coincée dans ta tête ? Décris-la sans chanter.", push:"Now tell me why it stuck.", pushf:"Maintenant, dis-moi pourquoi elle est restée."},
-      {q:"Sweet or savory? Pick your side for life.", qf:"Sucré ou salé ? Choisis ton camp pour la vie.", push:"Now name the one exception you'd allow.", pushf:"Maintenant, nomme la seule exception que tu t'autoriserais."},
-      {q:"Describe your perfect Saturday, hour by hour.", qf:"Décris ton samedi parfait, heure par heure.", push:"Now tell me the last time you actually had one.", pushf:"Maintenant, dis-moi la dernière fois que tu en as vraiment eu un."},
-      {q:"What's your comfort meal after a bad day?", qf:"Quel est ton plat réconfort après une mauvaise journée ?", push:"Now tell me who makes it best.", pushf:"Maintenant, dis-moi qui le fait le mieux."},
-      {q:"What's the most useless skill you have?", qf:"Quel est le talent le plus inutile que tu aies ?", push:"Now explain exactly how it works.", pushf:"Maintenant, explique exactement comment ça marche."}
-    ]},
-  { name:'Dreams & Future', emoji:'✨', color:'#3ee88a', text:'#00251f',
-    qs:[
-      {q:"Where do you want to be at 25? Paint me the picture.", qf:"Où veux-tu être à 25 ans ? Dépeins-moi le tableau.", push:"Now tell me what has to happen first.", pushf:"Maintenant, dis-moi ce qui doit se passer d'abord."},
-      {q:"If money didn't matter, what job would you choose?", qf:"Si l'argent n'avait aucune importance, quel métier choisirais-tu ?", push:"Now walk me through a normal Tuesday in that job.", pushf:"Maintenant, décris-moi un mardi ordinaire dans ce métier."},
-      {q:"One country you'd move to tomorrow — why there?", qf:"Un pays où tu déménagerais dès demain — pourquoi là-bas ?", push:"Now tell me what scares you about it.", pushf:"Maintenant, dis-moi ce qui te fait peur là-bas."},
-      {q:"What's a goal you're a little scared to say out loud?", qf:"Quel objectif as-tu un peu peur de dire à voix haute ?", push:"Now say one reason it matters to you.", pushf:"Maintenant, donne une raison pour laquelle il compte pour toi."},
-      {q:"What do you want to be able to say in English by Christmas?", qf:"Qu'est-ce que tu veux savoir dire en anglais d'ici Noël ?", push:"Now tell me what would make that possible.", pushf:"Maintenant, dis-moi ce qui rendrait ça possible."},
-      {q:"A whole free year anywhere, doing anything. Where and what?", qf:"Une année libre n'importe où, à faire n'importe quoi. Où et quoi ?", push:"Now tell me what you'd bring back.", pushf:"Maintenant, dis-moi ce que tu en ramènerais."}
-    ]},
-  { name:'Imagine!', emoji:'🎲', color:'#00d4ff', text:'#00251f',
-    qs:[
-      {q:"You wake up speaking perfect English. First thing you do?", qf:"Tu te réveilles en parlant anglais parfaitement. Tu fais quoi en premier ?", push:"Now tell me who you call.", pushf:"Maintenant, dis-moi qui tu appelles."},
-      {q:"Dinner with anyone, living or dead. Who, and what do you ask?", qf:"Un dîner avec qui tu veux, vivant ou mort. Qui, et tu demandes quoi ?", push:"Now tell me what they'd ask you.", pushf:"Maintenant, dis-moi ce qu'il te demanderait."},
-      {q:"You're invisible for 24 hours. Where do you go?", qf:"Tu es invisible pendant 24 heures. Tu vas où ?", push:"Now tell me what you'd never do.", pushf:"Maintenant, dis-moi ce que tu ne ferais jamais."},
-      {q:"Animals can talk for one day. Which one do you want to hear from?", qf:"Les animaux parlent pendant une journée. Lequel tu veux entendre ?", push:"Now tell me what it says about us.", pushf:"Maintenant, dis-moi ce qu'il pense de nous."},
-      {q:"You can delete one invention from history. Which one?", qf:"Tu peux effacer une invention de l'histoire. Laquelle ?", push:"Now tell me what breaks because of that.", pushf:"Maintenant, dis-moi ce que ça casse."},
-      {q:"One sentence to yourself at age ten. What is it?", qf:"Une phrase à toi-même à dix ans. C'est quoi ?", push:"Now tell me if she'd listen.", pushf:"Maintenant, dis-moi si elle écouterait."}
-    ]}
-];
+/* builders */
+const BUILD={b1:{target:["I","think","phones","are","useful","because","they","help","us","learn."],fr:"Je pense que les téléphones sont utiles parce qu'ils nous aident à apprendre."},b2:{target:["I","see","your","point,","but","I","still","think","it","goes","too","far."],fr:"Je comprends ton point de vue, mais je pense quand même que ça va trop loin."}};
+Object.keys(BUILD).forEach(id=>{const B=BUILD[id];B.placed=[];const bank=document.getElementById('bank-'+id);const slot=document.getElementById('slot-'+id);const fb=document.getElementById('fb-'+id);
+ function render(){slot.innerHTML=B.placed.length?B.placed.map(w=>`<span class="placed">${w}</span>`).join(' '):'<span class="slot-hint">Tap the words below… / Touche les mots ci-dessous…</span>';}
+ function reset(){B.placed=[];bank.querySelectorAll('.word-chip').forEach(c=>c.classList.remove('used'));fb.innerHTML='';render();}
+ shuffle(B.target.map((w,i)=>({w,i}))).forEach(o=>{const c=document.createElement('div');c.className='word-chip';c.textContent=o.w;c.onclick=()=>{if(c.classList.contains('used'))return;B.placed.push(o.w);c.classList.add('used');render();if(B.placed.length===B.target.length){if(B.placed.join(' ')===B.target.join(' ')){addXP(3);fb.className='feedback-banner good';fb.innerHTML=`<span class="fb-en">Perfect! "${B.target.join(' ')}" 🌟</span><span class="fb-fr">${B.fr}</span>`;}else{fb.className='feedback-banner retry';fb.innerHTML='<span class="fb-en">Almost! Try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';const r=document.createElement('button');r.className='replay-btn';r.textContent='🔄 Reset / Recommencer';r.onclick=reset;fb.appendChild(r);}}};bank.appendChild(c);});
+ render();});
 
-const SVGNS = "http://www.w3.org/2000/svg";
-const wheelEl = document.getElementById('wheel');
-const NW = WCATS.length, wseg = 360/NW, wcx=150, wcy=150, wr=148;
-function wpolar(rr, angDeg){ const a=(angDeg)*Math.PI/180; return [wcx + rr*Math.sin(a), wcy - rr*Math.cos(a)]; }
-WCATS.forEach((c,i)=>{
-  const start=i*wseg, end=(i+1)*wseg;
-  const [x1,y1]=wpolar(wr,start), [x2,y2]=wpolar(wr,end);
-  const large = wseg>180?1:0;
-  const path=document.createElementNS(SVGNS,'path');
-  path.setAttribute('d',`M${wcx},${wcy} L${x1.toFixed(2)},${y1.toFixed(2)} A${wr},${wr} 0 ${large} 1 ${x2.toFixed(2)},${y2.toFixed(2)} Z`);
-  path.setAttribute('fill',c.color); path.setAttribute('stroke','#09111f'); path.setAttribute('stroke-width','2');
-  wheelEl.appendChild(path);
-  const mid=start+wseg/2; const [ex,ey]=wpolar(wr*0.66, mid);
-  const t=document.createElementNS(SVGNS,'text');
-  t.setAttribute('x',ex.toFixed(2)); t.setAttribute('y',(ey+8).toFixed(2));
-  t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','22'); t.textContent=c.emoji;
-  wheelEl.appendChild(t);
-});
-const wrim=document.createElementNS(SVGNS,'circle');
-wrim.setAttribute('cx',wcx); wrim.setAttribute('cy',wcy); wrim.setAttribute('r',wr);
-wrim.setAttribute('fill','none'); wrim.setAttribute('stroke','#ffb830'); wrim.setAttribute('stroke-width','4');
-wheelEl.appendChild(wrim);
+/* quick fire */
+const QF=[["Should homework on weekends be banned?","Faut-il interdire les devoirs le week-end ?"],["Are dogs better pets than cats?","Les chiens sont-ils de meilleurs animaux que les chats ?"],["Should school start at 10 a.m.?","L'école devrait-elle commencer à 10 h ?"],["Should students wear school uniforms?","Les élèves devraient-ils porter un uniforme ?"],["Is it better to live in a big city or in the countryside?","Vaut-il mieux vivre dans une grande ville ou à la campagne ?"],["Should kids under 15 be allowed on social media?","Les moins de 15 ans devraient-ils avoir accès aux réseaux sociaux ?"],["Are video games good for you?","Les jeux vidéo sont-ils bons pour toi ?"],["Should everyone learn to cook at school?","Tout le monde devrait-il apprendre à cuisiner à l'école ?"],["Is it better to read the book or watch the movie?","Vaut-il mieux lire le livre ou regarder le film ?"],["Should summer holidays be shorter?","Les grandes vacances devraient-elles être plus courtes ?"]];
+let qfi=0,qfc=0;const qfOrder=shuffle(QF);
+function showQF(){const t=qfOrder[qfi%qfOrder.length];document.getElementById('qfNum').textContent='Topic '+(qfi+1);document.getElementById('qfEn').textContent=t[0];document.getElementById('qfFr').textContent=t[1];}
+document.getElementById('qfDone').onclick=()=>{qfc++;document.getElementById('qfCount').textContent=qfc;addXP(3);qfi++;showQF();};
+document.getElementById('qfSkip').onclick=()=>{qfi++;showQF();};
+showQF();
 
-const wlegend = document.getElementById('wlegend');
-WCATS.forEach((c,i)=>{
-  const b=document.createElement('button'); b.className='wchip';
-  b.style.background=c.color; b.style.color=c.text;
-  b.innerHTML=`<span>${c.emoji}</span> ${c.name}`;
-  b.addEventListener('click', ()=>spinWheelTo(i));
-  wlegend.appendChild(b);
-});
+/* debate + switch */
+let dbc=0;document.getElementById('dbDone').onclick=()=>{dbc++;document.getElementById('dbCount').textContent=dbc;addXP(4);};
+document.getElementById('swDone').onclick=function(){if(this.disabled)return;this.disabled=true;this.textContent='✅ Done';addXP(5);document.getElementById('swMsg').textContent="That's the hardest one. Great work! / C'est le plus difficile. Bravo !";};
 
-const whub=document.getElementById('whub');
-const whint=document.getElementById('whint');
-const wpanel=document.getElementById('wpanel');
-const wactions=document.getElementById('wactions');
-const wchips=[...document.querySelectorAll('.wchip')];
-let wrotation=0, wspinning=false, wcurrentCat=null, wlastQ={}; const wdecks={};
+/* FR toggles */
+document.querySelectorAll('.fr-toggle').forEach(b=>{b.onclick=()=>{const t=document.getElementById(b.dataset.target);t.classList.toggle('show');b.textContent=t.classList.contains('show')?'Hide French / Masquer':'Need help? Voir un résumé en français';};});
 
-function wsetDisabled(state){
-  wspinning=state; whub.disabled=state;
-  const sb=document.getElementById('wspinBtn'), ab=document.getElementById('wagainBtn');
-  if(sb) sb.disabled=state; if(ab) ab.disabled=state;
-  wchips.forEach(ch=>ch.disabled=state);
-}
-function wpickQuestion(i){
-  const list = WCATS[i].qs;
-  if(!wdecks[i] || wdecks[i].length===0){
-    wdecks[i] = list.map((_,k)=>k);
-    for(let k=wdecks[i].length-1;k>0;k--){ const j=Math.floor(Math.random()*(k+1)); [wdecks[i][k],wdecks[i][j]]=[wdecks[i][j],wdecks[i][k]]; }
-    if(list.length>1 && wdecks[i][wdecks[i].length-1]===wlastQ[i]){ [wdecks[i][0],wdecks[i][wdecks[i].length-1]]=[wdecks[i][wdecks[i].length-1],wdecks[i][0]]; }
-  }
-  const idx = wdecks[i].pop(); wlastQ[i]=idx; return list[idx];
-}
-function wreveal(i){
-  const c = WCATS[i]; const item = wpickQuestion(i); wcurrentCat = i;
-  wpanel.classList.remove('show');
-  wpanel.innerHTML = `
-    <span class="wcat-chip" style="background:${c.color};color:${c.text}">${c.emoji} ${c.name}</span>
-    <div class="wq">${item.q}</div>
-    <div class="wqf" lang="fr">${item.qf}</div>
-    <button class="wpush-toggle" id="wpushToggle">Take it further →</button>
-    <div class="wpush" id="wpushBox"><span class="lbl">Take it further · Pour aller plus loin</span><span class="txt">${item.push}</span><span class="txt-fr" lang="fr">${item.pushf}</span></div>
-  `;
-  wactions.style.display = 'flex';
-  void wpanel.offsetWidth;
-  wpanel.classList.add('show');
-  document.getElementById('wpushToggle').addEventListener('click', (e)=>{
-    const box = document.getElementById('wpushBox');
-    box.classList.toggle('show');
-    e.target.textContent = box.classList.contains('show') ? 'Hide' : 'Take it further →';
-  });
-  whint.textContent = 'Talk it through, then spin again if you like. / Parle, puis fais tourner à nouveau si tu veux.';
-  wsetDisabled(false);
-}
-function spinWheelTo(i){
-  if(wspinning) return;
-  wsetDisabled(true); whint.textContent = 'Spinning…';
-  const center = i*wseg + wseg/2;
-  const jitter = (Math.random()*2-1)*(wseg/2 - 9);
-  const target = (center + jitter);
-  const align = ((360 - (target % 360)) % 360);
-  const currentMod = ((wrotation % 360)+360)%360;
-  let delta = (align - currentMod + 360)%360;
-  const turns = 5 + Math.floor(Math.random()*3);
-  wrotation = wrotation + turns*360 + delta;
-  wheelEl.style.transform = `rotate(${wrotation}deg)`;
-  const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const afterSpin = ()=>{ wreveal(i); };
-  if(reduce){ afterSpin(); return; }
-  const onEnd = ()=>{ wheelEl.removeEventListener('transitionend', onEnd); afterSpin(); };
-  wheelEl.addEventListener('transitionend', onEnd);
-}
-function spinWheelRandom(){ spinWheelTo(Math.floor(Math.random()*NW)); }
-whub.addEventListener('click', spinWheelRandom);
-document.getElementById('wspinBtn').addEventListener('click', spinWheelRandom);
-document.getElementById('wagainBtn').addEventListener('click', ()=>{ if(wcurrentCat!==null) wreveal(wcurrentCat); });
+/* wheel */
+const WC=[{name:'School',emoji:'🎒',color:'#ff5a42',text:'#fff',qs:[["Should students choose their own subjects?","Les élèves devraient-ils choisir leurs matières ?"],["Is a longer lunch break better than finishing early?","Une pause déjeuner plus longue ou finir plus tôt ?"],["Should tests be replaced by projects?","Faut-il remplacer les contrôles par des projets ?"]]},{name:'Free Time',emoji:'🎧',color:'#a47aff',text:'#fff',qs:[["Is it better to have many friends or a few close ones?","Vaut-il mieux beaucoup d'amis ou quelques amis proches ?"],["Sweet or savory breakfast? Defend it!","Petit-déjeuner sucré ou salé ? Défends-le !"],["Is it better to go to the beach or the mountains?","Plutôt la plage ou la montagne ?"]]},{name:'Tech',emoji:'📱',color:'#0fd4b8',text:'#00251f',qs:[["Should phones be banned at dinner?","Faut-il interdire les téléphones au dîner ?"],["Will robots be good teachers one day?","Les robots seront-ils de bons profs un jour ?"],["Is it better to text or to call?","Vaut-il mieux envoyer un message ou appeler ?"]]},{name:'Imagine!',emoji:'🎲',color:'#ffb830',text:'#2a1c00',qs:[["Should everyone live abroad for one year?","Tout le monde devrait-il vivre un an à l'étranger ?"],["Would a world without cars be better?","Un monde sans voitures serait-il meilleur ?"],["Should animals be kept in zoos?","Faut-il garder les animaux dans des zoos ?"]]},{name:'Food',emoji:'🍕',color:'#3ee88a',text:'#00251f',qs:[["Is French food the best in the world?","La cuisine française est-elle la meilleure du monde ?"],["Should fast food be taxed more?","Faut-il taxer davantage la restauration rapide ?"],["Is pineapple on pizza acceptable?","L'ananas sur la pizza, c'est acceptable ?"]]}];
+const NS="http://www.w3.org/2000/svg";const wh=document.getElementById('wheel');const N=WC.length,seg=360/N,cx=150,cy=150,r=148;let rot=0,spinning=false;const lastQ={};
+function pol(rr,a){const t=a*Math.PI/180;return[cx+rr*Math.sin(t),cy-rr*Math.cos(t)];}
+WC.forEach((c,i)=>{const s=i*seg,e=(i+1)*seg;const[x1,y1]=pol(r,s),[x2,y2]=pol(r,e);const p=document.createElementNS(NS,'path');p.setAttribute('d',`M${cx},${cy} L${x1},${y1} A${r},${r} 0 0 1 ${x2},${y2} Z`);p.setAttribute('fill',c.color);p.setAttribute('stroke','#09111f');p.setAttribute('stroke-width','2');wh.appendChild(p);const[ex,ey]=pol(r*0.66,s+seg/2);const t=document.createElementNS(NS,'text');t.setAttribute('x',ex);t.setAttribute('y',ey+8);t.setAttribute('text-anchor','middle');t.setAttribute('font-size','22');t.textContent=c.emoji;wh.appendChild(t);});
+function reveal(i){const c=WC[i];let k;do{k=Math.floor(Math.random()*c.qs.length);}while(c.qs.length>1&&k===lastQ[i]);lastQ[i]=k;const q=c.qs[k];document.getElementById('wpanel').innerHTML=`<span class="wcat-chip" style="background:${c.color};color:${c.text}">${c.emoji} ${c.name}</span><div class="wq">${q[0]}</div><div class="wqf">${q[1]}</div>`;document.getElementById('whint').textContent='Answer with a reason, then spin again if you like. / Réponds avec une raison, puis refais tourner si tu veux.';spinning=false;}
+document.getElementById('whub').onclick=()=>{if(spinning)return;spinning=true;const i=Math.floor(Math.random()*N);const target=i*seg+seg/2+(Math.random()*2-1)*(seg/2-9);const align=(360-(target%360))%360;const cur=((rot%360)+360)%360;rot+= (5+Math.floor(Math.random()*3))*360+((align-cur+360)%360);wh.style.transform=`rotate(${rot}deg)`;setTimeout(()=>reveal(i),4300);};
 
-/* ============ CELEBRATION SLIDE ============ */
-let celebrationRan = false;
-function animateCount(el, target, duration){
-  const start = performance.now();
-  function frame(now){
-    const p = Math.min((now-start)/duration, 1);
-    el.textContent = Math.round(p * target);
-    if(p < 1) requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-}
-function runCelebrationEntry(){
-  if(celebrationRan) return; celebrationRan = true;
-  animateCount(document.getElementById('statWords'), vocabFlipped, 700);
-}
-function spawnConfetti(){
-  const pieces = ['🎉','⭐','🎊','🎙️','✨'];
-  for(let i=0;i<26;i++){
-    const el = document.createElement('span'); el.className = 'confetti-piece';
-    el.textContent = pieces[Math.floor(Math.random()*pieces.length)];
-    el.style.left = Math.random()*100 + 'vw';
-    el.style.animationDuration = (2 + Math.random()*1.6) + 's';
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(), 4000);
-  }
-}
-document.getElementById('celebrateBtn').addEventListener('click', function(){
-  spawnConfetti();
-  document.getElementById('badgeReveal').classList.add('show');
-  addXP(5);
-  this.disabled = true;
-  this.textContent = '🏅 Badge Unlocked!';
-});
+/* wrap */
+let wrapped=false;function runWrap(){if(wrapped)return;wrapped=true;document.getElementById('statOpinions').textContent=qfc;document.getElementById('statDebate').textContent=dbc;}
+document.getElementById('celebrateBtn').onclick=function(){const P=['🎉','⭐','🎊','✨'];for(let i=0;i<26;i++){const el=document.createElement('span');el.className='confetti-piece';el.textContent=P[i%P.length];el.style.left=Math.random()*100+'vw';el.style.animationDuration=(2+Math.random()*1.6)+'s';document.body.appendChild(el);setTimeout(()=>el.remove(),4000);}document.getElementById('badgeReveal').classList.add('show');addXP(5);this.disabled=true;this.textContent='🏅 Badge Unlocked!';};
 
-/* ============ INIT ============ */
-buildVocab();
-buildMatchProgress();
-renderMatchRound();
-buildPhraseScreen();
-initMCQ('qp1', 'mcqFeedbackQP1');
-initMCQ('r1', 'mcqFeedbackR1');
-initMCQ('r2', 'mcqFeedbackR2');
-refreshNav();
-setTimeout(checkScrollCue, 100);
+refreshNav();setTimeout(checkCue,100);
 </script>
 </body>
 </html>
