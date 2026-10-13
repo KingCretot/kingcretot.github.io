@@ -410,7 +410,7 @@ details.tutor .in b{color:var(--pool1);}
   <h2 class="t">📖 Tell Bibi Your Whole Day!</h2><span class="fr">Raconte toute ta journée à Bibi !</span>
   <p class="lead">Tell me one action for each part of your day. I tap it. Then tell the whole day with no stopping!<span class="fr">Dis-moi une action pour chaque moment. Je la touche. Puis raconte toute ta journée sans t'arrêter !</span></p>
   <div class="storyboard" id="storyboard"></div>
-  <p style="font-weight:700;margin:10px 0 2px;text-align:center;">Choose your voice! <span class="fr inl">Choisis ta voix !</span></p>
+  <p style="font-weight:700;margin:14px 0 2px;text-align:center;">🎭 Voice challenge: Elina tells her whole day again in a funny voice! Tap the voice for each round.<span class="fr">Défi des voix : Elina raconte encore toute sa journée avec une voix rigolote ! Touche la voix pour chaque tour.</span></p>
   <div class="levels" id="levels">
     <div class="lvl"><span class="e">🤫</span>Whisper<span class="fr">en chuchotant</span></div>
     <div class="lvl"><span class="e">🙂</span>Normal<span class="fr">normal</span></div>
@@ -428,7 +428,7 @@ details.tutor .in b{color:var(--pool1);}
   <h2 class="t">✍️ My Sentences About Me</h2><span class="fr">Mes phrases sur moi</span>
   <p class="lead">Say your three sentences. I tap your choice and it goes in your book!<span class="fr">Dis tes trois phrases. Je touche ton choix et il va dans ton livre !</span></p>
   <div class="book" id="book"></div>
-  <div class="row" style="margin-top:10px;"><button class="btn gold" id="readBook">🔊 Read my page</button><button class="btn ghost" onclick="window.print()">🖨️ Print</button></div>
+  <div class="row" style="margin-top:10px;"><button class="btn gold" id="readBook">🔊 Read my page</button></div>
   <details class="tutor"><summary>Tutor prompts</summary><div class="in">She says each sentence; you tap the matching choice. Then she reads the whole page aloud once (⭐ ×3). It saves in this browser, and next lesson's warm-up starts with these three sentences.</div></details>
 </div>
 </section>
@@ -629,8 +629,8 @@ $('wyrSpk').onclick=function(){play([WY[wyI][0]]);};$('wyrNext').onclick=functio
 
 /* ---------- storyboard ---------- */
 var SBC={m:['a_wake','a_brush','a_dress','a_breakfast','a_school'],a:['a_home','a_snack','a_homework','a_play','a_tv'],e:['a_dinner','a_tv','a_bath','a_pjs','a_read'],n:['a_pjs','a_brush','a_read','a_bed']};
-['m','a','e','n'].forEach(function(z){var t=TIMES[z];var d=document.createElement('div');d.className='sb';d.innerHTML='<div class="lab">'+t[3]+' '+t[1].replace(/,$/,'')+'<span class="fr">'+t[2]+'</span></div><div class="choices"></div><div class="said"></div>';var ch=d.querySelector('.choices'),said=d.querySelector('.said');SBC[z].map(function(k){return BY[k];}).forEach(function(a){var b=document.createElement('button');b.innerHTML=a.e+'<div style="font-size:11px">'+a.w+'</div>';b.title=a.w;b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');said.textContent=t[1]+' '+a.s.charAt(0).toLowerCase()+a.s.slice(1);play([t[0],a.k]);};ch.appendChild(b);});$('storyboard').appendChild(d);});
-document.querySelectorAll('.lvl').forEach(function(l){l.onclick=function(){document.querySelectorAll('.lvl').forEach(function(x){x.classList.remove('on');});l.classList.add('on');toast(l.childNodes[1].textContent.trim()+' voice! Go!');};});
+['m','a','e','n'].forEach(function(z){var t=TIMES[z];var d=document.createElement('div');d.className='sb';d.innerHTML='<div class="lab">'+t[3]+' '+t[1].replace(/,$/,'')+'<span class="fr">'+t[2]+'</span></div><div class="choices"></div><div class="said"></div>';var ch=d.querySelector('.choices'),said=d.querySelector('.said');SBC[z].map(function(k){return BY[k];}).forEach(function(a){var b=document.createElement('button');b.innerHTML=a.e+'<div style="font-size:11px">'+a.w+'</div>';b.title=a.w;b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');said.textContent=t[1]+' '+a.s;play([t[0],a.k]);};ch.appendChild(b);});$('storyboard').appendChild(d);});
+document.querySelectorAll('.lvl').forEach(function(l){l.onclick=function(){document.querySelectorAll('.lvl').forEach(function(x){x.classList.remove('on');});l.classList.add('on');toast('🎭 Round: '+l.childNodes[1].textContent.trim()+'! Tell your whole day! ⭐');};});
 
 /* ---------- book (tap choices, saved in this browser) ---------- */
 var KEY='elina_book_l5',book={};try{book=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
