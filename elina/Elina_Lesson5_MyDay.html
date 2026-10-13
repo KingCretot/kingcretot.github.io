@@ -181,7 +181,6 @@ details.tutor .in b{color:var(--pool1);}
   <div class="who"><span>🦇</span> Bibi &amp; Elina</div>
   <div class="dots" id="dots"></div>
   <div class="score" title="Tutor: tap ⭐ each time Elina says a full sentence">⭐ <span id="starN">0</span><button id="starPlus" aria-label="Add a star">+1</button></div>
-  <button class="pill timer-pill" id="clock" title="Lesson timer — tap to start/pause">⏱ 0:00</button>
   <button class="pill on" id="frBtn">🇫🇷 FR</button>
   <button class="pill on" id="sndBtn">🔊</button>
 </div>
@@ -195,7 +194,7 @@ details.tutor .in b{color:var(--pool1);}
   <div class="big-goal"><small>Today I can… / Aujourd'hui, je peux…</small>tell my whole day in English: morning, afternoon, evening, and night!<span class="fr">raconter toute ma journée en anglais : le matin, l'après-midi, le soir et la nuit !</span></div>
   <p class="lead">Every full sentence you say = ⭐. Can you get <b>40 stars</b> today?<span class="fr">Chaque phrase complète = une étoile ⭐. Tu peux gagner 40 étoiles aujourd'hui ?</span></p>
   <details class="tutor"><summary>Tutor notes · how this lesson runs (≈45 min)</summary><div class="in">
-    <b>Zoom setup:</b> you share the screen and click everything; Elina only talks. Tap <b>⭐ +1</b> in the top bar each time she says a full English sentence (it's the score for the whole lesson). Tap <b>⏱</b> to start the lesson clock; each slide shows its target minutes.<br>
+    <b>Zoom setup:</b> you share the screen and click everything; Elina only talks. Tap <b>⭐ +1</b> in the top bar each time she says a full English sentence (it's the score for the whole lesson). Each slide shows its target minutes.<br>
     <b>Pattern of the day:</b> "In the morning, I ___." + "First…, then…, next…, finally…" + "What do you do in the ___?"<br>
     <b>French-speaker traps:</b> "I take my breakfast" → <b>I eat breakfast</b>; "I go to the school" → <b>I go to school</b>; "I brush the teeth" → <b>I brush my teeth</b>; "in the night" → <b>at night</b>; "th" said as z/s.<br>
     <b>Correcting:</b> never "No." Repeat it back correctly ("Yes! You <i>eat</i> breakfast!") and let her say it again for the star.
@@ -443,7 +442,6 @@ details.tutor .in b{color:var(--pool1);}
   <div class="stats">
     <div class="stat"><div class="v" id="stStars">0</div><div class="k">⭐ sentences / phrases</div></div>
     <div class="stat"><div class="v" id="stMedal">—</div><div class="k">🏅 medal / médaille</div></div>
-    <div class="stat"><div class="v" id="stTime">0:00</div><div class="k">⏱ lesson time / durée</div></div>
   </div>
   <div style="text-align:left;">
     <div class="cando">I can say what I do in the morning, afternoon, evening, and at night.<span class="fr">Je peux dire ce que je fais le matin, l'après-midi, le soir et la nuit.</span></div>
@@ -503,15 +501,12 @@ var stars=0;function addStars(n){stars+=n;$('starN').textContent=stars;}
 $('starPlus').onclick=function(){addStars(1);toast('⭐ +1');};
 $('frBtn').onclick=function(){document.body.classList.toggle('no-fr');this.classList.toggle('on');};
 $('sndBtn').onclick=function(){sound=!sound;this.classList.toggle('on',sound);this.textContent=sound?'🔊':'🔇';if(!sound)stopAll();};
-var secs=0,running=false,clk=null;
-function fmt(s){return Math.floor(s/60)+':'+('0'+s%60).slice(-2);}
-$('clock').onclick=function(){running=!running;this.classList.toggle('on',running);if(running){clk=setInterval(function(){secs++;$('clock').textContent='⏱ '+fmt(secs);},1000);}else clearInterval(clk);};
 document.querySelectorAll('[data-a]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();play([b.dataset.a]);});});
 
 /* ---------- slides ---------- */
 var slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,dots=$('dots');
 slides.forEach(function(_,i){var d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=function(){go(i);};dots.appendChild(d);});
-function go(n){if(n<0||n>=slides.length)return;stopAll();$('toast').classList.remove('show');slides[cur].classList.remove('active');dots.children[cur].classList.remove('active');dots.children[cur].classList.add('done');cur=n;slides[cur].classList.add('active');dots.children[cur].classList.add('active');dots.children[cur].classList.remove('done');$('prevB').style.visibility=cur===0?'hidden':'visible';$('nextB').style.visibility=cur===slides.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'});if(cur===slides.length-1)ceremony();if(cur===1&&!running)$('clock').click();}
+function go(n){if(n<0||n>=slides.length)return;stopAll();$('toast').classList.remove('show');slides[cur].classList.remove('active');dots.children[cur].classList.remove('active');dots.children[cur].classList.add('done');cur=n;slides[cur].classList.add('active');dots.children[cur].classList.add('active');dots.children[cur].classList.remove('done');$('prevB').style.visibility=cur===0?'hidden':'visible';$('nextB').style.visibility=cur===slides.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'});if(cur===slides.length-1)ceremony();}
 window.goTo=go;$('prevB').onclick=function(){go(cur-1);};$('nextB').onclick=function(){go(cur+1);};$('prevB').style.visibility='hidden';
 document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
 document.querySelectorAll('.qcard').forEach(function(q){q.addEventListener('click',function(){q.classList.toggle('asked');});});
@@ -635,7 +630,7 @@ $('readBook').onclick=function(){var keys=[];if(book.b1)keys.push('t_morning',bo
 
 /* ---------- ceremony ---------- */
 T('praise','Champion of the day! Great job, Elina!');
-function ceremony(){$('stStars').textContent=stars;$('stMedal').textContent=stars>=40?'🥇':stars>=25?'🥈':'🥉';$('stTime').textContent=fmt(secs);}
+function ceremony(){$('stStars').textContent=stars;$('stMedal').textContent=stars>=40?'🥇':stars>=25?'🥈':'🥉';}
 document.querySelectorAll('.cando').forEach(function(c){c.onclick=function(){c.classList.toggle('ok');};});
 $('medal').onclick=function(){confetti();play(['praise']);ceremony();toast((stars>=40?'🥇 Gold':stars>=25?'🥈 Silver':'🥉 Bronze')+' medal!');};
 if(window.speechSynthesis)speechSynthesis.getVoices();
