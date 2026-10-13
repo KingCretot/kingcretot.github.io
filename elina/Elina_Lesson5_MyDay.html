@@ -261,7 +261,7 @@ details.tutor .in b{color:var(--pool1);}
 <!-- 6a WORDS -->
 <section class="slide">
 <div class="card">
-  <div class="top"><span class="kicker">New words · 9 actions</span><span class="mins">3 min</span></div>
+  <div class="top"><span class="kicker">New words · 15 actions</span><span class="mins">3 min</span></div>
   <h2 class="t">🖼️ What Do You Do?</h2><span class="fr">Qu'est-ce que tu fais ?</span>
   <p class="lead">Tap a picture to hear it. Say it with <b>I</b>: <b>"I wake up."</b><span class="fr">Touche une image pour l'écouter. Répète avec « I » (je) : « I wake up. »</span></p>
   <div class="pics" id="wordPics"></div>
@@ -293,14 +293,14 @@ details.tutor .in b{color:var(--pool1);}
 <div class="card">
   <div class="top"><span class="kicker">Build long sentences · Chain challenge</span><span class="mins">5 min</span></div>
   <h2 class="t">🔗 The Sentence Chain</h2><span class="fr">La chaîne de phrases</span>
-  <p class="lead">Tell me your morning, one action at a time. Each time, say the <b>whole chain again</b> from the start and add one more!<span class="fr">Raconte ton matin, une action à la fois. À chaque fois, redis <b>toute la chaîne</b> depuis le début et ajoute une action !</span></p>
+  <p class="lead">Tell me your morning in order, one action at a time. Each time, say the <b>whole chain again</b> from the start and add one more. When you're done, we finish it with <b>"and finally"</b>!<span class="fr">Raconte ton matin dans l'ordre, une action à la fois. À chaque fois, redis <b>toute la chaîne</b> depuis le début et ajoute une action. À la fin, on termine avec « and finally » !</span></p>
   <div class="lvlbar" id="chainLv"></div>
   <div class="starters"><span class="starter">first <span class="fr">d'abord</span></span><span class="starter">then <span class="fr">ensuite</span></span><span class="starter">next <span class="fr">après</span></span><span class="starter">after that <span class="fr">puis</span></span><span class="starter">and finally <span class="fr">et enfin</span></span></div>
   <div class="chainbox" id="chainBox"><span style="color:#9aa">Your sentence will grow here…</span><span class="fr">Ta phrase va grandir ici…</span></div>
   <div class="pics" id="chainPics"></div>
-  <div class="row center" style="margin-top:10px;"><button class="btn gold" id="chainRead">🔊 Hear my chain</button><button class="btn ghost" id="chainReset">↺ New chain</button><button class="btn ghost" id="chainMode">🌙 Switch to evening</button></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn" id="chainFinish">🏁 Finish the chain <span class="fr inl">Terminer</span></button><button class="btn gold" id="chainRead">🔊 Hear my chain</button><button class="btn ghost" id="chainUndo">↶ Undo</button><button class="btn ghost" id="chainReset">↺ New chain</button><button class="btn ghost" id="chainMode">🌤️ Switch to afternoon</button></div>
   <details class="tutor"><summary>Tutor prompts</summary><div class="in">
-    She chooses each next action (you click what she says). The connectors appear automatically: <b>First → then → next → after that → finally</b>. Level up only when she repeats the whole chain without help: 3 actions (first, then, finally), 4 (adds next), 5 (adds after that). Press <b>New chain</b> after a full chain to level up. ⭐ for each complete chain. Then switch to her <b>evening</b> and do it again.
+    She chooses each next action in her real order; you click what she says. Connectors appear on their own: <b>first → then → next → after that</b>. When she's finished, press <b>Finish the chain</b>: the last one becomes <b>and finally</b>, and she says the whole chain from the start (stars: 3–4 actions = 1–2 ⭐, 5+ = 3 ⭐). Goal: 5 actions with no help. Use <b>Undo</b> if you mis-click. Then do her <b>afternoon</b> and <b>evening</b>.
   </div></details>
 </div>
 </section>
@@ -479,9 +479,15 @@ var A=[
  {k:'a_dress',e:'👕',w:'get dressed',fr:"s'habiller",s:'I get dressed.',z:'m'},
  {k:'a_breakfast',e:'🥣',w:'eat breakfast',fr:'prendre le petit déjeuner',s:'I eat breakfast.',z:'m'},
  {k:'a_school',e:'🏫',w:'go to school',fr:"aller à l'école",s:'I go to school.',z:'m'},
+ {k:'a_home',e:'🏠',w:'come home',fr:'rentrer à la maison',s:'I come home.',z:'a'},
+ {k:'a_snack',e:'🍎',w:'have a snack',fr:'prendre le goûter',s:'I have a snack.',z:'a'},
  {k:'a_homework',e:'📚',w:'do my homework',fr:'faire mes devoirs',s:'I do my homework.',z:'a'},
+ {k:'a_play',e:'⚽',w:'play outside',fr:'jouer dehors',s:'I play outside.',z:'a'},
  {k:'a_dinner',e:'🍝',w:'eat dinner',fr:'dîner',s:'I eat dinner.',z:'e'},
+ {k:'a_tv',e:'📺',w:'watch TV',fr:'regarder la télé',s:'I watch TV.',z:'e'},
  {k:'a_bath',e:'🛁',w:'take a bath',fr:'prendre un bain',s:'I take a bath.',z:'e'},
+ {k:'a_pjs',e:'🩳',w:'put on my pajamas',fr:'mettre mon pyjama',s:'I put on my pajamas.',z:'e'},
+ {k:'a_read',e:'📖',w:'read a book',fr:'lire un livre',s:'I read a book.',z:'n'},
  {k:'a_bed',e:'😴',w:'go to bed',fr:'aller se coucher',s:'I go to bed.',z:'n'}
 ];
 A.forEach(function(a){T(a.k,a.s);});
@@ -545,22 +551,26 @@ var Q=[
 Q.forEach(function(q){T(q[0],q[1]);var d=document.createElement('div');d.className='mcq';d.innerHTML='<div class="q"><button class="spk">🔊</button>'+q[1]+'</div><span class="fr">'+q[2]+'</span><div class="opts"></div><div class="why"></div>';d.querySelector('.spk').onclick=function(){play([q[0]]);};var o=d.querySelector('.opts'),why=d.querySelector('.why');q[3].forEach(function(op){var b=document.createElement('button');b.className='opt';b.innerHTML=op[0]+'<span class="fr">'+op[1]+'</span>';b.onclick=function(){b.classList.add(op[2]?'ok':'no');why.className='why show '+(op[2]?'good':'bad');why.innerHTML=(op[2]?'✅ ':'💡 ')+op[3]+'<span class="fr">'+op[4]+'</span>';};o.appendChild(b);});$('storyQuiz').appendChild(d);});
 
 /* ---------- words + flash ---------- */
-A.forEach(function(a){var d=document.createElement('div');d.className='pic';d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){play([a.k]);};$('wordPics').appendChild(d);});
+['m','a','e','n'].forEach(function(z){var h=document.createElement('div');h.style.cssText='grid-column:1/-1;font-family:Poppins;font-weight:800;font-size:17px;color:var(--pool1);margin-top:6px;';h.innerHTML=TIMES[z][3]+' '+TIMES[z][1].replace(/,$/,'')+' <span class="fr inl">'+TIMES[z][2]+'</span>';$('wordPics').appendChild(h);A.filter(function(a){return a.z===z;}).forEach(function(a){var d=document.createElement('div');d.className='pic';d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){play([a.k]);};$('wordPics').appendChild(d);});});
 $('hideWords').onclick=function(){var h=this.dataset.h!=='1';this.dataset.h=h?'1':'0';this.textContent=h?'👀 Show the words':'🙈 Hide the words';document.querySelectorAll('#wordPics .pic').forEach(function(p){p.classList.toggle('hide',h);});};
 var flashBag=[],flashT=null;
 var flashN=0;$('flashGot').onclick=function(){addStars(1);toast('⭐ +1');};
 $('flashGo').onclick=function(){flashN++;$('flashCount').textContent='Round '+flashN;if(!flashBag.length)flashBag=shuffle(A);var a=flashBag.pop();var f=$('flash');clearTimeout(flashT);f.innerHTML='<span class="e">'+a.e+'</span>';flashT=setTimeout(function(){f.innerHTML='<span class="e">⏳</span>Say it! / Dis-le !';setTimeout(function(){f.innerHTML='<span class="e">'+a.e+'</span>'+a.s+'<span class="fr" style="color:#d9ccff">'+a.fr+'</span>';play([a.k]);},2500);},3000);};
 
 /* ---------- chain ---------- */
-var chainMode='m',chain=[],chainLevel=3;
-var POOL={m:['a_wake','a_brush','a_dress','a_breakfast','a_school'],e:['a_dinner','a_homework','a_bath','a_brush','a_bed']};
-function renderChainLv(){var l=$('chainLv');l.innerHTML='';[3,4,5].forEach(function(n){var s=document.createElement('span');s.className='lv'+(n===chainLevel?' on':'')+(n<chainLevel?' done':'');s.textContent='Level '+(n-2)+': '+n+' actions';l.appendChild(s);});}
-function conFor(i,n){if(i===0)return 0;if(i===n-1)return 4;return [1,2,3][i-1];}
-function renderChain(){var b=$('chainBox');var t=TIMES[chainMode];if(!chain.length){b.innerHTML='<span style="color:#9aa">'+t[3]+' '+t[1]+' … (tap what she says)</span><span class="fr">'+t[2]+'…</span>';}else{var html=t[3]+' <b>'+t[1]+'</b> ';chain.forEach(function(k,i){var c=CON[conFor(i,Math.max(chain.length,chainLevel))];html+='<span class="c">'+c[1]+'</span> '+BY[k].s.replace(/\.$/,'').replace(/^I /,'I ')+(i<chain.length-1?', ':'.');});b.innerHTML=html;}
- var p=$('chainPics');p.innerHTML='';POOL[chainMode].forEach(function(k){var a=BY[k];var d=document.createElement('div');d.className='pic'+(chain.indexOf(k)>=0?' used':'');d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){if(chain.length>=chainLevel)return;chain.push(k);renderChain();if(chain.length===chainLevel){toast('Now say the WHOLE chain! 🔗');}};p.appendChild(d);});}
-$('chainReset').onclick=function(){if(chain.length===chainLevel&&chainLevel<5){chainLevel++;addStars(1);toast('⬆️ Level up!');}chain=[];renderChainLv();renderChain();};
-$('chainMode').onclick=function(){chainMode=chainMode==='m'?'e':'m';this.textContent=chainMode==='m'?'🌙 Switch to evening':'☀️ Switch to morning';chain=[];chainLevel=3;renderChainLv();renderChain();};
-$('chainRead').onclick=function(){if(!chain.length)return;var keys=[TIMES[chainMode][0]];chain.forEach(function(k,i){keys.push(CON[conFor(i,Math.max(chain.length,chainLevel))][0]);keys.push(k);});play(keys);};
+var CHAIN_MODES=['m','a','e'],chainMode='m',chain=[],chainDone=false;
+var POOL={m:['a_wake','a_brush','a_dress','a_breakfast','a_school'],a:['a_home','a_snack','a_homework','a_play','a_tv'],e:['a_dinner','a_tv','a_bath','a_pjs','a_brush','a_read','a_bed']};
+var POS=[0,1,2,3];
+function conAt(i){if(i===0)return CON[0];if(chainDone&&i===chain.length-1)return CON[4];return CON[[1,2,3,1][(i-1)%4]];}
+function renderChainLv(){var l=$('chainLv');l.innerHTML='';[3,4,5].forEach(function(n,i){var sp=document.createElement('span');sp.className='lv'+(chain.length>=n&&chainDone?' done':'')+(!chainDone&&chain.length<n&&(i===0||chain.length>=n-1)?' on':'');sp.textContent='⭐ '+n+' actions';l.appendChild(sp);});}
+function renderChain(){var b=$('chainBox');var t=TIMES[chainMode];if(!chain.length){b.innerHTML='<span style="color:#9aa">'+t[3]+' '+t[1]+' … tap what she says first</span><span class="fr">'+t[2]+'… touche ce qu\'elle dit en premier</span>';}else{var html=t[3]+' <b>'+t[1]+'</b> ';chain.forEach(function(k,i){html+='<span class="c">'+conAt(i)[1]+'</span> '+BY[k].s.replace(/\.$/,'')+(i<chain.length-1?', ':(chainDone?'.':' …'));});b.innerHTML=html;}
+ var p=$('chainPics');p.innerHTML='';POOL[chainMode].forEach(function(k){var a=BY[k];var d=document.createElement('div');d.className='pic'+(chain.indexOf(k)>=0||chainDone?' used':'');d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){if(chainDone||chain.indexOf(k)>=0||chain.length>=6)return;chain.push(k);renderChain();renderChainLv();};p.appendChild(d);});
+ $('chainFinish').disabled=chain.length<2||chainDone;}
+$('chainFinish').onclick=function(){if(chain.length<2)return;chainDone=true;renderChain();renderChainLv();addStars(chain.length>=5?3:chain.length>=4?2:1);toast('🔗 Now say the WHOLE chain! / Redis toute la chaîne !');};
+$('chainUndo').onclick=function(){if(chainDone){chainDone=false;}else chain.pop();renderChain();renderChainLv();};
+$('chainReset').onclick=function(){chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainMode').onclick=function(){chainMode=CHAIN_MODES[(CHAIN_MODES.indexOf(chainMode)+1)%3];var nx=CHAIN_MODES[(CHAIN_MODES.indexOf(chainMode)+1)%3];this.textContent=TIMES[nx][3]+' Switch to '+TIMES[nx][1].replace(/,$/,'').replace(/^In the |^At /,'');chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainRead').onclick=function(){if(!chain.length)return;var keys=[TIMES[chainMode][0]];chain.forEach(function(k,i){keys.push(conAt(i)[0]);keys.push(k);});play(keys);};
 renderChainLv();renderChain();
 
 /* ---------- sort your day ---------- */
@@ -618,12 +628,13 @@ var wyI=0;function renderWY(){var w=WY[wyI];$('wyrQ').textContent=w[1];$('wyrQfr
 $('wyrSpk').onclick=function(){play([WY[wyI][0]]);};$('wyrNext').onclick=function(){wyI=(wyI+1)%WY.length;renderWY();};renderWY();
 
 /* ---------- storyboard ---------- */
-['m','a','e','n'].forEach(function(z){var t=TIMES[z];var d=document.createElement('div');d.className='sb';d.innerHTML='<div class="lab">'+t[3]+' '+t[1].replace(/,$/,'')+'<span class="fr">'+t[2]+'</span></div><div class="choices"></div><div class="said"></div>';var ch=d.querySelector('.choices'),said=d.querySelector('.said');A.forEach(function(a){var b=document.createElement('button');b.textContent=a.e;b.title=a.w;b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');said.textContent=t[1]+' '+a.s.charAt(0).toLowerCase()+a.s.slice(1);play([t[0],a.k]);};ch.appendChild(b);});$('storyboard').appendChild(d);});
+var SBC={m:['a_wake','a_brush','a_dress','a_breakfast','a_school'],a:['a_home','a_snack','a_homework','a_play','a_tv'],e:['a_dinner','a_tv','a_bath','a_pjs','a_read'],n:['a_pjs','a_brush','a_read','a_bed']};
+['m','a','e','n'].forEach(function(z){var t=TIMES[z];var d=document.createElement('div');d.className='sb';d.innerHTML='<div class="lab">'+t[3]+' '+t[1].replace(/,$/,'')+'<span class="fr">'+t[2]+'</span></div><div class="choices"></div><div class="said"></div>';var ch=d.querySelector('.choices'),said=d.querySelector('.said');SBC[z].map(function(k){return BY[k];}).forEach(function(a){var b=document.createElement('button');b.innerHTML=a.e+'<div style="font-size:11px">'+a.w+'</div>';b.title=a.w;b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');said.textContent=t[1]+' '+a.s.charAt(0).toLowerCase()+a.s.slice(1);play([t[0],a.k]);};ch.appendChild(b);});$('storyboard').appendChild(d);});
 document.querySelectorAll('.lvl').forEach(function(l){l.onclick=function(){document.querySelectorAll('.lvl').forEach(function(x){x.classList.remove('on');});l.classList.add('on');toast(l.childNodes[1].textContent.trim()+' voice! Go!');};});
 
 /* ---------- book (tap choices, saved in this browser) ---------- */
 var KEY='elina_book_l5',book={};try{book=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
-var BL=[['b1','🌅 In the morning, I','t_morning',['a_wake','a_brush','a_dress','a_breakfast','a_school']],['b2','🎒 After school, I','',['a_homework','a_dinner','a_bath']],['b3','🌙 At night, I','t_night',['a_bath','a_brush','a_bed']]];
+var BL=[['b1','🌅 In the morning, I','t_morning',['a_wake','a_brush','a_dress','a_breakfast','a_school']],['b2','🎒 After school, I','',['a_home','a_snack','a_homework','a_play','a_tv']],['b3','🌙 At night, I','t_night',['a_pjs','a_brush','a_read','a_bed']]];
 T('t_afterschool','After school');
 BL.forEach(function(l){var d=document.createElement('div');d.className='bline';d.innerHTML='<span class="lbl">'+l[1]+'</span><span class="said"></span><div class="choices"></div>';var said=d.querySelector('.said'),ch=d.querySelector('.choices');function show(k){said.textContent=k?BY[k].s.replace(/^I /,''):'…';}show(book[l[0]]);l[3].forEach(function(k){var b=document.createElement('button');b.innerHTML=BY[k].e+' '+BY[k].w;if(book[l[0]]===k)b.classList.add('on');b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');book[l[0]]=k;show(k);try{localStorage.setItem(KEY,JSON.stringify(book));}catch(e){}};ch.appendChild(b);});$('book').appendChild(d);});
 $('readBook').onclick=function(){var keys=[];if(book.b1)keys.push('t_morning',book.b1);if(book.b2)keys.push('t_afterschool',book.b2);if(book.b3)keys.push('t_night',book.b3);play(keys);};
