@@ -14,7 +14,7 @@
 body{font-family:'Inter',sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(circle at 10% 15%,rgba(255,255,255,.18) 0,transparent 40%),radial-gradient(circle at 90% 80%,rgba(255,255,255,.14) 0,transparent 45%),linear-gradient(160deg,var(--deep) 0%,var(--pool1) 42%,var(--pool2) 75%,var(--pool3) 100%);background-attachment:fixed;overflow-x:hidden;}
 h1,h2,h3{font-family:'Poppins',sans-serif;}
 #app{max-width:980px;margin:0 auto;padding:12px 14px 100px;}
-.hud{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(1,42,56,.5);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);border-radius:16px;padding:8px 12px;margin-bottom:12px;position:sticky;top:8px;z-index:50;color:#fff;}
+.hud{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(1,42,56,.5);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);border-radius:16px;padding:8px 12px;margin-bottom:12px;position:relative;z-index:5;color:#fff;}
 .hud .who{font-weight:700;font-size:15px;white-space:nowrap;}.hud .who span{font-size:24px;vertical-align:middle;}
 .dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;flex:1;min-width:120px;}
 .dot{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0;}
@@ -209,13 +209,14 @@ details.tutor .in b{color:var(--pool1);}
   <div class="top"><span class="kicker">Warm-Up · On discute</span><span class="mins">4 min</span></div>
   <h2 class="t">👋 Let's Catch Up!</h2><span class="fr">On discute un peu !</span>
   <p class="lead">Answer with a full sentence. Then ask me back!<span class="fr">Réponds avec une phrase complète. Puis pose-moi la question !</span></p>
-  <div class="qgrid">
-    <div class="qcard"><button class="spk" data-a="w1">🔊</button><div class="tx">😊 How are you today?<span class="fr">Comment tu vas aujourd'hui ?</span><span class="s">I'm… because…</span></div></div>
-    <div class="qcard"><button class="spk" data-a="w2">🔊</button><div class="tx">🥐 What did you eat for breakfast today?<span class="fr">Qu'est-ce que tu as mangé au petit déjeuner ?</span><span class="s">I ate…</span></div></div>
-    <div class="qcard"><button class="spk" data-a="w3">🔊</button><div class="tx">🎒 How is school this week?<span class="fr">Comment ça va à l'école cette semaine ?</span><span class="s">It's… / I like…</span></div></div>
-    <div class="qcard"><button class="spk" data-a="w4">🔊</button><div class="tx">🎉 What did you do this weekend?<span class="fr">Qu'est-ce que tu as fait ce week-end ?</span><span class="s">I played… / I went to…</span></div></div>
+  <div class="qgrid" id="warmQs">
+    <div class="qcard" data-st="w1"><button class="spk" data-a="w1">🔊</button><div class="tx">😊 How are you today?<span class="fr">Comment tu vas aujourd'hui ?</span></div></div>
+    <div class="qcard" data-st="w2"><button class="spk" data-a="w2">🔊</button><div class="tx">🥐 What did you eat for breakfast today?<span class="fr">Qu'est-ce que tu as mangé au petit déjeuner ?</span></div></div>
+    <div class="qcard" data-st="w3"><button class="spk" data-a="w3">🔊</button><div class="tx">🎒 How is school this week?<span class="fr">Comment ça va à l'école cette semaine ?</span></div></div>
+    <div class="qcard" data-st="w4"><button class="spk" data-a="w4">🔊</button><div class="tx">🎉 What did you do this weekend?<span class="fr">Qu'est-ce que tu as fait ce week-end ?</span></div></div>
   </div>
-  <div class="starters"><span class="starter">I'm great, thanks!<span class="fr">Ça va super, merci !</span></span><span class="starter">I'm a little tired because…<span class="fr">Je suis un peu fatiguée parce que…</span></span><span class="starter">It was fun! I…<span class="fr">C'était génial ! J'ai…</span></span></div>
+  <p style="font-weight:700;margin:10px 0 4px;">💬 Answer starters <span class="fr inl">Pour commencer ta réponse</span> · <span id="stWhich" style="color:var(--pool1)">tap a question</span></p>
+  <div class="starters" id="warmStarters"></div>
   <div class="askback">🔁 <b>Your turn:</b> "And you? How are you?" · "What did you eat for breakfast?"<span class="fr">À toi : « Et toi ? Comment tu vas ? » · « Qu'est-ce que tu as mangé ? »</span></div>
   <details class="tutor"><summary>Tutor prompts</summary><div class="in">
     Push for full sentences ("Good." → "I'm good!"). Follow-ups: "Why?", "What else?", "With who?" If she uses the present for the past ("I eat croissants"), just recast: "Oh, you <b>ate</b> croissants!" She must ask you at least one question back. ⭐ for each full sentence.
@@ -258,16 +259,33 @@ details.tutor .in b{color:var(--pool1);}
 </div>
 </section>
 
-<!-- 6 WORDS + FLASH -->
+<!-- 6a WORDS -->
 <section class="slide">
 <div class="card">
-  <div class="top"><span class="kicker">New words · Flash game</span><span class="mins">4 min</span></div>
-  <h2 class="t">⚡ Flash! What Do You Do?</h2><span class="fr">Flash ! Qu'est-ce que tu fais ?</span>
-  <p class="lead">Learn the 9 actions. Then play FLASH: a picture appears for 3 seconds. Say the sentence before it disappears!<span class="fr">Apprends les 9 actions. Puis joue à FLASH : une image apparaît 3 secondes. Dis la phrase avant qu'elle disparaisse !</span></p>
+  <div class="top"><span class="kicker">New words · 9 actions</span><span class="mins">3 min</span></div>
+  <h2 class="t">🖼️ What Do You Do?</h2><span class="fr">Qu'est-ce que tu fais ?</span>
+  <p class="lead">Tap a picture to hear it. Say it with <b>I</b>: <b>"I wake up."</b><span class="fr">Touche une image pour l'écouter. Répète avec « I » (je) : « I wake up. »</span></p>
   <div class="pics" id="wordPics"></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn ghost" id="hideWords">🙈 Hide the words <span class="fr inl">Cacher les mots</span></button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Round 1: tap each card, she repeats "I + action" (⭐ each). Round 2: press <b>Hide the words</b>, point to a picture, she says it from the picture only. Watch <b>eat breakfast</b> / <b>brush my teeth</b> / <b>go to school</b>.</div></details>
+</div>
+</section>
+
+<!-- 6b FLASH -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Game · Flash</span><span class="mins">3 min</span></div>
+  <h2 class="t">⚡ Flash Game!</h2><span class="fr">Le jeu Flash !</span>
+  <div class="qgrid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
+    <div class="qcard" style="cursor:default">1️⃣ <div class="tx">I press FLASH.<span class="fr">J'appuie sur FLASH.</span></div></div>
+    <div class="qcard" style="cursor:default">2️⃣ <div class="tx">A picture shows for 3 seconds.<span class="fr">Une image apparaît 3 secondes.</span></div></div>
+    <div class="qcard" style="cursor:default">3️⃣ <div class="tx">Say the sentence fast: "I eat dinner!"<span class="fr">Dis vite la phrase : « I eat dinner ! »</span></div></div>
+    <div class="qcard" style="cursor:default">4️⃣ <div class="tx">Then we check the answer!<span class="fr">Puis on vérifie la réponse !</span></div></div>
+  </div>
   <div class="flash" id="flash"><span class="e">⚡</span>Ready?<span class="fr" style="color:#d9ccff">Prête ?</span></div>
-  <div class="row center"><button class="btn gold" id="flashGo">⚡ FLASH!</button><button class="btn ghost" id="hideWords">🙈 Hide the words</button></div>
-  <details class="tutor"><summary>Tutor prompts</summary><div class="in">First tap through the 9 cards (she repeats each with "I…"). Then FLASH 8–10 times; she must say "I + action" before it vanishes. ⭐ for each one in time. Watch <b>eat breakfast</b> / <b>brush my teeth</b> / <b>go to school</b>.</div></details>
+  <div class="ptsbig" id="flashCount">Round 0</div>
+  <div class="row center" style="margin-top:8px;"><button class="btn gold" id="flashGo">⚡ FLASH!</button><button class="btn" id="flashGot">✅ She said it! ⭐</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Play 8–10 rounds. If she says the full sentence before the picture hides, press <b>She said it!</b> (adds a star). Make it harder: she has to add a time ("I eat dinner <b>in the evening</b>!").</div></details>
 </div>
 </section>
 
@@ -278,11 +296,12 @@ details.tutor .in b{color:var(--pool1);}
   <h2 class="t">🔗 The Sentence Chain</h2><span class="fr">La chaîne de phrases</span>
   <p class="lead">Tell me your morning, one action at a time. Each time, say the <b>whole chain again</b> from the start and add one more!<span class="fr">Raconte ton matin, une action à la fois. À chaque fois, redis <b>toute la chaîne</b> depuis le début et ajoute une action !</span></p>
   <div class="lvlbar" id="chainLv"></div>
+  <div class="starters"><span class="starter">first <span class="fr">d'abord</span></span><span class="starter">then <span class="fr">ensuite</span></span><span class="starter">next <span class="fr">après</span></span><span class="starter">after that <span class="fr">puis</span></span><span class="starter">and finally <span class="fr">et enfin</span></span></div>
   <div class="chainbox" id="chainBox"><span style="color:#9aa">Your sentence will grow here…</span><span class="fr">Ta phrase va grandir ici…</span></div>
   <div class="pics" id="chainPics"></div>
   <div class="row center" style="margin-top:10px;"><button class="btn gold" id="chainRead">🔊 Hear my chain</button><button class="btn ghost" id="chainReset">↺ New chain</button><button class="btn ghost" id="chainMode">🌙 Switch to evening</button></div>
   <details class="tutor"><summary>Tutor prompts</summary><div class="in">
-    She chooses each next action (you click what she says). The connectors appear automatically: <b>First → then → next → after that → finally</b>. Level up only when she repeats the whole chain without help: 2 actions, 3, 4, 5. ⭐ for each complete chain. Then switch to her <b>evening</b> and do it again.
+    She chooses each next action (you click what she says). The connectors appear automatically: <b>First → then → next → after that → finally</b>. Level up only when she repeats the whole chain without help: 3 actions (first, then, finally), 4 (adds next), 5 (adds after that). Press <b>New chain</b> after a full chain to level up. ⭐ for each complete chain. Then switch to her <b>evening</b> and do it again.
   </div></details>
 </div>
 </section>
@@ -290,11 +309,11 @@ details.tutor .in b{color:var(--pool1);}
 <!-- 8 SORT RACE -->
 <section class="slide">
 <div class="card">
-  <div class="top"><span class="kicker">When? · 60-second race</span><span class="mins">4 min</span></div>
-  <h2 class="t">⏱️ Morning, Afternoon, Evening, or Night?</h2><span class="fr">Le matin, l'après-midi, le soir ou la nuit ?</span>
-  <p class="lead">A card appears. Say <b>"In the morning, I brush my teeth."</b> I put it where you say. How many in 60 seconds?<span class="fr">Une carte apparaît. Dis la phrase complète et je la place où tu dis. Combien en 60 secondes ?</span></p>
-  <div class="card-now"><div class="big" id="sortNow"><div class="e">❓</div>Press START<span class="fr">Appuie sur START</span></div><div class="ptsbig" id="sortTime">60</div></div>
-  <div class="row center"><button class="btn gold" id="sortStart">▶ START</button></div>
+  <div class="top"><span class="kicker">When? · Sort your day</span><span class="mins">4 min</span></div>
+  <h2 class="t">🗂️ Morning, Afternoon, Evening, or Night?</h2><span class="fr">Le matin, l'après-midi, le soir ou la nuit ?</span>
+  <p class="lead">Look at the card. When do <b>you</b> do it? Say the whole sentence: <b>"In the morning, I brush my teeth."</b> Then I put it where you say.<span class="fr">Regarde la carte. Quand est-ce que <b>tu</b> le fais ? Dis toute la phrase, puis je la place où tu dis.</span></p>
+  <div class="card-now"><div class="big" id="sortNow"></div></div>
+  <div class="row center"><button class="btn ghost" id="sortStart">↺ Start over</button></div>
   <div class="board">
     <div class="zone m" data-z="m"><h4>☀️ In the morning</h4><span class="fr">le matin</span></div>
     <div class="zone a" data-z="a"><h4>🌤️ In the afternoon</h4><span class="fr">l'après-midi</span></div>
@@ -302,7 +321,7 @@ details.tutor .in b{color:var(--pool1);}
     <div class="zone n" data-z="n"><h4>🌙 At night</h4><span class="fr">la nuit</span></div>
   </div>
   <div class="msg" id="sortMsg"></div>
-  <details class="tutor"><summary>Tutor prompts</summary><div class="in">It's <b>her</b> day, so there's no wrong zone, but she must say the whole sentence before you click. Point out <b>AT</b> night (not "in the night"). Play twice; try to beat the first score. ⭐ for each sentence.</div></details>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">It's <b>her</b> day, so there's no wrong zone, but she must say the whole sentence before you click (⭐ each). Point out <b>AT</b> night (not "in the night"). Ask "Why?" for one or two ("I take a bath in the evening because I'm dirty after school!").</div></details>
 </div>
 </section>
 
@@ -492,10 +511,16 @@ document.querySelectorAll('[data-a]').forEach(function(b){b.addEventListener('cl
 /* ---------- slides ---------- */
 var slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,dots=$('dots');
 slides.forEach(function(_,i){var d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=function(){go(i);};dots.appendChild(d);});
-function go(n){if(n<0||n>=slides.length)return;stopAll();slides[cur].classList.remove('active');dots.children[cur].classList.remove('active');dots.children[cur].classList.add('done');cur=n;slides[cur].classList.add('active');dots.children[cur].classList.add('active');dots.children[cur].classList.remove('done');$('prevB').style.visibility=cur===0?'hidden':'visible';$('nextB').style.visibility=cur===slides.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'});if(cur===slides.length-1)ceremony();if(cur===1&&!running)$('clock').click();}
+function go(n){if(n<0||n>=slides.length)return;stopAll();$('toast').classList.remove('show');slides[cur].classList.remove('active');dots.children[cur].classList.remove('active');dots.children[cur].classList.add('done');cur=n;slides[cur].classList.add('active');dots.children[cur].classList.add('active');dots.children[cur].classList.remove('done');$('prevB').style.visibility=cur===0?'hidden':'visible';$('nextB').style.visibility=cur===slides.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'});if(cur===slides.length-1)ceremony();if(cur===1&&!running)$('clock').click();}
 window.goTo=go;$('prevB').onclick=function(){go(cur-1);};$('nextB').onclick=function(){go(cur+1);};$('prevB').style.visibility='hidden';
 document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
 document.querySelectorAll('.qcard').forEach(function(q){q.addEventListener('click',function(){q.classList.toggle('asked');});});
+var WST={w1:['How are you today?',[["I'm great, thanks!","Ça va super, merci !"],["I'm happy because…","Je suis contente parce que…"],["I'm a little tired because…","Je suis un peu fatiguée parce que…"]]],
+ w2:['What did you eat for breakfast?',[["I ate cereal.","J'ai mangé des céréales."],["I ate bread with jam.","J'ai mangé du pain avec de la confiture."],["I drank milk / juice.","J'ai bu du lait / du jus."]]],
+ w3:['How is school?',[["It's good! I like…","Ça va ! J'aime…"],["It's fun because…","C'est amusant parce que…"],["My favorite class is…","Ma matière préférée, c'est…"]]],
+ w4:['What did you do this weekend?',[["I played with…","J'ai joué avec…"],["I went to the park / to my grandma's.","Je suis allée au parc / chez ma mamie."],["I watched a movie.","J'ai regardé un film."]]]};
+function showStarters(k){var w=WST[k];$('stWhich').textContent=w[0];$('warmStarters').innerHTML=w[1].map(function(x){return '<span class="starter">'+x[0]+'<span class="fr">'+x[1]+'</span></span>';}).join('');document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.style.outline=c.dataset.st===k?'3px solid var(--gold)':'';});}
+document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.addEventListener('click',function(){showStarters(c.dataset.st);});});showStarters('w1');
 
 /* ---------- wheel ---------- */
 var W=[['👧','What\'s your name?','Comment tu t\'appelles ?','My name is…'],['🎨','What\'s your favorite color?','Quelle est ta couleur préférée ?','My favorite color is…'],['🏠','Where do you live?','Où est-ce que tu habites ?','I live in a…'],['👨‍👩‍👧','Who is in your family?','Qui est dans ta famille ?','In my family, I have…'],['🔢','How old are you?','Quel âge as-tu ?','I am … years old.'],['🍎','What do you like? What don\'t you like?','Qu\'est-ce que tu aimes ? Et pas ?','I like … but I don\'t like …']];
@@ -528,25 +553,28 @@ Q.forEach(function(q){T(q[0],q[1]);var d=document.createElement('div');d.classNa
 A.forEach(function(a){var d=document.createElement('div');d.className='pic';d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){play([a.k]);};$('wordPics').appendChild(d);});
 $('hideWords').onclick=function(){var h=this.dataset.h!=='1';this.dataset.h=h?'1':'0';this.textContent=h?'👀 Show the words':'🙈 Hide the words';document.querySelectorAll('#wordPics .pic').forEach(function(p){p.classList.toggle('hide',h);});};
 var flashBag=[],flashT=null;
-$('flashGo').onclick=function(){if(!flashBag.length)flashBag=shuffle(A);var a=flashBag.pop();var f=$('flash');clearTimeout(flashT);f.innerHTML='<span class="e">'+a.e+'</span>';flashT=setTimeout(function(){f.innerHTML='<span class="e">⏳</span>Say it! / Dis-le !';setTimeout(function(){f.innerHTML='<span class="e">'+a.e+'</span>'+a.s+'<span class="fr" style="color:#d9ccff">'+a.fr+'</span>';play([a.k]);},2500);},3000);};
+var flashN=0;$('flashGot').onclick=function(){addStars(1);toast('⭐ +1');};
+$('flashGo').onclick=function(){flashN++;$('flashCount').textContent='Round '+flashN;if(!flashBag.length)flashBag=shuffle(A);var a=flashBag.pop();var f=$('flash');clearTimeout(flashT);f.innerHTML='<span class="e">'+a.e+'</span>';flashT=setTimeout(function(){f.innerHTML='<span class="e">⏳</span>Say it! / Dis-le !';setTimeout(function(){f.innerHTML='<span class="e">'+a.e+'</span>'+a.s+'<span class="fr" style="color:#d9ccff">'+a.fr+'</span>';play([a.k]);},2500);},3000);};
 
 /* ---------- chain ---------- */
-var chainMode='m',chain=[],chainLevel=2;
+var chainMode='m',chain=[],chainLevel=3;
 var POOL={m:['a_wake','a_brush','a_dress','a_breakfast','a_school'],e:['a_dinner','a_homework','a_bath','a_brush','a_bed']};
-function renderChainLv(){var l=$('chainLv');l.innerHTML='';[2,3,4,5].forEach(function(n){var s=document.createElement('span');s.className='lv'+(n===chainLevel?' on':'')+(n<chainLevel?' done':'');s.textContent='Level '+(n-1)+': '+n+' actions';l.appendChild(s);});}
-function conFor(i,n){if(i===0)return 0;if(i===n-1&&n>1)return 4;return [1,2,3][(i-1)%3];}
+function renderChainLv(){var l=$('chainLv');l.innerHTML='';[3,4,5].forEach(function(n){var s=document.createElement('span');s.className='lv'+(n===chainLevel?' on':'')+(n<chainLevel?' done':'');s.textContent='Level '+(n-2)+': '+n+' actions';l.appendChild(s);});}
+function conFor(i,n){if(i===0)return 0;if(i===n-1)return 4;return [1,2,3][i-1];}
 function renderChain(){var b=$('chainBox');var t=TIMES[chainMode];if(!chain.length){b.innerHTML='<span style="color:#9aa">'+t[3]+' '+t[1]+' … (tap what she says)</span><span class="fr">'+t[2]+'…</span>';}else{var html=t[3]+' <b>'+t[1]+'</b> ';chain.forEach(function(k,i){var c=CON[conFor(i,Math.max(chain.length,chainLevel))];html+='<span class="c">'+c[1]+'</span> '+BY[k].s.replace(/\.$/,'').replace(/^I /,'I ')+(i<chain.length-1?', ':'.');});b.innerHTML=html;}
  var p=$('chainPics');p.innerHTML='';POOL[chainMode].forEach(function(k){var a=BY[k];var d=document.createElement('div');d.className='pic'+(chain.indexOf(k)>=0?' used':'');d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){if(chain.length>=chainLevel)return;chain.push(k);renderChain();if(chain.length===chainLevel){toast('Now say the WHOLE chain! 🔗');}};p.appendChild(d);});}
 $('chainReset').onclick=function(){if(chain.length===chainLevel&&chainLevel<5){chainLevel++;addStars(1);toast('⬆️ Level up!');}chain=[];renderChainLv();renderChain();};
-$('chainMode').onclick=function(){chainMode=chainMode==='m'?'e':'m';this.textContent=chainMode==='m'?'🌙 Switch to evening':'☀️ Switch to morning';chain=[];chainLevel=2;renderChainLv();renderChain();};
+$('chainMode').onclick=function(){chainMode=chainMode==='m'?'e':'m';this.textContent=chainMode==='m'?'🌙 Switch to evening':'☀️ Switch to morning';chain=[];chainLevel=3;renderChainLv();renderChain();};
 $('chainRead').onclick=function(){if(!chain.length)return;var keys=[TIMES[chainMode][0]];chain.forEach(function(k,i){keys.push(CON[conFor(i,Math.max(chain.length,chainLevel))][0]);keys.push(k);});play(keys);};
 renderChainLv();renderChain();
 
-/* ---------- sort race ---------- */
-var sortBag=[],sortCur=null,sortLeft=60,sortT=null,sortN=0;
-function nextSort(){if(!sortBag.length)sortBag=shuffle(A);sortCur=sortBag.pop();$('sortNow').innerHTML='<div class="e">'+sortCur.e+'</div>'+sortCur.w+'<span class="fr">'+sortCur.fr+'</span>';document.querySelectorAll('.zone').forEach(function(z){z.classList.add('target');});}
-$('sortStart').onclick=function(){sortN=0;sortLeft=60;document.querySelectorAll('.zone .chip').forEach(function(c){c.remove();});$('sortMsg').textContent='';clearInterval(sortT);$('sortTime').textContent=60;sortT=setInterval(function(){sortLeft--;$('sortTime').textContent=sortLeft;if(sortLeft<=0){clearInterval(sortT);sortCur=null;$('sortNow').innerHTML='<div class="e">🏁</div>Time!';$('sortMsg').textContent='🏁 '+sortN+' sentences in 60 seconds! Play again to beat it! / '+sortN+' phrases en 60 secondes !';document.querySelectorAll('.zone').forEach(function(z){z.classList.remove('target');});}},1000);nextSort();};
-document.querySelectorAll('.zone').forEach(function(z){z.onclick=function(){if(!sortCur)return;var c=document.createElement('span');c.className='chip';c.textContent=sortCur.e+' '+sortCur.w;z.appendChild(c);sortN++;addStars(1);play([TIMES[z.dataset.z][0],sortCur.k]);nextSort();};});
+/* ---------- sort your day ---------- */
+var sortBag=[],sortCur=null;
+function nextSort(){if(!sortBag.length){sortCur=null;$('sortNow').innerHTML='<div class="e">🎉</div>All done!<span class="fr">Fini !</span>';$('sortMsg').innerHTML='Now ask me: "What do you do in the afternoon?"<span class="fr">Maintenant, pose-moi la question : « Qu\'est-ce que tu fais l\'après-midi ? »</span>';document.querySelectorAll('.zone').forEach(function(z){z.classList.remove('target');});return;}sortCur=sortBag.pop();$('sortNow').innerHTML='<div class="e">'+sortCur.e+'</div>'+sortCur.w+'<span class="fr">'+sortCur.fr+'</span>';document.querySelectorAll('.zone').forEach(function(z){z.classList.add('target');});}
+function startSort(){sortBag=shuffle(A);document.querySelectorAll('.zone .chip').forEach(function(c){c.remove();});$('sortMsg').textContent='';nextSort();}
+$('sortStart').onclick=startSort;
+document.querySelectorAll('.zone').forEach(function(z){z.onclick=function(){if(!sortCur)return;var c=document.createElement('span');c.className='chip';c.textContent=sortCur.e+' '+sortCur.w;z.appendChild(c);addStars(1);play([TIMES[z.dataset.z][0],sortCur.k]);nextSort();};});
+startSort();
 
 /* ---------- fix bibi ---------- */
 var FIX=[
