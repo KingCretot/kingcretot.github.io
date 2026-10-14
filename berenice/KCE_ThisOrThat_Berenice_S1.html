@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>This or That — Bérénice · Session 1 | KingCretot Experience</title>
+<title>This or That — Bérénice · Lesson 1 | KingCretot Experience</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -124,7 +124,7 @@ textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(2
 
   <div class="head">
     <h1>This or That</h1>
-    <p class="sess">Bérénice &middot; Session 1</p>
+    <p class="sess">Bérénice &middot; Lesson 1</p>
     <div class="rules">
       <p><b>Fast.</b> No thinking time. First instinct wins — the speed is the point.</p>
       <p><b>Star anything she talks about.</b> Where she goes off on a tangent matters more than the answer.</p>
@@ -297,7 +297,7 @@ function updateCount() {
 
 document.getElementById('build').addEventListener('click', () => {
   const notes = document.getElementById('notes').value.trim();
-  let lines = ['BÉRÉNICE — THIS OR THAT — SESSION 1', ''];
+  let lines = ['BÉRÉNICE — THIS OR THAT — LESSON 1', ''];
   let currentCluster = '';
   Object.values(state).forEach(s => {
     if (!s.pick) return;
