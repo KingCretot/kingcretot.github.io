@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="google" content="notranslate">
+<title>Camille • Lesson 5 — My Fall Vacation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sun:#F4B400; --sun-deep:#A6821B;
+  --sky:#0F8B8D; --sky-deep:#0A5F60;
+  --coral:#E8573C; --coral-deep:#8E1B20;
+  --leaf:#4A9C5D; --leaf-deep:#2F5233;
+  --grape:#7c3aed; --pink:#E85D9A; --orange:#F28C28;
+  --cream:#fff8ea; --ink:#25324a;
+  --good:#22c55e; --bad:#ef4444;
+  --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  --accent:#E85D9A; --accent-deep:#9D174D;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Quicksand',Arial,sans-serif;font-size:20px;line-height:1.5;color:var(--ink);
+  background:radial-gradient(circle at 6% 10%,rgba(242,140,40,.20) 0,transparent 40%),radial-gradient(circle at 94% 85%,rgba(124,58,237,.14) 0,transparent 42%),linear-gradient(180deg,#fff4e3 0%,#fff 100%);min-height:100vh;overflow-x:hidden}
+.kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px}
+.kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px}
+.kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1}
+.kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700}
+.kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+.kce-band{height:3px;display:flex}.kce-band i{flex:1}.kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+.stage{max-width:1180px;margin:0 auto;padding:18px 20px 40px}
+.hud{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--accent);border-radius:22px;padding:10px 18px;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.hud-brand{font-family:'Caprasimo',Georgia,serif;font-size:21px;color:var(--accent-deep)}
+.hud-stat{font-weight:700;font-size:18px;background:var(--cream);padding:6px 14px;border-radius:12px;border:2px solid var(--sun);color:#8a5a00}
+.hud-spacer{flex:1}
+.pill{border:none;border-radius:50px;padding:8px 16px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:13px;cursor:pointer}
+.pill.fr-toggle{background:#ede9fe;color:var(--grape)}
+.pill.star-btn{background:var(--sun);color:var(--kce-navy)}
+.namedate{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;font-family:Arial,sans-serif;font-size:15px;color:var(--kce-navy);background:#fff;border:2px dashed var(--kce-gold);border-radius:12px;padding:8px 16px}
+.namedate b{font-family:Georgia,serif}
+.progress{height:10px;background:#eee;border-radius:99px;margin-top:10px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--pink),var(--grape));transition:width .5s}
+.slide{display:none;background:#fff;border:3px solid var(--accent);border-radius:26px;padding:24px 28px;margin-top:14px;box-shadow:0 12px 34px rgba(0,0,0,.07);animation:slideIn .45s ease;position:relative}
+.slide.active{display:block}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.slide-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.slide-count{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:#7a869a;text-transform:uppercase;letter-spacing:1px}
+.minutes{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;background:#e0f2f1;color:var(--sky-deep);padding:4px 12px;border-radius:99px}
+.slide-title{font-family:'Caprasimo',Georgia,serif;font-size:36px;color:var(--accent-deep);text-align:center;line-height:1.15}
+.slide-sub{text-align:center;font-size:19px;color:#4b5563;margin-top:4px}
+.fr{color:var(--grape);font-style:italic;font-size:.82em;display:block;margin-top:2px}
+body.hide-fr .fr{display:none!important}
+.goal{margin:18px auto 0;max-width:760px;background:linear-gradient(135deg,#fff3d6,#ffe4ef);border:3px solid var(--sun);border-radius:20px;padding:18px 22px;text-align:center}
+.goal .big{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--coral-deep)}
+.emoji-row{font-size:54px;text-align:center;margin:14px 0 4px;letter-spacing:8px}
+.how{max-width:760px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.how div{background:var(--cream);border-radius:16px;padding:12px 14px;font-size:17px;text-align:center;border:2px solid #f3dfb5}
+/* chat */
+.chat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:16px}
+.chat-card{border:3px solid var(--sky);border-radius:18px;padding:14px 16px;background:#f3fbfb;cursor:pointer;transition:transform .15s}
+.chat-card:hover{transform:translateY(-2px)}
+.chat-card h4{font-family:'Caprasimo',Georgia,serif;font-size:22px;color:var(--sky-deep);font-weight:400}
+.starters{display:none;margin-top:10px;gap:8px;flex-direction:column}
+.chat-card.open .starters{display:flex}
+.starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:8px 12px;font-weight:700;font-size:17px}
+.starter .fr{font-weight:500}
+.askback{display:inline-block;margin-top:8px;background:var(--sun);color:var(--kce-navy);font-weight:800;font-size:14px;padding:5px 12px;border-radius:99px;font-family:'Poppins',Arial,sans-serif}
+.tap-hint{font-size:14px;color:#7a869a;margin-top:6px}
+/* vocab */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:16px}
+.vcard{perspective:800px;height:170px;cursor:pointer}
+.vinner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.vcard.flip .vinner{transform:rotateY(180deg)}
+.vface{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center}
+.vfront{border:3px solid var(--orange);background:#fff7ed}
+.vfront .em{font-size:56px;line-height:1.1}
+.vfront .w{font-weight:800;font-size:19px;margin-top:6px}
+.vback{transform:rotateY(180deg);background:linear-gradient(135deg,#ede9fe,#fce7f3);border:3px solid var(--grape);font-size:16px}
+.vback .ex{font-weight:700;color:var(--ink)}
+/* wheel */
+.wheel-wrap{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:4px;padding:12px 4px 8px;overflow:hidden}
+.wheel-box{position:relative;width:420px;height:420px;max-width:90vw;max-height:90vw}
+.wheel-box canvas{width:100%;height:100%;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform 4.2s cubic-bezier(.12,.8,.2,1)}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-top:38px solid var(--kce-navy);z-index:2;filter:drop-shadow(0 3px 2px rgba(0,0,0,.3))}
+.hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:#fff;border:5px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;font-size:30px;z-index:2}
+.wheel-q{flex:1;min-width:min(300px,100%);max-width:520px;background:linear-gradient(135deg,#fff3d6,#e0f2fe);border:3px solid var(--sun);border-radius:22px;padding:22px;text-align:center;min-height:200px;display:flex;flex-direction:column;justify-content:center}
+.wheel-q .q{font-family:'Caprasimo',Georgia,serif;font-size:27px;color:var(--kce-navy);line-height:1.25}
+.wheel-q .st{margin-top:10px;font-size:17px;font-weight:700;color:var(--sky-deep)}
+.big-btn{display:inline-block;border:none;border-radius:16px;padding:14px 28px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:18px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--orange),var(--coral));box-shadow:0 6px 16px rgba(232,87,60,.35)}
+.big-btn:disabled{opacity:.5;cursor:default}
+.center{text-align:center;margin-top:14px}
+/* builder */
+.builder-pic{font-size:64px;text-align:center;margin-top:10px}
+.builder-prompt{text-align:center;font-weight:700;font-size:19px}
+.answer-line{min-height:70px;border:3px dashed var(--grape);border-radius:16px;margin:14px 0;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:#faf5ff}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tile{border:3px solid var(--sky);background:#fff;border-radius:12px;padding:8px 14px;font-weight:800;font-size:20px;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.tile.used{visibility:hidden}
+.answer-line .tile{border-color:var(--grape);background:#fff}
+.row-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.sm-btn{border:none;border-radius:12px;padding:10px 18px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:15px;cursor:pointer;background:#e5e7eb;color:var(--ink)}
+.sm-btn.go{background:var(--leaf);color:#fff}
+.feedback{text-align:center;font-weight:800;font-size:19px;min-height:30px;margin-top:10px}
+.feedback.ok{color:#15803d}.feedback.no{color:#b91c1c}
+.round-tag{text-align:center;font-family:'Poppins',Arial,sans-serif;font-weight:700;color:#7a869a;font-size:14px;margin-top:6px}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+/* mcq */
+.mcq-scene{font-size:62px;text-align:center;margin-top:8px}
+.mcq-q{font-family:'Caprasimo',Georgia,serif;font-size:25px;color:var(--kce-navy);text-align:center;margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{border:3px solid var(--sky);background:#fff;border-radius:16px;padding:14px 16px;font-size:19px;font-weight:700;cursor:pointer;text-align:left;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.opt.right{background:#dcfce7;border-color:var(--good)}
+.opt.wrong{background:#fee2e2;border-color:var(--bad)}
+.explain{margin-top:12px;background:var(--cream);border-left:6px solid var(--sun);border-radius:12px;padding:12px 16px;font-size:18px;display:none}
+.explain.show{display:block}
+/* this or that */
+.tot-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:14px}
+.tot{border:3px solid var(--pink);background:#fff0f6;border-radius:20px;padding:18px;text-align:center;cursor:pointer;font-weight:800;font-size:20px;transition:transform .15s}
+.tot .em{font-size:52px;display:block}
+.tot.pick{background:var(--pink);color:#fff;transform:scale(1.04)}
+.tot.pick .fr{color:#fff}
+.vs{font-family:'Caprasimo',Georgia,serif;font-size:30px;color:var(--grape)}
+.say-box{margin-top:14px;text-align:center;background:#ecfeff;border:2px solid var(--sky);border-radius:14px;padding:12px;font-weight:700;font-size:19px}
+/* memory */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;max-width:760px;margin-left:auto;margin-right:auto}
+.mem{height:110px;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.12);padding:6px;user-select:none}
+.mem .face{display:none}
+.mem.open,.mem.done{background:#fff;color:var(--ink);border-color:var(--sky)}
+.mem.open .face,.mem.done .face{display:block}
+.mem.open .back,.mem.done .back{display:none}
+.mem.done{border-color:var(--good);background:#dcfce7}
+.mem .face.e{font-size:46px}
+/* true or silly */
+.tos-card{max-width:760px;margin:16px auto 0;background:linear-gradient(135deg,#fff7ed,#fef3c7);border:3px solid var(--orange);border-radius:22px;padding:22px;text-align:center}
+.tos-card .em{font-size:56px}
+.tos-card .st{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--kce-navy);margin-top:6px}
+.tos-btns{display:flex;gap:14px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.tos-btns button{min-width:170px}
+.btn-true{background:linear-gradient(135deg,#22c55e,#15803d)!important}
+.btn-silly{background:linear-gradient(135deg,#a855f7,#7c3aed)!important}
+/* sort */
+.sort-item{max-width:760px;margin:14px auto 0;background:#fff;border:3px solid var(--kce-navy);border-radius:18px;padding:16px;text-align:center;font-weight:800;font-size:22px}
+.buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.bucket{border-radius:18px;padding:14px;text-align:center;cursor:pointer;color:#fff;font-weight:800;font-size:19px;border:none;font-family:'Quicksand',Arial,sans-serif}
+.bucket small{display:block;font-weight:600;font-size:14px;opacity:.95;margin-top:4px}
+.bucket .cnt{display:block;font-size:14px;margin-top:6px;background:rgba(255,255,255,.25);border-radius:8px;padding:2px}
+.rule-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.rule{border-radius:16px;padding:12px 14px;color:#fff;font-size:17px}
+.rule b{font-size:20px;display:block}
+/* day plan */
+.plan-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.plan-col{border:3px solid var(--sun);border-radius:18px;padding:12px;background:#fffbeb}
+.plan-col h4{font-family:'Caprasimo',Georgia,serif;font-weight:400;font-size:21px;color:var(--sun-deep);text-align:center;margin-bottom:8px}
+.chip{display:block;width:100%;text-align:left;border:2px solid #f3dfb5;background:#fff;border-radius:12px;padding:8px 12px;margin-bottom:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.chip.sel{background:var(--sun);border-color:var(--sun-deep)}
+.story{margin-top:16px;background:linear-gradient(135deg,#e0f2fe,#ede9fe);border:3px solid var(--grape);border-radius:20px;padding:18px 22px;font-size:21px;font-weight:700;line-height:1.6;display:none}
+.story.show{display:block}
+.story .conn{color:var(--coral-deep)}
+/* talk */
+.check-list{max-width:760px;margin:16px auto 0;display:flex;flex-direction:column;gap:10px}
+.check{display:flex;align-items:center;gap:14px;border:3px solid var(--leaf);border-radius:16px;padding:12px 16px;background:#f0fdf4;cursor:pointer;font-weight:700;font-size:19px}
+.check .box{width:34px;height:34px;flex:none;border-radius:10px;border:3px solid var(--leaf);display:flex;align-items:center;justify-content:center;font-size:22px;background:#fff}
+.check.done{background:#bbf7d0}
+/* 2 truths */
+.ttl-list{max-width:760px;margin:14px auto 0;display:flex;flex-direction:column;gap:10px}
+/* victory */
+.victory{text-align:center;padding:10px}
+.medal{font-size:110px;line-height:1.1;margin-top:8px}
+.victory .score{font-family:'Caprasimo',Georgia,serif;font-size:34px;color:var(--accent-deep);margin-top:6px}
+.tiers{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.tiers div{background:var(--cream);border-radius:14px;padding:8px 14px;font-weight:700;font-size:16px;border:2px solid #f3dfb5}
+.tiers div.on{background:var(--sun);border-color:var(--sun-deep)}
+/* tutor */
+details.tutor{margin-top:18px;background:#f1f5f9;border-radius:12px;padding:8px 14px;font-size:15px;font-family:Arial,sans-serif;color:#334155}
+details.tutor summary{cursor:pointer;font-weight:700;color:var(--kce-navy)}
+details.tutor p{margin-top:6px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+.nav-btn{background:linear-gradient(135deg,var(--accent),var(--accent-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',Arial,sans-serif;font-size:16px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px}
+.nav-btn:disabled{opacity:.35;cursor:default}
+.nav-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.nav-dots button{width:14px;height:14px;border-radius:50%;border:none;background:#d1d5db;cursor:pointer;padding:0}
+.nav-dots button.on{background:var(--accent)}
+footer{margin-top:22px;text-align:center;font-family:Arial,sans-serif;font-size:12px;color:#64748b;line-height:1.6}
+footer .prov{color:var(--kce-navy);font-weight:700}
+.toast{position:fixed;left:50%;top:22px;transform:translateX(-50%) translateY(-120px);background:var(--kce-navy);color:#fff;padding:12px 22px;border-radius:14px;font-weight:800;font-size:19px;z-index:50;transition:transform .35s;font-family:'Poppins',Arial,sans-serif}
+.toast.show{transform:translateX(-50%) translateY(0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+@media(max-width:700px){.slide{padding:18px 14px}.wheel-q .q{font-size:22px}.slide-title{font-size:28px}.tot-row{grid-template-columns:1fr}.vs{text-align:center}.mem-grid{grid-template-columns:repeat(3,1fr)}.wheel-box{width:320px;height:320px}}
+</style>
+</head>
+<body class="notranslate " translate="no">
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
+<div class="kce-mast">
+  <div class="kce-mono">KC</div>
+  <div>
+    <div class="kce-word">KingCretot Experience</div>
+    <div class="kce-tag">EDUCATE. <span class="g">EMPOWER.</span> <span class="r">EXCEL.</span></div>
+  </div>
+</div>
+<div class="kce-band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+<div class="stage">
+  <div class="hud">
+    <div class="hud-brand" id="hudBrand"></div>
+    <div class="hud-stat">⭐ <span id="stars">0</span> stars</div>
+    <div class="hud-spacer"></div>
+    <button class="pill star-btn" id="starBtn" title="Tutor: tap for every full English sentence">+1 ⭐ Full sentence</button>
+    <button class="pill fr-toggle" id="frBtn">FR: ON</button>
+  </div>
+  <div class="namedate"><span><b>Name:</b> <span id="stuName"></span></span><span><b>Date:</b> <span id="today"></span></span><span><b>Lesson:</b> <span id="lessonName"></span></span></div>
+  <div class="progress"><i id="prog"></i></div>
+
+  <div id="slides"></div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn">◀ Back</button>
+    <div class="nav-dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▶</button>
+  </div>
+
+  <footer>
+    KingCretot Experience, LLC · PO Box 2322, Arcadia, FL 34265 · kingcretot.com · kce@kingcretot.com<br>
+    <span class="prov">Approved Provider: Step Up For Students · Arizona ESA · West Virginia Hope Scholarship</span>
+  </footer>
+</div>
+
+<script>
+const L = {"brand": "Camille • Lesson 5", "student": "Camille Carreau", "lesson": "Lesson 5 — My Fall Vacation", "slides": [{"type": "intro", "min": 2, "title": "🍂 My Fall Vacation! 🎃", "sub": "Your vacation starts tomorrow — let's talk about it in English!", "subFr": "Tes vacances commencent demain — on en parle en anglais !", "emojis": "🍂🎃🍬🚲🎬", "goal": "I can talk about my plans for my fall vacation.", "goalFr": "Je peux parler de mes projets pour mes vacances d'automne.", "how": [["⭐ Every full sentence = a star!", "Chaque phrase complète = une étoile !"], ["🎡 Spin, play, and win games", "Fais tourner la roue, joue et gagne"], ["🏅 Collect stars for a medal", "Collectionne les étoiles pour une médaille"]], "tutor": "Fall vacation in France (Toussaint) runs Oct 17 – Nov 1. Camille is back Fri Nov 6. In American English, time off school is a 'vacation' and the season is 'fall'. Tap +1 ⭐ in the top bar every time she says a full sentence."}, {"type": "chat", "min": 4, "title": "💬 Warm-Up Chat", "sub": "Tap a question to see answer starters.", "subFr": "Touche une question pour voir des débuts de réponse.", "items": [{"q": "How are you today?", "fr": "Comment vas-tu aujourd'hui ?", "starters": [["I'm great, thanks!", "Je vais super bien, merci !"], ["I'm excited because…", "Je suis contente parce que…"], ["I'm a little tired.", "Je suis un peu fatiguée."]]}, {"q": "When does your vacation start?", "fr": "Quand commencent tes vacances ?", "starters": [["My vacation starts tomorrow!", "Mes vacances commencent demain !"], ["It starts on Saturday.", "Elles commencent samedi."]]}, {"q": "How long is your vacation?", "fr": "Tes vacances durent combien de temps ?", "starters": [["It's two weeks long.", "Elles durent deux semaines."], ["I have two weeks off.", "J'ai deux semaines de vacances."]]}, {"q": "What do you love about vacation?", "fr": "Qu'est-ce que tu adores pendant les vacances ?", "starters": [["I love sleeping in!", "J'adore faire la grasse matinée !"], ["I love it because I can…", "J'adore parce que je peux…"], ["My favorite thing is…", "Ce que je préfère, c'est…"]]}], "tutor": "Let her answer in full sentences. After each one, point to 'Ask me back!' so she asks YOU the same question."}, {"type": "vocab", "min": 5, "title": "🧳 Vacation Words", "sub": "Tap a card to flip it. Say the word, then read the sentence!", "subFr": "Touche une carte pour la retourner. Dis le mot, puis lis la phrase !", "items": [{"e": "😴", "w": "sleep in", "ex": "I'm going to sleep in every day!", "fr": "faire la grasse matinée"}, {"e": "👵", "w": "visit my grandparents", "ex": "I'm going to visit my grandparents.", "fr": "rendre visite à mes grands-parents"}, {"e": "🎬", "w": "go to the movies", "ex": "I'm going to go to the movies.", "fr": "aller au cinéma"}, {"e": "🚲", "w": "ride my bike", "ex": "I'm going to ride my bike in the park.", "fr": "faire du vélo"}, {"e": "🍪", "w": "bake cookies", "ex": "I'm going to bake cookies with my mom.", "fr": "faire des biscuits"}, {"e": "🎃", "w": "carve a pumpkin", "ex": "I'm going to carve a pumpkin for Halloween.", "fr": "sculpter une citrouille"}, {"e": "👻", "w": "wear a costume", "ex": "I'm going to wear a costume on Halloween.", "fr": "porter un déguisement"}, {"e": "🍬", "w": "trick-or-treat", "ex": "Kids in America trick-or-treat for candy.", "fr": "faire « des bonbons ou un sort »"}, {"e": "👯", "w": "hang out with friends", "ex": "I'm going to hang out with my friends.", "fr": "passer du temps avec mes amis"}, {"e": "🎮", "w": "play video games", "ex": "I'm going to play video games with my brother.", "fr": "jouer aux jeux vidéo"}, {"e": "🏠", "w": "stay home", "ex": "I'm going to stay home and relax.", "fr": "rester à la maison"}, {"e": "🚗", "w": "take a trip", "ex": "We're going to take a trip to the mountains.", "fr": "partir en voyage"}], "tutor": "Have her read each sentence aloud. Ask: 'Are YOU going to do this?' → 'Yes, I'm going to… / No, I'm not going to…'"}, {"type": "wheel", "min": 6, "title": "🎡 Spin the Vacation Wheel!", "sub": "Spin, read the question, and answer in a full sentence.", "subFr": "Fais tourner la roue, lis la question et réponds avec une phrase complète.", "hub": "🍂", "items": [{"e": "🎃", "q": "What costume would you like to wear on Halloween?", "st": "I would like to be a…", "fr": "Quel déguisement aimerais-tu porter pour Halloween ?"}, {"e": "🍬", "q": "What is your favorite candy?", "st": "My favorite candy is…", "fr": "Quel est ton bonbon préféré ?"}, {"e": "😴", "q": "What time are you going to wake up on vacation?", "st": "I'm going to wake up at…", "fr": "À quelle heure vas-tu te réveiller pendant les vacances ?"}, {"e": "🎬", "q": "What movie do you want to watch?", "st": "I want to watch…", "fr": "Quel film veux-tu regarder ?"}, {"e": "👯", "q": "Who are you going to see on vacation?", "st": "I'm going to see…", "fr": "Qui vas-tu voir pendant les vacances ?"}, {"e": "🍪", "q": "What is your favorite food to cook or bake?", "st": "I love to bake…", "fr": "Qu'est-ce que tu préfères cuisiner ou faire au four ?"}, {"e": "🐶", "q": "If you could have any pet for one week, what would it be?", "st": "I would have a…", "fr": "Si tu pouvais avoir n'importe quel animal pendant une semaine, lequel ?"}, {"e": "🌧️", "q": "What do you like to do on a rainy day?", "st": "On a rainy day, I like to…", "fr": "Qu'aimes-tu faire quand il pleut ?"}, {"e": "✈️", "q": "If you could go anywhere in the world, where would you go?", "st": "I would go to…", "fr": "Si tu pouvais aller n'importe où dans le monde, où irais-tu ?"}, {"e": "🎨", "q": "What is something creative you want to make?", "st": "I want to make…", "fr": "Quelle création aimerais-tu faire ?"}, {"e": "📚", "q": "What is the best book or show for a lazy day?", "st": "The best one is…", "fr": "Quel est le meilleur livre ou la meilleure série pour une journée tranquille ?"}, {"e": "🌟", "q": "What is one thing that will make this vacation special?", "st": "This vacation is special because…", "fr": "Qu'est-ce qui rendra ces vacances spéciales ?"}], "tutor": "New questions for a 10-year-old (replaces the old outside wheel). Each question shows up once before any repeats. Push for 'because' to make longer answers."}, {"type": "builder", "min": 6, "title": "🧩 Build the Sentence!", "sub": "Tap the words in the right order. Then say the sentence out loud!", "subFr": "Touche les mots dans le bon ordre. Puis dis la phrase à voix haute !", "rounds": [{"e": "🎬", "p": "Lily — movies — this weekend", "fr": "Lily — cinéma — ce week-end", "a": "Lily is going to go to the movies this weekend."}, {"e": "👵", "p": "I — visit — my grandparents", "fr": "Je — rendre visite — grands-parents", "a": "I am going to visit my grandparents."}, {"e": "🎃", "p": "We — carve — a pumpkin", "fr": "Nous — sculpter — une citrouille", "a": "We are going to carve a big pumpkin."}, {"e": "😴", "p": "I — sleep in — every morning", "fr": "Je — grasse matinée — chaque matin", "a": "I am going to sleep in every morning."}, {"e": "🍪", "p": "My mom and I — bake — cookies", "fr": "Ma mère et moi — faire — des biscuits", "a": "My mom and I are going to bake cookies."}, {"e": "🚫🏫", "p": "I — not — do homework all day!", "fr": "Je — ne pas — devoirs toute la journée !", "a": "I am not going to do homework all day!"}], "tutor": "Pattern: am / is / are + going to + verb. First try = 2 ⭐, after a mistake = 1 ⭐. After each sentence, ask her to change it to be about HER."}, {"type": "mcq", "min": 4, "title": "🔍 What Are They Going to Do?", "sub": "Look at the picture. Pick the best sentence.", "subFr": "Regarde l'image. Choisis la meilleure phrase.", "items": [{"e": "🧒🏼🧳✈️🗽", "q": "Max has a suitcase and a plane ticket to New York. What is he going to do?", "o": ["He is going to take a trip.", "He is going to sleep in.", "He is going to bake cookies."], "c": 0, "why": "A suitcase + a plane ticket = a trip!", "no": {"1": "Sleeping in happens at home in bed — but Max has a suitcase!", "2": "There is no kitchen in the picture. Look at the plane ticket!"}}, {"e": "👧👨🎃", "q": "Lily and her dad have a big pumpkin and a carving kit. What is Lily going to do?", "o": ["She is going to ride her bike.", "She is going to carve a pumpkin.", "She is going to play video games."], "c": 1, "why": "A pumpkin + a carving kit = she is going to carve a pumpkin!", "no": {"0": "There's no bike in the picture.", "2": "There's no video game — look at the pumpkin!"}}, {"e": "👻🧛‍♀️🍬🚪", "q": "It's October 31st. The kids are in costumes at a door. What are they going to say?", "o": ["“Good night!”", "“Trick or treat!”", "“Happy birthday!”"], "c": 1, "why": "On Halloween, kids knock on doors and say “Trick or treat!” to get candy.", "no": {"0": "“Good night” is for bedtime, not Halloween!", "2": "It's Halloween, not a birthday party."}}, {"e": "🌧️🛋️📺🍿", "q": "It's raining outside. Max has popcorn and a blanket. What is he going to do?", "o": ["He is going to watch a movie.", "He is going to go to the beach.", "He is going to ride his bike."], "c": 0, "why": "Rain + popcorn + blanket = a cozy movie at home!", "no": {"1": "In the rain? Brrr! Look at the popcorn and the TV.", "2": "It's raining — he is staying inside."}}, {"e": "👵👴🏡🚗", "q": "Lily is in the car. Her grandma and grandpa are waiting at their house. Where is she going?", "o": ["She is going to visit her grandparents.", "She is going to school.", "She is going to the dentist."], "c": 0, "why": "Grandma + grandpa = she is going to visit her grandparents!", "no": {"1": "It's vacation — no school!", "2": "Look who is waiting at the house — Grandma and Grandpa!"}}, {"e": "⏰😴🛏️", "q": "The alarm says 10:00 a.m. and Max is still in bed. What is he doing?", "o": ["He is sleeping in.", "He is waking up early.", "He is going to school."], "c": 0, "why": "Staying in bed late in the morning = sleeping in!", "no": {"1": "10:00 a.m. is not early!", "2": "It's vacation — and he is still in bed!"}}], "tutor": "Ask her to read the question out loud. After she answers, ask: 'And YOU — are you going to do that?'"}, {"type": "memory", "min": 4, "title": "🧠 Memory Match!", "sub": "Find the picture and the word that go together. Say the word when you find a pair!", "subFr": "Trouve l'image et le mot qui vont ensemble. Dis le mot quand tu trouves une paire !", "pairs": [["🎃", "pumpkin"], ["🍬", "candy"], ["👻", "costume"], ["🚲", "bike"], ["🍪", "cookies"], ["🎬", "movies"]], "tutor": "Camille tells you which card to open ('the top left one', 'the third one in the second row') — great practice for numbers and positions!"}, {"type": "tot", "min": 4, "title": "⚖️ This or That? Vacation Edition", "sub": "Pick one and explain why!", "subFr": "Choisis et explique pourquoi !", "frame": "I'd rather… because…", "frameFr": "Je préférerais… parce que…", "items": [{"a": ["😴", "Sleep in until 11", "Faire la grasse matinée jusqu'à 11h"], "b": ["🌅", "Wake up early for a fun trip", "Se lever tôt pour une sortie"]}, {"a": ["🍫", "Chocolate candy", "Bonbons au chocolat"], "b": ["🍭", "Gummy candy", "Bonbons gélifiés"]}, {"a": ["🧙‍♀️", "Be a witch for Halloween", "Être une sorcière pour Halloween"], "b": ["🦄", "Be a unicorn for Halloween", "Être une licorne pour Halloween"]}, {"a": ["🎬", "Watch a movie at home", "Regarder un film à la maison"], "b": ["🍿", "Watch a movie at the theater", "Regarder un film au cinéma"]}, {"a": ["🏖️", "Go to the beach", "Aller à la plage"], "b": ["🏔️", "Go to the mountains", "Aller à la montagne"]}, {"a": ["🍪", "Bake cookies", "Faire des biscuits"], "b": ["🎨", "Paint a picture", "Peindre un tableau"]}], "tutor": "Make her use 'because' every time. You answer too, so it's a real conversation."}, {"type": "tos", "min": 3, "title": "🎃 True or Silly? Halloween in America", "sub": "Is it TRUE or SILLY?", "subFr": "C'est VRAI ou C'est RIGOLO (faux) ?", "items": [{"e": "🍬", "s": "American kids go trick-or-treating to get candy.", "fr": "Les enfants américains font « des bonbons ou un sort » pour avoir des bonbons.", "t": true, "why": "They knock on doors and say “Trick or treat!”"}, {"e": "🎃", "s": "In America, people carve faces into pumpkins.", "fr": "En Amérique, les gens sculptent des visages dans des citrouilles.", "t": true, "why": "A carved pumpkin is called a jack-o'-lantern."}, {"e": "🐧", "s": "On Halloween, everyone must dress up as a penguin.", "fr": "Pour Halloween, tout le monde doit se déguiser en pingouin.", "t": false, "why": "You can be anything you want — a witch, a superhero, a cat…"}, {"e": "📅", "s": "Halloween is on October 31st.", "fr": "Halloween, c'est le 31 octobre.", "t": true, "why": "Every year, Halloween is on October 31st."}, {"e": "🥦", "s": "Kids love to get broccoli when they trick-or-treat.", "fr": "Les enfants adorent recevoir du brocoli à Halloween.", "t": false, "why": "They want candy — not broccoli!"}, {"e": "🍂", "s": "In America, the season after summer is called “fall.”", "fr": "En Amérique, la saison après l'été s'appelle « fall » (l'automne).", "t": true, "why": "Leaves fall from the trees — so Americans call it “fall.”"}], "tutor": "Good moment to compare: 'Do you trick-or-treat in France?' 'What do French kids do for Halloween?'"}, {"type": "plan", "min": 4, "title": "🗓️ My Dream Vacation Day", "sub": "Pick one thing for each part of the day. Then read your story!", "subFr": "Choisis une activité pour chaque moment de la journée. Puis lis ton histoire !", "parts": [{"icon": "🌅", "label": "Morning", "fr": "Le matin", "conn": "First, in the morning, I'm going to", "opts": [["😴", "sleep in until ten."], ["🥞", "eat pancakes for breakfast."], ["🚲", "ride my bike to the park."], ["🐶", "walk my dog."]]}, {"icon": "☀️", "label": "Afternoon", "fr": "L'après-midi", "conn": "Then, in the afternoon, I'm going to", "opts": [["👯", "hang out with my friends."], ["🍪", "bake cookies with my mom."], ["🎃", "carve a pumpkin."], ["🛍️", "go shopping for a costume."]]}, {"icon": "🌙", "label": "Evening", "fr": "Le soir", "conn": "After that, in the evening, I'm going to", "opts": [["🎬", "watch a movie with my family."], ["🎮", "play video games with my brother."], ["📚", "read a fun book."], ["🍕", "eat pizza for dinner."]]}, {"icon": "⭐", "label": "And finally…", "fr": "Et pour finir…", "conn": "And finally, I'm going to", "opts": [["🛏️", "go to bed happy!"], ["🌙", "look at the stars."], ["📞", "call my grandma."], ["🎶", "dance to my favorite song!"]]}], "tutor": "Have her read the story, then retell it WITHOUT looking. Do it twice: once for her real plans, once with 🎲 Surprise me."}, {"type": "talk", "min": 3, "title": "🎤 Big Talk Challenge!", "sub": "Tell Jonathan about your fall vacation. Can you do all six?", "subFr": "Raconte tes vacances d'automne à Jonathan. Peux-tu faire les six ?", "items": [["Say when your vacation starts and how long it is.", "Dis quand tes vacances commencent et combien de temps elles durent."], ["Say 2 things you are going to do.", "Dis 2 choses que tu vas faire."], ["Say 1 thing you are NOT going to do.", "Dis 1 chose que tu ne vas PAS faire."], ["Say who you are going to see.", "Dis qui tu vas voir."], ["Use “because” in a sentence.", "Utilise « because » dans une phrase."], ["Ask Jonathan a question about HIS plans!", "Pose une question à Jonathan sur SES projets !"]], "tutor": "Tap each line when she does it (+1 ⭐ each). Let her talk for about a minute without stopping her for small mistakes."}, {"type": "victory", "min": 1, "title": "🏆 Amazing Work, Camille!", "sub": "Have a wonderful fall vacation!", "subFr": "Passe de super vacances d'automne !", "tiers": [[0, "🌟", "Star"], [15, "🥉", "Bronze"], [25, "🥈", "Silver"], [35, "🥇", "Gold"]], "msg": "See you on Friday, November 6! Tell me all about your vacation!", "msgFr": "À vendredi 6 novembre ! Tu me raconteras tout sur tes vacances !", "tutor": "Next lesson: she tells you what she DID on vacation (past tense) — a perfect follow-up."}]};
+let stars = 0;
+const $ = (s, r=document) => r.querySelector(s);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fr = s => s ? `<span class="fr">${esc(s)}</span>` : '';
+function shuffle(a){ a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function addStars(n, msg){
+  stars += n; $('#stars').textContent = stars;
+  if (msg) toast(msg);
+  if (n > 0) confetti(n >= 2 ? 90 : 45);
+}
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 1400); }
+
+/* confetti */
+const cv = $('#confetti'), cx = cv.getContext('2d'); let parts = [], anim = null;
+function sizeCv(){ cv.width = innerWidth; cv.height = innerHeight; } addEventListener('resize', sizeCv); sizeCv();
+function confetti(n){
+  const cols = ['#F4B400','#E8573C','#7c3aed','#0F8B8D','#E85D9A','#22c55e','#F28C28'];
+  for (let i=0;i<n;i++) parts.push({x:innerWidth/2+(Math.random()-.5)*300,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*12-4,s:6+Math.random()*6,c:cols[i%cols.length],r:Math.random()*6,life:110});
+  if (!anim) anim = requestAnimationFrame(tick);
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; p.vy+=.35; p.r+=.1; p.life--; cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); cx.restore(); });
+  parts = parts.filter(p=>p.life>0 && p.y<innerHeight+40);
+  anim = parts.length ? requestAnimationFrame(tick) : (cx.clearRect(0,0,cv.width,cv.height), null);
+}
+
+/* ---------- slide builders ---------- */
+function head(s, i){
+  return `<div class="slide-top"><span class="slide-count">Slide ${i+1} of ${L.slides.length}</span><span class="minutes">⏱ about ${s.min} min</span></div>
+  <div class="slide-title">${s.title}</div>${s.sub ? `<div class="slide-sub">${s.sub}${fr(s.subFr)}</div>` : ''}`;
+}
+function tutor(s){ return s.tutor ? `<details class="tutor"><summary>Tutor notes</summary><p>${s.tutor}</p></details>` : ''; }
+
+const B = {};
+B.intro = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="emoji-row">${s.emojis}</div>
+  <div class="goal"><div>🎯 Today's goal</div><div class="big">${esc(s.goal)}</div>${fr(s.goalFr)}</div>
+  <div class="how">${s.how.map(h=>`<div>${h[0]}${fr(h[1])}</div>`).join('')}</div>`);
+};
+B.chat = (s, box) => {
+  const g = el('div','chat-grid');
+  s.items.forEach(it=>{
+    const c = el('div','chat-card', `<h4>${esc(it.q)}</h4>${fr(it.fr)}<div class="tap-hint">Tap to see answer starters</div>
+      <div class="starters">${it.starters.map(st=>`<div class="starter">${esc(st[0])}${fr(st[1])}</div>`).join('')}<span class="askback">🔁 Ask me back!</span></div>`);
+    c.addEventListener('click', ()=>c.classList.toggle('open'));
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.vocab = (s, box) => {
+  const g = el('div','vocab-grid'); let seen = new Set();
+  s.items.forEach((it,k)=>{
+    const c = el('div','vcard', `<div class="vinner"><div class="vface vfront"><div class="em">${it.e}</div><div class="w">${esc(it.w)}</div></div>
+      <div class="vface vback"><div class="ex">${esc(it.ex)}</div>${fr(it.fr)}</div></div>`);
+    c.addEventListener('click', ()=>{ c.classList.toggle('flip'); if(!seen.has(k)){ seen.add(k); if(seen.size===s.items.length) addStars(1,'All words explored! +1 ⭐'); } });
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.wheel = (s, box) => {
+  const wrap = el('div','wheel-wrap');
+  wrap.innerHTML = `<div class="wheel-box"><div class="pointer"></div><canvas width="840" height="840"></canvas><div class="hub">${s.hub||'🎡'}</div></div>
+    <div class="wheel-q"><div class="q">Tap SPIN to get a question!</div><div class="st"></div><div class="fr-line"></div></div>`;
+  box.appendChild(wrap);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn">🎡 SPIN!</button></div><div class="round-tag">Questions asked: <span class="asked">0</span> of ${s.items.length}</div>`);
+  const canvas = $('canvas', wrap), ctx = canvas.getContext('2d'), n = s.items.length;
+  const cols = ['#F28C28','#E85D9A','#7c3aed','#0F8B8D','#F4B400','#E8573C','#4A9C5D','#0047BA'];
+  const R = 420, seg = 2*Math.PI/n;
+  for (let i=0;i<n;i++){
+    ctx.beginPath(); ctx.moveTo(R,R); ctx.arc(R,R,R-4,i*seg-Math.PI/2,(i+1)*seg-Math.PI/2); ctx.closePath();
+    ctx.fillStyle = cols[i%cols.length]; ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=6; ctx.stroke();
+    ctx.save(); ctx.translate(R,R); ctx.rotate(i*seg+seg/2-Math.PI/2);
+    ctx.font = '64px serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(s.items[i].e, R*0.68, 0);
+    ctx.fillStyle='#fff'; ctx.font='bold 34px Poppins, Arial'; ctx.fillText(String(i+1), R*0.40, 0);
+    ctx.restore();
+  }
+  let rot = 0, used = new Set(), spinning = false;
+  const btn = $('.big-btn', box), qEl = $('.q', wrap), stEl = $('.st', wrap), frEl = $('.fr-line', wrap);
+  btn.addEventListener('click', ()=>{
+    if (spinning) return;
+    let pool = [...Array(n).keys()].filter(i=>!used.has(i)); if (!pool.length){ used.clear(); pool=[...Array(n).keys()]; }
+    const pick = pool[Math.floor(Math.random()*pool.length)]; used.add(pick);
+    const centerDeg = (pick+0.5)*360/n;
+    const curr = ((rot % 360)+360)%360;
+    let delta = (360 - centerDeg) - curr; if (delta < 0) delta += 360;
+    rot += 360*5 + delta;
+    spinning = true; btn.disabled = true; qEl.textContent = '…'; stEl.textContent=''; frEl.innerHTML='';
+    canvas.style.transform = `rotate(${rot}deg)`;
+    setTimeout(()=>{
+      const it = s.items[pick];
+      qEl.textContent = `${it.e} ${it.q}`; stEl.textContent = it.st ? `Start with: “${it.st}”` : ''; frEl.innerHTML = fr(it.fr);
+      $('.asked', box).textContent = used.size; spinning = false; btn.disabled = false;
+    }, 4300);
+  });
+};
+B.builder = (s, box) => {
+  const area = el('div'); box.appendChild(area); let r = 0, tries = 0;
+  function render(){
+    if (r >= s.rounds.length){ area.innerHTML = `<div class="goal"><div class="big">🏆 Sentence Master!</div><div>You built all ${s.rounds.length} sentences.</div></div>`; return; }
+    const rd = s.rounds[r], words = rd.a.split(' '); tries = 0;
+    area.innerHTML = `<div class="round-tag">Sentence ${r+1} of ${s.rounds.length}</div><div class="builder-pic">${rd.e}</div>
+      <div class="builder-prompt">${esc(rd.p)}${fr(rd.fr)}</div><div class="answer-line"></div><div class="tiles"></div>
+      <div class="row-btns"><button class="sm-btn undo">↩ Undo</button><button class="sm-btn clear">✖ Clear</button><button class="sm-btn go check">✔ Check</button></div>
+      <div class="feedback"></div>`;
+    const line = $('.answer-line', area), tiles = $('.tiles', area), fb = $('.feedback', area); const chosen = [];
+    let order = shuffle(words.map((w,i)=>({w,i}))); if (words.length>2 && order.every((o,k)=>o.i===k)) order.reverse();
+    order.forEach(o=>{
+      const t = el('button','tile', esc(o.w));
+      t.addEventListener('click', ()=>{ if (t.classList.contains('used')) return; t.classList.add('used'); const c = el('button','tile', esc(o.w)); c.addEventListener('click',()=>{ c.remove(); t.classList.remove('used'); chosen.splice(chosen.indexOf(o),1); }); line.appendChild(c); chosen.push(o); });
+      tiles.appendChild(t);
+    });
+    $('.undo', area).onclick = ()=>{ const o = chosen.pop(); if(!o) return; line.lastChild.remove(); [...tiles.children].find(t=>t.classList.contains('used') && t.textContent===o.w)?.classList.remove('used'); };
+    $('.clear', area).onclick = ()=>{ chosen.length=0; line.innerHTML=''; [...tiles.children].forEach(t=>t.classList.remove('used')); };
+    $('.check', area).onclick = ()=>{
+      const got = chosen.map(o=>o.w).join(' ');
+      if (got === rd.a){ fb.className='feedback ok'; fb.innerHTML = `✅ Perfect! Now say it out loud! 🎤`; addStars(tries===0?2:1, tries===0?'First try! +2 ⭐':'+1 ⭐'); $('.check',area).disabled=true;
+        const nx = el('button','sm-btn go','Next sentence ▶'); nx.onclick = ()=>{ r++; render(); }; $('.row-btns',area).appendChild(nx); }
+      else { tries++; fb.className='feedback no'; fb.innerHTML = chosen.length < words.length ? `Not finished yet — use all the words.` : `Almost! ${tries>=2 ? 'Hint: it starts with “'+esc(words.slice(0,2).join(' '))+'…”' : 'Try a different order.'}`; line.classList.remove('shake'); void line.offsetWidth; line.classList.add('shake'); }
+    };
+  }
+  render();
+};
+B.mcq = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">🎉 Quiz complete!</div></div>`; return; }
+    const it = s.items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Question ${q+1} of ${s.items.length}</div>${it.e?`<div class="mcq-scene">${it.e}</div>`:''}<div class="mcq-q">${esc(it.q)}${fr(it.fr)}</div><div class="opts"></div><div class="explain"></div><div class="center"></div>`;
+    const opts = $('.opts', area), ex = $('.explain', area);
+    it.o.forEach((o,k)=>{
+      const b = el('button','opt', esc(o));
+      b.onclick = ()=>{
+        if (area._done) return;
+        if (k === it.c){ b.classList.add('right'); area._done = true; ex.innerHTML = '✅ ' + esc(it.why || 'Correct!'); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+          const nx = el('button','big-btn', q+1<s.items.length?'Next question ▶':'Finish ▶'); nx.onclick=()=>{ q++; area._done=false; render(); }; $('.center',area).appendChild(nx); }
+        else { b.classList.add('wrong'); first = false; ex.innerHTML = '❌ ' + esc((it.no && it.no[k]) || 'Not quite — try again!'); ex.classList.add('show'); }
+      };
+      opts.appendChild(b);
+    });
+  }
+  render();
+};
+B.tot = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Round ${q+1} of ${s.items.length}</div><div class="tot-row">
+      <div class="tot" data-k="0"><span class="em">${it.a[0]}</span>${esc(it.a[1])}${fr(it.a[2])}</div><div class="vs">OR</div>
+      <div class="tot" data-k="1"><span class="em">${it.b[0]}</span>${esc(it.b[1])}${fr(it.b[2])}</div></div>
+      <div class="say-box">🎤 ${esc(s.frame)}${fr(s.frameFr)}</div>
+      <div class="row-btns"><button class="sm-btn prev">◀ Previous</button><button class="sm-btn go next">${q+1<s.items.length?'Next round ▶':'Start over ↺'}</button></div>`;
+    area.querySelectorAll('.tot').forEach(t=>t.onclick=()=>{ area.querySelectorAll('.tot').forEach(x=>x.classList.remove('pick')); t.classList.add('pick'); });
+    $('.next',area).onclick=()=>{ q=(q+1)%s.items.length; render(); };
+    $('.prev',area).onclick=()=>{ q=(q-1+s.items.length)%s.items.length; render(); };
+  }
+  render();
+};
+B.memory = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  function render(){
+    let cards = []; s.pairs.forEach((p,k)=>{ cards.push({k,html:`<span class="face e">${p[0]}</span>`}); cards.push({k,html:`<span class="face">${esc(p[1])}</span>`}); });
+    cards = shuffle(cards); let open = [], found = 0, moves = 0, lock = false;
+    area.innerHTML = `<div class="round-tag">Pairs found: <span class="pf">0</span> of ${s.pairs.length} · Tries: <span class="mv">0</span></div><div class="mem-grid"></div><div class="center"></div>`;
+    const g = $('.mem-grid', area);
+    cards.forEach((c,ci)=>{
+      const m = el('div','mem', `<span class="back" style="font-size:34px">${ci+1}</span>${c.html}`);
+      m.onclick = ()=>{
+        if (lock || m.classList.contains('open') || m.classList.contains('done')) return;
+        m.classList.add('open'); open.push({m,c});
+        if (open.length === 2){
+          moves++; $('.mv',area).textContent = moves; const [a,b] = open;
+          if (a.c.k === b.c.k){ a.m.classList.replace('open','done'); b.m.classList.replace('open','done'); open = []; found++; $('.pf',area).textContent = found; toast('Match! Say the word! 🎤');
+            if (found === s.pairs.length){ addStars(2,'All pairs! +2 ⭐'); const again = el('button','big-btn','Play again ↺'); again.onclick = render; $('.center',area).appendChild(again); } }
+          else { lock = true; setTimeout(()=>{ a.m.classList.remove('open'); b.m.classList.remove('open'); open = []; lock = false; }, 950); }
+        }
+      };
+      g.appendChild(m);
+    });
+  }
+  render();
+};
+B.tos = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">🎃 You know your fall facts!</div></div>`; return; }
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Card ${q+1} of ${s.items.length}</div><div class="tos-card"><div class="em">${it.e}</div><div class="st">${esc(it.s)}</div>${fr(it.fr)}
+      <div class="tos-btns"><button class="big-btn btn-true" data-v="1">✅ TRUE</button><button class="big-btn btn-silly" data-v="0">🤪 SILLY</button></div>
+      <div class="explain"></div><div class="center"></div></div>`;
+    let done = false;
+    area.querySelectorAll('.tos-btns button').forEach(b=>b.onclick=()=>{
+      if (done) return; done = true; const ok = (b.dataset.v==='1') === it.t; const ex = $('.explain',area);
+      ex.innerHTML = (ok?'✅ Yes! ':'❌ Oops! ') + `It's <b>${it.t?'TRUE':'SILLY'}</b>. ` + esc(it.why); ex.classList.add('show'); if (ok) addStars(1,'+1 ⭐');
+      const nx = el('button','big-btn', q+1<s.items.length?'Next card ▶':'Finish ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx);
+    });
+  }
+  render();
+};
+B.sort = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="rule-cards">${s.buckets.map(b=>`<div class="rule" style="background:${b.c}"><b>${esc(b.name)}</b>${esc(b.rule)}${b.fr?`<span class="fr" style="color:#fff">${esc(b.fr)}</span>`:''}</div>`).join('')}</div>`);
+  const area = el('div'); box.appendChild(area); let q = 0; const items = shuffle(s.items); const counts = s.buckets.map(()=>0);
+  function render(){
+    if (q >= items.length){ area.innerHTML = `<div class="goal"><div class="big">🧠 Grammar Boss!</div><div>Now make one of each about YOUR fall break.</div></div>`; return; }
+    const it = items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Sentence ${q+1} of ${items.length}</div><div class="sort-item">${esc(it.s)}</div>
+      <div class="buckets">${s.buckets.map((b,k)=>`<button class="bucket" data-k="${k}" style="background:${b.c}">${esc(b.name)}<span class="cnt">${counts[k]} sorted</span></button>`).join('')}</div><div class="explain"></div><div class="center"></div>`;
+    let done = false;
+    area.querySelectorAll('.bucket').forEach(btn=>btn.onclick=()=>{
+      if (done) return; const k = +btn.dataset.k; const ex = $('.explain',area);
+      if (k === it.b){ done = true; counts[k]++; ex.innerHTML = '✅ ' + esc(it.why); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+        const nx = el('button','big-btn','Next ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx); }
+      else { first = false; ex.innerHTML = '❌ Not that one. Look for the clue words: going to · will · might.'; ex.classList.add('show'); btn.classList.add('shake'); }
+    });
+  }
+  render();
+};
+B.plan = (s, box) => {
+  const sel = {}; const cols = el('div','plan-cols');
+  s.parts.forEach((p,k)=>{
+    const c = el('div','plan-col', `<h4>${p.icon} ${esc(p.label)}</h4>${fr(p.fr)}`);
+    p.opts.forEach(o=>{ const ch = el('button','chip', `${o[0]} ${esc(o[1])}`); ch.onclick=()=>{ c.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel')); ch.classList.add('sel'); sel[k]=o[1]; }; c.appendChild(ch); });
+    cols.appendChild(c);
+  });
+  box.appendChild(cols);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn make">✨ Make my story!</button> <button class="sm-btn rnd">🎲 Surprise me</button></div><div class="story"></div>`);
+  const story = $('.story', box);
+  function make(){
+    if (Object.keys(sel).length < s.parts.length){ toast('Pick one for each part!'); return; }
+    story.innerHTML = s.parts.map((p,k)=>`<span class="conn">${esc(p.conn)}</span> ${esc(sel[k])}`).join(' ') + `<div style="margin-top:10px;font-size:17px;color:var(--sky-deep)">🎤 Now read your story out loud — then tell it again without looking!</div>`;
+    story.classList.add('show'); addStars(1,'Great story! +1 ⭐');
+  }
+  $('.make', box).onclick = make;
+  $('.rnd', box).onclick = ()=>{ s.parts.forEach((p,k)=>{ const col = cols.children[k]; const chips = col.querySelectorAll('.chip'); const i = Math.floor(Math.random()*chips.length); chips[i].click(); }); make(); };
+};
+B.talk = (s, box) => {
+  const list = el('div','check-list');
+  s.items.forEach(it=>{ const c = el('div','check', `<span class="box"></span><span>${esc(it[0])}${fr(it[1])}</span>`); c.onclick=()=>{ if(c.classList.contains('done')) return; c.classList.add('done'); $('.box',c).textContent='✔'; addStars(1,'+1 ⭐'); }; list.appendChild(c); });
+  box.appendChild(list);
+};
+B.ttl = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  const ex = s.example;
+  area.innerHTML = `<div class="sort-item" style="border-color:var(--grape)">Practice round: ${esc(ex.who)} says…</div><div class="ttl-list">${ex.lines.map((l,k)=>`<button class="opt" data-k="${k}">${esc(l)}</button>`).join('')}</div><div class="explain"></div>
+    <div class="goal" style="margin-top:18px"><div class="big">🎤 Your turn!</div><div>Tell Jonathan 3 things about your fall break: 2 true, 1 lie. Can he find the lie?</div>${fr('Dis 3 choses sur tes vacances : 2 vraies, 1 fausse. Est-ce que Jonathan trouve le mensonge ?')}
+    <div class="row-btns"><button class="sm-btn go fool">😎 Hugo fooled Jonathan! (+2 ⭐)</button><button class="sm-btn found">🔎 Jonathan found the lie (+1 ⭐)</button></div></div>`;
+  let done = false;
+  area.querySelectorAll('.ttl-list .opt').forEach(b=>b.onclick=()=>{ if(done) return; const k=+b.dataset.k; const e=$('.explain',area);
+    if (k===ex.lie){ done=true; b.classList.add('right'); e.innerHTML='✅ '+esc(ex.why); addStars(1,'+1 ⭐'); } else { b.classList.add('wrong'); e.innerHTML='❌ That one is true! Look again.'; } e.classList.add('show'); });
+  $('.fool',area).onclick=()=>addStars(2,'Sneaky! +2 ⭐');
+  $('.found',area).onclick=()=>addStars(1,'Good try! +1 ⭐');
+};
+B.victory = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="victory"><div class="medal" id="medal">🏅</div><div class="score">You earned <span id="finalStars">0</span> stars!</div>
+    <div class="tiers">${s.tiers.map(t=>`<div data-min="${t[0]}">${t[1]} ${esc(t[2])} · ${t[0]}+ ⭐</div>`).join('')}</div>
+    <div class="goal" style="margin-top:18px"><div class="big">${esc(s.msg)}</div>${fr(s.msgFr)}</div></div>`);
+};
+function updateVictory(){
+  const f = $('#finalStars'); if (!f) return; f.textContent = stars;
+  const s = L.slides.find(x=>x.type==='victory'); let medal = '🌟';
+  document.querySelectorAll('.tiers div').forEach(d=>d.classList.remove('on'));
+  s.tiers.forEach((t,k)=>{ if (stars >= t[0]) { medal = t[1]; } });
+  const on = [...document.querySelectorAll('.tiers div')].filter(d=>stars >= +d.dataset.min).pop(); if (on) on.classList.add('on');
+  $('#medal').textContent = medal;
+}
+
+/* ---------- build ---------- */
+const host = $('#slides'); const dots = $('#dots');
+L.slides.forEach((s,i)=>{
+  const sec = el('section','slide'); sec.innerHTML = head(s,i); B[s.type](s, sec); sec.insertAdjacentHTML('beforeend', tutor(s)); host.appendChild(sec);
+  const d = el('button'); d.title = `Slide ${i+1}`; d.onclick = ()=>go(i); dots.appendChild(d);
+});
+let cur = 0;
+function go(i){
+  cur = Math.max(0, Math.min(L.slides.length-1, i));
+  document.querySelectorAll('.slide').forEach((s,k)=>s.classList.toggle('active', k===cur));
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on', k===cur));
+  $('#prevBtn').disabled = cur===0; $('#nextBtn').disabled = cur===L.slides.length-1;
+  $('#prog').style.width = ((cur+1)/L.slides.length*100)+'%';
+  if (L.slides[cur].type === 'victory'){ updateVictory(); confetti(140); }
+  scrollTo({top:0,behavior:'smooth'});
+}
+$('#prevBtn').onclick = ()=>go(cur-1); $('#nextBtn').onclick = ()=>go(cur+1);
+$('#starBtn').onclick = ()=>addStars(1,'Full sentence! +1 ⭐');
+const frBtn = $('#frBtn');
+function syncFr(){ frBtn.textContent = document.body.classList.contains('hide-fr') ? 'FR: OFF' : 'FR: ON'; }
+frBtn.onclick = ()=>{ document.body.classList.toggle('hide-fr'); syncFr(); }; syncFr();
+$('#hudBrand').textContent = L.brand; $('#stuName').textContent = L.student; $('#lessonName').textContent = L.lesson;
+const d = new Date(); $('#today').textContent = String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+'/'+d.getFullYear();
+go(0);
+</script>
+</body>
+</html>
