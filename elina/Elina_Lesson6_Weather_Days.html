@@ -1,489 +1,779 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google" content="notranslate">
-<title>Elina's Weather & Days Adventure! / L'aventure de la météo !</title>
+<title>Elina's English — Lesson 6: Weather &amp; Days</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{ --sun:#FFC93C; --sky:#4AC7EC; --grass:#6BCB77; --berry:#FF6F91; --grape:#9B6BFF; --tangerine:#FF9142; --ink:#2C2A4A; --white:#FFFFFF; --cream:#FFF3E0; --french:#7B3FE4; --shadow: 0 10px 0 rgba(0,0,0,0.12); }
-  *{box-sizing:border-box;} html,body{margin:0;padding:0;}
-  body{ font-family:'Poppins', sans-serif; background: linear-gradient(160deg, #DCEFFF 0%, #FFE9CC 55%, #E7CFFF 100%); min-height:100vh; overflow-x:hidden; color:var(--ink); }
-  .notranslate{translate:no;}
-  #app{ max-width:1000px; margin:0 auto; padding:18px 18px 60px; position:relative; }
-  .topbar{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
-  .brand{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:22px; color:var(--grape); display:flex; align-items:center; gap:8px; } .brand span.emoji{font-size:26px;}
-  .progress-wrap{ flex:1; min-width:170px; max-width:280px; background:#fff; border-radius:20px; padding:6px 10px; box-shadow: var(--shadow); display:flex; align-items:center; gap:8px; }
-  .progress-track{ flex:1; height:14px; background:#EDEDF7; border-radius:10px; overflow:hidden; }
-  .progress-fill{ height:100%; width:0%; background:linear-gradient(90deg, var(--berry), var(--tangerine)); border-radius:10px; transition:width .5s ease; }
-  .progress-label{font-weight:700; font-size:13px; color:var(--ink); white-space:nowrap;}
-  .star-count{ display:flex; align-items:center; gap:5px; background:#fff; border-radius:20px; padding:6px 14px; box-shadow: var(--shadow); font-weight:800; font-size:16px; color:var(--sun); }
-  .sound-toggle{ display:flex; align-items:center; gap:6px; background:#fff; border-radius:20px; padding:6px 14px; box-shadow: var(--shadow); font-weight:700; font-size:14px; color:var(--ink); cursor:pointer; border:none; font-family:'Poppins',sans-serif; }
-  .sound-toggle .dot{width:9px; height:9px; border-radius:50%; background:var(--grass);} .sound-toggle.off .dot{background:#c9c9d6;}
-  .screen{display:none; animation: pop .35s ease;} .screen.active{display:block;} @keyframes pop{ from{opacity:0; transform:scale(.96);} to{opacity:1; transform:scale(1);} }
-  .card{ background:var(--white); border-radius:28px; padding:32px 28px; box-shadow: 0 16px 0 rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.08); text-align:center; position:relative; overflow:hidden; }
-  .bi-header{ margin:4px 0 18px; } .bi-header .en{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:32px; color:var(--ink); display:block; line-height:1.2; }
-  .bi-header .fr{ font-family:'Baloo 2', sans-serif; font-weight:800; font-size:30px; color:var(--french); display:block; line-height:1.2; margin-top:2px; }
-  .section-tag{ display:inline-block; background:#F1F1FF; color:var(--grape); font-weight:700; font-size:13px; letter-spacing:.5px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:10px; }
-  .bi-body{ margin:10px 0 16px; } .bi-body .en{ font-size:21px; font-weight:600; color:var(--ink); display:block; line-height:1.45; }
-  .bi-body .fr{ font-size:20px; font-weight:600; color:var(--french); display:block; line-height:1.45; margin-top:2px; }
-  .mascot{ font-size:56px; display:block; margin-bottom:6px; animation: bob 2.4s ease-in-out infinite; } @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
-  .dual-audio-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin:14px 0; }
-  .lang-btn{ display:inline-flex; align-items:center; gap:8px; color:#fff; border:none; border-radius:50px; padding:12px 20px; font-size:19px; font-weight:700; font-family:'Poppins', sans-serif; cursor:pointer; transition: transform .08s ease; }
-  .lang-btn:active{ transform: translateY(5px); } .lang-btn.en-btn{ background:var(--sky); box-shadow: 0 7px 0 #2E9DBF; } .lang-btn.fr-btn{ background:var(--french); box-shadow: 0 7px 0 #5A2BAE; }
-  .nav-row{ display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:22px auto 0; padding:0 6px; }
-  .nav-btn{ font-family:'Poppins', sans-serif; font-weight:700; font-size:20px; padding:14px 30px; border-radius:50px; border:none; cursor:pointer; color:#fff; box-shadow: var(--shadow); transition: transform .08s ease; }
-  .nav-btn:active{transform:translateY(6px); box-shadow:0 2px 0 rgba(0,0,0,0.15);} .nav-btn.back{background:#B9B9C9; box-shadow:0 8px 0 #92929F;}
-  .nav-btn.next{background:var(--grass); box-shadow:0 8px 0 #429A4C;} .nav-btn:disabled{opacity:.35; cursor:not-allowed;} .nav-btn.locked{background:#D8D8E4; box-shadow:0 8px 0 #B4B4C2; color:#8888a0;}
-  .shape-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:20px 0; } @media (max-width:640px){ .shape-grid{grid-template-columns:repeat(2,1fr);} }
-  .shape-card{ background:var(--cream); border-radius:20px; border:3px solid #FFCB8A; padding:14px 6px 8px; font-size:38px; cursor:pointer; }
-  .shape-card .cap-en{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:14px; color:var(--ink); margin-top:5px; }
-  .shape-card .cap-fr{ display:block; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; color:var(--french); margin-top:1px;}
-  .card-audio-row{ display:flex; gap:5px; justify-content:center; margin-top:7px; } .card-audio-btn{ border:none; border-radius:9px; font-size:11px; font-weight:800; padding:4px 8px; cursor:pointer; color:#fff; }
-  .card-audio-btn.en{ background:var(--sky); } .card-audio-btn.fr{ background:var(--french); }
-  .match-wrap{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:22px 0; } .match-col{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; min-width:160px; max-width:320px;}
-  .match-tile{ position:relative; background:#F1F1FF; border:3px solid #D6D6FF; border-radius:16px; padding:14px 10px; cursor:pointer; text-align:center; transition: transform .1s ease, background .15s ease, border-color .15s ease; font-family:'Baloo 2', sans-serif; }
-  .match-tile .main-txt{ font-size:22px; font-weight:700; display:block; } .match-tile.emoji-tile .main-txt{ font-size:34px; }
-  .match-tile .sub-fr{ font-size:12px; color:var(--french); font-weight:700; display:block; margin-top:3px; }
-  .match-tile.selected{ border-color: var(--grape); background:#E9DBFF; transform:scale(1.03); } .match-tile.correct{ border-color: var(--grass); background:#D9FFE0; cursor:default; }
-  .match-tile.wrong{ animation: shake .4s ease; border-color: var(--berry); background:#FFE0E8;} @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 75%{transform:translateX(8px);} }
-  .weather-q{ font-size:22px; font-weight:700; margin:14px 0; font-family:'Baloo 2', sans-serif; }
-  .weather-pick-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
-  .weather-pick{ background:var(--cream); border:3px solid #FFCB8A; border-radius:18px; padding:14px 10px; font-size:36px; cursor:pointer; transition:transform .1s ease, border-color .15s ease; }
-  .weather-pick.picked{ border-color: var(--grape); background:#EEE6FF; transform:scale(1.05); }
-  .weather-response{ margin-top:14px; font-family:'Baloo 2',sans-serif; font-weight:800; font-size:22px; min-height:60px; }
-  .weather-response .en{ color:var(--ink); display:block; } .weather-response .fr{ color:var(--french); display:block; font-size:19px; }
-  .sentence-slot{ min-height:70px; background:#F6F6FF; border:3px dashed #C7C7EE; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; padding:14px; margin:16px 0; font-family:'Baloo 2', sans-serif; font-size:24px; font-weight:700; }
-  .sentence-slot .placed{ background:var(--sun); padding:8px 14px; border-radius:12px; color:#4A3600; }
-  .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
-  .word-chip{ background:var(--berry); color:#fff; padding:10px 18px; border-radius:16px; font-family:'Baloo 2', sans-serif; font-weight:700; font-size:20px; cursor:pointer; box-shadow:0 6px 0 #C24868; transition: transform .1s ease; text-align:center; }
-  .word-chip .fr-hint{ display:block; font-size:11px; font-weight:600; opacity:.85; margin-top:2px; } .word-chip:active{ transform:translateY(5px); box-shadow:0 1px 0 #C24868; } .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
-  .feedback-banner{ margin-top:14px; font-weight:800; font-size:20px; min-height:52px; } .feedback-banner .fb-fr{ display:block; font-size:16px; color:var(--french); font-weight:700; }
-  .feedback-banner.good .fb-en{color:#2F9E44;} .feedback-banner.retry .fb-en{color:#E8590C;}
-  .opinion-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:20px 0; } @media (max-width:640px){ .opinion-grid{grid-template-columns:repeat(2,1fr);} }
-  .opinion-card{ background:var(--cream); border:3px solid #FFCB8A; border-radius:20px; padding:14px 8px 10px; } .opinion-card .swatch{ font-size:38px; margin-bottom:4px; }
-  .opinion-card .cap-en{ font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; display:block; color:var(--ink); } .opinion-card .cap-fr{ font-size:12px; color:var(--french); font-weight:700; display:block; margin-bottom:8px;}
-  .opinion-btns{ display:flex; gap:6px; justify-content:center; margin-top:6px; } .opinion-btn{ border:none; border-radius:12px; padding:7px 9px; font-size:18px; cursor:pointer; background:#fff; box-shadow:0 4px 0 rgba(0,0,0,0.1); transition: transform .08s ease;}
-  .opinion-btn:active{ transform:translateY(3px); box-shadow:none; } .opinion-btn.like.picked{ background:#D9FFE0; } .opinion-btn.dislike.picked{ background:#FFE0E8; }
-  .opinion-card.answered{ border-color: var(--grass); } .opinion-said{ margin-top:6px; font-size:11px; font-weight:700; color:var(--grass); min-height:26px; line-height:1.3; }
-  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:520px; margin:18px auto 0; }
-  .mcq-opt{ font-family:'Poppins', sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:16px; border:3px solid #D6D6FF; background:#F8F8FF; cursor:pointer; text-align:left; transition: transform .08s ease, background .15s ease, border-color .15s ease; }
-  .mcq-opt .opt-fr{ display:block; font-size:15px; color:var(--french); font-weight:600; margin-top:3px; } .mcq-opt:hover{ transform: translateY(-2px); }
-  .mcq-opt.correct{ background:#D9FFE0; border-color:var(--grass); } .mcq-opt.incorrect{ background:#FFE0E8; border-color:var(--berry); animation: shake .4s ease;} .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
-  .recap-chip-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
-  .recap-chip{ background:#fff; border:3px solid #D6D6FF; border-radius:16px; padding:10px 14px; font-size:28px; cursor:pointer; transition: transform .1s ease, border-color .15s ease;} .recap-chip:hover{ transform:translateY(-3px); } .recap-chip.active{ border-color:var(--grape); background:#EEE6FF; }
-  .recap-sentence-en{ font-family:'Baloo 2', sans-serif; font-size:25px; font-weight:800; min-height:38px; margin:14px 0 2px; color:var(--ink); }
-  .recap-sentence-fr{ font-family:'Baloo 2', sans-serif; font-size:22px; font-weight:800; min-height:32px; color:var(--french); }
-  .confetti{ font-size:40px; display:flex; justify-content:center; gap:12px; margin:10px 0 6px; } .confetti span{ display:inline-block; animation: spin 1.6s linear infinite; }
-  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} } .confetti-burst{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:5; }
-  .confetti-piece{ position:absolute; top:-20px; font-size:20px; animation: fall linear forwards; } @keyframes fall{ to{ transform: translateY(420px) rotate(360deg); opacity:0; } }
-  .replay-btn{ background:var(--tangerine); color:#fff; border:none; border-radius:50px; padding:12px 22px; font-size:17px; font-weight:700; cursor:pointer; box-shadow:0 6px 0 #C86B1E; margin-top:12px; }
-  footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:#8b8ba3; }
+:root{--deep:#012a3d;--pool1:#00637a;--pool2:#00a7b5;--pool3:#5be0d8;--ink:#012a38;--gold:#ffcc4d;--coral:#ff6f6f;--violet:#6b4fc8;--green:#16a34a;--soft:#f2fbfb;--line:#d6eef0;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(circle at 10% 15%,rgba(255,255,255,.18) 0,transparent 40%),radial-gradient(circle at 90% 80%,rgba(255,255,255,.14) 0,transparent 45%),linear-gradient(160deg,var(--deep) 0%,var(--pool1) 42%,var(--pool2) 75%,var(--pool3) 100%);background-attachment:fixed;overflow-x:hidden;}
+h1,h2,h3{font-family:'Poppins',sans-serif;}
+#app{max-width:980px;margin:0 auto;padding:12px 14px 100px;}
+.hud{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(1,42,56,.5);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);border-radius:16px;padding:8px 12px;margin-bottom:12px;position:relative;z-index:5;color:#fff;}
+.hud .who{font-weight:700;font-size:15px;white-space:nowrap;}.hud .who span{font-size:24px;vertical-align:middle;}
+.dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;flex:1;min-width:120px;}
+.dot{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0;}
+.dot.active{background:var(--gold);transform:scale(1.35);}.dot.done{background:var(--pool3);}
+.pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:6px 11px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.pill.on{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.score{display:flex;align-items:center;gap:6px;background:rgba(255,204,77,.18);border:1px solid var(--gold);border-radius:999px;padding:3px 4px 3px 10px;font-weight:800;font-size:15px;}
+.score button{width:32px;height:32px;border-radius:50%;border:none;background:var(--gold);color:var(--ink);font-weight:900;font-size:16px;cursor:pointer;line-height:1;}
+.timer-pill{font-variant-numeric:tabular-nums;}
+.slide{display:none;animation:pop .35s ease;}.slide.active{display:block;}
+@keyframes pop{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.card{background:#fff;border-radius:22px;box-shadow:0 14px 34px rgba(1,42,56,.28);padding:22px 24px 20px;}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+.kicker{display:inline-block;background:var(--soft);color:var(--pool1);font-weight:800;font-size:12px;letter-spacing:1.3px;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+.mins{font-size:12px;font-weight:800;color:#7a8f95;background:#f4f7f7;border-radius:999px;padding:4px 10px;}
+h2.t{font-size:27px;margin:6px 0 2px;color:var(--deep);line-height:1.2;}
+.fr{display:block;color:var(--violet);font-style:italic;font-size:.9em;margin-top:2px;}
+span.fr.inl{display:inline;margin-left:6px;}
+body.no-fr .fr{display:none!important;}
+.lead{font-size:18px;margin:10px 0 12px;line-height:1.45;}
+.big-goal{background:linear-gradient(135deg,#fff7dd,#ffeeb3);border:3px solid var(--gold);border-radius:18px;padding:14px 18px;margin:12px 0;font-size:21px;font-weight:700;font-family:'Poppins';}
+.big-goal small{display:block;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#a07800;margin-bottom:4px;}
+.bibi{display:flex;gap:12px;align-items:flex-start;background:#eef9fa;border-radius:16px;padding:12px 14px;margin:10px 0;}
+.bibi .b{font-size:40px;line-height:1;flex:none;}.bibi p{margin:0;font-size:17px;line-height:1.5;}
+.btn{font-family:'Poppins';font-weight:700;font-size:16px;border:none;border-radius:14px;padding:11px 18px;cursor:pointer;background:var(--pool1);color:#fff;}
+.btn.gold{background:var(--gold);color:var(--ink);}.btn.ghost{background:#fff;color:var(--pool1);border:2px solid var(--pool1);}.btn.red{background:var(--coral);}
+.btn:active{transform:scale(.97);}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}.center{justify-content:center;}
+.spk{border:none;background:var(--soft);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:16px;flex:none;}
+details.tutor{margin-top:14px;border:2px dashed #b9c9cc;border-radius:14px;background:#fafcfc;}
+details.tutor summary{cursor:pointer;padding:9px 14px;font-weight:700;color:#4a6670;font-size:14px;list-style:none;}
+details.tutor summary::before{content:"🧑‍🏫 ";}details.tutor[open] summary{border-bottom:1px dashed #b9c9cc;}
+details.tutor .in{padding:10px 16px 12px;font-size:14.5px;line-height:1.55;}
+details.tutor .in b{color:var(--pool1);}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0;}
+.qcard{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-size:18px;font-weight:600;cursor:pointer;display:flex;gap:10px;align-items:flex-start;}
+.qcard .tx{flex:1;}.qcard .s{display:block;font-size:14px;font-weight:500;color:#4a6670;margin-top:5px;}
+.qcard.asked{background:#e7f8ee;border-color:var(--green);}
+.starters{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.starter{background:#fff7dd;border:1.5px solid var(--gold);border-radius:12px;padding:6px 12px;font-size:15px;font-weight:600;}
+.starter .fr{font-size:13px;}
+.askback{background:#f1ecff;border:2px solid var(--violet);border-radius:16px;padding:12px 14px;margin-top:10px;font-size:17px;}
+/* wheel */
+.wheel-wrap{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap;margin:8px 0;}
+.wheel{width:250px;height:250px;border-radius:50%;border:6px solid var(--gold);position:relative;transition:transform 3s cubic-bezier(.17,.67,.21,1);background:conic-gradient(#ffe7a3 0 60deg,#c9f1f3 60deg 120deg,#ffd6cc 120deg 180deg,#e4dcff 180deg 240deg,#d7f5da 240deg 300deg,#ffe1f0 300deg 360deg);}
+.wheel span{position:absolute;left:50%;top:50%;font-size:34px;transform-origin:0 0;}
+.pointer{font-size:38px;}
+.wq{flex:1;min-width:260px;background:var(--soft);border-radius:18px;padding:16px;font-size:22px;font-weight:700;font-family:'Poppins';min-height:120px;}
+.wq .s{display:block;font-size:15px;font-family:'Inter';font-weight:500;color:#4a6670;margin-top:8px;}
+/* story */
+.story{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:10px 0;}
+.panel{border-radius:18px;padding:12px;text-align:center;cursor:pointer;position:relative;min-height:190px;border:3px solid transparent;}
+.panel.night{background:linear-gradient(180deg,#14305a,#2b5288);color:#fff;}.panel.night .fr{color:#d9ccff;}
+.panel.day{background:linear-gradient(180deg,#fff2c4,#ffd98a);}
+.panel.dusk{background:linear-gradient(180deg,#ffb38a,#7b4fa0);color:#fff;}.panel.dusk .fr{color:#ffe9ff;}
+.panel.playing{border-color:var(--gold);box-shadow:0 0 0 4px rgba(255,204,77,.5);}
+.panel .tag{position:absolute;top:8px;left:8px;font-size:11px;font-weight:800;background:rgba(255,255,255,.85);color:var(--ink);border-radius:999px;padding:2px 8px;}
+.panel .sc{font-size:44px;line-height:1.1;margin:18px 0 8px;}.panel p{margin:0;font-size:16.5px;font-weight:700;line-height:1.35;}
+.mcq{background:var(--soft);border-radius:16px;padding:12px 14px;margin:10px 0;}
+.mcq .q{font-size:19px;font-weight:700;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+.opt{font-family:'Poppins';font-weight:700;font-size:17px;padding:10px 16px;border-radius:14px;border:3px solid var(--line);background:#fff;cursor:pointer;text-align:center;}
+.opt .fr{font-size:13px;}
+.opt.ok{border-color:var(--green);background:#e7f8ee;}.opt.no{border-color:var(--coral);background:#fff0f0;opacity:.75;}
+.why{display:none;margin-top:8px;font-size:15.5px;padding:8px 12px;border-radius:10px;}
+.why.show{display:block;}.why.good{background:#e7f8ee;}.why.bad{background:#fff4e5;}
+/* words */
+.pics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.pic{background:var(--soft);border:3px solid var(--line);border-radius:18px;padding:10px 8px;text-align:center;cursor:pointer;user-select:none;position:relative;}
+.pic .e{font-size:46px;line-height:1.1;}.pic .w{font-weight:700;font-size:16px;margin-top:4px;font-family:'Poppins';}.pic .fr{font-size:13px;}
+.pic.hide .w,.pic.hide .fr{visibility:hidden;}.pic.picked{border-color:var(--gold);background:#fff7dd;}.pic.used{opacity:.3;pointer-events:none;}
+.flash{width:260px;height:230px;margin:10px auto;border-radius:24px;background:#012a3d;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid var(--gold);font-family:'Poppins';font-size:20px;text-align:center;}
+.flash .e{font-size:96px;line-height:1;}
+/* chain */
+.chainbox{background:#fffdf3;border:3px solid var(--gold);border-radius:18px;padding:14px 16px;margin:10px 0;font-family:'Poppins';font-size:21px;font-weight:600;min-height:70px;line-height:1.6;}
+.chainbox .c{color:var(--pool1);font-weight:800;}
+.lvlbar{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0;}
+.lv{padding:6px 12px;border-radius:999px;border:2px solid var(--line);font-weight:700;font-size:14px;background:#fff;}
+.lv.on{background:var(--gold);border-color:var(--gold);}.lv.done{background:#e7f8ee;border-color:var(--green);}
+/* sort */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:10px;}
+.zone{border-radius:16px;padding:10px;min-height:100px;cursor:pointer;border:3px dashed transparent;}
+.zone h4{margin:0 0 4px;font-size:17px;font-family:'Poppins';}.zone .fr{font-size:13px;}
+.zone.m{background:#fff4cf;}.zone.a{background:#dff5ff;}.zone.e{background:#ffe2d6;}.zone.n{background:#1d2f57;color:#fff;}.zone.n .fr{color:#d9ccff;}
+.zone.target{border-color:var(--pool1);}
+.chip{display:inline-block;background:#fff;color:var(--ink);border-radius:999px;padding:4px 10px;margin:3px;font-size:14px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.15);}
+.card-now{display:flex;gap:14px;align-items:center;justify-content:center;margin:8px 0;}
+.card-now .big{width:200px;padding:12px;border-radius:20px;background:#012a3d;color:#fff;text-align:center;border:4px solid var(--gold);font-family:'Poppins';}
+.card-now .big .e{font-size:64px;}.card-now .big .fr{color:#d9ccff;}
+/* fix bibi */
+.mixed{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.mx{width:150px;border-radius:18px;border:3px solid var(--line);background:#fff;padding:10px;text-align:center;cursor:pointer;}
+.mx .e{font-size:44px;}.mx .w{font-weight:700;font-family:'Poppins';font-size:15px;}.mx .fr{font-size:12.5px;}
+.mx.out{border-color:var(--coral);background:#fff0f0;text-decoration:line-through;}
+.mx.placed{opacity:.3;pointer-events:none;}
+.order-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.oslot{width:150px;min-height:120px;border-radius:16px;border:3px dashed #9cc;background:#f7fdfd;text-align:center;padding:8px;}
+.oslot .lab{font-weight:800;color:var(--pool1);font-size:15px;font-family:'Poppins';}.oslot .e{font-size:38px;}.oslot .w{font-weight:600;font-size:14px;}
+.stepper{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px;}
+.st{padding:5px 12px;border-radius:999px;font-weight:700;font-size:14px;background:#f4f7f7;color:#7a8f95;}
+.st.on{background:var(--pool1);color:#fff;}.st.ok{background:#e7f8ee;color:var(--green);}
+.msg{min-height:26px;font-weight:700;font-size:17px;text-align:center;margin:8px 0;}
+/* silly */
+.slots{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0;}
+.reel{background:#012a3d;color:#fff;border-radius:16px;padding:14px 18px;min-width:190px;text-align:center;font-family:'Poppins';font-weight:700;font-size:21px;border:4px solid var(--gold);}
+.reel .e{font-size:40px;display:block;}.reel .fr{color:#d9ccff;font-size:14px;}
+/* TH */
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.pair{display:flex;gap:8px;}
+.pair button{flex:1;font-family:'Poppins';font-weight:700;font-size:20px;padding:10px;border-radius:14px;border:3px solid var(--line);background:#fff;cursor:pointer;}
+.pair button.th{border-color:var(--violet);}
+.tongue{background:#f1ecff;border-radius:16px;padding:12px 16px;font-size:17px;margin:10px 0;}
+.twister{font-family:'Poppins';font-size:22px;font-weight:700;text-align:center;background:#fff7dd;border-radius:16px;padding:12px;margin:10px 0;}
+/* reveal */
+.reveal{position:relative;width:300px;height:300px;margin:10px auto;border-radius:20px;overflow:hidden;background:#fff;border:5px solid var(--gold);}
+.reveal .pic-under{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:190px;}
+.tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);}
+.tile{background:linear-gradient(135deg,#00637a,#012a3d);border:2px solid #5be0d8;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Poppins';font-weight:800;font-size:26px;cursor:pointer;transition:opacity .3s;}
+.tile.gone{opacity:0;pointer-events:none;}
+.ptsbig{text-align:center;font-family:'Poppins';font-weight:800;font-size:20px;color:var(--pool1);}
+/* wyr */
+.wyr{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:12px 0;}
+.wyr .side{border-radius:20px;padding:16px;text-align:center;cursor:pointer;border:4px solid var(--line);font-family:'Poppins';font-weight:700;font-size:19px;background:#fff;}
+.wyr .side .e{font-size:60px;display:block;}.wyr .side.on{border-color:var(--gold);background:#fff7dd;}
+.wyr .or{align-self:center;font-family:'Poppins';font-weight:800;font-size:22px;color:var(--coral);}
+.because{background:#f1ecff;border-radius:14px;padding:10px 14px;font-size:18px;font-weight:600;text-align:center;}
+@media(max-width:560px){.wyr{grid-template-columns:1fr;}.wyr .or{text-align:center;}}
+/* storyboard / book */
+.storyboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.sb{background:var(--soft);border-radius:16px;padding:10px;border:2px solid var(--line);}
+.sb .lab{font-weight:800;color:var(--pool1);font-family:'Poppins';text-align:center;}.sb .lab .fr{font-size:13px;}
+.sb .choices{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;}
+.sb .choices button{font-size:26px;padding:4px 8px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;}
+.sb .choices button.on{border-color:var(--gold);background:#fff7dd;}
+.sb .said{text-align:center;font-family:'Poppins';font-weight:600;font-size:15px;min-height:22px;margin-top:6px;}
+.levels{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.lvl{border:3px solid var(--line);border-radius:16px;padding:8px 14px;text-align:center;cursor:pointer;background:#fff;min-width:120px;font-weight:700;}
+.lvl .e{font-size:30px;display:block;}.lvl.on{border-color:var(--gold);background:#fff7dd;}.lvl .fr{font-size:12px;}
+.book{background:#fffdf5;border:3px solid var(--gold);border-radius:18px;padding:12px 16px;}
+.bline{margin:10px 0;}.bline .lbl{font-family:'Poppins';font-weight:700;font-size:20px;}
+.bline .said{font-family:'Poppins';font-size:20px;color:var(--pool1);font-weight:700;margin-left:6px;}
+.bline .choices{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.bline .choices button{font-size:15px;padding:6px 10px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;font-family:inherit;}
+.bline .choices button.on{border-color:var(--gold);background:#fff7dd;font-weight:700;}
+.stats{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:14px 0;}
+.stat{background:var(--soft);border-radius:18px;padding:14px 20px;text-align:center;min-width:150px;}
+.stat .v{font-family:'Poppins';font-size:38px;font-weight:800;color:var(--pool1);}.stat .k{font-size:14px;font-weight:600;}
+.cando{font-size:18px;margin:8px 0;padding:10px 14px;border-radius:14px;background:#f6fbfb;border:2px solid var(--line);cursor:pointer;}
+.cando.ok{background:#e7f8ee;border-color:var(--green);}.cando::before{content:"⬜ ";}.cando.ok::before{content:"✅ ";}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:12px;padding:12px;background:rgba(1,42,56,.55);backdrop-filter:blur(6px);z-index:60;}
+.nav button{font-family:'Poppins';font-weight:700;font-size:16px;border-radius:14px;padding:11px 22px;border:none;cursor:pointer;}
+.nav .prev-b{background:#fff;color:var(--pool1);}.nav .next-b{background:var(--gold);color:var(--ink);}
+.toast{position:fixed;left:50%;top:84px;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-weight:800;padding:10px 20px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.25);opacity:0;transition:.3s;z-index:80;pointer-events:none;font-family:'Poppins';}
+.toast.show{opacity:1;}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden;}
+.confetti i{position:absolute;top:-20px;font-size:26px;animation:fall 2.6s linear forwards;}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);}}
+@media(max-width:560px){h2.t{font-size:22px;}.card{padding:16px 14px;}.wheel{width:200px;height:200px;}}
+/* lesson extras (same design system) */
+.ab{display:inline-block;font-family:'Poppins';font-weight:800;font-size:30px;letter-spacing:1px;color:var(--pool1);padding:8px 0;}
+.flash .ab,.card-now .big .ab,.reel .ab,.panel.night .ab{color:var(--gold);}
+.panel.sun{background:linear-gradient(180deg,#fff2c4,#ffd98a);}
+.panel.cloud{background:linear-gradient(180deg,#eef3f7,#c4d3de);}
+.panel.rain{background:linear-gradient(180deg,#8fa9c0,#4f6d88);color:#fff;}.panel.rain .fr{color:#e9e3ff;}
+.panel.wind{background:linear-gradient(180deg,#d9f3f1,#9fd8d3);}
+.panel.storm{background:linear-gradient(180deg,#5b5f7a,#2a2d45);color:#fff;}.panel.storm .fr{color:#d9ccff;}
+.panel.snow{background:linear-gradient(180deg,#ffffff,#d8ecff);}
+.panel.forest{background:linear-gradient(180deg,#1d3b2a,#3c5f2f);color:#fff;}.panel.forest .fr{color:#e6dcff;}
+.panel.party{background:linear-gradient(180deg,#3a1f5c,#f07a2a);color:#fff;}.panel.party .fr{color:#ffe9ff;}
+.zone.z1{background:#fff4cf;}.zone.z2{background:#dff5ff;}.zone.z3{background:#ffe2d6;}.zone.z4{background:#e4dcff;}
+.reel.wide{min-width:260px;max-width:560px;flex:1;}
+.reel .s{display:block;}
+.shape{display:inline-block;line-height:1;}
+.bline .full{display:block;font-family:'Poppins';font-size:19px;color:var(--pool1);font-weight:700;margin-top:4px;min-height:24px;}
+.bline .full .fr{font-size:14px;}
+.sb .choices button .w{display:block;font-size:11px;}
 </style>
 </head>
-<body class="notranslate" translate="no">
+<body>
 <div id="app">
-  <div class="topbar">
-    <div class="brand"><span class="emoji">🦇</span> Elina's Weather &amp; Days</div>
-    <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-label" id="progressLabel">1 / 13</div></div>
-    <button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><span class="dot"></span> <span id="soundToggleLabel">Sound On</span></button>
-    <div class="star-count">⭐ <span id="starCount">0</span></div>
-  </div>
-
-  <section class="screen active" data-screen="0">
-    <div class="card">
-      <span class="mascot">🦇</span>
-      <div class="bi-header"><span class="en">Hi again, Elina!</span><span class="fr">Salut encore, Elina !</span></div>
-      <div class="bi-body"><span class="en">Today: the days of the week and the weather!</span><span class="fr">Aujourd'hui : les jours de la semaine et la météo !</span></div>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Hi Elina! Today we learn the days and the weather!')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('Salut Elina ! Aujourd\'hui on apprend les jours et la météo !')">🔊 FR</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="1">
-    <div class="card">
-      <span class="section-tag">Days of the Week / Jours de la semaine</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Seven days!</span><span class="fr" style="font-size:24px;">Sept jours !</span></div>
-      <div class="shape-grid" id="daysGrid"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="2">
-    <div class="card">
-      <span class="section-tag">Weather / Météo</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">What's the weather like?</span><span class="fr" style="font-size:24px;">Quel temps fait-il ?</span></div>
-      <div class="shape-grid" id="weatherGrid"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="3">
-    <div class="card">
-      <span class="section-tag">Days Game / Jeu des jours</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Match the day to itself!</span><span class="fr" style="font-size:24px;">Associe le jour !</span></div>
-      <div class="match-wrap"><div class="match-col" id="matchDaysEN"></div><div class="match-col" id="matchDaysFR"></div></div>
-      <div class="feedback-banner" id="matchFeedback"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="4">
-    <div class="card">
-      <span class="section-tag">Let's Talk! / Parlons !</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Bibi asks you a question!</span><span class="fr" style="font-size:24px;">Bibi te pose une question !</span></div>
-      <button class="lang-btn en-btn" style="margin-bottom:10px;" onclick="speakEN('What is the weather today?')">🔊 What is the weather today?</button>
-      <div class="weather-q">Tap the weather you see today! / Touche la météo d'aujourd'hui !</div>
-      <div class="weather-pick-row" id="weatherPickRow"></div>
-      <div class="weather-response" id="weatherResponse"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="5">
-    <div class="card">
-      <span class="section-tag">Weather Game / Jeu de météo</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Match the weather word to the picture!</span><span class="fr" style="font-size:24px;">Associe le mot à la météo !</span></div>
-      <div class="match-wrap"><div class="match-col" id="matchWeatherWords"></div><div class="match-col" id="matchWeatherPics"></div></div>
-      <div class="feedback-banner" id="matchFeedback2"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="6">
-    <div class="card">
-      <span class="section-tag">Build a Sentence / Construis une phrase</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Today is Monday!</span><span class="fr" style="font-size:24px;">Aujourd'hui c'est lundi !</span></div>
-      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
-      <div class="sentence-slot" id="sentenceSlot"></div>
-      <div class="word-bank" id="wordBank"></div>
-      <div class="feedback-banner" id="phraseFeedback"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="7">
-    <div class="card">
-      <span class="section-tag">Build Another Sentence / Construis une autre phrase</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">It is sunny today!</span><span class="fr" style="font-size:24px;">Il fait ensoleillé aujourd'hui !</span></div>
-      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap the words in order. / Touche les mots dans l'ordre.</p>
-      <div class="sentence-slot" id="sentenceSlot2"></div>
-      <div class="word-bank" id="wordBank2"></div>
-      <div class="feedback-banner" id="phraseFeedback2"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="8">
-    <div class="card">
-      <span class="section-tag">I Like&hellip; / J'aime&hellip;</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Which weather do you like?</span><span class="fr" style="font-size:24px;">Quel temps aimes-tu ?</span></div>
-      <p style="font-size:16px; color:#7a7a95; margin:0 0 10px;">Tap ❤️ or 🚫 on at least 3. / Touche ❤️ ou 🚫 sur au moins 3.</p>
-      <div class="opinion-grid" id="weatherOpinionGrid"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="9">
-    <div class="card">
-      <span class="section-tag">Answer Practice / Pratique</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">What day comes after Monday?</span><span class="fr" style="font-size:24px;">Quel jour vient après lundi ?</span></div>
-      <div class="mcq-options" data-gid="q1">
-        <button class="mcq-opt" data-ans="A">A) Sunday<span class="opt-fr">Dimanche</span></button>
-        <button class="mcq-opt" data-ans="B">B) Tuesday<span class="opt-fr">Mardi</span></button>
-        <button class="mcq-opt" data-ans="C">C) Friday<span class="opt-fr">Vendredi</span></button>
-      </div>
-      <div class="feedback-banner" id="mcqFeedback"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="10">
-    <div class="card">
-      <span class="section-tag">Answer Practice / Pratique</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">What day comes before Saturday?</span><span class="fr" style="font-size:24px;">Quel jour vient avant samedi ?</span></div>
-      <div class="mcq-options" data-gid="q2">
-        <button class="mcq-opt" data-ans="A">A) Sunday<span class="opt-fr">Dimanche</span></button>
-        <button class="mcq-opt" data-ans="B">B) Monday<span class="opt-fr">Lundi</span></button>
-        <button class="mcq-opt" data-ans="C">C) Friday<span class="opt-fr">Vendredi</span></button>
-      </div>
-      <div class="feedback-banner" id="mcqFeedback2"></div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="11">
-    <div class="card">
-      <span class="section-tag">Show What You Know / Montre ce que tu sais</span>
-      <div class="bi-header"><span class="en" style="font-size:26px;">Tell Bibi the day and weather!</span><span class="fr" style="font-size:24px;">Dis le jour et la météo à Bibi !</span></div>
-      <p style="font-size:16px; color:#7a7a95; margin:0 0 6px;">Tap anything below! / Touche n'importe quoi ci-dessous !</p>
-      <div class="recap-chip-row" id="recapChips"></div>
-      <div class="recap-sentence-en" id="recapSentence">&hellip;</div>
-      <div class="recap-sentence-fr" id="recapSentenceFr">&hellip;</div>
-    </div>
-  </section>
-
-  <section class="screen" data-screen="12">
-    <div class="card">
-      <div class="confetti"><span>🎉</span><span>🦇</span><span>☀️</span><span>⭐</span><span>🎉</span></div>
-      <div class="bi-header"><span class="en">Great job, Elina!</span><span class="fr">Bravo, Elina !</span></div>
-      <div class="bi-body"><span class="en">You know all seven days and lots of weather words!</span><span class="fr">Tu connais les sept jours et beaucoup de mots météo !</span></div>
-      <div class="dual-audio-row">
-        <button class="lang-btn en-btn" onclick="speakEN('Great job, Elina!')">🔊 EN</button>
-        <button class="lang-btn fr-btn" onclick="speakFR('Bravo, Elina !')">🔊 FR</button>
-      </div>
-    </div>
-  </section>
-
-  <div class="nav-row">
-    <button class="nav-btn back" id="backBtn" onclick="changeScreen(-1)">⬅ Back</button>
-    <button class="nav-btn next" id="nextBtn" onclick="changeScreen(1)">Next ➡</button>
-  </div>
-  <footer class="credit">KingCretot Experience &middot; Elina &middot; Lesson 6: Weather &amp; Days &middot; Phase 1 (Full Bilingual)</footer>
+<div class="hud">
+  <div class="who"><span>🦇</span> Bibi &amp; Elina</div>
+  <div class="dots" id="dots"></div>
+  <div class="score" title="Tutor: tap ⭐ each time Elina says a full sentence">⭐ <span id="starN">0</span><button id="starPlus" aria-label="Add a star">+1</button></div>
+  <button class="pill on" id="frBtn">🇫🇷 FR</button>
+  <button class="pill on" id="sndBtn">🔊</button>
 </div>
 
+<!-- 1 MISSION -->
+<section class="slide active">
+<div class="card">
+  <div class="top"><span class="kicker">Lesson 6 · Weather &amp; Days · Episode 6</span><span class="mins">1 min</span></div>
+  <h2 class="t">Bibi's Crazy Weather Week 🌦️</h2><span class="fr">La semaine météo folle de Bibi</span>
+  <div class="bibi"><div class="b">🦇</div><p>Hi Elina! I'm Bibi, the bat. I fly at night, so I need to know the <b>weather</b>! But I don't know the <b>days of the week</b>… You are the weather expert! Can you help me?<span class="fr">Salut Elina ! C'est moi, Bibi, la chauve-souris. Je vole la nuit, alors j'ai besoin de connaître la <b>météo</b> ! Mais je ne connais pas les <b>jours de la semaine</b>… C'est toi l'experte de la météo ! Tu peux m'aider ?</span></p></div>
+  <div class="big-goal"><small>Today I can… / Aujourd'hui, je peux…</small>say the weather for every day of the week: "On Monday, it's sunny."<span class="fr">dire la météo pour chaque jour de la semaine : « On Monday, it's sunny. » (Lundi, il y a du soleil.)</span></div>
+  <p class="lead">Every full sentence you say = ⭐. Can you get <b>40 stars</b> today?<span class="fr">Chaque phrase complète = une étoile ⭐. Tu peux gagner 40 étoiles aujourd'hui ?</span></p>
+  <details class="tutor"><summary>Tutor notes · how this lesson runs (≈45 min)</summary><div class="in">
+    <b>Zoom setup:</b> you share the screen and click everything; Elina only talks. Tap <b>⭐ +1</b> in the top bar each time she says a full English sentence (it's the score for the whole lesson). Each slide shows its target minutes.<br>
+    <b>Pattern of the day:</b> "On Monday, it's sunny." + "What's the weather like?" + "What day is it today? Today is…"<br>
+    <b>French-speaker traps:</b> "the Monday" → <b>on Monday</b>; "it makes sun / it makes cold" (il fait…) → <b>it's sunny / it's cold</b>; "the time" for le temps → <b>the weather</b>; days need a <b>capital letter</b> in English (Monday, not monday); say <b>Wednesday</b> = "WENZ-day", <b>Tuesday</b> = "TOOZ-day", <b>Thursday</b> with the tongue-out TH.<br>
+    <b>Correcting:</b> never "No." Repeat it back correctly ("Yes! <i>On</i> Monday, it's sunny!") and let her say it again for the star.
+  </div></details>
+</div>
+</section>
+
+<!-- 2 WARM-UP -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Warm-Up · On discute</span><span class="mins">4 min</span></div>
+  <h2 class="t">👋 Let's Catch Up!</h2><span class="fr">On discute un peu !</span>
+  <p class="lead">Answer with a full sentence. Then ask me back!<span class="fr">Réponds avec une phrase complète. Puis pose-moi la question !</span></p>
+  <div class="qgrid" id="warmQs">
+    <div class="qcard" data-st="w1"><button class="spk" data-a="w1">🔊</button><div class="tx">😊 How are you today?<span class="fr">Comment tu vas aujourd'hui ?</span></div></div>
+    <div class="qcard" data-st="w2"><button class="spk" data-a="w2">🔊</button><div class="tx">📖 Read me your English Book page: tell me your day!<span class="fr">Lis-moi la page de ton livre d'anglais : raconte-moi ta journée !</span></div></div>
+    <div class="qcard" data-st="w3"><button class="spk" data-a="w3">🔊</button><div class="tx">📅 What day is it today?<span class="fr">Quel jour sommes-nous aujourd'hui ?</span></div></div>
+    <div class="qcard" data-st="w4"><button class="spk" data-a="w4">🔊</button><div class="tx">🪟 Look out the window. What's the weather like?<span class="fr">Regarde par la fenêtre. Quel temps fait-il ?</span></div></div>
+  </div>
+  <p style="font-weight:700;margin:10px 0 4px;">💬 Answer starters <span class="fr inl">Pour commencer ta réponse</span> · <span id="stWhich" style="color:var(--pool1)">tap a question</span></p>
+  <div class="starters" id="warmStarters"></div>
+  <div class="askback">🔁 <b>Your turn:</b> "And you? How are you?" · "What's the weather like where you live?"<span class="fr">À toi : « Et toi ? Comment tu vas ? » · « Quel temps fait-il chez toi ? »</span></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    Push for full sentences ("Sunny." → "It's sunny!"). Question 2 reuses her Lesson 5 book page ("In the morning, I…"). For the weather, ask "Is it hot or cold?" and "Is it the same in Florida?" so she has a reason to ask you back. ⭐ for each full sentence.
+  </div></details>
+</div>
+</section>
+
+<!-- 3 REMEMBER WHEEL -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Remember? · Spin the wheel</span><span class="mins">3 min</span></div>
+  <h2 class="t">🎡 Spin &amp; Answer!</h2><span class="fr">Fais tourner la roue et réponds !</span>
+  <p class="lead">Questions from Lessons 1–5. Answer fast in a full sentence!<span class="fr">Des questions des leçons 1 à 5. Réponds vite avec une phrase complète !</span></p>
+  <div class="wheel-wrap"><div class="pointer">👉</div><div class="wheel" id="wheel"></div><div class="wq" id="wq">Press SPIN!<span class="fr">Appuie sur SPIN !</span></div></div>
+  <div class="row center"><button class="btn gold" id="spinWheel">🎡 SPIN!</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Spin 5–6 times. Challenge: answers must use <b>and</b> or <b>but</b> ("I wake up at seven <b>and</b> I eat breakfast."). ⭐ for each full sentence.</div></details>
+</div>
+</section>
+
+<!-- 4 STORY -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Listen · Story time</span><span class="mins">3 min</span></div>
+  <h2 class="t">🦇 Bibi's Crazy Weather Week</h2><span class="fr">La semaine météo folle de Bibi</span>
+  <p class="lead">In Bibi's story, the weather is crazy all week! Listen and watch the pictures. Every night, Bibi wants to fly… but can she?<span class="fr">Dans l'histoire de Bibi, la météo est folle toute la semaine ! Écoute et regarde les images. Chaque nuit, Bibi veut voler… mais est-ce qu'elle peut ?</span></p>
+  <div class="row"><button class="btn gold" id="playStory">▶ Play the story</button></div>
+  <div class="story" id="story"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Play it once just listening, then tap each picture and have her repeat Bibi's sentence (⭐ each). Point to the day tag on each picture: Monday → Sunday. Ask "Can Bibi fly on Tuesday? Why not?"</div></details>
+</div>
+</section>
+
+<!-- 5 STORY CHECK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Did you understand? · Story quiz</span><span class="mins">3 min</span></div>
+  <h2 class="t">🤔 Bibi Quiz</h2><span class="fr">Le quiz de Bibi</span>
+  <p class="lead">Say the answer in a sentence first. Then choose!<span class="fr">Dis la réponse avec une phrase d'abord. Puis choisis !</span></p>
+  <div id="storyQuiz"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She says the full answer before you click ("On Tuesday, it's rainy."). The last question has no wrong answer: it's her opinion with <b>because</b>.</div></details>
+</div>
+</section>
+
+<!-- 6a WORDS -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">New words · 7 days + 11 weather words</span><span class="mins">3 min</span></div>
+  <h2 class="t">🖼️ Days &amp; Weather</h2><span class="fr">Les jours et la météo</span>
+  <p class="lead">Tap a card to hear it. Days: <b>"Today is Monday."</b> Weather: <b>"It's sunny."</b><span class="fr">Touche une carte pour l'écouter. Les jours : « Today is Monday. » La météo : « It's sunny. »</span></p>
+  <div class="pics" id="wordPics"></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn ghost" id="hideWords">🙈 Hide the words <span class="fr inl">Cacher les mots</span></button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Round 1: tap each card, she repeats the sentence (⭐ each). Say the seven days together twice, then she says them alone. Round 2: press <b>Hide the words</b> and point to a weather picture; she says it from the picture only. Watch <b>Wednesday</b> (WENZ-day) and <b>it's</b> (not "it makes").</div></details>
+</div>
+</section>
+
+<!-- 6b FLASH -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Game · Flash</span><span class="mins">3 min</span></div>
+  <h2 class="t">⚡ Flash Game!</h2><span class="fr">Le jeu Flash !</span>
+  <div class="qgrid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
+    <div class="qcard" style="cursor:default">1️⃣ <div class="tx">I press FLASH.<span class="fr">J'appuie sur FLASH.</span></div></div>
+    <div class="qcard" style="cursor:default">2️⃣ <div class="tx">A day and a weather picture show for 3 seconds.<span class="fr">Un jour et une image météo apparaissent 3 secondes.</span></div></div>
+    <div class="qcard" style="cursor:default">3️⃣ <div class="tx">Say the sentence fast: "On Tuesday, it's rainy!"<span class="fr">Dis vite la phrase : « On Tuesday, it's rainy ! »</span></div></div>
+    <div class="qcard" style="cursor:default">4️⃣ <div class="tx">Then we check the answer!<span class="fr">Puis on vérifie la réponse !</span></div></div>
+  </div>
+  <div class="flash" id="flash"><span class="e">⚡</span>Ready?<span class="fr" style="color:#d9ccff">Prête ?</span></div>
+  <div class="ptsbig" id="flashCount">Round 0</div>
+  <div class="row center" style="margin-top:8px;"><button class="btn gold" id="flashGo">⚡ FLASH!</button><button class="btn" id="flashGot">✅ She said it! ⭐</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Play 8–10 rounds. If she says the full sentence before the picture hides, press <b>She said it!</b> (adds a star). Make it harder: she adds what she does ("On Tuesday, it's rainy, <b>so I stay home</b>!").</div></details>
+</div>
+</section>
+
+<!-- 7 SENTENCE CHAIN -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Build long sentences · Chain challenge</span><span class="mins">5 min</span></div>
+  <h2 class="t">🔗 My Crazy Weather Week</h2><span class="fr">Ma semaine météo folle</span>
+  <p class="lead">Invent the weather for each day, in order. Each time, say the <b>whole week again</b> from the start and add one more day. When you're done, the last day starts with <b>"and"</b>!<span class="fr">Invente la météo de chaque jour, dans l'ordre. À chaque fois, redis <b>toute la semaine</b> depuis le début et ajoute un jour. À la fin, le dernier jour commence par « and » (et) !</span></p>
+  <div class="lvlbar" id="chainLv"></div>
+  <div class="starters"><span class="starter">On Monday, it's… <span class="fr">Lundi, il…</span></span><span class="starter">on Tuesday, it's… <span class="fr">mardi, il…</span></span><span class="starter">and on Wednesday, it's… <span class="fr">et mercredi, il…</span></span></div>
+  <div class="chainbox" id="chainBox"></div>
+  <div class="pics" id="chainPics"></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn" id="chainFinish">🏁 Finish the chain <span class="fr inl">Terminer</span></button><button class="btn gold" id="chainRead">🔊 Hear my chain</button><button class="btn ghost" id="chainUndo">↶ Undo</button><button class="btn ghost" id="chainReset">↺ New chain</button><button class="btn ghost" id="chainMode"></button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    The days come by themselves, in order; she chooses the weather and says the sentence, you click what she says. Weather can repeat (two sunny days is fine). When she's finished, press <b>Finish the chain</b>: the last day gets <b>and</b>, and she says the whole week from the start (stars: 3–4 days = 1–2 ⭐, 5+ = 3 ⭐). Goal: 5 days with no help. Then press the start button to begin on <b>Thursday</b> or <b>Saturday</b>: she must know that after Sunday comes Monday!
+  </div></details>
+</div>
+</section>
+
+<!-- 8 SORT -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Your week · Sort it</span><span class="mins">4 min</span></div>
+  <h2 class="t">🗂️ My Week, My Weather</h2><span class="fr">Ma semaine, ma météo</span>
+  <p class="lead" id="sortLead"></p>
+  <div class="card-now"><div class="big" id="sortNow"></div></div>
+  <div class="row center"><button class="btn ghost" id="sortStart">↺ Start over</button><button class="btn gold" id="sortRound"></button></div>
+  <div class="board" id="sortBoard"></div>
+  <div class="msg" id="sortMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">It's <b>her</b> week and <b>her</b> taste, so there's no wrong zone, but she must say the whole sentence before you click (⭐ each). Round 1: in France many children have no school (or only the morning) on <b>Wednesday</b>; ask her about it. Round 2: ask "Why?" for one or two ("I don't like rainy days because I can't play outside!").</div></details>
+</div>
+</section>
+
+<!-- 9 THINK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Think! · Fix Bibi's mistakes</span><span class="mins">5 min</span></div>
+  <h2 class="t">🕵️ Bibi Is Mixed Up!</h2><span class="fr">Bibi s'est trompée !</span>
+  <div class="bibi"><div class="b">🦇</div><p id="fixIntro"></p></div>
+  <div class="stepper"><span class="st on" id="fs1">1 · Find the intruder <span class="fr inl">l'intrus</span></span><span class="st" id="fs2">2 · Put the days in order <span class="fr inl">les jours dans l'ordre</span></span><span class="st" id="fs3">3 · Say it! <span class="fr inl">dis-le</span></span></div>
+  <div class="mixed" id="mixed"></div>
+  <div class="order-row" id="fixSlots"></div>
+  <div class="msg" id="fixMsg"></div>
+  <div class="row center"><button class="btn ghost" id="fixReset">↺ Try again</button><button class="btn gold" id="fixNext"></button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    <b>Step 1:</b> she names the intruder and says <b>why</b> ("Rainy is the weather, not a day!"). Click it. <b>Step 2:</b> she tells you the order; click the cards in her order. The page checks it and explains. <b>Step 3:</b> she says "After Tuesday comes Wednesday…" for each pair. ⭐ for the reason and for each sentence. Round 2 is harder: the intruder IS a day, but it doesn't follow the others.
+  </div></details>
+</div>
+</section>
+
+<!-- 10 TRUE OR SILLY -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">True or silly? · Spin</span><span class="mins">4 min</span></div>
+  <h2 class="t">🎰 True or Silly?</h2><span class="fr">Vrai ou rigolo ?</span>
+  <p class="lead">Spin! Read the sentence. Is it <b>true</b> or <b>silly</b>? If it's silly, fix it: <b>"No! After Monday comes Tuesday!"</b><span class="fr">Lis la phrase. C'est vrai ou c'est rigolo ? Si c'est rigolo, corrige-la : « Non ! Après lundi, c'est mardi ! »</span></p>
+  <div class="slots"><div class="reel" id="r1"><span class="e">🎰</span></div><div class="reel wide" id="r2"><span class="s">Press SPIN!</span><span class="fr">Appuie sur SPIN !</span></div></div>
+  <div class="row center"><button class="btn gold" id="spin">🎰 SPIN!</button><button class="btn ghost" id="sayIt">🔊 Hear it</button></div>
+  <div class="row center" style="margin-top:8px;"><button class="btn" data-v="true">✅ True! <span class="fr inl">Vrai !</span></button><button class="btn red" data-v="silly">🤪 That's silly! <span class="fr inl">Rigolo !</span></button></div>
+  <div class="msg" id="verdict"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She reads it aloud, decides, and <b>fixes silly ones in a full sentence</b> (⭐ when she's right). Then swap: she makes up a silly sentence about the days or the weather and you fix it. Kids love catching the teacher.</div></details>
+</div>
+</section>
+
+<!-- 11 SOUND SPOT AY -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Sound spot · AY</span><span class="mins">3 min</span></div>
+  <h2 class="t">🌧️ The Rainy-Day Sound: AY</h2><span class="fr">Le son du jour de pluie : AY</span>
+  <div class="tongue">Say « é », then slide to « i » with no stop: <b>ay… rain, day!</b> 🌧️ Two sounds in one! Not « dé », but <b>day</b>. For the short <b>E</b> (wet, pen), say only « è » and stop.<span class="fr">Dis « é », puis glisse vers « i » sans t'arrêter : ay… rain, day ! Deux sons en un ! Pas « dé », mais day. Pour le E court (wet, pen), dis seulement « è » et arrête-toi.</span></div>
+  <p class="lead">Listen. Which one did you hear? Then say both!<span class="fr">Écoute. Lequel tu as entendu ? Puis dis les deux !</span></p>
+  <div class="pairs">
+    <div class="pair"><button class="th" data-a="s_wait">wait</button><button data-a="s_wet">wet</button></div>
+    <div class="pair"><button class="th" data-a="s_late">late</button><button data-a="s_let">let</button></div>
+    <div class="pair"><button class="th" data-a="s_pain">pain</button><button data-a="s_pen">pen</button></div>
+    <div class="pair"><button class="th" data-a="s_gate">gate</button><button data-a="s_get">get</button></div>
+  </div>
+  <div class="twister">Rain, rain, go away! Come again another day! ☔<span class="fr">Pluie, pluie, va-t'en ! Reviens un autre jour !</span></div>
+  <div class="row center"><button class="btn gold" data-a="s_twister">🔊 Hear it</button><button class="btn ghost" id="mystery">🎲 Mystery word</button></div>
+  <div class="msg" id="thMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Press <b>Mystery word</b>: it plays one word from a pair; she says which one. Then she says a word and <b>you</b> guess. Finish with the rhyme (a real American children's rhyme): slow, normal, fast. Bonus: every day of the week ends with <b>day</b>: Mon<b>day</b>, Tues<b>day</b>… Watch that she glides "ay" and doesn't say a flat French « dé ».</div></details>
+</div>
+</section>
+
+<!-- 12 PICTURE REVEAL -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Game · Picture reveal</span><span class="mins">4 min</span></div>
+  <h2 class="t">🧩 What's Behind the Squares?</h2><span class="fr">Qu'est-ce qui se cache derrière les carrés ?</span>
+  <p class="lead">I take away one square at a time. Guess the weather with a full sentence: <b>"I think it's windy!"</b> Fewer squares gone = more points!<span class="fr">J'enlève un carré à la fois. Devine la météo avec une phrase complète. Moins de carrés enlevés = plus de points !</span></p>
+  <div class="reveal" id="reveal"><div class="pic-under" id="revealPic"></div><div class="tiles" id="tiles"></div></div>
+  <div class="ptsbig" id="revealPts">Points for this round: 9</div>
+  <div class="row center" style="margin-top:8px;"><button class="btn gold" id="revealNew">🎲 New picture</button><button class="btn" id="revealGot">✅ She got it!</button><button class="btn ghost" id="revealAll">👀 Show all</button></div>
+  <div class="msg" id="revealMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Click squares one by one until she guesses with a full sentence. Then press <b>She got it!</b> (points = squares still covering; stars added). Follow-up each round: "<b>What do you do</b> when it's windy?" → "When it's windy, I play outside."</div></details>
+</div>
+</section>
+
+<!-- 13 WOULD YOU RATHER -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Your opinion · Would you rather?</span><span class="mins">4 min</span></div>
+  <h2 class="t">🤷 Would You Rather…?</h2><span class="fr">Tu préfères… ?</span>
+  <p class="lead">Choose one and say <b>why</b> with <b>because</b>. Then ask me!<span class="fr">Choisis et dis <b>pourquoi</b> avec « because » (parce que). Puis pose-moi la question !</span></p>
+  <div class="mcq" style="text-align:center;"><div class="q" style="justify-content:center;"><button class="spk" id="wyrSpk">🔊</button><span id="wyrQ"></span></div><span class="fr" id="wyrQfr"></span></div>
+  <div class="wyr"><div class="side" id="wyrA"></div><div class="or">OR</div><div class="side" id="wyrB"></div></div>
+  <div class="because">I'd rather ___ because ___.<span class="fr">Je préfère ___ parce que ___.</span></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn gold" id="wyrNext">➡ Next question</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">This is critical thinking: there is no right answer, but there must be a <b>reason</b>. Model one first ("I'd rather play in the snow because snowmen are fun."). After each answer she asks you the same question. ⭐ for each "because" sentence.</div></details>
+</div>
+</section>
+
+<!-- 14 BIG TALK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Big talk · The weather report</span><span class="mins">4 min</span></div>
+  <h2 class="t">📺 Elina's Weather Report!</h2><span class="fr">La météo d'Elina !</span>
+  <p class="lead">You are the TV weather reporter! Choose the weather for Monday to Friday. I tap it. Then give the whole report with no stopping: <b>"Good evening! Here is the weather. On Monday, it's…"</b><span class="fr">Tu présentes la météo à la télé ! Choisis la météo du lundi au vendredi. Je la touche. Puis présente toute la météo sans t'arrêter : « Bonsoir ! Voici la météo. Lundi, il… »</span></p>
+  <div class="storyboard" id="storyboard"></div>
+  <p style="font-weight:700;margin:14px 0 2px;text-align:center;">🎭 Voice challenge: Elina gives her weather report again in a funny voice! Tap the voice for each round.<span class="fr">Défi des voix : Elina présente encore sa météo avec une voix rigolote ! Touche la voix pour chaque tour.</span></p>
+  <div class="levels" id="levels">
+    <div class="lvl"><span class="e">🤫</span>Whisper<span class="fr">en chuchotant</span></div>
+    <div class="lvl"><span class="e">🙂</span>Normal<span class="fr">normal</span></div>
+    <div class="lvl"><span class="e">📺</span>TV reporter<span class="fr">journaliste télé</span></div>
+    <div class="lvl"><span class="e">🥶</span>Very cold voice<span class="fr">voix gelée</span></div>
+  </div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">This is the goal of the lesson. She says all five days in a row ("On Monday, it's… On Wednesday, it's…"), and adds one "so" or "because" if she can ("On Friday, it's rainy, so take an umbrella!"). Do it 2–3 times in different voices; each telling smoother. ⭐ per sentence.</div></details>
+</div>
+</section>
+
+<!-- 15 BOOK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">My English Book · Page 6</span><span class="mins">2 min</span></div>
+  <h2 class="t">✍️ My Sentences About Me</h2><span class="fr">Mes phrases sur moi</span>
+  <p class="lead">Say your three sentences. I tap your choice and it goes in your book!<span class="fr">Dis tes trois phrases. Je touche ton choix et il va dans ton livre !</span></p>
+  <div class="book" id="book"></div>
+  <div class="row" style="margin-top:10px;"><button class="btn gold" id="readBook">🔊 Read my page</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She says each sentence; you tap the matching choice. Then she reads the whole page aloud once (⭐ ×3). It saves in this browser, and next lesson's warm-up can start with these three sentences.</div></details>
+</div>
+</section>
+
+<!-- 16 CEREMONY -->
+<section class="slide">
+<div class="card" style="text-align:center;">
+  <div class="top"><span class="kicker">Ceremony · Episode 6 complete</span><span class="mins">1 min</span></div>
+  <h2 class="t">🏅 Thank You, Expert Elina!</h2><span class="fr">Merci, experte Elina !</span>
+  <div class="bibi" style="text-align:left;"><div class="b">🦇</div><p>Now I know the seven days and the weather! Every night, I ask: "What's the weather like?" Then I fly… or I stay in my cave! 😄<span class="fr">Maintenant je connais les sept jours et la météo ! Chaque nuit, je demande : « Quel temps fait-il ? » Puis je vole… ou je reste dans ma grotte ! 😄</span></p></div>
+  <div class="stats">
+    <div class="stat"><div class="v" id="stStars">0</div><div class="k">⭐ sentences / phrases</div></div>
+    <div class="stat"><div class="v" id="stMedal">—</div><div class="k">🏅 medal / médaille</div></div>
+  </div>
+  <div style="text-align:left;">
+    <div class="cando">I can say the seven days of the week in order.<span class="fr">Je peux dire les sept jours de la semaine dans l'ordre.</span></div>
+    <div class="cando">I can say the weather: "It's sunny. It's rainy. It's cold."<span class="fr">Je peux dire la météo : « Il y a du soleil. Il pleut. Il fait froid. »</span></div>
+    <div class="cando">I can say: "On Monday, it's sunny."<span class="fr">Je peux dire : « Lundi, il y a du soleil. »</span></div>
+    <div class="cando">I can say the AY sound in rain, day, wait.<span class="fr">Je peux dire le son AY dans rain, day, wait.</span></div>
+  </div>
+  <div class="row center" style="margin-top:12px;"><button class="btn gold" id="medal">🥇 Open your medal!</button></div>
+  <details class="tutor" style="text-align:left;"><summary>Tutor: before you go</summary><div class="in">Mini homework (tell her mom in French): every evening, Elina tells the family the day and the weather in English: "Today is Monday. It's cloudy and cold." <i>(Chaque soir, Elina dit à sa famille le jour et la météo en anglais.)</i></div></details>
+</div>
+</section>
+
+</div>
+<div class="nav"><button class="prev-b" id="prevB">⬅ Back</button><button class="next-b" id="nextB">Next ➡</button></div>
+<div class="toast" id="toast"></div>
+<div class="confetti" id="confetti"></div>
+
 <script>
-let audioCtx; function getCtx(){ if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } return audioCtx; }
-function tone(freq, start, dur, type='sine', vol=0.22){ const ctx = getCtx(); const osc = ctx.createOscillator(); const gain = ctx.createGain(); osc.type = type; osc.frequency.value = freq; gain.gain.setValueAtTime(vol, ctx.currentTime + start); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur); osc.connect(gain).connect(ctx.destination); osc.start(ctx.currentTime + start); osc.stop(ctx.currentTime + start + dur); }
-function playCorrect(){ tone(523.25,0,.14); tone(659.25,.14,.14); tone(783.99,.28,.14); tone(1046.5,.42,.22); }
-function playIncorrect(){ tone(330,0,.18,'sawtooth',0.15); tone(220,.15,.25,'sawtooth',0.15); }
-function playFanfare(){ [523.25,659.25,783.99,1046.5,1318.5].forEach((f,i)=> tone(f, i*0.13, .3, 'triangle', 0.2)); }
-const confettiEmojis = ['🎉','⭐','🎊','✨','☀️'];
-function burstConfetti(cardEl){ let layer = cardEl.querySelector('.confetti-burst'); if(!layer){ layer = document.createElement('div'); layer.className = 'confetti-burst'; cardEl.appendChild(layer); }
-  for(let i=0;i<16;i++){ const piece = document.createElement('span'); piece.className = 'confetti-piece'; piece.textContent = confettiEmojis[Math.floor(Math.random()*confettiEmojis.length)];
-    piece.style.left = (Math.random()*94)+'%'; piece.style.animationDuration = (0.8 + Math.random()*0.9)+'s'; piece.style.fontSize = (16 + Math.random()*18)+'px'; layer.appendChild(piece); setTimeout(()=> piece.remove(), 1900); } }
-function currentCard(){ return document.querySelector('.screen.active .card'); }
-let soundOn = true; let voiceEN = null, voiceFR = null;
-function pickVoices(){ const voices = window.speechSynthesis.getVoices();
-  voiceEN = voices.find(v=> v.name.includes('Google') && v.lang === 'en-US') || voices.find(v=> v.name.includes('Google') && v.lang.startsWith('en')) || voices.find(v=> ['Samantha','Alex'].includes(v.name)) || voices.find(v=> v.lang === 'en-US') || voices[0] || null;
-  voiceFR = voices.find(v=> v.name.includes('Google') && v.lang === 'fr-FR') || voices.find(v=> v.name.includes('Google') && v.lang.startsWith('fr')) || voices.find(v=> v.lang && v.lang.startsWith('fr')) || null; }
-if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged = pickVoices; pickVoices(); }
-function speakEN(text){ if(!soundOn || !('speechSynthesis' in window)) return; window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = 0.92; u.pitch = 1.0; if(voiceEN) u.voice = voiceEN; window.speechSynthesis.speak(u); }
-function speakFR(text){ if(!soundOn || !('speechSynthesis' in window)) return; window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = 'fr-FR'; u.rate = 0.92; u.pitch = 1.0; if(voiceFR) u.voice = voiceFR; window.speechSynthesis.speak(u); }
-function toggleSound(){ soundOn = !soundOn; const btn = document.getElementById('soundToggle'); btn.classList.toggle('off', !soundOn); document.getElementById('soundToggleLabel').textContent = soundOn ? 'Sound On' : 'Sound Off'; if(!soundOn && 'speechSynthesis' in window) window.speechSynthesis.cancel(); }
-
-const screens = document.querySelectorAll('.screen'); let current = 0; const totalScreens = screens.length;
-function updateProgress(){ document.getElementById('progressFill').style.width = ((current) / (totalScreens-1) * 100) + '%'; document.getElementById('progressLabel').textContent = (current+1) + ' / ' + totalScreens; }
-function refreshNavButtons(){ document.getElementById('backBtn').disabled = (current === 0); const nextBtn = document.getElementById('nextBtn');
-  nextBtn.disabled = false; nextBtn.textContent = current === totalScreens-1 ? 'Finished! 🎉' : 'Next ➡'; }
-function changeScreen(delta){ const newIdx = current + delta; if(newIdx < 0 || newIdx >= totalScreens) return; screens[current].classList.remove('active'); current = newIdx; screens[current].classList.add('active');
-  updateProgress(); refreshNavButtons(); window.scrollTo({top:0, behavior:'smooth'}); if(current === totalScreens-1){ setTimeout(()=>{ burstConfetti(currentCard()); playFanfare(); }, 200); } }
-let stars = 0; function addStar(n=1){ stars += n; document.getElementById('starCount').textContent = stars; }
-function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
-
-const daysData = [
-  {en:'Monday', fr:'lundi'}, {en:'Tuesday', fr:'mardi'}, {en:'Wednesday', fr:'mercredi'}, {en:'Thursday', fr:'jeudi'},
-  {en:'Friday', fr:'vendredi'}, {en:'Saturday', fr:'samedi'}, {en:'Sunday', fr:'dimanche'}
+(function(){
+var DAYS=[['Monday','lundi','MON'],['Tuesday','mardi','TUE'],['Wednesday','mercredi','WED'],['Thursday','jeudi','THU'],['Friday','vendredi','FRI'],['Saturday','samedi','SAT'],['Sunday','dimanche','SUN']];
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function ab(d){return '<span class="ab">'+d[2]+'</span>';}
+// weather: key, emoji, word, French clause, group
+var WX=[
+ ['x_sunny','☀️','sunny','il y a du soleil','sky'],
+ ['x_cloudy','☁️','cloudy','il y a des nuages','sky'],
+ ['x_rainy','🌧️','rainy','il pleut','sky'],
+ ['x_windy','💨','windy','il y a du vent','sky'],
+ ['x_snowy','🌨️','snowy','il neige','sky'],
+ ['x_stormy','⛈️','stormy','il y a de l\'orage','sky'],
+ ['x_foggy','🌫️','foggy','il y a du brouillard','sky'],
+ ['x_hot','🥵','hot','il fait chaud','temp'],
+ ['x_warm','🌤️','warm','il fait bon','temp'],
+ ['x_cool','🍃','cool','il fait frais','temp'],
+ ['x_cold','🥶','cold','il fait froid','temp']
 ];
-const weatherData = [
-  {e:'☀️', en:'Sunny', fr:'ensoleillé'}, {e:'🌧️', en:'Rainy', fr:'pluvieux'},
-  {e:'☁️', en:'Cloudy', fr:'nuageux'}, {e:'❄️', en:'Snowy', fr:'neigeux'},
-  {e:'💨', en:'Windy', fr:'venteux'}, {e:'⛈️', en:'Stormy', fr:'orageux'}
-];
+var words=[];
+DAYS.forEach(function(d){words.push({k:'d_'+d[2].toLowerCase(),e:ab(d),w:d[0],fr:d[1],s:'Today is '+d[0]+'.',g:'days'});});
+WX.forEach(function(x){words.push({k:x[0],e:x[1],w:x[2],fr:x[3],s:'It\'s '+x[2]+'.',g:x[4]});});
+var WXO=WX.map(function(x){return {id:x[0],e:x[1],w:x[2],fr:x[3]};});
+var SKYHC=WXO.filter(function(x){return ['x_warm','x_cool'].indexOf(x.id)<0;});
+var WXP=WX.filter(function(x){return ['x_warm','x_cool'].indexOf(x[0])<0;}); // picture-only games: one clear answer per picture
+function exact(expected,en,frx){return function(order){var ok=expected.every(function(id,i){return order[i]===id;});return {ok:ok,en:en,fr:frx};};}
+function dayCard(i){var d=DAYS[i];return {id:'d'+i,e:ab(d),w:d[0],fr:d[1]};}
 
-function buildDaysGrid(){
-  const grid = document.getElementById('daysGrid');
-  daysData.forEach(item=>{
-    const card = document.createElement('div'); card.className = 'shape-card';
-    card.innerHTML = `📅<span class="cap-en">${item.en}</span><span class="cap-fr">${item.fr}</span>
-      <div class="card-audio-row"><button class="card-audio-btn en" type="button">EN</button><button class="card-audio-btn fr" type="button">FR</button></div>`;
-    card.querySelector('.card-audio-btn.en').addEventListener('click', ()=> speakEN(item.en));
-    card.querySelector('.card-audio-btn.fr').addEventListener('click', ()=> speakFR(item.fr));
-    grid.appendChild(card);
-  });
-}
-function buildWeatherGrid(){
-  const grid = document.getElementById('weatherGrid');
-  weatherData.forEach(item=>{
-    const card = document.createElement('div'); card.className = 'shape-card';
-    card.innerHTML = `${item.e}<span class="cap-en">${item.en}</span><span class="cap-fr">${item.fr}</span>
-      <div class="card-audio-row"><button class="card-audio-btn en" type="button">EN</button><button class="card-audio-btn fr" type="button">FR</button></div>`;
-    card.querySelector('.card-audio-btn.en').addEventListener('click', ()=> speakEN(item.en));
-    card.querySelector('.card-audio-btn.fr').addEventListener('click', ()=> speakFR(item.fr));
-    grid.appendChild(card);
-  });
-}
-
-function buildDaysMatch(){
-  const enCol = document.getElementById('matchDaysEN'); const frCol = document.getElementById('matchDaysFR');
-  const dataset = daysData.slice(0,4);
-  const shuffledEN = shuffle(dataset); const shuffledFR = shuffle(dataset);
-  let selectedTile = null; let matchesFound = 0; const fb = document.getElementById('matchFeedback');
-  shuffledEN.forEach(item=>{
-    const tile = document.createElement('div'); tile.className = 'match-tile'; tile.innerHTML = `<span class="main-txt">${item.en}</span>`; tile.dataset.key = item.en;
-    tile.addEventListener('click', ()=>{ if(tile.classList.contains('correct')) return; enCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
-      tile.classList.add('selected'); selectedTile = tile; speakEN(item.en); });
-    enCol.appendChild(tile);
-  });
-  shuffledFR.forEach(item=>{
-    const tile = document.createElement('div'); tile.className = 'match-tile'; tile.innerHTML = `<span class="main-txt">${item.fr}</span>`; tile.dataset.key = item.en;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct') || !selectedTile) return;
-      const isMatch = selectedTile.dataset.key === tile.dataset.key;
-      if(isMatch){
-        tile.classList.add('correct'); selectedTile.classList.add('correct'); selectedTile.classList.remove('selected');
-        playCorrect(); addStar(1); matchesFound++; burstConfetti(currentCard());
-        const matched = dataset.find(d=>d.en===tile.dataset.key);
-        fb.innerHTML = `<span class="fb-en">Yes! ${matched.en}! 🎉</span><span class="fb-fr">Oui ! ${matched.fr} !</span>`; fb.className = 'feedback-banner good';
-        selectedTile = null;
-        if(matchesFound >= dataset.length){ setTimeout(()=>playFanfare(),300); }
-      } else { tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400); playIncorrect();
-        fb.innerHTML = `<span class="fb-en">Try again!</span><span class="fb-fr">Réessaie !</span>`; fb.className = 'feedback-banner retry'; }
-    });
-    frCol.appendChild(tile);
-  });
-}
-
-function buildWeatherMatch(){
-  const wordCol = document.getElementById('matchWeatherWords'); const picCol = document.getElementById('matchWeatherPics');
-  const shuffledWords = shuffle(weatherData); const shuffledPics = shuffle(weatherData);
-  let selectedTile2 = null; let matchesFound2 = 0; const fb2 = document.getElementById('matchFeedback2');
-  shuffledWords.forEach(item=>{
-    const tile = document.createElement('div'); tile.className = 'match-tile'; tile.innerHTML = `<span class="main-txt">${item.en}</span><span class="sub-fr">${item.fr}</span>`; tile.dataset.key = item.en;
-    tile.addEventListener('click', ()=>{ if(tile.classList.contains('correct')) return; wordCol.querySelectorAll('.match-tile').forEach(t=>t.classList.remove('selected'));
-      tile.classList.add('selected'); selectedTile2 = tile; speakEN(item.en); });
-    wordCol.appendChild(tile);
-  });
-  shuffledPics.forEach(item=>{
-    const tile = document.createElement('div'); tile.className = 'match-tile emoji-tile'; tile.innerHTML = `<span class="main-txt">${item.e}</span>`; tile.dataset.key = item.en;
-    tile.addEventListener('click', ()=>{
-      if(tile.classList.contains('correct') || !selectedTile2) return;
-      const isMatch = selectedTile2.dataset.key === tile.dataset.key;
-      if(isMatch){
-        tile.classList.add('correct'); selectedTile2.classList.add('correct'); selectedTile2.classList.remove('selected');
-        playCorrect(); addStar(1); matchesFound2++; burstConfetti(currentCard());
-        const matched = weatherData.find(d=>d.en===tile.dataset.key);
-        fb2.innerHTML = `<span class="fb-en">Yes! ${matched.en}! 🎉</span><span class="fb-fr">Oui ! ${matched.fr} !</span>`; fb2.className = 'feedback-banner good';
-        selectedTile2 = null;
-        if(matchesFound2 >= weatherData.length){ setTimeout(()=>playFanfare(),300); }
-      } else { tile.classList.add('wrong'); setTimeout(()=>tile.classList.remove('wrong'),400); playIncorrect();
-        fb2.innerHTML = `<span class="fb-en">Try again!</span><span class="fb-fr">Réessaie !</span>`; fb2.className = 'feedback-banner retry'; }
-    });
-    picCol.appendChild(tile);
-  });
-}
-
-function buildWeatherDialogue(){
-  const row = document.getElementById('weatherPickRow'); const resp = document.getElementById('weatherResponse');
-  weatherData.forEach(item=>{
-    const pick = document.createElement('div'); pick.className = 'weather-pick'; pick.textContent = item.e;
-    pick.addEventListener('click', ()=>{
-      document.querySelectorAll('.weather-pick').forEach(p=>p.classList.remove('picked')); pick.classList.add('picked');
-      const enS = `It's ${item.en.toLowerCase()}.`; const frS = `Il fait ${item.fr}.`;
-      resp.innerHTML = `<span class="en">${enS}</span><span class="fr">${frS}</span>`;
-      speakEN(enS); burstConfetti(currentCard()); playCorrect();
-    });
-    row.appendChild(pick);
-  });
-}
-
-const displayPhrase = ['Today', 'is', 'Monday.'];
-const frHints = {'Today':'Aujourd\'hui', 'is':'est', 'Monday.':'lundi.'};
-const bankWords = shuffle(['Monday.', 'Today', 'is']);
-let placedWords = [];
-function buildPhraseScreen(){
-  const bank = document.getElementById('wordBank');
-  bankWords.forEach(word=>{
-    const chip = document.createElement('div'); chip.className = 'word-chip'; chip.innerHTML = `${word}<span class="fr-hint">${frHints[word]}</span>`;
-    chip.addEventListener('click', ()=>{ if(chip.classList.contains('used')) return; placedWords.push(word); chip.classList.add('used'); renderSlot(); checkPhrase(); });
-    bank.appendChild(chip);
-  });
-  renderSlot();
-}
-function renderSlot(){ const slot = document.getElementById('sentenceSlot'); slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') || '<span style="color:#aaa; font-size:16px;">Tap the words below&hellip;</span>'; }
-function checkPhrase(){
-  const fb = document.getElementById('phraseFeedback'); if(placedWords.length < displayPhrase.length) return;
-  const correct = placedWords.join(' ') === displayPhrase.join(' ');
-  if(correct){
-    playFanfare(); addStar(2); burstConfetti(currentCard());
-    fb.innerHTML = '<span class="fb-en">Perfect! "Today is Monday." 🌟</span><span class="fb-fr">Parfait ! « Aujourd\'hui c\'est lundi. »</span>';
-    fb.className = 'feedback-banner good'; speakEN('Today is Monday.');
-  } else {
-    playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
-    fb.appendChild(resetBtn);
-  }
-}
-
-const displayPhrase2 = ['It', 'is', 'sunny', 'today.'];
-const frHints2 = {'It':'Il', 'is':'fait', 'sunny':'ensoleillé', 'today.':'aujourd\'hui.'};
-const bankWords2 = shuffle(['today.', 'It', 'sunny', 'is']);
-let placedWords2 = [];
-function buildPhraseScreen2(){
-  const bank = document.getElementById('wordBank2');
-  bankWords2.forEach(word=>{
-    const chip = document.createElement('div'); chip.className = 'word-chip'; chip.innerHTML = `${word}<span class="fr-hint">${frHints2[word]}</span>`;
-    chip.addEventListener('click', ()=>{ if(chip.classList.contains('used')) return; placedWords2.push(word); chip.classList.add('used'); renderSlot2(); checkPhrase2(); });
-    bank.appendChild(chip);
-  });
-  renderSlot2();
-}
-function renderSlot2(){ const slot = document.getElementById('sentenceSlot2'); slot.innerHTML = placedWords2.map(w=>`<span class="placed">${w}</span>`).join(' ') || '<span style="color:#aaa; font-size:16px;">Tap the words below&hellip;</span>'; }
-function checkPhrase2(){
-  const fb = document.getElementById('phraseFeedback2'); if(placedWords2.length < displayPhrase2.length) return;
-  const correct = placedWords2.join(' ') === displayPhrase2.join(' ');
-  if(correct){
-    playFanfare(); addStar(2); burstConfetti(currentCard());
-    fb.innerHTML = '<span class="fb-en">Perfect! "It is sunny today." 🌟</span><span class="fb-fr">Parfait ! « Il fait ensoleillé aujourd\'hui. »</span>';
-    fb.className = 'feedback-banner good'; speakEN('It is sunny today.');
-  } else {
-    playIncorrect(); fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>'; fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = ()=>{ placedWords2 = []; document.querySelectorAll('#wordBank2 .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot2(); };
-    fb.appendChild(resetBtn);
-  }
-}
-
-let weatherOpinionAnswered = 0;
-function buildWeatherOpinion(){
-  const grid = document.getElementById('weatherOpinionGrid');
-  weatherData.forEach(item=>{
-    const card = document.createElement('div'); card.className = 'opinion-card';
-    card.innerHTML = `<div class="swatch">${item.e}</div><span class="cap-en">${item.en}</span><span class="cap-fr">${item.fr}</span>
-      <div class="opinion-btns"><button class="opinion-btn like">❤️</button><button class="opinion-btn dislike">🚫</button></div><div class="opinion-said"></div>`;
-    const likeBtn = card.querySelector('.like'); const dislikeBtn = card.querySelector('.dislike'); const saidEl = card.querySelector('.opinion-said');
-    const respond = (liked)=>{
-      const already = card.classList.contains('answered'); likeBtn.classList.toggle('picked', liked); dislikeBtn.classList.toggle('picked', !liked);
-      const enS = liked ? `I like ${item.en.toLowerCase()} weather.` : `I don't like ${item.en.toLowerCase()} weather.`;
-      const frS = liked ? `J'aime le temps ${item.fr}.` : `Je n'aime pas le temps ${item.fr}.`;
-      saidEl.innerHTML = enS + '<br>' + frS; speakEN(enS);
-      if(!already){ card.classList.add('answered'); weatherOpinionAnswered++; burstConfetti(currentCard()); playCorrect(); }
-    };
-    likeBtn.addEventListener('click', ()=> respond(true)); dislikeBtn.addEventListener('click', ()=> respond(false));
-    grid.appendChild(card);
-  });
-}
-
-const FB = {
-  q1: { ok: 'B', expl: { A: {en:'That\'s the day before Monday! Try again.', fr:'C\'est le jour avant lundi ! Réessaie.'}, B: {en:'Yes! Tuesday comes after Monday! 🎉', fr:'Oui ! Mardi vient après lundi !'}, C: {en:'That\'s later in the week! Try again.', fr:'C\'est plus tard dans la semaine ! Réessaie.'} } },
-  q2: { ok: 'C', expl: { A: {en:'That\'s after Saturday! Try again.', fr:'C\'est après samedi ! Réessaie.'}, B: {en:'That\'s much earlier! Try again.', fr:'C\'est bien plus tôt ! Réessaie.'}, C: {en:'Yes! Friday comes before Saturday! 🎉', fr:'Oui ! Vendredi vient avant samedi !'} } }
+window.LESSON={
+bookKey:'elina_book_l6',
+confetti:['⭐','🌟','🦇','☀️','🌈'],
+praise:'Weather champion! Great job, Elina!',
+medal:[40,25],
+audio:{
+ w1:'How are you today?',w2:'Read me your English Book page. Tell me your day!',w3:'What day is it today?',w4:'Look out the window. What\'s the weather like?',
+ s_twister:'Rain, rain, go away! Come again another day!'
+},
+warm:{
+ w1:['How are you today?',[["I'm great, thanks!","Ça va super, merci !"],["I'm happy because…","Je suis contente parce que…"],["I'm a little tired because…","Je suis un peu fatiguée parce que…"]]],
+ w2:['Tell me your day!',[["In the morning, I…","Le matin, je…"],["After school, I…","Après l'école, je…"],["At night, I…","La nuit, je…"]]],
+ w3:['What day is it today?',[["Today is…","Aujourd'hui, c'est…"],["Yesterday was…","Hier, c'était…"],["Tomorrow is…","Demain, c'est…"]]],
+ w4:['What\'s the weather like?',[["It's sunny.","Il y a du soleil."],["It's cloudy and cold.","Il y a des nuages et il fait froid."],["It's rainy.","Il pleut."]]]
+},
+wheel:[
+ ['👧','What\'s your name? How old are you?','Comment tu t\'appelles ? Quel âge as-tu ?','My name is… I am … years old.','Je m\'appelle… J\'ai … ans.'],
+ ['🔤','Spell your name, letter by letter!','Épelle ton prénom, lettre par lettre !','E - L - I - N - A','En anglais, s\'il te plaît !'],
+ ['👨‍👩‍👧','Who is in your family?','Qui est dans ta famille ?','In my family, I have…','Dans ma famille, il y a…'],
+ ['🏠','What rooms are in your house?','Quelles pièces y a-t-il dans ta maison ?','In my house, there is a kitchen and…','Dans ma maison, il y a une cuisine et…'],
+ ['🔢','Count from ten to twenty!','Compte de dix à vingt !','ten, eleven, twelve…','dix, onze, douze…'],
+ ['⏰','What do you do in the morning?','Qu\'est-ce que tu fais le matin ?','In the morning, I wake up, then I…','Le matin, je me réveille, puis je…']
+],
+story:[
+ ['s1','sun','☀️ Monday · lundi','☀️','On Monday, it\'s sunny and warm. At night, I fly to the park!','Lundi, il y a du soleil et il fait bon. La nuit, je vole jusqu\'au parc !'],
+ ['s2','rain','🌧️ Tuesday · mardi','🌧️','On Tuesday, it\'s rainy. My wings are wet! I stay in my cave.','Mardi, il pleut. Mes ailes sont mouillées ! Je reste dans ma grotte.'],
+ ['s3','wind','💨 Wednesday · mercredi','💨','On Wednesday, it\'s windy. Whoosh! I can\'t fly.','Mercredi, il y a du vent. Whoosh ! Je ne peux pas voler.'],
+ ['s4','cloud','☁️ Thursday · jeudi','☁️','On Thursday, it\'s cloudy. I fly with my friends.','Jeudi, il y a des nuages. Je vole avec mes amis.'],
+ ['s5','storm','⛈️ Friday · vendredi','⛈️','On Friday, it\'s stormy. Boom! I\'m scared. I stay in my cave.','Vendredi, il y a de l\'orage. Boum ! J\'ai peur. Je reste dans ma grotte.'],
+ ['s6','snow','🌨️ Saturday · samedi','🧣','On Saturday, it\'s snowy and cold. Brrr! I wear my scarf.','Samedi, il neige et il fait froid. Brrr ! Je mets mon écharpe.'],
+ ['s7','sun','☀️ Sunday · dimanche','🦇','On Sunday, it\'s sunny again. I fly all night. I\'m happy!','Dimanche, il y a encore du soleil. Je vole toute la nuit. Je suis contente !']
+],
+quiz:[
+ ['q1','What\'s the weather like on Tuesday?','Quel temps fait-il mardi ?',[
+  ['☀️ It\'s sunny.','Il y a du soleil.',0,'No: it\'s sunny on Monday and on Sunday. On Tuesday, Bibi\'s wings are wet!','Non : il y a du soleil lundi et dimanche. Mardi, les ailes de Bibi sont mouillées !'],
+  ['🌧️ It\'s rainy.','Il pleut.',1,'Yes! "On Tuesday, it\'s rainy." Bibi stays in her cave.','Oui ! « Mardi, il pleut. » Bibi reste dans sa grotte.'],
+  ['🌨️ It\'s snowy.','Il neige.',0,'No: it\'s snowy on Saturday, not on Tuesday.','Non : il neige samedi, pas mardi.']]],
+ ['q2','Which day is windy?','Quel jour y a-t-il du vent ?',[
+  ['Monday','lundi',0,'No: on Monday, it\'s sunny and warm.','Non : lundi, il y a du soleil et il fait bon.'],
+  ['Wednesday','mercredi',1,'Yes! "On Wednesday, it\'s windy. Whoosh!"','Oui ! « Mercredi, il y a du vent. Whoosh ! »'],
+  ['Thursday','jeudi',0,'No: on Thursday, it\'s cloudy. Bibi flies with her friends.','Non : jeudi, il y a des nuages. Bibi vole avec ses amis.']]],
+ ['q3','Why does Bibi stay in her cave on Friday?','Pourquoi Bibi reste dans sa grotte vendredi ?',[
+  ['☀️ Because it\'s sunny.','Parce qu\'il y a du soleil.',0,'No: it\'s sunny on Monday and on Sunday, and Bibi flies! On Friday, it\'s stormy.','Non : il y a du soleil lundi et dimanche, et Bibi vole ! Vendredi, il y a de l\'orage.'],
+  ['⛈️ Because it\'s stormy.','Parce qu\'il y a de l\'orage.',1,'Yes! It\'s stormy. Boom! Bibi is scared.','Oui ! Il y a de l\'orage. Boum ! Bibi a peur.'],
+  ['😴 Because she\'s tired.','Parce qu\'elle est fatiguée.',0,'No: Bibi says "I\'m scared," not "I\'m tired."','Non : Bibi dit « J\'ai peur », pas « Je suis fatiguée ».']]],
+ ['q4','When does Bibi wear her scarf?','Quand est-ce que Bibi met son écharpe ?',[
+  ['☀️ On Monday','lundi',0,'No: on Monday, it\'s sunny and warm. No scarf!','Non : lundi, il y a du soleil et il fait bon. Pas d\'écharpe !'],
+  ['🌨️ On Saturday','samedi',1,'Yes! On Saturday, it\'s snowy and cold. Brrr!','Oui ! Samedi, il neige et il fait froid. Brrr !'],
+  ['☁️ On Thursday','jeudi',0,'No: on Thursday, it\'s cloudy, and Bibi flies with her friends.','Non : jeudi, il y a des nuages, et Bibi vole avec ses amis.']]],
+ ['q5','What is the best day for Bibi? Why?','Quel est le meilleur jour pour Bibi ? Pourquoi ?',[
+  ['☀️ Monday, because…','Lundi, parce que…',1,'Good! For example: "Monday, because she flies to the park!"','Bien ! Par exemple : « Lundi, parce qu\'elle vole jusqu\'au parc ! »'],
+  ['🦇 Sunday, because…','Dimanche, parce que…',1,'Great! For example: "Sunday, because she flies all night!"','Super ! Par exemple : « Dimanche, parce qu\'elle vole toute la nuit ! »'],
+  ['🤔 Another day, because…','Un autre jour, parce que…',1,'Tell me which day and why!','Dis-moi quel jour et pourquoi !']]]
+],
+groups:[['days','📅','Days of the week','Les jours de la semaine'],['sky','🌦️','What\'s the weather like?','Quel temps fait-il ?'],['temp','🌡️','Hot or cold?','Chaud ou froid ?']],
+words:words,
+flashPick:(function(){var bag=[];return function(){if(!bag.length){bag=[];DAYS.forEach(function(d,i){bag.push(i);});bag=bag.sort(function(){return Math.random()-.5;});}var d=DAYS[bag.pop()];var x=WXP[Math.floor(Math.random()*WXP.length)];return {e:ab(d)+' '+x[1],s:'On '+d[0]+', it\'s '+x[2]+'.',fr:cap(d[1])+', '+x[3]+'.'};};})(),
+chain:{
+ unit:'days',max:7,repeat:true,levels:[3,4,5],
+ modes:[
+  {start:0,btn:'📅 Start on Monday',btnFr:'Commencer lundi',empty:'📅 On Monday, it\'s … tap the weather she says',emptyFr:'Lundi, il… touche la météo qu\'elle dit'},
+  {start:3,btn:'📅 Start on Thursday',btnFr:'Commencer jeudi',empty:'📅 On Thursday, it\'s … tap the weather she says',emptyFr:'Jeudi, il… touche la météo qu\'elle dit'},
+  {start:5,btn:'📅 Start on Saturday',btnFr:'Commencer samedi',empty:'📅 On Saturday, it\'s … tap the weather she says',emptyFr:'Samedi, il… touche la météo qu\'elle dit'}
+ ],
+ pool:function(){return WXO;},
+ build:function(m,items,done){var h='📅 ',t='',f='';items.forEach(function(x,i){var d=DAYS[(m.start+i)%7];var last=done&&i===items.length-1&&i>0;var on=(i===0?'On ':(last?'and on ':'on '));h+='<span class="c">'+on+d[0]+'</span>, it\'s '+x.e+' '+x.w;t+=on+d[0]+', it\'s '+x.w;f+=(i===0?cap(d[1]):(last?'et '+d[1]:d[1]))+', '+x.fr;if(i<items.length-1){h+=', ';t+=', ';f+=(done&&i===items.length-2)?' ':', ';}});h+=done?'.':' …';t+='.';f+=done?'.':' …';return {html:h+'<span class="fr">'+f+'</span>',text:t};}
+},
+sort:[
+ {btn:'🎒 Round 1: school days',btnFr:'Manche 1 : les jours d\'école',
+  lead:'Round 1: Look at the day. Do <b>you</b> go to school? Say: <b>"On Monday, I go to school."</b> or <b>"On Sunday, I don\'t go to school."</b> Then I put it where you say.',
+  leadFr:'Manche 1 : Regarde le jour. Est-ce que <b>tu</b> vas à l\'école ? Dis toute la phrase, puis je la place où tu dis.',
+  zones:[{id:'yes',cls:'z1',h:'🎒 I go to school.',fr:'Je vais à l\'école.'},{id:'no',cls:'z2',h:'🏡 No school!',fr:'Pas d\'école !'}],
+  cards:DAYS.map(function(d,i){return {e:ab(d),w:d[0],fr:d[1]};}),
+  say:function(c,z){return z.id==='yes'?['On '+c.w+', I go to school.',cap(c.fr)+', je vais à l\'école.']:['On '+c.w+', I don\'t go to school.',cap(c.fr)+', je ne vais pas à l\'école.'];},
+  done:['Now ask me: "What do you do on Sunday?"','Maintenant, pose-moi la question : « Qu\'est-ce que tu fais le dimanche ? »']},
+ {btn:'😍 Round 2: weather I like',btnFr:'Manche 2 : la météo que j\'aime',
+  lead:'Round 2: Look at the weather. Do you like it? Say: <b>"I love sunny days!"</b>, <b>"Cloudy days are OK."</b> or <b>"I don\'t like rainy days."</b>',
+  leadFr:'Manche 2 : Regarde la météo. Tu aimes ? Dis : « J\'adore quand il y a du soleil ! », « Quand il y a des nuages, ça va. » ou « Je n\'aime pas quand il pleut. »',
+  zones:[{id:'love',cls:'z1',h:'😍 I love it!',fr:'J\'adore !'},{id:'ok',cls:'z2',h:'🙂 It\'s OK.',fr:'Ça va.'},{id:'no',cls:'z3',h:'😖 I don\'t like it.',fr:'Je n\'aime pas.'}],
+  cards:SKYHC,
+  say:function(c,z){if(z.id==='love')return ['I love '+c.w+' days!','J\'adore quand '+c.fr+' !'];if(z.id==='ok')return [cap(c.w)+' days are OK.','Quand '+c.fr+', ça va.'];return ['I don\'t like '+c.w+' days.','Je n\'aime pas quand '+c.fr+'.'];},
+  done:['Now ask me: "Do you like rainy days?"','Maintenant, pose-moi la question : « Tu aimes quand il pleut ? »']}
+],
+fix:[
+ {intro:'I wrote four days in a row… but I made a mistake! One card is <b>not a day</b>. Which one? Why?',introfr:'J\'ai écrit quatre jours à la suite… mais je me suis trompée ! Une carte n\'est <b>pas un jour</b>. Laquelle ? Pourquoi ?',
+  cards:[dayCard(1),dayCard(2),dayCard(3),dayCard(4),{id:'rainy',e:'🌧️',w:'rainy',fr:'il pleut'}],intruder:'rainy',
+  why:'"Rainy" is the weather, not a day!',whyfr:'« Rainy » (il pleut), c\'est la météo, pas un jour !',
+  notIt:function(c){return ['"'+c.w+'" is a day! Look for a card that is NOT a day.','« '+c.w+' » ('+c.fr+') est un jour ! Cherche une carte qui n\'est PAS un jour.'];},
+  labels:['1st<span class="fr">1er</span>','2nd<span class="fr">2e</span>','3rd<span class="fr">3e</span>','4th<span class="fr">4e</span>'],
+  check:exact(['d1','d2','d3','d4'],'Say the days out loud from Monday: "Monday, Tuesday, Wednesday…" Which of these days comes first? Which comes last?','Dis les jours à voix haute depuis lundi. Lequel de ces jours vient en premier ? Lequel vient en dernier ?'),
+  success:['That\'s right! Now say it: "After Tuesday comes Wednesday. After Wednesday comes Thursday…"','C\'est juste ! Maintenant dis : « Après mardi, c\'est mercredi. Après mercredi, c\'est jeudi… »']},
+ {intro:'Harder! Four of these days come one after the other. But one day does <b>not</b> belong. Which one? Why?',introfr:'Plus difficile ! Quatre de ces jours se suivent. Mais un jour n\'a <b>rien à faire</b> là. Lequel ? Pourquoi ?',
+  cards:[dayCard(4),dayCard(5),dayCard(6),dayCard(0),dayCard(2)],intruder:'d2',
+  why:'Wednesday is not next to the others! Friday, Saturday, Sunday, and Monday come one after the other.',whyfr:'Mercredi n\'est pas à côté des autres ! Vendredi, samedi, dimanche et lundi se suivent.',
+  notIt:function(c){return ['"'+c.w+'" is next to another day here. Look for the day that is all alone!','« '+c.w+' » ('+c.fr+') est à côté d\'un autre jour ici. Cherche le jour qui est tout seul !'];},
+  labels:['1st<span class="fr">1er</span>','2nd<span class="fr">2e</span>','3rd<span class="fr">3e</span>','4th<span class="fr">4e</span>'],
+  check:exact(['d4','d5','d6','d0'],'Remember: after Sunday, the week starts again! What comes after Friday? What comes after Sunday?','N\'oublie pas : après dimanche, la semaine recommence ! Qu\'est-ce qui vient après vendredi ? Et après dimanche ?'),
+  success:['Yes! Friday, Saturday, Sunday, Monday. Now say it: "After Sunday comes Monday!"','Oui ! Vendredi, samedi, dimanche, lundi. Maintenant dis : « Après dimanche, c\'est lundi ! »']}
+],
+fixBtn:[['➡ Round 2: harder!','Manche 2 : plus difficile !'],['⬅ Back to round 1','Retour à la manche 1']],
+tos:[
+ ['📅','There are seven days in a week.','Il y a sept jours dans une semaine.',true,'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday: seven!','Lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche : sept !'],
+ ['🎉','Saturday and Sunday are the weekend.','Samedi et dimanche, c\'est le week-end.',true,'Yes, the weekend is Saturday and Sunday.','Oui, le week-end, c\'est samedi et dimanche.'],
+ ['➡️','After Monday comes Wednesday.','Après lundi, c\'est mercredi.',false,'Fix it: "No! After Monday comes Tuesday."','Corrige : « Non ! Après lundi, c\'est mardi. »'],
+ ['☂️','When it\'s rainy, an umbrella helps.','Quand il pleut, un parapluie est utile.',true,'An umbrella keeps you dry in the rain.','Un parapluie te garde au sec sous la pluie.'],
+ ['⛄','Snow is hot.','La neige est chaude.',false,'Fix it: "No! Snow is cold."','Corrige : « Non ! La neige est froide. »'],
+ ['🔙','The day before Friday is Thursday.','Le jour avant vendredi, c\'est jeudi.',true,'Thursday, then Friday!','Jeudi, puis vendredi !'],
+ ['💨','When it\'s windy, the trees move.','Quand il y a du vent, les arbres bougent.',true,'The wind moves the leaves and the branches.','Le vent fait bouger les feuilles et les branches.'],
+ ['🌈','A rainbow is black and white.','Un arc-en-ciel est noir et blanc.',false,'Fix it: "No! A rainbow has many colors."','Corrige : « Non ! Un arc-en-ciel a beaucoup de couleurs. »'],
+ ['🌧️','Rain is dry.','La pluie est sèche.',false,'Fix it: "No! Rain is wet."','Corrige : « Non ! La pluie est mouillée. »'],
+ ['🗓️','Sunday comes after Saturday.','Dimanche vient après samedi.',true,'Saturday, then Sunday!','Samedi, puis dimanche !'],
+ ['⛈️','When it\'s stormy, you can hear thunder.','Quand il y a de l\'orage, on peut entendre le tonnerre.',true,'Boom! That\'s thunder.','Boum ! C\'est le tonnerre.']
+],
+soundWords:{s_wait:'wait',s_wet:'wet',s_late:'late',s_let:'let',s_pain:'pain',s_pen:'pen',s_gate:'gate',s_get:'get'},
+reveal:WXP.map(function(x){return {e:x[1],s:'It\'s '+x[2]+'.',fr:cap(x[3])+'.'};}),
+wyr:[
+ ['wy1','Would you rather play in the snow or swim in the sun?','Tu préfères jouer dans la neige ou nager au soleil ?',['⛄','play in the snow','jouer dans la neige'],['🏊','swim in the sun','nager au soleil']],
+ ['wy2','Would you rather have a rainy Saturday or a sunny Monday?','Tu préfères un samedi pluvieux ou un lundi ensoleillé ?',['🌧️','a rainy Saturday','un samedi pluvieux'],['☀️','a sunny Monday','un lundi ensoleillé']],
+ ['wy3','Would you rather jump in puddles or fly a kite?','Tu préfères sauter dans les flaques ou faire voler un cerf-volant ?',['💦','jump in puddles','sauter dans les flaques'],['🪁','fly a kite','faire voler un cerf-volant']],
+ ['wy4','Would you rather be very hot or very cold?','Tu préfères avoir très chaud ou très froid ?',['🥵','very hot','très chaud'],['🥶','very cold','très froid']],
+ ['wy5','Would you rather have school on Wednesday or on Saturday?','Tu préfères avoir école le mercredi ou le samedi ?',['🏫','on Wednesday','le mercredi'],['📚','on Saturday','le samedi']]
+],
+board:[0,1,2,3,4].map(function(i){var d=DAYS[i];return {lab:'📅 On '+d[0],fr:cap(d[1]),choices:SKYHC.map(function(x){return [x.e,x.w,'On '+d[0]+', it\'s '+x.w+'.',cap(d[1])+', '+x.fr+'.'];})};}),
+book:[
+ {id:'b1',lbl:'📅 My favorite day is…',fr:'Mon jour préféré, c\'est…',choices:DAYS.map(function(d){return ['📅',d[0],'My favorite day is '+d[0]+'.','Mon jour préféré, c\'est le '+d[1]+'.'];})},
+ {id:'b2',lbl:'😍 I love … days.',fr:'J\'adore quand…',choices:SKYHC.map(function(x){return [x.e,x.w,'I love '+x.w+' days.','J\'adore quand '+x.fr+'.'];})},
+ {id:'b3',lbl:'😖 I don\'t like … days.',fr:'Je n\'aime pas quand…',choices:SKYHC.map(function(x){return [x.e,x.w,'I don\'t like '+x.w+' days.','Je n\'aime pas quand '+x.fr+'.'];})}
+]
 };
-function initMCQ(gid, lockKey, feedbackId){
-  const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`); const fb = document.getElementById(feedbackId);
-  block.querySelectorAll('.mcq-opt').forEach(opt=>{
-    opt.addEventListener('click', ()=>{
-      if(block.classList.contains('answered')) return; const ans = opt.dataset.ans; const isCorrect = ans === FB[gid].ok;
-      if(isCorrect){ opt.classList.add('correct'); block.classList.add('answered'); block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
-        playCorrect(); addStar(2); burstConfetti(currentCard());
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner good';
-      } else { opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500); playIncorrect();
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`; fb.className = 'feedback-banner retry'; }
-    });
-  });
-}
+})();
 
-function buildRecap(){
-  const row = document.getElementById('recapChips'); const sentenceEl = document.getElementById('recapSentence'); const sentenceFrEl = document.getElementById('recapSentenceFr');
-  const pool = [...daysData.slice(0,3).map(d=>({en:`Today is ${d.en}.`, fr:`Aujourd'hui c'est ${d.fr}.`, e:'📅'})), ...weatherData.slice(0,3).map(w=>({en:`It's ${w.en.toLowerCase()}.`, fr:`Il fait ${w.fr}.`, e:w.e}))];
-  pool.forEach(item=>{
-    const chip = document.createElement('div'); chip.className = 'recap-chip'; chip.textContent = item.e;
-    chip.addEventListener('click', ()=>{
-      document.querySelectorAll('.recap-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active');
-      sentenceEl.textContent = item.en; sentenceFrEl.textContent = item.fr;
-      speakEN(item.en); burstConfetti(currentCard()); playCorrect();
-    });
-    row.appendChild(chip);
-  });
-}
+(function(){
+var L=window.LESSON;
+/* ---------- audio: basic browser voice only (speechSynthesis, no sound files) ---------- */
+var TEXT={}; // key -> English text
+var sound=true,queue=[],gen=0,qT=null;
+function T(k,t){TEXT[k]=t;return k;}
+function stopAll(){gen++;queue=[];clearTimeout(qT);if(window.speechSynthesis){try{speechSynthesis.cancel();}catch(e){}}}
+function tts(t,done){var fired=false;function fin(){if(fired)return;fired=true;done&&done();}
+ if(!t||!window.speechSynthesis||!window.SpeechSynthesisUtterance){fin();return;}
+ try{var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;var v=speechSynthesis.getVoices().filter(function(v){return /en[-_]US/i.test(v.lang);});var p=v.filter(function(x){return /Samantha|Google US|Aria|Jenny/i.test(x.name);});if(p[0])u.voice=p[0];else if(v[0])u.voice=v[0];u.onend=fin;u.onerror=fin;speechSynthesis.speak(u);}catch(e){fin();}}
+function playKey(k,done){if(!sound){done&&done();return;}var t=Object.prototype.hasOwnProperty.call(TEXT,k)?TEXT[k]:k;tts(t,done);}
+function play(keys,onEach){stopAll();var g=gen;queue=keys.slice();(function next(){if(g!==gen||!queue.length)return;var k=queue.shift();onEach&&onEach(k);playKey(k,function(){if(g!==gen)return;qT=setTimeout(next,250);});})();}
+function say(t){play([t]);}
+window.KCE_AUDIO_TEXT=TEXT;
+Object.keys(L.audio||{}).forEach(function(k){T(k,L.audio[k]);});
 
-buildDaysGrid(); buildWeatherGrid(); buildDaysMatch(); buildWeatherDialogue(); buildWeatherMatch(); buildPhraseScreen(); buildPhraseScreen2(); buildWeatherOpinion();
-initMCQ('q1', 9, 'mcqFeedback'); initMCQ('q2', 10, 'mcqFeedback2'); buildRecap();
-updateProgress(); refreshNavButtons();
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function fr(t){return t?'<span class="fr">'+t+'</span>':'';}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},1500);}
+function confetti(){var c=$('confetti');var em=L.confetti||['⭐','🌟','🦇','🎉','✨'];for(var i=0;i<40;i++){var s=document.createElement('i');s.textContent=em[i%em.length];s.style.left=Math.random()*100+'vw';s.style.animationDelay=(Math.random()*.8)+'s';c.appendChild(s);}setTimeout(function(){c.innerHTML='';},3600);}
+var stars=0;function addStars(n){stars+=n;$('starN').textContent=stars;}
+$('starPlus').onclick=function(){addStars(1);toast('⭐ +1');};
+$('frBtn').onclick=function(){document.body.classList.toggle('no-fr');this.classList.toggle('on');};
+$('sndBtn').onclick=function(){sound=!sound;this.classList.toggle('on',sound);this.textContent=sound?'🔊':'🔇';if(!sound)stopAll();};
+document.querySelectorAll('[data-a]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();play([b.dataset.a]);});});
+
+/* ---------- slides ---------- */
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,dots=$('dots');
+slides.forEach(function(_,i){var d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=function(){go(i);};dots.appendChild(d);});
+function go(n){if(n<0||n>=slides.length)return;stopAll();$('toast').classList.remove('show');slides[cur].classList.remove('active');dots.children[cur].classList.remove('active');dots.children[cur].classList.add('done');cur=n;slides[cur].classList.add('active');dots.children[cur].classList.add('active');dots.children[cur].classList.remove('done');$('prevB').style.visibility=cur===0?'hidden':'visible';$('nextB').style.visibility=cur===slides.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'});if(cur===slides.length-1)ceremony();}
+window.goTo=go;$('prevB').onclick=function(){go(cur-1);};$('nextB').onclick=function(){go(cur+1);};$('prevB').style.visibility='hidden';
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+document.querySelectorAll('.qcard').forEach(function(q){q.addEventListener('click',function(){q.classList.toggle('asked');});});
+
+/* ---------- warm-up starters ---------- */
+var WST=L.warm;
+function showStarters(k){var w=WST[k];$('stWhich').textContent=w[0];$('warmStarters').innerHTML=w[1].map(function(x){return '<span class="starter">'+x[0]+fr(x[1])+'</span>';}).join('');document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.style.outline=c.dataset.st===k?'3px solid var(--gold)':'';});}
+document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.addEventListener('click',function(){showStarters(c.dataset.st);});});showStarters(Object.keys(WST)[0]);
+
+/* ---------- wheel ---------- */
+var W=L.wheel;
+W.forEach(function(w,i){T('r'+(i+1),w[1]);var s=document.createElement('span');var ang=i*60+30;s.textContent=w[0];s.style.transform='rotate('+ang+'deg) translate(0,-95px) rotate(-'+ang+'deg) translate(-50%,-50%)';$('wheel').appendChild(s);});
+var rot=0;
+$('spinWheel').onclick=function(){var pick=Math.floor(Math.random()*6),th=pick*60+30;rot=rot-(rot%360)+1440+((270-th)%360+360)%360;$('wheel').style.transform='rotate('+rot+'deg)';var w=W[pick];$('wq').innerHTML='…';setTimeout(function(){$('wq').innerHTML=w[0]+' '+w[1]+fr(w[2])+'<span class="s">'+w[3]+fr(w[4])+'</span>';play(['r'+(pick+1)]);},3000);};
+
+/* ---------- story ---------- */
+var S=L.story;
+S.forEach(function(p){T(p[0],p[4]);var d=document.createElement('div');d.className='panel '+p[1];d.id='p_'+p[0];d.innerHTML='<span class="tag">'+p[2]+'</span><div class="sc">'+p[3]+'</div><p>'+p[4]+'</p>'+fr(p[5]);d.onclick=function(){play([p[0]],hl);};$('story').appendChild(d);});
+function hl(k){document.querySelectorAll('.panel').forEach(function(x){x.classList.toggle('playing',x.id==='p_'+k);});}
+$('playStory').onclick=function(){play(S.map(function(p){return p[0];}),hl);};
+
+/* ---------- story quiz ---------- */
+L.quiz.forEach(function(q){T(q[0],q[1]);var d=document.createElement('div');d.className='mcq';d.innerHTML='<div class="q"><button class="spk">🔊</button>'+q[1]+'</div>'+fr(q[2])+'<div class="opts"></div><div class="why"></div>';d.querySelector('.spk').onclick=function(){play([q[0]]);};var o=d.querySelector('.opts'),why=d.querySelector('.why');q[3].forEach(function(op){var b=document.createElement('button');b.className='opt';b.innerHTML=op[0]+fr(op[1]);b.onclick=function(){b.classList.add(op[2]?'ok':'no');why.className='why show '+(op[2]?'good':'bad');why.innerHTML=(op[2]?'✅ ':'💡 ')+op[3]+fr(op[4]);};o.appendChild(b);});$('storyQuiz').appendChild(d);});
+
+/* ---------- words + flash ---------- */
+var A=L.words;A.forEach(function(a){T(a.k,a.s);});
+L.groups.forEach(function(g){var h=document.createElement('div');h.style.cssText='grid-column:1/-1;font-family:Poppins;font-weight:800;font-size:17px;color:var(--pool1);margin-top:6px;';h.innerHTML=g[1]+' '+g[2]+' <span class="fr inl">'+g[3]+'</span>';$('wordPics').appendChild(h);A.filter(function(a){return a.g===g[0];}).forEach(function(a){var d=document.createElement('div');d.className='pic';d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div>'+fr(a.fr);d.onclick=function(){play([a.k]);};$('wordPics').appendChild(d);});});
+$('hideWords').onclick=function(){var h=this.dataset.h!=='1';this.dataset.h=h?'1':'0';this.innerHTML=h?'👀 Show the words <span class="fr inl">Montrer les mots</span>':'🙈 Hide the words <span class="fr inl">Cacher les mots</span>';document.querySelectorAll('#wordPics .pic').forEach(function(p){p.classList.toggle('hide',h);});};
+var flashT=null,flashT2=null,flashN=0;
+$('flashGot').onclick=function(){addStars(1);toast('⭐ +1');};
+$('flashGo').onclick=function(){flashN++;$('flashCount').textContent='Round '+flashN;var a=L.flashPick();var f=$('flash');clearTimeout(flashT);clearTimeout(flashT2);f.innerHTML='<span class="e">'+a.e+'</span>';flashT=setTimeout(function(){f.innerHTML='<span class="e">⏳</span>Say it! / Dis-le !';flashT2=setTimeout(function(){f.innerHTML='<span class="e" style="font-size:56px">'+(a.e2||a.e)+'</span>'+a.s+'<span class="fr" style="color:#d9ccff">'+a.fr+'</span>';say(a.s);},2500);},3000);};
+
+/* ---------- sentence chain ---------- */
+var CH=L.chain,cm=0,chain=[],chainDone=false;
+function renderChainLv(){var l=$('chainLv');l.innerHTML='';(CH.levels||[3,4,5]).forEach(function(n,i){var sp=document.createElement('span');sp.className='lv'+(chain.length>=n&&chainDone?' done':'')+(!chainDone&&chain.length<n&&(i===0||chain.length>=n-1)?' on':'');sp.textContent='⭐ '+n+' '+CH.unit;l.appendChild(sp);});}
+function renderChain(){var m=CH.modes[cm],b=$('chainBox');if(!chain.length){b.innerHTML='<span style="color:#9aa">'+m.empty+'</span>'+fr(m.emptyFr);}else{b.innerHTML=CH.build(m,chain,chainDone).html;}
+ var p=$('chainPics');p.innerHTML='';CH.pool(m).forEach(function(a){var inC=chain.indexOf(a)>=0;var d=document.createElement('div');d.className='pic'+((!CH.repeat&&inC)||chainDone?' used':'');d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div>'+fr(a.fr);d.onclick=function(){if(chainDone||(!CH.repeat&&chain.indexOf(a)>=0)||chain.length>=CH.max)return;chain.push(a);renderChain();renderChainLv();};p.appendChild(d);});
+ $('chainFinish').disabled=chain.length<2||chainDone;
+ var nx=CH.modes[(cm+1)%CH.modes.length];$('chainMode').innerHTML=nx.btn+' <span class="fr inl">'+nx.btnFr+'</span>';}
+$('chainFinish').onclick=function(){if(chain.length<2)return;chainDone=true;renderChain();renderChainLv();addStars(chain.length>=5?3:chain.length>=4?2:1);toast('🔗 Now say the WHOLE chain! / Redis toute la chaîne !');};
+$('chainUndo').onclick=function(){if(chainDone){chainDone=false;}else chain.pop();renderChain();renderChainLv();};
+$('chainReset').onclick=function(){chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainMode').onclick=function(){cm=(cm+1)%CH.modes.length;chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainRead').onclick=function(){if(!chain.length)return;say(CH.build(CH.modes[cm],chain,chainDone).text);};
+renderChainLv();renderChain();
+
+/* ---------- sorting (no race) ---------- */
+var SR=L.sort,sr=0,sortBag=[],sortCur=null;
+function buildBoard(){var r=SR[sr];var b=$('sortBoard');b.innerHTML='';r.zones.forEach(function(z){var d=document.createElement('div');d.className='zone '+z.cls;d.dataset.z=z.id;d.innerHTML='<h4>'+z.h+'</h4>'+fr(z.fr);d.onclick=function(){dropSort(z,d);};b.appendChild(d);});$('sortLead').innerHTML=r.lead+fr(r.leadFr);var nx=SR[(sr+1)%SR.length];$('sortRound').innerHTML=nx.btn+' <span class="fr inl">'+nx.btnFr+'</span>';$('sortRound').style.display=SR.length>1?'':'none';}
+function nextSort(){var r=SR[sr];if(!sortBag.length){sortCur=null;$('sortNow').innerHTML='<div class="e">🎉</div>All done!<span class="fr">Fini !</span>';$('sortMsg').innerHTML=r.done[0]+fr(r.done[1]);document.querySelectorAll('#sortBoard .zone').forEach(function(z){z.classList.remove('target');});return;}sortCur=sortBag.pop();$('sortNow').innerHTML='<div class="e">'+sortCur.e+'</div>'+sortCur.w+fr(sortCur.fr);document.querySelectorAll('#sortBoard .zone').forEach(function(z){z.classList.add('target');});}
+function dropSort(z,el){if(!sortCur)return;var r=SR[sr];if(sortCur.ans&&sortCur.ans!==z.id){var w=r.wrong(sortCur,z);$('sortMsg').innerHTML='💡 '+w[0]+fr(w[1]);return;}var line=r.say(sortCur,z);var c=document.createElement('span');c.className='chip';c.textContent=sortCur.e.replace(/<[^>]+>/g,'')+' '+sortCur.w;el.appendChild(c);addStars(1);$('sortMsg').innerHTML='✅ '+line[0]+fr(line[1]);say(line[0]);nextSort();}
+function startSort(){buildBoard();sortBag=shuffle(SR[sr].cards);$('sortMsg').textContent='';nextSort();}
+$('sortStart').onclick=startSort;
+$('sortRound').onclick=function(){sr=(sr+1)%SR.length;startSort();};
+startSort();
+
+/* ---------- critical thinking: intruder + order ---------- */
+var FIX=L.fix,fixR=0,fixStep=1,fixOrder=[],fixCards=[];
+function byId(r,id){return FIX[r].cards.filter(function(c){return c.id===id;})[0];}
+function stepUI(){[1,2,3].forEach(function(i){$('fs'+i).className='st'+(i===fixStep?' on':'')+(i<fixStep?' ok':'');});}
+function renderFix(){var r=FIX[fixR];$('fixIntro').innerHTML=r.intro+fr(r.introfr);var m=$('mixed');m.innerHTML='';fixCards.forEach(function(c){var d=document.createElement('div');d.className='mx'+(fixStep>1&&c.id===r.intruder?' out':'')+(fixOrder.indexOf(c.id)>=0?' placed':'');d.innerHTML='<div class="e">'+c.e+'</div><div class="w">'+c.w+'</div>'+fr(c.fr);d.onclick=function(){clickFix(c);};m.appendChild(d);});
+ var s=$('fixSlots');s.innerHTML='';if(fixStep>=2){r.labels.forEach(function(l,i){var id=fixOrder[i],c=id&&byId(fixR,id);var d=document.createElement('div');d.className='oslot';d.innerHTML='<div class="lab">'+l+'</div>'+(c?'<div class="e">'+c.e+'</div><div class="w">'+c.w+'</div>':'<div class="e" style="opacity:.25">?</div>');s.appendChild(d);});}stepUI();}
+function clickFix(c){var r=FIX[fixR];if(fixStep===1){if(c.id===r.intruder){fixStep=2;$('fixMsg').innerHTML='✅ Yes! '+r.why+fr(r.whyfr);addStars(1);}else{var w=r.notIt(c);$('fixMsg').innerHTML='🤔 '+w[0]+fr(w[1]);}renderFix();return;}
+ if(fixStep===2){if(c.id===r.intruder||fixOrder.indexOf(c.id)>=0)return;fixOrder.push(c.id);say((r.sayLabel?r.labels[fixOrder.length-1].replace(/<span class="fr">.*?<\/span>/g,'').replace(/<[^>]+>/g,'')+' ':'')+(c.say||c.w));renderFix();if(fixOrder.length===r.labels.length)checkFix();}}
+function checkFix(){var r=FIX[fixR];var res=r.check(fixOrder);if(res.ok){fixStep=3;$('fixMsg').innerHTML='🎉 '+r.success[0]+fr(r.success[1]);addStars(2);confetti();}else{$('fixMsg').innerHTML='💡 '+res.en+' <br>Press "Try again".'+fr(res.fr+' Appuie sur « Try again ».');}renderFix();}
+function startFix(r){fixR=r;fixStep=1;fixOrder=[];fixCards=shuffle(FIX[r].cards);$('fixMsg').textContent='';renderFix();}
+$('fixReset').onclick=function(){if(fixStep===1){startFix(fixR);return;}fixOrder=[];fixStep=2;$('fixMsg').textContent='';renderFix();};
+function fixBtn(){var b=L.fixBtn[fixR?1:0];$('fixNext').innerHTML=b[0]+' <span class="fr inl">'+b[1]+'</span>';}
+$('fixNext').onclick=function(){startFix(fixR?0:1);fixBtn();};
+startFix(0);fixBtn();
+
+/* ---------- true or silly (all facts checked) ---------- */
+var TS=L.tos,tsBag=[],tsCur=null,tsDone=true;
+$('spin').onclick=function(){if(!tsBag.length)tsBag=shuffle(TS);var pick=tsBag.pop();var n=0;tsDone=true;$('verdict').textContent='';var iv=setInterval(function(){var x=++n>12?pick:TS[Math.floor(Math.random()*TS.length)];$('r1').innerHTML='<span class="e">'+x[0]+'</span>';$('r2').innerHTML='<span class="s">'+x[1]+'</span>'+fr(x[2]);if(n>12){clearInterval(iv);tsCur=pick;tsDone=false;$('verdict').innerHTML='Read it! True or silly?<span class="fr">Lis-la ! Vrai ou rigolo ?</span>';}},70);};
+$('sayIt').onclick=function(){if(tsCur)say(tsCur[1]);};
+document.querySelectorAll('[data-v]').forEach(function(b){b.onclick=function(){if(!tsCur){$('verdict').innerHTML='Press SPIN first!<span class="fr">Appuie d\'abord sur SPIN !</span>';return;}var saidTrue=b.dataset.v==='true',right=saidTrue===tsCur[3];var tail=tsCur[3]?'It\'s true! ':'It\'s silly! ';if(right){if(!tsDone)addStars(1);$('verdict').innerHTML='✅ Yes! '+tail+tsCur[4]+fr(tsCur[5]);}else{$('verdict').innerHTML='💡 Look again! '+tail+tsCur[4]+fr(tsCur[5]);}tsDone=true;};});
+
+/* ---------- sound spot ---------- */
+var SW=L.soundWords,myst=null;for(var k in SW)T(k,SW[k]);
+$('mystery').onclick=function(){var ks=Object.keys(SW);myst=ks[Math.floor(Math.random()*ks.length)];play([myst]);$('thMsg').innerHTML='Which word? Say it! <button class="btn ghost" id="thShow" style="padding:4px 10px;font-size:14px">Show</button><span class="fr">Quel mot ? Dis-le !</span>';$('thShow').onclick=function(){$('thMsg').innerHTML='It was: <b>'+SW[myst]+'</b><span class="fr">C\'était : '+SW[myst]+'</span>';};};
+
+/* ---------- picture reveal ---------- */
+var RV=L.reveal,revBag=[],revCur=null,revPts=9;
+function newReveal(){if(!revBag.length)revBag=shuffle(RV);revCur=revBag.pop();$('revealPic').innerHTML=revCur.e;var t=$('tiles');t.innerHTML='';revPts=9;$('revealPts').textContent='Points for this round: 9';$('revealMsg').textContent='';for(var i=0;i<9;i++){var d=document.createElement('div');d.className='tile';d.textContent=i+1;d.onclick=function(){if(this.classList.contains('gone'))return;this.classList.add('gone');revPts--;$('revealPts').textContent='Points for this round: '+revPts;};t.appendChild(d);}}
+$('revealNew').onclick=newReveal;
+$('revealAll').onclick=function(){document.querySelectorAll('.tile').forEach(function(t){t.classList.add('gone');});$('revealMsg').innerHTML=revCur.s+fr(revCur.fr);say(revCur.s);};
+$('revealGot').onclick=function(){var p=Math.max(1,revPts);addStars(p);$('revealAll').click();toast('⭐ +'+p+'!');};
+newReveal();
+
+/* ---------- would you rather ---------- */
+var WY=L.wyr;WY.forEach(function(w){T(w[0],w[1]);});
+var wyI=0;function renderWY(){var w=WY[wyI];$('wyrQ').textContent=w[1];$('wyrQfr').textContent=w[2];[['wyrA',w[3]],['wyrB',w[4]]].forEach(function(p){var el=$(p[0]);el.className='side';el.innerHTML='<span class="e">'+p[1][0]+'</span>'+p[1][1]+fr(p[1][2]);el.onclick=function(){$('wyrA').classList.remove('on');$('wyrB').classList.remove('on');el.classList.add('on');};});}
+$('wyrSpk').onclick=function(){play([WY[wyI][0]]);};$('wyrNext').onclick=function(){wyI=(wyI+1)%WY.length;renderWY();};renderWY();
+
+/* ---------- big talk storyboard ---------- */
+L.board.forEach(function(bx){var d=document.createElement('div');d.className='sb';d.innerHTML='<div class="lab">'+bx.lab+fr(bx.fr)+'</div><div class="choices"></div><div class="said"></div>';var ch=d.querySelector('.choices'),said=d.querySelector('.said');bx.choices.forEach(function(c){var b=document.createElement('button');b.innerHTML=c[0]+'<span class="w">'+c[1]+'</span>';b.title=c[1];b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');said.innerHTML=c[2]+fr(c[3]);say(c[2]);};ch.appendChild(b);});$('storyboard').appendChild(d);});
+document.querySelectorAll('.lvl').forEach(function(l){l.onclick=function(){document.querySelectorAll('.lvl').forEach(function(x){x.classList.remove('on');});l.classList.add('on');toast('🎭 '+l.childNodes[1].textContent.trim()+'! ⭐');};});
+
+/* ---------- My English Book (tap choices, saved in this browser) ---------- */
+var KEY=L.bookKey,book={};try{book=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){book={};}
+L.book.forEach(function(l){var d=document.createElement('div');d.className='bline';d.innerHTML='<span class="lbl">'+l.lbl+'</span>'+fr(l.fr)+'<span class="full"></span><div class="choices"></div>';var full=d.querySelector('.full'),ch=d.querySelector('.choices');function show(i){var c=l.choices[i];full.innerHTML=c?c[2]+fr(c[3]):'…';}show(book[l.id]);l.choices.forEach(function(c,i){var b=document.createElement('button');b.innerHTML=c[0]+' '+c[1];if(book[l.id]===i)b.classList.add('on');b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');book[l.id]=i;show(i);try{localStorage.setItem(KEY,JSON.stringify(book));}catch(e){}};ch.appendChild(b);});$('book').appendChild(d);});
+$('readBook').onclick=function(){var keys=[];L.book.forEach(function(l){var c=l.choices[book[l.id]];if(c)keys.push(c[2]);});if(keys.length)play(keys);};
+
+/* ---------- ceremony ---------- */
+T('praise',L.praise);
+var GOLD=L.medal[0],SILVER=L.medal[1];
+function ceremony(){$('stStars').textContent=stars;$('stMedal').textContent=stars>=GOLD?'🥇':stars>=SILVER?'🥈':'🥉';}
+document.querySelectorAll('.cando').forEach(function(c){c.onclick=function(){c.classList.toggle('ok');};});
+$('medal').onclick=function(){confetti();play(['praise']);ceremony();toast((stars>=GOLD?'🥇 Gold':stars>=SILVER?'🥈 Silver':'🥉 Bronze')+' medal!');};
+if(window.speechSynthesis){try{speechSynthesis.getVoices();}catch(e){}}
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Elina's English — Lesson 15: Counting to 50</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#012a3d;--pool1:#00637a;--pool2:#00a7b5;--pool3:#5be0d8;--ink:#012a38;--gold:#ffcc4d;--coral:#ff6f6f;--violet:#6b4fc8;--green:#16a34a;--soft:#f2fbfb;--line:#d6eef0;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(circle at 10% 15%,rgba(255,255,255,.18) 0,transparent 40%),radial-gradient(circle at 90% 80%,rgba(255,255,255,.14) 0,transparent 45%),linear-gradient(160deg,var(--deep) 0%,var(--pool1) 42%,var(--pool2) 75%,var(--pool3) 100%);background-attachment:fixed;overflow-x:hidden;}
+h1,h2,h3{font-family:'Poppins',sans-serif;}
+#app{max-width:980px;margin:0 auto;padding:12px 14px 100px;}
+.hud{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(1,42,56,.5);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);border-radius:16px;padding:8px 12px;margin-bottom:12px;position:relative;z-index:5;color:#fff;}
+.hud .who{font-weight:700;font-size:15px;white-space:nowrap;}.hud .who span{font-size:24px;vertical-align:middle;}
+.dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;flex:1;min-width:120px;}
+.dot{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0;}
+.dot.active{background:var(--gold);transform:scale(1.35);}.dot.done{background:var(--pool3);}
+.pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:6px 11px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.pill.on{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.score{display:flex;align-items:center;gap:6px;background:rgba(255,204,77,.18);border:1px solid var(--gold);border-radius:999px;padding:3px 4px 3px 10px;font-weight:800;font-size:15px;}
+.score button{width:32px;height:32px;border-radius:50%;border:none;background:var(--gold);color:var(--ink);font-weight:900;font-size:16px;cursor:pointer;line-height:1;}
+.timer-pill{font-variant-numeric:tabular-nums;}
+.slide{display:none;animation:pop .35s ease;}.slide.active{display:block;}
+@keyframes pop{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.card{background:#fff;border-radius:22px;box-shadow:0 14px 34px rgba(1,42,56,.28);padding:22px 24px 20px;}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+.kicker{display:inline-block;background:var(--soft);color:var(--pool1);font-weight:800;font-size:12px;letter-spacing:1.3px;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+.mins{font-size:12px;font-weight:800;color:#7a8f95;background:#f4f7f7;border-radius:999px;padding:4px 10px;}
+h2.t{font-size:27px;margin:6px 0 2px;color:var(--deep);line-height:1.2;}
+.fr{display:block;color:var(--violet);font-style:italic;font-size:.9em;margin-top:2px;}
+span.fr.inl{display:inline;margin-left:6px;}
+body.no-fr .fr{display:none!important;}
+.lead{font-size:18px;margin:10px 0 12px;line-height:1.45;}
+.big-goal{background:linear-gradient(135deg,#fff7dd,#ffeeb3);border:3px solid var(--gold);border-radius:18px;padding:14px 18px;margin:12px 0;font-size:21px;font-weight:700;font-family:'Poppins';}
+.big-goal small{display:block;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#a07800;margin-bottom:4px;}
+.bibi{display:flex;gap:12px;align-items:flex-start;background:#eef9fa;border-radius:16px;padding:12px 14px;margin:10px 0;}
+.bibi .b{font-size:40px;line-height:1;flex:none;}.bibi p{margin:0;font-size:17px;line-height:1.5;}
+.btn{font-family:'Poppins';font-weight:700;font-size:16px;border:none;border-radius:14px;padding:11px 18px;cursor:pointer;background:var(--pool1);color:#fff;}
+.btn.gold{background:var(--gold);color:var(--ink);}.btn.ghost{background:#fff;color:var(--pool1);border:2px solid var(--pool1);}.btn.red{background:var(--coral);}
+.btn:active{transform:scale(.97);}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}.center{justify-content:center;}
+.spk{border:none;background:var(--soft);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:16px;flex:none;}
+details.tutor{margin-top:14px;border:2px dashed #b9c9cc;border-radius:14px;background:#fafcfc;}
+details.tutor summary{cursor:pointer;padding:9px 14px;font-weight:700;color:#4a6670;font-size:14px;list-style:none;}
+details.tutor summary::before{content:"🧑‍🏫 ";}details.tutor[open] summary{border-bottom:1px dashed #b9c9cc;}
+details.tutor .in{padding:10px 16px 12px;font-size:14.5px;line-height:1.55;}
+details.tutor .in b{color:var(--pool1);}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0;}
+.qcard{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-size:18px;font-weight:600;cursor:pointer;display:flex;gap:10px;align-items:flex-start;}
+.qcard .tx{flex:1;}.qcard .s{display:block;font-size:14px;font-weight:500;color:#4a6670;margin-top:5px;}
+.qcard.asked{background:#e7f8ee;border-color:var(--green);}
+.starters{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.starter{background:#fff7dd;border:1.5px solid var(--gold);border-radius:12px;padding:6px 12px;font-size:15px;font-weight:600;}
+.starter .fr{font-size:13px;}
+.askback{background:#f1ecff;border:2px solid var(--violet);border-radius:16px;padding:12px 14px;margin-top:10px;font-size:17px;}
+/* wheel */
+.wheel-wrap{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap;margin:8px 0;}
+.wheel{width:250px;height:250px;border-radius:50%;border:6px solid var(--gold);position:relative;transition:transform 3s cubic-bezier(.17,.67,.21,1);background:conic-gradient(#ffe7a3 0 60deg,#c9f1f3 60deg 120deg,#ffd6cc 120deg 180deg,#e4dcff 180deg 240deg,#d7f5da 240deg 300deg,#ffe1f0 300deg 360deg);}
+.wheel span{position:absolute;left:50%;top:50%;font-size:34px;transform-origin:0 0;}
+.pointer{font-size:38px;}
+.wq{flex:1;min-width:260px;background:var(--soft);border-radius:18px;padding:16px;font-size:22px;font-weight:700;font-family:'Poppins';min-height:120px;}
+.wq .s{display:block;font-size:15px;font-family:'Inter';font-weight:500;color:#4a6670;margin-top:8px;}
+/* story */
+.story{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:10px 0;}
+.panel{border-radius:18px;padding:12px;text-align:center;cursor:pointer;position:relative;min-height:190px;border:3px solid transparent;}
+.panel.night{background:linear-gradient(180deg,#14305a,#2b5288);color:#fff;}.panel.night .fr{color:#d9ccff;}
+.panel.day{background:linear-gradient(180deg,#fff2c4,#ffd98a);}
+.panel.dusk{background:linear-gradient(180deg,#ffb38a,#7b4fa0);color:#fff;}.panel.dusk .fr{color:#ffe9ff;}
+.panel.playing{border-color:var(--gold);box-shadow:0 0 0 4px rgba(255,204,77,.5);}
+.panel .tag{position:absolute;top:8px;left:8px;font-size:11px;font-weight:800;background:rgba(255,255,255,.85);color:var(--ink);border-radius:999px;padding:2px 8px;}
+.panel .sc{font-size:44px;line-height:1.1;margin:18px 0 8px;}.panel p{margin:0;font-size:16.5px;font-weight:700;line-height:1.35;}
+.mcq{background:var(--soft);border-radius:16px;padding:12px 14px;margin:10px 0;}
+.mcq .q{font-size:19px;font-weight:700;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+.opt{font-family:'Poppins';font-weight:700;font-size:17px;padding:10px 16px;border-radius:14px;border:3px solid var(--line);background:#fff;cursor:pointer;text-align:center;}
+.opt .fr{font-size:13px;}
+.opt.ok{border-color:var(--green);background:#e7f8ee;}.opt.no{border-color:var(--coral);background:#fff0f0;opacity:.75;}
+.why{display:none;margin-top:8px;font-size:15.5px;padding:8px 12px;border-radius:10px;}
+.why.show{display:block;}.why.good{background:#e7f8ee;}.why.bad{background:#fff4e5;}
+/* words */
+.pics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.pic{background:var(--soft);border:3px solid var(--line);border-radius:18px;padding:10px 8px;text-align:center;cursor:pointer;user-select:none;position:relative;}
+.pic .e{font-size:46px;line-height:1.1;}.pic .w{font-weight:700;font-size:16px;margin-top:4px;font-family:'Poppins';}.pic .fr{font-size:13px;}
+.pic.hide .w,.pic.hide .fr{visibility:hidden;}.pic.picked{border-color:var(--gold);background:#fff7dd;}.pic.used{opacity:.3;pointer-events:none;}
+.flash{width:260px;height:230px;margin:10px auto;border-radius:24px;background:#012a3d;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid var(--gold);font-family:'Poppins';font-size:20px;text-align:center;}
+.flash .e{font-size:96px;line-height:1;}
+/* chain */
+.chainbox{background:#fffdf3;border:3px solid var(--gold);border-radius:18px;padding:14px 16px;margin:10px 0;font-family:'Poppins';font-size:21px;font-weight:600;min-height:70px;line-height:1.6;}
+.chainbox .c{color:var(--pool1);font-weight:800;}
+.lvlbar{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0;}
+.lv{padding:6px 12px;border-radius:999px;border:2px solid var(--line);font-weight:700;font-size:14px;background:#fff;}
+.lv.on{background:var(--gold);border-color:var(--gold);}.lv.done{background:#e7f8ee;border-color:var(--green);}
+/* sort */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:10px;}
+.zone{border-radius:16px;padding:10px;min-height:100px;cursor:pointer;border:3px dashed transparent;}
+.zone h4{margin:0 0 4px;font-size:17px;font-family:'Poppins';}.zone .fr{font-size:13px;}
+.zone.m{background:#fff4cf;}.zone.a{background:#dff5ff;}.zone.e{background:#ffe2d6;}.zone.n{background:#1d2f57;color:#fff;}.zone.n .fr{color:#d9ccff;}
+.zone.target{border-color:var(--pool1);}
+.chip{display:inline-block;background:#fff;color:var(--ink);border-radius:999px;padding:4px 10px;margin:3px;font-size:14px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.15);}
+.card-now{display:flex;gap:14px;align-items:center;justify-content:center;margin:8px 0;}
+.card-now .big{width:200px;padding:12px;border-radius:20px;background:#012a3d;color:#fff;text-align:center;border:4px solid var(--gold);font-family:'Poppins';}
+.card-now .big .e{font-size:64px;}.card-now .big .fr{color:#d9ccff;}
+/* fix bibi */
+.mixed{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.mx{width:150px;border-radius:18px;border:3px solid var(--line);background:#fff;padding:10px;text-align:center;cursor:pointer;}
+.mx .e{font-size:44px;}.mx .w{font-weight:700;font-family:'Poppins';font-size:15px;}.mx .fr{font-size:12.5px;}
+.mx.out{border-color:var(--coral);background:#fff0f0;text-decoration:line-through;}
+.mx.placed{opacity:.3;pointer-events:none;}
+.order-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.oslot{width:150px;min-height:120px;border-radius:16px;border:3px dashed #9cc;background:#f7fdfd;text-align:center;padding:8px;}
+.oslot .lab{font-weight:800;color:var(--pool1);font-size:15px;font-family:'Poppins';}.oslot .e{font-size:38px;}.oslot .w{font-weight:600;font-size:14px;}
+.stepper{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px;}
+.st{padding:5px 12px;border-radius:999px;font-weight:700;font-size:14px;background:#f4f7f7;color:#7a8f95;}
+.st.on{background:var(--pool1);color:#fff;}.st.ok{background:#e7f8ee;color:var(--green);}
+.msg{min-height:26px;font-weight:700;font-size:17px;text-align:center;margin:8px 0;}
+/* silly */
+.slots{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0;}
+.reel{background:#012a3d;color:#fff;border-radius:16px;padding:14px 18px;min-width:190px;text-align:center;font-family:'Poppins';font-weight:700;font-size:21px;border:4px solid var(--gold);}
+.reel .e{font-size:40px;display:block;}.reel .fr{color:#d9ccff;font-size:14px;}
+/* TH */
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.pair{display:flex;gap:8px;}
+.pair button{flex:1;font-family:'Poppins';font-weight:700;font-size:20px;padding:10px;border-radius:14px;border:3px solid var(--line);background:#fff;cursor:pointer;}
+.pair button.th{border-color:var(--violet);}
+.tongue{background:#f1ecff;border-radius:16px;padding:12px 16px;font-size:17px;margin:10px 0;}
+.twister{font-family:'Poppins';font-size:22px;font-weight:700;text-align:center;background:#fff7dd;border-radius:16px;padding:12px;margin:10px 0;}
+/* reveal */
+.reveal{position:relative;width:300px;height:300px;margin:10px auto;border-radius:20px;overflow:hidden;background:#fff;border:5px solid var(--gold);}
+.reveal .pic-under{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:190px;}
+.tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);}
+.tile{background:linear-gradient(135deg,#00637a,#012a3d);border:2px solid #5be0d8;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Poppins';font-weight:800;font-size:26px;cursor:pointer;transition:opacity .3s;}
+.tile.gone{opacity:0;pointer-events:none;}
+.ptsbig{text-align:center;font-family:'Poppins';font-weight:800;font-size:20px;color:var(--pool1);}
+/* wyr */
+.wyr{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:12px 0;}
+.wyr .side{border-radius:20px;padding:16px;text-align:center;cursor:pointer;border:4px solid var(--line);font-family:'Poppins';font-weight:700;font-size:19px;background:#fff;}
+.wyr .side .e{font-size:60px;display:block;}.wyr .side.on{border-color:var(--gold);background:#fff7dd;}
+.wyr .or{align-self:center;font-family:'Poppins';font-weight:800;font-size:22px;color:var(--coral);}
+.because{background:#f1ecff;border-radius:14px;padding:10px 14px;font-size:18px;font-weight:600;text-align:center;}
+@media(max-width:560px){.wyr{grid-template-columns:1fr;}.wyr .or{text-align:center;}}
+/* storyboard / book */
+.storyboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.sb{background:var(--soft);border-radius:16px;padding:10px;border:2px solid var(--line);}
+.sb .lab{font-weight:800;color:var(--pool1);font-family:'Poppins';text-align:center;}.sb .lab .fr{font-size:13px;}
+.sb .choices{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;}
+.sb .choices button{font-size:26px;padding:4px 8px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;}
+.sb .choices button.on{border-color:var(--gold);background:#fff7dd;}
+.sb .said{text-align:center;font-family:'Poppins';font-weight:600;font-size:15px;min-height:22px;margin-top:6px;}
+.levels{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.lvl{border:3px solid var(--line);border-radius:16px;padding:8px 14px;text-align:center;cursor:pointer;background:#fff;min-width:120px;font-weight:700;}
+.lvl .e{font-size:30px;display:block;}.lvl.on{border-color:var(--gold);background:#fff7dd;}.lvl .fr{font-size:12px;}
+.book{background:#fffdf5;border:3px solid var(--gold);border-radius:18px;padding:12px 16px;}
+.bline{margin:10px 0;}.bline .lbl{font-family:'Poppins';font-weight:700;font-size:20px;}
+.bline .said{font-family:'Poppins';font-size:20px;color:var(--pool1);font-weight:700;margin-left:6px;}
+.bline .choices{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.bline .choices button{font-size:15px;padding:6px 10px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;font-family:inherit;}
+.bline .choices button.on{border-color:var(--gold);background:#fff7dd;font-weight:700;}
+.stats{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:14px 0;}
+.stat{background:var(--soft);border-radius:18px;padding:14px 20px;text-align:center;min-width:150px;}
+.stat .v{font-family:'Poppins';font-size:38px;font-weight:800;color:var(--pool1);}.stat .k{font-size:14px;font-weight:600;}
+.cando{font-size:18px;margin:8px 0;padding:10px 14px;border-radius:14px;background:#f6fbfb;border:2px solid var(--line);cursor:pointer;}
+.cando.ok{background:#e7f8ee;border-color:var(--green);}.cando::before{content:"⬜ ";}.cando.ok::before{content:"✅ ";}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:12px;padding:12px;background:rgba(1,42,56,.55);backdrop-filter:blur(6px);z-index:60;}
+.nav button{font-family:'Poppins';font-weight:700;font-size:16px;border-radius:14px;padding:11px 22px;border:none;cursor:pointer;}
+.nav .prev-b{background:#fff;color:var(--pool1);}.nav .next-b{background:var(--gold);color:var(--ink);}
+.toast{position:fixed;left:50%;top:84px;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-weight:800;padding:10px 20px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.25);opacity:0;transition:.3s;z-index:80;pointer-events:none;font-family:'Poppins';}
+.toast.show{opacity:1;}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden;}
+.confetti i{position:absolute;top:-20px;font-size:26px;animation:fall 2.6s linear forwards;}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);}}
+@media(max-width:560px){h2.t{font-size:22px;}.card{padding:16px 14px;}.wheel{width:200px;height:200px;}}
+/* L15-16 additions */
+.pic .ex{display:block;font-size:12.5px;color:#4a6670;margin-top:4px;font-style:italic;}
+.pic.hide .ex{visibility:hidden;}
+.num{font-family:'Poppins';font-weight:800;color:var(--pool1);}
+.mx .e.num{font-size:40px;}
+.numstep{display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap;margin:8px 0;}
+.numstep button{font-family:'Poppins';font-weight:800;font-size:15px;border-radius:12px;border:2px solid var(--line);background:#fff;padding:6px 10px;cursor:pointer;color:var(--ink);}
+.numstep .n{min-width:96px;text-align:center;font-family:'Poppins';font-weight:800;font-size:26px;color:var(--pool1);line-height:1.1;}
+.numstep .n small{display:block;font-size:13px;color:var(--ink);font-weight:700;}
+.sb .said .fr{font-size:13px;}
+.reveal .pic-under.many{flex-wrap:wrap;align-content:center;gap:4px;padding:14px;line-height:1.05;}
+.flash .n{font-size:58px;font-weight:800;color:var(--gold);line-height:1;}
+.cert{margin:14px auto;max-width:560px;background:linear-gradient(135deg,#fffdf5,#fff3c9);border:4px double var(--gold);border-radius:20px;padding:16px 20px;text-align:center;font-family:'Poppins';}
+.cert .ttl{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#a07800;font-weight:800;}
+.cert .nm{font-size:34px;font-weight:800;color:var(--deep);margin:4px 0;}
+.cert .sub{font-size:16px;font-weight:600;}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="hud">
+  <div class="who"><span>🦇</span> Bibi &amp; Elina</div>
+  <div class="dots" id="dots"></div>
+  <div class="score" title="Tutor: tap ⭐ each time Elina says a full sentence">⭐ <span id="starN">0</span><button id="starPlus" aria-label="Add a star">+1</button></div>
+  <button class="pill on" id="frBtn">🇫🇷 FR</button>
+  <button class="pill on" id="sndBtn">🔊</button>
+</div>
+
+<!-- 1 MISSION -->
+<section class="slide active">
+<div class="card">
+  <div class="top"><span class="kicker">Lesson 15 · Counting to 50 · Episode 15</span><span class="mins">1 min</span></div>
+  <h2 class="t">Bibi Counts at Bat School 🔢</h2><span class="fr">Bibi compte à l'école des chauves-souris</span>
+  <div class="bibi"><div class="b">🦇</div><p>Hi Elina! Tonight I have a big job at Bat School: I must count <b>everything</b>! But I can only count to twenty… You are the expert! Can you help me count to <b>fifty</b>?<span class="fr">Salut Elina ! Ce soir, j'ai une grande mission à l'école des chauves-souris : je dois <b>tout</b> compter ! Mais je sais compter seulement jusqu'à vingt… C'est toi l'experte ! Tu peux m'aider à compter jusqu'à <b>cinquante</b> ?</span></p></div>
+  <div class="big-goal"><small>Today I can… / Aujourd'hui, je peux…</small>count to fifty and say how many: "There are twenty-five pencils!"<span class="fr">compter jusqu'à cinquante et dire combien il y en a : « There are twenty-five pencils! » (Il y a vingt-cinq crayons !)</span></div>
+  <p class="lead">Every full sentence you say = ⭐. Can you get <b>40 stars</b> today?<span class="fr">Chaque phrase complète = une étoile ⭐. Tu peux gagner 40 étoiles aujourd'hui ?</span></p>
+  <details class="tutor"><summary>Tutor notes · how this lesson runs (≈45 min)</summary><div class="in">
+    <b>Zoom setup:</b> you share the screen and click everything; Elina only talks. Tap <b>⭐ +1</b> in the top bar each time she says a full English sentence (it's the score for the whole lesson). Each slide shows its target minutes.<br>
+    <b>Pattern of the day:</b> "There are + number + things." / "There is one ___." + counting by ones, tens and fives to 50. She already knows 1–30 (Lesson 3), so today pushes 30–50 and full sentences.<br>
+    <b>French-speaker traps:</b> "There is twenty pencils" → <b>There ARE</b> twenty pencils (il y a = there is <i>or</i> there are); forgetting the plural -s ("twenty pencil"); "twenty-and-one" (from <i>vingt et un</i>) → <b>twenty-one</b>; "fivety" → <b>fifty</b>; thirTEEN vs THIRty stress (Sound spot).<br>
+    <b>Correcting:</b> never "No." Repeat it back correctly ("Yes! There <i>are</i> forty books!") and let her say it again for the star.
+  </div></details>
+</div>
+</section>
+
+<!-- 2 WARM-UP -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Warm-Up · On discute</span><span class="mins">4 min</span></div>
+  <h2 class="t">👋 Let's Catch Up!</h2><span class="fr">On discute un peu !</span>
+  <p class="lead">Answer with a full sentence. Then ask me back!<span class="fr">Réponds avec une phrase complète. Puis pose-moi la question !</span></p>
+  <div class="qgrid" id="warmQs">
+    <div class="qcard" data-st="w1"><button class="spk" data-a="w1">🔊</button><div class="tx">😊 How are you today?<span class="fr">Comment tu vas aujourd'hui ?</span></div></div>
+    <div class="qcard" data-st="w2"><button class="spk" data-a="w2">🔊</button><div class="tx">🎂 How old are you?<span class="fr">Quel âge as-tu ?</span></div></div>
+    <div class="qcard" data-st="w3"><button class="spk" data-a="w3">🔊</button><div class="tx">👨‍👩‍👧 How many people are there in your family?<span class="fr">Combien de personnes il y a dans ta famille ?</span></div></div>
+    <div class="qcard" data-st="w4"><button class="spk" data-a="w4">🔊</button><div class="tx">🎉 What did you do this weekend?<span class="fr">Qu'est-ce que tu as fait ce week-end ?</span></div></div>
+  </div>
+  <p style="font-weight:700;margin:10px 0 4px;">💬 Answer starters <span class="fr inl">Pour commencer ta réponse</span> · <span id="stWhich" style="color:var(--pool1)">tap a question</span></p>
+  <div class="starters" id="warmStarters"></div>
+  <div class="askback">🔁 <b>Your turn:</b> "And you? How old are you?" · "How many people are there in your family?"<span class="fr">À toi : « Et toi ? Quel âge as-tu ? » · « Combien de personnes il y a dans ta famille ? »</span></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    Push for full sentences ("Ten." → "I'm ten years old."). Question 3 previews today's pattern: "There <b>are</b> four people in my family: my mom, my dad…" Follow-ups: "Who?", "What else?" If she says "I have ten years" (French <i>j'ai dix ans</i>), recast: "Oh, you <b>are</b> ten!" She must ask you at least one question back. ⭐ for each full sentence.
+  </div></details>
+</div>
+</section>
+
+<!-- 3 REMEMBER WHEEL -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Remember? · Spin the wheel</span><span class="mins">3 min</span></div>
+  <h2 class="t">🎡 Spin &amp; Answer!</h2><span class="fr">Fais tourner la roue et réponds !</span>
+  <p class="lead">Questions from Lessons 5–14. Answer fast in a full sentence!<span class="fr">Des questions des leçons 5 à 14. Réponds vite avec une phrase complète !</span></p>
+  <div class="wheel-wrap"><div class="pointer">👉</div><div class="wheel" id="wheel"></div><div class="wq" id="wq">Press SPIN!<span class="fr">Appuie sur SPIN !</span></div></div>
+  <div class="row center"><button class="btn gold" id="spinWheel">🎡 SPIN!</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Spin 5–6 times. Challenge: every answer needs <b>two</b> sentences, or one sentence with <b>because</b> or <b>so</b> ("It's cold, <b>so</b> I wear a coat."). ⭐ for each full sentence.</div></details>
+</div>
+</section>
+
+<!-- 4 STORY -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Listen · Story time</span><span class="mins">3 min</span></div>
+  <h2 class="t">🦇 Bibi Counts at Bat School</h2><span class="fr">Bibi compte à l'école des chauves-souris</span>
+  <p class="lead">Listen and watch the pictures. Bibi goes to school at night, so she counts at night!<span class="fr">Écoute et regarde les images. Bibi va à l'école la nuit, alors elle compte la nuit !</span></p>
+  <div class="row"><button class="btn gold" id="playStory">▶ Play the story</button></div>
+  <div class="story" id="story"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Play it once just listening, then tap each picture and have her repeat Bibi's sentence (⭐ each). Point to the time tag on each picture: evening → night → morning. Point to the numbers on the pictures: 25, 40, 1, 50.</div></details>
+</div>
+</section>
+
+<!-- 5 STORY CHECK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Did you understand? · Story quiz</span><span class="mins">3 min</span></div>
+  <h2 class="t">🤔 Bibi Quiz</h2><span class="fr">Le quiz de Bibi</span>
+  <p class="lead">Say the answer in a sentence first. Then choose!<span class="fr">Dis la réponse avec une phrase d'abord. Puis choisis !</span></p>
+  <div id="storyQuiz"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She says the full answer before you click ("There are twenty-five pencils."). Question 2 is the forty / fourteen trap. Question 3 practices <b>there is</b> for one. The last question has no wrong answer: it's her opinion with <b>because</b>.</div></details>
+</div>
+</section>
+
+<!-- 6a WORDS -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">New words · numbers &amp; things</span><span class="mins">4 min</span></div>
+  <h2 class="t">🖼️ Numbers to 50 &amp; Things to Count</h2><span class="fr">Les nombres jusqu'à 50 et des choses à compter</span>
+  <p class="lead">Tap a card to hear it. Say it after me. For things, say one and many: <b>"one pencil, two pencils"</b>.<span class="fr">Touche une carte pour l'écouter. Répète après moi. Pour les choses, dis un et plusieurs : « one pencil, two pencils » (un crayon, deux crayons).</span></p>
+  <div class="pics" id="wordPics"></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn ghost" id="hideWords">🙈 Hide the words <span class="fr inl">Cacher les mots</span></button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Round 1: tap each card, she repeats (⭐ for each group said with no help). Show the trick: <b>twenty + five = twenty-five</b>, with a dash and no "and". Round 2: press <b>Hide the words</b>, point to a card, she says it from the number or picture only. Watch <b>forty</b> (no "u") and the plural <b>-s</b>.</div></details>
+</div>
+</section>
+
+<!-- 6b FLASH -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Game · Flash</span><span class="mins">3 min</span></div>
+  <h2 class="t">⚡ Flash Count!</h2><span class="fr">Le jeu Flash : compte vite !</span>
+  <div class="qgrid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
+    <div class="qcard" style="cursor:default">1️⃣ <div class="tx">I press FLASH.<span class="fr">J'appuie sur FLASH.</span></div></div>
+    <div class="qcard" style="cursor:default">2️⃣ <div class="tx">A number and a thing show for 3 seconds.<span class="fr">Un nombre et une chose apparaissent 3 secondes.</span></div></div>
+    <div class="qcard" style="cursor:default">3️⃣ <div class="tx">Say it fast: "There are thirty-two cookies!"<span class="fr">Dis vite : « There are thirty-two cookies! »</span></div></div>
+    <div class="qcard" style="cursor:default">4️⃣ <div class="tx">Then we check the answer!<span class="fr">Puis on vérifie la réponse !</span></div></div>
+  </div>
+  <div class="flash" id="flash"><span class="e">⚡</span>Ready?<span class="fr" style="color:#d9ccff">Prête ?</span></div>
+  <div class="ptsbig" id="flashCount">Round 0</div>
+  <div class="row center" style="margin-top:8px;"><button class="btn gold" id="flashGo">⚡ FLASH!</button><button class="btn" id="flashGot">✅ She said it! ⭐</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Play 8–10 rounds. If she says the full sentence (number + plural -s) before the picture hides, press <b>She said it!</b> (adds a star). Make it harder: she adds a place ("There are thirty-two cookies <b>in the kitchen</b>!").</div></details>
+</div>
+</section>
+
+<!-- 7 SENTENCE CHAIN -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Build long sentences · Chain challenge</span><span class="mins">5 min</span></div>
+  <h2 class="t">🔗 The Counting Chain</h2><span class="fr">La chaîne pour compter</span>
+  <p class="lead">Tell me what's in <b>your</b> classroom: how many of each thing? Each time, say the <b>whole chain again</b> from the start and add one more thing. We finish it with <b>"and"</b>!<span class="fr">Dis-moi ce qu'il y a dans <b>ta</b> classe : combien de chaque chose ? À chaque fois, redis <b>toute la chaîne</b> depuis le début et ajoute une chose. On termine avec « and » (et) !</span></p>
+  <div class="lvlbar" id="chainLv"></div>
+  <div class="starters"><span class="starter">there are + 2, 3, 4… <span class="fr">il y a + plusieurs</span></span><span class="starter">there is one… <span class="fr">il y a un / une…</span></span><span class="starter">and <span class="fr">et</span></span></div>
+  <div class="chainbox" id="chainBox"></div>
+  <p style="font-weight:700;margin:8px 0 0;text-align:center;">1️⃣ How many? <span class="fr inl">Combien ?</span> → 2️⃣ Tap the thing <span class="fr inl">Touche la chose</span></p>
+  <div class="numstep" id="chainNum"></div>
+  <div class="pics" id="chainPics"></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn" id="chainFinish">🏁 Finish the chain <span class="fr inl">Terminer</span></button><button class="btn gold" id="chainRead">🔊 Hear my chain</button><button class="btn ghost" id="chainUndo">↶ Undo</button><button class="btn ghost" id="chainReset">↺ New chain</button><button class="btn ghost" id="chainMode">🛏️ Switch to bedroom</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    She says a full sentence ("There are twenty-two chairs."); you set the number with the − / + buttons, then tap the thing. One = <b>there is one</b> (it changes by itself). When she's finished, press <b>Finish the chain</b>: the last one gets <b>and</b>, and she says the whole chain from the start (stars: 3–4 things = 1–2 ⭐, 5+ = 3 ⭐). Guessing is fine ("about twenty"). Use <b>Undo</b> if you mis-click. Then do her <b>bedroom</b> and <b>kitchen</b>.
+  </div></details>
+</div>
+</section>
+
+<!-- 8 SORT -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">How many? · Sort your house</span><span class="mins">4 min</span></div>
+  <h2 class="t">🗂️ None, One, a Few, or Lots?</h2><span class="fr">Aucun, un, quelques-uns ou plein ?</span>
+  <p class="lead">Look at the card. How many are there in <b>your</b> house? Say the whole sentence: <b>"There are three beds."</b> Then I put it where you say.<span class="fr">Regarde la carte. Combien il y en a dans <b>ta</b> maison ? Dis toute la phrase, puis je la place où tu dis.</span></p>
+  <div class="card-now"><div class="big" id="sortNow"></div></div>
+  <div class="row center"><button class="btn ghost" id="sortStart">↺ Start over</button></div>
+  <div class="board">
+    <div class="zone n" data-z="n"><h4>🚫 There are no…</h4><span class="fr">Il n'y a pas de…</span></div>
+    <div class="zone m" data-z="m"><h4>1️⃣ There is one…</h4><span class="fr">Il y a un / une…</span></div>
+    <div class="zone a" data-z="a"><h4>🔢 There are a few (2–10)</h4><span class="fr">Il y en a quelques-uns (2 à 10)</span></div>
+    <div class="zone e" data-z="e"><h4>🤩 There are lots! (11–50)</h4><span class="fr">Il y en a plein ! (11 à 50)</span></div>
+  </div>
+  <div class="msg" id="sortMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">It's <b>her</b> house, so there's no wrong zone, but she must say the whole sentence with the real number before you click (⭐ each): "There are <b>four</b> chairs." Listen for <b>is</b> with one and <b>are</b> with two or more. For "lots", ask her to guess: "About how many? Thirty? Forty?"</div></details>
+</div>
+</section>
+
+<!-- 9 FIX BIBI -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Think! · Fix Bibi's mistakes</span><span class="mins">5 min</span></div>
+  <h2 class="t">🕵️ Bibi Is Mixed Up!</h2><span class="fr">Bibi s'est trompée !</span>
+  <div class="bibi"><div class="b">🦇</div><p id="fixIntro"></p></div>
+  <div class="stepper"><span class="st on" id="fs1">1 · Find the intruder <span class="fr inl">l'intrus</span></span><span class="st" id="fs2">2 · Put it in order <span class="fr inl">dans l'ordre</span></span><span class="st" id="fs3">3 · Say it! <span class="fr inl">dis-le</span></span></div>
+  <div class="mixed" id="mixed"></div>
+  <div class="order-row" id="fixSlots"></div>
+  <div class="msg" id="fixMsg"></div>
+  <div class="row center"><button class="btn ghost" id="fixReset">↺ Try again</button><button class="btn gold" id="fixNext">➡ Round 2: count by fives</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    <b>Step 1:</b> she names the intruder and says <b>why</b> ("Fifteen is not in the count by tens!"). Click it. <b>Step 2:</b> she tells you the order, smallest first; click the cards in her order. The page checks it and explains. <b>Step 3:</b> she counts the whole row out loud, then keeps going to fifty. ⭐ for the reason and for the full count. Round 2 counts by fives.
+  </div></details>
+</div>
+</section>
+
+<!-- 10 TRUE OR SILLY -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">True or silly? · Spin</span><span class="mins">4 min</span></div>
+  <h2 class="t">🎰 True or Silly?</h2><span class="fr">Vrai ou rigolo ?</span>
+  <p class="lead">Spin! Read the sentence. Is it <b>true</b>? If it's silly, fix it: <b>"No! A cat has four legs!"</b><span class="fr">Lis la phrase. C'est vrai ? Si c'est rigolo, corrige-la : « Non ! Un chat a quatre pattes ! »</span></p>
+  <div class="slots"><div class="reel" id="r1"><span class="e">🎰</span>Spin!<span class="fr">Tourne !</span></div><div class="reel" id="r2"><span class="e">❓</span>…<span class="fr">…</span></div></div>
+  <div class="row center"><button class="btn gold" id="spin">🎰 SPIN!</button><button class="btn ghost" id="sayIt">🔊 Hear it</button></div>
+  <div class="row center" style="margin-top:8px;"><button class="btn" data-v="true">✅ That's true! <span class="fr inl">Vrai !</span></button><button class="btn red" data-v="silly">🤪 That's silly! <span class="fr inl">Rigolo !</span></button></div>
+  <div class="msg" id="verdict"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She reads it aloud, decides, and <b>fixes silly ones in a full sentence</b> (⭐ when she's right, ⭐ more for the fix). Every "true" sentence is a real fact. Then swap: she makes up a silly number sentence ("There are fifty fingers on my hand!") and you fix it. Kids love catching the teacher.</div></details>
+</div>
+</section>
+
+<!-- 11 SOUND SPOT -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Sound spot · -TEEN or -TY?</span><span class="mins">3 min</span></div>
+  <h2 class="t">👂 ThirTEEN or THIRty?</h2><span class="fr">ThirTEEN ou THIRty ?</span>
+  <div class="tongue">Listen for the <b>strong part</b>. In <b>thir-TEEN</b>, the end is long and loud: <b>TEEEN</b>. In <b>THIR-ty</b>, the start is strong and the end is short: <b>-ty</b>. 💪<span class="fr">Écoute la partie forte. Dans « thir-TEEN », la fin est longue et forte : TEEEN. Dans « THIR-ty », le début est fort et la fin est courte : -ty. C'est comme ça qu'on entend 13 ou 30 !</span></div>
+  <p class="lead">Listen. Which one did you hear? Then say both!<span class="fr">Écoute. Lequel tu as entendu ? Puis dis les deux !</span></p>
+  <div class="pairs">
+    <div class="pair"><button class="th" data-a="sp_13">13 · thirteen</button><button data-a="sp_30">30 · thirty</button></div>
+    <div class="pair"><button class="th" data-a="sp_14">14 · fourteen</button><button data-a="sp_40">40 · forty</button></div>
+    <div class="pair"><button class="th" data-a="sp_15">15 · fifteen</button><button data-a="sp_50">50 · fifty</button></div>
+  </div>
+  <div class="twister">Thirteen bats and thirty cats! 🦇🐱<span class="fr">Treize chauves-souris et trente chats !</span></div>
+  <div class="row center"><button class="btn gold" data-a="sp_twister">🔊 Hear it</button><button class="btn ghost" id="mystery">🎲 Mystery number</button></div>
+  <div class="msg" id="thMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Press <b>Mystery number</b>: it plays one word from a pair; she says the number and shows it with her fingers (1+3 or 3+0). Then she says one and <b>you</b> guess: if she doesn't stress TEEN, "guess" the wrong one so she hears why it matters. Finish with the twister: slow, normal, fast.</div></details>
+</div>
+</section>
+
+<!-- 12 PICTURE REVEAL -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Game · Picture reveal</span><span class="mins">4 min</span></div>
+  <h2 class="t">🧩 What's Behind the Squares?</h2><span class="fr">Qu'est-ce qui se cache derrière les carrés ?</span>
+  <p class="lead">I take away one square at a time. First guess the thing: <b>"I think there are apples!"</b> Then, at the end, count them: <b>"There are twelve apples."</b> Fewer squares gone = more points!<span class="fr">J'enlève un carré à la fois. D'abord, devine la chose. Puis, à la fin, compte-les. Moins de carrés enlevés = plus de points !</span></p>
+  <div class="reveal" id="reveal"><div class="pic-under many" id="revealPic">🍎</div><div class="tiles" id="tiles"></div></div>
+  <div class="ptsbig" id="revealPts">Points for this round: 9</div>
+  <div class="row center" style="margin-top:8px;"><button class="btn gold" id="revealNew">🎲 New picture</button><button class="btn" id="revealGot">✅ She got it!</button><button class="btn ghost" id="revealAll">👀 Show all</button></div>
+  <div class="msg" id="revealMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Click squares one by one until she guesses the thing with a full sentence. Then press <b>She got it!</b> (points = squares still covering; stars added). Everything is shown: now she counts them out loud and says "There are ___ ___." (⭐). The number changes every round.</div></details>
+</div>
+</section>
+
+<!-- 13 WOULD YOU RATHER -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Your opinion · Would you rather?</span><span class="mins">4 min</span></div>
+  <h2 class="t">🤷 Would You Rather…?</h2><span class="fr">Tu préfères… ?</span>
+  <p class="lead">Choose one and say <b>why</b> with <b>because</b>. Then ask me!<span class="fr">Choisis et dis <b>pourquoi</b> avec « because » (parce que). Puis pose-moi la question !</span></p>
+  <div class="mcq" style="text-align:center;"><div class="q" style="justify-content:center;"><button class="spk" id="wyrSpk">🔊</button><span id="wyrQ"></span></div><span class="fr" id="wyrQfr"></span></div>
+  <div class="wyr"><div class="side" id="wyrA"></div><div class="or">OR</div><div class="side" id="wyrB"></div></div>
+  <div class="because">I'd rather ___ because ___.<span class="fr">Je préfère ___ parce que ___.</span></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn gold" id="wyrNext">➡ Next question</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">This is critical thinking: there is no right answer, but there must be a <b>reason</b>. Model one first ("I'd rather have fifty books because I love reading."). After each answer she asks you the same question. ⭐ for each "because" sentence.</div></details>
+</div>
+</section>
+
+<!-- 14 BIG TALK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Big talk · Count your world</span><span class="mins">4 min</span></div>
+  <h2 class="t">📖 Tell Bibi: How Many?</h2><span class="fr">Dis à Bibi : combien ?</span>
+  <p class="lead">Tell me the real number for each box. I set it. Then say all four sentences with no stopping!<span class="fr">Dis-moi le vrai nombre pour chaque case. Je le règle. Puis dis les quatre phrases sans t'arrêter !</span></p>
+  <div class="storyboard" id="storyboard"></div>
+  <p style="font-weight:700;margin:14px 0 2px;text-align:center;">🎭 Voice challenge: Elina says all four sentences again in a funny voice! Tap the voice for each round.<span class="fr">Défi des voix : Elina redit les quatre phrases avec une voix rigolote ! Touche la voix pour chaque tour.</span></p>
+  <div class="levels" id="levels">
+    <div class="lvl"><span class="e">🤫</span>Whisper<span class="fr">en chuchotant</span></div>
+    <div class="lvl"><span class="e">🙂</span>Normal<span class="fr">normal</span></div>
+    <div class="lvl"><span class="e">📺</span>TV reporter<span class="fr">journaliste télé</span></div>
+    <div class="lvl"><span class="e">🤖</span>Robot!<span class="fr">robot !</span></div>
+  </div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">This is the goal of the lesson. She says all four in a row ("In my class, there are… In my family, there are… In my house, there are… In my school bag, there are…"). Do it 2–3 times in different voices; each telling smoother. Bonus: she adds one more sentence of her own. ⭐ per sentence.</div></details>
+</div>
+</section>
+
+<!-- 15 BOOK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">My English Book · Page 15</span><span class="mins">2 min</span></div>
+  <h2 class="t">✍️ My Number Sentences</h2><span class="fr">Mes phrases avec des nombres</span>
+  <p class="lead">Say your three sentences. I tap your choice and it goes in your book!<span class="fr">Dis tes trois phrases. Je touche ton choix et il va dans ton livre !</span></p>
+  <div class="book" id="book"></div>
+  <div class="row" style="margin-top:10px;"><button class="btn gold" id="readBook">🔊 Read my page</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She says each sentence; you tap the matching choice. Then she reads the whole page aloud once (⭐ ×3). It saves in this browser, and next lesson's warm-up can start with these three sentences.</div></details>
+</div>
+</section>
+
+<!-- 16 CEREMONY -->
+<section class="slide">
+<div class="card" style="text-align:center;">
+  <div class="top"><span class="kicker">Ceremony · Episode 15 complete</span><span class="mins">1 min</span></div>
+  <h2 class="t">🏅 Thank You, Expert Elina!</h2><span class="fr">Merci, experte Elina !</span>
+  <div class="bibi" style="text-align:left;"><div class="b">🦇</div><p>Now I can count to fifty too! Tonight I can count the stars in the sky: one, two, three… fifty! ⭐<span class="fr">Maintenant, moi aussi je sais compter jusqu'à cinquante ! Ce soir, je peux compter les étoiles dans le ciel : un, deux, trois… cinquante ! ⭐</span></p></div>
+  <div class="stats">
+    <div class="stat"><div class="v" id="stStars">0</div><div class="k">⭐ sentences / phrases</div></div>
+    <div class="stat"><div class="v" id="stMedal">—</div><div class="k">🏅 medal / médaille</div></div>
+  </div>
+  <div style="text-align:left;">
+    <div class="cando">I can count to fifty by ones, by fives, and by tens.<span class="fr">Je peux compter jusqu'à cinquante de un en un, de cinq en cinq et de dix en dix.</span></div>
+    <div class="cando">I can say "There are twenty-five pencils" and "There is one teacher."<span class="fr">Je peux dire « There are twenty-five pencils » et « There is one teacher ».</span></div>
+    <div class="cando">I can hear and say thirteen / thirty, fourteen / forty, fifteen / fifty.<span class="fr">Je peux entendre et dire 13 / 30, 14 / 40, 15 / 50.</span></div>
+    <div class="cando">I can find the number that doesn't belong and say why.<span class="fr">Je peux trouver le nombre intrus et dire pourquoi.</span></div>
+  </div>
+  <div class="row center" style="margin-top:12px;"><button class="btn gold" id="medal">🥇 Open your medal!</button></div>
+  <details class="tutor" style="text-align:left;"><summary>Tutor: before you go</summary><div class="in">Mini homework (tell her mom in French): tonight, Elina counts something at home (shoes, forks, books…) and tells the family in English: "There are ___ ___." <i>Ce soir, Elina compte quelque chose à la maison (chaussures, fourchettes, livres…) et le dit en anglais à la famille : « There are ___ ___. »</i></div></details>
+</div>
+</section>
+
+</div>
+<div class="nav"><button class="prev-b" id="prevB">⬅ Back</button><button class="next-b" id="nextB">Next ➡</button></div>
+<div class="toast" id="toast"></div>
+<div class="confetti" id="confetti"></div>
+
+<script>
+(function(){
+/* ---------- audio: basic browser voice (text-to-speech) only ---------- */
+var TEXT={}; // key -> English text
+var sound=true,queue=[],curU=null;
+function T(k,t){TEXT[k]=t;return k;}
+function stopAll(){queue=[];curU=null;if(window.speechSynthesis)speechSynthesis.cancel();}
+function tts(t,done){if(!window.speechSynthesis||!t){done&&done();return;}var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;var v=speechSynthesis.getVoices().filter(function(v){return /en-US/.test(v.lang);});var p=v.filter(function(x){return /Samantha|Google US|Aria|Jenny/i.test(x.name);});if(p[0])u.voice=p[0];else if(v[0])u.voice=v[0];var fin=false;function end(){if(fin)return;fin=true;if(curU===u)curU=null;done&&done();}u.onend=end;u.onerror=end;curU=u;speechSynthesis.speak(u);}
+function playKey(k,done){if(!sound){done&&done();return;}tts(TEXT[k]||'',done);}
+function play(keys,onEach){stopAll();queue=keys.slice();(function next(){if(!queue.length)return;var k=queue.shift();onEach&&onEach(k);playKey(k,function(){setTimeout(next,250);});})();}
+var sayN=0;function say(texts){var keys=[].concat(texts).map(function(t){return T('_say'+(sayN++%50),t);});play(keys);}
+window.KCE_AUDIO_TEXT=TEXT;
+
+/* ---------- numbers ---------- */
+var ON=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'],TN=['','','twenty','thirty','forty','fifty'];
+function nw(n){if(n<20)return ON[n];var o=n%10;return TN[Math.floor(n/10)]+(o?'-'+ON[o]:'');}
+var OF=['zéro','un','deux','trois','quatre','cinq','six','sept','huit','neuf','dix','onze','douze','treize','quatorze','quinze','seize','dix-sept','dix-huit','dix-neuf'],TF=['','','vingt','trente','quarante','cinquante'];
+function nf(n,fem){if(n===1)return fem?'une':'un';if(n<20)return OF[n];var o=n%10,t=TF[Math.floor(n/10)];if(!o)return t;if(o===1)return t+' et '+(fem?'une':'un');return t+'-'+OF[o];}
+
+/* ---------- things: key -> [emoji, singular, plural, FR singular, FR plural, feminine] ---------- */
+var OBJ={
+ pencil:['✏️','pencil','pencils','crayon','crayons',0],book:['📚','book','books','livre','livres',0],cookie:['🍪','cookie','cookies','biscuit','biscuits',0],
+ balloon:['🎈','balloon','balloons','ballon','ballons',0],star:['⭐','star','stars','étoile','étoiles',1],apple:['🍎','apple','apples','pomme','pommes',1],
+ chair:['🪑','chair','chairs','chaise','chaises',1],flower:['🌸','flower','flowers','fleur','fleurs',1],window:['🪟','window','windows','fenêtre','fenêtres',1],
+ door:['🚪','door','doors','porte','portes',1],kid:['🧒','kid','kids','enfant','enfants',0],teacher:['🧑‍🏫','teacher','teachers','professeur','professeurs',0],
+ toy:['🧸','toy','toys','jouet','jouets',0],lamp:['💡','lamp','lamps','lampe','lampes',1],bed:['🛏️','bed','beds','lit','lits',0],
+ cup:['☕','cup','cups','tasse','tasses',1],plate:['🍽️','plate','plates','assiette','assiettes',1],spoon:['🥄','spoon','spoons','cuillère','cuillères',1],
+ tv:['📺','TV','TVs','télé','télés',1],shoe:['👟','shoe','shoes','chaussure','chaussures',1],toothbrush:['🪥','toothbrush','toothbrushes','brosse à dents','brosses à dents',1],
+ plant:['🪴','plant','plants','plante','plantes',1],clock:['🕰️','clock','clocks','horloge','horloges',1],bike:['🚲','bike','bikes','vélo','vélos',0],
+ pet:['🐾','pet','pets','animal','animaux',0],room:['🏠','room','rooms','pièce','pièces',1],person:['🧑','person','people','personne','personnes',1],
+ fish:['🐟','fish','fish','poisson','poissons',0]
+};
+function en(n,k){var o=OBJ[k];return n===1?'there is one '+o[1]:'there are '+nw(n)+' '+o[2];}
+function fr(n,k){var o=OBJ[k];return 'il y a '+(n===1?(o[5]?'une ':'un ')+o[3]:nf(n,o[5])+' '+o[4]);}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function de(w){return /^[aeiouyéèêh]/i.test(w)?"d'"+w:'de '+w;}
+
+T('w1','How are you today?');T('w2','How old are you?');T('w3','How many people are there in your family?');T('w4','What did you do this weekend?');
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function rnd(a,b){return a+Math.floor(Math.random()*(b-a+1));}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},1500);}
+function confetti(){var c=$('confetti');var em=['⭐','🌟','🦇','🔢','✨'];for(var i=0;i<40;i++){var s=document.createElement('i');s.textContent=em[i%em.length];s.style.left=Math.random()*100+'vw';s.style.animationDelay=(Math.random()*.8)+'s';c.appendChild(s);}setTimeout(function(){c.innerHTML='';},3600);}
+var stars=0;function addStars(n){stars+=n;$('starN').textContent=stars;}
+$('starPlus').onclick=function(){addStars(1);toast('⭐ +1');};
+$('frBtn').onclick=function(){document.body.classList.toggle('no-fr');this.classList.toggle('on');};
+$('sndBtn').onclick=function(){sound=!sound;this.classList.toggle('on',sound);this.textContent=sound?'🔊':'🔇';if(!sound)stopAll();};
+document.querySelectorAll('[data-a]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();play([b.dataset.a]);});});
+
+/* ---------- slides ---------- */
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,dots=$('dots');
+slides.forEach(function(_,i){var d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=function(){go(i);};dots.appendChild(d);});
+function go(n){if(n<0||n>=slides.length)return;stopAll();$('toast').classList.remove('show');slides[cur].classList.remove('active');dots.children[cur].classList.remove('active');dots.children[cur].classList.add('done');cur=n;slides[cur].classList.add('active');dots.children[cur].classList.add('active');dots.children[cur].classList.remove('done');$('prevB').style.visibility=cur===0?'hidden':'visible';$('nextB').style.visibility=cur===slides.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'});if(cur===slides.length-1)ceremony();}
+window.goTo=go;$('prevB').onclick=function(){go(cur-1);};$('nextB').onclick=function(){go(cur+1);};$('prevB').style.visibility='hidden';
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+document.querySelectorAll('.qcard').forEach(function(q){q.addEventListener('click',function(){q.classList.toggle('asked');});});
+var WST={w1:['How are you today?',[["I'm great, thanks!","Ça va super, merci !"],["I'm happy because…","Je suis contente parce que…"],["I'm a little tired because…","Je suis un peu fatiguée parce que…"]]],
+ w2:['How old are you?',[["I'm ten years old.","J'ai dix ans."],["I'm eleven years old.","J'ai onze ans."],["My birthday is in…","Mon anniversaire est en…"]]],
+ w3:['How many people are there in your family?',[["There are four people in my family.","Il y a quatre personnes dans ma famille."],["There are… : my mom, my dad, and…","Il y a… : ma mère, mon père et…"],["I have one brother / two sisters.","J'ai un frère / deux sœurs."]]],
+ w4:['What did you do this weekend?',[["I played with…","J'ai joué avec…"],["I went to the park / to my grandma's.","Je suis allée au parc / chez ma mamie."],["I watched a movie.","J'ai regardé un film."]]]};
+function showStarters(k){var w=WST[k];$('stWhich').textContent=w[0];$('warmStarters').innerHTML=w[1].map(function(x){return '<span class="starter">'+x[0]+'<span class="fr">'+x[1]+'</span></span>';}).join('');document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.style.outline=c.dataset.st===k?'3px solid var(--gold)':'';});}
+document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.addEventListener('click',function(){showStarters(c.dataset.st);});});showStarters('w1');
+
+/* ---------- wheel (review of Lessons 5–14) ---------- */
+var W=[['⏰',"What do you do in the morning?","Qu'est-ce que tu fais le matin ?","In the morning, I…","Le matin, je…"],
+ ['🌤️',"What's the weather like today?","Quel temps fait-il aujourd'hui ?","Today, it's…","Aujourd'hui, il fait…"],
+ ['🎃',"Pick a Halloween costume! What are you? What do you have?","Choisis un déguisement d'Halloween ! Tu es quoi ? Qu'est-ce que tu as ?","I am a… I have a…","Je suis un(e)… J'ai un(e)…"],
+ ['😊',"How do you feel today? Why?","Comment tu te sens aujourd'hui ? Pourquoi ?","I feel… because…","Je me sens… parce que…"],
+ ['🧥',"It's cold outside. What do you wear?","Il fait froid dehors. Qu'est-ce que tu mets ?","It's cold, so I wear…","Il fait froid, alors je mets…"],
+ ['🐄',"What does a cow say? Where does it live?","Quel est le cri de la vache ? Où est-ce qu'elle vit ?","A cow says… It lives on…","Une vache fait… Elle vit dans…"]];
+W.forEach(function(w,i){T('r'+(i+1),w[1]);var s=document.createElement('span');var ang=i*60+30;s.textContent=w[0];s.style.transform='rotate('+ang+'deg) translate(0,-95px) rotate(-'+ang+'deg) translate(-50%,-50%)';$('wheel').appendChild(s);});
+var rot=0;
+$('spinWheel').onclick=function(){var pick=Math.floor(Math.random()*6),th=pick*60+30;rot=rot-(rot%360)+1440+((270-th)%360+360)%360;$('wheel').style.transform='rotate('+rot+'deg)';var w=W[pick];$('wq').innerHTML='…';setTimeout(function(){$('wq').innerHTML=w[0]+' '+w[1]+'<span class="fr">'+w[2]+'</span><span class="s">'+w[3]+'<span class="fr">'+w[4]+'</span></span>';play(['r'+(pick+1)]);},3000);};
+
+/* ---------- story ---------- */
+var S=[
+ ['s1','dusk','🌆 evening · le soir','🦇🏫',"Hi! I'm Bibi. In the evening, I go to Bat School.","Salut ! Je suis Bibi. Le soir, je vais à l'école des chauves-souris."],
+ ['s2','night','🌙 night · la nuit','✏️ 25',"My teacher says: “Count the pencils, Bibi!” There are twenty-five pencils.","Mon professeur dit : « Compte les crayons, Bibi ! » Il y a vingt-cinq crayons."],
+ ['s3','night','🌙 night · la nuit','📚 40',"Then I count the books. There are forty books!","Ensuite, je compte les livres. Il y a quarante livres !"],
+ ['s4','night','🌙 night · la nuit','🧑‍🏫 1 · 🦇 50',"There is one teacher, and there are fifty bats in my school. Wow!","Il y a un professeur, et il y a cinquante chauves-souris dans mon école. Waouh !"],
+ ['s5','day','☀️ morning · le matin','😴🐑',"In the morning, I go to bed. I count sheep: one, two, three… zzz!","Le matin, je vais me coucher. Je compte les moutons : un, deux, trois… zzz !"]
+];
+S.forEach(function(p){T(p[0],p[4]);var d=document.createElement('div');d.className='panel '+p[1];d.id='p_'+p[0];d.innerHTML='<span class="tag">'+p[2]+'</span><div class="sc">'+p[3]+'</div><p>'+p[4]+'</p><span class="fr">'+p[5]+'</span>';d.onclick=function(){play([p[0]],hl);};$('story').appendChild(d);});
+function hl(k){document.querySelectorAll('.panel').forEach(function(x){x.classList.toggle('playing',x.id==='p_'+k);});}
+$('playStory').onclick=function(){play(S.map(function(p){return p[0];}),hl);};
+
+/* ---------- story quiz ---------- */
+var Q=[
+ ['q1',"How many pencils are there?","Combien de crayons y a-t-il ?",[
+   ['15 · fifteen','quinze',0,"No, not fifteen. Bibi says “twenty-five pencils.”","Non, pas quinze. Bibi dit « vingt-cinq crayons »."],
+   ['25 · twenty-five','vingt-cinq',1,"Yes! “There are twenty-five pencils.”","Oui ! « Il y a vingt-cinq crayons. »"],
+   ['50 · fifty','cinquante',0,"No: fifty is the number of bats in the school. There are twenty-five pencils.","Non : cinquante, c'est le nombre de chauves-souris dans l'école. Il y a vingt-cinq crayons."]]],
+ ['q2',"How many books are there?","Combien de livres y a-t-il ?",[
+   ['14 · fourteen','quatorze',0,"Careful! FourTEEN is 14. Bibi says FORty: 40 books.","Attention ! « FourTEEN », c'est 14. Bibi dit « FORty » : 40 livres."],
+   ['40 · forty','quarante',1,"Yes! “There are forty books!”","Oui ! « Il y a quarante livres ! »"],
+   ['4 · four','quatre',0,"No, more! Bibi says forty: 40.","Non, plus ! Bibi dit « forty » : 40."]]],
+ ['q3',"How many teachers are there?","Combien de professeurs y a-t-il ?",[
+   ['1 · one','un',1,"Yes! “There IS one teacher.” One → there is.","Oui ! « There IS one teacher. » Pour un seul, on dit « there is »."],
+   ['50 · fifty','cinquante',0,"No: there are fifty bats, but there is one teacher.","Non : il y a cinquante chauves-souris, mais il y a un seul professeur."]]],
+ ['q4',"Would you like to go to Bat School? Why?","Tu aimerais aller à l'école des chauves-souris ? Pourquoi ?",[
+   ['👍 Yes, because…','Oui, parce que…',1,"Tell me why! “Yes, because I want to fly!”","Dis-moi pourquoi ! « Oui, parce que je veux voler ! »"],
+   ['👎 No, because…','Non, parce que…',1,"Great! For example: “No, because I sleep at night!”","Super ! Par exemple : « Non, parce que je dors la nuit ! »"]]]
+];
+Q.forEach(function(q){T(q[0],q[1]);var d=document.createElement('div');d.className='mcq';d.innerHTML='<div class="q"><button class="spk">🔊</button>'+q[1]+'</div><span class="fr">'+q[2]+'</span><div class="opts"></div><div class="why"></div>';d.querySelector('.spk').onclick=function(){play([q[0]]);};var o=d.querySelector('.opts'),why=d.querySelector('.why');q[3].forEach(function(op){var b=document.createElement('button');b.className='opt';b.innerHTML=op[0]+'<span class="fr">'+op[1]+'</span>';b.onclick=function(){b.classList.add(op[2]?'ok':'no');why.className='why show '+(op[2]?'good':'bad');why.innerHTML=(op[2]?'✅ ':'💡 ')+op[3]+'<span class="fr">'+op[4]+'</span>';};o.appendChild(b);});$('storyQuiz').appendChild(d);});
+
+/* ---------- words ---------- */
+var GROUPS=[['t','🔟 Count by tens','compter de dix en dix'],['b','➕ Tens + ones = big numbers','dizaines + unités = grands nombres'],['o','✏️ Things to count','des choses à compter']];
+var WD=[];
+[10,20,30,40,50].forEach(function(n){WD.push({k:'n'+n,z:'t',num:1,e:String(n),w:nw(n),fr:nf(n),s:nw(n)});});
+[21,25,33,38,46,49].forEach(function(n){WD.push({k:'n'+n,z:'b',num:1,e:String(n),w:nw(n),fr:nf(n),ex:nw(n-n%10)+' + '+ON[n%10],s:nw(n)});});
+var THINGS=['pencil','book','cookie','balloon','star','apple','chair','flower'];
+THINGS.forEach(function(k){var o=OBJ[k];WD.push({k:'o_'+k,z:'o',e:o[0],w:o[2],fr:'des '+o[4],ex:'one '+o[1]+', two '+o[2],exfr:(o[5]?'une ':'un ')+o[3]+', deux '+o[4],s:'one '+o[1]+', two '+o[2]});});
+WD.forEach(function(a){T(a.k,a.s);});
+GROUPS.forEach(function(g){var h=document.createElement('div');h.style.cssText='grid-column:1/-1;font-family:Poppins;font-weight:800;font-size:17px;color:var(--pool1);margin-top:6px;';h.innerHTML=g[1]+' <span class="fr inl">'+g[2]+'</span>';$('wordPics').appendChild(h);WD.filter(function(a){return a.z===g[0];}).forEach(function(a){var d=document.createElement('div');d.className='pic';d.innerHTML='<div class="e'+(a.num?' num':'')+'">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>'+(a.ex?'<span class="ex">'+a.ex+(a.exfr?'<span class="fr" style="font-size:12px">'+a.exfr+'</span>':'')+'</span>':'');d.onclick=function(){play([a.k]);};$('wordPics').appendChild(d);});});
+$('hideWords').onclick=function(){var h=this.dataset.h!=='1';this.dataset.h=h?'1':'0';this.innerHTML=h?'👀 Show the words <span class="fr inl">Montrer les mots</span>':'🙈 Hide the words <span class="fr inl">Cacher les mots</span>';document.querySelectorAll('#wordPics .pic').forEach(function(p){p.classList.toggle('hide',h);});};
+
+/* ---------- flash ---------- */
+var flashT=null,flashT2=null,flashN=0,flashBag=[];
+$('flashGot').onclick=function(){addStars(1);toast('⭐ +1');};
+$('flashGo').onclick=function(){flashN++;$('flashCount').textContent='Round '+flashN;if(!flashBag.length)flashBag=shuffle(THINGS);var k=flashBag.pop(),n=rnd(2,50),o=OBJ[k];var f=$('flash');clearTimeout(flashT);clearTimeout(flashT2);f.innerHTML='<span class="n">'+n+'</span><span class="e" style="font-size:70px">'+o[0]+'</span>';var sEN=cap(en(n,k))+'.',sFR=cap(fr(n,k))+'.';flashT=setTimeout(function(){f.innerHTML='<span class="e">⏳</span>Say it! / Dis-le !';flashT2=setTimeout(function(){f.innerHTML='<span class="n" style="font-size:40px">'+n+' '+o[0]+'</span>'+sEN+'<span class="fr" style="color:#d9ccff">'+sFR+'</span>';say(sEN);},2500);},3000);};
+
+/* ---------- chain ---------- */
+var CHM={c:['🏫','In my classroom,','Dans ma classe,',['chair','window','door','kid','teacher','book','pencil'],'classroom'],
+ b:['🛏️','In my bedroom,','Dans ma chambre,',['bed','toy','book','lamp','window','plant'],'bedroom'],
+ k:['🍽️','In my kitchen,','Dans ma cuisine,',['chair','cup','plate','spoon','apple','window'],'kitchen']};
+var CH_ORDER=['c','b','k'],chainMode='c',chain=[],chainDone=false,chainN=2;
+function chainText(lang){var m=CHM[chainMode];var parts=chain.map(function(p){return lang==='fr'?fr(p.n,p.k):en(p.n,p.k);});var s=(lang==='fr'?m[2]:m[1])+' ';if(parts.length>1&&chainDone)s+=parts.slice(0,-1).join(', ')+(lang==='fr'?' et ':', and ')+parts[parts.length-1]+(lang==='fr'?' !':'!');else s+=parts.join(', ')+(chainDone?'!':' …');return s;}
+function renderChainLv(){var l=$('chainLv');l.innerHTML='';[3,4,5].forEach(function(n,i){var sp=document.createElement('span');sp.className='lv'+(chain.length>=n&&chainDone?' done':'')+(!chainDone&&chain.length<n&&(i===0||chain.length>=n-1)?' on':'');sp.textContent='⭐ '+n+' things';l.appendChild(sp);});}
+function renderNum(){$('chainNum').innerHTML='<button data-d="-10">−10</button><button data-d="-1">−1</button><div class="n">'+chainN+'<small>'+nw(chainN)+'</small><span class="fr" style="font-size:12px">'+nf(chainN)+'</span></div><button data-d="1">+1</button><button data-d="10">+10</button>';$('chainNum').querySelectorAll('button').forEach(function(b){b.onclick=function(){chainN=Math.max(1,Math.min(50,chainN+(+b.dataset.d)));renderNum();};});}
+function renderChain(){var b=$('chainBox'),m=CHM[chainMode];if(!chain.length){b.innerHTML='<span style="color:#9aa">'+m[0]+' '+m[1]+' … set the number, then tap what she says first</span><span class="fr">'+m[2]+' … règle le nombre, puis touche ce qu\'elle dit en premier</span>';}else{b.innerHTML=m[0]+' '+chainText('en').replace(m[1],'<b>'+m[1]+'</b>').replace(/(there (is|are))/g,'<span class="c">$1</span>')+'<span class="fr">'+chainText('fr')+'</span>';}
+ var p=$('chainPics');p.innerHTML='';m[3].forEach(function(k){var o=OBJ[k];var used=chain.some(function(x){return x.k===k;});var d=document.createElement('div');d.className='pic'+(used||chainDone?' used':'');d.innerHTML='<div class="e">'+o[0]+'</div><div class="w">'+o[2]+'</div><span class="fr">des '+o[4]+'</span>';d.onclick=function(){if(chainDone||used||chain.length>=7)return;chain.push({k:k,n:chainN});renderChain();renderChainLv();};p.appendChild(d);});
+ $('chainFinish').disabled=chain.length<2||chainDone;}
+$('chainFinish').onclick=function(){if(chain.length<2)return;chainDone=true;renderChain();renderChainLv();addStars(chain.length>=5?3:chain.length>=4?2:1);toast('🔗 Now say the WHOLE chain! / Redis toute la chaîne !');};
+$('chainUndo').onclick=function(){if(chainDone){chainDone=false;}else chain.pop();renderChain();renderChainLv();};
+$('chainReset').onclick=function(){chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainMode').onclick=function(){chainMode=CH_ORDER[(CH_ORDER.indexOf(chainMode)+1)%3];var nx=CHM[CH_ORDER[(CH_ORDER.indexOf(chainMode)+1)%3]];this.textContent=nx[0]+' Switch to '+nx[4];chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainRead').onclick=function(){if(!chain.length)return;say(chainText('en').replace(/ …$/,'.'));};
+renderNum();renderChainLv();renderChain();
+
+/* ---------- sort your house ---------- */
+var SORTC=['bed','chair','door','window','tv','book','cup','shoe','toothbrush','plant','clock','bike','pet','lamp'];
+var ZS={n:function(k){return 'There are no '+OBJ[k][2]+'.';},m:function(k){return 'There is one '+OBJ[k][1]+'.';},a:function(k){return 'There are a few '+OBJ[k][2]+'.';},e:function(k){return 'There are lots of '+OBJ[k][2]+'!';}};
+var sortBag=[],sortCur=null;
+function nextSort(){if(!sortBag.length){sortCur=null;$('sortNow').innerHTML='<div class="e">🎉</div>All done!<span class="fr">Fini !</span>';$('sortMsg').innerHTML='Now ask me: “How many beds are there in your house?”<span class="fr">Maintenant, pose-moi la question : « Combien de lits il y a dans ta maison ? »</span>';document.querySelectorAll('.zone').forEach(function(z){z.classList.remove('target');});return;}sortCur=sortBag.pop();var o=OBJ[sortCur];$('sortNow').innerHTML='<div class="e">'+o[0]+'</div>How many '+o[2]+'?<span class="fr">Combien '+de(o[4])+' ?</span>';document.querySelectorAll('.zone').forEach(function(z){z.classList.add('target');});}
+function startSort(){sortBag=shuffle(SORTC);document.querySelectorAll('.zone .chip').forEach(function(c){c.remove();});$('sortMsg').textContent='';nextSort();}
+$('sortStart').onclick=startSort;
+document.querySelectorAll('.zone').forEach(function(z){z.onclick=function(){if(!sortCur)return;var o=OBJ[sortCur];var c=document.createElement('span');c.className='chip';c.textContent=o[0]+' '+(z.dataset.z==='m'?o[1]:o[2]);z.appendChild(c);addStars(1);var line=ZS[z.dataset.z](sortCur);$('sortMsg').textContent=line;say(line);nextSort();};});
+startSort();
+
+/* ---------- fix bibi: intruder + order ---------- */
+function numCard(n){return {k:'f'+n,e:String(n),w:nw(n),fr:nf(n),num:1,s:nw(n)};}
+var FIX=[
+ {cards:[10,20,15,30,40],intruder:15,order:[10,20,30,40],why:"Fifteen doesn't belong! When we count by tens, we say: ten, twenty, thirty, forty.",whyfr:"Quinze n'a rien à faire là ! De dix en dix, on dit : dix, vingt, trente, quarante.",
+  wrong:"is in the count by tens. Look again!",wrongfr:"fait partie du comptage de dix en dix. Regarde encore !",
+  intro:"I tried to count by <b>tens</b>… but I made a mistake! One card does <b>not</b> belong. Which one? Why?",introfr:"J'ai essayé de compter de <b>dix en dix</b>… mais je me suis trompée ! Une carte n'a rien à faire là. Laquelle ? Pourquoi ?",
+  done:"Ten, twenty, thirty, forty… and fifty!",donefr:"Dix, vingt, trente, quarante… et cinquante !"},
+ {cards:[25,33,30,35,40],intruder:33,order:[25,30,35,40],why:"Thirty-three is not in the count by fives! When we count by fives, every number ends in 5 or 0.",whyfr:"Trente-trois ne fait pas partie du comptage de cinq en cinq ! De cinq en cinq, chaque nombre finit par 5 ou 0.",
+  wrong:"is in the count by fives. Look again!",wrongfr:"fait partie du comptage de cinq en cinq. Regarde encore !",
+  intro:"Now I tried to count by <b>fives</b>. Oops! One card does <b>not</b> belong. Which one? Why?",introfr:"Maintenant j'ai essayé de compter de <b>cinq en cinq</b>. Oups ! Une carte n'a rien à faire là. Laquelle ? Pourquoi ?",
+  done:"Twenty-five, thirty, thirty-five, forty… forty-five, fifty!",donefr:"Vingt-cinq, trente, trente-cinq, quarante… quarante-cinq, cinquante !"}
+];
+var SLOTL=[['1st','1er'],['2nd','2e'],['3rd','3e'],['4th','4e']];
+var fixR=0,fixStep=1,fixOrder=[],fixCards=[];
+function stepUI(){[1,2,3].forEach(function(i){$('fs'+i).className='st'+(i===fixStep?' on':'')+(i<fixStep?' ok':'');});}
+function renderFix(){var r=FIX[fixR];$('fixIntro').innerHTML=r.intro+'<span class="fr">'+r.introfr+'</span>';var m=$('mixed');m.innerHTML='';fixCards.forEach(function(n){var a=numCard(n);var d=document.createElement('div');d.className='mx'+(fixStep>1&&n===r.intruder?' out':'')+(fixOrder.indexOf(n)>=0?' placed':'');d.innerHTML='<div class="e num">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){clickFix(n);};m.appendChild(d);});
+ var s=$('fixSlots');s.innerHTML='';if(fixStep>=2){SLOTL.forEach(function(l,i){var n=fixOrder[i];var d=document.createElement('div');d.className='oslot';d.innerHTML='<div class="lab">'+l[0]+' <span class="fr inl" style="font-size:12px">'+l[1]+'</span></div>'+(n!==undefined?'<div class="e num">'+n+'</div><div class="w">'+nw(n)+'</div>':'<div class="e" style="opacity:.25">?</div>');s.appendChild(d);});}stepUI();}
+function clickFix(n){var r=FIX[fixR];if(fixStep===1){if(n===r.intruder){fixStep=2;$('fixMsg').innerHTML='✅ Yes! '+r.why+'<span class="fr">'+r.whyfr+'</span>';addStars(1);}else{$('fixMsg').innerHTML='🤔 Hmm, '+nw(n)+' '+r.wrong+'<span class="fr">'+cap(nf(n))+' '+r.wrongfr+'</span>';}renderFix();return;}
+ if(fixStep===2){if(n===r.intruder||fixOrder.indexOf(n)>=0)return;fixOrder.push(n);say(nw(n));renderFix();if(fixOrder.length===4)checkFix();}}
+function checkFix(){var r=FIX[fixR];var bad=-1;for(var i=0;i<4;i++){if(fixOrder[i]!==r.order[i]){bad=i;break;}}
+ if(bad<0){fixStep=3;$('fixMsg').innerHTML='🎉 That makes sense! Now say it and keep going to fifty: “'+r.done+'”<span class="fr">C\'est logique ! Maintenant dis-le et continue jusqu\'à cinquante : « '+r.donefr+' »</span>';addStars(2);confetti();}
+ else{$('fixMsg').innerHTML='💡 Look at the '+SLOTL[bad][0]+' card: '+nw(fixOrder[bad])+'. Count up: the smallest number goes first and the biggest goes last. Press “Try again”.<span class="fr">Regarde la '+SLOTL[bad][1]+' carte : '+nf(fixOrder[bad])+'. Compte en montant : le plus petit nombre en premier, le plus grand en dernier. Appuie sur « Try again ».</span>';}renderFix();}
+function startFix(r){fixR=r;fixStep=1;fixOrder=[];fixCards=shuffle(FIX[r].cards);$('fixMsg').textContent='';renderFix();}
+$('fixReset').onclick=function(){if(fixStep===1){startFix(fixR);return;}fixOrder=[];fixStep=2;$('fixMsg').textContent='';renderFix();};
+$('fixNext').onclick=function(){startFix(fixR?0:1);this.textContent=fixR?'⬅ Back to round 1: count by tens':'➡ Round 2: count by fives';};
+startFix(0);
+
+/* ---------- true or silly (true sentences are real facts) ---------- */
+var F=[
+ ['🇫🇷','On the French flag,','Sur le drapeau français,','there are three colors.','il y a trois couleurs.',1,'Blue, white, and red: three colors!','Bleu, blanc, rouge : trois couleurs !'],
+ ['🔤','In the English alphabet,',"Dans l'alphabet anglais,",'there are fifty letters.','il y a cinquante lettres.',0,'There are twenty-six letters in the English alphabet.',"Il y a vingt-six lettres dans l'alphabet anglais."],
+ ['🐜','An ant','Une fourmi','has six legs.','a six pattes.',1,'Yes! An ant has six legs, like all insects.','Oui ! Une fourmi a six pattes, comme tous les insectes.'],
+ ['🇺🇸','In the USA,','Aux États-Unis,','there are fifty states.','il y a cinquante États.',1,'The USA has fifty states.','Les États-Unis ont cinquante États.'],
+ ['✋','On one hand,','Sur une main,','there are ten fingers.','il y a dix doigts.',0,'On one hand, there are five fingers. On two hands, there are ten!','Sur une main, il y a cinq doigts. Sur deux mains, il y en a dix !'],
+ ['🕐','In one day,','Dans une journée,','there are twenty-four hours.','il y a vingt-quatre heures.',1,'Yes! A day has twenty-four hours.','Oui ! Une journée a vingt-quatre heures.'],
+ ['🐶','A dog','Un chien','has four legs.','a quatre pattes.',1,'Yes, a dog has four legs.','Oui, un chien a quatre pattes.'],
+ ['🗓️','In a year,','Dans une année,','there are twelve months.','il y a douze mois.',1,'January to December: twelve months!','De janvier à décembre : douze mois !'],
+ ['🐦','A bird','Un oiseau','has four legs.','a quatre pattes.',0,'A bird has two legs.','Un oiseau a deux pattes.'],
+ ['⚽','On the field, a soccer team','Sur le terrain, une équipe de foot','has eleven players.','a onze joueurs.',1,'Yes! Eleven players for each team on the field.','Oui ! Onze joueurs pour chaque équipe sur le terrain.'],
+ ['🇺🇸','On the US flag,','Sur le drapeau américain,','there are fifty stars.','il y a cinquante étoiles.',1,'Yes! One star for each state: fifty stars!','Oui ! Une étoile pour chaque État : cinquante étoiles !'],
+ ['🚲','A bike','Un vélo','has three wheels.','a trois roues.',0,'A bike has two wheels.','Un vélo a deux roues.']
+];
+var tsBag=[],last=null,answered=false;
+$('spin').onclick=function(){if(!tsBag.length)tsBag=shuffle(F);var fin=tsBag.pop();var n=0;answered=false;$('verdict').textContent='';var iv=setInterval(function(){var f=++n>12?fin:F[Math.floor(Math.random()*F.length)];$('r1').innerHTML='<span class="e">'+f[0]+'</span>'+f[1]+'<span class="fr">'+f[2]+'</span>';$('r2').innerHTML=f[3]+'<span class="fr">'+f[4]+'</span>';if(n>12){clearInterval(iv);last=fin;$('verdict').innerHTML='Read it! True or silly?<span class="fr">Lis-la ! Vrai ou rigolo ?</span>';}},70);};
+$('sayIt').onclick=function(){if(last)say(last[1]+' '+last[3]);};
+document.querySelectorAll('[data-v]').forEach(function(b){b.onclick=function(){if(!last)return;var t=last[5]===1,saidTrue=b.dataset.v==='true';var ok=t===saidTrue;if(ok&&!answered)addStars(1);answered=true;
+ if(t)$('verdict').innerHTML=(ok?'✅ Yes, it\'s true! ':'💡 Hmm, it\'s true! ')+last[6]+'<span class="fr">'+(ok?'Oui, c\'est vrai ! ':'Hmm, c\'est vrai ! ')+last[7]+'</span>';
+ else $('verdict').innerHTML=(ok?'🤪 Yes, it\'s silly! Fix it: ':'💡 Look again, it\'s silly! Fix it: ')+'<b>'+last[6]+'</b><span class="fr">'+(ok?'Oui, c\'est rigolo ! Corrige-la : ':'Regarde encore, c\'est rigolo ! Corrige-la : ')+last[7]+'</span>';};});
+
+/* ---------- sound spot: -teen / -ty ---------- */
+var SPW={sp_13:'thirteen',sp_30:'thirty',sp_14:'fourteen',sp_40:'forty',sp_15:'fifteen',sp_50:'fifty'};for(var k in SPW)T(k,SPW[k]);T('sp_twister','Thirteen bats and thirty cats!');
+var SPN={sp_13:13,sp_30:30,sp_14:14,sp_40:40,sp_15:15,sp_50:50};
+var myst=null;$('mystery').onclick=function(){var ks=Object.keys(SPW);myst=ks[Math.floor(Math.random()*ks.length)];play([myst]);$('thMsg').innerHTML='Which number? Say it! <button class="btn ghost" id="thShow" style="padding:4px 10px;font-size:14px">Show</button><span class="fr">Quel nombre ? Dis-le !</span>';$('thShow').onclick=function(){$('thMsg').innerHTML='It was: <b>'+SPN[myst]+' · '+SPW[myst]+'</b><span class="fr">C\'était : '+nf(SPN[myst])+'</span>';};};
+
+/* ---------- picture reveal (count at the end) ---------- */
+var REV=['apple','star','cookie','balloon','flower','fish','pencil','book','car'];OBJ.car=['🚗','car','cars','voiture','voitures',1];
+var revBag=[],revCur=null,revN=0,revPts=9;
+function newReveal(){if(!revBag.length)revBag=shuffle(REV);revCur=revBag.pop();revN=rnd(5,16);var o=OBJ[revCur];var pu=$('revealPic');pu.style.fontSize=(revN<=9?58:44)+'px';pu.innerHTML=new Array(revN+1).join('<span>'+o[0]+'</span>');var t=$('tiles');t.innerHTML='';revPts=9;$('revealPts').textContent='Points for this round: 9';$('revealMsg').textContent='';for(var i=0;i<9;i++){var d=document.createElement('div');d.className='tile';d.textContent=i+1;d.onclick=function(){if(this.classList.contains('gone'))return;this.classList.add('gone');revPts--;$('revealPts').textContent='Points for this round: '+revPts;};t.appendChild(d);}}
+$('revealNew').onclick=newReveal;
+$('revealAll').onclick=function(){document.querySelectorAll('.tile').forEach(function(t){t.classList.add('gone');});$('revealMsg').innerHTML='Count them! … '+cap(en(revN,revCur))+'.<span class="fr">Compte-les ! … '+cap(fr(revN,revCur))+'.</span>';};
+$('revealGot').onclick=function(){var p=Math.max(1,revPts);addStars(p);$('revealAll').click();toast('⭐ +'+p+'!');};
+newReveal();
+
+/* ---------- would you rather ---------- */
+var WY=[['wy1','Would you rather have fifty cookies or fifty balloons?','Tu préfères avoir cinquante biscuits ou cinquante ballons ?',['🍪','fifty cookies','cinquante biscuits'],['🎈','fifty balloons','cinquante ballons']],
+ ['wy2','Would you rather count to fifty in English or in French?','Tu préfères compter jusqu\'à cinquante en anglais ou en français ?',['🇺🇸','in English','en anglais'],['🇫🇷','in French','en français']],
+ ['wy3','Would you rather have twenty dogs or one horse?','Tu préfères avoir vingt chiens ou un cheval ?',['🐶','twenty dogs','vingt chiens'],['🐴','one horse','un cheval']],
+ ['wy4','Would you rather be in a class with fifty kids or with five kids?','Tu préfères être dans une classe de cinquante enfants ou de cinq enfants ?',['👨‍👩‍👧‍👦','fifty kids','cinquante enfants'],['🧒','five kids','cinq enfants']],
+ ['wy5','Would you rather live in a house with forty rooms or with four rooms?','Tu préfères habiter dans une maison de quarante pièces ou de quatre pièces ?',['🏰','forty rooms','quarante pièces'],['🏠','four rooms','quatre pièces']]];
+WY.forEach(function(w){T(w[0],w[1]);});
+var wyI=0;function renderWY(){var w=WY[wyI];$('wyrQ').textContent=w[1];$('wyrQfr').textContent=w[2];[['wyrA',w[3]],['wyrB',w[4]]].forEach(function(p){var el=$(p[0]);el.className='side';el.innerHTML='<span class="e">'+p[1][0]+'</span>'+p[1][1]+'<span class="fr">'+p[1][2]+'</span>';el.onclick=function(){$('wyrA').classList.remove('on');$('wyrB').classList.remove('on');el.classList.add('on');};});}
+$('wyrSpk').onclick=function(){play([WY[wyI][0]]);};$('wyrNext').onclick=function(){wyI=(wyI+1)%WY.length;renderWY();};renderWY();
+
+/* ---------- big talk: four boxes with real numbers ---------- */
+var SB=[['🏫','In my class,','Dans ma classe,','kid',20],['👨‍👩‍👧','In my family,','Dans ma famille,','person',4],['🏠','In my house,','Dans ma maison,','room',6],['🎒','In my school bag,','Dans mon cartable,','book',3]];
+SB.forEach(function(b){var n=b[4];var d=document.createElement('div');d.className='sb';d.innerHTML='<div class="lab">'+b[0]+' '+b[1].replace(/,$/,'')+'<span class="fr">'+b[2].replace(/,$/,'')+'</span></div><div class="numstep"></div><div class="said"></div>';var ns=d.querySelector('.numstep'),said=d.querySelector('.said');
+ function sEN(){return b[1]+' '+en(n,b[3])+'.';}
+ function render(){ns.innerHTML='<button data-d="-10">−10</button><button data-d="-1">−</button><div class="n" style="min-width:56px">'+n+'</div><button data-d="1">+</button><button data-d="10">+10</button>';ns.querySelectorAll('button').forEach(function(x){x.onclick=function(){n=Math.max(1,Math.min(50,n+(+x.dataset.d)));render();};});said.innerHTML=sEN()+' <button class="spk" style="width:28px;height:28px;font-size:13px">🔊</button><span class="fr">'+b[2]+' '+fr(n,b[3])+'.</span>';said.querySelector('.spk').onclick=function(){say(sEN());};}
+ render();$('storyboard').appendChild(d);});
+document.querySelectorAll('.lvl').forEach(function(l){l.onclick=function(){document.querySelectorAll('.lvl').forEach(function(x){x.classList.remove('on');});l.classList.add('on');toast('🎭 Round: '+l.childNodes[1].textContent.trim()+'! Say all four! ⭐');};});
+
+/* ---------- book (tap choices, saved in this browser) ---------- */
+var KEY='elina_book_l15',book={};try{book=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+var BL=[['b1','🔢','My favorite number is','Mon nombre préféré, c\'est',[['seven','sept'],['thirteen','treize'],['twenty','vingt'],['twenty-five','vingt-cinq'],['thirty','trente'],['forty-two','quarante-deux'],['fifty','cinquante']]],
+ ['b2','🧸','In my bedroom, there are','Dans ma chambre, il y a',[['five toys','cinq jouets'],['ten toys','dix jouets'],['twenty toys','vingt jouets'],['thirty toys','trente jouets'],['forty toys','quarante jouets'],['fifty toys','cinquante jouets']]],
+ ['b3','🏆','I can count to','Je sais compter jusqu\'à',[['thirty','trente'],['forty','quarante'],['fifty','cinquante']]]];
+function bookSentence(l,c){return l[2]+' '+c[0]+(l[0]==='b3'?'!':'.');}
+BL.forEach(function(l){var d=document.createElement('div');d.className='bline';d.innerHTML='<span class="lbl">'+l[1]+' '+l[2]+'</span><span class="said"></span><span class="fr">'+l[3]+' <b class="frc"></b></span><div class="choices"></div>';var said=d.querySelector('.said'),frc=d.querySelector('.frc'),ch=d.querySelector('.choices');
+ function find(v){for(var i=0;i<l[4].length;i++)if(l[4][i][0]===v)return l[4][i];return null;}
+ function show(v){var c=find(v);said.textContent=c?c[0]+(l[0]==='b3'?'!':'.'):'…';frc.textContent=c?c[1]:'…';}
+ show(book[l[0]]);l[4].forEach(function(c){var b=document.createElement('button');b.innerHTML=c[0]+'<span class="fr" style="font-size:12px">'+c[1]+'</span>';if(book[l[0]]===c[0])b.classList.add('on');b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');book[l[0]]=c[0];show(c[0]);say(bookSentence(l,c));try{localStorage.setItem(KEY,JSON.stringify(book));}catch(e){}};ch.appendChild(b);});$('book').appendChild(d);});
+$('readBook').onclick=function(){var t=[];BL.forEach(function(l){var v=book[l[0]];if(v)t.push(l[2]+' '+v+(l[0]==='b3'?'!':'.'));});if(t.length)say(t);};
+
+/* ---------- ceremony ---------- */
+T('praise','Champion of the day! Great job, Elina! You can count to fifty!');
+function ceremony(){$('stStars').textContent=stars;$('stMedal').textContent=stars>=40?'🥇':stars>=25?'🥈':'🥉';}
+document.querySelectorAll('.cando').forEach(function(c){c.onclick=function(){c.classList.toggle('ok');};});
+$('medal').onclick=function(){confetti();play(['praise']);ceremony();toast((stars>=40?'🥇 Gold':stars>=25?'🥈 Silver':'🥉 Bronze')+' medal!');};
+if(window.speechSynthesis)speechSynthesis.getVoices();
+})();
+</script>
+</body>
+</html>

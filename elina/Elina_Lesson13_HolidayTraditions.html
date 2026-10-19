@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Elina's English — Lesson 13: Holiday Traditions Around the World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#012a3d;--pool1:#00637a;--pool2:#00a7b5;--pool3:#5be0d8;--ink:#012a38;--gold:#ffcc4d;--coral:#ff6f6f;--violet:#6b4fc8;--green:#16a34a;--soft:#f2fbfb;--line:#d6eef0;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(circle at 10% 15%,rgba(255,255,255,.18) 0,transparent 40%),radial-gradient(circle at 90% 80%,rgba(255,255,255,.14) 0,transparent 45%),linear-gradient(160deg,var(--deep) 0%,var(--pool1) 42%,var(--pool2) 75%,var(--pool3) 100%);background-attachment:fixed;overflow-x:hidden;}
+h1,h2,h3{font-family:'Poppins',sans-serif;}
+#app{max-width:980px;margin:0 auto;padding:12px 14px 100px;}
+.hud{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(1,42,56,.5);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);border-radius:16px;padding:8px 12px;margin-bottom:12px;position:relative;z-index:5;color:#fff;}
+.hud .who{font-weight:700;font-size:15px;white-space:nowrap;}.hud .who span{font-size:24px;vertical-align:middle;}
+.dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;flex:1;min-width:120px;}
+.dot{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0;}
+.dot.active{background:var(--gold);transform:scale(1.35);}.dot.done{background:var(--pool3);}
+.pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:6px 11px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.pill.on{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.score{display:flex;align-items:center;gap:6px;background:rgba(255,204,77,.18);border:1px solid var(--gold);border-radius:999px;padding:3px 4px 3px 10px;font-weight:800;font-size:15px;}
+.score button{width:32px;height:32px;border-radius:50%;border:none;background:var(--gold);color:var(--ink);font-weight:900;font-size:16px;cursor:pointer;line-height:1;}
+.timer-pill{font-variant-numeric:tabular-nums;}
+.slide{display:none;animation:pop .35s ease;}.slide.active{display:block;}
+@keyframes pop{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.card{background:#fff;border-radius:22px;box-shadow:0 14px 34px rgba(1,42,56,.28);padding:22px 24px 20px;}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+.kicker{display:inline-block;background:var(--soft);color:var(--pool1);font-weight:800;font-size:12px;letter-spacing:1.3px;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+.mins{font-size:12px;font-weight:800;color:#7a8f95;background:#f4f7f7;border-radius:999px;padding:4px 10px;}
+h2.t{font-size:27px;margin:6px 0 2px;color:var(--deep);line-height:1.2;}
+.fr{display:block;color:var(--violet);font-style:italic;font-size:.9em;margin-top:2px;}
+span.fr.inl{display:inline;margin-left:6px;}
+body.no-fr .fr{display:none!important;}
+.lead{font-size:18px;margin:10px 0 12px;line-height:1.45;}
+.big-goal{background:linear-gradient(135deg,#fff7dd,#ffeeb3);border:3px solid var(--gold);border-radius:18px;padding:14px 18px;margin:12px 0;font-size:21px;font-weight:700;font-family:'Poppins';}
+.big-goal small{display:block;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#a07800;margin-bottom:4px;}
+.bibi{display:flex;gap:12px;align-items:flex-start;background:#eef9fa;border-radius:16px;padding:12px 14px;margin:10px 0;}
+.bibi .b{font-size:40px;line-height:1;flex:none;}.bibi p{margin:0;font-size:17px;line-height:1.5;}
+.btn{font-family:'Poppins';font-weight:700;font-size:16px;border:none;border-radius:14px;padding:11px 18px;cursor:pointer;background:var(--pool1);color:#fff;}
+.btn.gold{background:var(--gold);color:var(--ink);}.btn.ghost{background:#fff;color:var(--pool1);border:2px solid var(--pool1);}.btn.red{background:var(--coral);}
+.btn:active{transform:scale(.97);}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}.center{justify-content:center;}
+.spk{border:none;background:var(--soft);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:16px;flex:none;}
+details.tutor{margin-top:14px;border:2px dashed #b9c9cc;border-radius:14px;background:#fafcfc;}
+details.tutor summary{cursor:pointer;padding:9px 14px;font-weight:700;color:#4a6670;font-size:14px;list-style:none;}
+details.tutor summary::before{content:"🧑‍🏫 ";}details.tutor[open] summary{border-bottom:1px dashed #b9c9cc;}
+details.tutor .in{padding:10px 16px 12px;font-size:14.5px;line-height:1.55;}
+details.tutor .in b{color:var(--pool1);}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0;}
+.qcard{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-size:18px;font-weight:600;cursor:pointer;display:flex;gap:10px;align-items:flex-start;}
+.qcard .tx{flex:1;}.qcard .s{display:block;font-size:14px;font-weight:500;color:#4a6670;margin-top:5px;}
+.qcard.asked{background:#e7f8ee;border-color:var(--green);}
+.starters{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.starter{background:#fff7dd;border:1.5px solid var(--gold);border-radius:12px;padding:6px 12px;font-size:15px;font-weight:600;}
+.starter .fr{font-size:13px;}
+.askback{background:#f1ecff;border:2px solid var(--violet);border-radius:16px;padding:12px 14px;margin-top:10px;font-size:17px;}
+/* wheel */
+.wheel-wrap{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap;margin:8px 0;}
+.wheel{width:250px;height:250px;border-radius:50%;border:6px solid var(--gold);position:relative;transition:transform 3s cubic-bezier(.17,.67,.21,1);background:conic-gradient(#ffe7a3 0 60deg,#c9f1f3 60deg 120deg,#ffd6cc 120deg 180deg,#e4dcff 180deg 240deg,#d7f5da 240deg 300deg,#ffe1f0 300deg 360deg);}
+.wheel span{position:absolute;left:50%;top:50%;font-size:34px;transform-origin:0 0;}
+.pointer{font-size:38px;}
+.wq{flex:1;min-width:260px;background:var(--soft);border-radius:18px;padding:16px;font-size:22px;font-weight:700;font-family:'Poppins';min-height:120px;}
+.wq .s{display:block;font-size:15px;font-family:'Inter';font-weight:500;color:#4a6670;margin-top:8px;}
+/* story */
+.story{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:10px 0;}
+.panel{border-radius:18px;padding:12px;text-align:center;cursor:pointer;position:relative;min-height:190px;border:3px solid transparent;}
+.panel.night{background:linear-gradient(180deg,#14305a,#2b5288);color:#fff;}.panel.night .fr{color:#d9ccff;}
+.panel.day{background:linear-gradient(180deg,#fff2c4,#ffd98a);}
+.panel.dusk{background:linear-gradient(180deg,#ffb38a,#7b4fa0);color:#fff;}.panel.dusk .fr{color:#ffe9ff;}
+.panel.playing{border-color:var(--gold);box-shadow:0 0 0 4px rgba(255,204,77,.5);}
+.panel .tag{position:absolute;top:8px;left:8px;font-size:11px;font-weight:800;background:rgba(255,255,255,.85);color:var(--ink);border-radius:999px;padding:2px 8px;}
+.panel .sc{font-size:44px;line-height:1.1;margin:18px 0 8px;}.panel p{margin:0;font-size:16.5px;font-weight:700;line-height:1.35;}
+.mcq{background:var(--soft);border-radius:16px;padding:12px 14px;margin:10px 0;}
+.mcq .q{font-size:19px;font-weight:700;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+.opt{font-family:'Poppins';font-weight:700;font-size:17px;padding:10px 16px;border-radius:14px;border:3px solid var(--line);background:#fff;cursor:pointer;text-align:center;}
+.opt .fr{font-size:13px;}
+.opt.ok{border-color:var(--green);background:#e7f8ee;}.opt.no{border-color:var(--coral);background:#fff0f0;opacity:.75;}
+.why{display:none;margin-top:8px;font-size:15.5px;padding:8px 12px;border-radius:10px;}
+.why.show{display:block;}.why.good{background:#e7f8ee;}.why.bad{background:#fff4e5;}
+/* words */
+.pics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.pic{background:var(--soft);border:3px solid var(--line);border-radius:18px;padding:10px 8px;text-align:center;cursor:pointer;user-select:none;position:relative;}
+.pic .e{font-size:46px;line-height:1.1;}.pic .w{font-weight:700;font-size:16px;margin-top:4px;font-family:'Poppins';}.pic .fr{font-size:13px;}
+.pic.hide .w,.pic.hide .fr{visibility:hidden;}.pic.picked{border-color:var(--gold);background:#fff7dd;}.pic.used{opacity:.3;pointer-events:none;}
+.flash{width:260px;height:230px;margin:10px auto;border-radius:24px;background:#012a3d;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid var(--gold);font-family:'Poppins';font-size:20px;text-align:center;}
+.flash .e{font-size:96px;line-height:1;}
+/* chain */
+.chainbox{background:#fffdf3;border:3px solid var(--gold);border-radius:18px;padding:14px 16px;margin:10px 0;font-family:'Poppins';font-size:21px;font-weight:600;min-height:70px;line-height:1.6;}
+.chainbox .c{color:var(--pool1);font-weight:800;}
+.lvlbar{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0;}
+.lv{padding:6px 12px;border-radius:999px;border:2px solid var(--line);font-weight:700;font-size:14px;background:#fff;}
+.lv.on{background:var(--gold);border-color:var(--gold);}.lv.done{background:#e7f8ee;border-color:var(--green);}
+/* sort */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:10px;}
+.zone{border-radius:16px;padding:10px;min-height:100px;cursor:pointer;border:3px dashed transparent;}
+.zone h4{margin:0 0 4px;font-size:17px;font-family:'Poppins';}.zone .fr{font-size:13px;}
+.zone.m{background:#fff4cf;}.zone.a{background:#dff5ff;}.zone.e{background:#ffe2d6;}.zone.n{background:#1d2f57;color:#fff;}.zone.n .fr{color:#d9ccff;}
+.zone.target{border-color:var(--pool1);}
+.chip{display:inline-block;background:#fff;color:var(--ink);border-radius:999px;padding:4px 10px;margin:3px;font-size:14px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.15);}
+.card-now{display:flex;gap:14px;align-items:center;justify-content:center;margin:8px 0;}
+.card-now .big{width:200px;padding:12px;border-radius:20px;background:#012a3d;color:#fff;text-align:center;border:4px solid var(--gold);font-family:'Poppins';}
+.card-now .big .e{font-size:64px;}.card-now .big .fr{color:#d9ccff;}
+/* fix bibi */
+.mixed{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.mx{width:150px;border-radius:18px;border:3px solid var(--line);background:#fff;padding:10px;text-align:center;cursor:pointer;}
+.mx .e{font-size:44px;}.mx .w{font-weight:700;font-family:'Poppins';font-size:15px;}.mx .fr{font-size:12.5px;}
+.mx.out{border-color:var(--coral);background:#fff0f0;text-decoration:line-through;}
+.mx.placed{opacity:.3;pointer-events:none;}
+.order-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.oslot{width:150px;min-height:120px;border-radius:16px;border:3px dashed #9cc;background:#f7fdfd;text-align:center;padding:8px;}
+.oslot .lab{font-weight:800;color:var(--pool1);font-size:15px;font-family:'Poppins';}.oslot .e{font-size:38px;}.oslot .w{font-weight:600;font-size:14px;}
+.stepper{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px;}
+.st{padding:5px 12px;border-radius:999px;font-weight:700;font-size:14px;background:#f4f7f7;color:#7a8f95;}
+.st.on{background:var(--pool1);color:#fff;}.st.ok{background:#e7f8ee;color:var(--green);}
+.msg{min-height:26px;font-weight:700;font-size:17px;text-align:center;margin:8px 0;}
+/* silly */
+.slots{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0;}
+.reel{background:#012a3d;color:#fff;border-radius:16px;padding:14px 18px;min-width:190px;text-align:center;font-family:'Poppins';font-weight:700;font-size:21px;border:4px solid var(--gold);}
+.reel .e{font-size:40px;display:block;}.reel .fr{color:#d9ccff;font-size:14px;}
+/* TH */
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.pair{display:flex;gap:8px;}
+.pair button{flex:1;font-family:'Poppins';font-weight:700;font-size:20px;padding:10px;border-radius:14px;border:3px solid var(--line);background:#fff;cursor:pointer;}
+.pair button.th{border-color:var(--violet);}
+.tongue{background:#f1ecff;border-radius:16px;padding:12px 16px;font-size:17px;margin:10px 0;}
+.twister{font-family:'Poppins';font-size:22px;font-weight:700;text-align:center;background:#fff7dd;border-radius:16px;padding:12px;margin:10px 0;}
+/* reveal */
+.reveal{position:relative;width:300px;height:300px;margin:10px auto;border-radius:20px;overflow:hidden;background:#fff;border:5px solid var(--gold);}
+.reveal .pic-under{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:190px;}
+.tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);}
+.tile{background:linear-gradient(135deg,#00637a,#012a3d);border:2px solid #5be0d8;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Poppins';font-weight:800;font-size:26px;cursor:pointer;transition:opacity .3s;}
+.tile.gone{opacity:0;pointer-events:none;}
+.ptsbig{text-align:center;font-family:'Poppins';font-weight:800;font-size:20px;color:var(--pool1);}
+/* wyr */
+.wyr{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:12px 0;}
+.wyr .side{border-radius:20px;padding:16px;text-align:center;cursor:pointer;border:4px solid var(--line);font-family:'Poppins';font-weight:700;font-size:19px;background:#fff;}
+.wyr .side .e{font-size:60px;display:block;}.wyr .side.on{border-color:var(--gold);background:#fff7dd;}
+.wyr .or{align-self:center;font-family:'Poppins';font-weight:800;font-size:22px;color:var(--coral);}
+.because{background:#f1ecff;border-radius:14px;padding:10px 14px;font-size:18px;font-weight:600;text-align:center;}
+@media(max-width:560px){.wyr{grid-template-columns:1fr;}.wyr .or{text-align:center;}}
+/* storyboard / book */
+.storyboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.sb{background:var(--soft);border-radius:16px;padding:10px;border:2px solid var(--line);}
+.sb .lab{font-weight:800;color:var(--pool1);font-family:'Poppins';text-align:center;}.sb .lab .fr{font-size:13px;}
+.sb .choices{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;}
+.sb .choices button{font-size:26px;padding:4px 8px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;}
+.sb .choices button.on{border-color:var(--gold);background:#fff7dd;}
+.sb .said{text-align:center;font-family:'Poppins';font-weight:600;font-size:15px;min-height:22px;margin-top:6px;}
+.levels{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.lvl{border:3px solid var(--line);border-radius:16px;padding:8px 14px;text-align:center;cursor:pointer;background:#fff;min-width:120px;font-weight:700;}
+.lvl .e{font-size:30px;display:block;}.lvl.on{border-color:var(--gold);background:#fff7dd;}.lvl .fr{font-size:12px;}
+.book{background:#fffdf5;border:3px solid var(--gold);border-radius:18px;padding:12px 16px;}
+.bline{margin:10px 0;}.bline .lbl{font-family:'Poppins';font-weight:700;font-size:20px;}
+.bline .said{font-family:'Poppins';font-size:20px;color:var(--pool1);font-weight:700;margin-left:6px;}
+.bline .choices{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.bline .choices button{font-size:15px;padding:6px 10px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;font-family:inherit;}
+.bline .choices button.on{border-color:var(--gold);background:#fff7dd;font-weight:700;}
+.stats{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:14px 0;}
+.stat{background:var(--soft);border-radius:18px;padding:14px 20px;text-align:center;min-width:150px;}
+.stat .v{font-family:'Poppins';font-size:38px;font-weight:800;color:var(--pool1);}.stat .k{font-size:14px;font-weight:600;}
+.cando{font-size:18px;margin:8px 0;padding:10px 14px;border-radius:14px;background:#f6fbfb;border:2px solid var(--line);cursor:pointer;}
+.cando.ok{background:#e7f8ee;border-color:var(--green);}.cando::before{content:"⬜ ";}.cando.ok::before{content:"✅ ";}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:12px;padding:12px;background:rgba(1,42,56,.55);backdrop-filter:blur(6px);z-index:60;}
+.nav button{font-family:'Poppins';font-weight:700;font-size:16px;border-radius:14px;padding:11px 22px;border:none;cursor:pointer;}
+.nav .prev-b{background:#fff;color:var(--pool1);}.nav .next-b{background:var(--gold);color:var(--ink);}
+.toast{position:fixed;left:50%;top:84px;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-weight:800;padding:10px 20px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.25);opacity:0;transition:.3s;z-index:80;pointer-events:none;font-family:'Poppins';}
+.toast.show{opacity:1;}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden;}
+.confetti i{position:absolute;top:-20px;font-size:26px;animation:fall 2.6s linear forwards;}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);}}
+@media(max-width:560px){h2.t{font-size:22px;}.card{padding:16px 14px;}.wheel{width:200px;height:200px;}}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="hud">
+  <div class="who"><span>🦇</span> Bibi &amp; Elina</div>
+  <div class="dots" id="dots"></div>
+  <div class="score" title="Tutor: tap ⭐ each time Elina says a full sentence">⭐ <span id="starN">0</span><button id="starPlus" aria-label="Add a star">+1</button></div>
+  <button class="pill on" id="frBtn">🇫🇷 FR</button>
+  <button class="pill on" id="sndBtn">🔊</button>
+</div>
+
+<!-- 1 MISSION -->
+<section class="slide active">
+<div class="card">
+  <div class="top"><span class="kicker">Lesson 13 · Holiday Traditions Around the World · Episode 13</span><span class="mins">1 min</span></div>
+  <h2 class="t">Bibi Flies Around the World 🌍</h2><span class="fr">Bibi fait le tour du monde</span>
+  <div class="bibi"><div class="b">🦇</div><p>Hi Elina! I can fly very far. I want to learn about holidays in many countries! People do different things in every country. You are the expert! Can you help me?<span class="fr">Salut Elina ! Je peux voler très loin. Je veux découvrir les fêtes de beaucoup de pays ! Les gens font des choses différentes dans chaque pays. C'est toi l'experte ! Tu peux m'aider ?</span></p></div>
+  <div class="big-goal"><small>Today I can… / Aujourd'hui, je peux…</small>say what people do for holidays around the world: "In Mexico, people eat tamales."<span class="fr">dire ce que les gens font pour les fêtes dans le monde : « Au Mexique, les gens mangent des tamales. »</span></div>
+  <p class="lead">Every full sentence you say = ⭐. Can you get <b>40 stars</b> today?<span class="fr">Chaque phrase complète = une étoile ⭐. Tu peux gagner 40 étoiles aujourd'hui ?</span></p>
+  <details class="tutor"><summary>Tutor notes · how this lesson runs (≈45 min)</summary><div class="in">
+    <b>Zoom setup:</b> you share the screen and click everything; Elina only talks. Tap <b>⭐ +1</b> in the top bar each time she says a full English sentence (it's the score for the whole lesson). Each slide shows its target minutes.<br>
+    <b>Pattern of the day:</b> "In + country, people + verb." ("In India, people light lamps.") + "In my family, we ___." + "What do people do in ___?"<br>
+    <b>French-speaker traps:</b> "people eats" → <b>people eat</b> (people = plural, no -s); "In the Mexico" → <b>In Mexico</b> (no "the"), but <b>in the USA</b>; "the peoples" → <b>people</b>; English <b>J</b> starts with a little "d" (<b>J</b>apan = "dja-", not the French "j") and <b>Y</b> is soft (<b>y</b>es, New <b>Y</b>ear).<br>
+    <b>Correcting:</b> never "No." Repeat it back correctly ("Yes! People <i>eat</i> tamales!") and let her say it again for the star.<br>
+    <b>Note:</b> this lesson talks about each tradition itself, not about when it happens this year.
+  </div></details>
+</div>
+</section>
+
+<!-- 2 WARM-UP -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Warm-Up · On discute</span><span class="mins">3 min</span></div>
+  <h2 class="t">👋 Let's Catch Up!</h2><span class="fr">On discute un peu !</span>
+  <p class="lead">Answer with a full sentence. Then ask me back!<span class="fr">Réponds avec une phrase complète. Puis pose-moi la question !</span></p>
+  <div class="qgrid" id="warmQs">
+    <div class="qcard" data-st="w1"><button class="spk" data-a="w1">🔊</button><div class="tx">😊 How are you today?<span class="fr">Comment tu vas aujourd'hui ?</span></div></div>
+    <div class="qcard" data-st="w2"><button class="spk" data-a="w2">🔊</button><div class="tx">🎉 What's your favorite holiday? Why?<span class="fr">Quelle est ta fête préférée ? Pourquoi ?</span></div></div>
+    <div class="qcard" data-st="w3"><button class="spk" data-a="w3">🔊</button><div class="tx">🍰 What do you eat at a big family party?<span class="fr">Qu'est-ce que tu manges à une grande fête de famille ?</span></div></div>
+    <div class="qcard" data-st="w4"><button class="spk" data-a="w4">🔊</button><div class="tx">👵 Who do you see on holidays?<span class="fr">Qui est-ce que tu vois pendant les fêtes ?</span></div></div>
+  </div>
+  <p style="font-weight:700;margin:10px 0 4px;">💬 Answer starters <span class="fr inl">Pour commencer ta réponse</span> · <span id="stWhich" style="color:var(--pool1)">tap a question</span></p>
+  <div class="starters" id="warmStarters"></div>
+  <div class="askback">🔁 <b>Your turn:</b> "And you? What's your favorite holiday?"<span class="fr">À toi : « Et toi ? Quelle est ta fête préférée ? »</span></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    Push for full sentences ("Christmas." → "My favorite holiday is Christmas because…"). Any holiday is fine, including her birthday. If she did My English Book page 12, start by asking her to read one winter sentence ("In winter, I can…"). She must ask you at least one question back. ⭐ for each full sentence.
+  </div></details>
+</div>
+</section>
+
+<!-- 3 REMEMBER WHEEL -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Remember? · Spin the wheel</span><span class="mins">2 min</span></div>
+  <h2 class="t">🎡 Spin &amp; Answer!</h2><span class="fr">Fais tourner la roue et réponds !</span>
+  <p class="lead">Questions from Lessons 6–12. Answer fast in a full sentence!<span class="fr">Des questions des leçons 6 à 12. Réponds vite avec une phrase complète !</span></p>
+  <div class="wheel-wrap"><div class="pointer">👉</div><div class="wheel" id="wheel"></div><div class="wq" id="wq">Press SPIN!<span class="fr">Appuie sur SPIN !</span></div></div>
+  <div class="row center"><button class="btn gold" id="spinWheel">🎡 SPIN!</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Spin 4–5 times. Each answer uses a pattern from an earlier lesson: weather (L6), you are / you have (L8), thank you + because (L9), body + feelings (L10), "so" (L11), "I can" (L12). ⭐ for each full sentence.</div></details>
+</div>
+</section>
+
+<!-- 4 STORY -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Listen · Story time</span><span class="mins">3 min</span></div>
+  <h2 class="t">🦇 Bibi's Trip Around the World</h2><span class="fr">Le tour du monde de Bibi</span>
+  <p class="lead">Listen and watch the pictures. Look at the country on each picture!<span class="fr">Écoute et regarde les images. Regarde le pays sur chaque image !</span></p>
+  <div class="row"><button class="btn gold" id="playStory">▶ Play the story</button></div>
+  <div class="story" id="story"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Play it once just listening, then tap each picture and have her repeat Bibi's sentence (⭐ each). Point to the stop number and country on each picture: Mexico → India → China → France. The last picture is her cue: she is the expert for France.</div></details>
+</div>
+</section>
+
+<!-- 5 STORY CHECK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Did you understand? · Story quiz</span><span class="mins">3 min</span></div>
+  <h2 class="t">🤔 Bibi Quiz</h2><span class="fr">Le quiz de Bibi</span>
+  <p class="lead">Say the answer in a sentence first. Then choose!<span class="fr">Dis la réponse avec une phrase d'abord. Puis choisis !</span></p>
+  <div id="storyQuiz"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She says the full answer before you click ("In Mexico, people break a piñata."). Last question has no wrong answer: it's her opinion with <b>because</b>.</div></details>
+</div>
+</section>
+
+<!-- 6a WORDS -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">New words · 15 traditions in 5 countries</span><span class="mins">3 min</span></div>
+  <h2 class="t">🖼️ What Do People Do?</h2><span class="fr">Qu'est-ce que les gens font ?</span>
+  <p class="lead">Tap a picture to hear it. Say it with the country and <b>people</b>: <b>"In China, people give red envelopes."</b><span class="fr">Touche une image pour l'écouter. Répète avec le pays et « people » (les gens) : « En Chine, les gens donnent des enveloppes rouges. »</span></p>
+  <div class="pics" id="wordPics"></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn ghost" id="hideWords">🙈 Hide the words <span class="fr inl">Cacher les mots</span></button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Round 1: tap each card, she repeats "In + country, people + verb" (⭐ each). Round 2: press <b>Hide the words</b>, point to a picture, she says it from the picture only. Watch: <b>people eat</b> (no -s). France is her section: ask "Is it true? Do you do that?" Day of the Dead (Mexico) is a happy family holiday to remember people who have died: sugar skulls are colorful and smiling, not scary.</div></details>
+</div>
+</section>
+
+<!-- 6b FLASH -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Game · Flash</span><span class="mins">2 min</span></div>
+  <h2 class="t">⚡ Flash Game!</h2><span class="fr">Le jeu Flash !</span>
+  <div class="qgrid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
+    <div class="qcard" style="cursor:default">1️⃣ <div class="tx">I press FLASH.<span class="fr">J'appuie sur FLASH.</span></div></div>
+    <div class="qcard" style="cursor:default">2️⃣ <div class="tx">A picture shows for 3 seconds.<span class="fr">Une image apparaît 3 secondes.</span></div></div>
+    <div class="qcard" style="cursor:default">3️⃣ <div class="tx">Say the sentence fast: "In India, people light lamps!"<span class="fr">Dis vite la phrase : « In India, people light lamps ! »</span></div></div>
+    <div class="qcard" style="cursor:default">4️⃣ <div class="tx">Then we check the answer!<span class="fr">Puis on vérifie la réponse !</span></div></div>
+  </div>
+  <div class="flash" id="flash"><span class="e">⚡</span>Ready?<span class="fr" style="color:#d9ccff">Prête ?</span></div>
+  <div class="ptsbig" id="flashCount">Round 0</div>
+  <div class="row center" style="margin-top:8px;"><button class="btn gold" id="flashGo">⚡ FLASH!</button><button class="btn" id="flashGot">✅ She said it! ⭐</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Play 8–10 rounds. If she says the full sentence (with the country!) before the picture hides, press <b>She said it!</b> (adds a star). Easier version: she only says the country.</div></details>
+</div>
+</section>
+
+<!-- 7 SENTENCE CHAIN -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Build long sentences · Chain challenge</span><span class="mins">4 min</span></div>
+  <h2 class="t">🔗 My Family's Holiday Chain</h2><span class="fr">La chaîne des fêtes de ma famille</span>
+  <p class="lead">Now it's YOUR family! Tell me what you do, in order, one thing at a time. Each time, say the <b>whole chain again</b> from the start and add one more. We finish with <b>"and finally"</b>!<span class="fr">Maintenant, c'est TA famille ! Dis-moi ce que vous faites, dans l'ordre, une chose à la fois. À chaque fois, redis <b>toute la chaîne</b> depuis le début et ajoute une chose. On termine avec « and finally » !</span></p>
+  <div class="lvlbar" id="chainLv"></div>
+  <div class="starters"><span class="starter">first <span class="fr">d'abord</span></span><span class="starter">then <span class="fr">ensuite</span></span><span class="starter">next <span class="fr">après</span></span><span class="starter">after that <span class="fr">puis</span></span><span class="starter">and finally <span class="fr">et enfin</span></span><span class="starter">we… <span class="fr">nous… / on…</span></span></div>
+  <div class="chainbox" id="chainBox"></div>
+  <div class="pics" id="chainPics"></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn" id="chainFinish">🏁 Finish the chain <span class="fr inl">Terminer</span></button><button class="btn gold" id="chainRead">🔊 Hear my chain</button><button class="btn ghost" id="chainUndo">↶ Undo</button><button class="btn ghost" id="chainReset">↺ New chain</button><button class="btn ghost" id="chainMode"></button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    It's <b>her</b> family, so any holiday and any order is fine. She chooses each next thing; you click what she says. Connectors appear on their own: <b>first → then → next → after that</b>. When she's finished, press <b>Finish the chain</b>: the last one becomes <b>and finally</b>, and she says the whole chain from the start (stars: 3–4 = 1–2 ⭐, 5+ = 3 ⭐). Teach <b>we</b> ("In my family, <b>we</b> eat a big dinner") vs <b>people</b> (other countries). Then switch to <b>the big day</b>.
+  </div></details>
+</div>
+</section>
+
+<!-- 8 SORT -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Where? · Sort the traditions</span><span class="mins">3 min</span></div>
+  <h2 class="t">🗂️ Which Country?</h2><span class="fr">Quel pays ?</span>
+  <p class="lead">Look at the card. Which country is it? Say the whole sentence: <b>"In Mexico, people break a piñata."</b> Then I put it where you say.<span class="fr">Regarde la carte. C'est quel pays ? Dis toute la phrase, puis je la place où tu dis.</span></p>
+  <div class="card-now"><div class="big" id="sortNow"></div></div>
+  <div class="row center"><button class="btn ghost" id="sortStart">↺ Start over</button></div>
+  <div class="board" id="sortBoard"></div>
+  <div class="msg" id="sortMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">No timer. She says the full sentence before you click (⭐ each). If she picks the wrong country, the page gives a clue about the right country; she tries again. Some traditions exist in more than one country, but each card fits only one of these five.</div></details>
+</div>
+</section>
+
+<!-- 9 FIX BIBI -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Think! · Fix Bibi's mistakes</span><span class="mins">4 min</span></div>
+  <h2 class="t">🕵️ Bibi Is Mixed Up!</h2><span class="fr">Bibi s'est trompée !</span>
+  <div class="bibi"><div class="b">🦇</div><p id="fixIntro"></p></div>
+  <div class="stepper"><span class="st on" id="fs1">1 · Find the intruder <span class="fr inl">l'intrus</span></span><span class="st" id="fs2">2 · Put it in order <span class="fr inl">dans l'ordre</span></span><span class="st" id="fs3">3 · Tell it! <span class="fr inl">raconte</span></span></div>
+  <div class="mixed" id="mixed"></div>
+  <div class="order-row" id="fixSlots"></div>
+  <div class="msg" id="fixMsg"></div>
+  <div class="row center"><button class="btn ghost" id="fixReset">↺ Try again</button><button class="btn gold" id="fixNext">➡ Round 2: Chinese New Year</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    <b>Step 1:</b> she names the intruder and says <b>why</b> ("Lamps for Diwali are from India, not Christmas!"). Click it. <b>Step 2:</b> she tells you the order ("First, they leave cookies for Santa…"); click the cards in her order. The page checks if it makes sense and explains. <b>Step 3:</b> she tells it all with First/Then/Next/Finally and <b>they</b>. ⭐ for the reason and for each sentence. Round 2 is Chinese New Year.
+  </div></details>
+</div>
+</section>
+
+<!-- 10 TRUE OR SILLY -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">True or silly? · Spin</span><span class="mins">3 min</span></div>
+  <h2 class="t">🎰 True or Silly?</h2><span class="fr">Vrai ou rigolo ?</span>
+  <p class="lead">Spin! Read the sentence. Is it <b>true</b> or <b>silly</b>? If it's silly, fix it: <b>"No! Piñatas are full of candy!"</b><span class="fr">Lis la phrase. C'est vrai ou rigolo ? Si c'est rigolo, corrige-la : « Non ! Les piñatas sont pleines de bonbons ! »</span></p>
+  <div class="slots"><div class="reel" id="r1"><span class="e">🇮🇳</span>In India,<span class="fr">En Inde,</span></div><div class="reel" id="r2"><span class="e">🪔</span>people light lamps for Diwali.<span class="fr">les gens allument des lampes pour Diwali.</span></div></div>
+  <div class="row center"><button class="btn gold" id="spin">🎰 SPIN!</button><button class="btn ghost" id="sayIt">🔊 Hear it</button></div>
+  <div class="row center" style="margin-top:8px;"><button class="btn" data-v="true">✅ True! <span class="fr inl">Vrai !</span></button><button class="btn red" data-v="silly">🤪 That's silly! <span class="fr inl">Rigolo !</span></button></div>
+  <div class="msg" id="verdict"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She reads it aloud and decides. Every TRUE sentence here is a real tradition (yes, many families in Japan really do eat fried chicken at Christmas!). She <b>fixes silly ones in a full sentence</b> (⭐). Then swap: she makes up a silly sentence about France and you fix it.</div></details>
+</div>
+</section>
+
+<!-- 11 SOUND SPOT H -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Sound spot · J or Y</span><span class="mins">2 min</span></div>
+  <h2 class="t">🦘 Jump or Yes? J or Y</h2><span class="fr">J comme « jump » ou Y comme « yes » ?</span>
+  <div class="tongue">English <b>J</b> (jam) starts with a little <b>d</b>: <b>dj… dj… jam!</b> It's not the soft French « j » of « je ». <b>Y</b> (yes) is soft, like the start of « yaourt »: <b>y… yes!</b><span class="fr">Le J anglais (jam) commence par un petit d : dj… dj… jam ! Ce n'est pas le « j » doux de « je ». Le Y (yes) est doux, comme le début de « yaourt » : y… yes !</span></div>
+  <p class="lead">Listen. Which one did you hear? Then say both!<span class="fr">Écoute. Lequel tu as entendu ? Puis dis les deux !</span></p>
+  <div class="pairs">
+    <div class="pair"><button class="th" data-a="sj_jet">jet</button><button data-a="sj_yet">yet</button></div>
+    <div class="pair"><button class="th" data-a="sj_jam">jam</button><button data-a="sj_yam">yam</button></div>
+    <div class="pair"><button class="th" data-a="sj_joke">joke</button><button data-a="sj_yolk">yolk</button></div>
+    <div class="pair"><button class="th" data-a="sj_jello">jello</button><button data-a="sj_yellow">yellow</button></div>
+  </div>
+  <div class="twister">Yes! We jump for joy for the New Year! 🎉<span class="fr">Oui ! On saute de joie pour le Nouvel An !</span></div>
+  <div class="row center"><button class="btn gold" data-a="snd_twister">🔊 Hear it</button><button class="btn ghost" id="mystery">🎲 Mystery word</button></div>
+  <div class="msg" id="thMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">The purple word in each pair has the English <b>J</b> ("dj"); the other has <b>Y</b>. Link to today: <b>J</b>apan, <b>J</b>ewish, <b>j</b>oy / <b>y</b>es, New <b>Y</b>ear. Press <b>Mystery word</b>: it plays one word from a pair; she says which one. Then she says a word and <b>you</b> guess. Finish with the twister: slow, normal, fast.</div></details>
+</div>
+</section>
+
+<!-- 12 PICTURE REVEAL -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Game · Picture reveal</span><span class="mins">3 min</span></div>
+  <h2 class="t">🧩 What's Behind the Squares?</h2><span class="fr">Qu'est-ce qui se cache derrière les carrés ?</span>
+  <p class="lead">I take away one square at a time. Guess with a full sentence: <b>"I think it's: in China, people eat dumplings!"</b> Fewer squares gone = more points!<span class="fr">J'enlève un carré à la fois. Devine avec une phrase complète. Moins de carrés enlevés = plus de points !</span></p>
+  <div class="reveal" id="reveal"><div class="pic-under" id="revealPic">🪅</div><div class="tiles" id="tiles"></div></div>
+  <div class="ptsbig" id="revealPts">Points for this round: 9</div>
+  <div class="row center" style="margin-top:8px;"><button class="btn gold" id="revealNew">🎲 New picture</button><button class="btn" id="revealGot">✅ She got it!</button><button class="btn ghost" id="revealAll">👀 Show all</button></div>
+  <div class="msg" id="revealMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Click squares one by one until she guesses with a full sentence. Then press <b>She got it!</b> (points = squares still covering; stars added). Follow-up each round: "Would you like to try that? Why?"</div></details>
+</div>
+</section>
+
+<!-- 13 WOULD YOU RATHER -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Your opinion · Would you rather?</span><span class="mins">3 min</span></div>
+  <h2 class="t">🤷 Would You Rather…?</h2><span class="fr">Tu préfères… ?</span>
+  <p class="lead">Choose one and say <b>why</b> with <b>because</b>. Then ask me!<span class="fr">Choisis et dis <b>pourquoi</b> avec « because » (parce que). Puis pose-moi la question !</span></p>
+  <div class="mcq" style="text-align:center;"><div class="q" style="justify-content:center;"><button class="spk" id="wyrSpk">🔊</button><span id="wyrQ"></span></div><span class="fr" id="wyrQfr"></span></div>
+  <div class="wyr"><div class="side" id="wyrA"></div><div class="or">OR</div><div class="side" id="wyrB"></div></div>
+  <div class="because">I'd rather ___ because ___.<span class="fr">Je préfère ___ parce que ___.</span></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn gold" id="wyrNext">➡ Next question</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">This is critical thinking: there is no right answer, but there must be a <b>reason</b>. Model one first ("I'd rather break a piñata because I love candy!"). After each answer she asks you the same question. ⭐ for each "because" sentence.</div></details>
+</div>
+</section>
+
+<!-- 14 BIG TALK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Big talk · Holidays around the world</span><span class="mins">3 min</span></div>
+  <h2 class="t">📖 Be Bibi's Tour Guide!</h2><span class="fr">Sois la guide de Bibi !</span>
+  <p class="lead">Tell me one tradition for each card. I tap it. Then take Bibi around the world with no stopping!<span class="fr">Dis-moi une tradition pour chaque carte. Je la touche. Puis fais faire le tour du monde à Bibi sans t'arrêter !</span></p>
+  <div class="storyboard" id="storyboard"></div>
+  <p style="font-weight:700;margin:14px 0 2px;text-align:center;">🎭 Voice challenge: Elina gives the tour again in a funny voice! Tap the voice for each round.<span class="fr">Défi des voix : Elina refait la visite avec une voix rigolote ! Touche la voix pour chaque tour.</span></p>
+  <div class="levels" id="levels">
+    <div class="lvl"><span class="e">🤫</span>Whisper<span class="fr">en chuchotant</span></div>
+    <div class="lvl"><span class="e">🙂</span>Normal<span class="fr">normal</span></div>
+    <div class="lvl"><span class="e">✈️</span>Airplane pilot<span class="fr">pilote d'avion</span></div>
+    <div class="lvl"><span class="e">🎤</span>Singer<span class="fr">chanteuse</span></div>
+  </div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">This is the goal of the lesson. She says all five in a row ("In Mexico, people… In India, people… In China, people… In France, people… In my family, we…"). Do it 2–3 times in different voices; each telling smoother. ⭐ per sentence.</div></details>
+</div>
+</section>
+
+<!-- 15 BOOK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">My English Book · Page 13</span><span class="mins">2 min</span></div>
+  <h2 class="t">✍️ My Holiday Sentences</h2><span class="fr">Mes phrases sur les fêtes</span>
+  <p class="lead">Say your three sentences. I tap your choice and it goes in your book!<span class="fr">Dis tes trois phrases. Je touche ton choix et il va dans ton livre !</span></p>
+  <div class="book" id="book"></div>
+  <div class="row" style="margin-top:10px;"><button class="btn gold" id="readBook">🔊 Read my page</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She says each sentence; you tap the matching choice. Then she reads the whole page aloud once (⭐ ×3). It saves in this browser, and next lesson's warm-up can start with these three sentences.</div></details>
+</div>
+</section>
+
+<!-- 16 CEREMONY -->
+<section class="slide">
+<div class="card" style="text-align:center;">
+  <div class="top"><span class="kicker">Ceremony · Episode 13 complete</span><span class="mins">1 min</span></div>
+  <h2 class="t">🏅 Thank You, Expert Elina!</h2><span class="fr">Merci, experte Elina !</span>
+  <div class="bibi" style="text-align:left;"><div class="b">🦇</div><p>What a trip! In Mexico, people break piñatas. In India, people light lamps. In China, people give red envelopes. And in France… people eat a galette des rois! Thank you, tour guide Elina! 🌍<span class="fr">Quel voyage ! Au Mexique, les gens cassent des piñatas. En Inde, les gens allument des lampes. En Chine, les gens donnent des enveloppes rouges. Et en France… les gens mangent une galette des rois ! Merci, Elina la guide ! 🌍</span></p></div>
+  <div class="stats">
+    <div class="stat"><div class="v" id="stStars">0</div><div class="k">⭐ sentences / phrases</div></div>
+    <div class="stat"><div class="v" id="stMedal">—</div><div class="k">🏅 medal / médaille</div></div>
+  </div>
+  <div style="text-align:left;">
+    <div class="cando">I can say what people do in other countries: "In Mexico, people…"<span class="fr">Je peux dire ce que les gens font dans d'autres pays : « In Mexico, people… »</span></div>
+    <div class="cando">I can say what my family does: "In my family, we…"<span class="fr">Je peux dire ce que fait ma famille : « In my family, we… »</span></div>
+    <div class="cando">I can put traditions in order and say why.<span class="fr">Je peux mettre des traditions dans l'ordre et dire pourquoi.</span></div>
+    <div class="cando">I can say J and Y: jam / yam, joy / yes.<span class="fr">Je peux dire J et Y : jam / yam, joy / yes.</span></div>
+  </div>
+  <div class="row center" style="margin-top:12px;"><button class="btn gold" id="medal">🥇 Open your medal!</button></div>
+  <details class="tutor" style="text-align:left;"><summary>Tutor: before you go</summary><div class="in">Mini homework (tell her mom in French): Elina teaches one family member a tradition from another country in English ("In China, people give red envelopes!") and says one sentence about her own family ("In my family, we…").</div></details>
+</div>
+</section>
+
+</div>
+<div class="nav"><button class="prev-b" id="prevB">⬅ Back</button><button class="next-b" id="nextB">Next ➡</button></div>
+<div class="toast" id="toast"></div>
+<div class="confetti" id="confetti"></div>
+
+<script>
+(function(){
+/* ---------- audio: basic browser voice (text-to-speech) only ---------- */
+var TEXT={}; // key -> English text the browser voice reads
+var sound=true,queue=[];
+function T(k,t){TEXT[k]=t;return k;}
+function stopAll(){queue=[];if(window.speechSynthesis)speechSynthesis.cancel();}
+function tts(t,done){if(!t||!window.speechSynthesis){done&&done();return;}var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;var v=speechSynthesis.getVoices().filter(function(v){return /en-US/.test(v.lang);});var p=v.filter(function(x){return /Samantha|Google US|Aria|Jenny/i.test(x.name);});if(p[0])u.voice=p[0];else if(v[0])u.voice=v[0];u.onend=function(){done&&done();};u.onerror=function(){done&&done();};speechSynthesis.speak(u);}
+function playKey(k,done){if(!sound){done&&done();return;}tts(TEXT[k]||'',done);}
+function play(keys,onEach){stopAll();queue=keys.slice();(function next(){if(!queue.length)return;var k=queue.shift();onEach&&onEach(k);playKey(k,function(){setTimeout(next,250);});})();}
+window.KCE_AUDIO_TEXT=TEXT;
+
+/* ---------- lesson data ---------- */
+var CONFETTI=['🎉','🪅','🪔','🧧','⭐','🦇'];
+var BOOK_KEY='elina_book_l13';
+var PRAISE='Champion of the day! Great job, Elina!';
+var VOICE_TOAST='Take Bibi around the world!';
+
+/* vocabulary: 15 traditions in 5 countries ("In + country, people + verb") */
+var G=[{z:'mx',em:'🇲🇽',name:'Mexico',fr:'le Mexique',inn:'In Mexico,',infr:'Au Mexique,',clue:['this country is next to the USA, and people speak Spanish there.','ce pays est à côté des États-Unis, et on y parle espagnol.']},
+ {z:'in',em:'🇮🇳',name:'India',fr:'l\'Inde',inn:'In India,',infr:'En Inde,',clue:['it\'s for Diwali, the festival of lights.','c\'est pour Diwali, la fête des lumières.']},
+ {z:'cn',em:'🇨🇳',name:'China',fr:'la Chine',inn:'In China,',infr:'En Chine,',clue:['it\'s for the Chinese New Year!','c\'est pour le Nouvel An chinois !']},
+ {z:'us',em:'🇺🇸',name:'the USA',fr:'les États-Unis',inn:'In the USA,',infr:'Aux États-Unis,',clue:['this country has New York, and its flag has 50 stars.','ce pays a New York, et son drapeau a 50 étoiles.']},
+ {z:'fr',em:'🇫🇷',name:'France',fr:'la France',inn:'In France,',infr:'En France,',clue:['it\'s YOUR country, Elina!','c\'est TON pays, Elina !']}];
+var GBY={};G.forEach(function(g){GBY[g.z]=g;});
+function TR(k,e,z,w,fr,rest,restfr){var g=GBY[z];return {k:k,e:e,z:z,w:w,fr:fr,s:g.inn+' '+rest,sfr:g.infr+' '+restfr};}
+var A=[
+ TR('a_tamales','🫔','mx','eat tamales','manger des tamales','people eat tamales.','les gens mangent des tamales.'),
+ TR('a_pinata','🪅','mx','break a piñata','casser une piñata','people break a piñata.','les gens cassent une piñata.'),
+ TR('a_skulls','💀','mx','make sugar skulls','faire des crânes en sucre','people make sugar skulls for the Day of the Dead.','les gens font des crânes en sucre pour le Jour des morts.'),
+ TR('a_lamps','🪔','in','light little lamps','allumer des petites lampes','people light little lamps for Diwali.','les gens allument des petites lampes pour Diwali.'),
+ TR('a_rangoli','🎨','in','draw colorful patterns','dessiner des motifs colorés','people draw colorful patterns on the floor for Diwali.','les gens dessinent des motifs colorés par terre pour Diwali.'),
+ TR('a_sweets','🍬','in','share sweets for Diwali','partager des sucreries pour Diwali','people share sweets for Diwali.','les gens partagent des sucreries pour Diwali.'),
+ TR('a_envelopes','🧧','cn','give red envelopes','donner des enveloppes rouges','people give red envelopes.','les gens donnent des enveloppes rouges.'),
+ TR('a_dragon','🐉','cn','watch a dragon dance','regarder la danse du dragon','people watch a dragon dance.','les gens regardent la danse du dragon.'),
+ TR('a_dumplings','🥟','cn','eat dumplings','manger des raviolis chinois','people eat dumplings for the New Year.','les gens mangent des raviolis chinois pour le Nouvel An.'),
+ TR('a_parade','🎈','us','watch a parade on Thanksgiving','regarder un défilé à Thanksgiving','people watch a big parade on Thanksgiving.','les gens regardent un grand défilé à Thanksgiving.'),
+ TR('a_stockings','🧦','us','hang stockings','accrocher des chaussettes de Noël','people hang stockings for Christmas.','les gens accrochent des chaussettes pour Noël.'),
+ TR('a_valentines','💌','us','give Valentine\'s cards to the class','offrir des cartes de Saint-Valentin à la classe','children give Valentine\'s cards to their whole class.','les enfants offrent des cartes de Saint-Valentin à toute leur classe.'),
+ TR('a_kingcake','👑','fr','eat a galette des rois','manger la galette des rois','people eat a king cake: la galette des rois!','les gens mangent la galette des rois !'),
+ TR('a_fish','🐟','fr','stick paper fish on backs','coller des poissons en papier dans le dos','people stick paper fish on friends\' backs!','les gens collent des poissons en papier dans le dos de leurs amis !'),
+ TR('a_bells','🔔','fr','eat chocolate bells','manger des cloches en chocolat','people eat chocolate bells at Easter.','les gens mangent des cloches en chocolat à Pâques.')
+];
+
+/* warm-up */
+var WST={w1:['How are you today?',[["I'm great, thanks!","Ça va super, merci !"],["I'm happy because…","Je suis contente parce que…"],["I'm a little tired because…","Je suis un peu fatiguée parce que…"]]],
+ w2:["What's your favorite holiday? Why?",[["My favorite holiday is … because…","Ma fête préférée, c'est … parce que…"],["I love my birthday because…","J'adore mon anniversaire parce que…"],["I like … because there are presents!","J'aime … parce qu'il y a des cadeaux !"]]],
+ w3:['What do you eat at a big family party?',[["We eat…","Nous mangeons… / On mange…"],["I love cake and chocolate!","J'adore le gâteau et le chocolat !"],["My favorite food is…","Mon plat préféré, c'est…"]]],
+ w4:['Who do you see on holidays?',[["I see my grandma and grandpa.","Je vois ma mamie et mon papi."],["I see my cousins.","Je vois mes cousins."],["We stay at home with…","Nous restons à la maison avec…"]]]};
+
+/* wheel: review of Lessons 6–12 */
+var W=[['☁️','Look outside! Is it sunny or cloudy?','Regarde dehors ! Il y a du soleil ou des nuages ?','It\'s … today.','Aujourd\'hui, il y a…'],
+ ['🧛','Choose a Halloween costume for me! What am I?','Choisis-moi un déguisement d\'Halloween ! Je suis quoi ?','You are a vampire! You have…','Tu es un vampire ! Tu as…'],
+ ['🙏','Say thank you to someone in your family. Why?','Dis merci à quelqu\'un de ta famille. Pourquoi ?','Thank you, Mom, because…','Merci, maman, parce que…'],
+ ['🤒','You are sick! What hurts? How do you feel?','Tu es malade ! Où as-tu mal ? Comment tu te sens ?','My tummy hurts. I feel tired.','J\'ai mal au ventre. Je me sens fatiguée.'],
+ ['🌧️','It\'s rainy! What do you wear?','Il pleut ! Qu\'est-ce que tu portes ?','It\'s rainy, so I wear…','Il pleut, donc je porte…'],
+ ['⛄','What can you do in winter?','Qu\'est-ce que tu peux faire en hiver ?','In winter, I can…','En hiver, je peux…']];
+
+/* story */
+var S=[
+ ['s1','night','🌙 night · la nuit','🦇','I\'m Bibi. I can fly very far! Now I fly around the world to see how people celebrate.','Je suis Bibi. Je peux voler très loin ! Maintenant, je fais le tour du monde pour voir comment les gens font la fête.'],
+ ['s2','day','Stop 1 · 🇲🇽 Mexico · le Mexique','🪅','Stop 1: Mexico. People break a piñata. Candy for everyone!','Arrêt 1 : le Mexique. Les gens cassent une piñata. Des bonbons pour tout le monde !'],
+ ['s3','night','Stop 2 · 🇮🇳 India · l\'Inde','🪔','Stop 2: India. For Diwali, people light little lamps. So pretty at night!','Arrêt 2 : l\'Inde. Pour Diwali, les gens allument des petites lampes. C\'est si joli la nuit !'],
+ ['s4','day','Stop 3 · 🇨🇳 China · la Chine','🧧','Stop 3: China. For the New Year, children get red envelopes with money inside!','Arrêt 3 : la Chine. Pour le Nouvel An, les enfants reçoivent des enveloppes rouges avec de l\'argent dedans !'],
+ ['s5','dusk','Last stop · 🇫🇷 France · la France','🗼','Last stop: France! Elina, you are the expert. What do people do in France?','Dernier arrêt : la France ! Elina, c\'est toi l\'experte. Qu\'est-ce que les gens font en France ?']
+];
+var Q=[
+ ['q1','Where do people break a piñata?','Où est-ce que les gens cassent une piñata ?',[['🇲🇽 In Mexico','au Mexique',1,'Yes! "In Mexico, people break a piñata."','Oui ! « Au Mexique, les gens cassent une piñata. »'],['🇨🇳 In China','en Chine',0,'No: in China, children get red envelopes. The piñata is in Mexico.','Non : en Chine, les enfants reçoivent des enveloppes rouges. La piñata, c\'est au Mexique.'],['🇮🇳 In India','en Inde',0,'No: in India, people light lamps for Diwali. The piñata is in Mexico.','Non : en Inde, les gens allument des lampes pour Diwali. La piñata, c\'est au Mexique.']]],
+ ['q2','What do people light for Diwali in India?','Qu\'est-ce que les gens allument pour Diwali en Inde ?',[['🎃 Pumpkins','des citrouilles',0,'No: pumpkins are for Halloween. For Diwali, people light little lamps.','Non : les citrouilles, c\'est pour Halloween. Pour Diwali, les gens allument des petites lampes.'],['🪔 Little lamps','des petites lampes',1,'Yes! "For Diwali, people light little lamps."','Oui ! « Pour Diwali, les gens allument des petites lampes. »'],['🎄 A Christmas tree','un sapin de Noël',0,'No: Bibi says "little lamps". Diwali is the festival of lights.','Non : Bibi dit « des petites lampes ». Diwali, c\'est la fête des lumières.']]],
+ ['q3','What is inside the red envelopes in China?','Qu\'est-ce qu\'il y a dans les enveloppes rouges en Chine ?',[['💰 Money','de l\'argent',1,'Yes! "Red envelopes with money inside!"','Oui ! « Des enveloppes rouges avec de l\'argent dedans ! »'],['🍬 Candy','des bonbons',0,'No: the candy is in the piñata in Mexico! Red envelopes have money inside.','Non : les bonbons, c\'est dans la piñata au Mexique ! Les enveloppes rouges ont de l\'argent dedans.'],['🐟 A paper fish','un poisson en papier',0,'No: paper fish are a French tradition! Red envelopes have money inside.','Non : les poissons en papier, c\'est une tradition française ! Les enveloppes rouges ont de l\'argent dedans.']]],
+ ['q4','Which country would YOU like to visit with Bibi? Why?','Quel pays est-ce que TOI, tu aimerais visiter avec Bibi ? Pourquoi ?',[['🇲🇽 Mexico, because…','le Mexique, parce que…',1,'Tell me why! "Mexico, because I want to break a piñata!"','Dis-moi pourquoi ! « Le Mexique, parce que je veux casser une piñata ! »'],['🇮🇳 India, because…','l\'Inde, parce que…',1,'Great! For example: "India, because the lamps are pretty!"','Super ! Par exemple : « L\'Inde, parce que les lampes sont jolies ! »'],['🇨🇳 China, because…','la Chine, parce que…',1,'Great! For example: "China, because I love dragons!"','Super ! Par exemple : « La Chine, parce que j\'adore les dragons ! »']]]
+];
+
+/* sentence chain: my family's holiday */
+function CI(k,e,w,fr){return {k:k,e:e,w:w,fr:fr,c:'we '+w};}
+var CHAIN=[
+ {id:'ready',em:'🎄',name:'getting ready',namefr:'les préparatifs',frame:'To get ready for the holidays,',fr:'Pour préparer les fêtes,',pool:[CI('ch_tree','🎄','decorate the tree','décorer le sapin'),CI('ch_lights','💡','hang lights','accrocher des guirlandes lumineuses'),CI('ch_clean','🧹','clean the house','nettoyer la maison'),CI('ch_cook','🍲','cook special food','cuisiner des plats de fête'),CI('ch_wrap','🎁','wrap presents','emballer les cadeaux'),CI('ch_cards','✉️','write cards','écrire des cartes'),CI('ch_shop','🛒','buy food','acheter à manger')]},
+ {id:'day',em:'🎉',name:'the big day',namefr:'le grand jour',frame:'On the big day,',fr:'Le grand jour,',pool:[CI('ch_dinner','🍽️','eat a big dinner','manger un grand repas'),CI('ch_open','🎁','open presents','ouvrir les cadeaux'),CI('ch_sing','🎶','sing songs','chanter des chansons'),CI('ch_dance','💃','dance','danser'),CI('ch_grandma','👵','visit Grandma','rendre visite à mamie'),CI('ch_fireworks','🎆','watch fireworks','regarder le feu d\'artifice'),CI('ch_hugs','🤗','give hugs','faire des câlins')]}
+];
+var CHAIN_UNIT='things',CHAIN_END='.';
+var CON=[['c_first','first','d\'abord'],['c_then','then','ensuite'],['c_next','next','après'],['c_after','after that','puis'],['c_finally','and finally','et enfin']];
+
+/* sorting */
+var SORT={zones:G.map(function(g,i){return {id:g.z,cls:['m','e','n','a','a'][i],em:g.em,name:g.name,fr:g.fr};}),
+ ok:function(it){return [it.z];},
+ right:function(it){return '✅ Yes! Great sentence!<span class="fr">Oui ! Super phrase !</span>';},
+ wrong:function(it,z){var g=GBY[it.z];return '🤔 Not in '+z.name+'! Clue: '+g.clue[0]+' Try again!<span class="fr">Pas '+({mx:'au Mexique',in:'en Inde',cn:'en Chine',us:'aux États-Unis',fr:'en France'})[z.id]+' ! Indice : '+g.clue[1]+' Essaie encore !</span>';},
+ doneMsg:'Now ask me: "What do people do in France?"<span class="fr">Maintenant, pose-moi la question : « Qu\'est-ce que les gens font en France ? »</span>'};
+
+/* critical thinking: intruder + order */
+function FC(k,e,w,fr,s){return {k:k,e:e,w:w,fr:fr,s:s};}
+var LAB=[['First,','D\'abord,'],['Then,','Ensuite,'],['Next,','Après,'],['Finally,','Enfin,']];
+var FIX=[
+ {cards:[FC('f_cookies','🥛','leave cookies and milk for Santa','laisser des biscuits et du lait pour le Père Noël','They leave cookies and milk for Santa.'),FC('f_bed','😴','go to bed','aller se coucher','They go to bed.'),FC('f_wake','⏰','wake up early','se réveiller tôt','They wake up early.'),FC('f_open','🎁','open presents','ouvrir les cadeaux','They open presents.'),FC('f_diwali','🪔','light lamps for Diwali','allumer des lampes pour Diwali','They light lamps for Diwali.')],
+  intruder:'f_diwali',order:['f_cookies','f_bed','f_wake','f_open'],labels:LAB,
+  intro:'I tried to tell <b>Christmas</b> in an American family: the night before Christmas, and Christmas morning. But I made mistakes! One card does <b>not</b> belong. Which one? Why?',introfr:'J\'ai essayé de raconter <b>Noël</b> dans une famille américaine : la veille de Noël, puis le matin de Noël. Mais je me suis trompée ! Une carte n\'a rien à faire là. Laquelle ? Pourquoi ?',
+  why:'Lamps for Diwali are a tradition from India, not an American Christmas!',whyfr:'Les lampes de Diwali, c\'est une tradition de l\'Inde, pas un Noël américain !',
+  belongs:'is OK for Christmas.',belongsfr:'ça va pour Noël.',
+  hint:'Think: the cookies for Santa go out <b>before</b> bed. The presents are opened <b>in the morning</b>, after the children wake up.',hintfr:'Réfléchis : on laisse les biscuits pour le Père Noël <b>avant</b> d\'aller se coucher. On ouvre les cadeaux <b>le matin</b>, après le réveil.',
+  done:'That makes sense! Now tell it all: "First, they leave cookies and milk for Santa. Then…"',donefr:'C\'est logique ! Maintenant, raconte tout !',
+  nextBtn:'➡ Round 2: Chinese New Year',back:'⬅ Back to round 1: Christmas'},
+ {cards:[FC('f_clean','🧹','clean the house','nettoyer la maison','They clean the house.'),FC('f_lantern','🏮','hang red lanterns','accrocher des lanternes rouges','They hang red lanterns.'),FC('f_dinner','🥟','eat a big family dinner','manger un grand repas de famille','They eat a big family dinner.'),FC('f_fire','🎆','watch fireworks at midnight','regarder le feu d\'artifice à minuit','They watch fireworks at midnight.'),FC('f_galette','👑','eat a galette des rois','manger la galette des rois','They eat a galette des rois.')],
+  intruder:'f_galette',order:['f_clean','f_lantern','f_dinner','f_fire'],labels:LAB,
+  intro:'Now I wrote the <b>Chinese New Year</b> in a family in China. Oops! One card does <b>not</b> belong. Which one? Why?',introfr:'Maintenant j\'ai écrit le <b>Nouvel An chinois</b> dans une famille en Chine. Oups ! Une carte n\'a rien à faire là. Laquelle ? Pourquoi ?',
+  why:'The galette des rois is a French tradition, not the Chinese New Year!',whyfr:'La galette des rois, c\'est une tradition française, pas le Nouvel An chinois !',
+  belongs:'is OK for the Chinese New Year.',belongsfr:'ça va pour le Nouvel An chinois.',
+  hint:'Think: you clean the house <b>before</b> you decorate it. And midnight is at the <b>end</b> of the night, after dinner.',hintfr:'Réfléchis : on nettoie la maison <b>avant</b> de la décorer. Et minuit, c\'est à la <b>fin</b> de la soirée, après le dîner.',
+  done:'That makes sense! Now tell it all: "First, they clean the house. Then…"',donefr:'C\'est logique ! Maintenant, raconte tout !',
+  nextBtn:'➡ Round 2: Chinese New Year',back:'⬅ Back to round 1: Christmas'}
+];
+
+/* true or silly: every TRUE sentence is a real tradition */
+var TS=[
+ ['🇯🇵','In Japan,','Au Japon,','🍗','many families eat fried chicken at Christmas.','beaucoup de familles mangent du poulet frit à Noël.',true,'It\'s really true! It\'s a famous tradition in Japan.','C\'est vraiment vrai ! C\'est une tradition célèbre au Japon.'],
+ ['🇲🇽','In Mexico,','Au Mexique,','🪨','people fill piñatas with rocks.','les gens remplissent les piñatas de cailloux.',false,'Piñatas are full of candy, not rocks!','Les piñatas sont pleines de bonbons, pas de cailloux !'],
+ ['🇮🇳','In India,','En Inde,','🪔','people light lamps for Diwali.','les gens allument des lampes pour Diwali.',true,'Diwali is the festival of lights!','Diwali, c\'est la fête des lumières !'],
+ ['🇨🇳','In China,','En Chine,','🟢','the lucky New Year color is green.','la couleur porte-bonheur du Nouvel An est le vert.',false,'The lucky color is red!','La couleur porte-bonheur, c\'est le rouge !'],
+ ['🕎','For Hanukkah,','Pour Hanoukka,','🕯️','Jewish families light candles for eight nights.','les familles juives allument des bougies pendant huit nuits.',true,'Hanukkah lasts eight nights, and families light one more candle each night.','Hanoukka dure huit nuits, et les familles allument une bougie de plus chaque nuit.'],
+ ['🇫🇷','In France,','En France,','👑','the person who finds the charm in the king cake wears a crown.','la personne qui trouve la fève dans la galette porte une couronne.',true,'Yes! She or he is the king or queen!','Oui ! Elle ou il est la reine ou le roi !'],
+ ['🇪🇸','In Spain,','En Espagne,','🍇','people eat twelve grapes at midnight for the New Year.','les gens mangent douze grains de raisin à minuit pour le Nouvel An.',true,'It\'s true! One grape for each of the twelve bells at midnight.','C\'est vrai ! Un grain de raisin pour chacun des douze coups de minuit.'],
+ ['🎅','In the stories, Santa Claus','Dans les histoires, le Père Noël','🏖️','lives at the beach.','habite à la plage.',false,'In the stories, Santa lives at the North Pole!','Dans les histoires, le Père Noël habite au pôle Nord !'],
+ ['🇫🇷','In France,','En France,','🐟','people stick paper fish on friends\' backs for April Fools\' Day.','les gens collent des poissons en papier dans le dos de leurs amis pour le poisson d\'avril.',true,'Poisson d\'avril! In English, it\'s "April Fools\' Day".','Poisson d\'avril ! En anglais, on dit « April Fools\' Day ».'],
+ ['🇨🇳','In China,','En Chine,','🐉','people watch a dragon dance for the New Year.','les gens regardent la danse du dragon pour le Nouvel An.',true,'The dragon dance brings good luck!','La danse du dragon porte bonheur !'],
+ ['🇮🇳','In India,','En Inde,','🎃','people carve pumpkins for Diwali.','les gens creusent des citrouilles pour Diwali.',false,'For Diwali, people light lamps. Pumpkins are for Halloween!','Pour Diwali, les gens allument des lampes. Les citrouilles, c\'est pour Halloween !'],
+ ['🇲🇽','In Mexico,','Au Mexique,','🫔','people eat tamales.','les gens mangent des tamales.',true,'Tamales are made with corn. Yum!','Les tamales sont faits avec du maïs. Miam !']
+];
+
+/* sound spot: English J (dj) vs Y */
+var SND={sj_jet:'jet',sj_yet:'yet',sj_jam:'jam',sj_yam:'yam',sj_joke:'joke',sj_yolk:'yolk',sj_jello:'jello',sj_yellow:'yellow'};
+var TWISTER='Yes! We jump for joy for the New Year!';
+
+/* would you rather */
+var WY=[['wy1','Would you rather break a piñata or get a red envelope?','Tu préfères casser une piñata ou recevoir une enveloppe rouge ?',['🪅','break a piñata','casser une piñata'],['🧧','get a red envelope','recevoir une enveloppe rouge']],
+ ['wy2','Would you rather eat tamales or eat dumplings?','Tu préfères manger des tamales ou des raviolis chinois ?',['🫔','eat tamales','manger des tamales'],['🥟','eat dumplings','manger des raviolis chinois']],
+ ['wy3','Would you rather light lamps for Diwali or watch a dragon dance?','Tu préfères allumer des lampes pour Diwali ou regarder la danse du dragon ?',['🪔','light lamps','allumer des lampes'],['🐉','watch a dragon dance','regarder la danse du dragon']],
+ ['wy4','Would you rather open your presents in the morning or in the evening?','Tu préfères ouvrir tes cadeaux le matin ou le soir ?',['☀️','in the morning','le matin'],['🌙','in the evening','le soir']],
+ ['wy5','Would you rather celebrate at home or in another country?','Tu préfères faire la fête à la maison ou dans un autre pays ?',['🏠','at home','à la maison'],['✈️','in another country','dans un autre pays']],
+ ['wy6','Would you rather find the charm in the king cake or make a sugar skull?','Tu préfères trouver la fève dans la galette ou faire un crâne en sucre ?',['👑','find the charm','trouver la fève'],['💀','make a sugar skull','faire un crâne en sucre']]];
+
+/* big talk storyboard */
+function sbOpts(z){return A.filter(function(a){return a.z===z;}).map(function(a){return {e:a.e,w:a.w,wfr:a.fr,s:a.s,sfr:a.sfr};});}
+var FAM=[CHAIN[0].pool[0],CHAIN[1].pool[0],CHAIN[1].pool[1],CHAIN[1].pool[2],CHAIN[1].pool[4],CHAIN[1].pool[5]];
+var FAMFR={ch_tree:'décorons le sapin',ch_dinner:'mangeons un grand repas',ch_open:'ouvrons les cadeaux',ch_sing:'chantons des chansons',ch_grandma:'rendons visite à mamie',ch_fireworks:'regardons le feu d\'artifice'};
+var SB=G.filter(function(g){return g.z!=='us';}).map(function(g){return {em:g.em,lab:g.inn+' people…',fr:g.infr+' les gens…',opts:sbOpts(g.z)};});
+SB.push({em:'🏠',lab:'In my family, we…',fr:'Dans ma famille, nous…',opts:FAM.map(function(c){return {e:c.e,w:c.w,wfr:c.fr,s:'In my family, we '+c.w+'.',sfr:'Dans ma famille, nous '+FAMFR[c.k]+'.'};})});
+
+/* My English Book */
+var BOOK=[{id:'b1',lbl:'🌍 My favorite tradition:',say:'My favorite tradition:',lblfr:'Ma tradition préférée :',opts:['a_pinata','a_lamps','a_dragon','a_stockings','a_kingcake','a_envelopes'].map(function(k){var a=A.filter(function(x){return x.k===k;})[0];return {e:a.e,w:a.w,fr:a.fr,said:a.s};})},
+ {id:'b2',lbl:'🎉 In my family, we',say:'In my family, we',lblfr:'Dans ma famille, nous…',opts:FAM.map(function(c){return {e:c.e,w:c.w,fr:c.fr,said:c.w+'.'};})},
+ {id:'b3',lbl:'❤️ For the holidays, I love',say:'For the holidays, I love',lblfr:'Pour les fêtes, j\'adore…',opts:[{e:'🎁',w:'the presents',fr:'les cadeaux'},{e:'🍽️',w:'the food',fr:'le repas'},{e:'👨‍👩‍👧',w:'my family',fr:'ma famille'},{e:'💡',w:'the lights',fr:'les lumières'},{e:'🎶',w:'the songs',fr:'les chansons'},{e:'🍫',w:'the chocolate',fr:'le chocolat'}].map(function(o){o.said=o.w+'.';return o;})}];
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},1500);}
+function confetti(){var c=$('confetti');var em=CONFETTI;for(var i=0;i<40;i++){var s=document.createElement('i');s.textContent=em[i%em.length];s.style.left=Math.random()*100+'vw';s.style.animationDelay=(Math.random()*.8)+'s';c.appendChild(s);}setTimeout(function(){c.innerHTML='';},3600);}
+function frs(t){return t?'<span class="fr">'+t+'</span>':'';}
+var stars=0;function addStars(n){stars+=n;$('starN').textContent=stars;}
+$('starPlus').onclick=function(){addStars(1);toast('⭐ +1');};
+$('frBtn').onclick=function(){document.body.classList.toggle('no-fr');this.classList.toggle('on');};
+$('sndBtn').onclick=function(){sound=!sound;this.classList.toggle('on',sound);this.textContent=sound?'🔊':'🔇';if(!sound)stopAll();};
+document.querySelectorAll('[data-a]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();play([b.dataset.a]);});});
+
+/* ---------- vocabulary lookup ---------- */
+A.forEach(function(a){T(a.k,a.s);});
+var BY={};A.forEach(function(a){BY[a.k]=a;});
+
+/* ---------- slides ---------- */
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,dots=$('dots');
+slides.forEach(function(_,i){var d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=function(){go(i);};dots.appendChild(d);});
+function go(n){if(n<0||n>=slides.length)return;stopAll();$('toast').classList.remove('show');slides[cur].classList.remove('active');dots.children[cur].classList.remove('active');dots.children[cur].classList.add('done');cur=n;slides[cur].classList.add('active');dots.children[cur].classList.add('active');dots.children[cur].classList.remove('done');$('prevB').style.visibility=cur===0?'hidden':'visible';$('nextB').style.visibility=cur===slides.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'});if(cur===slides.length-1)ceremony();}
+window.goTo=go;$('prevB').onclick=function(){go(cur-1);};$('nextB').onclick=function(){go(cur+1);};$('prevB').style.visibility='hidden';
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+document.querySelectorAll('.qcard').forEach(function(q){q.addEventListener('click',function(){q.classList.toggle('asked');});});
+
+/* ---------- warm-up ---------- */
+for(var wk in WST)T(wk,WST[wk][0]);
+function showStarters(k){var w=WST[k];$('stWhich').textContent=w[0];$('warmStarters').innerHTML=w[1].map(function(x){return '<span class="starter">'+x[0]+'<span class="fr">'+x[1]+'</span></span>';}).join('');document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.style.outline=c.dataset.st===k?'3px solid var(--gold)':'';});}
+document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.addEventListener('click',function(){showStarters(c.dataset.st);});});showStarters('w1');
+
+/* ---------- wheel (review of earlier lessons) ---------- */
+W.forEach(function(w,i){T('r'+(i+1),w[1]);var s=document.createElement('span');var ang=i*60+30;s.textContent=w[0];s.style.transform='rotate('+ang+'deg) translate(0,-95px) rotate(-'+ang+'deg) translate(-50%,-50%)';$('wheel').appendChild(s);});
+var rot=0;
+$('spinWheel').onclick=function(){var pick=Math.floor(Math.random()*6),th=pick*60+30;rot=rot-(rot%360)+1440+((270-th)%360+360)%360;$('wheel').style.transform='rotate('+rot+'deg)';var w=W[pick];$('wq').innerHTML='…';setTimeout(function(){$('wq').innerHTML=w[0]+' '+w[1]+'<span class="fr">'+w[2]+'</span><span class="s">'+w[3]+frs(w[4])+'</span>';play(['r'+(pick+1)]);},3000);};
+
+/* ---------- story ---------- */
+S.forEach(function(p){T(p[0],p[4]);var d=document.createElement('div');d.className='panel '+p[1];d.id='p_'+p[0];d.innerHTML='<span class="tag">'+p[2]+'</span><div class="sc">'+p[3]+'</div><p>'+p[4]+'</p><span class="fr">'+p[5]+'</span>';d.onclick=function(){play([p[0]],hl);};$('story').appendChild(d);});
+function hl(k){document.querySelectorAll('.panel').forEach(function(x){x.classList.toggle('playing',x.id==='p_'+k);});}
+$('playStory').onclick=function(){play(S.map(function(p){return p[0];}),hl);};
+
+/* ---------- story quiz ---------- */
+Q.forEach(function(q){T(q[0],q[1]);var d=document.createElement('div');d.className='mcq';d.innerHTML='<div class="q"><button class="spk">🔊</button>'+q[1]+'</div><span class="fr">'+q[2]+'</span><div class="opts"></div><div class="why"></div>';d.querySelector('.spk').onclick=function(){play([q[0]]);};var o=d.querySelector('.opts'),why=d.querySelector('.why');q[3].forEach(function(op){var b=document.createElement('button');b.className='opt';b.innerHTML=op[0]+'<span class="fr">'+op[1]+'</span>';b.onclick=function(){b.classList.add(op[2]?'ok':'no');why.className='why show '+(op[2]?'good':'bad');why.innerHTML=(op[2]?'✅ ':'💡 ')+op[3]+'<span class="fr">'+op[4]+'</span>';};o.appendChild(b);});$('storyQuiz').appendChild(d);});
+
+/* ---------- words (grouped) + flash ---------- */
+G.forEach(function(g){var h=document.createElement('div');h.style.cssText='grid-column:1/-1;font-family:Poppins;font-weight:800;font-size:17px;color:var(--pool1);margin-top:6px;';h.innerHTML=g.em+' '+g.name+' <span class="fr inl">'+g.fr+'</span>';$('wordPics').appendChild(h);A.filter(function(a){return a.z===g.z;}).forEach(function(a){var d=document.createElement('div');d.className='pic';d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){play([a.k]);};$('wordPics').appendChild(d);});});
+$('hideWords').onclick=function(){var h=this.dataset.h!=='1';this.dataset.h=h?'1':'0';this.innerHTML=h?'👀 Show the words <span class="fr inl">Montrer les mots</span>':'🙈 Hide the words <span class="fr inl">Cacher les mots</span>';document.querySelectorAll('#wordPics .pic').forEach(function(p){p.classList.toggle('hide',h);});};
+var flashBag=[],flashT=null,flashT2=null;
+var flashN=0;$('flashGot').onclick=function(){addStars(1);toast('⭐ +1');};
+$('flashGo').onclick=function(){flashN++;$('flashCount').textContent='Round '+flashN;if(!flashBag.length)flashBag=shuffle(A);var a=flashBag.pop();var f=$('flash');clearTimeout(flashT);clearTimeout(flashT2);f.innerHTML='<span class="e">'+a.e+'</span>';flashT=setTimeout(function(){f.innerHTML='<span class="e">⏳</span>Say it! / Dis-le !';flashT2=setTimeout(function(){f.innerHTML='<span class="e">'+a.e+'</span><span style="font-size:17px">'+a.s+'</span><span class="fr" style="color:#d9ccff">'+(a.sfr||a.fr)+'</span>';play([a.k]);},2500);},3000);};
+
+/* ---------- chain ---------- */
+var CBY={};CHAIN.forEach(function(m){m.pool.forEach(function(it){CBY[it.k]=it;T(it.k,it.c);});T('cm_'+m.id,m.frame);});
+CON.forEach(function(c){if(c[0])T(c[0],c[1]);});
+var chainMi=0,chain=[],chainDone=false;
+function conAt(i){if(i===0)return CON[0];if(chainDone&&i===chain.length-1)return CON[4];return CON[[1,2,3,1][(i-1)%4]];}
+function renderChainLv(){var l=$('chainLv');l.innerHTML='';[3,4,5].forEach(function(n,i){var sp=document.createElement('span');sp.className='lv'+(chain.length>=n&&chainDone?' done':'')+(!chainDone&&chain.length<n&&(i===0||chain.length>=n-1)?' on':'');sp.textContent='⭐ '+n+' '+CHAIN_UNIT;l.appendChild(sp);});}
+function renderChain(){var b=$('chainBox');var m=CHAIN[chainMi];if(!chain.length){b.innerHTML='<span style="color:#9aa">'+m.em+' '+m.frame+' … tap what she says first</span><span class="fr">'+m.fr+'… touche ce qu\'elle dit en premier</span>';}else{var html=m.em+' <b>'+m.frame+'</b> ';chain.forEach(function(k,i){var c=conAt(i)[1];html+=(c?'<span class="c">'+c+'</span> ':'')+CBY[k].c+(i<chain.length-1?((chainDone&&chain.length===2&&!CON[1][1])?' ':', '):(chainDone?CHAIN_END:' …'));});b.innerHTML=html;}
+ var p=$('chainPics');p.innerHTML='';m.pool.forEach(function(it){var k=it.k;var d=document.createElement('div');d.className='pic'+(chain.indexOf(k)>=0||chainDone?' used':'');d.innerHTML='<div class="e">'+it.e+'</div><div class="w">'+it.w+'</div><span class="fr">'+it.fr+'</span>';d.onclick=function(){if(chainDone||chain.indexOf(k)>=0||chain.length>=6)return;chain.push(k);renderChain();renderChainLv();};p.appendChild(d);});
+ $('chainFinish').disabled=chain.length<2||chainDone;}
+function modeBtn(){var nx=CHAIN[(chainMi+1)%CHAIN.length];$('chainMode').innerHTML=nx.em+' Switch to: '+nx.name+' <span class="fr inl">'+nx.namefr+'</span>';}
+$('chainFinish').onclick=function(){if(chain.length<2)return;chainDone=true;renderChain();renderChainLv();addStars(chain.length>=5?3:chain.length>=4?2:1);toast('🔗 Now say the WHOLE chain! / Redis toute la chaîne !');};
+$('chainUndo').onclick=function(){if(chainDone){chainDone=false;}else chain.pop();renderChain();renderChainLv();};
+$('chainReset').onclick=function(){chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainMode').onclick=function(){chainMi=(chainMi+1)%CHAIN.length;modeBtn();chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainRead').onclick=function(){if(!chain.length)return;var keys=['cm_'+CHAIN[chainMi].id];chain.forEach(function(k,i){var c=conAt(i);if(c[0])keys.push(c[0]);keys.push(k);});play(keys);};
+modeBtn();renderChainLv();renderChain();
+
+/* ---------- sorting (no race) ---------- */
+SORT.zones.forEach(function(z){var d=document.createElement('div');d.className='zone '+z.cls;d.dataset.z=z.id;d.innerHTML='<h4>'+z.em+' '+z.name+'</h4><span class="fr">'+z.fr+'</span>';$('sortBoard').appendChild(d);});
+var ZBY={};SORT.zones.forEach(function(z){ZBY[z.id]=z;});
+var sortBag=[],sortCur=null;
+function nextSort(){if(!sortBag.length){sortCur=null;$('sortNow').innerHTML='<div class="e">🎉</div>All done!<span class="fr">Fini !</span>';$('sortMsg').innerHTML=SORT.doneMsg;document.querySelectorAll('.zone').forEach(function(z){z.classList.remove('target');});return;}sortCur=sortBag.pop();$('sortNow').innerHTML='<div class="e">'+sortCur.e+'</div>'+sortCur.w+'<span class="fr">'+sortCur.fr+'</span>';document.querySelectorAll('.zone').forEach(function(z){z.classList.add('target');});}
+function startSort(){sortBag=shuffle(A);document.querySelectorAll('.zone .chip').forEach(function(c){c.remove();});$('sortMsg').textContent='';nextSort();}
+$('sortStart').onclick=startSort;
+document.querySelectorAll('.zone').forEach(function(z){z.onclick=function(){if(!sortCur)return;var it=sortCur,ok=SORT.ok(it);if(ok.indexOf(z.dataset.z)<0){$('sortMsg').innerHTML=SORT.wrong(it,ZBY[z.dataset.z]);return;}var c=document.createElement('span');c.className='chip';c.textContent=it.e+' '+it.w;z.appendChild(c);addStars(1);play([it.k]);$('sortMsg').innerHTML=SORT.right(it,ok);nextSort();};});
+startSort();
+
+/* ---------- critical thinking: intruder + order ---------- */
+var FBY={};FIX.forEach(function(r,ri){r.cards.forEach(function(c){FBY[c.k]=c;T(c.k,c.s);});r.labels.forEach(function(l,i){T('fl'+ri+'_'+i,l[0]);});});
+var fixR=0,fixStep=1,fixOrder=[],fixCards=[];
+function stepUI(){[1,2,3].forEach(function(i){$('fs'+i).className='st'+(i===fixStep?' on':'')+(i<fixStep?' ok':'');});}
+function renderFix(){var r=FIX[fixR];$('fixIntro').innerHTML=r.intro+'<span class="fr">'+r.introfr+'</span>';var m=$('mixed');m.innerHTML='';fixCards.forEach(function(k){var a=FBY[k];var d=document.createElement('div');d.className='mx'+(fixStep>1&&k===r.intruder?' out':'')+(fixOrder.indexOf(k)>=0?' placed':'');d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){clickFix(k);};m.appendChild(d);});
+ var s=$('fixSlots');s.innerHTML='';if(fixStep>=2){r.labels.forEach(function(l,i){var k=fixOrder[i];var d=document.createElement('div');d.className='oslot';d.innerHTML='<div class="lab">'+l[0]+'<span class="fr" style="font-size:12px">'+l[1]+'</span></div>'+(k?'<div class="e">'+FBY[k].e+'</div><div class="w">'+FBY[k].s+'</div>':'<div class="e" style="opacity:.25">?</div>');s.appendChild(d);});}stepUI();}
+function clickFix(k){var r=FIX[fixR];if(fixStep===1){if(k===r.intruder){fixStep=2;$('fixMsg').innerHTML='✅ Yes! '+r.why+'<span class="fr">'+r.whyfr+'</span>';addStars(1);}else{$('fixMsg').innerHTML='🤔 Hmm, "'+FBY[k].w+'" '+r.belongs+' Look again!<span class="fr">« '+FBY[k].fr+' » '+r.belongsfr+' Regarde encore !</span>';}renderFix();return;}
+ if(fixStep===2){if(k===r.intruder||fixOrder.indexOf(k)>=0)return;fixOrder.push(k);play(['fl'+fixR+'_'+(fixOrder.length-1),k]);renderFix();if(fixOrder.length===4)checkFix();}}
+function same(a,b){return a.join('|')===b.join('|');}
+function checkFix(){var r=FIX[fixR];var good=same(fixOrder,r.order)||(r.alts||[]).some(function(o){return same(fixOrder,o);});
+ if(good){fixStep=3;$('fixMsg').innerHTML='🎉 '+r.done+'<span class="fr">'+r.donefr+'</span>';addStars(2);confetti();}else{$('fixMsg').innerHTML='💡 '+r.hint+' <br>Press "Try again".<span class="fr">'+r.hintfr+' Appuie sur « Try again ».</span>';}renderFix();}
+function startFix(r){fixR=r;fixStep=1;fixOrder=[];fixCards=shuffle(FIX[r].cards.map(function(c){return c.k;}));$('fixMsg').textContent='';renderFix();}
+$('fixReset').onclick=function(){if(fixStep===1){startFix(fixR);return;}fixOrder=[];fixStep=2;$('fixMsg').textContent='';renderFix();};
+$('fixNext').onclick=function(){startFix(fixR?0:1);this.innerHTML=fixR?FIX[0].back:FIX[1].nextBtn;};
+startFix(0);
+
+/* ---------- true or silly (every fact checked) ---------- */
+TS.forEach(function(t,i){T('ts'+i,t[1]+' '+t[4]);});
+var last=null,tsBag=[],tsDone=false;
+$('spin').onclick=function(){if(!tsBag.length)tsBag=shuffle(TS.map(function(_,i){return i;}));var fin=tsBag.pop();var n=0;$('verdict').textContent='';var iv=setInterval(function(){var i=++n>12?fin:Math.floor(Math.random()*TS.length),t=TS[i];$('r1').innerHTML='<span class="e">'+t[0]+'</span>'+t[1]+'<span class="fr">'+t[2]+'</span>';$('r2').innerHTML='<span class="e">'+t[3]+'</span>'+t[4]+'<span class="fr">'+t[5]+'</span>';if(n>12){clearInterval(iv);last=i;tsDone=false;$('verdict').innerHTML='Read it! True or silly?<span class="fr">Lis-la ! Vrai ou rigolo ?</span>';}},70);};
+$('sayIt').onclick=function(){if(last!==null)play(['ts'+last]);};
+document.querySelectorAll('[data-v]').forEach(function(b){b.onclick=function(){if(last===null){$('verdict').innerHTML='Press SPIN first!<span class="fr">Appuie d\'abord sur SPIN !</span>';return;}var t=TS[last],said=b.dataset.v==='true',right=said===t[6];if(right&&!tsDone){addStars(1);tsDone=true;}$('verdict').innerHTML=(right?'✅ Yes! ':'🤔 Not quite! ')+(t[6]?'It\'s TRUE. ':'It\'s SILLY! ')+t[7]+(t[6]?'':' Now say the true sentence!')+'<span class="fr">'+(right?'Oui ! ':'Pas tout à fait ! ')+(t[6]?'C\'est VRAI. ':'C\'est RIGOLO ! ')+t[8]+(t[6]?'':' Maintenant, dis la phrase vraie !')+'</span>';};});
+
+/* ---------- sound spot ---------- */
+for(var sk in SND)T(sk,SND[sk]);T('snd_twister',TWISTER);
+var myst=null;$('mystery').onclick=function(){var ks=Object.keys(SND);myst=ks[Math.floor(Math.random()*ks.length)];play([myst]);$('thMsg').innerHTML='Which word? Say it! <button class="btn ghost" id="thShow" style="padding:4px 10px;font-size:14px">Show</button><span class="fr">Quel mot ? Dis-le !</span>';$('thShow').onclick=function(){$('thMsg').innerHTML='It was: <b>'+SND[myst]+'</b><span class="fr">C\'était : '+SND[myst]+'</span>';};};
+
+/* ---------- picture reveal ---------- */
+var revBag=[],revCur=null,revPts=9;
+function newReveal(){if(!revBag.length)revBag=shuffle(A);revCur=revBag.pop();$('revealPic').textContent=revCur.e;var t=$('tiles');t.innerHTML='';revPts=9;$('revealPts').textContent='Points for this round: 9';$('revealMsg').textContent='';for(var i=0;i<9;i++){var d=document.createElement('div');d.className='tile';d.textContent=i+1;d.onclick=function(){if(this.classList.contains('gone'))return;this.classList.add('gone');revPts--;$('revealPts').textContent='Points for this round: '+revPts;};t.appendChild(d);}}
+$('revealNew').onclick=newReveal;
+$('revealAll').onclick=function(){document.querySelectorAll('.tile').forEach(function(t){t.classList.add('gone');});$('revealMsg').innerHTML=revCur.s+'<span class="fr">'+(revCur.sfr||revCur.fr)+'</span>';play([revCur.k]);};
+$('revealGot').onclick=function(){var p=Math.max(1,revPts);addStars(p);$('revealAll').click();toast('⭐ +'+p+'!');};
+newReveal();
+
+/* ---------- would you rather ---------- */
+WY.forEach(function(w){T(w[0],w[1]);});
+var wyI=0;function renderWY(){var w=WY[wyI];$('wyrQ').textContent=w[1];$('wyrQfr').textContent=w[2];[['wyrA',w[3]],['wyrB',w[4]]].forEach(function(p){var el=$(p[0]);el.className='side';el.innerHTML='<span class="e">'+p[1][0]+'</span>'+p[1][1]+'<span class="fr">'+p[1][2]+'</span>';el.onclick=function(){$('wyrA').classList.remove('on');$('wyrB').classList.remove('on');el.classList.add('on');};});}
+$('wyrSpk').onclick=function(){play([WY[wyI][0]]);};$('wyrNext').onclick=function(){wyI=(wyI+1)%WY.length;renderWY();};renderWY();
+
+/* ---------- big talk storyboard ---------- */
+SB.forEach(function(c,ci){var d=document.createElement('div');d.className='sb';d.innerHTML='<div class="lab">'+c.em+' '+c.lab+'<span class="fr">'+c.fr+'</span></div><div class="choices"></div><div class="said"></div>';var ch=d.querySelector('.choices'),said=d.querySelector('.said');c.opts.forEach(function(o,oi){var key='sb'+ci+'_'+oi;T(key,o.s);var b=document.createElement('button');b.innerHTML=o.e+'<div style="font-size:11px">'+o.w+'</div>'+(o.wfr?'<span class="fr" style="font-size:10px">'+o.wfr+'</span>':'');b.title=o.w;b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');said.innerHTML=o.s+'<span class="fr" style="font-size:13px;font-weight:500">'+o.sfr+'</span>';play([key]);};ch.appendChild(b);});$('storyboard').appendChild(d);});
+document.querySelectorAll('.lvl').forEach(function(l){l.onclick=function(){document.querySelectorAll('.lvl').forEach(function(x){x.classList.remove('on');});l.classList.add('on');toast('🎭 Round: '+l.childNodes[1].textContent.trim()+'! '+VOICE_TOAST+' ⭐');};});
+
+/* ---------- book (tap choices, saved in this browser) ---------- */
+var book={};try{book=JSON.parse(localStorage.getItem(BOOK_KEY)||'{}');}catch(e){}
+BOOK.forEach(function(l){l.opts.forEach(function(o,oi){T(l.id+'_'+oi,l.say+' '+o.said);});var d=document.createElement('div');d.className='bline';d.innerHTML='<span class="lbl">'+l.lbl+'</span><span class="said"></span><span class="fr">'+l.lblfr+'</span><div class="choices"></div>';var said=d.querySelector('.said'),ch=d.querySelector('.choices');function show(i){said.textContent=(i!==undefined&&l.opts[i])?l.opts[i].said:'…';}show(book[l.id]);l.opts.forEach(function(o,oi){var b=document.createElement('button');b.innerHTML=o.e+' '+o.w+'<span class="fr" style="font-size:11.5px">'+o.fr+'</span>';if(book[l.id]===oi)b.classList.add('on');b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');book[l.id]=oi;show(oi);try{localStorage.setItem(BOOK_KEY,JSON.stringify(book));}catch(e){}};ch.appendChild(b);});$('book').appendChild(d);});
+$('readBook').onclick=function(){var keys=[];BOOK.forEach(function(l){if(book[l.id]!==undefined&&l.opts[book[l.id]])keys.push(l.id+'_'+book[l.id]);});play(keys);};
+
+/* ---------- ceremony ---------- */
+T('praise',PRAISE);
+function ceremony(){$('stStars').textContent=stars;$('stMedal').textContent=stars>=40?'🥇':stars>=25?'🥈':'🥉';}
+document.querySelectorAll('.cando').forEach(function(c){c.onclick=function(){c.classList.toggle('ok');};});
+$('medal').onclick=function(){confetti();play(['praise']);ceremony();toast((stars>=40?'🥇 Gold':stars>=25?'🥈 Silver':'🥉 Bronze')+' medal!');};
+if(window.speechSynthesis)speechSynthesis.getVoices();
+})();
+</script>
+</body>
+</html>

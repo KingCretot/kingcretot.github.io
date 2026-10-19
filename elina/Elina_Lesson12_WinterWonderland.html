@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Elina's English — Lesson 12: Winter Wonderland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#012a3d;--pool1:#00637a;--pool2:#00a7b5;--pool3:#5be0d8;--ink:#012a38;--gold:#ffcc4d;--coral:#ff6f6f;--violet:#6b4fc8;--green:#16a34a;--soft:#f2fbfb;--line:#d6eef0;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(circle at 10% 15%,rgba(255,255,255,.18) 0,transparent 40%),radial-gradient(circle at 90% 80%,rgba(255,255,255,.14) 0,transparent 45%),linear-gradient(160deg,var(--deep) 0%,var(--pool1) 42%,var(--pool2) 75%,var(--pool3) 100%);background-attachment:fixed;overflow-x:hidden;}
+h1,h2,h3{font-family:'Poppins',sans-serif;}
+#app{max-width:980px;margin:0 auto;padding:12px 14px 100px;}
+.hud{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(1,42,56,.5);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);border-radius:16px;padding:8px 12px;margin-bottom:12px;position:relative;z-index:5;color:#fff;}
+.hud .who{font-weight:700;font-size:15px;white-space:nowrap;}.hud .who span{font-size:24px;vertical-align:middle;}
+.dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;flex:1;min-width:120px;}
+.dot{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0;}
+.dot.active{background:var(--gold);transform:scale(1.35);}.dot.done{background:var(--pool3);}
+.pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:6px 11px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.pill.on{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.score{display:flex;align-items:center;gap:6px;background:rgba(255,204,77,.18);border:1px solid var(--gold);border-radius:999px;padding:3px 4px 3px 10px;font-weight:800;font-size:15px;}
+.score button{width:32px;height:32px;border-radius:50%;border:none;background:var(--gold);color:var(--ink);font-weight:900;font-size:16px;cursor:pointer;line-height:1;}
+.timer-pill{font-variant-numeric:tabular-nums;}
+.slide{display:none;animation:pop .35s ease;}.slide.active{display:block;}
+@keyframes pop{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.card{background:#fff;border-radius:22px;box-shadow:0 14px 34px rgba(1,42,56,.28);padding:22px 24px 20px;}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+.kicker{display:inline-block;background:var(--soft);color:var(--pool1);font-weight:800;font-size:12px;letter-spacing:1.3px;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+.mins{font-size:12px;font-weight:800;color:#7a8f95;background:#f4f7f7;border-radius:999px;padding:4px 10px;}
+h2.t{font-size:27px;margin:6px 0 2px;color:var(--deep);line-height:1.2;}
+.fr{display:block;color:var(--violet);font-style:italic;font-size:.9em;margin-top:2px;}
+span.fr.inl{display:inline;margin-left:6px;}
+body.no-fr .fr{display:none!important;}
+.lead{font-size:18px;margin:10px 0 12px;line-height:1.45;}
+.big-goal{background:linear-gradient(135deg,#fff7dd,#ffeeb3);border:3px solid var(--gold);border-radius:18px;padding:14px 18px;margin:12px 0;font-size:21px;font-weight:700;font-family:'Poppins';}
+.big-goal small{display:block;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#a07800;margin-bottom:4px;}
+.bibi{display:flex;gap:12px;align-items:flex-start;background:#eef9fa;border-radius:16px;padding:12px 14px;margin:10px 0;}
+.bibi .b{font-size:40px;line-height:1;flex:none;}.bibi p{margin:0;font-size:17px;line-height:1.5;}
+.btn{font-family:'Poppins';font-weight:700;font-size:16px;border:none;border-radius:14px;padding:11px 18px;cursor:pointer;background:var(--pool1);color:#fff;}
+.btn.gold{background:var(--gold);color:var(--ink);}.btn.ghost{background:#fff;color:var(--pool1);border:2px solid var(--pool1);}.btn.red{background:var(--coral);}
+.btn:active{transform:scale(.97);}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}.center{justify-content:center;}
+.spk{border:none;background:var(--soft);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:16px;flex:none;}
+details.tutor{margin-top:14px;border:2px dashed #b9c9cc;border-radius:14px;background:#fafcfc;}
+details.tutor summary{cursor:pointer;padding:9px 14px;font-weight:700;color:#4a6670;font-size:14px;list-style:none;}
+details.tutor summary::before{content:"🧑‍🏫 ";}details.tutor[open] summary{border-bottom:1px dashed #b9c9cc;}
+details.tutor .in{padding:10px 16px 12px;font-size:14.5px;line-height:1.55;}
+details.tutor .in b{color:var(--pool1);}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0;}
+.qcard{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-size:18px;font-weight:600;cursor:pointer;display:flex;gap:10px;align-items:flex-start;}
+.qcard .tx{flex:1;}.qcard .s{display:block;font-size:14px;font-weight:500;color:#4a6670;margin-top:5px;}
+.qcard.asked{background:#e7f8ee;border-color:var(--green);}
+.starters{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.starter{background:#fff7dd;border:1.5px solid var(--gold);border-radius:12px;padding:6px 12px;font-size:15px;font-weight:600;}
+.starter .fr{font-size:13px;}
+.askback{background:#f1ecff;border:2px solid var(--violet);border-radius:16px;padding:12px 14px;margin-top:10px;font-size:17px;}
+/* wheel */
+.wheel-wrap{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap;margin:8px 0;}
+.wheel{width:250px;height:250px;border-radius:50%;border:6px solid var(--gold);position:relative;transition:transform 3s cubic-bezier(.17,.67,.21,1);background:conic-gradient(#ffe7a3 0 60deg,#c9f1f3 60deg 120deg,#ffd6cc 120deg 180deg,#e4dcff 180deg 240deg,#d7f5da 240deg 300deg,#ffe1f0 300deg 360deg);}
+.wheel span{position:absolute;left:50%;top:50%;font-size:34px;transform-origin:0 0;}
+.pointer{font-size:38px;}
+.wq{flex:1;min-width:260px;background:var(--soft);border-radius:18px;padding:16px;font-size:22px;font-weight:700;font-family:'Poppins';min-height:120px;}
+.wq .s{display:block;font-size:15px;font-family:'Inter';font-weight:500;color:#4a6670;margin-top:8px;}
+/* story */
+.story{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:10px 0;}
+.panel{border-radius:18px;padding:12px;text-align:center;cursor:pointer;position:relative;min-height:190px;border:3px solid transparent;}
+.panel.night{background:linear-gradient(180deg,#14305a,#2b5288);color:#fff;}.panel.night .fr{color:#d9ccff;}
+.panel.day{background:linear-gradient(180deg,#fff2c4,#ffd98a);}
+.panel.dusk{background:linear-gradient(180deg,#ffb38a,#7b4fa0);color:#fff;}.panel.dusk .fr{color:#ffe9ff;}
+.panel.playing{border-color:var(--gold);box-shadow:0 0 0 4px rgba(255,204,77,.5);}
+.panel .tag{position:absolute;top:8px;left:8px;font-size:11px;font-weight:800;background:rgba(255,255,255,.85);color:var(--ink);border-radius:999px;padding:2px 8px;}
+.panel .sc{font-size:44px;line-height:1.1;margin:18px 0 8px;}.panel p{margin:0;font-size:16.5px;font-weight:700;line-height:1.35;}
+.mcq{background:var(--soft);border-radius:16px;padding:12px 14px;margin:10px 0;}
+.mcq .q{font-size:19px;font-weight:700;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+.opt{font-family:'Poppins';font-weight:700;font-size:17px;padding:10px 16px;border-radius:14px;border:3px solid var(--line);background:#fff;cursor:pointer;text-align:center;}
+.opt .fr{font-size:13px;}
+.opt.ok{border-color:var(--green);background:#e7f8ee;}.opt.no{border-color:var(--coral);background:#fff0f0;opacity:.75;}
+.why{display:none;margin-top:8px;font-size:15.5px;padding:8px 12px;border-radius:10px;}
+.why.show{display:block;}.why.good{background:#e7f8ee;}.why.bad{background:#fff4e5;}
+/* words */
+.pics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.pic{background:var(--soft);border:3px solid var(--line);border-radius:18px;padding:10px 8px;text-align:center;cursor:pointer;user-select:none;position:relative;}
+.pic .e{font-size:46px;line-height:1.1;}.pic .w{font-weight:700;font-size:16px;margin-top:4px;font-family:'Poppins';}.pic .fr{font-size:13px;}
+.pic.hide .w,.pic.hide .fr{visibility:hidden;}.pic.picked{border-color:var(--gold);background:#fff7dd;}.pic.used{opacity:.3;pointer-events:none;}
+.flash{width:260px;height:230px;margin:10px auto;border-radius:24px;background:#012a3d;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid var(--gold);font-family:'Poppins';font-size:20px;text-align:center;}
+.flash .e{font-size:96px;line-height:1;}
+/* chain */
+.chainbox{background:#fffdf3;border:3px solid var(--gold);border-radius:18px;padding:14px 16px;margin:10px 0;font-family:'Poppins';font-size:21px;font-weight:600;min-height:70px;line-height:1.6;}
+.chainbox .c{color:var(--pool1);font-weight:800;}
+.lvlbar{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0;}
+.lv{padding:6px 12px;border-radius:999px;border:2px solid var(--line);font-weight:700;font-size:14px;background:#fff;}
+.lv.on{background:var(--gold);border-color:var(--gold);}.lv.done{background:#e7f8ee;border-color:var(--green);}
+/* sort */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:10px;}
+.zone{border-radius:16px;padding:10px;min-height:100px;cursor:pointer;border:3px dashed transparent;}
+.zone h4{margin:0 0 4px;font-size:17px;font-family:'Poppins';}.zone .fr{font-size:13px;}
+.zone.m{background:#fff4cf;}.zone.a{background:#dff5ff;}.zone.e{background:#ffe2d6;}.zone.n{background:#1d2f57;color:#fff;}.zone.n .fr{color:#d9ccff;}
+.zone.target{border-color:var(--pool1);}
+.chip{display:inline-block;background:#fff;color:var(--ink);border-radius:999px;padding:4px 10px;margin:3px;font-size:14px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.15);}
+.card-now{display:flex;gap:14px;align-items:center;justify-content:center;margin:8px 0;}
+.card-now .big{width:200px;padding:12px;border-radius:20px;background:#012a3d;color:#fff;text-align:center;border:4px solid var(--gold);font-family:'Poppins';}
+.card-now .big .e{font-size:64px;}.card-now .big .fr{color:#d9ccff;}
+/* fix bibi */
+.mixed{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.mx{width:150px;border-radius:18px;border:3px solid var(--line);background:#fff;padding:10px;text-align:center;cursor:pointer;}
+.mx .e{font-size:44px;}.mx .w{font-weight:700;font-family:'Poppins';font-size:15px;}.mx .fr{font-size:12.5px;}
+.mx.out{border-color:var(--coral);background:#fff0f0;text-decoration:line-through;}
+.mx.placed{opacity:.3;pointer-events:none;}
+.order-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.oslot{width:150px;min-height:120px;border-radius:16px;border:3px dashed #9cc;background:#f7fdfd;text-align:center;padding:8px;}
+.oslot .lab{font-weight:800;color:var(--pool1);font-size:15px;font-family:'Poppins';}.oslot .e{font-size:38px;}.oslot .w{font-weight:600;font-size:14px;}
+.stepper{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px;}
+.st{padding:5px 12px;border-radius:999px;font-weight:700;font-size:14px;background:#f4f7f7;color:#7a8f95;}
+.st.on{background:var(--pool1);color:#fff;}.st.ok{background:#e7f8ee;color:var(--green);}
+.msg{min-height:26px;font-weight:700;font-size:17px;text-align:center;margin:8px 0;}
+/* silly */
+.slots{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0;}
+.reel{background:#012a3d;color:#fff;border-radius:16px;padding:14px 18px;min-width:190px;text-align:center;font-family:'Poppins';font-weight:700;font-size:21px;border:4px solid var(--gold);}
+.reel .e{font-size:40px;display:block;}.reel .fr{color:#d9ccff;font-size:14px;}
+/* TH */
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.pair{display:flex;gap:8px;}
+.pair button{flex:1;font-family:'Poppins';font-weight:700;font-size:20px;padding:10px;border-radius:14px;border:3px solid var(--line);background:#fff;cursor:pointer;}
+.pair button.th{border-color:var(--violet);}
+.tongue{background:#f1ecff;border-radius:16px;padding:12px 16px;font-size:17px;margin:10px 0;}
+.twister{font-family:'Poppins';font-size:22px;font-weight:700;text-align:center;background:#fff7dd;border-radius:16px;padding:12px;margin:10px 0;}
+/* reveal */
+.reveal{position:relative;width:300px;height:300px;margin:10px auto;border-radius:20px;overflow:hidden;background:#fff;border:5px solid var(--gold);}
+.reveal .pic-under{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:190px;}
+.tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);}
+.tile{background:linear-gradient(135deg,#00637a,#012a3d);border:2px solid #5be0d8;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Poppins';font-weight:800;font-size:26px;cursor:pointer;transition:opacity .3s;}
+.tile.gone{opacity:0;pointer-events:none;}
+.ptsbig{text-align:center;font-family:'Poppins';font-weight:800;font-size:20px;color:var(--pool1);}
+/* wyr */
+.wyr{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:12px 0;}
+.wyr .side{border-radius:20px;padding:16px;text-align:center;cursor:pointer;border:4px solid var(--line);font-family:'Poppins';font-weight:700;font-size:19px;background:#fff;}
+.wyr .side .e{font-size:60px;display:block;}.wyr .side.on{border-color:var(--gold);background:#fff7dd;}
+.wyr .or{align-self:center;font-family:'Poppins';font-weight:800;font-size:22px;color:var(--coral);}
+.because{background:#f1ecff;border-radius:14px;padding:10px 14px;font-size:18px;font-weight:600;text-align:center;}
+@media(max-width:560px){.wyr{grid-template-columns:1fr;}.wyr .or{text-align:center;}}
+/* storyboard / book */
+.storyboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.sb{background:var(--soft);border-radius:16px;padding:10px;border:2px solid var(--line);}
+.sb .lab{font-weight:800;color:var(--pool1);font-family:'Poppins';text-align:center;}.sb .lab .fr{font-size:13px;}
+.sb .choices{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;}
+.sb .choices button{font-size:26px;padding:4px 8px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;}
+.sb .choices button.on{border-color:var(--gold);background:#fff7dd;}
+.sb .said{text-align:center;font-family:'Poppins';font-weight:600;font-size:15px;min-height:22px;margin-top:6px;}
+.levels{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.lvl{border:3px solid var(--line);border-radius:16px;padding:8px 14px;text-align:center;cursor:pointer;background:#fff;min-width:120px;font-weight:700;}
+.lvl .e{font-size:30px;display:block;}.lvl.on{border-color:var(--gold);background:#fff7dd;}.lvl .fr{font-size:12px;}
+.book{background:#fffdf5;border:3px solid var(--gold);border-radius:18px;padding:12px 16px;}
+.bline{margin:10px 0;}.bline .lbl{font-family:'Poppins';font-weight:700;font-size:20px;}
+.bline .said{font-family:'Poppins';font-size:20px;color:var(--pool1);font-weight:700;margin-left:6px;}
+.bline .choices{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.bline .choices button{font-size:15px;padding:6px 10px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;font-family:inherit;}
+.bline .choices button.on{border-color:var(--gold);background:#fff7dd;font-weight:700;}
+.stats{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:14px 0;}
+.stat{background:var(--soft);border-radius:18px;padding:14px 20px;text-align:center;min-width:150px;}
+.stat .v{font-family:'Poppins';font-size:38px;font-weight:800;color:var(--pool1);}.stat .k{font-size:14px;font-weight:600;}
+.cando{font-size:18px;margin:8px 0;padding:10px 14px;border-radius:14px;background:#f6fbfb;border:2px solid var(--line);cursor:pointer;}
+.cando.ok{background:#e7f8ee;border-color:var(--green);}.cando::before{content:"⬜ ";}.cando.ok::before{content:"✅ ";}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:12px;padding:12px;background:rgba(1,42,56,.55);backdrop-filter:blur(6px);z-index:60;}
+.nav button{font-family:'Poppins';font-weight:700;font-size:16px;border-radius:14px;padding:11px 22px;border:none;cursor:pointer;}
+.nav .prev-b{background:#fff;color:var(--pool1);}.nav .next-b{background:var(--gold);color:var(--ink);}
+.toast{position:fixed;left:50%;top:84px;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-weight:800;padding:10px 20px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.25);opacity:0;transition:.3s;z-index:80;pointer-events:none;font-family:'Poppins';}
+.toast.show{opacity:1;}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden;}
+.confetti i{position:absolute;top:-20px;font-size:26px;animation:fall 2.6s linear forwards;}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);}}
+@media(max-width:560px){h2.t{font-size:22px;}.card{padding:16px 14px;}.wheel{width:200px;height:200px;}}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="hud">
+  <div class="who"><span>🦇</span> Bibi &amp; Elina</div>
+  <div class="dots" id="dots"></div>
+  <div class="score" title="Tutor: tap ⭐ each time Elina says a full sentence">⭐ <span id="starN">0</span><button id="starPlus" aria-label="Add a star">+1</button></div>
+  <button class="pill on" id="frBtn">🇫🇷 FR</button>
+  <button class="pill on" id="sndBtn">🔊</button>
+</div>
+
+<!-- 1 MISSION -->
+<section class="slide active">
+<div class="card">
+  <div class="top"><span class="kicker">Lesson 12 · Winter Wonderland · Episode 12</span><span class="mins">1 min</span></div>
+  <h2 class="t">Bibi Wakes Up in Winter ❄️</h2><span class="fr">Bibi se réveille en hiver</span>
+  <div class="bibi"><div class="b">🦇</div><p>Hi Elina! Many bats sleep all winter. I always sleep in winter… but this year, I woke up! Everything is white and cold. What can people do in winter? You are the expert! Can you help me?<span class="fr">Salut Elina ! Beaucoup de chauves-souris dorment tout l'hiver. Moi, je dors toujours en hiver… mais cette année, je me suis réveillée ! Tout est blanc et froid. Qu'est-ce qu'on peut faire en hiver ? C'est toi l'experte ! Tu peux m'aider ?</span></p></div>
+  <div class="big-goal"><small>Today I can… / Aujourd'hui, je peux…</small>say what I can do in winter: "In winter, I can build a snowman!"<span class="fr">dire ce que je peux faire en hiver : « En hiver, je peux faire un bonhomme de neige ! »</span></div>
+  <p class="lead">Every full sentence you say = ⭐. Can you get <b>40 stars</b> today?<span class="fr">Chaque phrase complète = une étoile ⭐. Tu peux gagner 40 étoiles aujourd'hui ?</span></p>
+  <details class="tutor"><summary>Tutor notes · how this lesson runs (≈45 min)</summary><div class="in">
+    <b>Zoom setup:</b> you share the screen and click everything; Elina only talks. Tap <b>⭐ +1</b> in the top bar each time she says a full English sentence (it's the score for the whole lesson). Each slide shows its target minutes.<br>
+    <b>Pattern of the day:</b> "In winter, I can ___." + "I can ___, but I can't ___." + "Can you ___?" → "Yes, I can! / No, I can't."<br>
+    <b>French-speaker traps:</b> "I can to ski" → <b>I can ski</b> (no "to" after can); "I can skiing" → <b>I can go skiing</b>; "I do sled" (faire de la luge) → <b>I go sledding</b>; "the winter" → <b>in winter</b> (no "the"); "skiing" said "skiinne" or "skiingue" → soft <b>-ng</b> (see the Sound spot). <b>Build</b> or <b>make</b> a snowman: both are correct.<br>
+    <b>Correcting:</b> never "No." Repeat it back correctly ("Yes! You <i>can ski</i>!") and let her say it again for the star.
+  </div></details>
+</div>
+</section>
+
+<!-- 2 WARM-UP -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Warm-Up · On discute</span><span class="mins">3 min</span></div>
+  <h2 class="t">👋 Let's Catch Up!</h2><span class="fr">On discute un peu !</span>
+  <p class="lead">Answer with a full sentence. Then ask me back!<span class="fr">Réponds avec une phrase complète. Puis pose-moi la question !</span></p>
+  <div class="qgrid" id="warmQs">
+    <div class="qcard" data-st="w1"><button class="spk" data-a="w1">🔊</button><div class="tx">😊 How are you today?<span class="fr">Comment tu vas aujourd'hui ?</span></div></div>
+    <div class="qcard" data-st="w2"><button class="spk" data-a="w2">🔊</button><div class="tx">🏔️ Is there snow where you live?<span class="fr">Est-ce qu'il y a de la neige là où tu habites ?</span></div></div>
+    <div class="qcard" data-st="w3"><button class="spk" data-a="w3">🔊</button><div class="tx">❄️ Do you like winter? Why?<span class="fr">Est-ce que tu aimes l'hiver ? Pourquoi ?</span></div></div>
+    <div class="qcard" data-st="w4"><button class="spk" data-a="w4">🔊</button><div class="tx">🧥 What do you wear when it's cold?<span class="fr">Qu'est-ce que tu portes quand il fait froid ?</span></div></div>
+  </div>
+  <p style="font-weight:700;margin:10px 0 4px;">💬 Answer starters <span class="fr inl">Pour commencer ta réponse</span> · <span id="stWhich" style="color:var(--pool1)">tap a question</span></p>
+  <div class="starters" id="warmStarters"></div>
+  <div class="askback">🔁 <b>Your turn:</b> "And you? How are you?" · "Do you like winter?"<span class="fr">À toi : « Et toi ? Comment tu vas ? » · « Est-ce que tu aimes l'hiver ? »</span></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    Push for full sentences ("Yes." → "Yes, I like winter because…"). Question 4 reviews Lesson 11 ("It's cold, so I wear a coat."). Follow-ups: "Why?", "What else?" She must ask you at least one question back. ⭐ for each full sentence.
+  </div></details>
+</div>
+</section>
+
+<!-- 3 REMEMBER WHEEL -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Remember? · Spin the wheel</span><span class="mins">2 min</span></div>
+  <h2 class="t">🎡 Spin &amp; Answer!</h2><span class="fr">Fais tourner la roue et réponds !</span>
+  <p class="lead">Questions from Lessons 6–11. Answer fast in a full sentence!<span class="fr">Des questions des leçons 6 à 11. Réponds vite avec une phrase complète !</span></p>
+  <div class="wheel-wrap"><div class="pointer">👉</div><div class="wheel" id="wheel"></div><div class="wq" id="wq">Press SPIN!<span class="fr">Appuie sur SPIN !</span></div></div>
+  <div class="row center"><button class="btn gold" id="spinWheel">🎡 SPIN!</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Spin 4–5 times. Each answer uses a pattern from an earlier lesson: days (L6), weather + because (L6), size + color + shape (L7), Halloween (L8), feelings (L10), "so" (L11). ⭐ for each full sentence.</div></details>
+</div>
+</section>
+
+<!-- 4 STORY -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Listen · Story time</span><span class="mins">3 min</span></div>
+  <h2 class="t">🦇 Bibi Wakes Up in Winter</h2><span class="fr">Bibi se réveille en hiver</span>
+  <p class="lead">Listen and watch the pictures. Look at the time on each picture!<span class="fr">Écoute et regarde les images. Regarde le moment de la journée sur chaque image !</span></p>
+  <div class="row"><button class="btn gold" id="playStory">▶ Play the story</button></div>
+  <div class="story" id="story"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Play it once just listening, then tap each picture and have her repeat Bibi's sentence (⭐ each). Point to the time tag on each picture: night → morning → afternoon → evening. True fact: many bats sleep all winter (they hibernate).</div></details>
+</div>
+</section>
+
+<!-- 5 STORY CHECK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Did you understand? · Story quiz</span><span class="mins">3 min</span></div>
+  <h2 class="t">🤔 Bibi Quiz</h2><span class="fr">Le quiz de Bibi</span>
+  <p class="lead">Say the answer in a sentence first. Then choose!<span class="fr">Dis la réponse avec une phrase d'abord. Puis choisis !</span></p>
+  <div id="storyQuiz"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She says the full answer before you click ("In the afternoon, the girl can go sledding."). Last question has no wrong answer: it's her opinion with <b>because</b>.</div></details>
+</div>
+</section>
+
+<!-- 6a WORDS -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">New words · 15 winter activities</span><span class="mins">3 min</span></div>
+  <h2 class="t">🖼️ What Can You Do in Winter?</h2><span class="fr">Qu'est-ce que tu peux faire en hiver ?</span>
+  <p class="lead">Tap a picture to hear it. Say it with <b>I can</b>: <b>"I can go sledding."</b><span class="fr">Touche une image pour l'écouter. Répète avec « I can » (je peux) : « I can go sledding. »</span></p>
+  <div class="pics" id="wordPics"></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn ghost" id="hideWords">🙈 Hide the words <span class="fr inl">Cacher les mots</span></button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Round 1: tap each card, she repeats "I can + activity" (⭐ each). Round 2: press <b>Hide the words</b>, point to a picture, she says it from the picture only. Watch <b>go</b> skiing / <b>go</b> sledding / <b>go</b> ice skating (French: "faire du ski" → English: "go skiing"). No "to" after <b>can</b>.</div></details>
+</div>
+</section>
+
+<!-- 6b FLASH -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Game · Flash</span><span class="mins">2 min</span></div>
+  <h2 class="t">⚡ Flash Game!</h2><span class="fr">Le jeu Flash !</span>
+  <div class="qgrid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
+    <div class="qcard" style="cursor:default">1️⃣ <div class="tx">I press FLASH.<span class="fr">J'appuie sur FLASH.</span></div></div>
+    <div class="qcard" style="cursor:default">2️⃣ <div class="tx">A picture shows for 3 seconds.<span class="fr">Une image apparaît 3 secondes.</span></div></div>
+    <div class="qcard" style="cursor:default">3️⃣ <div class="tx">Say the sentence fast: "I can go skiing!"<span class="fr">Dis vite la phrase : « I can go skiing ! »</span></div></div>
+    <div class="qcard" style="cursor:default">4️⃣ <div class="tx">Then we check the answer!<span class="fr">Puis on vérifie la réponse !</span></div></div>
+  </div>
+  <div class="flash" id="flash"><span class="e">⚡</span>Ready?<span class="fr" style="color:#d9ccff">Prête ?</span></div>
+  <div class="ptsbig" id="flashCount">Round 0</div>
+  <div class="row center" style="margin-top:8px;"><button class="btn gold" id="flashGo">⚡ FLASH!</button><button class="btn" id="flashGot">✅ She said it! ⭐</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Play 8–10 rounds. If she says the full sentence before the picture hides, press <b>She said it!</b> (adds a star). Make it harder: she starts with "In winter," ("In winter, I can bake cookies!").</div></details>
+</div>
+</section>
+
+<!-- 7 SENTENCE CHAIN -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Build long sentences · Chain challenge</span><span class="mins">4 min</span></div>
+  <h2 class="t">🔗 The Winter Chain</h2><span class="fr">La chaîne de l'hiver</span>
+  <p class="lead">Tell me everything you can do in winter, one thing at a time. Each time, say the <b>whole chain again</b> from the start and add one more. At the end, we finish with <b>"and"</b>!<span class="fr">Dis-moi tout ce que tu peux faire en hiver, une chose à la fois. À chaque fois, redis <b>toute la chaîne</b> depuis le début et ajoute une chose. À la fin, on termine avec « and » (et) !</span></p>
+  <div class="lvlbar" id="chainLv"></div>
+  <div class="starters"><span class="starter">In winter, I can… <span class="fr">En hiver, je peux…</span></span><span class="starter">… , … , <span class="fr">une virgule entre chaque chose</span></span><span class="starter">and… <span class="fr">et…</span></span></div>
+  <div class="chainbox" id="chainBox"></div>
+  <div class="pics" id="chainPics"></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn" id="chainFinish">🏁 Finish the chain <span class="fr inl">Terminer</span></button><button class="btn gold" id="chainRead">🔊 Hear my chain</button><button class="btn ghost" id="chainUndo">↶ Undo</button><button class="btn ghost" id="chainReset">↺ New chain</button><button class="btn ghost" id="chainMode"></button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    She chooses each next activity; you click what she says. Remind her: "I can" only once at the start ("In winter, I can build a snowman, go sledding, <b>and</b> bake cookies!"). When she's finished, press <b>Finish the chain</b>: "and" appears before the last one, and she says the whole chain from the start (stars: 3–4 = 1–2 ⭐, 5+ = 3 ⭐). Goal: 5 activities with no help. Use <b>Undo</b> if you mis-click. Then switch to <b>inside</b>.
+  </div></details>
+</div>
+</section>
+
+<!-- 8 SORT -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Where? · Sort the activities</span><span class="mins">3 min</span></div>
+  <h2 class="t">🗂️ In the Snow, on the Ice, or Inside?</h2><span class="fr">Dans la neige, sur la glace ou à l'intérieur ?</span>
+  <p class="lead">Look at the card. Where can you do it? Say the whole sentence: <b>"I can go sledding in the snow."</b> Then I put it where you say.<span class="fr">Regarde la carte. Où est-ce que tu peux le faire ? Dis toute la phrase, puis je la place où tu dis.</span></p>
+  <div class="card-now"><div class="big" id="sortNow"></div></div>
+  <div class="row center"><button class="btn ghost" id="sortStart">↺ Start over</button></div>
+  <div class="board" id="sortBoard"></div>
+  <div class="msg" id="sortMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">No timer. She says the sentence with the place before you click (⭐ each). If she picks a place that doesn't work, the page explains why; she tries again. <b>Ice skating</b> and <b>ice hockey</b> fit two places (a frozen lake outside or an ice rink inside): ask her "Where else?"</div></details>
+</div>
+</section>
+
+<!-- 9 FIX BIBI -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Think! · Fix Bibi's mistakes</span><span class="mins">4 min</span></div>
+  <h2 class="t">🕵️ Bibi Is Mixed Up!</h2><span class="fr">Bibi s'est trompée !</span>
+  <div class="bibi"><div class="b">🦇</div><p id="fixIntro"></p></div>
+  <div class="stepper"><span class="st on" id="fs1">1 · Find the intruder <span class="fr inl">l'intrus</span></span><span class="st" id="fs2">2 · Put it in order <span class="fr inl">dans l'ordre</span></span><span class="st" id="fs3">3 · Tell it! <span class="fr inl">raconte</span></span></div>
+  <div class="mixed" id="mixed"></div>
+  <div class="order-row" id="fixSlots"></div>
+  <div class="msg" id="fixMsg"></div>
+  <div class="row center"><button class="btn ghost" id="fixReset">↺ Try again</button><button class="btn gold" id="fixNext">➡ Round 2: sledding</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">
+    <b>Step 1:</b> she names the intruder and says <b>why</b> ("You can't build a snowman at the beach. There's no snow!"). Click it. <b>Step 2:</b> she tells you the order ("First, I put on my coat…"); click the cards in her order. The page checks if it makes sense and explains. <b>Step 3:</b> she tells it all with First/Then/Next/Finally. ⭐ for the reason and for each sentence. Round 2 is sledding.
+  </div></details>
+</div>
+</section>
+
+<!-- 10 TRUE OR SILLY -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">True or silly? · Spin</span><span class="mins">3 min</span></div>
+  <h2 class="t">🎰 True or Silly?</h2><span class="fr">Vrai ou rigolo ?</span>
+  <p class="lead">Spin! Read the sentence. Is it <b>true</b> or <b>silly</b>? If it's silly, fix it: <b>"No! You can't make a snowball with sand!"</b><span class="fr">Lis la phrase. C'est vrai ou rigolo ? Si c'est rigolo, corrige-la : « Non ! On ne peut pas faire une boule de neige avec du sable ! »</span></p>
+  <div class="slots"><div class="reel" id="r1"><span class="e">❄️</span>In winter,<span class="fr">En hiver,</span></div><div class="reel" id="r2"><span class="e">⛄</span>you can build a snowman.<span class="fr">on peut faire un bonhomme de neige.</span></div></div>
+  <div class="row center"><button class="btn gold" id="spin">🎰 SPIN!</button><button class="btn ghost" id="sayIt">🔊 Hear it</button></div>
+  <div class="row center" style="margin-top:8px;"><button class="btn" data-v="true">✅ True! <span class="fr inl">Vrai !</span></button><button class="btn red" data-v="silly">🤪 That's silly! <span class="fr inl">Rigolo !</span></button></div>
+  <div class="msg" id="verdict"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She reads it aloud and decides. Every sentence here is a real fact or clearly silly; the page explains each one. She <b>fixes silly ones in a full sentence</b> (⭐). Then swap: she makes up a silly winter sentence and you fix it.</div></details>
+</div>
+</section>
+
+<!-- 11 SOUND SPOT W -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Sound spot · NG</span><span class="mins">2 min</span></div>
+  <h2 class="t">🔔 The Bell Sound: NG</h2><span class="fr">Le son de la cloche : NG</span>
+  <div class="tongue">Open your mouth and hum through your nose, with the back of your tongue up: <b>nnng… like a bell: ding-dong!</b> 🔔 Don't say the G at the end: <b>skiing</b>, not "skiin-g"!<span class="fr">Ouvre la bouche et fais vibrer le son dans ton nez, le fond de la langue en haut : nnng… comme une cloche : ding-dong ! On ne prononce pas le G à la fin : « skiing », pas « skiin-gue » !</span></div>
+  <p class="lead">Listen. Which one did you hear? Then say both!<span class="fr">Écoute. Lequel tu as entendu ? Puis dis les deux !</span></p>
+  <div class="pairs">
+    <div class="pair"><button class="th" data-a="sn_wing">wing</button><button data-a="sn_win">win</button></div>
+    <div class="pair"><button class="th" data-a="sn_fang">fang</button><button data-a="sn_fan">fan</button></div>
+    <div class="pair"><button class="th" data-a="sn_rang">rang</button><button data-a="sn_ran">ran</button></div>
+    <div class="pair"><button class="th" data-a="sn_sung">sung</button><button data-a="sn_sun">sun</button></div>
+  </div>
+  <div class="twister">We sing a song while skating and sledding! 🎶⛸️🛷<span class="fr">On chante une chanson en faisant du patin et de la luge !</span></div>
+  <div class="row center"><button class="btn gold" data-a="snd_twister">🔊 Hear it</button><button class="btn ghost" id="mystery">🎲 Mystery word</button></div>
+  <div class="msg" id="thMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">The purple word in each pair ends with <b>NG</b> (no G sound at the end); the other ends with <b>N</b>. French speakers often say "skiinne" or "skiingue". Bibi's <b>wing</b> is a good model. Press <b>Mystery word</b>: it plays one word from a pair; she says which one. Then she says a word and <b>you</b> guess. Finish with the twister: slow, normal, fast.</div></details>
+</div>
+</section>
+
+<!-- 12 PICTURE REVEAL -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Game · Picture reveal</span><span class="mins">3 min</span></div>
+  <h2 class="t">🧩 What's Behind the Squares?</h2><span class="fr">Qu'est-ce qui se cache derrière les carrés ?</span>
+  <p class="lead">I take away one square at a time. Guess with a full sentence: <b>"I think it's: I can go skiing!"</b> Fewer squares gone = more points!<span class="fr">J'enlève un carré à la fois. Devine avec une phrase complète. Moins de carrés enlevés = plus de points !</span></p>
+  <div class="reveal" id="reveal"><div class="pic-under" id="revealPic">⛄</div><div class="tiles" id="tiles"></div></div>
+  <div class="ptsbig" id="revealPts">Points for this round: 9</div>
+  <div class="row center" style="margin-top:8px;"><button class="btn gold" id="revealNew">🎲 New picture</button><button class="btn" id="revealGot">✅ She got it!</button><button class="btn ghost" id="revealAll">👀 Show all</button></div>
+  <div class="msg" id="revealMsg"></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">Click squares one by one until she guesses with a full sentence. Then press <b>She got it!</b> (points = squares still covering; stars added). Follow-up each round: "<b>Can you</b> do that?" → "Yes, I can!" / "No, I can't, but I can…"</div></details>
+</div>
+</section>
+
+<!-- 13 WOULD YOU RATHER -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Your opinion · Would you rather?</span><span class="mins">3 min</span></div>
+  <h2 class="t">🤷 Would You Rather…?</h2><span class="fr">Tu préfères… ?</span>
+  <p class="lead">Choose one and say <b>why</b> with <b>because</b>. Then ask me!<span class="fr">Choisis et dis <b>pourquoi</b> avec « because » (parce que). Puis pose-moi la question !</span></p>
+  <div class="mcq" style="text-align:center;"><div class="q" style="justify-content:center;"><button class="spk" id="wyrSpk">🔊</button><span id="wyrQ"></span></div><span class="fr" id="wyrQfr"></span></div>
+  <div class="wyr"><div class="side" id="wyrA"></div><div class="or">OR</div><div class="side" id="wyrB"></div></div>
+  <div class="because">I'd rather ___ because ___.<span class="fr">Je préfère ___ parce que ___.</span></div>
+  <div class="row center" style="margin-top:10px;"><button class="btn gold" id="wyrNext">➡ Next question</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">This is critical thinking: there is no right answer, but there must be a <b>reason</b>. Model one first ("I'd rather build a snowman because I can make it big!"). After each answer she asks you the same question. ⭐ for each "because" sentence.</div></details>
+</div>
+</section>
+
+<!-- 14 BIG TALK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">Big talk · My winter</span><span class="mins">3 min</span></div>
+  <h2 class="t">📖 Tell Bibi About Your Winter!</h2><span class="fr">Raconte ton hiver à Bibi !</span>
+  <p class="lead">Tell me one thing for each card. I tap it. Then say all four with no stopping!<span class="fr">Dis-moi une chose pour chaque carte. Je la touche. Puis dis les quatre sans t'arrêter !</span></p>
+  <div class="storyboard" id="storyboard"></div>
+  <p style="font-weight:700;margin:14px 0 2px;text-align:center;">🎭 Voice challenge: Elina says her winter again in a funny voice! Tap the voice for each round.<span class="fr">Défi des voix : Elina raconte encore son hiver avec une voix rigolote ! Touche la voix pour chaque tour.</span></p>
+  <div class="levels" id="levels">
+    <div class="lvl"><span class="e">🥶</span>Freezing cold<span class="fr">en grelottant</span></div>
+    <div class="lvl"><span class="e">🙂</span>Normal<span class="fr">normal</span></div>
+    <div class="lvl"><span class="e">📺</span>TV weather reporter<span class="fr">présentatrice météo</span></div>
+    <div class="lvl"><span class="e">🐻‍❄️</span>Big polar bear<span class="fr">gros ours polaire</span></div>
+  </div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">This is the goal of the lesson. She says all four in a row ("In the snow, I can… On the ice, I can… Inside, I can… In winter, I can't…"). Do it 2–3 times in different voices; each telling smoother. ⭐ per sentence.</div></details>
+</div>
+</section>
+
+<!-- 15 BOOK -->
+<section class="slide">
+<div class="card">
+  <div class="top"><span class="kicker">My English Book · Page 12</span><span class="mins">2 min</span></div>
+  <h2 class="t">✍️ My Winter Sentences</h2><span class="fr">Mes phrases sur l'hiver</span>
+  <p class="lead">Say your three sentences. I tap your choice and it goes in your book!<span class="fr">Dis tes trois phrases. Je touche ton choix et il va dans ton livre !</span></p>
+  <div class="book" id="book"></div>
+  <div class="row" style="margin-top:10px;"><button class="btn gold" id="readBook">🔊 Read my page</button></div>
+  <details class="tutor"><summary>Tutor prompts</summary><div class="in">She says each sentence; you tap the matching choice. Then she reads the whole page aloud once (⭐ ×3). It saves in this browser, and next lesson's warm-up can start with these three sentences.</div></details>
+</div>
+</section>
+
+<!-- 16 CEREMONY -->
+<section class="slide">
+<div class="card" style="text-align:center;">
+  <div class="top"><span class="kicker">Ceremony · Episode 12 complete</span><span class="mins">1 min</span></div>
+  <h2 class="t">🏅 Thank You, Expert Elina!</h2><span class="fr">Merci, experte Elina !</span>
+  <div class="bibi" style="text-align:left;"><div class="b">🦇</div><p>Now I know what people can do in winter! I can't build a snowman… my wings are too small! But I can drink hot chocolate. Now I'm sleepy. Good night until spring! 😴<span class="fr">Maintenant je sais ce qu'on peut faire en hiver ! Je ne peux pas faire de bonhomme de neige… mes ailes sont trop petites ! Mais je peux boire un chocolat chaud. Maintenant j'ai sommeil. Bonne nuit jusqu'au printemps ! 😴</span></p></div>
+  <div class="stats">
+    <div class="stat"><div class="v" id="stStars">0</div><div class="k">⭐ sentences / phrases</div></div>
+    <div class="stat"><div class="v" id="stMedal">—</div><div class="k">🏅 medal / médaille</div></div>
+  </div>
+  <div style="text-align:left;">
+    <div class="cando">I can say what I can do in winter: "In winter, I can…"<span class="fr">Je peux dire ce que je peux faire en hiver : « In winter, I can… »</span></div>
+    <div class="cando">I can say what I can't do: "I can't…"<span class="fr">Je peux dire ce que je ne peux pas faire : « I can't… »</span></div>
+    <div class="cando">I can put actions in order and say why.<span class="fr">Je peux mettre des actions dans l'ordre et dire pourquoi.</span></div>
+    <div class="cando">I can say NG in skiing, sledding, and wing.<span class="fr">Je peux dire NG dans skiing, sledding et wing.</span></div>
+  </div>
+  <div class="row center" style="margin-top:12px;"><button class="btn gold" id="medal">🥇 Open your medal!</button></div>
+  <details class="tutor" style="text-align:left;"><summary>Tutor: before you go</summary><div class="in">Mini homework (tell her mom in French): this week, Elina tells the family 3 sentences with "In winter, I can…" and 1 sentence with "I can't…".</div></details>
+</div>
+</section>
+
+</div>
+<div class="nav"><button class="prev-b" id="prevB">⬅ Back</button><button class="next-b" id="nextB">Next ➡</button></div>
+<div class="toast" id="toast"></div>
+<div class="confetti" id="confetti"></div>
+
+<script>
+(function(){
+/* ---------- audio: basic browser voice (text-to-speech) only ---------- */
+var TEXT={}; // key -> English text the browser voice reads
+var sound=true,queue=[];
+function T(k,t){TEXT[k]=t;return k;}
+function stopAll(){queue=[];if(window.speechSynthesis)speechSynthesis.cancel();}
+function tts(t,done){if(!t||!window.speechSynthesis){done&&done();return;}var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;var v=speechSynthesis.getVoices().filter(function(v){return /en-US/.test(v.lang);});var p=v.filter(function(x){return /Samantha|Google US|Aria|Jenny/i.test(x.name);});if(p[0])u.voice=p[0];else if(v[0])u.voice=v[0];u.onend=function(){done&&done();};u.onerror=function(){done&&done();};speechSynthesis.speak(u);}
+function playKey(k,done){if(!sound){done&&done();return;}tts(TEXT[k]||'',done);}
+function play(keys,onEach){stopAll();queue=keys.slice();(function next(){if(!queue.length)return;var k=queue.shift();onEach&&onEach(k);playKey(k,function(){setTimeout(next,250);});})();}
+window.KCE_AUDIO_TEXT=TEXT;
+
+/* ---------- lesson data ---------- */
+var CONFETTI=['❄️','⛄','⭐','🦇','✨'];
+var BOOK_KEY='elina_book_l12';
+var PRAISE='Champion of the day! Great job, Elina!';
+var VOICE_TOAST='Tell me about your winter!';
+
+/* vocabulary: 15 winter activities in 3 groups */
+var G=[{z:'s',em:'❄️',name:'In the snow',fr:'dans la neige'},{z:'i',em:'🧊',name:'On the ice',fr:'sur la glace'},{z:'h',em:'🏠',name:'Inside, warm and cozy',fr:'à l\'intérieur, bien au chaud'}];
+var A=[
+ {k:'a_snowman',e:'⛄',w:'build a snowman',fr:'faire un bonhomme de neige',z:'s'},
+ {k:'a_sled',e:'🛷',w:'go sledding',fr:'faire de la luge',z:'s'},
+ {k:'a_angel',e:'😇',w:'make a snow angel',fr:'faire un ange dans la neige',z:'s'},
+ {k:'a_flakes',e:'❄️',w:'catch snowflakes',fr:'attraper des flocons de neige',z:'s'},
+ {k:'a_ski',e:'⛷️',w:'go skiing',fr:'faire du ski',z:'s'},
+ {k:'a_board',e:'🏂',w:'go snowboarding',fr:'faire du snowboard',z:'s'},
+ {k:'a_skate',e:'⛸️',w:'go ice skating',fr:'faire du patin à glace',z:'i',ok:['i','h']},
+ {k:'a_hockey',e:'🏒',w:'play ice hockey',fr:'jouer au hockey sur glace',z:'i',ok:['i','h']},
+ {k:'a_fish',e:'🎣',w:'go ice fishing',fr:'pêcher sur la glace',z:'i'},
+ {k:'a_penguin',e:'🐧',w:'slide like a penguin',fr:'glisser comme un pingouin',z:'i',ok:['i','s']},
+ {k:'a_choco',e:'☕',w:'drink hot chocolate',fr:'boire un chocolat chaud',z:'h',ok:['h','s']},
+ {k:'a_fire',e:'🔥',w:'sit by the fire',fr:'m\'asseoir près du feu',z:'h'},
+ {k:'a_cookies',e:'🍪',w:'bake cookies',fr:'faire des biscuits',z:'h'},
+ {k:'a_games',e:'🎲',w:'play board games',fr:'jouer à des jeux de société',z:'h'},
+ {k:'a_blanket',e:'📖',w:'read under a blanket',fr:'lire sous une couverture',z:'h'}
+];
+A.forEach(function(a){a.s='I can '+a.w+'.';a.sfr='Je peux '+a.fr+'.';});
+
+/* warm-up */
+var WST={w1:['How are you today?',[["I'm great, thanks!","Ça va super, merci !"],["I'm happy because…","Je suis contente parce que…"],["I'm a little tired because…","Je suis un peu fatiguée parce que…"]]],
+ w2:["Is there snow where you live?",[["Yes, there is snow in winter.","Oui, il y a de la neige en hiver."],["No, there isn't any snow.","Non, il n'y a pas de neige."],["Only in the mountains.","Seulement à la montagne."]]],
+ w3:['Do you like winter? Why?',[["Yes, I like winter because…","Oui, j'aime l'hiver parce que…"],["No, I don't like winter because…","Non, je n'aime pas l'hiver parce que…"],["My favorite season is…","Ma saison préférée, c'est…"]]],
+ w4:["What do you wear when it's cold?",[["It's cold, so I wear a coat.","Il fait froid, donc je porte un manteau."],["I wear a hat and gloves.","Je porte un bonnet et des gants."],["I wear boots and a scarf.","Je porte des bottes et une écharpe."]]]};
+
+/* wheel: review of Lessons 6–11 */
+var W=[['📅','What day is tomorrow?','Demain, on sera quel jour ?','Tomorrow is…','Demain, on sera…'],
+ ['☀️','What\'s your favorite weather? Why?','Quel temps tu préfères ? Pourquoi ?','I like it when it\'s … because…','J\'aime quand il fait … parce que…'],
+ ['🔷','Find something square in your room. Describe it!','Trouve quelque chose de carré dans ta chambre. Décris-le !','It\'s a big brown square.','C\'est un grand carré marron.'],
+ ['🎃','Describe a jack-o\'-lantern!','Décris une citrouille d\'Halloween !','It\'s a big orange pumpkin. It has…','C\'est une grosse citrouille orange. Elle a…'],
+ ['😟','When do you feel worried? Why?','Quand est-ce que tu te sens inquiète ? Pourquoi ?','I feel worried when…','Je me sens inquiète quand…'],
+ ['🧥','It\'s cold! What do you wear?','Il fait froid ! Qu\'est-ce que tu portes ?','It\'s cold, so I wear…','Il fait froid, donc je porte…']];
+
+/* story */
+var S=[
+ ['s1','night','🌙 night · la nuit','🦇','Many bats sleep all winter. But tonight, I wake up!','Beaucoup de chauves-souris dorment tout l\'hiver. Mais cette nuit, je me réveille !'],
+ ['s2','night','🌙 night · la nuit','❄️','I look outside. Everything is white. It\'s snow!','Je regarde dehors. Tout est blanc. C\'est de la neige !'],
+ ['s3','day','☀️ morning · le matin','⛄','In the morning, I see a girl. She can build a snowman!','Le matin, je vois une fille. Elle peut faire un bonhomme de neige !'],
+ ['s4','day','🌤️ afternoon · l\'après-midi','🛷','In the afternoon, she can go sledding. Wheee!','L\'après-midi, elle peut faire de la luge. Youpi !'],
+ ['s5','dusk','🌆 evening · le soir','☕','In the evening, she drinks hot chocolate by the fire. Elina, what can I do in winter?','Le soir, elle boit un chocolat chaud près du feu. Elina, qu\'est-ce que je peux faire en hiver ?']
+];
+var Q=[
+ ['q1','What do many bats do in winter?','Qu\'est-ce que beaucoup de chauves-souris font en hiver ?',[['😴 They sleep all winter','Elles dorment tout l\'hiver',1,'Yes! "Many bats sleep all winter." But this year, Bibi wakes up!','Oui ! Beaucoup de chauves-souris dorment tout l\'hiver. Mais cette année, Bibi se réveille !'],['⛷️ They go skiing','Elles font du ski',0,'No! Bats can\'t ski. 😄 Bibi says: "Many bats sleep all winter."','Non ! Les chauves-souris ne font pas de ski. 😄 Bibi dit : « Beaucoup de chauves-souris dorment tout l\'hiver. »'],['🏖️ They go to the beach','Elles vont à la plage',0,'No beach! Bibi says: "Many bats sleep all winter."','Pas de plage ! Bibi dit : « Beaucoup de chauves-souris dorment tout l\'hiver. »']]],
+ ['q2','What can the girl do in the morning?','Qu\'est-ce que la fille peut faire le matin ?',[['⛄ Build a snowman','faire un bonhomme de neige',1,'Yes! "In the morning, she can build a snowman."','Oui ! « Le matin, elle peut faire un bonhomme de neige. »'],['🛷 Go sledding','faire de la luge',0,'Not in the morning: she goes sledding in the afternoon. Look at the time on the picture!','Pas le matin : elle fait de la luge l\'après-midi. Regarde le moment sur l\'image !'],['☕ Drink hot chocolate','boire un chocolat chaud',0,'Not in the morning: she drinks hot chocolate in the evening.','Pas le matin : elle boit un chocolat chaud le soir.']]],
+ ['q3','Where does she drink hot chocolate?','Où est-ce qu\'elle boit un chocolat chaud ?',[['❄️ In the snow','dans la neige',0,'No: Bibi says "by the fire". It\'s warm there!','Non : Bibi dit « près du feu ». Il fait chaud là-bas !'],['🔥 By the fire','près du feu',1,'Yes! "She drinks hot chocolate by the fire." Warm and cozy!','Oui ! « Elle boit un chocolat chaud près du feu. » Bien au chaud !'],['🛷 On her sled','sur sa luge',0,'No: the sled is for the afternoon. In the evening, she sits by the fire.','Non : la luge, c\'est l\'après-midi. Le soir, elle est près du feu.']]],
+ ['q4','Would YOU like to play in the snow with Bibi? Why?','Est-ce que TOI, tu aimerais jouer dans la neige avec Bibi ? Pourquoi ?',[['👍 Yes, because…','Oui, parce que…',1,'Tell me why! "Yes, because I can build a snowman with Bibi!"','Dis-moi pourquoi ! « Oui, parce que je peux faire un bonhomme de neige avec Bibi ! »'],['👎 No, because…','Non, parce que…',1,'Great! For example: "No, because it\'s too cold!"','Super ! Par exemple : « Non, parce qu\'il fait trop froid ! »']]]
+];
+
+/* sentence chain: "Outside in winter, I can …, …, and …!" */
+function CI(k,e,w,fr){return {k:k,e:e,w:w,fr:fr,c:w};}
+var CHAIN=[
+ {id:'out',em:'❄️',name:'outside',namefr:'dehors',frame:'Outside in winter, I can',fr:'Dehors, en hiver, je peux',pool:[CI('ch_snowman','⛄','build a snowman','faire un bonhomme de neige'),CI('ch_sled','🛷','go sledding','faire de la luge'),CI('ch_angel','😇','make a snow angel','faire un ange dans la neige'),CI('ch_flakes','❄️','catch snowflakes','attraper des flocons'),CI('ch_ski','⛷️','go skiing','faire du ski'),CI('ch_skate','⛸️','go ice skating','faire du patin à glace'),CI('ch_penguin','🐧','slide like a penguin','glisser comme un pingouin')]},
+ {id:'in',em:'🏠',name:'inside',namefr:'à l\'intérieur',frame:'Inside in winter, I can',fr:'À l\'intérieur, en hiver, je peux',pool:[CI('ch_choco','☕','drink hot chocolate','boire un chocolat chaud'),CI('ch_fire','🔥','sit by the fire','m\'asseoir près du feu'),CI('ch_cookies','🍪','bake cookies','faire des biscuits'),CI('ch_games','🎲','play board games','jouer à des jeux de société'),CI('ch_blanket','📖','read under a blanket','lire sous une couverture'),CI('ch_window','🪟','watch the snow fall','regarder la neige tomber'),CI('ch_puzzle','🧩','do a puzzle','faire un puzzle')]}
+];
+var CHAIN_UNIT='activities',CHAIN_END='!';
+var CON=[['','',''],['','',''],['','',''],['','',''],['c_and','and','et']];
+
+/* sorting */
+var SORT={zones:[{id:'s',cls:'a',em:'❄️',name:'In the snow',fr:'dans la neige'},{id:'i',cls:'n',em:'🧊',name:'On the ice',fr:'sur la glace'},{id:'h',cls:'e',em:'🏠',name:'Inside',fr:'à l\'intérieur'}],
+ ok:function(it){return it.ok||[it.z];},
+ right:function(it,ok){return ok.length>1?'✅ Yes! And you can do it in another place too. Where?<span class="fr">Oui ! Et on peut aussi le faire ailleurs. Où ?</span>':'✅ Great sentence!<span class="fr">Super phrase !</span>';},
+ wrong:function(it,z){var y={s:['You need snow for that!','Il faut de la neige pour ça !'],i:['You need ice for that!','Il faut de la glace pour ça !'],h:['We do that inside, where it\'s warm!','On fait ça à l\'intérieur, au chaud !']}[it.z];return '🤔 Hmm… '+y[0]+' Try again!<span class="fr">'+y[1]+' Essaie encore !</span>';},
+ doneMsg:'Now ask me: "What can you do in the snow?"<span class="fr">Maintenant, pose-moi la question : « Qu\'est-ce que tu peux faire dans la neige ? »</span>'};
+
+/* critical thinking: intruder + order */
+function FC(k,e,w,fr,s){return {k:k,e:e,w:w,fr:fr,s:s};}
+var LAB=[['First,','D\'abord,'],['Then,','Ensuite,'],['Next,','Après,'],['Finally,','Enfin,']];
+var FIX=[
+ {cards:[FC('f_coat','🧥','put on my coat','mettre mon manteau','I put on my coat.'),FC('f_out','🚪','go outside','sortir','I go outside.'),FC('f_roll','⚪','roll a big snowball','rouler une grosse boule de neige','I roll a big snowball.'),FC('f_nose','🥕','add a carrot nose','ajouter un nez en carotte','I add a carrot nose.'),FC('f_beach','🏖️','go to the beach','aller à la plage','I go to the beach.')],
+  intruder:'f_beach',order:['f_coat','f_out','f_roll','f_nose'],labels:LAB,
+  intro:'I tried to tell how a girl builds a <b>snowman</b>… but I made mistakes! One card does <b>not</b> belong. Which one? Why?',introfr:'J\'ai essayé de raconter comment une fille fait un <b>bonhomme de neige</b>… mais je me suis trompée ! Une carte n\'a rien à faire là. Laquelle ? Pourquoi ?',
+  why:'You can\'t build a snowman at the beach. There\'s no snow!',whyfr:'On ne peut pas faire de bonhomme de neige à la plage. Il n\'y a pas de neige !',
+  belongs:'is OK for building a snowman.',belongsfr:'ça va pour faire un bonhomme de neige.',
+  hint:'Think: you put on your coat <b>before</b> you go outside, and the carrot nose goes on <b>at the end</b>, when the snowman is ready.',hintfr:'Réfléchis : on met son manteau <b>avant</b> de sortir, et le nez en carotte, c\'est <b>à la fin</b>, quand le bonhomme est prêt.',
+  done:'That makes sense! Now tell it all: "First, I put on my coat. Then, I go outside…"',donefr:'C\'est logique ! Maintenant, raconte tout !',
+  nextBtn:'➡ Round 2: sledding',back:'⬅ Back to round 1: the snowman'},
+ {cards:[FC('f_gloves','🧤','put on my gloves','mettre mes gants','I put on my gloves.'),FC('f_up','⛰️','walk up the hill','monter la colline à pied','I walk up the hill.'),FC('f_sit','🛷','sit on my sled','m\'asseoir sur ma luge','I sit on my sled.'),FC('f_down','💨','slide down the hill','descendre la colline en glissant','I slide down the hill. Wheee!'),FC('f_flowers','🌷','plant flowers','planter des fleurs','I plant flowers.')],
+  intruder:'f_flowers',order:['f_gloves','f_up','f_sit','f_down'],alts:[['f_up','f_gloves','f_sit','f_down']],labels:LAB,
+  intro:'Now I wrote how a girl goes <b>sledding</b>. Oops! One card does <b>not</b> belong. Which one? Why?',introfr:'Maintenant j\'ai écrit comment une fille fait de la <b>luge</b>. Oups ! Une carte n\'a rien à faire là. Laquelle ? Pourquoi ?',
+  why:'You plant flowers in spring, not on a snowy hill!',whyfr:'On plante des fleurs au printemps, pas sur une colline pleine de neige !',
+  belongs:'is OK for sledding.',belongsfr:'ça va pour faire de la luge.',
+  hint:'Think: you can\'t slide <b>down</b> the hill before you walk <b>up</b>! And you sit on the sled <b>before</b> you slide.',hintfr:'Réfléchis : on ne peut pas descendre la colline avant de la monter ! Et on s\'assoit sur la luge <b>avant</b> de glisser.',
+  done:'That makes sense! Now tell it all: "First, … Then, … Next, … Finally, I slide down the hill!"',donefr:'C\'est logique ! Maintenant, raconte tout !',
+  nextBtn:'➡ Round 2: sledding',back:'⬅ Back to round 1: the snowman'}
+];
+
+/* true or silly: [emoji, part 1, fr, emoji, part 2, fr, TRUE?, why, why fr] */
+var TS=[
+ ['❄️','In winter,','En hiver,','⛄','you can build a snowman with snow.','on peut faire un bonhomme de neige avec de la neige.',true,'Snow is perfect for a snowman!','La neige, c\'est parfait pour un bonhomme de neige !'],
+ ['🏖️','You can make a snowball','On peut faire une boule de neige','🏝️','with sand.','avec du sable.',false,'A snowball is made with snow, not sand!','Une boule de neige, c\'est avec de la neige, pas du sable !'],
+ ['🐧','Penguins','Les manchots (les « pingouins »)','🕊️','can fly.','peuvent voler.',false,'Penguins can\'t fly, but they can swim very well!','Les manchots ne peuvent pas voler, mais ils nagent très bien !'],
+ ['🐻‍❄️','Polar bears','Les ours polaires','🏊','can swim.','savent nager.',true,'Polar bears are great swimmers!','Les ours polaires nagent très bien !'],
+ ['🧊','Ice','La glace','💧','is frozen water.','c\'est de l\'eau gelée.',true,'When water gets very cold, it becomes ice!','Quand l\'eau devient très froide, elle se transforme en glace !'],
+ ['☕','Hot chocolate','Le chocolat chaud','🟢','is green.','est vert.',false,'Hot chocolate is brown!','Le chocolat chaud est marron !'],
+ ['⛄','A snowman','Un bonhomme de neige','🍪','can eat cookies.','peut manger des biscuits.',false,'A snowman can\'t eat. It\'s made of snow!','Un bonhomme de neige ne peut pas manger. Il est en neige !'],
+ ['☀️','Snow','La neige','💧','melts in the sun.','fond au soleil.',true,'When it\'s warm, snow becomes water.','Quand il fait chaud, la neige devient de l\'eau.'],
+ ['🦇','Many bats','Beaucoup de chauves-souris','😴','sleep all winter.','dorment tout l\'hiver.',true,'They sleep until spring. It\'s called hibernation!','Elles dorment jusqu\'au printemps. On appelle ça l\'hibernation !'],
+ ['🛷','You can go sledding','On peut faire de la luge','🏖️','on a hot, sunny beach.','sur une plage chaude et ensoleillée.',false,'You go sledding on a snowy hill, not on a hot beach!','On fait de la luge sur une colline enneigée, pas sur une plage chaude !'],
+ ['⛸️','You can ice skate','On peut patiner','🏟️','at an ice rink.','à la patinoire.',true,'That\'s what an ice rink is for!','C\'est fait pour ça, une patinoire !']
+];
+
+/* sound spot: NG (skiing, sledding, skating) vs N */
+var SND={sn_wing:'wing',sn_win:'win',sn_fang:'fang',sn_fan:'fan',sn_rang:'rang',sn_ran:'ran',sn_sung:'sung',sn_sun:'sun'};
+var TWISTER='We sing a song while skating and sledding!';
+
+/* would you rather */
+var WY=[['wy1','Would you rather build a snowman or have a snowball fight?','Tu préfères faire un bonhomme de neige ou une bataille de boules de neige ?',['⛄','build a snowman','faire un bonhomme de neige'],['❄️','have a snowball fight','faire une bataille de boules de neige']],
+ ['wy2','Would you rather go skiing or go ice skating?','Tu préfères faire du ski ou du patin à glace ?',['⛷️','go skiing','faire du ski'],['⛸️','go ice skating','faire du patin à glace']],
+ ['wy3','Would you rather drink hot chocolate or eat cookies?','Tu préfères boire un chocolat chaud ou manger des biscuits ?',['☕','drink hot chocolate','boire un chocolat chaud'],['🍪','eat cookies','manger des biscuits']],
+ ['wy4','Would you rather live in an igloo or in a tree house?','Tu préfères habiter dans un igloo ou dans une cabane dans un arbre ?',['🧊','in an igloo','dans un igloo'],['🌳','in a tree house','dans une cabane dans un arbre']],
+ ['wy5','Would you rather sleep all winter like Bibi or play in the snow?','Tu préfères dormir tout l\'hiver comme Bibi ou jouer dans la neige ?',['😴','sleep all winter','dormir tout l\'hiver'],['⛄','play in the snow','jouer dans la neige']],
+ ['wy6','Would you rather be a penguin or a polar bear?','Tu préfères être un manchot ou un ours polaire ?',['🐧','a penguin','un manchot (un « pingouin »)'],['🐻‍❄️','a polar bear','un ours polaire']]];
+
+/* big talk storyboard */
+function sbOpts(z,pre,prefr){return A.filter(function(a){return a.z===z;}).map(function(a){return {e:a.e,w:a.w,wfr:a.fr,s:pre+' '+a.w+'.',sfr:prefr+' '+a.fr.replace(/^je peux /,'')+'.'};});}
+var CANT=[{e:'🏊',w:'swim in the sea',fr:'nager dans la mer'},{e:'🩳',w:'wear shorts outside',fr:'porter un short dehors'},{e:'🦋',w:'catch butterflies',fr:'attraper des papillons'},{e:'🌻',w:'pick sunflowers',fr:'cueillir des tournesols'}];
+var SB=[{em:'❄️',lab:'In the snow, I can…',fr:'Dans la neige, je peux…',opts:sbOpts('s','In the snow, I can','Dans la neige, je peux')},
+ {em:'🧊',lab:'On the ice, I can…',fr:'Sur la glace, je peux…',opts:sbOpts('i','On the ice, I can','Sur la glace, je peux')},
+ {em:'🏠',lab:'Inside, I can…',fr:'À l\'intérieur, je peux…',opts:sbOpts('h','Inside, I can','À l\'intérieur, je peux')},
+ {em:'🚫',lab:'In winter, I can\'t…',fr:'En hiver, je ne peux pas…',opts:CANT.map(function(c){return {e:c.e,w:c.w,wfr:c.fr,s:'In winter, I can\'t '+c.w+'.',sfr:'En hiver, je ne peux pas '+c.fr+'.'};})}];
+
+/* My English Book */
+function bk(a){return {e:a.e,w:a.w,fr:a.fr.replace(/^je peux /,''),said:a.w+'.'};}
+var BOOK=[{id:'b1',lbl:'❄️ In winter, I can',say:'In winter, I can',lblfr:'En hiver, je peux…',opts:['a_snowman','a_sled','a_angel','a_ski','a_skate','a_hockey'].map(function(k){return bk(A.filter(function(a){return a.k===k;})[0]);})},
+ {id:'b2',lbl:'🏠 When it\'s very cold, I can',say:'When it\'s very cold, I can',lblfr:'Quand il fait très froid, je peux…',opts:A.filter(function(a){return a.z==='h';}).map(bk)},
+ {id:'b3',lbl:'🚫 But in winter, I can\'t',say:'But in winter, I can\'t',lblfr:'Mais en hiver, je ne peux pas…',opts:CANT.map(function(c){return {e:c.e,w:c.w,fr:c.fr,said:c.w+'.'};})}];
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},1500);}
+function confetti(){var c=$('confetti');var em=CONFETTI;for(var i=0;i<40;i++){var s=document.createElement('i');s.textContent=em[i%em.length];s.style.left=Math.random()*100+'vw';s.style.animationDelay=(Math.random()*.8)+'s';c.appendChild(s);}setTimeout(function(){c.innerHTML='';},3600);}
+function frs(t){return t?'<span class="fr">'+t+'</span>':'';}
+var stars=0;function addStars(n){stars+=n;$('starN').textContent=stars;}
+$('starPlus').onclick=function(){addStars(1);toast('⭐ +1');};
+$('frBtn').onclick=function(){document.body.classList.toggle('no-fr');this.classList.toggle('on');};
+$('sndBtn').onclick=function(){sound=!sound;this.classList.toggle('on',sound);this.textContent=sound?'🔊':'🔇';if(!sound)stopAll();};
+document.querySelectorAll('[data-a]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();play([b.dataset.a]);});});
+
+/* ---------- vocabulary lookup ---------- */
+A.forEach(function(a){T(a.k,a.s);});
+var BY={};A.forEach(function(a){BY[a.k]=a;});
+
+/* ---------- slides ---------- */
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,dots=$('dots');
+slides.forEach(function(_,i){var d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=function(){go(i);};dots.appendChild(d);});
+function go(n){if(n<0||n>=slides.length)return;stopAll();$('toast').classList.remove('show');slides[cur].classList.remove('active');dots.children[cur].classList.remove('active');dots.children[cur].classList.add('done');cur=n;slides[cur].classList.add('active');dots.children[cur].classList.add('active');dots.children[cur].classList.remove('done');$('prevB').style.visibility=cur===0?'hidden':'visible';$('nextB').style.visibility=cur===slides.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'});if(cur===slides.length-1)ceremony();}
+window.goTo=go;$('prevB').onclick=function(){go(cur-1);};$('nextB').onclick=function(){go(cur+1);};$('prevB').style.visibility='hidden';
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+document.querySelectorAll('.qcard').forEach(function(q){q.addEventListener('click',function(){q.classList.toggle('asked');});});
+
+/* ---------- warm-up ---------- */
+for(var wk in WST)T(wk,WST[wk][0]);
+function showStarters(k){var w=WST[k];$('stWhich').textContent=w[0];$('warmStarters').innerHTML=w[1].map(function(x){return '<span class="starter">'+x[0]+'<span class="fr">'+x[1]+'</span></span>';}).join('');document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.style.outline=c.dataset.st===k?'3px solid var(--gold)':'';});}
+document.querySelectorAll('#warmQs .qcard').forEach(function(c){c.addEventListener('click',function(){showStarters(c.dataset.st);});});showStarters('w1');
+
+/* ---------- wheel (review of earlier lessons) ---------- */
+W.forEach(function(w,i){T('r'+(i+1),w[1]);var s=document.createElement('span');var ang=i*60+30;s.textContent=w[0];s.style.transform='rotate('+ang+'deg) translate(0,-95px) rotate(-'+ang+'deg) translate(-50%,-50%)';$('wheel').appendChild(s);});
+var rot=0;
+$('spinWheel').onclick=function(){var pick=Math.floor(Math.random()*6),th=pick*60+30;rot=rot-(rot%360)+1440+((270-th)%360+360)%360;$('wheel').style.transform='rotate('+rot+'deg)';var w=W[pick];$('wq').innerHTML='…';setTimeout(function(){$('wq').innerHTML=w[0]+' '+w[1]+'<span class="fr">'+w[2]+'</span><span class="s">'+w[3]+frs(w[4])+'</span>';play(['r'+(pick+1)]);},3000);};
+
+/* ---------- story ---------- */
+S.forEach(function(p){T(p[0],p[4]);var d=document.createElement('div');d.className='panel '+p[1];d.id='p_'+p[0];d.innerHTML='<span class="tag">'+p[2]+'</span><div class="sc">'+p[3]+'</div><p>'+p[4]+'</p><span class="fr">'+p[5]+'</span>';d.onclick=function(){play([p[0]],hl);};$('story').appendChild(d);});
+function hl(k){document.querySelectorAll('.panel').forEach(function(x){x.classList.toggle('playing',x.id==='p_'+k);});}
+$('playStory').onclick=function(){play(S.map(function(p){return p[0];}),hl);};
+
+/* ---------- story quiz ---------- */
+Q.forEach(function(q){T(q[0],q[1]);var d=document.createElement('div');d.className='mcq';d.innerHTML='<div class="q"><button class="spk">🔊</button>'+q[1]+'</div><span class="fr">'+q[2]+'</span><div class="opts"></div><div class="why"></div>';d.querySelector('.spk').onclick=function(){play([q[0]]);};var o=d.querySelector('.opts'),why=d.querySelector('.why');q[3].forEach(function(op){var b=document.createElement('button');b.className='opt';b.innerHTML=op[0]+'<span class="fr">'+op[1]+'</span>';b.onclick=function(){b.classList.add(op[2]?'ok':'no');why.className='why show '+(op[2]?'good':'bad');why.innerHTML=(op[2]?'✅ ':'💡 ')+op[3]+'<span class="fr">'+op[4]+'</span>';};o.appendChild(b);});$('storyQuiz').appendChild(d);});
+
+/* ---------- words (grouped) + flash ---------- */
+G.forEach(function(g){var h=document.createElement('div');h.style.cssText='grid-column:1/-1;font-family:Poppins;font-weight:800;font-size:17px;color:var(--pool1);margin-top:6px;';h.innerHTML=g.em+' '+g.name+' <span class="fr inl">'+g.fr+'</span>';$('wordPics').appendChild(h);A.filter(function(a){return a.z===g.z;}).forEach(function(a){var d=document.createElement('div');d.className='pic';d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){play([a.k]);};$('wordPics').appendChild(d);});});
+$('hideWords').onclick=function(){var h=this.dataset.h!=='1';this.dataset.h=h?'1':'0';this.innerHTML=h?'👀 Show the words <span class="fr inl">Montrer les mots</span>':'🙈 Hide the words <span class="fr inl">Cacher les mots</span>';document.querySelectorAll('#wordPics .pic').forEach(function(p){p.classList.toggle('hide',h);});};
+var flashBag=[],flashT=null,flashT2=null;
+var flashN=0;$('flashGot').onclick=function(){addStars(1);toast('⭐ +1');};
+$('flashGo').onclick=function(){flashN++;$('flashCount').textContent='Round '+flashN;if(!flashBag.length)flashBag=shuffle(A);var a=flashBag.pop();var f=$('flash');clearTimeout(flashT);clearTimeout(flashT2);f.innerHTML='<span class="e">'+a.e+'</span>';flashT=setTimeout(function(){f.innerHTML='<span class="e">⏳</span>Say it! / Dis-le !';flashT2=setTimeout(function(){f.innerHTML='<span class="e">'+a.e+'</span><span style="font-size:17px">'+a.s+'</span><span class="fr" style="color:#d9ccff">'+(a.sfr||a.fr)+'</span>';play([a.k]);},2500);},3000);};
+
+/* ---------- chain ---------- */
+var CBY={};CHAIN.forEach(function(m){m.pool.forEach(function(it){CBY[it.k]=it;T(it.k,it.c);});T('cm_'+m.id,m.frame);});
+CON.forEach(function(c){if(c[0])T(c[0],c[1]);});
+var chainMi=0,chain=[],chainDone=false;
+function conAt(i){if(i===0)return CON[0];if(chainDone&&i===chain.length-1)return CON[4];return CON[[1,2,3,1][(i-1)%4]];}
+function renderChainLv(){var l=$('chainLv');l.innerHTML='';[3,4,5].forEach(function(n,i){var sp=document.createElement('span');sp.className='lv'+(chain.length>=n&&chainDone?' done':'')+(!chainDone&&chain.length<n&&(i===0||chain.length>=n-1)?' on':'');sp.textContent='⭐ '+n+' '+CHAIN_UNIT;l.appendChild(sp);});}
+function renderChain(){var b=$('chainBox');var m=CHAIN[chainMi];if(!chain.length){b.innerHTML='<span style="color:#9aa">'+m.em+' '+m.frame+' … tap what she says first</span><span class="fr">'+m.fr+'… touche ce qu\'elle dit en premier</span>';}else{var html=m.em+' <b>'+m.frame+'</b> ';chain.forEach(function(k,i){var c=conAt(i)[1];html+=(c?'<span class="c">'+c+'</span> ':'')+CBY[k].c+(i<chain.length-1?((chainDone&&chain.length===2&&!CON[1][1])?' ':', '):(chainDone?CHAIN_END:' …'));});b.innerHTML=html;}
+ var p=$('chainPics');p.innerHTML='';m.pool.forEach(function(it){var k=it.k;var d=document.createElement('div');d.className='pic'+(chain.indexOf(k)>=0||chainDone?' used':'');d.innerHTML='<div class="e">'+it.e+'</div><div class="w">'+it.w+'</div><span class="fr">'+it.fr+'</span>';d.onclick=function(){if(chainDone||chain.indexOf(k)>=0||chain.length>=6)return;chain.push(k);renderChain();renderChainLv();};p.appendChild(d);});
+ $('chainFinish').disabled=chain.length<2||chainDone;}
+function modeBtn(){var nx=CHAIN[(chainMi+1)%CHAIN.length];$('chainMode').innerHTML=nx.em+' Switch to: '+nx.name+' <span class="fr inl">'+nx.namefr+'</span>';}
+$('chainFinish').onclick=function(){if(chain.length<2)return;chainDone=true;renderChain();renderChainLv();addStars(chain.length>=5?3:chain.length>=4?2:1);toast('🔗 Now say the WHOLE chain! / Redis toute la chaîne !');};
+$('chainUndo').onclick=function(){if(chainDone){chainDone=false;}else chain.pop();renderChain();renderChainLv();};
+$('chainReset').onclick=function(){chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainMode').onclick=function(){chainMi=(chainMi+1)%CHAIN.length;modeBtn();chain=[];chainDone=false;renderChainLv();renderChain();};
+$('chainRead').onclick=function(){if(!chain.length)return;var keys=['cm_'+CHAIN[chainMi].id];chain.forEach(function(k,i){var c=conAt(i);if(c[0])keys.push(c[0]);keys.push(k);});play(keys);};
+modeBtn();renderChainLv();renderChain();
+
+/* ---------- sorting (no race) ---------- */
+SORT.zones.forEach(function(z){var d=document.createElement('div');d.className='zone '+z.cls;d.dataset.z=z.id;d.innerHTML='<h4>'+z.em+' '+z.name+'</h4><span class="fr">'+z.fr+'</span>';$('sortBoard').appendChild(d);});
+var ZBY={};SORT.zones.forEach(function(z){ZBY[z.id]=z;});
+var sortBag=[],sortCur=null;
+function nextSort(){if(!sortBag.length){sortCur=null;$('sortNow').innerHTML='<div class="e">🎉</div>All done!<span class="fr">Fini !</span>';$('sortMsg').innerHTML=SORT.doneMsg;document.querySelectorAll('.zone').forEach(function(z){z.classList.remove('target');});return;}sortCur=sortBag.pop();$('sortNow').innerHTML='<div class="e">'+sortCur.e+'</div>'+sortCur.w+'<span class="fr">'+sortCur.fr+'</span>';document.querySelectorAll('.zone').forEach(function(z){z.classList.add('target');});}
+function startSort(){sortBag=shuffle(A);document.querySelectorAll('.zone .chip').forEach(function(c){c.remove();});$('sortMsg').textContent='';nextSort();}
+$('sortStart').onclick=startSort;
+document.querySelectorAll('.zone').forEach(function(z){z.onclick=function(){if(!sortCur)return;var it=sortCur,ok=SORT.ok(it);if(ok.indexOf(z.dataset.z)<0){$('sortMsg').innerHTML=SORT.wrong(it,ZBY[z.dataset.z]);return;}var c=document.createElement('span');c.className='chip';c.textContent=it.e+' '+it.w;z.appendChild(c);addStars(1);play([it.k]);$('sortMsg').innerHTML=SORT.right(it,ok);nextSort();};});
+startSort();
+
+/* ---------- critical thinking: intruder + order ---------- */
+var FBY={};FIX.forEach(function(r,ri){r.cards.forEach(function(c){FBY[c.k]=c;T(c.k,c.s);});r.labels.forEach(function(l,i){T('fl'+ri+'_'+i,l[0]);});});
+var fixR=0,fixStep=1,fixOrder=[],fixCards=[];
+function stepUI(){[1,2,3].forEach(function(i){$('fs'+i).className='st'+(i===fixStep?' on':'')+(i<fixStep?' ok':'');});}
+function renderFix(){var r=FIX[fixR];$('fixIntro').innerHTML=r.intro+'<span class="fr">'+r.introfr+'</span>';var m=$('mixed');m.innerHTML='';fixCards.forEach(function(k){var a=FBY[k];var d=document.createElement('div');d.className='mx'+(fixStep>1&&k===r.intruder?' out':'')+(fixOrder.indexOf(k)>=0?' placed':'');d.innerHTML='<div class="e">'+a.e+'</div><div class="w">'+a.w+'</div><span class="fr">'+a.fr+'</span>';d.onclick=function(){clickFix(k);};m.appendChild(d);});
+ var s=$('fixSlots');s.innerHTML='';if(fixStep>=2){r.labels.forEach(function(l,i){var k=fixOrder[i];var d=document.createElement('div');d.className='oslot';d.innerHTML='<div class="lab">'+l[0]+'<span class="fr" style="font-size:12px">'+l[1]+'</span></div>'+(k?'<div class="e">'+FBY[k].e+'</div><div class="w">'+FBY[k].s+'</div>':'<div class="e" style="opacity:.25">?</div>');s.appendChild(d);});}stepUI();}
+function clickFix(k){var r=FIX[fixR];if(fixStep===1){if(k===r.intruder){fixStep=2;$('fixMsg').innerHTML='✅ Yes! '+r.why+'<span class="fr">'+r.whyfr+'</span>';addStars(1);}else{$('fixMsg').innerHTML='🤔 Hmm, "'+FBY[k].w+'" '+r.belongs+' Look again!<span class="fr">« '+FBY[k].fr+' » '+r.belongsfr+' Regarde encore !</span>';}renderFix();return;}
+ if(fixStep===2){if(k===r.intruder||fixOrder.indexOf(k)>=0)return;fixOrder.push(k);play(['fl'+fixR+'_'+(fixOrder.length-1),k]);renderFix();if(fixOrder.length===4)checkFix();}}
+function same(a,b){return a.join('|')===b.join('|');}
+function checkFix(){var r=FIX[fixR];var good=same(fixOrder,r.order)||(r.alts||[]).some(function(o){return same(fixOrder,o);});
+ if(good){fixStep=3;$('fixMsg').innerHTML='🎉 '+r.done+'<span class="fr">'+r.donefr+'</span>';addStars(2);confetti();}else{$('fixMsg').innerHTML='💡 '+r.hint+' <br>Press "Try again".<span class="fr">'+r.hintfr+' Appuie sur « Try again ».</span>';}renderFix();}
+function startFix(r){fixR=r;fixStep=1;fixOrder=[];fixCards=shuffle(FIX[r].cards.map(function(c){return c.k;}));$('fixMsg').textContent='';renderFix();}
+$('fixReset').onclick=function(){if(fixStep===1){startFix(fixR);return;}fixOrder=[];fixStep=2;$('fixMsg').textContent='';renderFix();};
+$('fixNext').onclick=function(){startFix(fixR?0:1);this.innerHTML=fixR?FIX[0].back:FIX[1].nextBtn;};
+startFix(0);
+
+/* ---------- true or silly (every fact checked) ---------- */
+TS.forEach(function(t,i){T('ts'+i,t[1]+' '+t[4]);});
+var last=null,tsBag=[],tsDone=false;
+$('spin').onclick=function(){if(!tsBag.length)tsBag=shuffle(TS.map(function(_,i){return i;}));var fin=tsBag.pop();var n=0;$('verdict').textContent='';var iv=setInterval(function(){var i=++n>12?fin:Math.floor(Math.random()*TS.length),t=TS[i];$('r1').innerHTML='<span class="e">'+t[0]+'</span>'+t[1]+'<span class="fr">'+t[2]+'</span>';$('r2').innerHTML='<span class="e">'+t[3]+'</span>'+t[4]+'<span class="fr">'+t[5]+'</span>';if(n>12){clearInterval(iv);last=i;tsDone=false;$('verdict').innerHTML='Read it! True or silly?<span class="fr">Lis-la ! Vrai ou rigolo ?</span>';}},70);};
+$('sayIt').onclick=function(){if(last!==null)play(['ts'+last]);};
+document.querySelectorAll('[data-v]').forEach(function(b){b.onclick=function(){if(last===null){$('verdict').innerHTML='Press SPIN first!<span class="fr">Appuie d\'abord sur SPIN !</span>';return;}var t=TS[last],said=b.dataset.v==='true',right=said===t[6];if(right&&!tsDone){addStars(1);tsDone=true;}$('verdict').innerHTML=(right?'✅ Yes! ':'🤔 Not quite! ')+(t[6]?'It\'s TRUE. ':'It\'s SILLY! ')+t[7]+(t[6]?'':' Now say the true sentence!')+'<span class="fr">'+(right?'Oui ! ':'Pas tout à fait ! ')+(t[6]?'C\'est VRAI. ':'C\'est RIGOLO ! ')+t[8]+(t[6]?'':' Maintenant, dis la phrase vraie !')+'</span>';};});
+
+/* ---------- sound spot ---------- */
+for(var sk in SND)T(sk,SND[sk]);T('snd_twister',TWISTER);
+var myst=null;$('mystery').onclick=function(){var ks=Object.keys(SND);myst=ks[Math.floor(Math.random()*ks.length)];play([myst]);$('thMsg').innerHTML='Which word? Say it! <button class="btn ghost" id="thShow" style="padding:4px 10px;font-size:14px">Show</button><span class="fr">Quel mot ? Dis-le !</span>';$('thShow').onclick=function(){$('thMsg').innerHTML='It was: <b>'+SND[myst]+'</b><span class="fr">C\'était : '+SND[myst]+'</span>';};};
+
+/* ---------- picture reveal ---------- */
+var revBag=[],revCur=null,revPts=9;
+function newReveal(){if(!revBag.length)revBag=shuffle(A);revCur=revBag.pop();$('revealPic').textContent=revCur.e;var t=$('tiles');t.innerHTML='';revPts=9;$('revealPts').textContent='Points for this round: 9';$('revealMsg').textContent='';for(var i=0;i<9;i++){var d=document.createElement('div');d.className='tile';d.textContent=i+1;d.onclick=function(){if(this.classList.contains('gone'))return;this.classList.add('gone');revPts--;$('revealPts').textContent='Points for this round: '+revPts;};t.appendChild(d);}}
+$('revealNew').onclick=newReveal;
+$('revealAll').onclick=function(){document.querySelectorAll('.tile').forEach(function(t){t.classList.add('gone');});$('revealMsg').innerHTML=revCur.s+'<span class="fr">'+(revCur.sfr||revCur.fr)+'</span>';play([revCur.k]);};
+$('revealGot').onclick=function(){var p=Math.max(1,revPts);addStars(p);$('revealAll').click();toast('⭐ +'+p+'!');};
+newReveal();
+
+/* ---------- would you rather ---------- */
+WY.forEach(function(w){T(w[0],w[1]);});
+var wyI=0;function renderWY(){var w=WY[wyI];$('wyrQ').textContent=w[1];$('wyrQfr').textContent=w[2];[['wyrA',w[3]],['wyrB',w[4]]].forEach(function(p){var el=$(p[0]);el.className='side';el.innerHTML='<span class="e">'+p[1][0]+'</span>'+p[1][1]+'<span class="fr">'+p[1][2]+'</span>';el.onclick=function(){$('wyrA').classList.remove('on');$('wyrB').classList.remove('on');el.classList.add('on');};});}
+$('wyrSpk').onclick=function(){play([WY[wyI][0]]);};$('wyrNext').onclick=function(){wyI=(wyI+1)%WY.length;renderWY();};renderWY();
+
+/* ---------- big talk storyboard ---------- */
+SB.forEach(function(c,ci){var d=document.createElement('div');d.className='sb';d.innerHTML='<div class="lab">'+c.em+' '+c.lab+'<span class="fr">'+c.fr+'</span></div><div class="choices"></div><div class="said"></div>';var ch=d.querySelector('.choices'),said=d.querySelector('.said');c.opts.forEach(function(o,oi){var key='sb'+ci+'_'+oi;T(key,o.s);var b=document.createElement('button');b.innerHTML=o.e+'<div style="font-size:11px">'+o.w+'</div>'+(o.wfr?'<span class="fr" style="font-size:10px">'+o.wfr+'</span>':'');b.title=o.w;b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');said.innerHTML=o.s+'<span class="fr" style="font-size:13px;font-weight:500">'+o.sfr+'</span>';play([key]);};ch.appendChild(b);});$('storyboard').appendChild(d);});
+document.querySelectorAll('.lvl').forEach(function(l){l.onclick=function(){document.querySelectorAll('.lvl').forEach(function(x){x.classList.remove('on');});l.classList.add('on');toast('🎭 Round: '+l.childNodes[1].textContent.trim()+'! '+VOICE_TOAST+' ⭐');};});
+
+/* ---------- book (tap choices, saved in this browser) ---------- */
+var book={};try{book=JSON.parse(localStorage.getItem(BOOK_KEY)||'{}');}catch(e){}
+BOOK.forEach(function(l){l.opts.forEach(function(o,oi){T(l.id+'_'+oi,l.say+' '+o.said);});var d=document.createElement('div');d.className='bline';d.innerHTML='<span class="lbl">'+l.lbl+'</span><span class="said"></span><span class="fr">'+l.lblfr+'</span><div class="choices"></div>';var said=d.querySelector('.said'),ch=d.querySelector('.choices');function show(i){said.textContent=(i!==undefined&&l.opts[i])?l.opts[i].said:'…';}show(book[l.id]);l.opts.forEach(function(o,oi){var b=document.createElement('button');b.innerHTML=o.e+' '+o.w+'<span class="fr" style="font-size:11.5px">'+o.fr+'</span>';if(book[l.id]===oi)b.classList.add('on');b.onclick=function(){ch.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');book[l.id]=oi;show(oi);try{localStorage.setItem(BOOK_KEY,JSON.stringify(book));}catch(e){}};ch.appendChild(b);});$('book').appendChild(d);});
+$('readBook').onclick=function(){var keys=[];BOOK.forEach(function(l){if(book[l.id]!==undefined&&l.opts[book[l.id]])keys.push(l.id+'_'+book[l.id]);});play(keys);};
+
+/* ---------- ceremony ---------- */
+T('praise',PRAISE);
+function ceremony(){$('stStars').textContent=stars;$('stMedal').textContent=stars>=40?'🥇':stars>=25?'🥈':'🥉';}
+document.querySelectorAll('.cando').forEach(function(c){c.onclick=function(){c.classList.toggle('ok');};});
+$('medal').onclick=function(){confetti();play(['praise']);ceremony();toast((stars>=40?'🥇 Gold':stars>=25?'🥈 Silver':'🥉 Bronze')+' medal!');};
+if(window.speechSynthesis)speechSynthesis.getVoices();
+})();
+</script>
+</body>
+</html>
