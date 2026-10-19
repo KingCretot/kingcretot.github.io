@@ -1,926 +1,531 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="google" content="notranslate">
-<title>Lesson 11 — Have You Thought About...? | Berenice</title>
+<title>Bérénice • Lesson 11 — Have You Thought About…?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#09111f; --deep:#0d1829; --card:#131f38; --rim:#1c2d4a;
-    --white:#e8f0ff; --muted:#8095bb;
-    --teal:#0fd4b8; --amber:#ffb830; --coral:#ff5a42; --violet:#a47aff; --lime:#3ee88a; --aqua:#00d4ff;
-    --shadow:rgba(0,0,0,0.35);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
-  html,body{height:100%;overflow:hidden}
-  .notranslate{translate:no;}
-  body{
-    font-family:'Inter',sans-serif; font-size:22px; line-height:1.5; color:var(--white);
-    background:var(--ink);
-    background-image:
-      radial-gradient(900px 500px at 12% -5%, rgba(15,212,184,0.14), transparent 60%),
-      radial-gradient(800px 480px at 95% 8%, rgba(164,122,255,0.12), transparent 60%),
-      radial-gradient(900px 600px at 50% 115%, rgba(255,184,48,0.10), transparent 60%);
-    position:relative;
-  }
-  .hud{ position:fixed; top:14px; left:14px; right:14px; display:flex; justify-content:space-between; align-items:center; z-index:50; gap:10px; flex-wrap:wrap; }
-  .hud-pill{ background:var(--card); border:1px solid var(--rim); color:var(--white); padding:9px 16px; border-radius:999px; font-weight:700; font-size:16px; box-shadow:0 4px 14px var(--shadow); display:flex; align-items:center; gap:7px; }
-  .xp-pill{ background:linear-gradient(135deg,var(--amber),#c9861a); color:#2a1c00; }
-  .sound-toggle{ background:var(--card); border:1px solid var(--rim); color:var(--white); border-radius:50%; width:42px; height:42px; font-size:19px; cursor:pointer; box-shadow:0 4px 12px var(--shadow); }
-  .xp-pop{ position:fixed; top:76px; left:50%; transform:translateX(-50%) translateY(-16px); background:linear-gradient(135deg,var(--coral),var(--amber)); color:#fff; padding:11px 22px; border-radius:999px; font-weight:800; font-size:22px; box-shadow:0 6px 20px rgba(255,90,66,0.4); opacity:0; pointer-events:none; z-index:80; transition:all .4s cubic-bezier(.4,0,.2,1); }
-  .xp-pop.show{ opacity:1; transform:translateX(-50%) translateY(0); }
-
-  .slide{ display:none; max-width:1180px; margin:0 auto; padding:22px 24px 30px; position:relative; z-index:1; animation:slideIn .35s ease; }
-  .slide.active{ display:block; }
-  @keyframes slideIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
-
-  /* ===== Scroll viewport (sits cleanly between fixed HUD and fixed nav bar) ===== */
-  .slide-viewport{ position:fixed; top:66px; left:0; right:0; bottom:78px; overflow-y:auto; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
-  .slide-viewport::-webkit-scrollbar{ width:8px; }
-  .slide-viewport::-webkit-scrollbar-thumb{ background:var(--rim); border-radius:8px; }
-  .scroll-cue{ position:fixed; left:50%; bottom:92px; transform:translateX(-50%) translateY(6px); z-index:55;
-    background:var(--card); border:1px solid var(--rim); color:var(--white); font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
-    padding:8px 16px; border-radius:999px; box-shadow:0 6px 16px var(--shadow); display:flex; align-items:center; gap:6px;
-    opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; }
-  .scroll-cue.show{ opacity:1; transform:translateX(-50%) translateY(0); animation:cueBounce 1.6s ease-in-out infinite; }
-  .scroll-cue .arrow{ font-size:14px; }
-  @keyframes cueBounce{ 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(4px); } }
-
-  .card{ background:var(--card); border:1px solid var(--rim); border-radius:26px; padding:36px 34px; box-shadow:0 16px 40px var(--shadow); }
-  .brandbar{ display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-weight:800; letter-spacing:.5px; color:var(--amber); font-size:12px; text-transform:uppercase; margin-bottom:16px; }
-  .brandbar .dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow:0 0 12px var(--amber); }
-
-  h1{ font-family:'Poppins',sans-serif; font-size:44px; font-weight:900; line-height:1.12; letter-spacing:-.5px; color:var(--white); }
-  h1 .accent{ color:var(--amber); }
-  h2{ font-family:'Poppins',sans-serif; font-size:30px; font-weight:800; color:var(--white); margin-bottom:14px; }
-  .badge-tag{ display:inline-block; background:rgba(15,212,184,0.14); color:var(--teal); font-weight:700; font-size:12.5px; letter-spacing:.6px; text-transform:uppercase; padding:6px 16px; border-radius:999px; margin-bottom:16px; border:1px solid rgba(15,212,184,0.3); }
-
-  .hero-emoji{ font-size:74px; display:block; margin-bottom:12px; }
-  .hero-sub-en{ font-size:21px; color:var(--white); margin:10px 0 4px; font-weight:500; }
-  .hero-sub-fr{ font-size:18px; color:var(--violet); font-weight:600; font-style:italic; }
-
-  .bi-cols{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:18px 0; }
-  @media (max-width:680px){ .bi-cols{ grid-template-columns:1fr; } }
-  .bi-en, .bi-fr{ padding:18px 22px; border-radius:16px; font-size:20px; line-height:1.5; }
-  .bi-en{ background:rgba(15,212,184,0.09); color:var(--white); border-left:5px solid var(--teal); }
-  .bi-fr{ background:rgba(164,122,255,0.10); color:#d8c9ff; border-left:5px solid var(--violet); font-style:italic; }
-  .bi-en strong, .bi-fr strong{ font-weight:700; color:inherit; }
-
-  .nav-row{ position:fixed; bottom:0; left:0; right:0; background:var(--deep); border-top:1px solid var(--rim); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; z-index:60; }
-  .nav-btn{ font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; padding:13px 28px; border-radius:50px; border:none; cursor:pointer; color:#fff; transition:transform .1s ease; }
-  .nav-btn:active{ transform:translateY(3px); }
-  .nav-btn.back{ background:#2a3a5c; }
-  .nav-btn.next{ background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
-  .nav-btn:disabled{ opacity:.35; cursor:not-allowed; }
-  .nav-btn.locked{ background:#2a3550; color:#6b7a9a; }
-  .progress-label{ font-size:13px; color:var(--muted); font-weight:700; }
-
-  .vocab-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0; }
-  @media (max-width:680px){ .vocab-grid{ grid-template-columns:repeat(2,1fr); } }
-  .vocab-card{ background:var(--deep); border:2px solid var(--rim); border-radius:16px; padding:14px 10px; text-align:center; cursor:pointer; transition:transform .15s ease, border-color .15s ease; min-height:96px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-  .vocab-card:hover{ transform:translateY(-3px); border-color:var(--teal); }
-  .vocab-card .emoji{ font-size:28px; display:block; margin-bottom:4px; }
-  .vocab-card .word{ font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--white); }
-  .vocab-card .fr{ font-size:12px; color:var(--violet); font-style:italic; margin-top:2px; display:none; }
-  .vocab-card.flipped{ border-color:var(--amber); background:rgba(255,184,48,0.08); }
-  .vocab-card.flipped .fr{ display:block; }
-  .vocab-card.flipped .word{ font-size:13.5px; }
-
-  .word-bank-wrap{ margin:20px 0; }
-  .sentence-slot{ min-height:64px; background:var(--deep); border:2px dashed var(--rim); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:12px; font-family:'Poppins',sans-serif; font-size:21px; font-weight:700; margin-bottom:14px; }
-  .sentence-slot .placed{ background:var(--teal); color:#00251f; padding:7px 13px; border-radius:10px; }
-  .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-  .word-chip{ background:var(--coral); color:#fff; padding:9px 16px; border-radius:14px; font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; cursor:pointer; box-shadow:0 5px 0 #b8341f; transition:transform .1s ease; }
-  .word-chip:active{ transform:translateY(4px); box-shadow:0 1px 0 #b8341f; }
-  .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
-  .replay-btn{ background:var(--amber); color:#2a1c00; border:none; border-radius:50px; padding:10px 20px; font-size:15px; font-weight:700; cursor:pointer; box-shadow:0 5px 0 #b8790f; margin-top:10px; }
-
-  .feedback-banner{ margin-top:14px; font-weight:800; font-size:19px; min-height:44px; }
-  .feedback-banner .fb-fr{ display:block; font-size:15px; color:var(--violet); font-weight:600; margin-top:2px; }
-  .feedback-banner.good .fb-en{ color:var(--lime); }
-  .feedback-banner.retry .fb-en{ color:var(--coral); }
-
-  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:560px; margin:16px auto 0; }
-  .mcq-opt{ font-family:'Inter',sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; text-align:left; transition:transform .08s ease,background .15s ease,border-color .15s ease; width:100%; }
-  .mcq-opt .opt-fr{ display:block; font-size:14px; color:var(--violet); font-weight:600; margin-top:3px; font-style:italic; }
-  .mcq-opt:hover{ transform:translateY(-2px); }
-  .mcq-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .mcq-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
-  @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-7px);} 75%{transform:translateX(7px);} }
-
-  .passage-card{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; font-size:20px; line-height:1.6; }
-  .passage-card .ptitle{ font-family:'Poppins',sans-serif; font-weight:800; color:var(--amber); font-size:13px; text-transform:uppercase; letter-spacing:.6px; margin-bottom:10px; }
-
-  .match-round-label{ font-size:14px; color:var(--muted); font-weight:700; margin-bottom:6px; }
-  .match-fr-word{ font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:var(--amber); margin-bottom:16px; }
-  .match-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:560px; margin:0 auto; }
-  @media (max-width:520px){ .match-grid{ grid-template-columns:1fr; } }
-  .match-opt{ font-family:'Inter',sans-serif; font-size:18px; font-weight:600; padding:14px 16px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; }
-  .match-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .match-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .match-opt.disabled{ pointer-events:none; opacity:.4; }
-  .match-progress{ display:flex; gap:6px; justify-content:center; margin-bottom:18px; }
-  .match-dot{ width:10px; height:10px; border-radius:50%; background:var(--rim); }
-  .match-dot.done{ background:var(--lime); }
-
-  /* ===== Conversation Wheel ===== */
-  .bridge-line{ background:linear-gradient(135deg, rgba(255,184,48,0.14), rgba(255,90,66,0.08)); border:1px solid rgba(255,184,48,0.4); border-radius:16px; padding:16px 20px; margin:16px 0; text-align:center; }
-  .bridge-line .bridge-icon{ font-size:24px; display:block; margin-bottom:6px; }
-  .bridge-line .bridge-en{ font-size:18px; font-weight:700; color:var(--white); line-height:1.4; }
-  .bridge-line .bridge-fr{ font-size:14px; color:var(--violet); font-style:italic; margin-top:4px; line-height:1.4; }
-  .wheel-frame{ background:var(--deep); border:1px solid var(--rim); border-radius:22px; padding:24px 18px; margin-top:14px; }
-  .wheel-main{ display:flex; flex-direction:column; align-items:center; gap:10px; }
-  @media (min-width:780px){ .wheel-main{ flex-direction:row; align-items:stretch; gap:30px; } }
-  .wheel-left{ display:flex; flex-direction:column; align-items:center; }
-  .wheel-wrap{ position:relative; width:240px; height:240px; max-width:68vw; max-height:68vw; }
-  @media (min-width:780px){ .wheel-wrap{ width:260px; height:260px; max-width:none; max-height:none; } }
-  .wheel-pointer{ position:absolute; top:-4px; left:50%; transform:translateX(-50%); z-index:5; width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent; border-top:24px solid var(--amber); filter:drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
-  .wheel-svg{ width:100%; height:100%; border-radius:50%; transition:transform 4.2s cubic-bezier(.15,.9,.25,1); filter:drop-shadow(0 10px 22px rgba(0,0,0,0.4)); }
-  .wheel-hub{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:4; width:86px; height:86px; border-radius:50%; background:var(--ink); border:3px solid var(--amber); color:var(--amber); cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; box-shadow:0 6px 14px rgba(0,0,0,0.5); transition:transform .15s ease; }
-  .wheel-hub:hover{ transform:translate(-50%,-50%) scale(1.05); }
-  .wheel-hub:active{ transform:translate(-50%,-50%) scale(.96); }
-  .wheel-hub:disabled{ cursor:default; opacity:.85; }
-  .wheel-hub .word{ font-weight:800; font-size:13px; letter-spacing:.1em; }
-  .wheel-hub .spin-ico{ font-size:14px; margin-bottom:1px; }
-  .wheel-hint{ color:var(--muted); font-size:12px; margin:10px 0 4px; text-align:center; }
-  .wheel-legend{ display:flex; flex-wrap:wrap; gap:6px; justify-content:center; padding:2px 0 4px; max-width:320px; }
-  .wchip{ border:none; cursor:pointer; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:11px; padding:5px 10px; border-radius:999px; display:inline-flex; align-items:center; gap:5px; opacity:.9; }
-  .wchip:hover{ opacity:1; }
-  .wchip:disabled{ cursor:default; opacity:.5; }
-  .wheel-right{ width:100%; display:flex; flex-direction:column; justify-content:center; }
-  .wpanel{ background:var(--card); border:1px solid var(--rim); border-radius:16px; padding:22px 20px; text-align:center; min-height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; opacity:0; transform:translateY(6px); transition:opacity .4s ease, transform .4s ease; }
-  .wpanel.show{ opacity:1; transform:none; }
-  @media (min-width:780px){ .wpanel{ min-height:230px; padding:26px 24px; } }
-  .wcat-chip{ font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#fff; padding:5px 12px; border-radius:999px; }
-  .wq{ font-family:'Poppins',sans-serif; font-weight:700; font-size:clamp(19px,2.2vw,26px); line-height:1.3; color:var(--white); }
-  .wqf{ font-family:'Inter',sans-serif; font-style:italic; font-weight:500; font-size:clamp(14px,1.6vw,17px); line-height:1.3; color:var(--violet); }
-  .wplaceholder{ color:var(--muted); font-size:14px; font-style:italic; }
-  .wpush-toggle{ background:none; border:none; color:var(--teal); font-weight:700; font-size:13px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
-  .wpush{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:10px; padding:10px 14px; max-width:440px; }
-  .wpush.show{ display:block; }
-  .wpush .lbl{ font-weight:800; font-size:9px; letter-spacing:.12px; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:3px; }
-  .wpush .txt{ font-size:14.5px; color:var(--white); font-weight:600; }
-  .wpush .txt-fr{ display:block; font-style:italic; font-weight:600; font-size:13px; color:var(--violet); margin-top:6px; }
-  .wactions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
-  .wbtn{ font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; padding:10px 18px; border-radius:10px; cursor:pointer; border:2px solid transparent; }
-  .wbtn-primary{ background:var(--amber); color:#2a1c00; }
-  .wbtn-ghost{ background:transparent; color:var(--white); border-color:var(--rim); }
-  .wbtn:disabled{ opacity:.5; cursor:default; }
-  .wspin-count{ font-size:13px; color:var(--muted); margin-top:8px; text-align:center; }
-
-  /* ===== Celebration slide ===== */
-  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0; }
-  @media (max-width:680px){ .stat-grid{ grid-template-columns:1fr; } }
-  .stat-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px; text-align:center; }
-  .stat-num{ font-family:'Poppins',sans-serif; font-weight:900; font-size:34px; color:var(--amber); }
-  .stat-lbl{ font-size:13px; color:var(--muted); font-weight:700; margin-top:2px; }
-  .stat-lbl-fr{ font-size:12px; color:var(--violet); font-style:italic; }
-  .celebrate-btn{ display:block; margin:24px auto 4px; font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; padding:16px 38px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--coral),var(--amber)); color:#2a1c00; box-shadow:0 8px 22px rgba(255,90,66,0.35); transition:transform .1s ease; }
-  .celebrate-btn:active{ transform:translateY(3px) scale(.98); }
-  .celebrate-btn:disabled{ opacity:.5; cursor:default; }
-  .badge-reveal{ text-align:center; margin-top:18px; opacity:0; transform:scale(.7); transition:all .5s cubic-bezier(.34,1.56,.64,1); }
-  .badge-reveal.show{ opacity:1; transform:scale(1); }
-  .badge-reveal .badge-emoji{ font-size:90px; display:block; }
-  .badge-reveal .badge-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--amber); margin-top:6px; }
-  .confetti-piece{ position:fixed; top:-20px; z-index:200; pointer-events:none; font-size:22px; animation:confettiFall linear forwards; }
-  @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(400deg); opacity:0.2; } }
-
-
-  /* ===== Skill teaching box ===== */
-  .skill-box{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; }
-  .skill-table{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
-  .skill-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; background:var(--card); border:1px solid var(--rim); border-radius:12px; padding:12px 16px; align-items:center; }
-  @media (max-width:680px){ .skill-row{ grid-template-columns:1fr; } }
-  .skill-en{ font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; color:var(--white); }
-  .skill-en .sample{ display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:14px; color:var(--teal); margin-top:3px; font-style:italic; }
-  .skill-fr{ font-size:14px; color:var(--violet); font-style:italic; line-height:1.4; }
-  .skill-tryit{ margin-top:14px; font-size:14px; color:var(--muted); text-align:center; font-style:italic; }
-
-  /* ===== Speaking task (the real climax) ===== */
-  .speak-card{ background:linear-gradient(135deg, rgba(15,212,184,0.10), rgba(164,122,255,0.08)); border:2px solid rgba(15,212,184,0.35); border-radius:20px; padding:28px 26px; margin:18px 0; }
-  .speak-card .speak-icon{ font-size:40px; display:block; margin-bottom:10px; text-align:center; }
-  .speak-card .bi-en, .speak-card .bi-fr{ background:transparent; border:none; padding:0; text-align:center; }
-  .speak-card .bi-en{ font-size:21px; font-weight:600; }
-  .nudge-toggle{ display:block; margin:16px auto 0; background:none; border:none; color:var(--teal); font-weight:700; font-size:14px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
-  .nudge-box{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:12px; padding:14px 18px; margin-top:14px; }
-  .nudge-box.show{ display:block; }
-  .nudge-box .starter{ font-family:'Poppins',sans-serif; font-weight:700; color:var(--amber); font-size:15px; margin:4px 0; }
-  .done-talking-btn{ display:block; margin:20px auto 0; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; padding:13px 30px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
-  .done-talking-btn:disabled{ opacity:.5; cursor:default; }
-  .talk-confirm{ text-align:center; margin-top:16px; font-weight:700; color:var(--lime); display:none; }
-  .talk-confirm.show{ display:block; }
-
-  /* ===== Bonus wheel framing ===== */
-  .bonus-frame{ text-align:center; margin-bottom:6px; }
-  .bonus-frame .bi-en, .bonus-frame .bi-fr{ background:transparent; border:none; padding:0 0 4px; text-align:center; }
-
-  /* ===== True/False quick response ===== */
-  .tf-row{ display:flex; gap:16px; justify-content:center; max-width:480px; margin:18px auto 0; }
-  .tf-btn{ flex:1; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; padding:20px 14px; border-radius:16px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; transition:transform .08s ease,background .15s ease,border-color .15s ease; }
-  .tf-btn:hover{ transform:translateY(-2px); }
-  .tf-btn.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .tf-btn.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .tf-btn.disabled{ pointer-events:none; opacity:.55; }
-
-  /* ===== Two-column compare cards ===== */
-  .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0; }
-  @media (max-width:600px){ .compare-grid{ grid-template-columns:1fr; } }
-  .compare-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px 16px; }
-  .compare-card .cc-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--amber); margin-bottom:10px; text-align:center; }
-  .compare-card ul{ margin:0; padding-left:18px; font-size:15px; line-height:1.7; color:var(--white); }
-
-  footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:var(--muted); }
+:root{
+  --sun:#F4B400; --sun-deep:#A6821B;
+  --sky:#0F8B8D; --sky-deep:#0A5F60;
+  --coral:#E8573C; --coral-deep:#8E1B20;
+  --leaf:#4A9C5D; --leaf-deep:#2F5233;
+  --grape:#7c3aed; --pink:#E85D9A; --orange:#F28C28;
+  --cream:#fff8ea; --ink:#25324a;
+  --good:#22c55e; --bad:#ef4444;
+  --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  --accent:#0F8B8D; --accent-deep:#0A5F60;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Quicksand',Arial,sans-serif;font-size:20px;line-height:1.5;color:var(--ink);
+  background:radial-gradient(circle at 6% 10%,rgba(242,140,40,.20) 0,transparent 40%),radial-gradient(circle at 94% 85%,rgba(124,58,237,.14) 0,transparent 42%),linear-gradient(180deg,#fff4e3 0%,#fff 100%);min-height:100vh;overflow-x:hidden}
+.kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px}
+.kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px}
+.kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1}
+.kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700}
+.kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+.kce-band{height:3px;display:flex}.kce-band i{flex:1}.kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+.stage{max-width:1180px;margin:0 auto;padding:18px 20px 40px}
+.hud{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--accent);border-radius:22px;padding:10px 18px;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.hud-brand{font-family:'Caprasimo',Georgia,serif;font-size:21px;color:var(--accent-deep)}
+.hud-stat{font-weight:700;font-size:18px;background:var(--cream);padding:6px 14px;border-radius:12px;border:2px solid var(--sun);color:#8a5a00}
+.hud-spacer{flex:1}
+.pill{border:none;border-radius:50px;padding:8px 16px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:13px;cursor:pointer}
+.pill.fr-toggle{background:#ede9fe;color:var(--grape)}
+.pill.star-btn{background:var(--sun);color:var(--kce-navy)}
+.namedate{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;font-family:Arial,sans-serif;font-size:15px;color:var(--kce-navy);background:#fff;border:2px dashed var(--kce-gold);border-radius:12px;padding:8px 16px}
+.namedate b{font-family:Georgia,serif}
+.progress{height:10px;background:#eee;border-radius:99px;margin-top:10px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--pink),var(--grape));transition:width .5s}
+.slide{display:none;background:#fff;border:3px solid var(--accent);border-radius:26px;padding:24px 28px;margin-top:14px;box-shadow:0 12px 34px rgba(0,0,0,.07);animation:slideIn .45s ease;position:relative}
+.slide.active{display:block}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.slide-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.slide-count{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:#7a869a;text-transform:uppercase;letter-spacing:1px}
+.minutes{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;background:#e0f2f1;color:var(--sky-deep);padding:4px 12px;border-radius:99px}
+.slide-title{font-family:'Caprasimo',Georgia,serif;font-size:36px;color:var(--accent-deep);text-align:center;line-height:1.15}
+.slide-sub{text-align:center;font-size:19px;color:#4b5563;margin-top:4px}
+.fr{color:#7c5cc4;font-style:italic;font-weight:500;font-size:.78em;display:block;margin-top:3px;line-height:1.35}
+body.hide-fr .fr{display:none!important}
+.goal{margin:18px auto 0;max-width:760px;background:linear-gradient(135deg,#fff3d6,#ffe4ef);border:3px solid var(--sun);border-radius:20px;padding:18px 22px;text-align:center}
+.goal .big{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--coral-deep)}
+.emoji-row{font-size:54px;text-align:center;margin:14px 0 4px;letter-spacing:8px}
+.how{max-width:760px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.how div{background:var(--cream);border-radius:16px;padding:12px 14px;font-size:17px;text-align:center;border:2px solid #f3dfb5}
+/* chat */
+.chat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:16px}
+.chat-card{border:3px solid var(--sky);border-radius:18px;padding:14px 16px;background:#f3fbfb;cursor:pointer;transition:transform .15s}
+.chat-card:hover{transform:translateY(-2px)}
+.chat-card h4{font-family:'Caprasimo',Georgia,serif;font-size:22px;color:var(--sky-deep);font-weight:400}
+.starters{display:none;margin-top:10px;gap:8px;flex-direction:column}
+.chat-card.open .starters{display:flex}
+.starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:8px 12px;font-weight:700;font-size:17px}
+.starter .fr{font-weight:500}
+.askback{display:inline-block;margin-top:8px;background:var(--sun);color:var(--kce-navy);font-weight:800;font-size:14px;padding:5px 12px;border-radius:99px;font-family:'Poppins',Arial,sans-serif}
+.tap-hint{font-size:14px;color:#7a869a;margin-top:6px}
+/* vocab */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:16px}
+.vcard{perspective:800px;height:170px;cursor:pointer}
+.vinner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.vcard.flip .vinner{transform:rotateY(180deg)}
+.vface{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center}
+.vfront{border:3px solid var(--orange);background:#fff7ed}
+.vfront .em{font-size:56px;line-height:1.1}
+.vfront .w{font-weight:800;font-size:19px;margin-top:6px}
+.vback{transform:rotateY(180deg);background:linear-gradient(135deg,#ede9fe,#fce7f3);border:3px solid var(--grape);font-size:16px}
+.vback .ex{font-weight:700;color:var(--ink)}
+/* wheel */
+.wheel-wrap{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:4px;padding:12px 4px 8px;overflow:hidden}
+.wheel-box{position:relative;width:420px;height:420px;max-width:90vw;max-height:90vw}
+.wheel-box canvas{width:100%;height:100%;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform 4.2s cubic-bezier(.12,.8,.2,1)}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-top:38px solid var(--kce-navy);z-index:2;filter:drop-shadow(0 3px 2px rgba(0,0,0,.3))}
+.hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:#fff;border:5px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;font-size:30px;z-index:2}
+.wheel-q{flex:1;min-width:min(300px,100%);max-width:520px;background:linear-gradient(135deg,#fff3d6,#e0f2fe);border:3px solid var(--sun);border-radius:22px;padding:22px;text-align:center;min-height:200px;display:flex;flex-direction:column;justify-content:center}
+.wheel-q .q{font-family:'Caprasimo',Georgia,serif;font-size:27px;color:var(--kce-navy);line-height:1.25}
+.wheel-q .st{margin-top:10px;font-size:17px;font-weight:700;color:var(--sky-deep)}
+.big-btn{display:inline-block;border:none;border-radius:16px;padding:14px 28px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:18px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--orange),var(--coral));box-shadow:0 6px 16px rgba(232,87,60,.35)}
+.big-btn:disabled{opacity:.5;cursor:default}
+.center{text-align:center;margin-top:14px}
+/* builder */
+.builder-pic{font-size:64px;text-align:center;margin-top:10px}
+.builder-prompt{text-align:center;font-weight:700;font-size:19px}
+.answer-line{min-height:70px;border:3px dashed var(--grape);border-radius:16px;margin:14px 0;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:#faf5ff}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tile{border:3px solid var(--sky);background:#fff;border-radius:12px;padding:8px 14px;font-weight:800;font-size:20px;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.tile.used{visibility:hidden}
+.answer-line .tile{border-color:var(--grape);background:#fff}
+.row-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.sm-btn{border:none;border-radius:12px;padding:10px 18px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:15px;cursor:pointer;background:#e5e7eb;color:var(--ink)}
+.sm-btn.go{background:var(--leaf);color:#fff}
+.feedback{text-align:center;font-weight:800;font-size:19px;min-height:30px;margin-top:10px}
+.feedback.ok{color:#15803d}.feedback.no{color:#b91c1c}
+.round-tag{text-align:center;font-family:'Poppins',Arial,sans-serif;font-weight:700;color:#7a869a;font-size:14px;margin-top:6px}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+/* mcq */
+.mcq-scene{font-size:62px;text-align:center;margin-top:8px}
+.mcq-q{font-family:'Caprasimo',Georgia,serif;font-size:25px;color:var(--kce-navy);text-align:center;margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{border:3px solid var(--sky);background:#fff;border-radius:16px;padding:14px 16px;font-size:19px;font-weight:700;cursor:pointer;text-align:left;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.opt.right{background:#dcfce7;border-color:var(--good)}
+.opt.wrong{background:#fee2e2;border-color:var(--bad)}
+.explain{margin-top:12px;background:var(--cream);border-left:6px solid var(--sun);border-radius:12px;padding:12px 16px;font-size:18px;display:none}
+.explain.show{display:block}
+/* this or that */
+.tot-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:14px}
+.tot{border:3px solid var(--pink);background:#fff0f6;border-radius:20px;padding:18px;text-align:center;cursor:pointer;font-weight:800;font-size:20px;transition:transform .15s}
+.tot .em{font-size:52px;display:block}
+.tot.pick{background:var(--pink);color:#fff;transform:scale(1.04)}
+.tot.pick .fr{color:#fff}
+.vs{font-family:'Caprasimo',Georgia,serif;font-size:30px;color:var(--grape)}
+.say-box{margin-top:14px;text-align:center;background:#ecfeff;border:2px solid var(--sky);border-radius:14px;padding:12px;font-weight:700;font-size:19px}
+/* memory */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;max-width:760px;margin-left:auto;margin-right:auto}
+.mem{height:110px;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.12);padding:6px;user-select:none}
+.mem .face{display:none}
+.mem.open,.mem.done{background:#fff;color:var(--ink);border-color:var(--sky)}
+.mem.open .face,.mem.done .face{display:block}
+.mem.open .back,.mem.done .back{display:none}
+.mem.done{border-color:var(--good);background:#dcfce7}
+.mem .face.e{font-size:46px}
+/* true or silly */
+.tos-card{max-width:760px;margin:16px auto 0;background:linear-gradient(135deg,#fff7ed,#fef3c7);border:3px solid var(--orange);border-radius:22px;padding:22px;text-align:center}
+.tos-card .em{font-size:56px}
+.tos-card .st{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--kce-navy);margin-top:6px}
+.tos-btns{display:flex;gap:14px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.tos-btns button{min-width:170px}
+.btn-true{background:linear-gradient(135deg,#22c55e,#15803d)!important}
+.btn-silly{background:linear-gradient(135deg,#a855f7,#7c3aed)!important}
+/* sort */
+.sort-item{max-width:760px;margin:14px auto 0;background:#fff;border:3px solid var(--kce-navy);border-radius:18px;padding:16px;text-align:center;font-weight:800;font-size:22px}
+.buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.bucket{border-radius:18px;padding:14px;text-align:center;cursor:pointer;color:#fff;font-weight:800;font-size:19px;border:none;font-family:'Quicksand',Arial,sans-serif}
+.bucket small{display:block;font-weight:600;font-size:14px;opacity:.95;margin-top:4px}
+.bucket .cnt{display:block;font-size:14px;margin-top:6px;background:rgba(255,255,255,.25);border-radius:8px;padding:2px}
+.rule-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.rule{border-radius:16px;padding:12px 14px;color:#fff;font-size:17px}
+.rule b{font-size:20px;display:block}
+/* day plan */
+.plan-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.plan-col{border:3px solid var(--sun);border-radius:18px;padding:12px;background:#fffbeb}
+.plan-col h4{font-family:'Caprasimo',Georgia,serif;font-weight:400;font-size:21px;color:var(--sun-deep);text-align:center;margin-bottom:8px}
+.chip{display:block;width:100%;text-align:left;border:2px solid #f3dfb5;background:#fff;border-radius:12px;padding:8px 12px;margin-bottom:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.chip.sel{background:var(--sun);border-color:var(--sun-deep)}
+.story{margin-top:16px;background:linear-gradient(135deg,#e0f2fe,#ede9fe);border:3px solid var(--grape);border-radius:20px;padding:18px 22px;font-size:21px;font-weight:700;line-height:1.6;display:none}
+.story.show{display:block}
+.story .conn{color:var(--coral-deep)}
+/* talk */
+.check-list{max-width:760px;margin:16px auto 0;display:flex;flex-direction:column;gap:10px}
+.check{display:flex;align-items:center;gap:14px;border:3px solid var(--leaf);border-radius:16px;padding:12px 16px;background:#f0fdf4;cursor:pointer;font-weight:700;font-size:19px}
+.check .box{width:34px;height:34px;flex:none;border-radius:10px;border:3px solid var(--leaf);display:flex;align-items:center;justify-content:center;font-size:22px;background:#fff}
+.check.done{background:#bbf7d0}
+/* 2 truths */
+.ttl-list{max-width:760px;margin:14px auto 0;display:flex;flex-direction:column;gap:10px}
+/* victory */
+.victory{text-align:center;padding:10px}
+.medal{font-size:110px;line-height:1.1;margin-top:8px}
+.victory .score{font-family:'Caprasimo',Georgia,serif;font-size:34px;color:var(--accent-deep);margin-top:6px}
+.tiers{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.tiers div{background:var(--cream);border-radius:14px;padding:8px 14px;font-weight:700;font-size:16px;border:2px solid #f3dfb5}
+.tiers div.on{background:var(--sun);border-color:var(--sun-deep)}
+/* tutor */
+details.tutor{margin-top:18px;background:#f1f5f9;border-radius:12px;padding:8px 14px;font-size:15px;font-family:Arial,sans-serif;color:#334155}
+details.tutor summary{cursor:pointer;font-weight:700;color:var(--kce-navy)}
+details.tutor p{margin-top:6px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+.nav-btn{background:linear-gradient(135deg,var(--accent),var(--accent-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',Arial,sans-serif;font-size:16px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px}
+.nav-btn:disabled{opacity:.35;cursor:default}
+.nav-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.nav-dots button{width:14px;height:14px;border-radius:50%;border:none;background:#d1d5db;cursor:pointer;padding:0}
+.nav-dots button.on{background:var(--accent)}
+footer{margin-top:22px;text-align:center;font-family:Arial,sans-serif;font-size:12px;color:#64748b;line-height:1.6}
+footer .prov{color:var(--kce-navy);font-weight:700}
+.toast{position:fixed;left:50%;top:22px;transform:translateX(-50%) translateY(-120px);background:var(--kce-navy);color:#fff;padding:12px 22px;border-radius:14px;font-weight:800;font-size:19px;z-index:50;transition:transform .35s;font-family:'Poppins',Arial,sans-serif}
+.toast.show{transform:translateX(-50%) translateY(0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+@media(max-width:700px){.slide{padding:18px 14px}.wheel-q .q{font-size:22px}.slide-title{font-size:28px}.tot-row{grid-template-columns:1fr}.vs{text-align:center}.mem-grid{grid-template-columns:repeat(3,1fr)}.wheel-box{width:320px;height:320px}}
 </style>
 </head>
-<body class="notranslate" translate="no">
-
-<div class="hud">
-  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 11</span></div>
-  <div style="display:flex; gap:10px; align-items:center;">
-    <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
+<body class="notranslate " translate="no">
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
+<div class="kce-mast">
+  <div class="kce-mono">KC</div>
+  <div>
+    <div class="kce-word">KingCretot Experience</div>
+    <div class="kce-tag">EDUCATE. <span class="g">EMPOWER.</span> <span class="r">EXCEL.</span></div>
   </div>
 </div>
-<div class="xp-pop" id="xpPop"></div>
-<div class="scroll-cue" id="scrollCue"><span>Scroll for more / Fais defiler</span><span class="arrow">&#8595;</span></div>
+<div class="kce-band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
 
-<div class="slide-viewport" id="slideViewport">
-
-<!-- SLIDE 0: HERO -->
-<div class="slide active" data-title="Have You Thought About...?">
-  <div class="card" style="text-align:center;">
-    <div class="brandbar" style="justify-content:center;"><span class="dot"></span> KingCretot Experience</div>
-    <span class="hero-emoji">💡</span>
-    <h1>Season One, Episode Eleven:<br><span class="accent">Have You Thought About...?</span></h1>
-    <div class="hero-sub-en">Today you'll learn to give advice that's actually useful — specific enough that someone could act on it tomorrow.</div>
-    <div class="hero-sub-fr">Aujourd'hui, tu vas apprendre à donner des conseils vraiment utiles — assez précis pour que quelqu'un puisse agir dès demain.</div>
-    <div class="bi-cols" style="margin-top:24px; text-align:left;">
-      <div class="bi-en">Today's guest gives advice for a living, in a way — and she has strong opinions about what makes advice actually work.</div>
-      <div class="bi-fr">L'invitée d'aujourd'hui donne des conseils en quelque sorte pour son « travail » — et elle a des opinions bien tranchées sur ce qui rend un conseil réellement utile.</div>
-    </div>
+<div class="stage">
+  <div class="hud">
+    <div class="hud-brand" id="hudBrand"></div>
+    <div class="hud-stat">⭐ <span id="stars">0</span> stars</div>
+    <div class="hud-spacer"></div>
+    <button class="pill star-btn" id="starBtn" title="Tutor: tap for every full English sentence">+1 ⭐ Full sentence</button>
+    <button class="pill fr-toggle" id="frBtn">FR: ON</button>
   </div>
-</div>
+  <div class="namedate"><span><b>Name:</b> <span id="stuName"></span></span><span><b>Date:</b> <span id="today"></span></span><span><b>Lesson:</b> <span id="lessonName"></span></span></div>
+  <div class="progress"><i id="prog"></i></div>
 
-<!-- SLIDE 1: THE SKILL -->
-<div class="slide" data-title="The Skill">
-  <div class="card">
-    <span class="badge-tag">Today's Skill · La compétence du jour</span>
-    <h2>🎯 Giving Useful Advice</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Softer advice invites the other person to think, instead of just telling them what to do.</div>
-      <div class="bi-fr">Un conseil plus doux invite l'autre personne à réfléchir, au lieu de simplement lui dire quoi faire.</div>
-    </div>
-    <div class="skill-box">
-      <div class="skill-table">
-        <div class="skill-row">
-          <div class="skill-en">Direct advice<span class="sample">"You should try a study group."</span></div>
-          <div class="skill-fr">Direct, mais toujours respectueux.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">Softer suggestion<span class="sample">"Have you thought about + -ing?"</span></div>
-          <div class="skill-fr">Invite à réfléchir, pas un ordre.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">Offering an option<span class="sample">"What if you tried + -ing?"</span></div>
-          <div class="skill-fr">Propose une option, sans imposer.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">The golden rule<span class="sample">Good advice always includes a next step.</span></div>
-          <div class="skill-fr">Un bon conseil inclut toujours une étape concrète.</div>
-        </div>
-      </div>
-      <div class="skill-tryit">You'll use these for real with me in a few minutes. / Tu vas les utiliser pour de vrai avec moi dans quelques minutes.</div>
-    </div>
-    <div class="vocab-grid" id="vocabGrid"></div>
-    <p style="font-size:15px; color:var(--muted); margin-top:8px;" id="vocabHint">Flip at least 5 cards to unlock Next. / Retourne au moins 5 cartes pour débloquer Suivant.</p>
+  <div id="slides"></div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn">◀ Back</button>
+    <div class="nav-dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▶</button>
   </div>
-</div>
 
-<!-- SLIDE 2: QUICK PRACTICE — MCQ MODE -->
-<div class="slide" data-title="Quick Practice">
-  <div class="card">
-    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
-    <h2>🎯 Which Is the Better Piece of Advice?</h2>
-    <div class="bi-cols">
-      <div class="bi-en">A friend is stressed about a test next week. Which advice is more useful?</div>
-      <div class="bi-fr">Un ami est stressé pour un examen la semaine prochaine. Lequel des deux conseils est le plus utile ?</div>
-    </div>
-    <div class="mcq-options" data-gid="qp1">
-      <button class="mcq-opt" data-ans="A">A) You should just study more.<span class="opt-fr">Tu devrais juste réviser plus.</span></button>
-      <button class="mcq-opt" data-ans="B">B) Have you thought about studying in 20-minute blocks?<span class="opt-fr">As-tu pensé à réviser par tranches de 20 minutes ?</span></button>
-      <button class="mcq-opt" data-ans="C">C) Don't worry about it.<span class="opt-fr">Ne t'en fais pas.</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedbackQP1"></div>
-  </div>
-</div>
-
-<!-- SLIDE 3: QUICK PRACTICE 2 — SENTENCE BUILDER MODE -->
-<div class="slide" data-title="Build the Advice">
-  <div class="card">
-    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
-    <h2>🧩 Build the Advice</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Tap the pieces in order to build a correct piece of advice.</div>
-      <div class="bi-fr">Touche les pièces dans l'ordre pour construire un conseil correct.</div>
-    </div>
-    <div class="word-bank-wrap">
-      <div class="sentence-slot" id="sentenceSlot"></div>
-      <div class="word-bank" id="wordBank"></div>
-    </div>
-    <div class="feedback-banner" id="phraseFeedback"></div>
-  </div>
-</div>
-
-<!-- SLIDE 4: GUEST BIO — READING ONLY -->
-<div class="slide" data-title="Guest Bio">
-  <div class="card">
-    <span class="badge-tag">Meet the Guest · Rencontre avec l'invitée</span>
-    <h2>📋 Meet Today's Guest</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Read carefully — notice exactly what makes Amélie's advice different from typical advice.</div>
-      <div class="bi-fr">Lis attentivement — remarque exactement ce qui rend les conseils d'Amélie différents des conseils habituels.</div>
-    </div>
-    <div class="passage-card">
-      <div class="ptitle">Guest Bio · Fiche invitée</div>
-      <p>Meet today's guest: Amélie Girard, 15, from Montreal. Amélie runs a peer-tutoring program at her school, helping classmates who are struggling in a subject. When a stressed student comes to her before a test, she never just says "study harder" — she gives specific, useful advice instead. "Have you thought about breaking your notes into smaller sections?" she might ask. Or, "What if you tried explaining the material out loud, like you're teaching it to someone else?" Amélie says the biggest mistake people make when giving advice is being too vague. The best advice, she believes, always includes a next step the person can actually take tomorrow — not just a feeling or a general idea.</p>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 5: COMPREHENSION CHECK -->
-<div class="slide" data-title="What Did You Catch?">
-  <div class="card">
-    <span class="badge-tag">Precision Check · Vérification précise</span>
-    <h2>🧠 What Did You Catch?</h2>
-    <div class="bi-cols">
-      <div class="bi-en">These questions ask you to figure things out, not just find a matching sentence.</div>
-      <div class="bi-fr">Ces questions te demandent de comprendre, pas juste de retrouver une phrase identique.</div>
-    </div>
-    <div class="bi-en" style="margin-bottom:6px;">What does Amélie believe is the biggest mistake people make when giving advice?</div>
-    <div class="bi-fr" style="margin-bottom:6px;">Quelle est, selon Amélie, la plus grande erreur que font les gens en donnant des conseils ?</div>
-    <div class="mcq-options" data-gid="r1">
-      <button class="mcq-opt" data-ans="A">A) Being too vague<span class="opt-fr">Être trop vague</span></button>
-      <button class="mcq-opt" data-ans="B">B) Giving advice too often<span class="opt-fr">Donner des conseils trop souvent</span></button>
-      <button class="mcq-opt" data-ans="C">C) Not listening first<span class="opt-fr">Ne pas écouter d'abord</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedbackR1"></div>
-
-    <div style="margin-top:24px;">
-      <div class="bi-en" style="margin-bottom:6px;">According to Amélie, what should good advice always include?</div>
-      <div class="bi-fr" style="margin-bottom:6px;">Selon Amélie, qu'est-ce qu'un bon conseil doit toujours inclure ?</div>
-    </div>
-    <div class="mcq-options" data-gid="r2">
-      <button class="mcq-opt" data-ans="A">A) A next step the person can take tomorrow<span class="opt-fr">Une prochaine étape que la personne peut faire demain</span></button>
-      <button class="mcq-opt" data-ans="B">B) A personal story<span class="opt-fr">Une histoire personnelle</span></button>
-      <button class="mcq-opt" data-ans="C">C) A compliment first<span class="opt-fr">Un compliment d'abord</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedbackR2"></div>
-  </div>
-</div>
-
-<!-- SLIDE 6: APPLY IT — TRUE/FALSE MODE -->
-<div class="slide" data-title="True or False?">
-  <div class="card" style="text-align:center;">
-    <span class="badge-tag">Apply It · Mets-le en pratique</span>
-    <h2>✅❌ True or False?</h2>
-    <div class="bi-cols" style="text-align:left;">
-      <div class="bi-en">This tests the grammar of the pattern itself — not the guest bio.</div>
-      <div class="bi-fr">Ceci teste la grammaire du modèle lui-même — pas la fiche invitée.</div>
-    </div>
-    <div class="passage-card" style="font-style:italic;">
-      "Have you thought to studying in the morning?" — Is this correct English?
-    </div>
-    <div class="tf-row">
-      <button class="tf-btn" id="tfTrue" data-ans="true">✅ True / Vrai</button>
-      <button class="tf-btn" id="tfFalse" data-ans="false">❌ False / Faux</button>
-    </div>
-    <div class="feedback-banner" id="tfFeedback"></div>
-  </div>
-</div>
-
-<!-- SLIDE 7: YOUR TURN — SPEAKING TASK -->
-<div class="slide" data-title="Your Turn">
-  <div class="card">
-    <span class="badge-tag">The Real Work · Le vrai travail</span>
-    <h2>🎤 Your Turn — Live</h2>
-    <div class="speak-card">
-      <span class="speak-icon">💬</span>
-      <div class="bi-en">I'll tell you about a small problem I have, and I want you to give me real, specific advice. Use "Have you thought about..." or "What if you tried..."</div>
-      <div class="bi-fr">Je vais te parler d'un petit problème que j'ai, et je veux que tu me donnes un vrai conseil, précis. Utilise « Have you thought about... » ou « What if you tried... »</div>
-      <button class="nudge-toggle" id="nudgeToggle">Need a nudge? / Besoin d'un coup de pouce ?</button>
-      <div class="nudge-box" id="nudgeBox">
-        <div class="starter">"Have you thought about...ing?"</div>
-        <div class="starter">"What if you tried...ing?"</div>
-      </div>
-      <button class="done-talking-btn" id="doneTalkingBtn">✅ We talked it through</button>
-      <div class="talk-confirm" id="talkConfirm">Nice work. That's the real lesson — you just did it. 🌟</div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 8: DEBRIEF -->
-<div class="slide" data-title="Debrief">
-  <div class="card">
-    <span class="badge-tag">Reflect · Réflexion</span>
-    <h2>💭 Quick Debrief</h2>
-    <div class="speak-card">
-      <span class="speak-icon">🌟</span>
-      <div class="bi-en">Was your advice specific, like Amélie's? What's a piece of advice someone has given YOU that actually helped?</div>
-      <div class="bi-fr">Ton conseil était-il précis, comme celui d'Amélie ? Quel conseil quelqu'un t'a-t-il donné qui t'a vraiment aidée ?</div>
-      <button class="nudge-toggle" id="nudgeToggle2">Need a nudge? / Besoin d'un coup de pouce ?</button>
-      <div class="nudge-box" id="nudgeBox2">
-        <div class="starter">"My advice was specific because..."</div>
-        <div class="starter">"Someone once told me..."</div>
-      </div>
-      <button class="done-talking-btn" id="doneTalkingBtn2">✅ We talked it through</button>
-      <div class="talk-confirm" id="talkConfirm2">Good noticing that — that awareness is how you get better. 🌟</div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 9: BONUS ROUND (OPTIONAL WHEEL) -->
-<div class="slide" data-title="Bonus Round">
-  <div class="card">
-    <span class="badge-tag" style="background:rgba(255,184,48,0.14); color:var(--amber); border-color:rgba(255,184,48,0.3);">Optional · Facultatif</span>
-    <h2>🎡 Bonus Round — Only If We Have Time</h2>
-    <div class="bonus-frame">
-      <div class="bi-en">This part is completely optional. If we finish early or you want to keep talking about something new, spin the wheel and pick a topic. If not — no problem, the real work for today is already done.</div>
-      <div class="bi-fr">Cette partie est totalement facultative. Si on a fini en avance ou si tu veux continuer sur un autre sujet, fais tourner la roue. Sinon, pas de souci — le vrai travail d'aujourd'hui est déjà fait.</div>
-    </div>
-    <div class="wheel-frame">
-      <div class="wheel-main">
-        <div class="wheel-left">
-          <div class="wheel-wrap">
-            <div class="wheel-pointer"></div>
-            <svg class="wheel-svg" id="wheel" viewBox="0 0 300 300" aria-hidden="true"></svg>
-            <button class="wheel-hub" id="whub" aria-label="Spin the wheel">
-              <span class="spin-ico">↻</span><span class="word">SPIN</span>
-            </button>
-          </div>
-          <div class="wheel-hint" id="whint">Tap SPIN if you want to / Touche SPIN si tu veux</div>
-          <div class="wheel-legend" id="wlegend"></div>
-        </div>
-        <div class="wheel-right">
-          <div class="wpanel" id="wpanel">
-            <div class="wplaceholder" id="wplaceholder">Totally optional — spin only if there's time left. / Facultatif — fais tourner seulement s'il reste du temps.</div>
-          </div>
-          <div class="wactions" id="wactions" style="display:none">
-            <button class="wbtn wbtn-ghost" id="wagainBtn">Another in this topic</button>
-            <button class="wbtn wbtn-primary" id="wspinBtn">Spin again</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 10: CELEBRATION -->
-<div class="slide" data-title="Great Eleventh Episode">
-  <div class="card" style="text-align:center;">
-    <span class="badge-tag">Episode Wrap · Fin de l'épisode</span>
-    <h1>Great eleventh episode, <span class="accent">Berenice!</span></h1>
-    <div class="bi-cols" style="margin-top:20px; text-align:left;">
-      <div class="bi-en">Look what you actually did today — not just understood, <strong>did</strong>.</div>
-      <div class="bi-fr">Regarde ce que tu as vraiment fait aujourd'hui — pas juste compris, <strong>fait</strong>.</div>
-    </div>
-    <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num" id="statWords">0</div><div class="stat-lbl">Words &amp; chunks learned</div><div class="stat-lbl-fr">Mots et expressions appris</div></div>
-      <div class="stat-card"><div class="stat-num" id="statQuestions">4</div><div class="stat-lbl">Advice patterns practiced</div><div class="stat-lbl-fr">Modèles de conseil pratiqués</div></div>
-      <div class="stat-card"><div class="stat-num" id="statSpeak">1</div><div class="stat-lbl">Real advice, live</div><div class="stat-lbl-fr">Vrai conseil, en direct</div></div>
-    </div>
-    <button class="celebrate-btn" id="celebrateBtn">🎉 Open Your Episode Badge</button>
-    <div class="badge-reveal" id="badgeReveal">
-      <span class="badge-emoji">🏅</span>
-      <div class="badge-title">Advice Giver — Episode 11 Complete!</div>
-      <div class="hero-sub-fr" style="margin-top:6px;">Donneuse de conseils — Épisode 11 terminé !</div>
-    </div>
-    <p style="margin-top:20px; font-size:17px; color:var(--muted);">December's episodes have begun. 🎄</p>
-  </div>
-</div>
-
-</div>
-
-<div class="nav-row">
-  <button class="nav-btn back" id="backBtn">⬅ Back</button>
-  <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
-  <button class="nav-btn next" id="nextBtn">Next ➡</button>
+  <footer>
+    KingCretot Experience, LLC · PO Box 2322, Arcadia, FL 34265 · kingcretot.com · kce@kingcretot.com<br>
+    <span class="prov">Approved Provider: Step Up For Students · Arizona ESA · West Virginia Hope Scholarship</span>
+  </footer>
 </div>
 
 <script>
-/* ============ CORE NAV / XP ============ */
-const slides = document.querySelectorAll('.slide');
-const total = slides.length;
-let current = 0;
-let xp = 0;
-const locks = {1:false, 2:false, 3:false, 5:false, 6:false};
+const L = {"brand": "Bérénice • Lesson 11", "student": "Bérénice", "lesson": "Lesson 11 — Have You Thought About…?", "slides": [{"type": "intro", "min": 2, "title": "💡 Episode 11: Have You Thought About…?", "sub": "Today's guest: Amélie, 15, from Montreal. She runs a peer-tutoring program — and she never says “just study harder.”", "subFr": "L'invitée du jour : Amélie, 15 ans, de Montréal. Elle anime le tutorat entre élèves de son école — et elle ne dit jamais « révise plus, c'est tout ».", "emojis": "💡📚🧭🗣️✨", "goal": "I can give useful, specific advice: “Have you thought about…ing?”, “Why don't you…?”, “You could…”, “If I were you, I'd…”.", "goalFr": "Je peux donner des conseils utiles et précis : « Have you thought about…ing? », « Why don't you…? », « You could… », « If I were you, I'd… ».", "how": [["⭐ Full answers + a reason = stars", "Réponses complètes + une raison = des étoiles"], ["🧭 Give advice with a real next step", "Donne des conseils avec une vraie étape concrète"], ["😎 Fool Jonathan in Two Truths and a Lie", "Piège Jonathan au jeu des 2 vérités et 1 mensonge"]], "tutor": "Talk-show format: today's guest is Amélie from Montreal. Builds on Episode 9 (If I were you, I'd…) and Episode 10 (start with empathy). Main grammar trap: -ing vs. base verb after each advice phrase. Prepare a small real problem of yours for the Big Talk Challenge. FR helper lines are ON by default."}, {"type": "chat", "min": 4, "title": "💬 Warm-Up Chat", "sub": "Tap a question for answer starters. Then ask Jonathan back!", "subFr": "Touche une question pour des débuts de réponse. Puis pose-la à Jonathan !", "items": [{"q": "How's everything going this week?", "fr": "Comment ça se passe, cette semaine ?", "starters": [["Pretty well! I…", "Plutôt bien ! J'ai…"], ["It's been a busy week — I've had…", "Semaine chargée — j'ai eu…"], ["Good, thanks. What about you?", "Bien, merci. Et toi ?"]]}, {"q": "What's one thing you find hard at school right now?", "fr": "Qu'est-ce que tu trouves difficile à l'école en ce moment ?", "starters": [["Right now, I'm struggling with…", "En ce moment, j'ai du mal avec…"], ["Honestly, … is getting harder because…", "Franchement, … devient plus difficile parce que…"]]}, {"q": "Who do you usually go to when you need advice?", "fr": "Vers qui tu te tournes d'habitude quand tu as besoin d'un conseil ?", "starters": [["Usually, I talk to… because…", "D'habitude, j'en parle à… parce que…"], ["It depends — for school stuff, I…", "Ça dépend — pour l'école, je…"]]}, {"q": "What's the best advice anyone has ever given you?", "fr": "Quel est le meilleur conseil qu'on t'ait jamais donné ?", "starters": [["Someone once told me to…", "Quelqu'un m'a dit un jour de…"], ["The best advice I got was…", "Le meilleur conseil que j'ai reçu, c'était…"]]}], "tutor": "Keep her answer to Q2 — it becomes a real problem you can give HER advice on later (model the structures). She asks you back each time."}, {"type": "vocab", "min": 5, "title": "🧭 Advice & Study Vocabulary", "sub": "Tap to flip. Read the example, then make your own sentence!", "subFr": "Touche pour retourner. Lis l'exemple, puis fais ta propre phrase !", "items": [{"e": "💡", "w": "a piece of advice", "ex": "Can I give you a piece of advice?", "fr": "un conseil"}, {"e": "🎯", "w": "specific", "ex": "Amélie's advice is always specific.", "fr": "précis(e)"}, {"e": "🌫️", "w": "vague", "ex": "“Study harder” is too vague to help anyone.", "fr": "vague / flou(e)"}, {"e": "👣", "w": "next step", "ex": "What's your next step after this test?", "fr": "la prochaine étape"}, {"e": "📚", "w": "struggle with", "ex": "He's struggling with chemistry this year.", "fr": "avoir du mal avec / galérer en"}, {"e": "🧑‍🏫", "w": "peer tutor", "ex": "A peer tutor is a student who helps other students.", "fr": "élève-tuteur / élève-tutrice"}, {"e": "⏰", "w": "procrastinate", "ex": "I always procrastinate when a task is boring.", "fr": "procrastiner / remettre à plus tard"}, {"e": "🌙", "w": "cram", "ex": "Cramming the night before a test rarely works.", "fr": "bachoter / tout réviser à la dernière minute"}, {"e": "📌", "w": "a tip", "ex": "Amélie's best tip: explain it out loud.", "fr": "une astuce / un conseil pratique"}, {"e": "📊", "w": "keep track of", "ex": "An app can help you keep track of your homework.", "fr": "suivre / garder une trace de"}, {"e": "🔋", "w": "burn out", "ex": "If you never take a break, you'll burn out.", "fr": "s'épuiser / craquer"}, {"e": "🙋", "w": "ask for help", "ex": "There's nothing wrong with asking for help.", "fr": "demander de l'aide"}], "tutor": "Big trap: “advice” is uncountable — never “an advice” or “advices.” Say “some advice” or “a piece of advice.” After each card: she gives Jonathan advice using the word."}, {"type": "wheel", "min": 5, "title": "🎡 Spin the Advice Wheel!", "sub": "Spin, read the problem, and give at least TWO pieces of specific advice.", "subFr": "Fais tourner, lis le problème, et donne au moins DEUX conseils précis.", "hub": "💡", "items": [{"e": "🌍", "q": "A friend wants to learn Spanish but says she has no time. What's your advice?", "st": "Have you thought about…ing?", "fr": "Une amie veut apprendre l'espagnol mais dit qu'elle n'a pas le temps. Ton conseil ?"}, {"e": "📱", "q": "Your cousin spends six hours a day on his phone and always feels tired. What should he do?", "st": "Why doesn't he…? / He could…", "fr": "Ton cousin passe six heures par jour sur son téléphone et il est toujours fatigué. Que devrait-il faire ?"}, {"e": "😰", "q": "A classmate gets super nervous before oral presentations. Any tips?", "st": "If I were her, I'd…", "fr": "Une camarade est super stressée avant les exposés oraux. Des astuces ?"}, {"e": "💸", "q": "Your friend wants concert tickets but spends all his money on snacks. Advice?", "st": "He could try…ing…", "fr": "Ton ami veut des places de concert mais dépense tout son argent en snacks. Un conseil ?"}, {"e": "🏃", "q": "Someone wants to get in shape but hates the gym. What would you suggest?", "st": "What about…ing?", "fr": "Quelqu'un veut se remettre en forme mais déteste la salle de sport. Que suggérerais-tu ?"}, {"e": "🎸", "q": "A friend started guitar two weeks ago and already wants to quit. What do you tell her?", "st": "Have you thought about…ing?", "fr": "Une amie a commencé la guitare il y a deux semaines et veut déjà arrêter. Que lui dis-tu ?"}, {"e": "😴", "q": "A friend can't fall asleep before 1 a.m. What should he try?", "st": "Why don't you…? / You could…", "fr": "Un ami n'arrive pas à s'endormir avant 1 h du matin. Que devrait-il essayer ?"}, {"e": "🗣️", "q": "Someone in your class is shy and wants to make more friends. What's your advice?", "st": "What if you tried…ing?", "fr": "Quelqu'un de ta classe est timide et veut se faire plus d'amis. Ton conseil ?"}, {"e": "📚", "q": "A friend has three tests next week and doesn't know where to start. What should she do first?", "st": "First, why don't you…?", "fr": "Une amie a trois contrôles la semaine prochaine et ne sait pas par où commencer. Que devrait-elle faire en premier ?"}, {"e": "🎮", "q": "Your friend's parents say he plays video games too much. How could they agree on a deal?", "st": "They could…", "fr": "Les parents de ton ami trouvent qu'il joue trop aux jeux vidéo. Comment pourraient-ils trouver un accord ?"}, {"e": "🗼", "q": "An American is visiting Paris for the first time. What should they absolutely do — and avoid?", "st": "You should definitely… but don't…", "fr": "Un Américain visite Paris pour la première fois. Que doit-il absolument faire — et éviter ?"}, {"e": "🧳", "q": "A student is moving abroad for a year and feels scared. What would you tell her?", "st": "If I were you, I'd…", "fr": "Une élève part vivre un an à l'étranger et elle a peur. Que lui dirais-tu ?"}], "tutor": "Amélie's test after each answer: “Could they do it tomorrow?” If not, push for a more specific step. Remind her to start with empathy (“That sounds stressful…”)."}, {"type": "sort", "min": 5, "title": "🧠 -ing or Base Verb?", "sub": "Look at the words right before the blank. Which form of the verb fits? Tap the right button!", "subFr": "Regarde les mots juste avant le trou. Quelle forme du verbe convient ? Touche le bon bouton !", "how": "Look just BEFORE the blank: about / tried / what about / instead of → -ing · don't you / could / should / I'd / why not → base verb", "howFr": "Regarde juste AVANT le trou : about / tried / what about / instead of → -ing · don't you / could / should / I'd / why not → verbe de base", "buckets": [{"name": "🔁 + -ING", "rule": "After about, tried, what about, instead of.", "fr": "Après about, tried, what about, instead of.", "ex": "Have you thought about joining a club?", "c": "#0F8B8D"}, {"name": "🧱 + BASE VERB", "rule": "After could, should, I'd, why don't you, why not.", "fr": "Après could, should, I'd, why don't you, why not.", "ex": "Why don't you join a club?", "c": "#E8573C"}], "items": [{"s": "Have you thought about ___ your notes into smaller sections? (break)", "b": 0, "why": "After “about” → -ing: breaking.", "fr": "As-tu pensé à ___ tes notes en petites parties ? (break)", "whyFr": "Après « about » → -ing : breaking."}, {"s": "Why don't you ___ the lesson out loud to your little sister? (explain)", "b": 1, "why": "After “why don't you” → base verb: explain.", "fr": "Pourquoi tu n'___ pas la leçon à voix haute à ta petite sœur ? (explain)", "whyFr": "Après « why don't you » → verbe de base : explain."}, {"s": "You could ___ your teacher for extra help. (ask)", "b": 1, "why": "After “could” → base verb: ask.", "fr": "Tu pourrais ___ de l'aide en plus à ton prof. (ask)", "whyFr": "Après « could » → verbe de base : ask."}, {"s": "What about ___ in 20-minute blocks with short breaks? (study)", "b": 0, "why": "After “what about” → -ing: studying.", "fr": "Et si tu ___ par tranches de 20 minutes avec de petites pauses ? (study)", "whyFr": "Après « what about » → -ing : studying."}, {"s": "If I were you, I'd ___ to bed earlier the night before. (go)", "b": 1, "why": "After “I'd” (I would) → base verb: go.", "fr": "À ta place, je ___ plus tôt la veille. (go)", "whyFr": "Après « I'd » (I would) → verbe de base : go."}, {"s": "Have you tried ___ to music without lyrics while you work? (listen)", "b": 0, "why": "After “tried” (= tested) → -ing: listening.", "fr": "As-tu essayé d'___ de la musique sans paroles pendant que tu travailles ? (listen)", "whyFr": "Après « tried » (= tester) → -ing : listening."}, {"s": "Maybe you should ___ a break and go for a walk. (take)", "b": 1, "why": "After “should” → base verb: take.", "fr": "Tu devrais peut-être ___ une pause et aller marcher. (take)", "whyFr": "Après « should » → verbe de base : take."}, {"s": "What if you tried ___ it to a friend, like a teacher would? (teach)", "b": 0, "why": "After “tried” → -ing: teaching.", "fr": "Et si tu essayais de l'___ à un ami, comme le ferait un prof ? (teach)", "whyFr": "Après « tried » → -ing : teaching."}, {"s": "Why not ___ a group chat for the whole class? (start)", "b": 1, "why": "After “why not” → base verb: start.", "fr": "Pourquoi ne pas ___ un groupe de discussion pour toute la classe ? (start)", "whyFr": "Après « why not » → verbe de base : start."}, {"s": "Instead of ___ all night, sleep and review in the morning. (cram)", "b": 0, "why": "After “instead of” → -ing: cramming (double the m!).", "fr": "Au lieu de ___ toute la nuit, dors et révise le matin. (cram)", "whyFr": "Après « instead of » → -ing : cramming (on double le m !)."}], "hint": "After a preposition (about, of) or “tried,” the verb takes -ing. After could, should, I'd, why don't you, and why not, use the plain base verb.", "hintFr": "Après une préposition (about, of) ou « tried », le verbe prend -ing. Après could, should, I'd, why don't you et why not, on met le verbe de base.", "doneMsg": "Now give Jonathan real advice about a problem he has: one sentence with -ing and one with the base verb.", "doneMsgFr": "Maintenant, donne à Jonathan un vrai conseil sur un problème qu'il a : une phrase avec -ing et une avec le verbe de base.", "tutor": "After each tap, she reads the full sentence with the right form. Spelling notes if she asks: cram → cramming, take → taking."}, {"type": "builder", "min": 4, "title": "🧩 Sentence Builder Pro", "sub": "Tap the words in the right order. Then say it like a friendly coach!", "subFr": "Touche les mots dans le bon ordre. Puis dis-le comme une coach sympa !", "rounds": [{"e": "✂️", "p": "Soft question: thought about — break your notes — into sections", "fr": "Question douce : pensé à — découper tes notes — en parties", "a": "Have you thought about breaking your notes into sections?", "afr": "As-tu pensé à découper tes notes en plusieurs parties ?"}, {"e": "📱", "p": "Why don't you — put your phone — in another room?", "fr": "Pourquoi tu ne — mets pas ton téléphone — dans une autre pièce ?", "a": "Why don't you put your phone in another room?", "afr": "Pourquoi tu ne mets pas ton téléphone dans une autre pièce ?"}, {"e": "💸", "p": "You could — try — save five euros — every week", "fr": "Tu pourrais — essayer — mettre cinq euros de côté — chaque semaine", "a": "You could try saving five euros every week.", "afr": "Tu pourrais essayer de mettre cinq euros de côté chaque semaine."}, {"e": "🗣️", "p": "If I were you — join a club — meet people", "fr": "À ta place — m'inscrire dans un club — rencontrer des gens", "a": "If I were you, I'd join a club to meet people.", "afr": "À ta place, je m'inscrirais dans un club pour rencontrer des gens."}, {"e": "🧑‍🏫", "p": "What if — you tried — teach it to a friend?", "fr": "Et si — tu essayais — de l'expliquer à un ami ?", "a": "What if you tried teaching it to a friend?", "afr": "Et si tu essayais de l'expliquer à un ami ?"}, {"e": "👣", "p": "Good advice — always includes — a next step", "fr": "Un bon conseil — inclut toujours — une prochaine étape", "a": "Good advice always includes a next step.", "afr": "Un bon conseil inclut toujours une prochaine étape."}], "tutor": "First try = 2 ⭐. After each one, she adapts it to a real problem (hers or yours)."}, {"type": "mcq", "min": 5, "title": "🛠️ Story Check & Fix the Mistake", "sub": "First, two questions about Amélie. Then: which sentence is correct in American English?", "subFr": "D'abord, deux questions sur Amélie. Ensuite : quelle phrase est correcte en anglais américain ?", "items": [{"e": "📝", "q": "A stressed student tells Amélie: “I have a history test on Friday and I'm panicking.” Which reply sounds MOST like Amélie?", "o": ["Just study harder and you'll be fine.", "Don't worry, history tests are easy.", "Have you thought about breaking your notes into three short sections?"], "c": 2, "why": "It's specific and gives him a step he can take right away — Amélie's style.", "no": {"0": "That's exactly the vague advice Amélie avoids — there's no clear next step.", "1": "That ignores how he feels, and it gives him nothing to do."}, "fr": "Un élève stressé dit à Amélie : « J'ai un contrôle d'histoire vendredi et je panique. » Quelle réponse ressemble LE PLUS à Amélie ?", "ofr": ["Révise plus et ça ira.", "T'inquiète, les contrôles d'histoire, c'est facile.", "As-tu pensé à découper tes notes en trois petites parties ?"], "whyFr": "C'est précis et ça lui donne une étape qu'il peut faire tout de suite — le style d'Amélie."}, {"e": "👣", "q": "Amélie says the best advice includes “a next step you can take tomorrow.” Which advice passes her test?", "o": ["You should be more organized.", "Tonight, write your three biggest tasks on a sticky note.", "You need to believe in yourself more."], "c": 1, "why": "It's a concrete action, with a time (tonight) and a clear task.", "no": {"0": "Good idea, but HOW? There's no concrete step.", "2": "Nice, but it's a feeling — not an action you can take tomorrow."}, "fr": "Amélie dit qu'un bon conseil inclut « une étape que tu peux faire dès demain ». Quel conseil réussit son test ?", "ofr": ["Tu devrais avoir plus de méthode.", "Ce soir, écris tes trois plus grosses tâches sur un post-it.", "Tu dois avoir plus confiance en toi."], "whyFr": "C'est une action concrète, avec un moment (ce soir) et une tâche claire."}, {"e": "🤔", "q": "Which one is correct?", "o": ["Have you thought about studying in the morning?", "Have you thought to study in the morning?", "Have you thought about study in the morning?"], "c": 0, "why": "Pattern: Have you thought ABOUT + -ing?", "no": {"1": "“Thought to” isn't the pattern. It's “thought ABOUT + -ing.”", "2": "Almost! After “about,” the verb needs -ing: studying."}, "fr": "Laquelle est correcte ?", "ofr": ["", "", ""], "whyFr": "Structure : Have you thought ABOUT + -ing ?"}, {"e": "💡", "q": "« Je peux te donner un conseil ? » Which one is correct?", "o": ["Can I give you an advice?", "Can I give you some advice?", "Can I give you advices?"], "c": 1, "why": "“Advice” is uncountable: some advice / a piece of advice.", "no": {"0": "“Advice” is uncountable — no “an.” Say “some advice” or “a piece of advice.”", "2": "No -s! “Advice” has no plural in English."}, "fr": "« Je peux te donner un conseil ? » Laquelle est correcte ?", "ofr": ["", "", ""], "whyFr": "« Advice » est indénombrable : some advice / a piece of advice."}, {"e": "🧑‍🏫", "q": "Which one is correct?", "o": ["Why don't you to ask your teacher?", "Why you don't ask your teacher?", "Why don't you ask your teacher?"], "c": 2, "why": "Why don't you + base verb? (no “to”)", "no": {"0": "No “to” after “don't you.”", "1": "In a question, “don't” comes before “you”: Why DON'T YOU…?"}, "fr": "Laquelle est correcte ?", "ofr": ["", "", ""], "whyFr": "Why don't you + verbe de base ? (sans « to »)"}, {"e": "😴", "q": "Your friend is always tired in class. Which advice is the most polite and friendly?", "o": ["Maybe you could try going to bed a bit earlier?", "You must sleep more.", "Go to bed earlier!"], "c": 0, "why": "“Maybe you could try…” is soft and respectful — it invites her to think.", "no": {"1": "“You must” sounds like an order — too strong between friends.", "2": "That's a command. It's clear, but not very friendly."}, "fr": "Ton amie est toujours fatiguée en cours. Quel conseil est le plus poli et amical ?", "ofr": ["", "", ""], "whyFr": "« Maybe you could try… » est doux et respectueux — ça l'invite à réfléchir."}], "tutor": "Q1–2: ask her to explain her choice. Q3–6: she reads the correct sentence aloud, then gives Jonathan a new piece of advice with the same structure."}, {"type": "tot", "min": 4, "title": "⚖️ Would You Rather? Study Edition", "sub": "Pick one — and give advice to someone who'd choose the other!", "subFr": "Choisis — et donne un conseil à quelqu'un qui choisirait l'autre !", "frame": "I'd rather… because… / If you choose the other one, have you thought about…?", "frameFr": "Je préférerais… parce que… / Si tu choisis l'autre, as-tu pensé à… ?", "items": [{"a": ["🧑‍🤝‍🧑", "Get advice from a friend your age", "Recevoir des conseils d'une amie de ton âge"], "b": ["🧓", "Get advice from an adult with experience", "Recevoir des conseils d'un adulte expérimenté"]}, {"a": ["📅", "Study a little every day", "Réviser un peu chaque jour"], "b": ["🌙", "Study a lot the weekend before", "Réviser beaucoup le week-end d'avant"]}, {"a": ["📏", "A strict but super clear teacher", "Un prof strict mais très clair"], "b": ["🎈", "A fun but disorganized teacher", "Un prof drôle mais désordonné"]}, {"a": ["🤫", "Study in total silence", "Réviser dans un silence total"], "b": ["🎧", "Study with music on", "Réviser en musique"]}, {"a": ["🧑‍🏫", "Be a peer tutor and help others", "Être tutrice et aider les autres"], "b": ["🙋", "Have a peer tutor help you", "Être aidée par un élève-tuteur"]}, {"a": ["🗡️", "Hear the honest truth, even if it hurts", "Entendre la vérité, même si elle fait mal"], "b": ["🌸", "Hear something kind, even if it's not the whole truth", "Entendre quelque chose de gentil, même si ce n'est pas toute la vérité"]}], "tutor": "Twist each round: after defending her choice, she gives one piece of advice to someone who picked the other side."}, {"type": "tos", "min": 3, "title": "🇨🇦 True or Silly? Amélie's Montreal", "sub": "Real fact — or totally silly?", "subFr": "Vrai fait — ou complètement faux ?", "items": [{"e": "🏛️", "s": "Montreal is the capital of Canada.", "fr": "Montréal est la capitale du Canada.", "t": false, "why": "The capital is Ottawa. Montreal is the biggest city in Quebec.", "whyFr": "La capitale, c'est Ottawa. Montréal est la plus grande ville du Québec."}, {"e": "🏝️", "s": "Montreal is built on an island.", "fr": "Montréal est construite sur une île.", "t": true, "why": "The city is mostly on the Island of Montreal, in the St. Lawrence River.", "whyFr": "La ville se trouve surtout sur l'île de Montréal, dans le fleuve Saint-Laurent."}, {"e": "🗣️", "s": "French is the only official language of Quebec.", "fr": "Le français est la seule langue officielle du Québec.", "t": true, "why": "Quebec has one official language: French. (Canada as a whole has two.)", "whyFr": "Le Québec a une seule langue officielle : le français. (Le Canada, lui, en a deux.)"}, {"e": "🇨🇦", "s": "Canada has only one official language: English.", "fr": "Le Canada n'a qu'une seule langue officielle : l'anglais.", "t": false, "why": "Canada has two official languages: English and French.", "whyFr": "Le Canada a deux langues officielles : l'anglais et le français."}, {"e": "🚗", "s": "In Quebec, people often call a car a « char ».", "fr": "Au Québec, on appelle souvent une voiture un « char ».", "t": true, "why": "It's everyday Quebec French — just like « blonde » for a girlfriend!", "whyFr": "C'est du français québécois de tous les jours — comme « blonde » pour « petite amie » !"}, {"e": "❄️", "s": "Winters in Montreal are usually milder than in Paris.", "fr": "Les hivers à Montréal sont généralement plus doux qu'à Paris.", "t": false, "why": "Montreal winters are much colder and snowier — often well below 0 °C.", "whyFr": "Les hivers à Montréal sont bien plus froids et enneigés — souvent bien en dessous de 0 °C."}, {"e": "🎓", "s": "In Quebec, many students go to CEGEP after high school, before university.", "fr": "Au Québec, beaucoup d'élèves vont au cégep après le secondaire, avant l'université.", "t": true, "why": "CEGEP is a type of college between high school and university — only in Quebec.", "whyFr": "Le cégep est un établissement entre le secondaire et l'université — il n'existe qu'au Québec."}], "done": "🍁 You know your Montreal facts!", "doneFr": "🍁 Tu connais bien Montréal !", "tutor": "Follow-up: “If Amélie visited France, what advice would you give her? What should she try, and what might surprise her?”"}, {"type": "plan", "min": 4, "title": "🧭 Build Your Advice", "sub": "Your friend Inès is stressed about her English oral exam next week. Build your advice — then say it in your OWN words!", "subFr": "Ton amie Inès est stressée par son oral d'anglais la semaine prochaine. Construis ton conseil — puis dis-le avec TES mots !", "parts": [{"icon": "🫂", "label": "Show you understand", "fr": "Montre que tu comprends", "conn": "First, I'd say:", "connFr": "D'abord, je dirais :", "opts": [["😰", "“That sounds really stressful.”", "« Ça a l'air vraiment stressant. »"], ["🎤", "“I totally get it — orals are scary.”", "« Je comprends tout à fait — les oraux, ça fait peur. »"], ["💭", "“You must be so nervous.”", "« Tu dois être tellement stressée. »"], ["🤝", "“It's normal to feel like that.”", "« C'est normal de ressentir ça. »"]]}, {"icon": "💡", "label": "Suggest", "fr": "Suggère", "conn": "Then I'd ask: “Have you thought about", "connFr": "Puis je lui demanderais : « As-tu pensé à", "opts": [["🎙️", "recording yourself and listening back?”", "t'enregistrer et à te réécouter ? »"], ["👨‍👩‍👧", "practicing in front of your family?”", "t'entraîner devant ta famille ? »"], ["🗂️", "making small cards with key words?”", "faire de petites fiches avec des mots-clés ? »"], ["📺", "watching a few videos of good speakers?”", "regarder quelques vidéos de bons orateurs ? »"]]}, {"icon": "👣", "label": "Next step", "fr": "Prochaine étape", "conn": "If I were her, tonight I'd", "connFr": "Si j'étais elle, ce soir je", "opts": [["🔁", "practice the introduction three times.", "répéterais l'introduction trois fois."], ["⏱️", "time myself with my phone.", "me chronométrerais avec mon téléphone."], ["📝", "write down my three main ideas.", "noterais mes trois idées principales."], ["😴", "get a good night's sleep.", "ferais une vraie nuit de sommeil."]]}, {"icon": "💪", "label": "Encourage", "fr": "Encourage", "conn": "Finally, I'd tell her:", "connFr": "Pour finir, je lui dirais :", "opts": [["🔥", "“You've got this!”", "« Tu vas assurer ! »"], ["🧠", "“You know more than you think.”", "« Tu en sais plus que tu ne le crois. »"], ["📲", "“Text me after — I want to hear how it went!”", "« Écris-moi après — je veux savoir comment ça s'est passé ! »"], ["🌱", "“Even if it's not perfect, you'll learn a lot.”", "« Même si ce n'est pas parfait, tu vas apprendre plein de choses. »"]]}], "tutor": "This mixes the last three episodes: empathy (Ep. 10), advice (today), If I were… (Ep. 9). She retells it as if Inès were in front of her, and changes at least two parts."}, {"type": "ttl", "min": 3, "title": "😎 Two Truths and a Lie", "sub": "Practice round first — find Amélie's lie!", "subFr": "D'abord un entraînement — trouve le mensonge d'Amélie !", "example": {"who": "Amélie, 15, from Montreal, Canada", "lines": ["When students are stressed, I always tell them to just study harder.", "I often ask, “What if you tried explaining it out loud?”", "I think the best advice includes a step you can take tomorrow."], "lie": 0, "why": "Amélie NEVER says “just study harder” — she thinks it's too vague. That's the lie!", "linesFr": ["Quand des élèves sont stressés, je leur dis toujours de réviser plus, c'est tout.", "Je demande souvent : « Et si tu essayais de l'expliquer à voix haute ? »", "Je pense qu'un bon conseil inclut une étape qu'on peut faire dès demain."], "whyFr": "Amélie ne dit JAMAIS « révise plus, c'est tout » — elle trouve ça trop vague. C'est le mensonge !"}, "turn": "Your turn! Tell Jonathan about three pieces of advice you've received — two real, one invented. Who gave it to you, and did it help?", "turnFr": "À toi ! Parle à Jonathan de trois conseils qu'on t'a donnés — deux vrais, un inventé. Qui te les a donnés, et est-ce que ça t'a aidée ?", "tutor": "Ask a follow-up about each one before guessing (“What did you do next?”). Then swap: you tell three, she guesses."}, {"type": "talk", "min": 3, "title": "🎤 Big Talk Challenge", "sub": "Jonathan tells you about a real problem he has. Give him advice for one minute — can you check all six?", "subFr": "Jonathan te parle d'un vrai problème qu'il a. Conseille-le pendant une minute — peux-tu tout cocher ?", "items": [["Start with empathy: “That sounds…”.", "Commence par de l'empathie : « That sounds… »."], ["Ask “Have you thought about …ing?”", "Demande « Have you thought about …ing? »"], ["Use “Why don't you…?”.", "Utilise « Why don't you…? »."], ["Use “You could…”.", "Utilise « You could… »."], ["Use “If I were you, I'd…”.", "Utilise « If I were you, I'd… »."], ["Give one specific next step he can take tomorrow.", "Donne une étape précise qu'il peut faire dès demain."]], "tutor": "Use a real small problem (e.g., procrastinating on emails, too much coffee, learning a new app). Tap each line when she does it (+1 ⭐). Note 2–3 mistakes to fix at the end."}, {"type": "victory", "min": 1, "title": "🏆 Great Episode, Bérénice!", "sub": "You give advice like a real peer tutor!", "subFr": "Tu donnes des conseils comme une vraie tutrice !", "tiers": [[0, "🌟", "Rookie"], [18, "🥉", "Bronze"], [30, "🥈", "Silver"], [42, "🥇", "Gold"]], "msg": "See you next time! Next episode: “Big Plans Ahead” — your plans, your arrangements, and the decisions you make on the spot.", "msgFr": "À la prochaine ! Prochain épisode : « Big Plans Ahead » — tes projets, tes rendez-vous déjà fixés et les décisions que tu prends sur le moment.", "tutor": "Next episode: future forms — going to (intentions) vs. present continuous (arrangements) vs. will (instant decisions). Guest: Théo from Lyon."}]};
+let stars = 0;
+const $ = (s, r=document) => r.querySelector(s);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fr = s => s ? `<span class="fr">${esc(s)}</span>` : '';
+function shuffle(a){ a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 
-function addXP(n){ xp += n; document.getElementById('xpCount').textContent = xp;
-  const pop = document.getElementById('xpPop'); pop.textContent = '+' + n + ' XP';
-  pop.classList.add('show'); setTimeout(()=>pop.classList.remove('show'), 900); }
+function addStars(n, msg){
+  stars += n; $('#stars').textContent = stars;
+  if (msg) toast(msg);
+  if (n > 0) confetti(n >= 2 ? 90 : 45);
+}
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 1400); }
 
-function refreshNav(){
-  document.getElementById('backBtn').disabled = (current === 0);
-  const nextBtn = document.getElementById('nextBtn');
-  const locked = locks.hasOwnProperty(current) && !locks[current];
-  nextBtn.disabled = locked || current === total-1;
-  nextBtn.classList.toggle('locked', locked);
-  nextBtn.textContent = current === total-1 ? 'Finished! 🎉' : 'Next ➡';
-  document.getElementById('progressLabel').textContent = 'Slide ' + (current+1) + ' / ' + total;
-  document.getElementById('progText').textContent = (current+1) + ' / ' + total;
-  if(current === total-1) runCelebrationEntry();
+/* confetti */
+const cv = $('#confetti'), cx = cv.getContext('2d'); let parts = [], anim = null;
+function sizeCv(){ cv.width = innerWidth; cv.height = innerHeight; } addEventListener('resize', sizeCv); sizeCv();
+function confetti(n){
+  const cols = ['#F4B400','#E8573C','#7c3aed','#0F8B8D','#E85D9A','#22c55e','#F28C28'];
+  for (let i=0;i<n;i++) parts.push({x:innerWidth/2+(Math.random()-.5)*300,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*12-4,s:6+Math.random()*6,c:cols[i%cols.length],r:Math.random()*6,life:110});
+  if (!anim) anim = requestAnimationFrame(tick);
 }
-const slideViewport = document.getElementById('slideViewport');
-const scrollCue = document.getElementById('scrollCue');
-function checkScrollCue(){
-  const overflowing = slideViewport.scrollHeight > slideViewport.clientHeight + 4;
-  const atTop = slideViewport.scrollTop < 12;
-  scrollCue.classList.toggle('show', overflowing && atTop);
-}
-slideViewport.addEventListener('scroll', ()=>{
-  if(slideViewport.scrollTop > 12) scrollCue.classList.remove('show');
-  else checkScrollCue();
-});
-window.addEventListener('resize', checkScrollCue);
-function changeSlide(delta){
-  const newIdx = current + delta;
-  if(newIdx < 0 || newIdx >= total) return;
-  slides[current].classList.remove('active');
-  current = newIdx;
-  slides[current].classList.add('active');
-  refreshNav();
-  slideViewport.scrollTo({top:0, behavior:'auto'});
-  setTimeout(checkScrollCue, 60);
-}
-document.getElementById('backBtn').addEventListener('click', ()=>changeSlide(-1));
-document.getElementById('nextBtn').addEventListener('click', ()=>changeSlide(1));
-function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
-
-/* ============ VOCAB CARDS ============ */
-const vocabData = [
-  {e:"💡", en:"advice", fr:"conseil", ex:"\"Can I give you some advice?\""},
-  {e:"🎯", en:"specific", fr:"précis(e)", ex:"\"Be more specific.\""},
-  {e:"🌫️", en:"vague", fr:"vague", ex:"\"That advice was too vague.\""},
-  {e:"👣", en:"next step", fr:"prochaine étape", ex:"\"What's your next step?\""},
-  {e:"🧑‍🏫", en:"tutor", fr:"tuteur / tutrice", ex:"\"She's a peer tutor.\""},
-  {e:"📚", en:"struggling", fr:"en difficulté", ex:"\"He's struggling in math.\""},
-  {e:"🔊", en:"explain out loud", fr:"expliquer à voix haute", ex:"\"Try explaining it out loud.\""},
-  {e:"✂️", en:"break into sections", fr:"diviser en sections", ex:"\"Break your notes into sections.\""},
-];
-let vocabFlipped = 0;
-function buildVocab(){
-  const grid = document.getElementById('vocabGrid');
-  vocabData.forEach(item=>{
-    const card = document.createElement('div'); card.className = 'vocab-card';
-    card.innerHTML = `<span class="emoji">${item.e}</span><span class="word">${item.en}</span><span class="fr">${item.fr}<br><span style="font-size:11px;">${item.ex}</span></span>`;
-    card.addEventListener('click', ()=>{
-      if(!card.classList.contains('flipped')){
-        card.classList.add('flipped'); vocabFlipped++;
-        if(vocabFlipped >= 5 && !locks[1]){ locks[1] = true; addXP(1); document.getElementById('vocabHint').textContent = 'Nice! Next is unlocked. / Bien joué ! Suivant est débloqué.'; refreshNav(); }
-      }
-    });
-    grid.appendChild(card);
-  });
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; p.vy+=.35; p.r+=.1; p.life--; cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); cx.restore(); });
+  parts = parts.filter(p=>p.life>0 && p.y<innerHeight+40);
+  anim = parts.length ? requestAnimationFrame(tick) : (cx.clearRect(0,0,cv.width,cv.height), null);
 }
 
-/* ============ SENTENCE BUILDER ============ */
-const displayPhrase = ['Have', 'you', 'thought', 'about', 'making', 'a', 'schedule?'];
-const bankWords = shuffle(['thought', 'you', 'Have', 'a', 'about', 'schedule?', 'making']);
-let placedWords = [];
-function buildPhraseScreen(){
-  const bank = document.getElementById('wordBank');
-  bankWords.forEach(word=>{
-    const chip = document.createElement('div'); chip.className = 'word-chip';
-    chip.textContent = word;
-    chip.addEventListener('click', ()=>{
-      if(chip.classList.contains('used')) return;
-      placedWords.push(word); chip.classList.add('used');
-      renderSlot(); checkPhrase();
-    });
-    bank.appendChild(chip);
-  });
-  renderSlot();
+/* ---------- slide builders ---------- */
+function head(s, i){
+  return `<div class="slide-top"><span class="slide-count">Slide ${i+1} of ${L.slides.length}</span><span class="minutes">⏱ about ${s.min} min</span></div>
+  <div class="slide-title">${s.title}</div>${s.sub ? `<div class="slide-sub">${s.sub}${fr(s.subFr)}</div>` : ''}`;
 }
-function renderSlot(){
-  const slot = document.getElementById('sentenceSlot');
-  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
-}
-function checkPhrase(){
-  const fb = document.getElementById('phraseFeedback');
-  if(placedWords.length < displayPhrase.length) return;
-  const correct = placedWords.join(' ') === displayPhrase.join(' ');
-  if(correct){
-    addXP(2);
-    fb.innerHTML = '<span class="fb-en">Perfect! "Have you thought about making a schedule?" 🌟</span><span class="fb-fr">Parfait ! « As-tu pensé à faire un emploi du temps ? »</span>';
-    fb.className = 'feedback-banner good';
-    locks[3] = true; refreshNav();
-  } else {
-    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
-    fb.appendChild(resetBtn);
-  }
-}
+function tutor(s){ return s.tutor ? `<details class="tutor"><summary>Tutor notes</summary><p>${s.tutor}</p></details>` : ''; }
 
-/* ============ MCQ ============ */
-const FB = {
-  qp1: { lockKey:2, ok:"B", expl:{
-    A:{en:"Too vague — no concrete next step. Try again!", fr:"Trop vague — pas d'étape concrète. Réessaie !"},
-    B:{en:"Yes! Specific and something they could try tomorrow. 🎉", fr:"Oui ! Précis et applicable dès demain."},
-    C:{en:"That's not really advice at all — try again!", fr:"Ce n'est pas vraiment un conseil — réessaie !"}
-  }},
-  r1: { lockKey:5, ok:"A", expl:{
-    A:{en:"Yes! Being too vague is exactly the mistake she names. 🎉", fr:"Oui ! Être trop vague, c'est exactement l'erreur qu'elle nomme."},
-    B:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
-    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
-  }},
-  r2: { lockKey:5, ok:"A", expl:{
-    A:{en:"Yes! A next step you can actually take tomorrow. 🎉", fr:"Oui ! Une prochaine étape que tu peux vraiment faire demain."},
-    B:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
-    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
-  }}
+const B = {};
+B.intro = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="emoji-row">${s.emojis}</div>
+  <div class="goal"><div>🎯 Today's goal</div><div class="big">${esc(s.goal)}</div>${fr(s.goalFr)}</div>
+  <div class="how">${s.how.map(h=>`<div>${h[0]}${fr(h[1])}</div>`).join('')}</div>`);
 };
-let mcqAnswered = {qp1:false, r1:false, r2:false};
-function checkLockGroup(lockKey, members){
-  const allDone = members.every(m=>mcqAnswered[m]);
-  if(allDone && !locks[lockKey]){ locks[lockKey] = true; refreshNav(); }
-}
-function initMCQ(gid, feedbackId){
-  const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
-  const fb = document.getElementById(feedbackId);
-  block.querySelectorAll('.mcq-opt').forEach(opt=>{
-    opt.addEventListener('click', ()=>{
-      if(block.classList.contains('answered')) return;
-      const ans = opt.dataset.ans; const isCorrect = ans === FB[gid].ok;
-      if(isCorrect){
-        opt.classList.add('correct'); block.classList.add('answered');
-        block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
-        addXP(2);
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner good';
-        mcqAnswered[gid] = true;
-        if(gid === 'qp1') checkLockGroup(2, ['qp1']);
-        if(gid === 'r1' || gid === 'r2') checkLockGroup(5, ['r1','r2']);
-      } else {
-        opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner retry';
-      }
+B.chat = (s, box) => {
+  const g = el('div','chat-grid');
+  s.items.forEach(it=>{
+    const c = el('div','chat-card', `<h4>${esc(it.q)}</h4>${fr(it.fr)}<div class="tap-hint">Tap to see answer starters</div>
+      <div class="starters">${it.starters.map(st=>`<div class="starter">${esc(st[0])}${fr(st[1])}</div>`).join('')}<span class="askback">🔁 Ask me back!</span></div>`);
+    c.addEventListener('click', ()=>c.classList.toggle('open'));
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.vocab = (s, box) => {
+  const g = el('div','vocab-grid'); let seen = new Set();
+  s.items.forEach((it,k)=>{
+    const c = el('div','vcard', `<div class="vinner"><div class="vface vfront"><div class="em">${it.e}</div><div class="w">${esc(it.w)}</div></div>
+      <div class="vface vback"><div class="ex">${esc(it.ex)}</div>${fr(it.fr)}</div></div>`);
+    c.addEventListener('click', ()=>{ c.classList.toggle('flip'); if(!seen.has(k)){ seen.add(k); if(seen.size===s.items.length) addStars(1,'All words explored! +1 ⭐'); } });
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.wheel = (s, box) => {
+  const wrap = el('div','wheel-wrap');
+  wrap.innerHTML = `<div class="wheel-box"><div class="pointer"></div><canvas width="840" height="840"></canvas><div class="hub">${s.hub||'🎡'}</div></div>
+    <div class="wheel-q"><div class="q">Tap SPIN to get a question!</div><div class="st"></div><div class="fr-line"></div></div>`;
+  box.appendChild(wrap);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn">🎡 SPIN!</button></div><div class="round-tag">Questions asked: <span class="asked">0</span> of ${s.items.length}</div>`);
+  const canvas = $('canvas', wrap), ctx = canvas.getContext('2d'), n = s.items.length;
+  const cols = ['#F28C28','#E85D9A','#7c3aed','#0F8B8D','#F4B400','#E8573C','#4A9C5D','#0047BA'];
+  const R = 420, seg = 2*Math.PI/n;
+  for (let i=0;i<n;i++){
+    ctx.beginPath(); ctx.moveTo(R,R); ctx.arc(R,R,R-4,i*seg-Math.PI/2,(i+1)*seg-Math.PI/2); ctx.closePath();
+    ctx.fillStyle = cols[i%cols.length]; ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=6; ctx.stroke();
+    ctx.save(); ctx.translate(R,R); ctx.rotate(i*seg+seg/2-Math.PI/2);
+    ctx.font = '64px serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(s.items[i].e, R*0.68, 0);
+    ctx.fillStyle='#fff'; ctx.font='bold 34px Poppins, Arial'; ctx.fillText(String(i+1), R*0.40, 0);
+    ctx.restore();
+  }
+  let rot = 0, used = new Set(), spinning = false;
+  const btn = $('.big-btn', box), qEl = $('.q', wrap), stEl = $('.st', wrap), frEl = $('.fr-line', wrap);
+  btn.addEventListener('click', ()=>{
+    if (spinning) return;
+    let pool = [...Array(n).keys()].filter(i=>!used.has(i)); if (!pool.length){ used.clear(); pool=[...Array(n).keys()]; }
+    const pick = pool[Math.floor(Math.random()*pool.length)]; used.add(pick);
+    const centerDeg = (pick+0.5)*360/n;
+    const curr = ((rot % 360)+360)%360;
+    let delta = (360 - centerDeg) - curr; if (delta < 0) delta += 360;
+    rot += 360*5 + delta;
+    spinning = true; btn.disabled = true; qEl.textContent = '…'; stEl.textContent=''; frEl.innerHTML='';
+    canvas.style.transform = `rotate(${rot}deg)`;
+    setTimeout(()=>{
+      const it = s.items[pick];
+      qEl.textContent = `${it.e} ${it.q}`; stEl.textContent = it.st ? `Start with: “${it.st}”` : ''; frEl.innerHTML = fr(it.fr);
+      $('.asked', box).textContent = used.size; spinning = false; btn.disabled = false;
+    }, 4300);
+  });
+};
+B.builder = (s, box) => {
+  const area = el('div'); box.appendChild(area); let r = 0, tries = 0;
+  function render(){
+    if (r >= s.rounds.length){ area.innerHTML = `<div class="goal"><div class="big">🏆 Sentence Master!</div><div>You built all ${s.rounds.length} sentences.</div></div>`; return; }
+    const rd = s.rounds[r], words = rd.a.split(' '); tries = 0;
+    area.innerHTML = `<div class="round-tag">Sentence ${r+1} of ${s.rounds.length}</div><div class="builder-pic">${rd.e}</div>
+      <div class="builder-prompt">${esc(rd.p)}${fr(rd.fr)}</div><div class="answer-line"></div><div class="tiles"></div>
+      <div class="row-btns"><button class="sm-btn undo">↩ Undo</button><button class="sm-btn clear">✖ Clear</button><button class="sm-btn go check">✔ Check</button></div>
+      <div class="feedback"></div>`;
+    const line = $('.answer-line', area), tiles = $('.tiles', area), fb = $('.feedback', area); const chosen = [];
+    let order = shuffle(words.map((w,i)=>({w,i}))); if (words.length>2 && order.every((o,k)=>o.i===k)) order.reverse();
+    order.forEach(o=>{
+      const t = el('button','tile', esc(o.w));
+      t.addEventListener('click', ()=>{ if (t.classList.contains('used')) return; t.classList.add('used'); const c = el('button','tile', esc(o.w)); c.addEventListener('click',()=>{ c.remove(); t.classList.remove('used'); chosen.splice(chosen.indexOf(o),1); }); line.appendChild(c); chosen.push(o); });
+      tiles.appendChild(t);
     });
+    $('.undo', area).onclick = ()=>{ const o = chosen.pop(); if(!o) return; line.lastChild.remove(); [...tiles.children].find(t=>t.classList.contains('used') && t.textContent===o.w)?.classList.remove('used'); };
+    $('.clear', area).onclick = ()=>{ chosen.length=0; line.innerHTML=''; [...tiles.children].forEach(t=>t.classList.remove('used')); };
+    $('.check', area).onclick = ()=>{
+      if (!chosen.length){ fb.className='feedback no'; fb.innerHTML = 'Tap the words first!' + fr('Touche d’abord les mots !'); return; }
+      const got = chosen.map(o=>o.w).join(' ');
+      const finish = (ok)=>{ ['.check','.undo','.clear'].forEach(sel=>$(sel,area).style.display='none'); tiles.style.display='none';
+        if (!ok){ line.innerHTML = words.map(w=>`<span class="tile" style="border-color:var(--good);background:#dcfce7">${esc(w)}</span>`).join(''); }
+        fb.className = 'feedback ' + (ok ? 'ok' : ''); if (!ok) fb.style.color = 'var(--grape)';
+        fb.innerHTML = (ok ? '✅ Perfect! Now say it out loud! 🎤' : '👀 Here is the right sentence. Read it out loud! 🎤') + fr(rd.afr);
+        const nx = el('button','sm-btn go', r+1 < s.rounds.length ? 'Next sentence ▶' : 'Finish ▶'); nx.onclick = ()=>{ r++; render(); }; $('.row-btns',area).appendChild(nx); };
+      if (got === rd.a){ addStars(2,'First try! +2 ⭐'); finish(true); }
+      else { line.classList.remove('shake'); void line.offsetWidth; line.classList.add('shake'); setTimeout(()=>finish(false), 450); }
+    };
+  }
+  render();
+};
+B.mcq = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">🎉 Quiz complete!</div></div>`; return; }
+    const it = s.items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Question ${q+1} of ${s.items.length}</div>${it.e?`<div class="mcq-scene">${it.e}</div>`:''}<div class="mcq-q">${esc(it.q)}${fr(it.fr)}</div><div class="opts"></div><div class="explain"></div><div class="center"></div>`;
+    const opts = $('.opts', area), ex = $('.explain', area);
+    it.o.forEach((o,k)=>{
+      const b = el('button','opt', esc(o) + (it.ofr ? fr(it.ofr[k]) : ''));
+      b.onclick = ()=>{
+        if (area._done) return;
+        if (k === it.c){ b.classList.add('right'); area._done = true; ex.innerHTML = '✅ ' + esc(it.why || 'Correct!') + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+          const nx = el('button','big-btn', q+1<s.items.length?'Next question ▶':'Finish ▶'); nx.onclick=()=>{ q++; area._done=false; render(); }; $('.center',area).appendChild(nx); }
+        else { b.classList.add('wrong'); first = false; ex.innerHTML = '❌ ' + esc((it.no && it.no[k]) || 'Not quite — try again!') + fr('Pas tout à fait… Essaie encore !'); ex.classList.add('show'); }
+      };
+      opts.appendChild(b);
+    });
+  }
+  render();
+};
+B.tot = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Round ${q+1} of ${s.items.length}</div><div class="tot-row">
+      <div class="tot" data-k="0"><span class="em">${it.a[0]}</span>${esc(it.a[1])}${fr(it.a[2])}</div><div class="vs">OR</div>
+      <div class="tot" data-k="1"><span class="em">${it.b[0]}</span>${esc(it.b[1])}${fr(it.b[2])}</div></div>
+      <div class="say-box">🎤 ${esc(s.frame)}${fr(s.frameFr)}</div>
+      <div class="row-btns"><button class="sm-btn prev">◀ Previous</button><button class="sm-btn go next">${q+1<s.items.length?'Next round ▶':'Start over ↺'}</button></div>`;
+    area.querySelectorAll('.tot').forEach(t=>t.onclick=()=>{ area.querySelectorAll('.tot').forEach(x=>x.classList.remove('pick')); t.classList.add('pick'); });
+    $('.next',area).onclick=()=>{ q=(q+1)%s.items.length; render(); };
+    $('.prev',area).onclick=()=>{ q=(q-1+s.items.length)%s.items.length; render(); };
+  }
+  render();
+};
+B.memory = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  function render(){
+    let cards = []; s.pairs.forEach((p,k)=>{ cards.push({k,html:`<span class="face e">${p[0]}</span>`}); cards.push({k,html:`<span class="face">${esc(p[1])}</span>`}); });
+    cards = shuffle(cards); let open = [], found = 0, moves = 0, lock = false;
+    area.innerHTML = `<div class="round-tag">Pairs found: <span class="pf">0</span> of ${s.pairs.length} · Tries: <span class="mv">0</span></div><div class="mem-grid"></div><div class="center"></div>`;
+    const g = $('.mem-grid', area);
+    cards.forEach((c,ci)=>{
+      const m = el('div','mem', `<span class="back" style="font-size:34px">${ci+1}</span>${c.html}`);
+      m.onclick = ()=>{
+        if (lock || m.classList.contains('open') || m.classList.contains('done')) return;
+        m.classList.add('open'); open.push({m,c});
+        if (open.length === 2){
+          moves++; $('.mv',area).textContent = moves; const [a,b] = open;
+          if (a.c.k === b.c.k){ a.m.classList.replace('open','done'); b.m.classList.replace('open','done'); open = []; found++; $('.pf',area).textContent = found; toast('Match! Say the word! 🎤');
+            if (found === s.pairs.length){ addStars(2,'All pairs! +2 ⭐'); const again = el('button','big-btn','Play again ↺'); again.onclick = render; $('.center',area).appendChild(again); } }
+          else { lock = true; setTimeout(()=>{ a.m.classList.remove('open'); b.m.classList.remove('open'); open = []; lock = false; }, 950); }
+        }
+      };
+      g.appendChild(m);
+    });
+  }
+  render();
+};
+B.tos = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">${esc(s.done||'🌟 Great job!')}</div>${fr(s.doneFr)}</div>`; return; }
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Card ${q+1} of ${s.items.length}</div><div class="tos-card"><div class="em">${it.e}</div><div class="st">${esc(it.s)}</div>${fr(it.fr)}
+      <div class="tos-btns"><button class="big-btn btn-true" data-v="1">✅ TRUE</button><button class="big-btn btn-silly" data-v="0">🤪 SILLY</button></div>
+      <div class="explain"></div><div class="center"></div></div>`;
+    let done = false;
+    area.querySelectorAll('.tos-btns button').forEach(b=>b.onclick=()=>{
+      if (done) return; done = true; const ok = (b.dataset.v==='1') === it.t; const ex = $('.explain',area);
+      ex.innerHTML = (ok?'✅ Yes! ':'❌ Oops! ') + `It's <b>${it.t?'TRUE':'SILLY'}</b>. ` + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); if (ok) addStars(1,'+1 ⭐');
+      const nx = el('button','big-btn', q+1<s.items.length?'Next card ▶':'Finish ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx);
+    });
+  }
+  render();
+};
+B.sort = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="say-box" style="margin-top:10px">${esc(s.how)}${fr(s.howFr)}</div>`);
+  const area = el('div'); box.appendChild(area); let q = 0; const items = shuffle(s.items); const counts = s.buckets.map(()=>0);
+  function render(){
+    if (q >= items.length){ area.innerHTML = `<div class="goal"><div class="big">🧠 Grammar Boss!</div><div>${esc(s.doneMsg)}</div>${fr(s.doneMsgFr)}</div>`; return; }
+    const it = items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Sentence ${q+1} of ${items.length}</div><div class="sort-item">${esc(it.s)}${fr(it.fr)}</div>
+      <div class="buckets">${s.buckets.map((b,k)=>`<button class="bucket" data-k="${k}" style="background:${b.c}">${esc(b.name)}<small>${esc(b.rule)}</small><small style="opacity:.9;font-style:italic">${esc(b.fr)}</small><span class="cnt">e.g. “${esc(b.ex)}” · ${counts[k]} sorted</span></button>`).join('')}</div><div class="explain"></div><div class="center"></div>`;
+    let done = false;
+    area.querySelectorAll('.bucket').forEach(btn=>btn.onclick=()=>{
+      if (done) return; const k = +btn.dataset.k; const ex = $('.explain',area);
+      if (k === it.b){ done = true; counts[k]++; ex.innerHTML = '✅ ' + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+        const nx = el('button','big-btn','Next ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx); }
+      else { first = false; ex.innerHTML = '❌ ' + esc(s.hint) + fr(s.hintFr); ex.classList.add('show'); btn.classList.add('shake'); }
+    });
+  }
+  render();
+};
+B.plan = (s, box) => {
+  const sel = {}, selFr = {}; const cols = el('div','plan-cols');
+  s.parts.forEach((p,k)=>{
+    const c = el('div','plan-col', `<h4>${p.icon} ${esc(p.label)}</h4>${fr(p.fr)}`);
+    p.opts.forEach(o=>{ const ch = el('button','chip', `${o[0]} ${esc(o[1])}${fr(o[2])}`); ch.onclick=()=>{ c.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel')); ch.classList.add('sel'); sel[k]=o[1]; selFr[k]=o[2]; }; c.appendChild(ch); });
+    cols.appendChild(c);
   });
-}
-
-/* ============ TRUE/FALSE ============ */
-const tfTrue = document.getElementById('tfTrue');
-const tfFalse = document.getElementById('tfFalse');
-const tfFeedback = document.getElementById('tfFeedback');
-let tfAnswered = false;
-function handleTF(choseTrue){
-  if(tfAnswered) return;
-  tfAnswered = true;
-  tfTrue.classList.add('disabled'); tfFalse.classList.add('disabled');
-  if(!choseTrue){
-    tfFalse.classList.add('correct');
-    tfFeedback.innerHTML = '<span class="fb-en">Yes! It should be "thought ABOUT," not "thought TO." 🎉</span><span class="fb-fr">Oui ! Il faut dire « thought ABOUT », pas « thought TO ».</span>';
-    tfFeedback.className = 'feedback-banner good';
-    addXP(2);
-  } else {
-    tfTrue.classList.add('incorrect');
-    tfFeedback.innerHTML = '<span class="fb-en">Not quite — it should be "Have you thought ABOUT studying in the morning?"</span><span class="fb-fr">Pas tout à fait — il faut dire « Have you thought ABOUT studying in the morning ? »</span>';
-    tfFeedback.className = 'feedback-banner retry';
+  box.appendChild(cols);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn make">✨ Make my story!</button> <button class="sm-btn rnd">🎲 Surprise me</button></div><div class="story"></div>`);
+  const story = $('.story', box);
+  function make(){
+    if (Object.keys(sel).length < s.parts.length){ toast('Pick one for each part!'); return; }
+    story.innerHTML = s.parts.map((p,k)=>`<span class="conn">${esc(p.conn)}</span> ${esc(sel[k])}`).join(' ') + fr(s.parts.map((p,k)=>`${p.connFr} ${selFr[k]}`).join(' ')) + `<div style="margin-top:10px;font-size:17px;color:var(--sky-deep)">🎤 Now read your story out loud — then tell it again without looking!</div>`;
+    story.classList.add('show'); addStars(1,'Great story! +1 ⭐');
   }
-  if(!locks[6]){ locks[6] = true; refreshNav(); }
+  $('.make', box).onclick = make;
+  $('.rnd', box).onclick = ()=>{ s.parts.forEach((p,k)=>{ const col = cols.children[k]; const chips = col.querySelectorAll('.chip'); const i = Math.floor(Math.random()*chips.length); chips[i].click(); }); make(); };
+};
+B.talk = (s, box) => {
+  const list = el('div','check-list');
+  s.items.forEach(it=>{ const c = el('div','check', `<span class="box"></span><span>${esc(it[0])}${fr(it[1])}</span>`); c.onclick=()=>{ if(c.classList.contains('done')) return; c.classList.add('done'); $('.box',c).textContent='✔'; addStars(1,'+1 ⭐'); }; list.appendChild(c); });
+  box.appendChild(list);
+};
+B.ttl = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  const ex = s.example;
+  area.innerHTML = `<div class="sort-item" style="border-color:var(--grape)">Practice round: ${esc(ex.who)} says…</div><div class="ttl-list">${ex.lines.map((l,k)=>`<button class="opt" data-k="${k}">${esc(l)}${fr(ex.linesFr[k])}</button>`).join('')}</div><div class="explain"></div>
+    <div class="goal" style="margin-top:18px"><div class="big">🎤 Your turn!</div><div>${esc(s.turn)}</div>${fr(s.turnFr)}
+    <div class="row-btns"><button class="sm-btn go fool">😎 ${esc(L.student.split(' ')[0])} fooled Jonathan! (+2 ⭐)</button><button class="sm-btn found">🔎 Jonathan found the lie (+1 ⭐)</button></div></div>`;
+  let done = false;
+  area.querySelectorAll('.ttl-list .opt').forEach(b=>b.onclick=()=>{ if(done) return; const k=+b.dataset.k; const e=$('.explain',area);
+    if (k===ex.lie){ done=true; b.classList.add('right'); e.innerHTML='✅ '+esc(ex.why)+fr(ex.whyFr); addStars(1,'+1 ⭐'); } else { b.classList.add('wrong'); e.innerHTML='❌ That one is true! Look again.'+fr('Ça, c’est vrai ! Regarde encore.'); } e.classList.add('show'); });
+  $('.fool',area).onclick=()=>addStars(2,'Sneaky! +2 ⭐');
+  $('.found',area).onclick=()=>addStars(1,'Good try! +1 ⭐');
+};
+B.victory = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="victory"><div class="medal" id="medal">🏅</div><div class="score">You earned <span id="finalStars">0</span> stars!</div>
+    <div class="tiers">${s.tiers.map(t=>`<div data-min="${t[0]}">${t[1]} ${esc(t[2])} · ${t[0]}+ ⭐</div>`).join('')}</div>
+    <div class="goal" style="margin-top:18px"><div class="big">${esc(s.msg)}</div>${fr(s.msgFr)}</div></div>`);
+};
+function updateVictory(){
+  const f = $('#finalStars'); if (!f) return; f.textContent = stars;
+  const s = L.slides.find(x=>x.type==='victory'); let medal = '🌟';
+  document.querySelectorAll('.tiers div').forEach(d=>d.classList.remove('on'));
+  s.tiers.forEach((t,k)=>{ if (stars >= t[0]) { medal = t[1]; } });
+  const on = [...document.querySelectorAll('.tiers div')].filter(d=>stars >= +d.dataset.min).pop(); if (on) on.classList.add('on');
+  $('#medal').textContent = medal;
 }
-tfTrue.addEventListener('click', ()=>handleTF(true));
-tfFalse.addEventListener('click', ()=>handleTF(false));
 
-/* ============ SPEAKING TASK + DEBRIEF ============ */
-document.getElementById('nudgeToggle').addEventListener('click', (e)=>{
-  const box = document.getElementById('nudgeBox');
-  box.classList.toggle('show');
-  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
+/* ---------- build ---------- */
+const host = $('#slides'); const dots = $('#dots');
+L.slides.forEach((s,i)=>{
+  const sec = el('section','slide'); sec.innerHTML = head(s,i); B[s.type](s, sec); sec.insertAdjacentHTML('beforeend', tutor(s)); host.appendChild(sec);
+  const d = el('button'); d.title = `Slide ${i+1}`; d.onclick = ()=>go(i); dots.appendChild(d);
 });
-document.getElementById('doneTalkingBtn').addEventListener('click', function(){
-  document.getElementById('talkConfirm').classList.add('show');
-  this.disabled = true;
-  this.textContent = '✅ Done';
-  addXP(5);
-});
-document.getElementById('nudgeToggle2').addEventListener('click', (e)=>{
-  const box = document.getElementById('nudgeBox2');
-  box.classList.toggle('show');
-  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
-});
-document.getElementById('doneTalkingBtn2').addEventListener('click', function(){
-  document.getElementById('talkConfirm2').classList.add('show');
-  this.disabled = true;
-  this.textContent = '✅ Done';
-  addXP(3);
-});
-
-/* ============ CONVERSATION WHEEL (optional bonus — never gates progress) ============ */
-const WCATS = [
-  { name:'About Me', emoji:'🙋', color:'#0fd4b8', text:'#00251f',
-    qs:[
-      {q:"What's one thing about you most people don't know?", qf:"Quelle est une chose sur toi que la plupart des gens ne savent pas ?", push:"Now tell me why you don't usually share it.", pushf:"Maintenant, dis-moi pourquoi tu ne le partages pas d'habitude."},
-      {q:"Describe yourself in three words. Explain the middle one.", qf:"Décris-toi en trois mots. Explique celui du milieu.", push:"Now give me a word your friends would use instead.", pushf:"Maintenant, donne un mot que tes amis utiliseraient à la place."},
-      {q:"What's something you're proud of this year?", qf:"De quoi es-tu fière cette année ?", push:"Now tell me what it took to get there.", pushf:"Maintenant, dis-moi ce qu'il a fallu pour y arriver."},
-      {q:"Are you more of a morning person or a night person?", qf:"Tu es plutôt du matin ou du soir ?", push:"Now describe what happens on the wrong side of that.", pushf:"Maintenant, décris ce qui se passe du mauvais côté."},
-      {q:"What's a small habit that says a lot about you?", qf:"Quelle petite habitude en dit long sur toi ?", push:"Now tell me when you noticed it.", pushf:"Maintenant, dis-moi quand tu l'as remarquée."},
-      {q:"If a stranger watched your day, what would surprise them?", qf:"Si un inconnu observait ta journée, qu'est-ce qui le surprendrait ?", push:"Now tell me if it would surprise you too.", pushf:"Maintenant, dis-moi si ça te surprendrait aussi."}
-    ]},
-  { name:'Home & Town', emoji:'🏠', color:'#ffb830', text:'#2a1c00',
-    qs:[
-      {q:"Give me a 30-second tour of your town for a visitor.", qf:"Fais-moi visiter ta ville en 30 secondes pour un visiteur.", push:"Now tell me the one place you'd save for last.", pushf:"Maintenant, dis-moi l'endroit que tu garderais pour la fin."},
-      {q:"What's the best-kept secret in your town?", qf:"Quel est le secret le mieux gardé de ta ville ?", push:"Now tell me who told you about it.", pushf:"Maintenant, dis-moi qui te l'a dit."},
-      {q:"Describe your bedroom in five sentences.", qf:"Décris ta chambre en cinq phrases.", push:"Now tell me which object you'd save in a fire.", pushf:"Maintenant, dis-moi quel objet tu sauverais dans un incendie."},
-      {q:"What's changed in your town since you were small?", qf:"Qu'est-ce qui a changé dans ta ville depuis que tu es petite ?", push:"Now tell me if that's better or worse.", pushf:"Maintenant, dis-moi si c'est mieux ou moins bien."},
-      {q:"Where do you go when you want to be alone?", qf:"Où tu vas quand tu veux être seule ?", push:"Now tell me what you do there.", pushf:"Maintenant, dis-moi ce que tu y fais."},
-      {q:"City center or middle of nowhere? Pick one and defend it.", qf:"Centre-ville ou milieu de nulle part ? Choisis et défends.", push:"Now tell me what you'd hate about your own choice.", pushf:"Maintenant, dis-moi ce que tu détesterais dans ton propre choix."}
-    ]},
-  { name:'School & Friends', emoji:'🎒', color:'#ff5a42', text:'#fff',
-    qs:[
-      {q:"How did you meet your closest friend?", qf:"Comment as-tu rencontré ta meilleure amie ?", push:"Now tell me the first thing you ever said to each other.", pushf:"Maintenant, dis-moi la première chose que vous vous êtes dite."},
-      {q:"What do you and your friends argue about most?", qf:"De quoi vous disputez-vous le plus avec tes amis ?", push:"Now tell me who usually wins.", pushf:"Maintenant, dis-moi qui gagne d'habitude."},
-      {q:"What's a running joke in your friend group?", qf:"Quelle est la blague récurrente dans ton groupe d'amis ?", push:"Now explain why it's funny to someone outside it.", pushf:"Maintenant, explique pourquoi c'est drôle à quelqu'un d'extérieur."},
-      {q:"Which subject this year are you actually looking forward to?", qf:"Quelle matière cette année tu attends vraiment avec impatience ?", push:"Now tell me which one you're dreading.", pushf:"Maintenant, dis-moi laquelle tu redoutes."},
-      {q:"Do you make the plans, or wait to be invited?", qf:"Tu proposes les plans, ou tu attends d'être invitée ?", push:"Now tell me which one you wish you were.", pushf:"Maintenant, dis-moi lequel tu aimerais être."},
-      {q:"Tell me about a time you laughed so hard you couldn't breathe.", qf:"Raconte-moi une fois où tu as tellement ri que tu ne pouvais plus respirer.", push:"Now tell me if it's still funny.", pushf:"Maintenant, dis-moi si c'est encore drôle."}
-    ]},
-  { name:'Favorites & Free Time', emoji:'🎧', color:'#a47aff', text:'#fff',
-    qs:[
-      {q:"What show or series would you make the whole world watch?", qf:"Quelle série ferais-tu regarder au monde entier ?", push:"Give me three reasons — no using the word 'good.'", pushf:"Donne trois raisons — interdit d'utiliser le mot « bien »."},
-      {q:"What's the last song stuck in your head? Describe it without singing.", qf:"Quelle est la dernière chanson coincée dans ta tête ? Décris-la sans chanter.", push:"Now tell me why it stuck.", pushf:"Maintenant, dis-moi pourquoi elle est restée."},
-      {q:"Sweet or savory? Pick your side for life.", qf:"Sucré ou salé ? Choisis ton camp pour la vie.", push:"Now name the one exception you'd allow.", pushf:"Maintenant, nomme la seule exception que tu t'autoriserais."},
-      {q:"Describe your perfect Saturday, hour by hour.", qf:"Décris ton samedi parfait, heure par heure.", push:"Now tell me the last time you actually had one.", pushf:"Maintenant, dis-moi la dernière fois que tu en as vraiment eu un."},
-      {q:"What's your comfort meal after a bad day?", qf:"Quel est ton plat réconfort après une mauvaise journée ?", push:"Now tell me who makes it best.", pushf:"Maintenant, dis-moi qui le fait le mieux."},
-      {q:"What's the most useless skill you have?", qf:"Quel est le talent le plus inutile que tu aies ?", push:"Now explain exactly how it works.", pushf:"Maintenant, explique exactement comment ça marche."}
-    ]},
-  { name:'Dreams & Future', emoji:'✨', color:'#3ee88a', text:'#00251f',
-    qs:[
-      {q:"Where do you want to be at 25? Paint me the picture.", qf:"Où veux-tu être à 25 ans ? Dépeins-moi le tableau.", push:"Now tell me what has to happen first.", pushf:"Maintenant, dis-moi ce qui doit se passer d'abord."},
-      {q:"If money didn't matter, what job would you choose?", qf:"Si l'argent n'avait aucune importance, quel métier choisirais-tu ?", push:"Now walk me through a normal Tuesday in that job.", pushf:"Maintenant, décris-moi un mardi ordinaire dans ce métier."},
-      {q:"One country you'd move to tomorrow — why there?", qf:"Un pays où tu déménagerais dès demain — pourquoi là-bas ?", push:"Now tell me what scares you about it.", pushf:"Maintenant, dis-moi ce qui te fait peur là-bas."},
-      {q:"What's a goal you're a little scared to say out loud?", qf:"Quel objectif as-tu un peu peur de dire à voix haute ?", push:"Now say one reason it matters to you.", pushf:"Maintenant, donne une raison pour laquelle il compte pour toi."},
-      {q:"What do you want to be able to say in English by Christmas?", qf:"Qu'est-ce que tu veux savoir dire en anglais d'ici Noël ?", push:"Now tell me what would make that possible.", pushf:"Maintenant, dis-moi ce qui rendrait ça possible."},
-      {q:"A whole free year anywhere, doing anything. Where and what?", qf:"Une année libre n'importe où, à faire n'importe quoi. Où et quoi ?", push:"Now tell me what you'd bring back.", pushf:"Maintenant, dis-moi ce que tu en ramènerais."}
-    ]},
-  { name:'Imagine!', emoji:'🎲', color:'#00d4ff', text:'#00251f',
-    qs:[
-      {q:"You wake up speaking perfect English. First thing you do?", qf:"Tu te réveilles en parlant anglais parfaitement. Tu fais quoi en premier ?", push:"Now tell me who you call.", pushf:"Maintenant, dis-moi qui tu appelles."},
-      {q:"Dinner with anyone, living or dead. Who, and what do you ask?", qf:"Un dîner avec qui tu veux, vivant ou mort. Qui, et tu demandes quoi ?", push:"Now tell me what they'd ask you.", pushf:"Maintenant, dis-moi ce qu'il te demanderait."},
-      {q:"You're invisible for 24 hours. Where do you go?", qf:"Tu es invisible pendant 24 heures. Tu vas où ?", push:"Now tell me what you'd never do.", pushf:"Maintenant, dis-moi ce que tu ne ferais jamais."},
-      {q:"Animals can talk for one day. Which one do you want to hear from?", qf:"Les animaux parlent pendant une journée. Lequel tu veux entendre ?", push:"Now tell me what it says about us.", pushf:"Maintenant, dis-moi ce qu'il pense de nous."},
-      {q:"You can delete one invention from history. Which one?", qf:"Tu peux effacer une invention de l'histoire. Laquelle ?", push:"Now tell me what breaks because of that.", pushf:"Maintenant, dis-moi ce que ça casse."},
-      {q:"One sentence to yourself at age ten. What is it?", qf:"Une phrase à toi-même à dix ans. C'est quoi ?", push:"Now tell me if she'd listen.", pushf:"Maintenant, dis-moi si elle écouterait."}
-    ]}
-];
-
-const SVGNS = "http://www.w3.org/2000/svg";
-const wheelEl = document.getElementById('wheel');
-const NW = WCATS.length, wseg = 360/NW, wcx=150, wcy=150, wr=148;
-function wpolar(rr, angDeg){ const a=(angDeg)*Math.PI/180; return [wcx + rr*Math.sin(a), wcy - rr*Math.cos(a)]; }
-WCATS.forEach((c,i)=>{
-  const start=i*wseg, end=(i+1)*wseg;
-  const [x1,y1]=wpolar(wr,start), [x2,y2]=wpolar(wr,end);
-  const large = wseg>180?1:0;
-  const path=document.createElementNS(SVGNS,'path');
-  path.setAttribute('d',`M${wcx},${wcy} L${x1.toFixed(2)},${y1.toFixed(2)} A${wr},${wr} 0 ${large} 1 ${x2.toFixed(2)},${y2.toFixed(2)} Z`);
-  path.setAttribute('fill',c.color); path.setAttribute('stroke','#09111f'); path.setAttribute('stroke-width','2');
-  wheelEl.appendChild(path);
-  const mid=start+wseg/2; const [ex,ey]=wpolar(wr*0.66, mid);
-  const t=document.createElementNS(SVGNS,'text');
-  t.setAttribute('x',ex.toFixed(2)); t.setAttribute('y',(ey+8).toFixed(2));
-  t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','22'); t.textContent=c.emoji;
-  wheelEl.appendChild(t);
-});
-const wrim=document.createElementNS(SVGNS,'circle');
-wrim.setAttribute('cx',wcx); wrim.setAttribute('cy',wcy); wrim.setAttribute('r',wr);
-wrim.setAttribute('fill','none'); wrim.setAttribute('stroke','#ffb830'); wrim.setAttribute('stroke-width','4');
-wheelEl.appendChild(wrim);
-
-const wlegend = document.getElementById('wlegend');
-WCATS.forEach((c,i)=>{
-  const b=document.createElement('button'); b.className='wchip';
-  b.style.background=c.color; b.style.color=c.text;
-  b.innerHTML=`<span>${c.emoji}</span> ${c.name}`;
-  b.addEventListener('click', ()=>spinWheelTo(i));
-  wlegend.appendChild(b);
-});
-
-const whub=document.getElementById('whub');
-const whint=document.getElementById('whint');
-const wpanel=document.getElementById('wpanel');
-const wactions=document.getElementById('wactions');
-const wchips=[...document.querySelectorAll('.wchip')];
-let wrotation=0, wspinning=false, wcurrentCat=null, wlastQ={}; const wdecks={};
-
-function wsetDisabled(state){
-  wspinning=state; whub.disabled=state;
-  const sb=document.getElementById('wspinBtn'), ab=document.getElementById('wagainBtn');
-  if(sb) sb.disabled=state; if(ab) ab.disabled=state;
-  wchips.forEach(ch=>ch.disabled=state);
+let cur = 0;
+function go(i){
+  cur = Math.max(0, Math.min(L.slides.length-1, i));
+  document.querySelectorAll('.slide').forEach((s,k)=>s.classList.toggle('active', k===cur));
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on', k===cur));
+  $('#prevBtn').disabled = cur===0; $('#nextBtn').disabled = cur===L.slides.length-1;
+  $('#prog').style.width = ((cur+1)/L.slides.length*100)+'%';
+  if (L.slides[cur].type === 'victory'){ updateVictory(); confetti(140); }
+  scrollTo({top:0,behavior:'smooth'});
 }
-function wpickQuestion(i){
-  const list = WCATS[i].qs;
-  if(!wdecks[i] || wdecks[i].length===0){
-    wdecks[i] = list.map((_,k)=>k);
-    for(let k=wdecks[i].length-1;k>0;k--){ const j=Math.floor(Math.random()*(k+1)); [wdecks[i][k],wdecks[i][j]]=[wdecks[i][j],wdecks[i][k]]; }
-    if(list.length>1 && wdecks[i][wdecks[i].length-1]===wlastQ[i]){ [wdecks[i][0],wdecks[i][wdecks[i].length-1]]=[wdecks[i][wdecks[i].length-1],wdecks[i][0]]; }
-  }
-  const idx = wdecks[i].pop(); wlastQ[i]=idx; return list[idx];
-}
-function wreveal(i){
-  const c = WCATS[i]; const item = wpickQuestion(i); wcurrentCat = i;
-  wpanel.classList.remove('show');
-  wpanel.innerHTML = `
-    <span class="wcat-chip" style="background:${c.color};color:${c.text}">${c.emoji} ${c.name}</span>
-    <div class="wq">${item.q}</div>
-    <div class="wqf" lang="fr">${item.qf}</div>
-    <button class="wpush-toggle" id="wpushToggle">Take it further →</button>
-    <div class="wpush" id="wpushBox"><span class="lbl">Take it further · Pour aller plus loin</span><span class="txt">${item.push}</span><span class="txt-fr" lang="fr">${item.pushf}</span></div>
-  `;
-  wactions.style.display = 'flex';
-  void wpanel.offsetWidth;
-  wpanel.classList.add('show');
-  document.getElementById('wpushToggle').addEventListener('click', (e)=>{
-    const box = document.getElementById('wpushBox');
-    box.classList.toggle('show');
-    e.target.textContent = box.classList.contains('show') ? 'Hide' : 'Take it further →';
-  });
-  whint.textContent = 'Talk it through, then spin again if you like. / Parle, puis fais tourner à nouveau si tu veux.';
-  wsetDisabled(false);
-}
-function spinWheelTo(i){
-  if(wspinning) return;
-  wsetDisabled(true); whint.textContent = 'Spinning…';
-  const center = i*wseg + wseg/2;
-  const jitter = (Math.random()*2-1)*(wseg/2 - 9);
-  const target = (center + jitter);
-  const align = ((360 - (target % 360)) % 360);
-  const currentMod = ((wrotation % 360)+360)%360;
-  let delta = (align - currentMod + 360)%360;
-  const turns = 5 + Math.floor(Math.random()*3);
-  wrotation = wrotation + turns*360 + delta;
-  wheelEl.style.transform = `rotate(${wrotation}deg)`;
-  const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const afterSpin = ()=>{ wreveal(i); };
-  if(reduce){ afterSpin(); return; }
-  const onEnd = ()=>{ wheelEl.removeEventListener('transitionend', onEnd); afterSpin(); };
-  wheelEl.addEventListener('transitionend', onEnd);
-}
-function spinWheelRandom(){ spinWheelTo(Math.floor(Math.random()*NW)); }
-whub.addEventListener('click', spinWheelRandom);
-document.getElementById('wspinBtn').addEventListener('click', spinWheelRandom);
-document.getElementById('wagainBtn').addEventListener('click', ()=>{ if(wcurrentCat!==null) wreveal(wcurrentCat); });
-
-/* ============ CELEBRATION SLIDE ============ */
-let celebrationRan = false;
-function animateCount(el, target, duration){
-  const start = performance.now();
-  function frame(now){
-    const p = Math.min((now-start)/duration, 1);
-    el.textContent = Math.round(p * target);
-    if(p < 1) requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-}
-function runCelebrationEntry(){
-  if(celebrationRan) return; celebrationRan = true;
-  animateCount(document.getElementById('statWords'), vocabFlipped, 700);
-}
-function spawnConfetti(){
-  const pieces = ['🎉','⭐','🎊','🎙️','✨'];
-  for(let i=0;i<26;i++){
-    const el = document.createElement('span'); el.className = 'confetti-piece';
-    el.textContent = pieces[Math.floor(Math.random()*pieces.length)];
-    el.style.left = Math.random()*100 + 'vw';
-    el.style.animationDuration = (2 + Math.random()*1.6) + 's';
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(), 4000);
-  }
-}
-document.getElementById('celebrateBtn').addEventListener('click', function(){
-  spawnConfetti();
-  document.getElementById('badgeReveal').classList.add('show');
-  addXP(5);
-  this.disabled = true;
-  this.textContent = '🏅 Badge Unlocked!';
-});
-
-/* ============ INIT ============ */
-buildVocab();
-buildPhraseScreen();
-initMCQ('qp1', 'mcqFeedbackQP1');
-initMCQ('r1', 'mcqFeedbackR1');
-initMCQ('r2', 'mcqFeedbackR2');
-refreshNav();
-setTimeout(checkScrollCue, 100);
+$('#prevBtn').onclick = ()=>go(cur-1); $('#nextBtn').onclick = ()=>go(cur+1);
+$('#starBtn').onclick = ()=>addStars(1,'Full sentence! +1 ⭐');
+const frBtn = $('#frBtn');
+function syncFr(){ frBtn.textContent = document.body.classList.contains('hide-fr') ? 'FR: OFF' : 'FR: ON'; }
+frBtn.onclick = ()=>{ document.body.classList.toggle('hide-fr'); syncFr(); }; syncFr();
+$('#hudBrand').textContent = L.brand; $('#stuName').textContent = L.student; $('#lessonName').textContent = L.lesson;
+const d = new Date(); $('#today').textContent = String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+'/'+d.getFullYear();
+go(0);
 </script>
 </body>
 </html>

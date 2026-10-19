@@ -1,926 +1,531 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="google" content="notranslate">
-<title>Lesson 15 — On One Hand... | Berenice</title>
+<title>Bérénice • Lesson 15 — On One Hand…</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#09111f; --deep:#0d1829; --card:#131f38; --rim:#1c2d4a;
-    --white:#e8f0ff; --muted:#8095bb;
-    --teal:#0fd4b8; --amber:#ffb830; --coral:#ff5a42; --violet:#a47aff; --lime:#3ee88a; --aqua:#00d4ff;
-    --shadow:rgba(0,0,0,0.35);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
-  html,body{height:100%;overflow:hidden}
-  .notranslate{translate:no;}
-  body{
-    font-family:'Inter',sans-serif; font-size:22px; line-height:1.5; color:var(--white);
-    background:var(--ink);
-    background-image:
-      radial-gradient(900px 500px at 12% -5%, rgba(15,212,184,0.14), transparent 60%),
-      radial-gradient(800px 480px at 95% 8%, rgba(164,122,255,0.12), transparent 60%),
-      radial-gradient(900px 600px at 50% 115%, rgba(255,184,48,0.10), transparent 60%);
-    position:relative;
-  }
-  .hud{ position:fixed; top:14px; left:14px; right:14px; display:flex; justify-content:space-between; align-items:center; z-index:50; gap:10px; flex-wrap:wrap; }
-  .hud-pill{ background:var(--card); border:1px solid var(--rim); color:var(--white); padding:9px 16px; border-radius:999px; font-weight:700; font-size:16px; box-shadow:0 4px 14px var(--shadow); display:flex; align-items:center; gap:7px; }
-  .xp-pill{ background:linear-gradient(135deg,var(--amber),#c9861a); color:#2a1c00; }
-  .sound-toggle{ background:var(--card); border:1px solid var(--rim); color:var(--white); border-radius:50%; width:42px; height:42px; font-size:19px; cursor:pointer; box-shadow:0 4px 12px var(--shadow); }
-  .xp-pop{ position:fixed; top:76px; left:50%; transform:translateX(-50%) translateY(-16px); background:linear-gradient(135deg,var(--coral),var(--amber)); color:#fff; padding:11px 22px; border-radius:999px; font-weight:800; font-size:22px; box-shadow:0 6px 20px rgba(255,90,66,0.4); opacity:0; pointer-events:none; z-index:80; transition:all .4s cubic-bezier(.4,0,.2,1); }
-  .xp-pop.show{ opacity:1; transform:translateX(-50%) translateY(0); }
-
-  .slide{ display:none; max-width:1180px; margin:0 auto; padding:22px 24px 30px; position:relative; z-index:1; animation:slideIn .35s ease; }
-  .slide.active{ display:block; }
-  @keyframes slideIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
-
-  /* ===== Scroll viewport (sits cleanly between fixed HUD and fixed nav bar) ===== */
-  .slide-viewport{ position:fixed; top:66px; left:0; right:0; bottom:78px; overflow-y:auto; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
-  .slide-viewport::-webkit-scrollbar{ width:8px; }
-  .slide-viewport::-webkit-scrollbar-thumb{ background:var(--rim); border-radius:8px; }
-  .scroll-cue{ position:fixed; left:50%; bottom:92px; transform:translateX(-50%) translateY(6px); z-index:55;
-    background:var(--card); border:1px solid var(--rim); color:var(--white); font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
-    padding:8px 16px; border-radius:999px; box-shadow:0 6px 16px var(--shadow); display:flex; align-items:center; gap:6px;
-    opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; }
-  .scroll-cue.show{ opacity:1; transform:translateX(-50%) translateY(0); animation:cueBounce 1.6s ease-in-out infinite; }
-  .scroll-cue .arrow{ font-size:14px; }
-  @keyframes cueBounce{ 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(4px); } }
-
-  .card{ background:var(--card); border:1px solid var(--rim); border-radius:26px; padding:36px 34px; box-shadow:0 16px 40px var(--shadow); }
-  .brandbar{ display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-weight:800; letter-spacing:.5px; color:var(--amber); font-size:12px; text-transform:uppercase; margin-bottom:16px; }
-  .brandbar .dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow:0 0 12px var(--amber); }
-
-  h1{ font-family:'Poppins',sans-serif; font-size:44px; font-weight:900; line-height:1.12; letter-spacing:-.5px; color:var(--white); }
-  h1 .accent{ color:var(--amber); }
-  h2{ font-family:'Poppins',sans-serif; font-size:30px; font-weight:800; color:var(--white); margin-bottom:14px; }
-  .badge-tag{ display:inline-block; background:rgba(15,212,184,0.14); color:var(--teal); font-weight:700; font-size:12.5px; letter-spacing:.6px; text-transform:uppercase; padding:6px 16px; border-radius:999px; margin-bottom:16px; border:1px solid rgba(15,212,184,0.3); }
-
-  .hero-emoji{ font-size:74px; display:block; margin-bottom:12px; }
-  .hero-sub-en{ font-size:21px; color:var(--white); margin:10px 0 4px; font-weight:500; }
-  .hero-sub-fr{ font-size:18px; color:var(--violet); font-weight:600; font-style:italic; }
-
-  .bi-cols{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:18px 0; }
-  @media (max-width:680px){ .bi-cols{ grid-template-columns:1fr; } }
-  .bi-en, .bi-fr{ padding:18px 22px; border-radius:16px; font-size:20px; line-height:1.5; }
-  .bi-en{ background:rgba(15,212,184,0.09); color:var(--white); border-left:5px solid var(--teal); }
-  .bi-fr{ background:rgba(164,122,255,0.10); color:#d8c9ff; border-left:5px solid var(--violet); font-style:italic; }
-  .bi-en strong, .bi-fr strong{ font-weight:700; color:inherit; }
-
-  .nav-row{ position:fixed; bottom:0; left:0; right:0; background:var(--deep); border-top:1px solid var(--rim); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; z-index:60; }
-  .nav-btn{ font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; padding:13px 28px; border-radius:50px; border:none; cursor:pointer; color:#fff; transition:transform .1s ease; }
-  .nav-btn:active{ transform:translateY(3px); }
-  .nav-btn.back{ background:#2a3a5c; }
-  .nav-btn.next{ background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
-  .nav-btn:disabled{ opacity:.35; cursor:not-allowed; }
-  .nav-btn.locked{ background:#2a3550; color:#6b7a9a; }
-  .progress-label{ font-size:13px; color:var(--muted); font-weight:700; }
-
-  .vocab-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0; }
-  @media (max-width:680px){ .vocab-grid{ grid-template-columns:repeat(2,1fr); } }
-  .vocab-card{ background:var(--deep); border:2px solid var(--rim); border-radius:16px; padding:14px 10px; text-align:center; cursor:pointer; transition:transform .15s ease, border-color .15s ease; min-height:96px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-  .vocab-card:hover{ transform:translateY(-3px); border-color:var(--teal); }
-  .vocab-card .emoji{ font-size:28px; display:block; margin-bottom:4px; }
-  .vocab-card .word{ font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--white); }
-  .vocab-card .fr{ font-size:12px; color:var(--violet); font-style:italic; margin-top:2px; display:none; }
-  .vocab-card.flipped{ border-color:var(--amber); background:rgba(255,184,48,0.08); }
-  .vocab-card.flipped .fr{ display:block; }
-  .vocab-card.flipped .word{ font-size:13.5px; }
-
-  .word-bank-wrap{ margin:20px 0; }
-  .sentence-slot{ min-height:64px; background:var(--deep); border:2px dashed var(--rim); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:12px; font-family:'Poppins',sans-serif; font-size:21px; font-weight:700; margin-bottom:14px; }
-  .sentence-slot .placed{ background:var(--teal); color:#00251f; padding:7px 13px; border-radius:10px; }
-  .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-  .word-chip{ background:var(--coral); color:#fff; padding:9px 16px; border-radius:14px; font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; cursor:pointer; box-shadow:0 5px 0 #b8341f; transition:transform .1s ease; }
-  .word-chip:active{ transform:translateY(4px); box-shadow:0 1px 0 #b8341f; }
-  .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
-  .replay-btn{ background:var(--amber); color:#2a1c00; border:none; border-radius:50px; padding:10px 20px; font-size:15px; font-weight:700; cursor:pointer; box-shadow:0 5px 0 #b8790f; margin-top:10px; }
-
-  .feedback-banner{ margin-top:14px; font-weight:800; font-size:19px; min-height:44px; }
-  .feedback-banner .fb-fr{ display:block; font-size:15px; color:var(--violet); font-weight:600; margin-top:2px; }
-  .feedback-banner.good .fb-en{ color:var(--lime); }
-  .feedback-banner.retry .fb-en{ color:var(--coral); }
-
-  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:560px; margin:16px auto 0; }
-  .mcq-opt{ font-family:'Inter',sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; text-align:left; transition:transform .08s ease,background .15s ease,border-color .15s ease; width:100%; }
-  .mcq-opt .opt-fr{ display:block; font-size:14px; color:var(--violet); font-weight:600; margin-top:3px; font-style:italic; }
-  .mcq-opt:hover{ transform:translateY(-2px); }
-  .mcq-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .mcq-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
-  @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-7px);} 75%{transform:translateX(7px);} }
-
-  .passage-card{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; font-size:20px; line-height:1.6; }
-  .passage-card .ptitle{ font-family:'Poppins',sans-serif; font-weight:800; color:var(--amber); font-size:13px; text-transform:uppercase; letter-spacing:.6px; margin-bottom:10px; }
-
-  .match-round-label{ font-size:14px; color:var(--muted); font-weight:700; margin-bottom:6px; }
-  .match-fr-word{ font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:var(--amber); margin-bottom:16px; }
-  .match-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:560px; margin:0 auto; }
-  @media (max-width:520px){ .match-grid{ grid-template-columns:1fr; } }
-  .match-opt{ font-family:'Inter',sans-serif; font-size:18px; font-weight:600; padding:14px 16px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; }
-  .match-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .match-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .match-opt.disabled{ pointer-events:none; opacity:.4; }
-  .match-progress{ display:flex; gap:6px; justify-content:center; margin-bottom:18px; }
-  .match-dot{ width:10px; height:10px; border-radius:50%; background:var(--rim); }
-  .match-dot.done{ background:var(--lime); }
-
-  /* ===== Conversation Wheel ===== */
-  .bridge-line{ background:linear-gradient(135deg, rgba(255,184,48,0.14), rgba(255,90,66,0.08)); border:1px solid rgba(255,184,48,0.4); border-radius:16px; padding:16px 20px; margin:16px 0; text-align:center; }
-  .bridge-line .bridge-icon{ font-size:24px; display:block; margin-bottom:6px; }
-  .bridge-line .bridge-en{ font-size:18px; font-weight:700; color:var(--white); line-height:1.4; }
-  .bridge-line .bridge-fr{ font-size:14px; color:var(--violet); font-style:italic; margin-top:4px; line-height:1.4; }
-  .wheel-frame{ background:var(--deep); border:1px solid var(--rim); border-radius:22px; padding:24px 18px; margin-top:14px; }
-  .wheel-main{ display:flex; flex-direction:column; align-items:center; gap:10px; }
-  @media (min-width:780px){ .wheel-main{ flex-direction:row; align-items:stretch; gap:30px; } }
-  .wheel-left{ display:flex; flex-direction:column; align-items:center; }
-  .wheel-wrap{ position:relative; width:240px; height:240px; max-width:68vw; max-height:68vw; }
-  @media (min-width:780px){ .wheel-wrap{ width:260px; height:260px; max-width:none; max-height:none; } }
-  .wheel-pointer{ position:absolute; top:-4px; left:50%; transform:translateX(-50%); z-index:5; width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent; border-top:24px solid var(--amber); filter:drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
-  .wheel-svg{ width:100%; height:100%; border-radius:50%; transition:transform 4.2s cubic-bezier(.15,.9,.25,1); filter:drop-shadow(0 10px 22px rgba(0,0,0,0.4)); }
-  .wheel-hub{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:4; width:86px; height:86px; border-radius:50%; background:var(--ink); border:3px solid var(--amber); color:var(--amber); cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; box-shadow:0 6px 14px rgba(0,0,0,0.5); transition:transform .15s ease; }
-  .wheel-hub:hover{ transform:translate(-50%,-50%) scale(1.05); }
-  .wheel-hub:active{ transform:translate(-50%,-50%) scale(.96); }
-  .wheel-hub:disabled{ cursor:default; opacity:.85; }
-  .wheel-hub .word{ font-weight:800; font-size:13px; letter-spacing:.1em; }
-  .wheel-hub .spin-ico{ font-size:14px; margin-bottom:1px; }
-  .wheel-hint{ color:var(--muted); font-size:12px; margin:10px 0 4px; text-align:center; }
-  .wheel-legend{ display:flex; flex-wrap:wrap; gap:6px; justify-content:center; padding:2px 0 4px; max-width:320px; }
-  .wchip{ border:none; cursor:pointer; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:11px; padding:5px 10px; border-radius:999px; display:inline-flex; align-items:center; gap:5px; opacity:.9; }
-  .wchip:hover{ opacity:1; }
-  .wchip:disabled{ cursor:default; opacity:.5; }
-  .wheel-right{ width:100%; display:flex; flex-direction:column; justify-content:center; }
-  .wpanel{ background:var(--card); border:1px solid var(--rim); border-radius:16px; padding:22px 20px; text-align:center; min-height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; opacity:0; transform:translateY(6px); transition:opacity .4s ease, transform .4s ease; }
-  .wpanel.show{ opacity:1; transform:none; }
-  @media (min-width:780px){ .wpanel{ min-height:230px; padding:26px 24px; } }
-  .wcat-chip{ font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#fff; padding:5px 12px; border-radius:999px; }
-  .wq{ font-family:'Poppins',sans-serif; font-weight:700; font-size:clamp(19px,2.2vw,26px); line-height:1.3; color:var(--white); }
-  .wqf{ font-family:'Inter',sans-serif; font-style:italic; font-weight:500; font-size:clamp(14px,1.6vw,17px); line-height:1.3; color:var(--violet); }
-  .wplaceholder{ color:var(--muted); font-size:14px; font-style:italic; }
-  .wpush-toggle{ background:none; border:none; color:var(--teal); font-weight:700; font-size:13px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
-  .wpush{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:10px; padding:10px 14px; max-width:440px; }
-  .wpush.show{ display:block; }
-  .wpush .lbl{ font-weight:800; font-size:9px; letter-spacing:.12px; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:3px; }
-  .wpush .txt{ font-size:14.5px; color:var(--white); font-weight:600; }
-  .wpush .txt-fr{ display:block; font-style:italic; font-weight:600; font-size:13px; color:var(--violet); margin-top:6px; }
-  .wactions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
-  .wbtn{ font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; padding:10px 18px; border-radius:10px; cursor:pointer; border:2px solid transparent; }
-  .wbtn-primary{ background:var(--amber); color:#2a1c00; }
-  .wbtn-ghost{ background:transparent; color:var(--white); border-color:var(--rim); }
-  .wbtn:disabled{ opacity:.5; cursor:default; }
-  .wspin-count{ font-size:13px; color:var(--muted); margin-top:8px; text-align:center; }
-
-  /* ===== Celebration slide ===== */
-  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0; }
-  @media (max-width:680px){ .stat-grid{ grid-template-columns:1fr; } }
-  .stat-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px; text-align:center; }
-  .stat-num{ font-family:'Poppins',sans-serif; font-weight:900; font-size:34px; color:var(--amber); }
-  .stat-lbl{ font-size:13px; color:var(--muted); font-weight:700; margin-top:2px; }
-  .stat-lbl-fr{ font-size:12px; color:var(--violet); font-style:italic; }
-  .celebrate-btn{ display:block; margin:24px auto 4px; font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; padding:16px 38px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--coral),var(--amber)); color:#2a1c00; box-shadow:0 8px 22px rgba(255,90,66,0.35); transition:transform .1s ease; }
-  .celebrate-btn:active{ transform:translateY(3px) scale(.98); }
-  .celebrate-btn:disabled{ opacity:.5; cursor:default; }
-  .badge-reveal{ text-align:center; margin-top:18px; opacity:0; transform:scale(.7); transition:all .5s cubic-bezier(.34,1.56,.64,1); }
-  .badge-reveal.show{ opacity:1; transform:scale(1); }
-  .badge-reveal .badge-emoji{ font-size:90px; display:block; }
-  .badge-reveal .badge-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--amber); margin-top:6px; }
-  .confetti-piece{ position:fixed; top:-20px; z-index:200; pointer-events:none; font-size:22px; animation:confettiFall linear forwards; }
-  @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(400deg); opacity:0.2; } }
-
-
-  /* ===== Skill teaching box ===== */
-  .skill-box{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; }
-  .skill-table{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
-  .skill-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; background:var(--card); border:1px solid var(--rim); border-radius:12px; padding:12px 16px; align-items:center; }
-  @media (max-width:680px){ .skill-row{ grid-template-columns:1fr; } }
-  .skill-en{ font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; color:var(--white); }
-  .skill-en .sample{ display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:14px; color:var(--teal); margin-top:3px; font-style:italic; }
-  .skill-fr{ font-size:14px; color:var(--violet); font-style:italic; line-height:1.4; }
-  .skill-tryit{ margin-top:14px; font-size:14px; color:var(--muted); text-align:center; font-style:italic; }
-
-  /* ===== Speaking task (the real climax) ===== */
-  .speak-card{ background:linear-gradient(135deg, rgba(15,212,184,0.10), rgba(164,122,255,0.08)); border:2px solid rgba(15,212,184,0.35); border-radius:20px; padding:28px 26px; margin:18px 0; }
-  .speak-card .speak-icon{ font-size:40px; display:block; margin-bottom:10px; text-align:center; }
-  .speak-card .bi-en, .speak-card .bi-fr{ background:transparent; border:none; padding:0; text-align:center; }
-  .speak-card .bi-en{ font-size:21px; font-weight:600; }
-  .nudge-toggle{ display:block; margin:16px auto 0; background:none; border:none; color:var(--teal); font-weight:700; font-size:14px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
-  .nudge-box{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:12px; padding:14px 18px; margin-top:14px; }
-  .nudge-box.show{ display:block; }
-  .nudge-box .starter{ font-family:'Poppins',sans-serif; font-weight:700; color:var(--amber); font-size:15px; margin:4px 0; }
-  .done-talking-btn{ display:block; margin:20px auto 0; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; padding:13px 30px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
-  .done-talking-btn:disabled{ opacity:.5; cursor:default; }
-  .talk-confirm{ text-align:center; margin-top:16px; font-weight:700; color:var(--lime); display:none; }
-  .talk-confirm.show{ display:block; }
-
-  /* ===== Bonus wheel framing ===== */
-  .bonus-frame{ text-align:center; margin-bottom:6px; }
-  .bonus-frame .bi-en, .bonus-frame .bi-fr{ background:transparent; border:none; padding:0 0 4px; text-align:center; }
-
-  /* ===== True/False quick response ===== */
-  .tf-row{ display:flex; gap:16px; justify-content:center; max-width:480px; margin:18px auto 0; }
-  .tf-btn{ flex:1; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; padding:20px 14px; border-radius:16px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; transition:transform .08s ease,background .15s ease,border-color .15s ease; }
-  .tf-btn:hover{ transform:translateY(-2px); }
-  .tf-btn.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .tf-btn.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .tf-btn.disabled{ pointer-events:none; opacity:.55; }
-
-  /* ===== Two-column compare cards ===== */
-  .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0; }
-  @media (max-width:600px){ .compare-grid{ grid-template-columns:1fr; } }
-  .compare-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px 16px; }
-  .compare-card .cc-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--amber); margin-bottom:10px; text-align:center; }
-  .compare-card ul{ margin:0; padding-left:18px; font-size:15px; line-height:1.7; color:var(--white); }
-
-  footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:var(--muted); }
+:root{
+  --sun:#F4B400; --sun-deep:#A6821B;
+  --sky:#0F8B8D; --sky-deep:#0A5F60;
+  --coral:#E8573C; --coral-deep:#8E1B20;
+  --leaf:#4A9C5D; --leaf-deep:#2F5233;
+  --grape:#7c3aed; --pink:#E85D9A; --orange:#F28C28;
+  --cream:#fff8ea; --ink:#25324a;
+  --good:#22c55e; --bad:#ef4444;
+  --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  --accent:#0F8B8D; --accent-deep:#0A5F60;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Quicksand',Arial,sans-serif;font-size:20px;line-height:1.5;color:var(--ink);
+  background:radial-gradient(circle at 6% 10%,rgba(242,140,40,.20) 0,transparent 40%),radial-gradient(circle at 94% 85%,rgba(124,58,237,.14) 0,transparent 42%),linear-gradient(180deg,#fff4e3 0%,#fff 100%);min-height:100vh;overflow-x:hidden}
+.kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px}
+.kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px}
+.kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1}
+.kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700}
+.kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+.kce-band{height:3px;display:flex}.kce-band i{flex:1}.kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+.stage{max-width:1180px;margin:0 auto;padding:18px 20px 40px}
+.hud{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--accent);border-radius:22px;padding:10px 18px;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.hud-brand{font-family:'Caprasimo',Georgia,serif;font-size:21px;color:var(--accent-deep)}
+.hud-stat{font-weight:700;font-size:18px;background:var(--cream);padding:6px 14px;border-radius:12px;border:2px solid var(--sun);color:#8a5a00}
+.hud-spacer{flex:1}
+.pill{border:none;border-radius:50px;padding:8px 16px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:13px;cursor:pointer}
+.pill.fr-toggle{background:#ede9fe;color:var(--grape)}
+.pill.star-btn{background:var(--sun);color:var(--kce-navy)}
+.namedate{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;font-family:Arial,sans-serif;font-size:15px;color:var(--kce-navy);background:#fff;border:2px dashed var(--kce-gold);border-radius:12px;padding:8px 16px}
+.namedate b{font-family:Georgia,serif}
+.progress{height:10px;background:#eee;border-radius:99px;margin-top:10px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--pink),var(--grape));transition:width .5s}
+.slide{display:none;background:#fff;border:3px solid var(--accent);border-radius:26px;padding:24px 28px;margin-top:14px;box-shadow:0 12px 34px rgba(0,0,0,.07);animation:slideIn .45s ease;position:relative}
+.slide.active{display:block}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.slide-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.slide-count{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:#7a869a;text-transform:uppercase;letter-spacing:1px}
+.minutes{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;background:#e0f2f1;color:var(--sky-deep);padding:4px 12px;border-radius:99px}
+.slide-title{font-family:'Caprasimo',Georgia,serif;font-size:36px;color:var(--accent-deep);text-align:center;line-height:1.15}
+.slide-sub{text-align:center;font-size:19px;color:#4b5563;margin-top:4px}
+.fr{color:#7c5cc4;font-style:italic;font-weight:500;font-size:.78em;display:block;margin-top:3px;line-height:1.35}
+body.hide-fr .fr{display:none!important}
+.goal{margin:18px auto 0;max-width:760px;background:linear-gradient(135deg,#fff3d6,#ffe4ef);border:3px solid var(--sun);border-radius:20px;padding:18px 22px;text-align:center}
+.goal .big{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--coral-deep)}
+.emoji-row{font-size:54px;text-align:center;margin:14px 0 4px;letter-spacing:8px}
+.how{max-width:760px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.how div{background:var(--cream);border-radius:16px;padding:12px 14px;font-size:17px;text-align:center;border:2px solid #f3dfb5}
+/* chat */
+.chat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:16px}
+.chat-card{border:3px solid var(--sky);border-radius:18px;padding:14px 16px;background:#f3fbfb;cursor:pointer;transition:transform .15s}
+.chat-card:hover{transform:translateY(-2px)}
+.chat-card h4{font-family:'Caprasimo',Georgia,serif;font-size:22px;color:var(--sky-deep);font-weight:400}
+.starters{display:none;margin-top:10px;gap:8px;flex-direction:column}
+.chat-card.open .starters{display:flex}
+.starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:8px 12px;font-weight:700;font-size:17px}
+.starter .fr{font-weight:500}
+.askback{display:inline-block;margin-top:8px;background:var(--sun);color:var(--kce-navy);font-weight:800;font-size:14px;padding:5px 12px;border-radius:99px;font-family:'Poppins',Arial,sans-serif}
+.tap-hint{font-size:14px;color:#7a869a;margin-top:6px}
+/* vocab */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:16px}
+.vcard{perspective:800px;height:170px;cursor:pointer}
+.vinner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.vcard.flip .vinner{transform:rotateY(180deg)}
+.vface{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center}
+.vfront{border:3px solid var(--orange);background:#fff7ed}
+.vfront .em{font-size:56px;line-height:1.1}
+.vfront .w{font-weight:800;font-size:19px;margin-top:6px}
+.vback{transform:rotateY(180deg);background:linear-gradient(135deg,#ede9fe,#fce7f3);border:3px solid var(--grape);font-size:16px}
+.vback .ex{font-weight:700;color:var(--ink)}
+/* wheel */
+.wheel-wrap{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:4px;padding:12px 4px 8px;overflow:hidden}
+.wheel-box{position:relative;width:420px;height:420px;max-width:90vw;max-height:90vw}
+.wheel-box canvas{width:100%;height:100%;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform 4.2s cubic-bezier(.12,.8,.2,1)}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-top:38px solid var(--kce-navy);z-index:2;filter:drop-shadow(0 3px 2px rgba(0,0,0,.3))}
+.hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:#fff;border:5px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;font-size:30px;z-index:2}
+.wheel-q{flex:1;min-width:min(300px,100%);max-width:520px;background:linear-gradient(135deg,#fff3d6,#e0f2fe);border:3px solid var(--sun);border-radius:22px;padding:22px;text-align:center;min-height:200px;display:flex;flex-direction:column;justify-content:center}
+.wheel-q .q{font-family:'Caprasimo',Georgia,serif;font-size:27px;color:var(--kce-navy);line-height:1.25}
+.wheel-q .st{margin-top:10px;font-size:17px;font-weight:700;color:var(--sky-deep)}
+.big-btn{display:inline-block;border:none;border-radius:16px;padding:14px 28px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:18px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--orange),var(--coral));box-shadow:0 6px 16px rgba(232,87,60,.35)}
+.big-btn:disabled{opacity:.5;cursor:default}
+.center{text-align:center;margin-top:14px}
+/* builder */
+.builder-pic{font-size:64px;text-align:center;margin-top:10px}
+.builder-prompt{text-align:center;font-weight:700;font-size:19px}
+.answer-line{min-height:70px;border:3px dashed var(--grape);border-radius:16px;margin:14px 0;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:#faf5ff}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tile{border:3px solid var(--sky);background:#fff;border-radius:12px;padding:8px 14px;font-weight:800;font-size:20px;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.tile.used{visibility:hidden}
+.answer-line .tile{border-color:var(--grape);background:#fff}
+.row-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.sm-btn{border:none;border-radius:12px;padding:10px 18px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:15px;cursor:pointer;background:#e5e7eb;color:var(--ink)}
+.sm-btn.go{background:var(--leaf);color:#fff}
+.feedback{text-align:center;font-weight:800;font-size:19px;min-height:30px;margin-top:10px}
+.feedback.ok{color:#15803d}.feedback.no{color:#b91c1c}
+.round-tag{text-align:center;font-family:'Poppins',Arial,sans-serif;font-weight:700;color:#7a869a;font-size:14px;margin-top:6px}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+/* mcq */
+.mcq-scene{font-size:62px;text-align:center;margin-top:8px}
+.mcq-q{font-family:'Caprasimo',Georgia,serif;font-size:25px;color:var(--kce-navy);text-align:center;margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{border:3px solid var(--sky);background:#fff;border-radius:16px;padding:14px 16px;font-size:19px;font-weight:700;cursor:pointer;text-align:left;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.opt.right{background:#dcfce7;border-color:var(--good)}
+.opt.wrong{background:#fee2e2;border-color:var(--bad)}
+.explain{margin-top:12px;background:var(--cream);border-left:6px solid var(--sun);border-radius:12px;padding:12px 16px;font-size:18px;display:none}
+.explain.show{display:block}
+/* this or that */
+.tot-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:14px}
+.tot{border:3px solid var(--pink);background:#fff0f6;border-radius:20px;padding:18px;text-align:center;cursor:pointer;font-weight:800;font-size:20px;transition:transform .15s}
+.tot .em{font-size:52px;display:block}
+.tot.pick{background:var(--pink);color:#fff;transform:scale(1.04)}
+.tot.pick .fr{color:#fff}
+.vs{font-family:'Caprasimo',Georgia,serif;font-size:30px;color:var(--grape)}
+.say-box{margin-top:14px;text-align:center;background:#ecfeff;border:2px solid var(--sky);border-radius:14px;padding:12px;font-weight:700;font-size:19px}
+/* memory */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;max-width:760px;margin-left:auto;margin-right:auto}
+.mem{height:110px;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.12);padding:6px;user-select:none}
+.mem .face{display:none}
+.mem.open,.mem.done{background:#fff;color:var(--ink);border-color:var(--sky)}
+.mem.open .face,.mem.done .face{display:block}
+.mem.open .back,.mem.done .back{display:none}
+.mem.done{border-color:var(--good);background:#dcfce7}
+.mem .face.e{font-size:46px}
+/* true or silly */
+.tos-card{max-width:760px;margin:16px auto 0;background:linear-gradient(135deg,#fff7ed,#fef3c7);border:3px solid var(--orange);border-radius:22px;padding:22px;text-align:center}
+.tos-card .em{font-size:56px}
+.tos-card .st{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--kce-navy);margin-top:6px}
+.tos-btns{display:flex;gap:14px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.tos-btns button{min-width:170px}
+.btn-true{background:linear-gradient(135deg,#22c55e,#15803d)!important}
+.btn-silly{background:linear-gradient(135deg,#a855f7,#7c3aed)!important}
+/* sort */
+.sort-item{max-width:760px;margin:14px auto 0;background:#fff;border:3px solid var(--kce-navy);border-radius:18px;padding:16px;text-align:center;font-weight:800;font-size:22px}
+.buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.bucket{border-radius:18px;padding:14px;text-align:center;cursor:pointer;color:#fff;font-weight:800;font-size:19px;border:none;font-family:'Quicksand',Arial,sans-serif}
+.bucket small{display:block;font-weight:600;font-size:14px;opacity:.95;margin-top:4px}
+.bucket .cnt{display:block;font-size:14px;margin-top:6px;background:rgba(255,255,255,.25);border-radius:8px;padding:2px}
+.rule-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.rule{border-radius:16px;padding:12px 14px;color:#fff;font-size:17px}
+.rule b{font-size:20px;display:block}
+/* day plan */
+.plan-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.plan-col{border:3px solid var(--sun);border-radius:18px;padding:12px;background:#fffbeb}
+.plan-col h4{font-family:'Caprasimo',Georgia,serif;font-weight:400;font-size:21px;color:var(--sun-deep);text-align:center;margin-bottom:8px}
+.chip{display:block;width:100%;text-align:left;border:2px solid #f3dfb5;background:#fff;border-radius:12px;padding:8px 12px;margin-bottom:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.chip.sel{background:var(--sun);border-color:var(--sun-deep)}
+.story{margin-top:16px;background:linear-gradient(135deg,#e0f2fe,#ede9fe);border:3px solid var(--grape);border-radius:20px;padding:18px 22px;font-size:21px;font-weight:700;line-height:1.6;display:none}
+.story.show{display:block}
+.story .conn{color:var(--coral-deep)}
+/* talk */
+.check-list{max-width:760px;margin:16px auto 0;display:flex;flex-direction:column;gap:10px}
+.check{display:flex;align-items:center;gap:14px;border:3px solid var(--leaf);border-radius:16px;padding:12px 16px;background:#f0fdf4;cursor:pointer;font-weight:700;font-size:19px}
+.check .box{width:34px;height:34px;flex:none;border-radius:10px;border:3px solid var(--leaf);display:flex;align-items:center;justify-content:center;font-size:22px;background:#fff}
+.check.done{background:#bbf7d0}
+/* 2 truths */
+.ttl-list{max-width:760px;margin:14px auto 0;display:flex;flex-direction:column;gap:10px}
+/* victory */
+.victory{text-align:center;padding:10px}
+.medal{font-size:110px;line-height:1.1;margin-top:8px}
+.victory .score{font-family:'Caprasimo',Georgia,serif;font-size:34px;color:var(--accent-deep);margin-top:6px}
+.tiers{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.tiers div{background:var(--cream);border-radius:14px;padding:8px 14px;font-weight:700;font-size:16px;border:2px solid #f3dfb5}
+.tiers div.on{background:var(--sun);border-color:var(--sun-deep)}
+/* tutor */
+details.tutor{margin-top:18px;background:#f1f5f9;border-radius:12px;padding:8px 14px;font-size:15px;font-family:Arial,sans-serif;color:#334155}
+details.tutor summary{cursor:pointer;font-weight:700;color:var(--kce-navy)}
+details.tutor p{margin-top:6px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+.nav-btn{background:linear-gradient(135deg,var(--accent),var(--accent-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',Arial,sans-serif;font-size:16px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px}
+.nav-btn:disabled{opacity:.35;cursor:default}
+.nav-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.nav-dots button{width:14px;height:14px;border-radius:50%;border:none;background:#d1d5db;cursor:pointer;padding:0}
+.nav-dots button.on{background:var(--accent)}
+footer{margin-top:22px;text-align:center;font-family:Arial,sans-serif;font-size:12px;color:#64748b;line-height:1.6}
+footer .prov{color:var(--kce-navy);font-weight:700}
+.toast{position:fixed;left:50%;top:22px;transform:translateX(-50%) translateY(-120px);background:var(--kce-navy);color:#fff;padding:12px 22px;border-radius:14px;font-weight:800;font-size:19px;z-index:50;transition:transform .35s;font-family:'Poppins',Arial,sans-serif}
+.toast.show{transform:translateX(-50%) translateY(0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+@media(max-width:700px){.slide{padding:18px 14px}.wheel-q .q{font-size:22px}.slide-title{font-size:28px}.tot-row{grid-template-columns:1fr}.vs{text-align:center}.mem-grid{grid-template-columns:repeat(3,1fr)}.wheel-box{width:320px;height:320px}}
 </style>
 </head>
-<body class="notranslate" translate="no">
-
-<div class="hud">
-  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 11</span></div>
-  <div style="display:flex; gap:10px; align-items:center;">
-    <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
+<body class="notranslate " translate="no">
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
+<div class="kce-mast">
+  <div class="kce-mono">KC</div>
+  <div>
+    <div class="kce-word">KingCretot Experience</div>
+    <div class="kce-tag">EDUCATE. <span class="g">EMPOWER.</span> <span class="r">EXCEL.</span></div>
   </div>
 </div>
-<div class="xp-pop" id="xpPop"></div>
-<div class="scroll-cue" id="scrollCue"><span>Scroll for more / Fais defiler</span><span class="arrow">&#8595;</span></div>
+<div class="kce-band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
 
-<div class="slide-viewport" id="slideViewport">
-
-<!-- SLIDE 0: HERO -->
-<div class="slide active" data-title="On One Hand...">
-  <div class="card" style="text-align:center;">
-    <div class="brandbar" style="justify-content:center;"><span class="dot"></span> KingCretot Experience</div>
-    <span class="hero-emoji">⚖️</span>
-    <h1>Season One, Episode Fifteen:<br><span class="accent">On One Hand...</span></h1>
-    <div class="hero-sub-en">Today you'll learn to weigh two sides of a decision out loud — without sounding stuck or confused.</div>
-    <div class="hero-sub-fr">Aujourd'hui, tu vas apprendre à peser les deux côtés d'une décision à voix haute — sans avoir l'air coincée ou confuse.</div>
-    <div class="bi-cols" style="margin-top:24px; text-align:left;">
-      <div class="bi-en">Today's guest is stuck between two exciting choices, and she still hasn't decided which one to pick.</div>
-      <div class="bi-fr">L'invitée d'aujourd'hui est coincée entre deux choix excitants, et elle n'a toujours pas décidé lequel choisir.</div>
-    </div>
+<div class="stage">
+  <div class="hud">
+    <div class="hud-brand" id="hudBrand"></div>
+    <div class="hud-stat">⭐ <span id="stars">0</span> stars</div>
+    <div class="hud-spacer"></div>
+    <button class="pill star-btn" id="starBtn" title="Tutor: tap for every full English sentence">+1 ⭐ Full sentence</button>
+    <button class="pill fr-toggle" id="frBtn">FR: ON</button>
   </div>
-</div>
+  <div class="namedate"><span><b>Name:</b> <span id="stuName"></span></span><span><b>Date:</b> <span id="today"></span></span><span><b>Lesson:</b> <span id="lessonName"></span></span></div>
+  <div class="progress"><i id="prog"></i></div>
 
-<!-- SLIDE 1: THE SKILL -->
-<div class="slide" data-title="The Skill">
-  <div class="card">
-    <span class="badge-tag">Today's Skill · La compétence du jour</span>
-    <h2>🎯 Weighing Pros and Cons</h2>
-    <div class="bi-cols">
-      <div class="bi-en">When you're torn between two options, this pattern lets you present both sides clearly before deciding.</div>
-      <div class="bi-fr">Quand tu hésites entre deux options, ce modèle te permet de présenter les deux côtés clairement avant de décider.</div>
-    </div>
-    <div class="skill-box">
-      <div class="skill-table">
-        <div class="skill-row">
-          <div class="skill-en">Presenting side one<span class="sample">"On one hand, it's closer to home."</span></div>
-          <div class="skill-fr">Présenter le premier côté.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">Presenting side two<span class="sample">"On the other hand, it's more expensive."</span></div>
-          <div class="skill-fr">Présenter le deuxième côté.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">Naming the upside<span class="sample">"The advantage is..."</span></div>
-          <div class="skill-fr">Nommer l'avantage.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">Naming the downside<span class="sample">"The downside is..."</span></div>
-          <div class="skill-fr">Nommer l'inconvénient.</div>
-        </div>
-      </div>
-      <div class="skill-tryit">You'll use these for real with me in a few minutes. / Tu vas les utiliser pour de vrai avec moi dans quelques minutes.</div>
-    </div>
-    <div class="vocab-grid" id="vocabGrid"></div>
-    <p style="font-size:15px; color:var(--muted); margin-top:8px;" id="vocabHint">Flip at least 5 cards to unlock Next. / Retourne au moins 5 cartes pour débloquer Suivant.</p>
+  <div id="slides"></div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn">◀ Back</button>
+    <div class="nav-dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▶</button>
   </div>
-</div>
 
-<!-- SLIDE 2: QUICK PRACTICE — MCQ MODE -->
-<div class="slide" data-title="Quick Practice">
-  <div class="card">
-    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
-    <h2>🎯 Which Side Is This?</h2>
-    <div class="bi-cols">
-      <div class="bi-en">"On the other hand, the new school is much bigger." Is this the first side or the second side of the comparison?</div>
-      <div class="bi-fr">« On the other hand, the new school is much bigger. » Est-ce le premier ou le deuxième côté de la comparaison ?</div>
-    </div>
-    <div class="mcq-options" data-gid="qp1">
-      <button class="mcq-opt" data-ans="A">A) The first side<span class="opt-fr">Le premier côté</span></button>
-      <button class="mcq-opt" data-ans="B">B) The second side<span class="opt-fr">Le deuxième côté</span></button>
-      <button class="mcq-opt" data-ans="C">C) Neither — it's a new topic<span class="opt-fr">Ni l'un ni l'autre — c'est un nouveau sujet</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedbackQP1"></div>
-  </div>
-</div>
-
-<!-- SLIDE 3: QUICK PRACTICE 2 — SENTENCE BUILDER MODE -->
-<div class="slide" data-title="Build the Comparison">
-  <div class="card">
-    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
-    <h2>🧩 Build the Comparison</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Tap the pieces in order to build a correct comparison sentence.</div>
-      <div class="bi-fr">Touche les pièces dans l'ordre pour construire une phrase de comparaison correcte.</div>
-    </div>
-    <div class="word-bank-wrap">
-      <div class="sentence-slot" id="sentenceSlot"></div>
-      <div class="word-bank" id="wordBank"></div>
-    </div>
-    <div class="feedback-banner" id="phraseFeedback"></div>
-  </div>
-</div>
-
-<!-- SLIDE 4: GUEST BIO — READING ONLY -->
-<div class="slide" data-title="Guest Bio">
-  <div class="card">
-    <span class="badge-tag">Meet the Guest · Rencontre avec l'invitée</span>
-    <h2>📋 Meet Today's Guest</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Read carefully — notice how Zoé lays out both sides before deciding what matters most to her.</div>
-      <div class="bi-fr">Lis attentivement — remarque comment Zoé présente les deux côtés avant de décider ce qui compte le plus pour elle.</div>
-    </div>
-    <div class="passage-card">
-      <div class="ptitle">Guest Bio · Fiche invitée</div>
-      <p>Meet today's guest: Zoé Lambert, 15, from Toulouse. Zoé has been invited to join two different volunteer clubs at her school, and she can only choose one. The first club builds birdhouses and cleans up local parks. On one hand, it's outdoors and she loves nature. On the other hand, it only meets once a month, so she wouldn't see her friends there very often. The second club tutors younger students in math after school. The advantage is that her best friend is already in it. The downside is that it's three afternoons a week, which is a big time commitment. "I keep going back and forth," Zoé admits, "but I think what matters most to me is spending time with people I like."</p>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 5: COMPREHENSION CHECK -->
-<div class="slide" data-title="What Did You Catch?">
-  <div class="card">
-    <span class="badge-tag">Precision Check · Vérification précise</span>
-    <h2>🧠 What Did You Catch?</h2>
-    <div class="bi-cols">
-      <div class="bi-en">These questions ask you to figure things out, not just find a matching sentence.</div>
-      <div class="bi-fr">Ces questions te demandent de comprendre, pas juste de retrouver une phrase identique.</div>
-    </div>
-    <div class="bi-en" style="margin-bottom:6px;">What is the downside of the tutoring club, according to Zoé?</div>
-    <div class="bi-fr" style="margin-bottom:6px;">Quel est l'inconvénient du club de tutorat, selon Zoé ?</div>
-    <div class="mcq-options" data-gid="r1">
-      <button class="mcq-opt" data-ans="A">A) It meets three afternoons a week<span class="opt-fr">Il se réunit trois après-midis par semaine</span></button>
-      <button class="mcq-opt" data-ans="B">B) It only meets once a month<span class="opt-fr">Il se réunit une fois par mois</span></button>
-      <button class="mcq-opt" data-ans="C">C) Her friend isn't in it<span class="opt-fr">Son amie n'en fait pas partie</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedbackR1"></div>
-
-    <div style="margin-top:24px;">
-      <div class="bi-en" style="margin-bottom:6px;">What does Zoé decide matters most to her?</div>
-      <div class="bi-fr" style="margin-bottom:6px;">Que décide Zoé comme étant le plus important pour elle ?</div>
-    </div>
-    <div class="mcq-options" data-gid="r2">
-      <button class="mcq-opt" data-ans="A">A) Spending time with people she likes<span class="opt-fr">Passer du temps avec des gens qu'elle aime</span></button>
-      <button class="mcq-opt" data-ans="B">B) Being outdoors<span class="opt-fr">Être dehors</span></button>
-      <button class="mcq-opt" data-ans="C">C) Getting good grades<span class="opt-fr">Avoir de bonnes notes</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedbackR2"></div>
-  </div>
-</div>
-
-<!-- SLIDE 6: APPLY IT — TRUE/FALSE MODE -->
-<div class="slide" data-title="True or False?">
-  <div class="card" style="text-align:center;">
-    <span class="badge-tag">Apply It · Mets-le en pratique</span>
-    <h2>✅❌ True or False?</h2>
-    <div class="bi-cols" style="text-align:left;">
-      <div class="bi-en">This tests the grammar of the pattern itself — not the guest bio.</div>
-      <div class="bi-fr">Ceci teste la grammaire du modèle lui-même — pas la fiche invitée.</div>
-    </div>
-    <div class="passage-card" style="font-style:italic;">
-      "On one hand, it's cheaper. On other hand, it's slower." — Is this correct English?
-    </div>
-    <div class="tf-row">
-      <button class="tf-btn" id="tfTrue" data-ans="true">✅ True / Vrai</button>
-      <button class="tf-btn" id="tfFalse" data-ans="false">❌ False / Faux</button>
-    </div>
-    <div class="feedback-banner" id="tfFeedback"></div>
-  </div>
-</div>
-
-<!-- SLIDE 7: YOUR TURN — SPEAKING TASK -->
-<div class="slide" data-title="Your Turn">
-  <div class="card">
-    <span class="badge-tag">The Real Work · Le vrai travail</span>
-    <h2>🎤 Your Turn — Live</h2>
-    <div class="speak-card">
-      <span class="speak-icon">💬</span>
-      <div class="bi-en">Tell me about a real choice you're facing right now — big or small. Use "On one hand... on the other hand..."</div>
-      <div class="bi-fr">Parle-moi d'un vrai choix que tu affrontes en ce moment — grand ou petit. Utilise « On one hand... on the other hand... »</div>
-      <button class="nudge-toggle" id="nudgeToggle">Need a nudge? / Besoin d'un coup de pouce ?</button>
-      <div class="nudge-box" id="nudgeBox">
-        <div class="starter">"On one hand,..."</div>
-        <div class="starter">"But on the other hand,..."</div>
-      </div>
-      <button class="done-talking-btn" id="doneTalkingBtn">✅ We talked it through</button>
-      <div class="talk-confirm" id="talkConfirm">Nice work. That's the real lesson — you just did it. 🌟</div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 8: DEBRIEF -->
-<div class="slide" data-title="Debrief">
-  <div class="card">
-    <span class="badge-tag">Reflect · Réflexion</span>
-    <h2>💭 Quick Debrief</h2>
-    <div class="speak-card">
-      <span class="speak-icon">🌟</span>
-      <div class="bi-en">After laying out both sides, do you feel any closer to a decision? What tipped it for you?</div>
-      <div class="bi-fr">Après avoir présenté les deux côtés, te sens-tu plus proche d'une décision ? Qu'est-ce qui a fait pencher la balance ?</div>
-      <button class="nudge-toggle" id="nudgeToggle2">Need a nudge? / Besoin d'un coup de pouce ?</button>
-      <div class="nudge-box" id="nudgeBox2">
-        <div class="starter">"I think I'll go with... because..."</div>
-        <div class="starter">"I'm still not sure, but..."</div>
-      </div>
-      <button class="done-talking-btn" id="doneTalkingBtn2">✅ We talked it through</button>
-      <div class="talk-confirm" id="talkConfirm2">Good noticing that — that awareness is how you get better. 🌟</div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 9: BONUS ROUND (OPTIONAL WHEEL) -->
-<div class="slide" data-title="Bonus Round">
-  <div class="card">
-    <span class="badge-tag" style="background:rgba(255,184,48,0.14); color:var(--amber); border-color:rgba(255,184,48,0.3);">Optional · Facultatif</span>
-    <h2>🎡 Bonus Round — Only If We Have Time</h2>
-    <div class="bonus-frame">
-      <div class="bi-en">This part is completely optional. If we finish early or you want to keep talking about something new, spin the wheel and pick a topic. If not — no problem, the real work for today is already done.</div>
-      <div class="bi-fr">Cette partie est totalement facultative. Si on a fini en avance ou si tu veux continuer sur un autre sujet, fais tourner la roue. Sinon, pas de souci — le vrai travail d'aujourd'hui est déjà fait.</div>
-    </div>
-    <div class="wheel-frame">
-      <div class="wheel-main">
-        <div class="wheel-left">
-          <div class="wheel-wrap">
-            <div class="wheel-pointer"></div>
-            <svg class="wheel-svg" id="wheel" viewBox="0 0 300 300" aria-hidden="true"></svg>
-            <button class="wheel-hub" id="whub" aria-label="Spin the wheel">
-              <span class="spin-ico">↻</span><span class="word">SPIN</span>
-            </button>
-          </div>
-          <div class="wheel-hint" id="whint">Tap SPIN if you want to / Touche SPIN si tu veux</div>
-          <div class="wheel-legend" id="wlegend"></div>
-        </div>
-        <div class="wheel-right">
-          <div class="wpanel" id="wpanel">
-            <div class="wplaceholder" id="wplaceholder">Totally optional — spin only if there's time left. / Facultatif — fais tourner seulement s'il reste du temps.</div>
-          </div>
-          <div class="wactions" id="wactions" style="display:none">
-            <button class="wbtn wbtn-ghost" id="wagainBtn">Another in this topic</button>
-            <button class="wbtn wbtn-primary" id="wspinBtn">Spin again</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 10: CELEBRATION -->
-<div class="slide" data-title="Great Fifteenth Episode">
-  <div class="card" style="text-align:center;">
-    <span class="badge-tag">Episode Wrap · Fin de l'épisode</span>
-    <h1>Great fifteenth episode, <span class="accent">Berenice!</span></h1>
-    <div class="bi-cols" style="margin-top:20px; text-align:left;">
-      <div class="bi-en">Look what you actually did today — not just understood, <strong>did</strong>.</div>
-      <div class="bi-fr">Regarde ce que tu as vraiment fait aujourd'hui — pas juste compris, <strong>fait</strong>.</div>
-    </div>
-    <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num" id="statWords">0</div><div class="stat-lbl">Words &amp; chunks learned</div><div class="stat-lbl-fr">Mots et expressions appris</div></div>
-      <div class="stat-card"><div class="stat-num" id="statQuestions">4</div><div class="stat-lbl">Comparison patterns practiced</div><div class="stat-lbl-fr">Modèles de comparaison pratiqués</div></div>
-      <div class="stat-card"><div class="stat-num" id="statSpeak">1</div><div class="stat-lbl">Real decisions weighed, live</div><div class="stat-lbl-fr">Vraies décisions pesées, en direct</div></div>
-    </div>
-    <button class="celebrate-btn" id="celebrateBtn">🎉 Open Your Episode Badge</button>
-    <div class="badge-reveal" id="badgeReveal">
-      <span class="badge-emoji">🏅</span>
-      <div class="badge-title">Balanced Thinker — Episode 15 Complete!</div>
-      <div class="hero-sub-fr" style="margin-top:6px;">Penseuse équilibrée — Épisode 15 terminé !</div>
-    </div>
-    <p style="margin-top:20px; font-size:17px; color:var(--muted);">One more episode to finish the year strong. 🌟</p>
-  </div>
-</div>
-
-</div>
-
-<div class="nav-row">
-  <button class="nav-btn back" id="backBtn">⬅ Back</button>
-  <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
-  <button class="nav-btn next" id="nextBtn">Next ➡</button>
+  <footer>
+    KingCretot Experience, LLC · PO Box 2322, Arcadia, FL 34265 · kingcretot.com · kce@kingcretot.com<br>
+    <span class="prov">Approved Provider: Step Up For Students · Arizona ESA · West Virginia Hope Scholarship</span>
+  </footer>
 </div>
 
 <script>
-/* ============ CORE NAV / XP ============ */
-const slides = document.querySelectorAll('.slide');
-const total = slides.length;
-let current = 0;
-let xp = 0;
-const locks = {1:false, 2:false, 3:false, 5:false, 6:false};
+const L = {"brand": "Bérénice • Lesson 15", "student": "Bérénice", "lesson": "Lesson 15 — On One Hand…", "slides": [{"type": "intro", "min": 2, "title": "⚖️ On One Hand… 🤔", "sub": "Season One, Episode 15 — today's guest is torn between two great choices, and she still hasn't decided.", "subFr": "Saison 1, épisode 15 — l'invitée du jour hésite entre deux super choix, et elle n'a toujours pas décidé.", "emojis": "⚖️🤔👍👎🌳", "goal": "I can weigh the pros and cons of a choice out loud — clearly and with nuance — and then say what I'd choose.", "goalFr": "Je peux peser le pour et le contre d'un choix à voix haute — clairement et avec nuance — puis dire ce que je choisirais.", "how": [["⭐ Detailed answer = star", "Réponse détaillée = étoile"], ["🧠 Beat the grammar challenges", "Réussis les défis de grammaire"], ["😎 Fool Jonathan in Two Truths and a Lie", "Piège Jonathan au jeu des 2 vérités et 1 mensonge"]], "tutor": "Guest: Zoé Lambert, 15, from Toulouse — invited to join two volunteer clubs at school, but she can only pick one. Nature club (builds birdhouses, cleans up local parks): outdoors and she loves nature, BUT it only meets once a month, so she wouldn't see her friends there very often. Math tutoring club (tutors younger students after school): her best friend is already in it, BUT it's three afternoons a week — a big time commitment. Her conclusion: what matters most to her is spending time with people she likes. Targets: on one hand / on the other hand, whereas, the advantage / the downside is that…, I'm torn between…. FR lines are ON by default."}, {"type": "chat", "min": 4, "title": "💬 Warm-Up Chat", "sub": "Tap a question for answer starters. Then ask Jonathan back!", "subFr": "Touche une question pour des débuts de réponse. Puis pose-la à Jonathan !", "items": [{"q": "How are things with you today?", "fr": "Comment ça va de ton côté aujourd'hui ?", "starters": [["Pretty good! Today I…", "Plutôt bien ! Aujourd'hui, je…"], ["Kind of up and down, honestly…", "Un peu en dents de scie, franchement…"], ["Good, thanks! What about you?", "Bien, merci ! Et toi ?"]]}, {"q": "What's the last decision that took you forever to make?", "fr": "Quelle est la dernière décision qui t'a pris une éternité ?", "starters": [["It took me ages to decide whether to…", "J'ai mis des siècles à décider si je devais…"], ["I couldn't choose between… and…", "Je n'arrivais pas à choisir entre… et…"]]}, {"q": "Are you more of a quick decider or an overthinker?", "fr": "Tu es plutôt du genre à décider vite ou à trop réfléchir ?", "starters": [["Definitely an overthinker — I…", "Clairement, je réfléchis trop — je…"], ["I usually decide fast, unless…", "En général, je décide vite, sauf si…"]]}, {"q": "Do you do any clubs or activities outside of school?", "fr": "Est-ce que tu fais des clubs ou des activités en dehors de l'école ?", "starters": [["Yes, I do… — I've been doing it since…", "Oui, je fais… — j'en fais depuis…"], ["Not right now, but I'd like to try…", "Pas en ce moment, mais j'aimerais essayer…"]]}], "tutor": "Q2 and Q3 set up today's skill: when she answers, ask 'What were the two sides?'. Then flip it: 'Ask me which kind of decider I am!'"}, {"type": "vocab", "min": 4, "title": "⚖️ Pros & Cons Vocabulary", "sub": "Tap to flip. Read the example, then make your own sentence about YOUR life!", "subFr": "Touche pour retourner. Lis l'exemple, puis fais ta propre phrase sur TA vie !", "items": [{"e": "⚖️", "w": "on one hand", "ex": "On one hand, the nature club is outdoors.", "fr": "d'un côté"}, {"e": "🔄", "w": "on the other hand", "ex": "On the other hand, it only meets once a month.", "fr": "d'un autre côté / en revanche"}, {"e": "👍", "w": "the advantage is that…", "ex": "The advantage is that her best friend is already in it.", "fr": "l'avantage, c'est que…"}, {"e": "👎", "w": "the downside is that…", "ex": "The downside is that it's three afternoons a week.", "fr": "l'inconvénient, c'est que…"}, {"e": "↔️", "w": "whereas", "ex": "I love big cities, whereas my sister prefers the countryside.", "fr": "alors que / tandis que"}, {"e": "🤔", "w": "be torn between", "ex": "Zoé is torn between two volunteer clubs.", "fr": "hésiter entre / être tiraillée entre"}, {"e": "⏳", "w": "a time commitment", "ex": "Three afternoons a week is a big time commitment.", "fr": "un investissement en temps"}, {"e": "🔁", "w": "go back and forth", "ex": "I keep going back and forth about it.", "fr": "hésiter / changer d'avis sans arrêt"}, {"e": "🎯", "w": "what matters most", "ex": "What matters most to me is my friends.", "fr": "ce qui compte le plus"}, {"e": "🪙", "w": "it's worth it", "ex": "It's a lot of work, but it's worth it.", "fr": "ça vaut le coup"}, {"e": "📝", "w": "pros and cons", "ex": "Before she decides, Zoé lists the pros and cons of each club.", "fr": "le pour et le contre"}, {"e": "⚡", "w": "tip the balance", "ex": "In the end, her best friend tipped the balance.", "fr": "faire pencher la balance"}], "tutor": "Watch: it's 'ON the other hand' (never 'in' or 'on another hand'), and it introduces the other side — it's stronger than just 'but'. 'Whereas' links two contrasting facts in ONE sentence. And 'it's worth it' — never 'it worths it'."}, {"type": "wheel", "min": 5, "title": "🎡 Spin the Dilemma Wheel!", "sub": "Spin, then give one pro, one con — and your final choice!", "subFr": "Fais tourner, puis donne un pour, un contre — et ton choix final !", "hub": "⚖️", "items": [{"e": "👧", "q": "Being the oldest child or the youngest — which is better?", "st": "On one hand, the oldest… On the other hand…", "fr": "Être l'aînée ou la plus jeune — qu'est-ce qui est mieux ?"}, {"e": "🏠", "q": "At 20, would you rather live with roommates or alone?", "st": "The advantage of living alone is… The downside is…", "fr": "À 20 ans, préférerais-tu vivre en colocation ou seule ?"}, {"e": "👥", "q": "In a group project, is it better to be the leader or just a member?", "st": "I'm torn between… because…", "fr": "Dans un projet de groupe, vaut-il mieux être la cheffe ou juste un membre ?"}, {"e": "🐶", "q": "Getting a dog: great idea or too much work?", "st": "On one hand, dogs are… On the other hand…", "fr": "Avoir un chien : super idée ou trop de travail ?"}, {"e": "🎂", "q": "A big birthday party or a small dinner with family — which is better?", "st": "Some people…, whereas I…", "fr": "Une grande fête d'anniversaire ou un petit dîner en famille — qu'est-ce qui est mieux ?"}, {"e": "💼", "q": "Should teens have a part-time job?", "st": "The advantage is that… However…", "fr": "Les ados devraient-ils avoir un petit boulot ?"}, {"e": "🛒", "q": "Shopping online or in real stores — which is better?", "st": "On one hand, online shopping… But…", "fr": "Acheter en ligne ou en magasin — qu'est-ce qui est mieux ?"}, {"e": "📚", "q": "Paper books or e-books?", "st": "I prefer…, whereas…", "fr": "Livres papier ou livres numériques ?"}, {"e": "💬", "q": "Does social media do more good than harm for teens?", "st": "It depends on… On one hand…", "fr": "Les réseaux sociaux font-ils plus de bien que de mal aux ados ?"}, {"e": "🧑‍🤝‍🧑", "q": "A big group of friends, or two or three close friends?", "st": "The downside of a big group is…", "fr": "Une grande bande d'amis, ou deux ou trois amis proches ?"}, {"e": "🌟", "q": "Being famous: dream or nightmare?", "st": "On one hand, you'd… On the other hand, you'd never…", "fr": "Être célèbre : rêve ou cauchemar ?"}, {"e": "🌙", "q": "Is it better to be a morning person or a night owl?", "st": "The advantage of being a night owl is…", "fr": "Vaut-il mieux être du matin ou du soir ?"}], "tutor": "Each question shows up once before any repeats. Don't accept a one-sided answer: she needs a pro, a con, AND a decision. Then play devil's advocate: 'But on the other hand…?'"}, {"type": "sort", "min": 5, "title": "🧠 One Hand, Other Hand, or Whereas?", "sub": "Read the sentence. Which connector fills the blank? Look at the punctuation!", "subFr": "Lis la phrase. Quel connecteur va dans le trou ? Regarde la ponctuation !", "how": "Ask yourself: Is it the FIRST side, at the very start? → ON ONE HAND · Is it the SECOND side, starting a new sentence? → ON THE OTHER HAND · Does it join two contrasting facts in ONE sentence, after a comma? → WHEREAS", "howFr": "Demande-toi : c'est le PREMIER côté, tout au début ? → ON ONE HAND · C'est le DEUXIÈME côté, au début d'une nouvelle phrase ? → ON THE OTHER HAND · Ça relie deux faits opposés dans UNE phrase, après une virgule ? → WHEREAS", "buckets": [{"name": "1️⃣ On one hand,", "rule": "Introduces the first side.", "fr": "Introduit le premier côté.", "ex": "On one hand, the club is fun.", "c": "#0F8B8D"}, {"name": "2️⃣ On the other hand,", "rule": "Introduces the second side — in a new sentence.", "fr": "Introduit le deuxième côté — dans une nouvelle phrase.", "ex": "On the other hand, it's expensive.", "c": "#7c3aed"}, {"name": "↔️ whereas", "rule": "Contrasts two facts inside ONE sentence.", "fr": "Oppose deux faits dans UNE seule phrase.", "ex": "I love the beach, whereas my brother hates sand.", "c": "#E8573C"}], "items": [{"s": "___, taking the train is relaxing. On the other hand, flying is much faster.", "b": 0, "why": "The first side, at the very start — and the other side comes next → On one hand.", "fr": "___, prendre le train, c'est reposant. D'un autre côté, l'avion est beaucoup plus rapide.", "whyFr": "Le premier côté, tout au début — et l'autre côté arrive ensuite → On one hand."}, {"s": "On one hand, Zoé's best friend is in the tutoring club. ___, it meets three afternoons a week.", "b": 1, "why": "The second side, in a new sentence → On the other hand.", "fr": "D'un côté, la meilleure amie de Zoé fait partie du club de tutorat. ___, il se réunit trois après-midis par semaine.", "whyFr": "Le deuxième côté, dans une nouvelle phrase → On the other hand."}, {"s": "Zoé loves being outdoors, ___ her best friend prefers staying inside.", "b": 2, "why": "Two contrasting facts in ONE sentence, after a comma → whereas.", "fr": "Zoé adore être dehors, ___ sa meilleure amie préfère rester à l'intérieur.", "whyFr": "Deux faits opposés dans UNE phrase, après une virgule → whereas."}, {"s": "Online classes are really flexible. ___, it's easy to get distracted at home.", "b": 1, "why": "A new sentence that gives the other side → On the other hand.", "fr": "Les cours en ligne sont très flexibles. ___, c'est facile de se laisser distraire à la maison.", "whyFr": "Une nouvelle phrase qui donne l'autre côté → On the other hand."}, {"s": "My mom drinks coffee all day, ___ my dad only drinks tea.", "b": 2, "why": "Two people compared in ONE sentence, after a comma → whereas.", "fr": "Ma mère boit du café toute la journée, ___ mon père ne boit que du thé.", "whyFr": "Deux personnes comparées dans UNE phrase, après une virgule → whereas."}, {"s": "___, a gap year sounds amazing. On the other hand, I'd be a year behind my friends.", "b": 0, "why": "First side at the start, and “On the other hand” comes after → On one hand.", "fr": "___, une année de césure, ça a l'air génial. D'un autre côté, j'aurais un an de retard sur mes amis.", "whyFr": "Premier côté au début, et « On the other hand » vient après → On one hand."}, {"s": "Léo is super patient when he teaches, ___ I get frustrated really fast.", "b": 2, "why": "Two people contrasted in ONE sentence → whereas.", "fr": "Léo est super patient quand il enseigne, ___ moi, je m'énerve très vite.", "whyFr": "Deux personnes opposées dans UNE phrase → whereas."}, {"s": "___, living in a big city means lots to do. On the other hand, it's noisy and expensive.", "b": 0, "why": "The first side, at the very start → On one hand.", "fr": "___, vivre dans une grande ville, c'est avoir plein de choses à faire. D'un autre côté, c'est bruyant et cher.", "whyFr": "Le premier côté, tout au début → On one hand."}, {"s": "Having a dog is a lot of fun. ___, someone has to walk it every day, even in the rain.", "b": 1, "why": "A new sentence with the downside → On the other hand.", "fr": "Avoir un chien, c'est très amusant. ___, il faut le promener tous les jours, même sous la pluie.", "whyFr": "Une nouvelle phrase avec l'inconvénient → On the other hand."}], "hint": "Clues: blank at the very start + “On the other hand” later → ON ONE HAND. Blank at the start of the SECOND sentence → ON THE OTHER HAND. Blank in the middle, after a comma, joining two people or facts → WHEREAS.", "hintFr": "Indices : trou tout au début + « On the other hand » plus loin → ON ONE HAND. Trou au début de la DEUXIÈME phrase → ON THE OTHER HAND. Trou au milieu, après une virgule, qui relie deux personnes ou deux faits → WHEREAS.", "doneMsg": "⚖️ Balance master! Now weigh a real choice in your life out loud: one sentence with on one hand, one with on the other hand, and one with whereas.", "doneMsgFr": "⚖️ Reine de l'équilibre ! Maintenant, pèse un vrai choix de ta vie à voix haute : une phrase avec on one hand, une avec on the other hand, et une avec whereas.", "tutor": "Make her read each full sentence aloud. Common errors to catch: 'In one hand', 'On another hand', 'On the other side'. 'Whereas' = alors que — here it never starts a new sentence."}, {"type": "builder", "min": 4, "title": "🧩 Sentence Builder Pro", "sub": "Tap the words in the right order. Then say it with feeling — and change it to be true for YOU.", "subFr": "Touche les mots dans le bon ordre. Puis dis-la avec le ton — et change-la pour qu'elle soit vraie pour TOI.", "rounds": [{"e": "🌳", "p": "On one hand — the nature club — meets outdoors", "fr": "D'un côté — le club nature — se réunit en plein air", "a": "On one hand, the nature club meets outdoors.", "afr": "D'un côté, le club nature se réunit en plein air."}, {"e": "🔄📅", "p": "On the other hand — it meets — once a month", "fr": "D'un autre côté — il se réunit — une fois par mois", "a": "On the other hand, it meets once a month.", "afr": "D'un autre côté, il se réunit une fois par mois."}, {"e": "👎⏳", "p": "The downside is that — it takes — three afternoons a week", "fr": "L'inconvénient, c'est que — ça prend — trois après-midis par semaine", "a": "The downside is that it takes three afternoons a week.", "afr": "L'inconvénient, c'est que ça prend trois après-midis par semaine."}, {"e": "↔️", "p": "Zoé loves nature — whereas — her best friend — math", "fr": "Zoé adore la nature — alors que — sa meilleure amie — les maths", "a": "Zoé loves nature, whereas her best friend loves math.", "afr": "Zoé adore la nature, alors que sa meilleure amie adore les maths."}, {"e": "🔁🤔", "p": "I keep — going back and forth — between the two clubs", "fr": "Je n'arrête pas — d'hésiter — entre les deux clubs", "a": "I keep going back and forth between the two clubs.", "afr": "Je n'arrête pas d'hésiter entre les deux clubs."}, {"e": "🎯", "p": "For Zoé — the most important thing — her friends", "fr": "Pour Zoé — le plus important — ses amis", "a": "For Zoé, the most important thing is her friends.", "afr": "Pour Zoé, le plus important, ce sont ses amis."}], "tutor": "First try = 2 ⭐. After each one, have her change it to be about a choice in HER life."}, {"type": "mcq", "min": 5, "title": "🛠️ Story Check & Fix the Mistake", "sub": "Some questions are about Zoé's story, some are classic French-speaker traps. Think before you tap!", "subFr": "Certaines questions portent sur l'histoire de Zoé, d'autres sont des pièges classiques pour les francophones. Réfléchis avant de toucher !", "items": [{"e": "🌳", "q": "Zoé says the nature club is outdoors — “on the other hand, it only meets once a month.” How does she see the “once a month” part?", "o": ["As an extra advantage.", "As something that has nothing to do with her choice.", "As a downside."], "c": 2, "why": "“On the other hand” introduces the other side — here, a downside: she wouldn't see her friends there very often.", "no": {"0": "“On the other hand” after a positive point signals a contrast — so it's a negative.", "1": "It matters: it's one of the reasons she can't decide."}, "fr": "Zoé dit que le club nature est en plein air — « on the other hand, it only meets once a month ». Comment voit-elle le « une fois par mois » ?", "ofr": ["Comme un avantage en plus.", "Comme quelque chose qui n'a rien à voir avec son choix.", "Comme un inconvénient."], "whyFr": "« On the other hand » introduit l'autre côté — ici, un inconvénient : elle n'y verrait pas souvent ses amis."}, {"e": "🤝", "q": "Zoé says: “What matters most to me is spending time with people I like.” Which club does that point to?", "o": ["The tutoring club, because her best friend is already in it.", "The nature club, because she loves the outdoors.", "Neither — she wants to stay out of both."], "c": 0, "why": "Her best friend is in the tutoring club — that's where she'd spend time with people she likes.", "no": {"1": "She does love nature, but she said PEOPLE matter most to her.", "2": "She wants to join one — she's just choosing which one."}, "fr": "Zoé dit : « What matters most to me is spending time with people I like. » Vers quel club est-ce que ça la fait pencher ?", "ofr": ["Le club de tutorat, parce que sa meilleure amie en fait déjà partie.", "Le club nature, parce qu'elle adore le plein air.", "Aucun — elle ne veut entrer dans aucun des deux."], "whyFr": "Sa meilleure amie est dans le club de tutorat — c'est là qu'elle passerait du temps avec des gens qu'elle aime."}, {"e": "🔄", "q": "Which sentence is correct?", "o": ["In the other hand, it's very expensive.", "On the other hand, it's very expensive.", "On the other side, it's very expensive."], "c": 1, "why": "The expression is always “ON the other hand.”", "no": {"0": "Wrong preposition — it's ON, not IN.", "2": "“On the other side” is about a place (de l'autre côté de la rue), not a way to give the other argument."}, "fr": "Quelle phrase est correcte ?", "ofr": ["", "", ""], "whyFr": "L'expression, c'est toujours « ON the other hand » (d'un autre côté / en revanche)."}, {"e": "🪙", "q": "The tutoring club is hard work, but you think it's a good use of your time. What do you say?", "o": ["It's worth it.", "It worths it.", "It's worth to do it."], "c": 0, "why": "“Worth” isn't a verb: “It's worth it” (ça vaut le coup).", "no": {"1": "“Worth” is not a verb, so it can't take an -s: It's worth it.", "2": "After “worth,” use -ing or a noun: “It's worth doing.”"}, "fr": "Le club de tutorat demande beaucoup de travail, mais tu penses que ça vaut le coup. Que dis-tu ?", "ofr": ["", "", ""], "whyFr": "« Worth » n'est pas un verbe : « It's worth it » (ça vaut le coup)."}, {"e": "👎", "q": "Which sentence is correct?", "o": ["The downside, it's that it costs a lot of money.", "The inconvenient is that it costs a lot of money.", "The downside is that it costs a lot of money."], "c": 2, "why": "« L'inconvénient, c'est que… » = The downside is that…", "no": {"0": "That's the French structure (« l'inconvénient, c'est que… »). In English, no extra “it's”: The downside is that…", "1": "False friend! “Inconvenient” is an adjective (pas pratique). The noun is “downside” or “disadvantage.”"}, "fr": "Quelle phrase est correcte ?", "ofr": ["", "", ""], "whyFr": "« L'inconvénient, c'est que… » = The downside is that…"}, {"e": "↔️", "q": "Which sentence uses “whereas” correctly?", "o": ["Whereas, my sister loves horror movies.", "I love comedies, whereas my sister loves horror movies.", "I love comedies whereas, my sister loves horror movies."], "c": 1, "why": "“Whereas” joins two contrasting facts in one sentence, right after a comma: …, whereas …", "no": {"0": "“Whereas” needs two facts to compare — here there's only one, and it's never followed by a comma.", "2": "The comma goes BEFORE “whereas,” not after."}, "fr": "Quelle phrase utilise « whereas » correctement ?", "ofr": ["", "", ""], "whyFr": "« Whereas » relie deux faits opposés dans une seule phrase, juste après une virgule : …, whereas …"}], "tutor": "After each answer, have her say the correct sentence aloud and make a new one about a choice in her own life. Q5 is a big one for French speakers: 'inconvenient' ≠ inconvénient."}, {"type": "tot", "min": 3, "title": "⚖️ Would You Rather? Tough Choices Edition", "sub": "Pick one — and defend your choice with at least two reasons!", "subFr": "Choisis — et défends ton choix avec au moins deux raisons !", "frame": "On one hand… On the other hand… / The downside of the other one is… / So I'd go with…", "frameFr": "D'un côté… D'un autre côté… / L'inconvénient de l'autre, c'est… / Donc je choisirais…", "items": [{"a": ["🌳", "Join a club that meets once a month, with nobody you know", "Rejoindre un club qui se réunit une fois par mois, sans personne que tu connais"], "b": ["📚", "Join a club that meets three times a week, with your best friend", "Rejoindre un club qui se réunit trois fois par semaine, avec ta meilleure amie"]}, {"a": ["🌊", "Live by the ocean, but far from your friends", "Vivre au bord de la mer, mais loin de tes amis"], "b": ["🏙️", "Live in a gray city, next to all your friends", "Vivre dans une ville grise, à côté de tous tes amis"]}, {"a": ["💰", "A weekend job that pays well but is boring", "Un job le week-end bien payé mais ennuyeux"], "b": ["🎨", "A weekend job you love that pays very little", "Un job le week-end que tu adores mais très mal payé"]}, {"a": ["🧠", "Be brilliant but always forgetful", "Être brillante mais toujours tête en l'air"], "b": ["😄", "Be average but always in a great mood", "Être moyenne mais toujours de bonne humeur"]}, {"a": ["✈️", "Travel the world alone", "Faire le tour du monde seule"], "b": ["🚗", "Explore your own country with friends", "Explorer ton propre pays avec tes amis"]}, {"a": ["📵", "No social media for a year", "Pas de réseaux sociaux pendant un an"], "b": ["🍫", "No sugar for a year", "Pas de sucre pendant un an"]}], "tutor": "Before she picks, she must give one pro AND one con for each side. Then: 'What tipped the balance?'"}, {"type": "tos", "min": 3, "title": "🔍 True or Silly? Two Sides of Everyday Things", "sub": "Real fact — or totally silly? Think about the pros and cons!", "subFr": "Vrai fait — ou complètement faux ? Pense au pour et au contre !", "items": [{"e": "🚗", "s": "Electric cars don't produce any exhaust from a tailpipe.", "fr": "Les voitures électriques ne rejettent aucun gaz d'échappement par un pot d'échappement.", "t": true, "why": "They don't even have a tailpipe! On the other hand, making their batteries uses a lot of energy and resources.", "whyFr": "Elles n'ont même pas de pot d'échappement ! D'un autre côté, fabriquer leurs batteries demande beaucoup d'énergie et de ressources."}, {"e": "📺", "s": "Sitting very close to the TV permanently damages your eyes.", "fr": "S'asseoir très près de la télé abîme les yeux pour toujours.", "t": false, "why": "Eye doctors say it can make your eyes tired, but it doesn't cause permanent damage.", "whyFr": "Les ophtalmologues disent que ça peut fatiguer les yeux, mais que ça ne cause pas de dommages permanents."}, {"e": "😴", "s": "A short nap of about 20 minutes can help you feel more alert.", "fr": "Une petite sieste d'environ 20 minutes peut aider à se sentir plus alerte.", "t": true, "why": "Short naps can boost alertness. The downside of long naps: you can wake up groggy.", "whyFr": "Les siestes courtes peuvent améliorer la vigilance. L'inconvénient des longues siestes : on peut se réveiller dans le brouillard."}, {"e": "🛍️", "s": "Paper bags are always better for the environment than plastic bags.", "fr": "Les sacs en papier sont toujours meilleurs pour l'environnement que les sacs en plastique.", "t": false, "why": "It's complicated! Making paper bags uses a lot of water and energy, so you need to reuse them many times.", "whyFr": "C'est compliqué ! Fabriquer des sacs en papier demande beaucoup d'eau et d'énergie, donc il faut les réutiliser de nombreuses fois."}, {"e": "🍵", "s": "After water, tea is the most popular drink in the world.", "fr": "Après l'eau, le thé est la boisson la plus consommée au monde.", "t": true, "why": "Billions of cups are drunk every day, especially in Asia and the Middle East.", "whyFr": "Des milliards de tasses sont bues chaque jour, surtout en Asie et au Moyen-Orient."}, {"e": "♻️", "s": "Most of the plastic ever made has been recycled.", "fr": "La plupart du plastique jamais fabriqué a été recyclé.", "t": false, "why": "Studies estimate that only around 9% of all plastic ever made has been recycled.", "whyFr": "Les études estiment que seulement environ 9 % de tout le plastique jamais fabriqué a été recyclé."}, {"e": "🌬️", "s": "Wind turbines can't make electricity when there's no wind.", "fr": "Les éoliennes ne peuvent pas produire d'électricité quand il n'y a pas de vent.", "t": true, "why": "That's one downside of wind power — so it's combined with other energy sources.", "whyFr": "C'est un inconvénient de l'énergie éolienne — c'est pourquoi on la combine avec d'autres sources d'énergie."}], "done": "🔍 Fact checker! You see both sides.", "doneFr": "🔍 Vérificatrice de faits ! Tu vois les deux côtés.", "tutor": "After each fact, ask for the other side: 'OK — so what's the advantage? What's the downside?'"}, {"type": "plan", "min": 4, "title": "🗺️ Weigh Your Dream Weekend Trip", "sub": "Pick one option per part. Read your reasoning — then explain it in your OWN words, with more detail!", "subFr": "Choisis une option par partie. Lis ton raisonnement — puis explique-le avec TES mots, avec plus de détails !", "parts": [{"icon": "✈️", "label": "The dream", "fr": "Le rêve", "conn": "I'd love to", "connFr": "J'adorerais", "opts": [["🎡", "spend a weekend in London.", "passer un week-end à Londres."], ["🏔️", "go skiing in the Alps with friends.", "aller skier dans les Alpes avec des amis."], ["🎸", "go to a big music festival.", "aller à un grand festival de musique."], ["🏕️", "go camping on a wild beach.", "faire du camping sur une plage sauvage."]]}, {"icon": "👍", "label": "On one hand", "fr": "D'un côté", "conn": "On one hand, it would be", "connFr": "D'un côté, ce serait", "opts": [["🗣️", "amazing for my English.", "génial pour mon anglais."], ["🎉", "so much fun with my friends.", "tellement amusant avec mes amis."], ["📸", "a great story to tell.", "une super histoire à raconter."], ["🌄", "a total change of scenery.", "un vrai changement de décor."]]}, {"icon": "👎", "label": "On the other hand", "fr": "D'un autre côté", "conn": "On the other hand, the downside is that", "connFr": "D'un autre côté, l'inconvénient, c'est que", "opts": [["💸", "it would cost a lot of money.", "ça coûterait très cher."], ["🚌", "the trip there would be really long.", "le trajet serait vraiment long."], ["😴", "I'd be exhausted for school on Monday.", "je serais épuisée pour les cours lundi."], ["🌧️", "the weather could ruin everything.", "la météo pourrait tout gâcher."]]}, {"icon": "🎯", "label": "My decision", "fr": "Ma décision", "conn": "All things considered, I think I'd", "connFr": "Tout bien considéré, je pense que je", "opts": [["🚀", "go for it anyway.", "foncerais quand même."], ["⏳", "wait a year and save up.", "attendrais un an pour économiser."], ["🏡", "choose something closer to home.", "choisirais quelque chose de plus proche."], ["👨‍👩‍👧", "ask my parents to come along.", "demanderais à mes parents de venir aussi."]]}], "tutor": "Then flip it: have her argue the OPPOSITE decision with the same pros and cons. Push 'whereas' in her retelling: 'London is…, whereas the beach…'"}, {"type": "ttl", "min": 3, "title": "😎 Two Truths and a Lie", "sub": "Practice round first — find Zoé's lie!", "subFr": "D'abord un entraînement — trouve le mensonge de Zoé !", "example": {"who": "Zoé Lambert, 15, from Toulouse", "lines": ["I've been invited to join two volunteer clubs, but I can only pick one.", "The nature club meets every single day after school.", "My best friend is already in the math tutoring club."], "lie": 1, "why": "The nature club only meets once a month — that's actually one of its downsides! That's the lie.", "linesFr": ["On m'a invitée à rejoindre deux clubs de bénévolat, mais je ne peux en choisir qu'un.", "Le club nature se réunit tous les jours après les cours.", "Ma meilleure amie fait déjà partie du club de tutorat en maths."], "whyFr": "Le club nature ne se réunit qu'une fois par mois — c'est même un de ses inconvénients ! C'est le mensonge."}, "turn": "Your turn! Tell Jonathan 3 sentences about a choice you've made or are facing (2 true, 1 lie). Use on one hand / on the other hand / whereas.", "turnFr": "À toi ! Dis à Jonathan 3 phrases sur un choix que tu as fait ou que tu dois faire (2 vraies, 1 fausse). Utilise on one hand / on the other hand / whereas.", "tutor": "Guess, then ask follow-ups to test her story: 'So what's the downside?' Swap: give her three about a decision YOU made for her to guess."}, {"type": "talk", "min": 4, "title": "🎤 Big Talk Challenge: Weigh It Up!", "sub": "Talk about a real choice you're facing — big or small. Weigh both sides, then decide. Can you check all six?", "subFr": "Parle d'un vrai choix que tu dois faire — grand ou petit. Pèse les deux côtés, puis décide. Peux-tu tout cocher ?", "items": [["Say what you're torn between.", "Dis entre quoi tu hésites."], ["Use “On one hand, …” for the first side.", "Utilise « On one hand, … » pour le premier côté."], ["Use “On the other hand, …” for the second side.", "Utilise « On the other hand, … » pour le deuxième côté."], ["Name an advantage AND a downside.", "Cite un avantage ET un inconvénient."], ["Compare two things with “whereas” in one sentence.", "Compare deux choses avec « whereas » dans une seule phrase."], ["Say what tips the balance — and what you'd choose.", "Dis ce qui fait pencher la balance — et ce que tu choisirais."]], "tutor": "Tap each line when she does it (+1 ⭐). Once she decides, play devil's advocate: 'But on the other hand…?' — she must answer with a counter-argument."}, {"type": "victory", "min": 1, "title": "🏆 Great Episode, Bérénice!", "sub": "Episode 15 — that's a wrap!", "subFr": "Épisode 15 — c'est dans la boîte !", "tiers": [[0, "🌟", "Rookie"], [18, "🥉", "Bronze"], [30, "🥈", "Silver"], [42, "🥇", "Gold"]], "msg": "See you next time! Episode 16 is our season finale — we'll look back at everything you've learned and talk about what's next.", "msgFr": "À la prochaine ! L'épisode 16, c'est le grand final de la saison — on va revenir sur tout ce que tu as appris et parler de la suite.", "tutor": "Next episode: season finale — present perfect for achievements (I've learned…) + future goals, mixing the season's skills. Ask her to think about which episode or guest she liked best."}]};
+let stars = 0;
+const $ = (s, r=document) => r.querySelector(s);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fr = s => s ? `<span class="fr">${esc(s)}</span>` : '';
+function shuffle(a){ a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 
-function addXP(n){ xp += n; document.getElementById('xpCount').textContent = xp;
-  const pop = document.getElementById('xpPop'); pop.textContent = '+' + n + ' XP';
-  pop.classList.add('show'); setTimeout(()=>pop.classList.remove('show'), 900); }
+function addStars(n, msg){
+  stars += n; $('#stars').textContent = stars;
+  if (msg) toast(msg);
+  if (n > 0) confetti(n >= 2 ? 90 : 45);
+}
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 1400); }
 
-function refreshNav(){
-  document.getElementById('backBtn').disabled = (current === 0);
-  const nextBtn = document.getElementById('nextBtn');
-  const locked = locks.hasOwnProperty(current) && !locks[current];
-  nextBtn.disabled = locked || current === total-1;
-  nextBtn.classList.toggle('locked', locked);
-  nextBtn.textContent = current === total-1 ? 'Finished! 🎉' : 'Next ➡';
-  document.getElementById('progressLabel').textContent = 'Slide ' + (current+1) + ' / ' + total;
-  document.getElementById('progText').textContent = (current+1) + ' / ' + total;
-  if(current === total-1) runCelebrationEntry();
+/* confetti */
+const cv = $('#confetti'), cx = cv.getContext('2d'); let parts = [], anim = null;
+function sizeCv(){ cv.width = innerWidth; cv.height = innerHeight; } addEventListener('resize', sizeCv); sizeCv();
+function confetti(n){
+  const cols = ['#F4B400','#E8573C','#7c3aed','#0F8B8D','#E85D9A','#22c55e','#F28C28'];
+  for (let i=0;i<n;i++) parts.push({x:innerWidth/2+(Math.random()-.5)*300,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*12-4,s:6+Math.random()*6,c:cols[i%cols.length],r:Math.random()*6,life:110});
+  if (!anim) anim = requestAnimationFrame(tick);
 }
-const slideViewport = document.getElementById('slideViewport');
-const scrollCue = document.getElementById('scrollCue');
-function checkScrollCue(){
-  const overflowing = slideViewport.scrollHeight > slideViewport.clientHeight + 4;
-  const atTop = slideViewport.scrollTop < 12;
-  scrollCue.classList.toggle('show', overflowing && atTop);
-}
-slideViewport.addEventListener('scroll', ()=>{
-  if(slideViewport.scrollTop > 12) scrollCue.classList.remove('show');
-  else checkScrollCue();
-});
-window.addEventListener('resize', checkScrollCue);
-function changeSlide(delta){
-  const newIdx = current + delta;
-  if(newIdx < 0 || newIdx >= total) return;
-  slides[current].classList.remove('active');
-  current = newIdx;
-  slides[current].classList.add('active');
-  refreshNav();
-  slideViewport.scrollTo({top:0, behavior:'auto'});
-  setTimeout(checkScrollCue, 60);
-}
-document.getElementById('backBtn').addEventListener('click', ()=>changeSlide(-1));
-document.getElementById('nextBtn').addEventListener('click', ()=>changeSlide(1));
-function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
-
-/* ============ VOCAB CARDS ============ */
-const vocabData = [
-  {e:"⚖️", en:"on one hand", fr:"d'un côté", ex:"\"On one hand, it's fun.\""},
-  {e:"🔄", en:"on the other hand", fr:"d'un autre côté", ex:"\"On the other hand, it's hard.\""},
-  {e:"👍", en:"advantage", fr:"avantage", ex:"\"The advantage is speed.\""},
-  {e:"👎", en:"downside", fr:"inconvénient", ex:"\"The downside is cost.\""},
-  {e:"🤔", en:"torn between", fr:"tiraillé(e) entre", ex:"\"I'm torn between two choices.\""},
-  {e:"⏳", en:"time commitment", fr:"engagement de temps", ex:"\"It's a big time commitment.\""},
-  {e:"🔁", en:"go back and forth", fr:"hésiter (aller-retour)", ex:"\"I keep going back and forth.\""},
-  {e:"⚡", en:"tip the balance", fr:"faire pencher la balance", ex:"\"What tipped the balance?\""},
-];
-let vocabFlipped = 0;
-function buildVocab(){
-  const grid = document.getElementById('vocabGrid');
-  vocabData.forEach(item=>{
-    const card = document.createElement('div'); card.className = 'vocab-card';
-    card.innerHTML = `<span class="emoji">${item.e}</span><span class="word">${item.en}</span><span class="fr">${item.fr}<br><span style="font-size:11px;">${item.ex}</span></span>`;
-    card.addEventListener('click', ()=>{
-      if(!card.classList.contains('flipped')){
-        card.classList.add('flipped'); vocabFlipped++;
-        if(vocabFlipped >= 5 && !locks[1]){ locks[1] = true; addXP(1); document.getElementById('vocabHint').textContent = 'Nice! Next is unlocked. / Bien joué ! Suivant est débloqué.'; refreshNav(); }
-      }
-    });
-    grid.appendChild(card);
-  });
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; p.vy+=.35; p.r+=.1; p.life--; cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); cx.restore(); });
+  parts = parts.filter(p=>p.life>0 && p.y<innerHeight+40);
+  anim = parts.length ? requestAnimationFrame(tick) : (cx.clearRect(0,0,cv.width,cv.height), null);
 }
 
-/* ============ SENTENCE BUILDER ============ */
-const displayPhrase = ['On', 'the', 'other', 'hand,', 'it\'s', 'expensive.'];
-const bankWords = shuffle(['the', 'On', 'expensive.', 'other', 'hand,', 'it\'s']);
-let placedWords = [];
-function buildPhraseScreen(){
-  const bank = document.getElementById('wordBank');
-  bankWords.forEach(word=>{
-    const chip = document.createElement('div'); chip.className = 'word-chip';
-    chip.textContent = word;
-    chip.addEventListener('click', ()=>{
-      if(chip.classList.contains('used')) return;
-      placedWords.push(word); chip.classList.add('used');
-      renderSlot(); checkPhrase();
-    });
-    bank.appendChild(chip);
-  });
-  renderSlot();
+/* ---------- slide builders ---------- */
+function head(s, i){
+  return `<div class="slide-top"><span class="slide-count">Slide ${i+1} of ${L.slides.length}</span><span class="minutes">⏱ about ${s.min} min</span></div>
+  <div class="slide-title">${s.title}</div>${s.sub ? `<div class="slide-sub">${s.sub}${fr(s.subFr)}</div>` : ''}`;
 }
-function renderSlot(){
-  const slot = document.getElementById('sentenceSlot');
-  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
-}
-function checkPhrase(){
-  const fb = document.getElementById('phraseFeedback');
-  if(placedWords.length < displayPhrase.length) return;
-  const correct = placedWords.join(' ') === displayPhrase.join(' ');
-  if(correct){
-    addXP(2);
-    fb.innerHTML = '<span class="fb-en">Perfect! "On the other hand, it\'s expensive." 🌟</span><span class="fb-fr">Parfait ! « D\'un autre côté, c\'est cher. »</span>';
-    fb.className = 'feedback-banner good';
-    locks[3] = true; refreshNav();
-  } else {
-    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
-    fb.appendChild(resetBtn);
-  }
-}
+function tutor(s){ return s.tutor ? `<details class="tutor"><summary>Tutor notes</summary><p>${s.tutor}</p></details>` : ''; }
 
-/* ============ MCQ ============ */
-const FB = {
-  qp1: { lockKey:2, ok:"B", expl:{
-    A:{en:"Not quite — \"on the other hand\" always comes second. Try again!", fr:"Pas tout à fait — « on the other hand » vient toujours en deuxième. Réessaie !"},
-    B:{en:"Yes! \"On the other hand\" introduces the contrasting side. 🎉", fr:"Oui ! « On the other hand » introduit le côté contrasté."},
-    C:{en:"Not quite — it's a contrast, not a new topic. Try again!", fr:"Pas tout à fait — c'est un contraste, pas un nouveau sujet. Réessaie !"}
-  }},
-  r1: { lockKey:5, ok:"A", expl:{
-    A:{en:"Yes! Three afternoons a week is a big commitment. 🎉", fr:"Oui ! Trois après-midis par semaine, c'est un gros engagement."},
-    B:{en:"That describes the OTHER club — try again!", fr:"Ça décrit l'AUTRE club — réessaie !"},
-    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
-  }},
-  r2: { lockKey:5, ok:"A", expl:{
-    A:{en:"Yes! Spending time with people she likes matters most. 🎉", fr:"Oui ! Passer du temps avec des gens qu'elle aime compte le plus."},
-    B:{en:"That's a factor, but not the deciding one — try again!", fr:"C'est un facteur, mais pas le décisif — réessaie !"},
-    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
-  }}
+const B = {};
+B.intro = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="emoji-row">${s.emojis}</div>
+  <div class="goal"><div>🎯 Today's goal</div><div class="big">${esc(s.goal)}</div>${fr(s.goalFr)}</div>
+  <div class="how">${s.how.map(h=>`<div>${h[0]}${fr(h[1])}</div>`).join('')}</div>`);
 };
-let mcqAnswered = {qp1:false, r1:false, r2:false};
-function checkLockGroup(lockKey, members){
-  const allDone = members.every(m=>mcqAnswered[m]);
-  if(allDone && !locks[lockKey]){ locks[lockKey] = true; refreshNav(); }
-}
-function initMCQ(gid, feedbackId){
-  const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
-  const fb = document.getElementById(feedbackId);
-  block.querySelectorAll('.mcq-opt').forEach(opt=>{
-    opt.addEventListener('click', ()=>{
-      if(block.classList.contains('answered')) return;
-      const ans = opt.dataset.ans; const isCorrect = ans === FB[gid].ok;
-      if(isCorrect){
-        opt.classList.add('correct'); block.classList.add('answered');
-        block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
-        addXP(2);
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner good';
-        mcqAnswered[gid] = true;
-        if(gid === 'qp1') checkLockGroup(2, ['qp1']);
-        if(gid === 'r1' || gid === 'r2') checkLockGroup(5, ['r1','r2']);
-      } else {
-        opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner retry';
-      }
+B.chat = (s, box) => {
+  const g = el('div','chat-grid');
+  s.items.forEach(it=>{
+    const c = el('div','chat-card', `<h4>${esc(it.q)}</h4>${fr(it.fr)}<div class="tap-hint">Tap to see answer starters</div>
+      <div class="starters">${it.starters.map(st=>`<div class="starter">${esc(st[0])}${fr(st[1])}</div>`).join('')}<span class="askback">🔁 Ask me back!</span></div>`);
+    c.addEventListener('click', ()=>c.classList.toggle('open'));
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.vocab = (s, box) => {
+  const g = el('div','vocab-grid'); let seen = new Set();
+  s.items.forEach((it,k)=>{
+    const c = el('div','vcard', `<div class="vinner"><div class="vface vfront"><div class="em">${it.e}</div><div class="w">${esc(it.w)}</div></div>
+      <div class="vface vback"><div class="ex">${esc(it.ex)}</div>${fr(it.fr)}</div></div>`);
+    c.addEventListener('click', ()=>{ c.classList.toggle('flip'); if(!seen.has(k)){ seen.add(k); if(seen.size===s.items.length) addStars(1,'All words explored! +1 ⭐'); } });
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.wheel = (s, box) => {
+  const wrap = el('div','wheel-wrap');
+  wrap.innerHTML = `<div class="wheel-box"><div class="pointer"></div><canvas width="840" height="840"></canvas><div class="hub">${s.hub||'🎡'}</div></div>
+    <div class="wheel-q"><div class="q">Tap SPIN to get a question!</div><div class="st"></div><div class="fr-line"></div></div>`;
+  box.appendChild(wrap);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn">🎡 SPIN!</button></div><div class="round-tag">Questions asked: <span class="asked">0</span> of ${s.items.length}</div>`);
+  const canvas = $('canvas', wrap), ctx = canvas.getContext('2d'), n = s.items.length;
+  const cols = ['#F28C28','#E85D9A','#7c3aed','#0F8B8D','#F4B400','#E8573C','#4A9C5D','#0047BA'];
+  const R = 420, seg = 2*Math.PI/n;
+  for (let i=0;i<n;i++){
+    ctx.beginPath(); ctx.moveTo(R,R); ctx.arc(R,R,R-4,i*seg-Math.PI/2,(i+1)*seg-Math.PI/2); ctx.closePath();
+    ctx.fillStyle = cols[i%cols.length]; ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=6; ctx.stroke();
+    ctx.save(); ctx.translate(R,R); ctx.rotate(i*seg+seg/2-Math.PI/2);
+    ctx.font = '64px serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(s.items[i].e, R*0.68, 0);
+    ctx.fillStyle='#fff'; ctx.font='bold 34px Poppins, Arial'; ctx.fillText(String(i+1), R*0.40, 0);
+    ctx.restore();
+  }
+  let rot = 0, used = new Set(), spinning = false;
+  const btn = $('.big-btn', box), qEl = $('.q', wrap), stEl = $('.st', wrap), frEl = $('.fr-line', wrap);
+  btn.addEventListener('click', ()=>{
+    if (spinning) return;
+    let pool = [...Array(n).keys()].filter(i=>!used.has(i)); if (!pool.length){ used.clear(); pool=[...Array(n).keys()]; }
+    const pick = pool[Math.floor(Math.random()*pool.length)]; used.add(pick);
+    const centerDeg = (pick+0.5)*360/n;
+    const curr = ((rot % 360)+360)%360;
+    let delta = (360 - centerDeg) - curr; if (delta < 0) delta += 360;
+    rot += 360*5 + delta;
+    spinning = true; btn.disabled = true; qEl.textContent = '…'; stEl.textContent=''; frEl.innerHTML='';
+    canvas.style.transform = `rotate(${rot}deg)`;
+    setTimeout(()=>{
+      const it = s.items[pick];
+      qEl.textContent = `${it.e} ${it.q}`; stEl.textContent = it.st ? `Start with: “${it.st}”` : ''; frEl.innerHTML = fr(it.fr);
+      $('.asked', box).textContent = used.size; spinning = false; btn.disabled = false;
+    }, 4300);
+  });
+};
+B.builder = (s, box) => {
+  const area = el('div'); box.appendChild(area); let r = 0, tries = 0;
+  function render(){
+    if (r >= s.rounds.length){ area.innerHTML = `<div class="goal"><div class="big">🏆 Sentence Master!</div><div>You built all ${s.rounds.length} sentences.</div></div>`; return; }
+    const rd = s.rounds[r], words = rd.a.split(' '); tries = 0;
+    area.innerHTML = `<div class="round-tag">Sentence ${r+1} of ${s.rounds.length}</div><div class="builder-pic">${rd.e}</div>
+      <div class="builder-prompt">${esc(rd.p)}${fr(rd.fr)}</div><div class="answer-line"></div><div class="tiles"></div>
+      <div class="row-btns"><button class="sm-btn undo">↩ Undo</button><button class="sm-btn clear">✖ Clear</button><button class="sm-btn go check">✔ Check</button></div>
+      <div class="feedback"></div>`;
+    const line = $('.answer-line', area), tiles = $('.tiles', area), fb = $('.feedback', area); const chosen = [];
+    let order = shuffle(words.map((w,i)=>({w,i}))); if (words.length>2 && order.every((o,k)=>o.i===k)) order.reverse();
+    order.forEach(o=>{
+      const t = el('button','tile', esc(o.w));
+      t.addEventListener('click', ()=>{ if (t.classList.contains('used')) return; t.classList.add('used'); const c = el('button','tile', esc(o.w)); c.addEventListener('click',()=>{ c.remove(); t.classList.remove('used'); chosen.splice(chosen.indexOf(o),1); }); line.appendChild(c); chosen.push(o); });
+      tiles.appendChild(t);
     });
+    $('.undo', area).onclick = ()=>{ const o = chosen.pop(); if(!o) return; line.lastChild.remove(); [...tiles.children].find(t=>t.classList.contains('used') && t.textContent===o.w)?.classList.remove('used'); };
+    $('.clear', area).onclick = ()=>{ chosen.length=0; line.innerHTML=''; [...tiles.children].forEach(t=>t.classList.remove('used')); };
+    $('.check', area).onclick = ()=>{
+      if (!chosen.length){ fb.className='feedback no'; fb.innerHTML = 'Tap the words first!' + fr('Touche d’abord les mots !'); return; }
+      const got = chosen.map(o=>o.w).join(' ');
+      const finish = (ok)=>{ ['.check','.undo','.clear'].forEach(sel=>$(sel,area).style.display='none'); tiles.style.display='none';
+        if (!ok){ line.innerHTML = words.map(w=>`<span class="tile" style="border-color:var(--good);background:#dcfce7">${esc(w)}</span>`).join(''); }
+        fb.className = 'feedback ' + (ok ? 'ok' : ''); if (!ok) fb.style.color = 'var(--grape)';
+        fb.innerHTML = (ok ? '✅ Perfect! Now say it out loud! 🎤' : '👀 Here is the right sentence. Read it out loud! 🎤') + fr(rd.afr);
+        const nx = el('button','sm-btn go', r+1 < s.rounds.length ? 'Next sentence ▶' : 'Finish ▶'); nx.onclick = ()=>{ r++; render(); }; $('.row-btns',area).appendChild(nx); };
+      if (got === rd.a){ addStars(2,'First try! +2 ⭐'); finish(true); }
+      else { line.classList.remove('shake'); void line.offsetWidth; line.classList.add('shake'); setTimeout(()=>finish(false), 450); }
+    };
+  }
+  render();
+};
+B.mcq = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">🎉 Quiz complete!</div></div>`; return; }
+    const it = s.items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Question ${q+1} of ${s.items.length}</div>${it.e?`<div class="mcq-scene">${it.e}</div>`:''}<div class="mcq-q">${esc(it.q)}${fr(it.fr)}</div><div class="opts"></div><div class="explain"></div><div class="center"></div>`;
+    const opts = $('.opts', area), ex = $('.explain', area);
+    it.o.forEach((o,k)=>{
+      const b = el('button','opt', esc(o) + (it.ofr ? fr(it.ofr[k]) : ''));
+      b.onclick = ()=>{
+        if (area._done) return;
+        if (k === it.c){ b.classList.add('right'); area._done = true; ex.innerHTML = '✅ ' + esc(it.why || 'Correct!') + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+          const nx = el('button','big-btn', q+1<s.items.length?'Next question ▶':'Finish ▶'); nx.onclick=()=>{ q++; area._done=false; render(); }; $('.center',area).appendChild(nx); }
+        else { b.classList.add('wrong'); first = false; ex.innerHTML = '❌ ' + esc((it.no && it.no[k]) || 'Not quite — try again!') + fr('Pas tout à fait… Essaie encore !'); ex.classList.add('show'); }
+      };
+      opts.appendChild(b);
+    });
+  }
+  render();
+};
+B.tot = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Round ${q+1} of ${s.items.length}</div><div class="tot-row">
+      <div class="tot" data-k="0"><span class="em">${it.a[0]}</span>${esc(it.a[1])}${fr(it.a[2])}</div><div class="vs">OR</div>
+      <div class="tot" data-k="1"><span class="em">${it.b[0]}</span>${esc(it.b[1])}${fr(it.b[2])}</div></div>
+      <div class="say-box">🎤 ${esc(s.frame)}${fr(s.frameFr)}</div>
+      <div class="row-btns"><button class="sm-btn prev">◀ Previous</button><button class="sm-btn go next">${q+1<s.items.length?'Next round ▶':'Start over ↺'}</button></div>`;
+    area.querySelectorAll('.tot').forEach(t=>t.onclick=()=>{ area.querySelectorAll('.tot').forEach(x=>x.classList.remove('pick')); t.classList.add('pick'); });
+    $('.next',area).onclick=()=>{ q=(q+1)%s.items.length; render(); };
+    $('.prev',area).onclick=()=>{ q=(q-1+s.items.length)%s.items.length; render(); };
+  }
+  render();
+};
+B.memory = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  function render(){
+    let cards = []; s.pairs.forEach((p,k)=>{ cards.push({k,html:`<span class="face e">${p[0]}</span>`}); cards.push({k,html:`<span class="face">${esc(p[1])}</span>`}); });
+    cards = shuffle(cards); let open = [], found = 0, moves = 0, lock = false;
+    area.innerHTML = `<div class="round-tag">Pairs found: <span class="pf">0</span> of ${s.pairs.length} · Tries: <span class="mv">0</span></div><div class="mem-grid"></div><div class="center"></div>`;
+    const g = $('.mem-grid', area);
+    cards.forEach((c,ci)=>{
+      const m = el('div','mem', `<span class="back" style="font-size:34px">${ci+1}</span>${c.html}`);
+      m.onclick = ()=>{
+        if (lock || m.classList.contains('open') || m.classList.contains('done')) return;
+        m.classList.add('open'); open.push({m,c});
+        if (open.length === 2){
+          moves++; $('.mv',area).textContent = moves; const [a,b] = open;
+          if (a.c.k === b.c.k){ a.m.classList.replace('open','done'); b.m.classList.replace('open','done'); open = []; found++; $('.pf',area).textContent = found; toast('Match! Say the word! 🎤');
+            if (found === s.pairs.length){ addStars(2,'All pairs! +2 ⭐'); const again = el('button','big-btn','Play again ↺'); again.onclick = render; $('.center',area).appendChild(again); } }
+          else { lock = true; setTimeout(()=>{ a.m.classList.remove('open'); b.m.classList.remove('open'); open = []; lock = false; }, 950); }
+        }
+      };
+      g.appendChild(m);
+    });
+  }
+  render();
+};
+B.tos = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">${esc(s.done||'🌟 Great job!')}</div>${fr(s.doneFr)}</div>`; return; }
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Card ${q+1} of ${s.items.length}</div><div class="tos-card"><div class="em">${it.e}</div><div class="st">${esc(it.s)}</div>${fr(it.fr)}
+      <div class="tos-btns"><button class="big-btn btn-true" data-v="1">✅ TRUE</button><button class="big-btn btn-silly" data-v="0">🤪 SILLY</button></div>
+      <div class="explain"></div><div class="center"></div></div>`;
+    let done = false;
+    area.querySelectorAll('.tos-btns button').forEach(b=>b.onclick=()=>{
+      if (done) return; done = true; const ok = (b.dataset.v==='1') === it.t; const ex = $('.explain',area);
+      ex.innerHTML = (ok?'✅ Yes! ':'❌ Oops! ') + `It's <b>${it.t?'TRUE':'SILLY'}</b>. ` + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); if (ok) addStars(1,'+1 ⭐');
+      const nx = el('button','big-btn', q+1<s.items.length?'Next card ▶':'Finish ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx);
+    });
+  }
+  render();
+};
+B.sort = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="say-box" style="margin-top:10px">${esc(s.how)}${fr(s.howFr)}</div>`);
+  const area = el('div'); box.appendChild(area); let q = 0; const items = shuffle(s.items); const counts = s.buckets.map(()=>0);
+  function render(){
+    if (q >= items.length){ area.innerHTML = `<div class="goal"><div class="big">🧠 Grammar Boss!</div><div>${esc(s.doneMsg)}</div>${fr(s.doneMsgFr)}</div>`; return; }
+    const it = items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Sentence ${q+1} of ${items.length}</div><div class="sort-item">${esc(it.s)}${fr(it.fr)}</div>
+      <div class="buckets">${s.buckets.map((b,k)=>`<button class="bucket" data-k="${k}" style="background:${b.c}">${esc(b.name)}<small>${esc(b.rule)}</small><small style="opacity:.9;font-style:italic">${esc(b.fr)}</small><span class="cnt">e.g. “${esc(b.ex)}” · ${counts[k]} sorted</span></button>`).join('')}</div><div class="explain"></div><div class="center"></div>`;
+    let done = false;
+    area.querySelectorAll('.bucket').forEach(btn=>btn.onclick=()=>{
+      if (done) return; const k = +btn.dataset.k; const ex = $('.explain',area);
+      if (k === it.b){ done = true; counts[k]++; ex.innerHTML = '✅ ' + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+        const nx = el('button','big-btn','Next ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx); }
+      else { first = false; ex.innerHTML = '❌ ' + esc(s.hint) + fr(s.hintFr); ex.classList.add('show'); btn.classList.add('shake'); }
+    });
+  }
+  render();
+};
+B.plan = (s, box) => {
+  const sel = {}, selFr = {}; const cols = el('div','plan-cols');
+  s.parts.forEach((p,k)=>{
+    const c = el('div','plan-col', `<h4>${p.icon} ${esc(p.label)}</h4>${fr(p.fr)}`);
+    p.opts.forEach(o=>{ const ch = el('button','chip', `${o[0]} ${esc(o[1])}${fr(o[2])}`); ch.onclick=()=>{ c.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel')); ch.classList.add('sel'); sel[k]=o[1]; selFr[k]=o[2]; }; c.appendChild(ch); });
+    cols.appendChild(c);
   });
-}
-
-/* ============ TRUE/FALSE ============ */
-const tfTrue = document.getElementById('tfTrue');
-const tfFalse = document.getElementById('tfFalse');
-const tfFeedback = document.getElementById('tfFeedback');
-let tfAnswered = false;
-function handleTF(choseTrue){
-  if(tfAnswered) return;
-  tfAnswered = true;
-  tfTrue.classList.add('disabled'); tfFalse.classList.add('disabled');
-  if(!choseTrue){
-    tfFalse.classList.add('correct');
-    tfFeedback.innerHTML = '<span class="fb-en">Yes! It should be "on THE other hand," not just "on other hand." 🎉</span><span class="fb-fr">Oui ! Il faut dire « on THE other hand », pas juste « on other hand ».</span>';
-    tfFeedback.className = 'feedback-banner good';
-    addXP(2);
-  } else {
-    tfTrue.classList.add('incorrect');
-    tfFeedback.innerHTML = '<span class="fb-en">Not quite — it should be "on THE other hand."</span><span class="fb-fr">Pas tout à fait — il faut dire « on THE other hand ».</span>';
-    tfFeedback.className = 'feedback-banner retry';
+  box.appendChild(cols);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn make">✨ Make my story!</button> <button class="sm-btn rnd">🎲 Surprise me</button></div><div class="story"></div>`);
+  const story = $('.story', box);
+  function make(){
+    if (Object.keys(sel).length < s.parts.length){ toast('Pick one for each part!'); return; }
+    story.innerHTML = s.parts.map((p,k)=>`<span class="conn">${esc(p.conn)}</span> ${esc(sel[k])}`).join(' ') + fr(s.parts.map((p,k)=>`${p.connFr} ${selFr[k]}`).join(' ')) + `<div style="margin-top:10px;font-size:17px;color:var(--sky-deep)">🎤 Now read your story out loud — then tell it again without looking!</div>`;
+    story.classList.add('show'); addStars(1,'Great story! +1 ⭐');
   }
-  if(!locks[6]){ locks[6] = true; refreshNav(); }
+  $('.make', box).onclick = make;
+  $('.rnd', box).onclick = ()=>{ s.parts.forEach((p,k)=>{ const col = cols.children[k]; const chips = col.querySelectorAll('.chip'); const i = Math.floor(Math.random()*chips.length); chips[i].click(); }); make(); };
+};
+B.talk = (s, box) => {
+  const list = el('div','check-list');
+  s.items.forEach(it=>{ const c = el('div','check', `<span class="box"></span><span>${esc(it[0])}${fr(it[1])}</span>`); c.onclick=()=>{ if(c.classList.contains('done')) return; c.classList.add('done'); $('.box',c).textContent='✔'; addStars(1,'+1 ⭐'); }; list.appendChild(c); });
+  box.appendChild(list);
+};
+B.ttl = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  const ex = s.example;
+  area.innerHTML = `<div class="sort-item" style="border-color:var(--grape)">Practice round: ${esc(ex.who)} says…</div><div class="ttl-list">${ex.lines.map((l,k)=>`<button class="opt" data-k="${k}">${esc(l)}${fr(ex.linesFr[k])}</button>`).join('')}</div><div class="explain"></div>
+    <div class="goal" style="margin-top:18px"><div class="big">🎤 Your turn!</div><div>${esc(s.turn)}</div>${fr(s.turnFr)}
+    <div class="row-btns"><button class="sm-btn go fool">😎 ${esc(L.student.split(' ')[0])} fooled Jonathan! (+2 ⭐)</button><button class="sm-btn found">🔎 Jonathan found the lie (+1 ⭐)</button></div></div>`;
+  let done = false;
+  area.querySelectorAll('.ttl-list .opt').forEach(b=>b.onclick=()=>{ if(done) return; const k=+b.dataset.k; const e=$('.explain',area);
+    if (k===ex.lie){ done=true; b.classList.add('right'); e.innerHTML='✅ '+esc(ex.why)+fr(ex.whyFr); addStars(1,'+1 ⭐'); } else { b.classList.add('wrong'); e.innerHTML='❌ That one is true! Look again.'+fr('Ça, c’est vrai ! Regarde encore.'); } e.classList.add('show'); });
+  $('.fool',area).onclick=()=>addStars(2,'Sneaky! +2 ⭐');
+  $('.found',area).onclick=()=>addStars(1,'Good try! +1 ⭐');
+};
+B.victory = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="victory"><div class="medal" id="medal">🏅</div><div class="score">You earned <span id="finalStars">0</span> stars!</div>
+    <div class="tiers">${s.tiers.map(t=>`<div data-min="${t[0]}">${t[1]} ${esc(t[2])} · ${t[0]}+ ⭐</div>`).join('')}</div>
+    <div class="goal" style="margin-top:18px"><div class="big">${esc(s.msg)}</div>${fr(s.msgFr)}</div></div>`);
+};
+function updateVictory(){
+  const f = $('#finalStars'); if (!f) return; f.textContent = stars;
+  const s = L.slides.find(x=>x.type==='victory'); let medal = '🌟';
+  document.querySelectorAll('.tiers div').forEach(d=>d.classList.remove('on'));
+  s.tiers.forEach((t,k)=>{ if (stars >= t[0]) { medal = t[1]; } });
+  const on = [...document.querySelectorAll('.tiers div')].filter(d=>stars >= +d.dataset.min).pop(); if (on) on.classList.add('on');
+  $('#medal').textContent = medal;
 }
-tfTrue.addEventListener('click', ()=>handleTF(true));
-tfFalse.addEventListener('click', ()=>handleTF(false));
 
-/* ============ SPEAKING TASK + DEBRIEF ============ */
-document.getElementById('nudgeToggle').addEventListener('click', (e)=>{
-  const box = document.getElementById('nudgeBox');
-  box.classList.toggle('show');
-  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
+/* ---------- build ---------- */
+const host = $('#slides'); const dots = $('#dots');
+L.slides.forEach((s,i)=>{
+  const sec = el('section','slide'); sec.innerHTML = head(s,i); B[s.type](s, sec); sec.insertAdjacentHTML('beforeend', tutor(s)); host.appendChild(sec);
+  const d = el('button'); d.title = `Slide ${i+1}`; d.onclick = ()=>go(i); dots.appendChild(d);
 });
-document.getElementById('doneTalkingBtn').addEventListener('click', function(){
-  document.getElementById('talkConfirm').classList.add('show');
-  this.disabled = true;
-  this.textContent = '✅ Done';
-  addXP(5);
-});
-document.getElementById('nudgeToggle2').addEventListener('click', (e)=>{
-  const box = document.getElementById('nudgeBox2');
-  box.classList.toggle('show');
-  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
-});
-document.getElementById('doneTalkingBtn2').addEventListener('click', function(){
-  document.getElementById('talkConfirm2').classList.add('show');
-  this.disabled = true;
-  this.textContent = '✅ Done';
-  addXP(3);
-});
-
-/* ============ CONVERSATION WHEEL (optional bonus — never gates progress) ============ */
-const WCATS = [
-  { name:'About Me', emoji:'🙋', color:'#0fd4b8', text:'#00251f',
-    qs:[
-      {q:"What's one thing about you most people don't know?", qf:"Quelle est une chose sur toi que la plupart des gens ne savent pas ?", push:"Now tell me why you don't usually share it.", pushf:"Maintenant, dis-moi pourquoi tu ne le partages pas d'habitude."},
-      {q:"Describe yourself in three words. Explain the middle one.", qf:"Décris-toi en trois mots. Explique celui du milieu.", push:"Now give me a word your friends would use instead.", pushf:"Maintenant, donne un mot que tes amis utiliseraient à la place."},
-      {q:"What's something you're proud of this year?", qf:"De quoi es-tu fière cette année ?", push:"Now tell me what it took to get there.", pushf:"Maintenant, dis-moi ce qu'il a fallu pour y arriver."},
-      {q:"Are you more of a morning person or a night person?", qf:"Tu es plutôt du matin ou du soir ?", push:"Now describe what happens on the wrong side of that.", pushf:"Maintenant, décris ce qui se passe du mauvais côté."},
-      {q:"What's a small habit that says a lot about you?", qf:"Quelle petite habitude en dit long sur toi ?", push:"Now tell me when you noticed it.", pushf:"Maintenant, dis-moi quand tu l'as remarquée."},
-      {q:"If a stranger watched your day, what would surprise them?", qf:"Si un inconnu observait ta journée, qu'est-ce qui le surprendrait ?", push:"Now tell me if it would surprise you too.", pushf:"Maintenant, dis-moi si ça te surprendrait aussi."}
-    ]},
-  { name:'Home & Town', emoji:'🏠', color:'#ffb830', text:'#2a1c00',
-    qs:[
-      {q:"Give me a 30-second tour of your town for a visitor.", qf:"Fais-moi visiter ta ville en 30 secondes pour un visiteur.", push:"Now tell me the one place you'd save for last.", pushf:"Maintenant, dis-moi l'endroit que tu garderais pour la fin."},
-      {q:"What's the best-kept secret in your town?", qf:"Quel est le secret le mieux gardé de ta ville ?", push:"Now tell me who told you about it.", pushf:"Maintenant, dis-moi qui te l'a dit."},
-      {q:"Describe your bedroom in five sentences.", qf:"Décris ta chambre en cinq phrases.", push:"Now tell me which object you'd save in a fire.", pushf:"Maintenant, dis-moi quel objet tu sauverais dans un incendie."},
-      {q:"What's changed in your town since you were small?", qf:"Qu'est-ce qui a changé dans ta ville depuis que tu es petite ?", push:"Now tell me if that's better or worse.", pushf:"Maintenant, dis-moi si c'est mieux ou moins bien."},
-      {q:"Where do you go when you want to be alone?", qf:"Où tu vas quand tu veux être seule ?", push:"Now tell me what you do there.", pushf:"Maintenant, dis-moi ce que tu y fais."},
-      {q:"City center or middle of nowhere? Pick one and defend it.", qf:"Centre-ville ou milieu de nulle part ? Choisis et défends.", push:"Now tell me what you'd hate about your own choice.", pushf:"Maintenant, dis-moi ce que tu détesterais dans ton propre choix."}
-    ]},
-  { name:'School & Friends', emoji:'🎒', color:'#ff5a42', text:'#fff',
-    qs:[
-      {q:"How did you meet your closest friend?", qf:"Comment as-tu rencontré ta meilleure amie ?", push:"Now tell me the first thing you ever said to each other.", pushf:"Maintenant, dis-moi la première chose que vous vous êtes dite."},
-      {q:"What do you and your friends argue about most?", qf:"De quoi vous disputez-vous le plus avec tes amis ?", push:"Now tell me who usually wins.", pushf:"Maintenant, dis-moi qui gagne d'habitude."},
-      {q:"What's a running joke in your friend group?", qf:"Quelle est la blague récurrente dans ton groupe d'amis ?", push:"Now explain why it's funny to someone outside it.", pushf:"Maintenant, explique pourquoi c'est drôle à quelqu'un d'extérieur."},
-      {q:"Which subject this year are you actually looking forward to?", qf:"Quelle matière cette année tu attends vraiment avec impatience ?", push:"Now tell me which one you're dreading.", pushf:"Maintenant, dis-moi laquelle tu redoutes."},
-      {q:"Do you make the plans, or wait to be invited?", qf:"Tu proposes les plans, ou tu attends d'être invitée ?", push:"Now tell me which one you wish you were.", pushf:"Maintenant, dis-moi lequel tu aimerais être."},
-      {q:"Tell me about a time you laughed so hard you couldn't breathe.", qf:"Raconte-moi une fois où tu as tellement ri que tu ne pouvais plus respirer.", push:"Now tell me if it's still funny.", pushf:"Maintenant, dis-moi si c'est encore drôle."}
-    ]},
-  { name:'Favorites & Free Time', emoji:'🎧', color:'#a47aff', text:'#fff',
-    qs:[
-      {q:"What show or series would you make the whole world watch?", qf:"Quelle série ferais-tu regarder au monde entier ?", push:"Give me three reasons — no using the word 'good.'", pushf:"Donne trois raisons — interdit d'utiliser le mot « bien »."},
-      {q:"What's the last song stuck in your head? Describe it without singing.", qf:"Quelle est la dernière chanson coincée dans ta tête ? Décris-la sans chanter.", push:"Now tell me why it stuck.", pushf:"Maintenant, dis-moi pourquoi elle est restée."},
-      {q:"Sweet or savory? Pick your side for life.", qf:"Sucré ou salé ? Choisis ton camp pour la vie.", push:"Now name the one exception you'd allow.", pushf:"Maintenant, nomme la seule exception que tu t'autoriserais."},
-      {q:"Describe your perfect Saturday, hour by hour.", qf:"Décris ton samedi parfait, heure par heure.", push:"Now tell me the last time you actually had one.", pushf:"Maintenant, dis-moi la dernière fois que tu en as vraiment eu un."},
-      {q:"What's your comfort meal after a bad day?", qf:"Quel est ton plat réconfort après une mauvaise journée ?", push:"Now tell me who makes it best.", pushf:"Maintenant, dis-moi qui le fait le mieux."},
-      {q:"What's the most useless skill you have?", qf:"Quel est le talent le plus inutile que tu aies ?", push:"Now explain exactly how it works.", pushf:"Maintenant, explique exactement comment ça marche."}
-    ]},
-  { name:'Dreams & Future', emoji:'✨', color:'#3ee88a', text:'#00251f',
-    qs:[
-      {q:"Where do you want to be at 25? Paint me the picture.", qf:"Où veux-tu être à 25 ans ? Dépeins-moi le tableau.", push:"Now tell me what has to happen first.", pushf:"Maintenant, dis-moi ce qui doit se passer d'abord."},
-      {q:"If money didn't matter, what job would you choose?", qf:"Si l'argent n'avait aucune importance, quel métier choisirais-tu ?", push:"Now walk me through a normal Tuesday in that job.", pushf:"Maintenant, décris-moi un mardi ordinaire dans ce métier."},
-      {q:"One country you'd move to tomorrow — why there?", qf:"Un pays où tu déménagerais dès demain — pourquoi là-bas ?", push:"Now tell me what scares you about it.", pushf:"Maintenant, dis-moi ce qui te fait peur là-bas."},
-      {q:"What's a goal you're a little scared to say out loud?", qf:"Quel objectif as-tu un peu peur de dire à voix haute ?", push:"Now say one reason it matters to you.", pushf:"Maintenant, donne une raison pour laquelle il compte pour toi."},
-      {q:"What do you want to be able to say in English by Christmas?", qf:"Qu'est-ce que tu veux savoir dire en anglais d'ici Noël ?", push:"Now tell me what would make that possible.", pushf:"Maintenant, dis-moi ce qui rendrait ça possible."},
-      {q:"A whole free year anywhere, doing anything. Where and what?", qf:"Une année libre n'importe où, à faire n'importe quoi. Où et quoi ?", push:"Now tell me what you'd bring back.", pushf:"Maintenant, dis-moi ce que tu en ramènerais."}
-    ]},
-  { name:'Imagine!', emoji:'🎲', color:'#00d4ff', text:'#00251f',
-    qs:[
-      {q:"You wake up speaking perfect English. First thing you do?", qf:"Tu te réveilles en parlant anglais parfaitement. Tu fais quoi en premier ?", push:"Now tell me who you call.", pushf:"Maintenant, dis-moi qui tu appelles."},
-      {q:"Dinner with anyone, living or dead. Who, and what do you ask?", qf:"Un dîner avec qui tu veux, vivant ou mort. Qui, et tu demandes quoi ?", push:"Now tell me what they'd ask you.", pushf:"Maintenant, dis-moi ce qu'il te demanderait."},
-      {q:"You're invisible for 24 hours. Where do you go?", qf:"Tu es invisible pendant 24 heures. Tu vas où ?", push:"Now tell me what you'd never do.", pushf:"Maintenant, dis-moi ce que tu ne ferais jamais."},
-      {q:"Animals can talk for one day. Which one do you want to hear from?", qf:"Les animaux parlent pendant une journée. Lequel tu veux entendre ?", push:"Now tell me what it says about us.", pushf:"Maintenant, dis-moi ce qu'il pense de nous."},
-      {q:"You can delete one invention from history. Which one?", qf:"Tu peux effacer une invention de l'histoire. Laquelle ?", push:"Now tell me what breaks because of that.", pushf:"Maintenant, dis-moi ce que ça casse."},
-      {q:"One sentence to yourself at age ten. What is it?", qf:"Une phrase à toi-même à dix ans. C'est quoi ?", push:"Now tell me if she'd listen.", pushf:"Maintenant, dis-moi si elle écouterait."}
-    ]}
-];
-
-const SVGNS = "http://www.w3.org/2000/svg";
-const wheelEl = document.getElementById('wheel');
-const NW = WCATS.length, wseg = 360/NW, wcx=150, wcy=150, wr=148;
-function wpolar(rr, angDeg){ const a=(angDeg)*Math.PI/180; return [wcx + rr*Math.sin(a), wcy - rr*Math.cos(a)]; }
-WCATS.forEach((c,i)=>{
-  const start=i*wseg, end=(i+1)*wseg;
-  const [x1,y1]=wpolar(wr,start), [x2,y2]=wpolar(wr,end);
-  const large = wseg>180?1:0;
-  const path=document.createElementNS(SVGNS,'path');
-  path.setAttribute('d',`M${wcx},${wcy} L${x1.toFixed(2)},${y1.toFixed(2)} A${wr},${wr} 0 ${large} 1 ${x2.toFixed(2)},${y2.toFixed(2)} Z`);
-  path.setAttribute('fill',c.color); path.setAttribute('stroke','#09111f'); path.setAttribute('stroke-width','2');
-  wheelEl.appendChild(path);
-  const mid=start+wseg/2; const [ex,ey]=wpolar(wr*0.66, mid);
-  const t=document.createElementNS(SVGNS,'text');
-  t.setAttribute('x',ex.toFixed(2)); t.setAttribute('y',(ey+8).toFixed(2));
-  t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','22'); t.textContent=c.emoji;
-  wheelEl.appendChild(t);
-});
-const wrim=document.createElementNS(SVGNS,'circle');
-wrim.setAttribute('cx',wcx); wrim.setAttribute('cy',wcy); wrim.setAttribute('r',wr);
-wrim.setAttribute('fill','none'); wrim.setAttribute('stroke','#ffb830'); wrim.setAttribute('stroke-width','4');
-wheelEl.appendChild(wrim);
-
-const wlegend = document.getElementById('wlegend');
-WCATS.forEach((c,i)=>{
-  const b=document.createElement('button'); b.className='wchip';
-  b.style.background=c.color; b.style.color=c.text;
-  b.innerHTML=`<span>${c.emoji}</span> ${c.name}`;
-  b.addEventListener('click', ()=>spinWheelTo(i));
-  wlegend.appendChild(b);
-});
-
-const whub=document.getElementById('whub');
-const whint=document.getElementById('whint');
-const wpanel=document.getElementById('wpanel');
-const wactions=document.getElementById('wactions');
-const wchips=[...document.querySelectorAll('.wchip')];
-let wrotation=0, wspinning=false, wcurrentCat=null, wlastQ={}; const wdecks={};
-
-function wsetDisabled(state){
-  wspinning=state; whub.disabled=state;
-  const sb=document.getElementById('wspinBtn'), ab=document.getElementById('wagainBtn');
-  if(sb) sb.disabled=state; if(ab) ab.disabled=state;
-  wchips.forEach(ch=>ch.disabled=state);
+let cur = 0;
+function go(i){
+  cur = Math.max(0, Math.min(L.slides.length-1, i));
+  document.querySelectorAll('.slide').forEach((s,k)=>s.classList.toggle('active', k===cur));
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on', k===cur));
+  $('#prevBtn').disabled = cur===0; $('#nextBtn').disabled = cur===L.slides.length-1;
+  $('#prog').style.width = ((cur+1)/L.slides.length*100)+'%';
+  if (L.slides[cur].type === 'victory'){ updateVictory(); confetti(140); }
+  scrollTo({top:0,behavior:'smooth'});
 }
-function wpickQuestion(i){
-  const list = WCATS[i].qs;
-  if(!wdecks[i] || wdecks[i].length===0){
-    wdecks[i] = list.map((_,k)=>k);
-    for(let k=wdecks[i].length-1;k>0;k--){ const j=Math.floor(Math.random()*(k+1)); [wdecks[i][k],wdecks[i][j]]=[wdecks[i][j],wdecks[i][k]]; }
-    if(list.length>1 && wdecks[i][wdecks[i].length-1]===wlastQ[i]){ [wdecks[i][0],wdecks[i][wdecks[i].length-1]]=[wdecks[i][wdecks[i].length-1],wdecks[i][0]]; }
-  }
-  const idx = wdecks[i].pop(); wlastQ[i]=idx; return list[idx];
-}
-function wreveal(i){
-  const c = WCATS[i]; const item = wpickQuestion(i); wcurrentCat = i;
-  wpanel.classList.remove('show');
-  wpanel.innerHTML = `
-    <span class="wcat-chip" style="background:${c.color};color:${c.text}">${c.emoji} ${c.name}</span>
-    <div class="wq">${item.q}</div>
-    <div class="wqf" lang="fr">${item.qf}</div>
-    <button class="wpush-toggle" id="wpushToggle">Take it further →</button>
-    <div class="wpush" id="wpushBox"><span class="lbl">Take it further · Pour aller plus loin</span><span class="txt">${item.push}</span><span class="txt-fr" lang="fr">${item.pushf}</span></div>
-  `;
-  wactions.style.display = 'flex';
-  void wpanel.offsetWidth;
-  wpanel.classList.add('show');
-  document.getElementById('wpushToggle').addEventListener('click', (e)=>{
-    const box = document.getElementById('wpushBox');
-    box.classList.toggle('show');
-    e.target.textContent = box.classList.contains('show') ? 'Hide' : 'Take it further →';
-  });
-  whint.textContent = 'Talk it through, then spin again if you like. / Parle, puis fais tourner à nouveau si tu veux.';
-  wsetDisabled(false);
-}
-function spinWheelTo(i){
-  if(wspinning) return;
-  wsetDisabled(true); whint.textContent = 'Spinning…';
-  const center = i*wseg + wseg/2;
-  const jitter = (Math.random()*2-1)*(wseg/2 - 9);
-  const target = (center + jitter);
-  const align = ((360 - (target % 360)) % 360);
-  const currentMod = ((wrotation % 360)+360)%360;
-  let delta = (align - currentMod + 360)%360;
-  const turns = 5 + Math.floor(Math.random()*3);
-  wrotation = wrotation + turns*360 + delta;
-  wheelEl.style.transform = `rotate(${wrotation}deg)`;
-  const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const afterSpin = ()=>{ wreveal(i); };
-  if(reduce){ afterSpin(); return; }
-  const onEnd = ()=>{ wheelEl.removeEventListener('transitionend', onEnd); afterSpin(); };
-  wheelEl.addEventListener('transitionend', onEnd);
-}
-function spinWheelRandom(){ spinWheelTo(Math.floor(Math.random()*NW)); }
-whub.addEventListener('click', spinWheelRandom);
-document.getElementById('wspinBtn').addEventListener('click', spinWheelRandom);
-document.getElementById('wagainBtn').addEventListener('click', ()=>{ if(wcurrentCat!==null) wreveal(wcurrentCat); });
-
-/* ============ CELEBRATION SLIDE ============ */
-let celebrationRan = false;
-function animateCount(el, target, duration){
-  const start = performance.now();
-  function frame(now){
-    const p = Math.min((now-start)/duration, 1);
-    el.textContent = Math.round(p * target);
-    if(p < 1) requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-}
-function runCelebrationEntry(){
-  if(celebrationRan) return; celebrationRan = true;
-  animateCount(document.getElementById('statWords'), vocabFlipped, 700);
-}
-function spawnConfetti(){
-  const pieces = ['🎉','⭐','🎊','🎙️','✨'];
-  for(let i=0;i<26;i++){
-    const el = document.createElement('span'); el.className = 'confetti-piece';
-    el.textContent = pieces[Math.floor(Math.random()*pieces.length)];
-    el.style.left = Math.random()*100 + 'vw';
-    el.style.animationDuration = (2 + Math.random()*1.6) + 's';
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(), 4000);
-  }
-}
-document.getElementById('celebrateBtn').addEventListener('click', function(){
-  spawnConfetti();
-  document.getElementById('badgeReveal').classList.add('show');
-  addXP(5);
-  this.disabled = true;
-  this.textContent = '🏅 Badge Unlocked!';
-});
-
-/* ============ INIT ============ */
-buildVocab();
-buildPhraseScreen();
-initMCQ('qp1', 'mcqFeedbackQP1');
-initMCQ('r1', 'mcqFeedbackR1');
-initMCQ('r2', 'mcqFeedbackR2');
-refreshNav();
-setTimeout(checkScrollCue, 100);
+$('#prevBtn').onclick = ()=>go(cur-1); $('#nextBtn').onclick = ()=>go(cur+1);
+$('#starBtn').onclick = ()=>addStars(1,'Full sentence! +1 ⭐');
+const frBtn = $('#frBtn');
+function syncFr(){ frBtn.textContent = document.body.classList.contains('hide-fr') ? 'FR: OFF' : 'FR: ON'; }
+frBtn.onclick = ()=>{ document.body.classList.toggle('hide-fr'); syncFr(); }; syncFr();
+$('#hudBrand').textContent = L.brand; $('#stuName').textContent = L.student; $('#lessonName').textContent = L.lesson;
+const d = new Date(); $('#today').textContent = String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+'/'+d.getFullYear();
+go(0);
 </script>
 </body>
 </html>

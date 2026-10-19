@@ -1,927 +1,531 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="google" content="notranslate">
-<title>Lesson 5 — What Happens If... | Berenice</title>
+<title>Bérénice • Lesson 5 — What Happens If…?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#09111f; --deep:#0d1829; --card:#131f38; --rim:#1c2d4a;
-    --white:#e8f0ff; --muted:#8095bb;
-    --teal:#0fd4b8; --amber:#ffb830; --coral:#ff5a42; --violet:#a47aff; --lime:#3ee88a; --aqua:#00d4ff;
-    --shadow:rgba(0,0,0,0.35);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
-  html,body{height:100%;overflow:hidden}
-  .notranslate{translate:no;}
-  body{
-    font-family:'Inter',sans-serif; font-size:22px; line-height:1.5; color:var(--white);
-    background:var(--ink);
-    background-image:
-      radial-gradient(900px 500px at 12% -5%, rgba(15,212,184,0.14), transparent 60%),
-      radial-gradient(800px 480px at 95% 8%, rgba(164,122,255,0.12), transparent 60%),
-      radial-gradient(900px 600px at 50% 115%, rgba(255,184,48,0.10), transparent 60%);
-    position:relative;
-  }
-  .hud{ position:fixed; top:14px; left:14px; right:14px; display:flex; justify-content:space-between; align-items:center; z-index:50; gap:10px; flex-wrap:wrap; }
-  .hud-pill{ background:var(--card); border:1px solid var(--rim); color:var(--white); padding:9px 16px; border-radius:999px; font-weight:700; font-size:16px; box-shadow:0 4px 14px var(--shadow); display:flex; align-items:center; gap:7px; }
-  .xp-pill{ background:linear-gradient(135deg,var(--amber),#c9861a); color:#2a1c00; }
-  .sound-toggle{ background:var(--card); border:1px solid var(--rim); color:var(--white); border-radius:50%; width:42px; height:42px; font-size:19px; cursor:pointer; box-shadow:0 4px 12px var(--shadow); }
-  .xp-pop{ position:fixed; top:76px; left:50%; transform:translateX(-50%) translateY(-16px); background:linear-gradient(135deg,var(--coral),var(--amber)); color:#fff; padding:11px 22px; border-radius:999px; font-weight:800; font-size:22px; box-shadow:0 6px 20px rgba(255,90,66,0.4); opacity:0; pointer-events:none; z-index:80; transition:all .4s cubic-bezier(.4,0,.2,1); }
-  .xp-pop.show{ opacity:1; transform:translateX(-50%) translateY(0); }
-
-  .slide{ display:none; max-width:1180px; margin:0 auto; padding:22px 24px 30px; position:relative; z-index:1; animation:slideIn .35s ease; }
-  .slide.active{ display:block; }
-  @keyframes slideIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
-
-  /* ===== Scroll viewport (sits cleanly between fixed HUD and fixed nav bar) ===== */
-  .slide-viewport{ position:fixed; top:66px; left:0; right:0; bottom:78px; overflow-y:auto; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
-  .slide-viewport::-webkit-scrollbar{ width:8px; }
-  .slide-viewport::-webkit-scrollbar-thumb{ background:var(--rim); border-radius:8px; }
-  .scroll-cue{ position:fixed; left:50%; bottom:92px; transform:translateX(-50%) translateY(6px); z-index:55;
-    background:var(--card); border:1px solid var(--rim); color:var(--white); font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
-    padding:8px 16px; border-radius:999px; box-shadow:0 6px 16px var(--shadow); display:flex; align-items:center; gap:6px;
-    opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; }
-  .scroll-cue.show{ opacity:1; transform:translateX(-50%) translateY(0); animation:cueBounce 1.6s ease-in-out infinite; }
-  .scroll-cue .arrow{ font-size:14px; }
-  @keyframes cueBounce{ 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(4px); } }
-
-  .card{ background:var(--card); border:1px solid var(--rim); border-radius:26px; padding:36px 34px; box-shadow:0 16px 40px var(--shadow); }
-  .brandbar{ display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-weight:800; letter-spacing:.5px; color:var(--amber); font-size:12px; text-transform:uppercase; margin-bottom:16px; }
-  .brandbar .dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow:0 0 12px var(--amber); }
-
-  h1{ font-family:'Poppins',sans-serif; font-size:44px; font-weight:900; line-height:1.12; letter-spacing:-.5px; color:var(--white); }
-  h1 .accent{ color:var(--amber); }
-  h2{ font-family:'Poppins',sans-serif; font-size:30px; font-weight:800; color:var(--white); margin-bottom:14px; }
-  .badge-tag{ display:inline-block; background:rgba(15,212,184,0.14); color:var(--teal); font-weight:700; font-size:12.5px; letter-spacing:.6px; text-transform:uppercase; padding:6px 16px; border-radius:999px; margin-bottom:16px; border:1px solid rgba(15,212,184,0.3); }
-
-  .hero-emoji{ font-size:74px; display:block; margin-bottom:12px; }
-  .hero-sub-en{ font-size:21px; color:var(--white); margin:10px 0 4px; font-weight:500; }
-  .hero-sub-fr{ font-size:18px; color:var(--violet); font-weight:600; font-style:italic; }
-
-  .bi-cols{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:18px 0; }
-  @media (max-width:680px){ .bi-cols{ grid-template-columns:1fr; } }
-  .bi-en, .bi-fr{ padding:18px 22px; border-radius:16px; font-size:20px; line-height:1.5; }
-  .bi-en{ background:rgba(15,212,184,0.09); color:var(--white); border-left:5px solid var(--teal); }
-  .bi-fr{ background:rgba(164,122,255,0.10); color:#d8c9ff; border-left:5px solid var(--violet); font-style:italic; }
-  .bi-en strong, .bi-fr strong{ font-weight:700; color:inherit; }
-
-  .nav-row{ position:fixed; bottom:0; left:0; right:0; background:var(--deep); border-top:1px solid var(--rim); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; z-index:60; }
-  .nav-btn{ font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; padding:13px 28px; border-radius:50px; border:none; cursor:pointer; color:#fff; transition:transform .1s ease; }
-  .nav-btn:active{ transform:translateY(3px); }
-  .nav-btn.back{ background:#2a3a5c; }
-  .nav-btn.next{ background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
-  .nav-btn:disabled{ opacity:.35; cursor:not-allowed; }
-  .nav-btn.locked{ background:#2a3550; color:#6b7a9a; }
-  .progress-label{ font-size:13px; color:var(--muted); font-weight:700; }
-
-  .vocab-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0; }
-  @media (max-width:680px){ .vocab-grid{ grid-template-columns:repeat(2,1fr); } }
-  .vocab-card{ background:var(--deep); border:2px solid var(--rim); border-radius:16px; padding:14px 10px; text-align:center; cursor:pointer; transition:transform .15s ease, border-color .15s ease; min-height:96px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-  .vocab-card:hover{ transform:translateY(-3px); border-color:var(--teal); }
-  .vocab-card .emoji{ font-size:28px; display:block; margin-bottom:4px; }
-  .vocab-card .word{ font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--white); }
-  .vocab-card .fr{ font-size:12px; color:var(--violet); font-style:italic; margin-top:2px; display:none; }
-  .vocab-card.flipped{ border-color:var(--amber); background:rgba(255,184,48,0.08); }
-  .vocab-card.flipped .fr{ display:block; }
-  .vocab-card.flipped .word{ font-size:13.5px; }
-
-  .word-bank-wrap{ margin:20px 0; }
-  .sentence-slot{ min-height:64px; background:var(--deep); border:2px dashed var(--rim); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:12px; font-family:'Poppins',sans-serif; font-size:21px; font-weight:700; margin-bottom:14px; }
-  .sentence-slot .placed{ background:var(--teal); color:#00251f; padding:7px 13px; border-radius:10px; }
-  .word-bank{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-  .word-chip{ background:var(--coral); color:#fff; padding:9px 16px; border-radius:14px; font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; cursor:pointer; box-shadow:0 5px 0 #b8341f; transition:transform .1s ease; }
-  .word-chip:active{ transform:translateY(4px); box-shadow:0 1px 0 #b8341f; }
-  .word-chip.used{ opacity:.25; pointer-events:none; box-shadow:none; }
-  .replay-btn{ background:var(--amber); color:#2a1c00; border:none; border-radius:50px; padding:10px 20px; font-size:15px; font-weight:700; cursor:pointer; box-shadow:0 5px 0 #b8790f; margin-top:10px; }
-
-  .feedback-banner{ margin-top:14px; font-weight:800; font-size:19px; min-height:44px; }
-  .feedback-banner .fb-fr{ display:block; font-size:15px; color:var(--violet); font-weight:600; margin-top:2px; }
-  .feedback-banner.good .fb-en{ color:var(--lime); }
-  .feedback-banner.retry .fb-en{ color:var(--coral); }
-
-  .mcq-options{ display:flex; flex-direction:column; gap:12px; max-width:560px; margin:16px auto 0; }
-  .mcq-opt{ font-family:'Inter',sans-serif; font-size:19px; font-weight:600; padding:14px 18px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; text-align:left; transition:transform .08s ease,background .15s ease,border-color .15s ease; width:100%; }
-  .mcq-opt .opt-fr{ display:block; font-size:14px; color:var(--violet); font-weight:600; margin-top:3px; font-style:italic; }
-  .mcq-opt:hover{ transform:translateY(-2px); }
-  .mcq-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .mcq-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .mcq-opt.disabled{ pointer-events:none; opacity:.55; }
-  @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-7px);} 75%{transform:translateX(7px);} }
-
-  .passage-card{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; font-size:20px; line-height:1.6; }
-  .passage-card .ptitle{ font-family:'Poppins',sans-serif; font-weight:800; color:var(--amber); font-size:13px; text-transform:uppercase; letter-spacing:.6px; margin-bottom:10px; }
-
-  .match-round-label{ font-size:14px; color:var(--muted); font-weight:700; margin-bottom:6px; }
-  .match-fr-word{ font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:var(--amber); margin-bottom:16px; }
-  .match-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:560px; margin:0 auto; }
-  @media (max-width:520px){ .match-grid{ grid-template-columns:1fr; } }
-  .match-opt{ font-family:'Inter',sans-serif; font-size:18px; font-weight:600; padding:14px 16px; border-radius:14px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; }
-  .match-opt.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .match-opt.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .match-opt.disabled{ pointer-events:none; opacity:.4; }
-  .match-progress{ display:flex; gap:6px; justify-content:center; margin-bottom:18px; }
-  .match-dot{ width:10px; height:10px; border-radius:50%; background:var(--rim); }
-  .match-dot.done{ background:var(--lime); }
-
-  /* ===== Conversation Wheel ===== */
-  .bridge-line{ background:linear-gradient(135deg, rgba(255,184,48,0.14), rgba(255,90,66,0.08)); border:1px solid rgba(255,184,48,0.4); border-radius:16px; padding:16px 20px; margin:16px 0; text-align:center; }
-  .bridge-line .bridge-icon{ font-size:24px; display:block; margin-bottom:6px; }
-  .bridge-line .bridge-en{ font-size:18px; font-weight:700; color:var(--white); line-height:1.4; }
-  .bridge-line .bridge-fr{ font-size:14px; color:var(--violet); font-style:italic; margin-top:4px; line-height:1.4; }
-  .wheel-frame{ background:var(--deep); border:1px solid var(--rim); border-radius:22px; padding:24px 18px; margin-top:14px; }
-  .wheel-main{ display:flex; flex-direction:column; align-items:center; gap:10px; }
-  @media (min-width:780px){ .wheel-main{ flex-direction:row; align-items:stretch; gap:30px; } }
-  .wheel-left{ display:flex; flex-direction:column; align-items:center; }
-  .wheel-wrap{ position:relative; width:240px; height:240px; max-width:68vw; max-height:68vw; }
-  @media (min-width:780px){ .wheel-wrap{ width:260px; height:260px; max-width:none; max-height:none; } }
-  .wheel-pointer{ position:absolute; top:-4px; left:50%; transform:translateX(-50%); z-index:5; width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent; border-top:24px solid var(--amber); filter:drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
-  .wheel-svg{ width:100%; height:100%; border-radius:50%; transition:transform 4.2s cubic-bezier(.15,.9,.25,1); filter:drop-shadow(0 10px 22px rgba(0,0,0,0.4)); }
-  .wheel-hub{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:4; width:86px; height:86px; border-radius:50%; background:var(--ink); border:3px solid var(--amber); color:var(--amber); cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; box-shadow:0 6px 14px rgba(0,0,0,0.5); transition:transform .15s ease; }
-  .wheel-hub:hover{ transform:translate(-50%,-50%) scale(1.05); }
-  .wheel-hub:active{ transform:translate(-50%,-50%) scale(.96); }
-  .wheel-hub:disabled{ cursor:default; opacity:.85; }
-  .wheel-hub .word{ font-weight:800; font-size:13px; letter-spacing:.1em; }
-  .wheel-hub .spin-ico{ font-size:14px; margin-bottom:1px; }
-  .wheel-hint{ color:var(--muted); font-size:12px; margin:10px 0 4px; text-align:center; }
-  .wheel-legend{ display:flex; flex-wrap:wrap; gap:6px; justify-content:center; padding:2px 0 4px; max-width:320px; }
-  .wchip{ border:none; cursor:pointer; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:11px; padding:5px 10px; border-radius:999px; display:inline-flex; align-items:center; gap:5px; opacity:.9; }
-  .wchip:hover{ opacity:1; }
-  .wchip:disabled{ cursor:default; opacity:.5; }
-  .wheel-right{ width:100%; display:flex; flex-direction:column; justify-content:center; }
-  .wpanel{ background:var(--card); border:1px solid var(--rim); border-radius:16px; padding:22px 20px; text-align:center; min-height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; opacity:0; transform:translateY(6px); transition:opacity .4s ease, transform .4s ease; }
-  .wpanel.show{ opacity:1; transform:none; }
-  @media (min-width:780px){ .wpanel{ min-height:230px; padding:26px 24px; } }
-  .wcat-chip{ font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#fff; padding:5px 12px; border-radius:999px; }
-  .wq{ font-family:'Poppins',sans-serif; font-weight:700; font-size:clamp(19px,2.2vw,26px); line-height:1.3; color:var(--white); }
-  .wqf{ font-family:'Inter',sans-serif; font-style:italic; font-weight:500; font-size:clamp(14px,1.6vw,17px); line-height:1.3; color:var(--violet); }
-  .wplaceholder{ color:var(--muted); font-size:14px; font-style:italic; }
-  .wpush-toggle{ background:none; border:none; color:var(--teal); font-weight:700; font-size:13px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
-  .wpush{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:10px; padding:10px 14px; max-width:440px; }
-  .wpush.show{ display:block; }
-  .wpush .lbl{ font-weight:800; font-size:9px; letter-spacing:.12px; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:3px; }
-  .wpush .txt{ font-size:14.5px; color:var(--white); font-weight:600; }
-  .wpush .txt-fr{ display:block; font-style:italic; font-weight:600; font-size:13px; color:var(--violet); margin-top:6px; }
-  .wactions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
-  .wbtn{ font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; padding:10px 18px; border-radius:10px; cursor:pointer; border:2px solid transparent; }
-  .wbtn-primary{ background:var(--amber); color:#2a1c00; }
-  .wbtn-ghost{ background:transparent; color:var(--white); border-color:var(--rim); }
-  .wbtn:disabled{ opacity:.5; cursor:default; }
-  .wspin-count{ font-size:13px; color:var(--muted); margin-top:8px; text-align:center; }
-
-  /* ===== Celebration slide ===== */
-  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0; }
-  @media (max-width:680px){ .stat-grid{ grid-template-columns:1fr; } }
-  .stat-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px; text-align:center; }
-  .stat-num{ font-family:'Poppins',sans-serif; font-weight:900; font-size:34px; color:var(--amber); }
-  .stat-lbl{ font-size:13px; color:var(--muted); font-weight:700; margin-top:2px; }
-  .stat-lbl-fr{ font-size:12px; color:var(--violet); font-style:italic; }
-  .celebrate-btn{ display:block; margin:24px auto 4px; font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; padding:16px 38px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--coral),var(--amber)); color:#2a1c00; box-shadow:0 8px 22px rgba(255,90,66,0.35); transition:transform .1s ease; }
-  .celebrate-btn:active{ transform:translateY(3px) scale(.98); }
-  .celebrate-btn:disabled{ opacity:.5; cursor:default; }
-  .badge-reveal{ text-align:center; margin-top:18px; opacity:0; transform:scale(.7); transition:all .5s cubic-bezier(.34,1.56,.64,1); }
-  .badge-reveal.show{ opacity:1; transform:scale(1); }
-  .badge-reveal .badge-emoji{ font-size:90px; display:block; }
-  .badge-reveal .badge-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--amber); margin-top:6px; }
-  .confetti-piece{ position:fixed; top:-20px; z-index:200; pointer-events:none; font-size:22px; animation:confettiFall linear forwards; }
-  @keyframes confettiFall{ to{ transform:translateY(105vh) rotate(400deg); opacity:0.2; } }
-
-
-  /* ===== Skill teaching box ===== */
-  .skill-box{ background:var(--deep); border:1px solid var(--rim); border-radius:18px; padding:22px 24px; margin:18px 0; }
-  .skill-table{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
-  .skill-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; background:var(--card); border:1px solid var(--rim); border-radius:12px; padding:12px 16px; align-items:center; }
-  @media (max-width:680px){ .skill-row{ grid-template-columns:1fr; } }
-  .skill-en{ font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; color:var(--white); }
-  .skill-en .sample{ display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:14px; color:var(--teal); margin-top:3px; font-style:italic; }
-  .skill-fr{ font-size:14px; color:var(--violet); font-style:italic; line-height:1.4; }
-  .skill-tryit{ margin-top:14px; font-size:14px; color:var(--muted); text-align:center; font-style:italic; }
-
-  /* ===== Speaking task (the real climax) ===== */
-  .speak-card{ background:linear-gradient(135deg, rgba(15,212,184,0.10), rgba(164,122,255,0.08)); border:2px solid rgba(15,212,184,0.35); border-radius:20px; padding:28px 26px; margin:18px 0; }
-  .speak-card .speak-icon{ font-size:40px; display:block; margin-bottom:10px; text-align:center; }
-  .speak-card .bi-en, .speak-card .bi-fr{ background:transparent; border:none; padding:0; text-align:center; }
-  .speak-card .bi-en{ font-size:21px; font-weight:600; }
-  .nudge-toggle{ display:block; margin:16px auto 0; background:none; border:none; color:var(--teal); font-weight:700; font-size:14px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
-  .nudge-box{ display:none; background:var(--deep); border:1px dashed var(--amber); border-radius:12px; padding:14px 18px; margin-top:14px; }
-  .nudge-box.show{ display:block; }
-  .nudge-box .starter{ font-family:'Poppins',sans-serif; font-weight:700; color:var(--amber); font-size:15px; margin:4px 0; }
-  .done-talking-btn{ display:block; margin:20px auto 0; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; padding:13px 30px; border-radius:50px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--teal),#0aa88f); color:#00251f; }
-  .done-talking-btn:disabled{ opacity:.5; cursor:default; }
-  .talk-confirm{ text-align:center; margin-top:16px; font-weight:700; color:var(--lime); display:none; }
-  .talk-confirm.show{ display:block; }
-
-  /* ===== Bonus wheel framing ===== */
-  .bonus-frame{ text-align:center; margin-bottom:6px; }
-  .bonus-frame .bi-en, .bonus-frame .bi-fr{ background:transparent; border:none; padding:0 0 4px; text-align:center; }
-
-  /* ===== True/False quick response ===== */
-  .tf-row{ display:flex; gap:16px; justify-content:center; max-width:480px; margin:18px auto 0; }
-  .tf-btn{ flex:1; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; padding:20px 14px; border-radius:16px; border:2px solid var(--rim); background:var(--deep); color:var(--white); cursor:pointer; transition:transform .08s ease,background .15s ease,border-color .15s ease; }
-  .tf-btn:hover{ transform:translateY(-2px); }
-  .tf-btn.correct{ background:rgba(62,232,138,0.14); border-color:var(--lime); }
-  .tf-btn.incorrect{ background:rgba(255,90,66,0.14); border-color:var(--coral); animation:shake .4s ease; }
-  .tf-btn.disabled{ pointer-events:none; opacity:.55; }
-
-  /* ===== Two-column compare cards ===== */
-  .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0; }
-  @media (max-width:600px){ .compare-grid{ grid-template-columns:1fr; } }
-  .compare-card{ background:var(--deep); border:1px solid var(--rim); border-radius:16px; padding:18px 16px; }
-  .compare-card .cc-title{ font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--amber); margin-bottom:10px; text-align:center; }
-  .compare-card ul{ margin:0; padding-left:18px; font-size:15px; line-height:1.7; color:var(--white); }
-
-  footer.credit{ text-align:center; margin-top:24px; font-size:12px; color:var(--muted); }
+:root{
+  --sun:#F4B400; --sun-deep:#A6821B;
+  --sky:#0F8B8D; --sky-deep:#0A5F60;
+  --coral:#E8573C; --coral-deep:#8E1B20;
+  --leaf:#4A9C5D; --leaf-deep:#2F5233;
+  --grape:#7c3aed; --pink:#E85D9A; --orange:#F28C28;
+  --cream:#fff8ea; --ink:#25324a;
+  --good:#22c55e; --bad:#ef4444;
+  --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  --accent:#0F8B8D; --accent-deep:#0A5F60;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Quicksand',Arial,sans-serif;font-size:20px;line-height:1.5;color:var(--ink);
+  background:radial-gradient(circle at 6% 10%,rgba(242,140,40,.20) 0,transparent 40%),radial-gradient(circle at 94% 85%,rgba(124,58,237,.14) 0,transparent 42%),linear-gradient(180deg,#fff4e3 0%,#fff 100%);min-height:100vh;overflow-x:hidden}
+.kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px}
+.kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px}
+.kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1}
+.kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700}
+.kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+.kce-band{height:3px;display:flex}.kce-band i{flex:1}.kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+.stage{max-width:1180px;margin:0 auto;padding:18px 20px 40px}
+.hud{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--accent);border-radius:22px;padding:10px 18px;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.hud-brand{font-family:'Caprasimo',Georgia,serif;font-size:21px;color:var(--accent-deep)}
+.hud-stat{font-weight:700;font-size:18px;background:var(--cream);padding:6px 14px;border-radius:12px;border:2px solid var(--sun);color:#8a5a00}
+.hud-spacer{flex:1}
+.pill{border:none;border-radius:50px;padding:8px 16px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:13px;cursor:pointer}
+.pill.fr-toggle{background:#ede9fe;color:var(--grape)}
+.pill.star-btn{background:var(--sun);color:var(--kce-navy)}
+.namedate{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;font-family:Arial,sans-serif;font-size:15px;color:var(--kce-navy);background:#fff;border:2px dashed var(--kce-gold);border-radius:12px;padding:8px 16px}
+.namedate b{font-family:Georgia,serif}
+.progress{height:10px;background:#eee;border-radius:99px;margin-top:10px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--pink),var(--grape));transition:width .5s}
+.slide{display:none;background:#fff;border:3px solid var(--accent);border-radius:26px;padding:24px 28px;margin-top:14px;box-shadow:0 12px 34px rgba(0,0,0,.07);animation:slideIn .45s ease;position:relative}
+.slide.active{display:block}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.slide-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.slide-count{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:#7a869a;text-transform:uppercase;letter-spacing:1px}
+.minutes{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;background:#e0f2f1;color:var(--sky-deep);padding:4px 12px;border-radius:99px}
+.slide-title{font-family:'Caprasimo',Georgia,serif;font-size:36px;color:var(--accent-deep);text-align:center;line-height:1.15}
+.slide-sub{text-align:center;font-size:19px;color:#4b5563;margin-top:4px}
+.fr{color:#7c5cc4;font-style:italic;font-weight:500;font-size:.78em;display:block;margin-top:3px;line-height:1.35}
+body.hide-fr .fr{display:none!important}
+.goal{margin:18px auto 0;max-width:760px;background:linear-gradient(135deg,#fff3d6,#ffe4ef);border:3px solid var(--sun);border-radius:20px;padding:18px 22px;text-align:center}
+.goal .big{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--coral-deep)}
+.emoji-row{font-size:54px;text-align:center;margin:14px 0 4px;letter-spacing:8px}
+.how{max-width:760px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.how div{background:var(--cream);border-radius:16px;padding:12px 14px;font-size:17px;text-align:center;border:2px solid #f3dfb5}
+/* chat */
+.chat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:16px}
+.chat-card{border:3px solid var(--sky);border-radius:18px;padding:14px 16px;background:#f3fbfb;cursor:pointer;transition:transform .15s}
+.chat-card:hover{transform:translateY(-2px)}
+.chat-card h4{font-family:'Caprasimo',Georgia,serif;font-size:22px;color:var(--sky-deep);font-weight:400}
+.starters{display:none;margin-top:10px;gap:8px;flex-direction:column}
+.chat-card.open .starters{display:flex}
+.starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:8px 12px;font-weight:700;font-size:17px}
+.starter .fr{font-weight:500}
+.askback{display:inline-block;margin-top:8px;background:var(--sun);color:var(--kce-navy);font-weight:800;font-size:14px;padding:5px 12px;border-radius:99px;font-family:'Poppins',Arial,sans-serif}
+.tap-hint{font-size:14px;color:#7a869a;margin-top:6px}
+/* vocab */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:16px}
+.vcard{perspective:800px;height:170px;cursor:pointer}
+.vinner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.vcard.flip .vinner{transform:rotateY(180deg)}
+.vface{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center}
+.vfront{border:3px solid var(--orange);background:#fff7ed}
+.vfront .em{font-size:56px;line-height:1.1}
+.vfront .w{font-weight:800;font-size:19px;margin-top:6px}
+.vback{transform:rotateY(180deg);background:linear-gradient(135deg,#ede9fe,#fce7f3);border:3px solid var(--grape);font-size:16px}
+.vback .ex{font-weight:700;color:var(--ink)}
+/* wheel */
+.wheel-wrap{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:4px;padding:12px 4px 8px;overflow:hidden}
+.wheel-box{position:relative;width:420px;height:420px;max-width:90vw;max-height:90vw}
+.wheel-box canvas{width:100%;height:100%;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform 4.2s cubic-bezier(.12,.8,.2,1)}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-top:38px solid var(--kce-navy);z-index:2;filter:drop-shadow(0 3px 2px rgba(0,0,0,.3))}
+.hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:#fff;border:5px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;font-size:30px;z-index:2}
+.wheel-q{flex:1;min-width:min(300px,100%);max-width:520px;background:linear-gradient(135deg,#fff3d6,#e0f2fe);border:3px solid var(--sun);border-radius:22px;padding:22px;text-align:center;min-height:200px;display:flex;flex-direction:column;justify-content:center}
+.wheel-q .q{font-family:'Caprasimo',Georgia,serif;font-size:27px;color:var(--kce-navy);line-height:1.25}
+.wheel-q .st{margin-top:10px;font-size:17px;font-weight:700;color:var(--sky-deep)}
+.big-btn{display:inline-block;border:none;border-radius:16px;padding:14px 28px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:18px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--orange),var(--coral));box-shadow:0 6px 16px rgba(232,87,60,.35)}
+.big-btn:disabled{opacity:.5;cursor:default}
+.center{text-align:center;margin-top:14px}
+/* builder */
+.builder-pic{font-size:64px;text-align:center;margin-top:10px}
+.builder-prompt{text-align:center;font-weight:700;font-size:19px}
+.answer-line{min-height:70px;border:3px dashed var(--grape);border-radius:16px;margin:14px 0;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:#faf5ff}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tile{border:3px solid var(--sky);background:#fff;border-radius:12px;padding:8px 14px;font-weight:800;font-size:20px;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.tile.used{visibility:hidden}
+.answer-line .tile{border-color:var(--grape);background:#fff}
+.row-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.sm-btn{border:none;border-radius:12px;padding:10px 18px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:15px;cursor:pointer;background:#e5e7eb;color:var(--ink)}
+.sm-btn.go{background:var(--leaf);color:#fff}
+.feedback{text-align:center;font-weight:800;font-size:19px;min-height:30px;margin-top:10px}
+.feedback.ok{color:#15803d}.feedback.no{color:#b91c1c}
+.round-tag{text-align:center;font-family:'Poppins',Arial,sans-serif;font-weight:700;color:#7a869a;font-size:14px;margin-top:6px}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+/* mcq */
+.mcq-scene{font-size:62px;text-align:center;margin-top:8px}
+.mcq-q{font-family:'Caprasimo',Georgia,serif;font-size:25px;color:var(--kce-navy);text-align:center;margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{border:3px solid var(--sky);background:#fff;border-radius:16px;padding:14px 16px;font-size:19px;font-weight:700;cursor:pointer;text-align:left;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.opt.right{background:#dcfce7;border-color:var(--good)}
+.opt.wrong{background:#fee2e2;border-color:var(--bad)}
+.explain{margin-top:12px;background:var(--cream);border-left:6px solid var(--sun);border-radius:12px;padding:12px 16px;font-size:18px;display:none}
+.explain.show{display:block}
+/* this or that */
+.tot-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:14px}
+.tot{border:3px solid var(--pink);background:#fff0f6;border-radius:20px;padding:18px;text-align:center;cursor:pointer;font-weight:800;font-size:20px;transition:transform .15s}
+.tot .em{font-size:52px;display:block}
+.tot.pick{background:var(--pink);color:#fff;transform:scale(1.04)}
+.tot.pick .fr{color:#fff}
+.vs{font-family:'Caprasimo',Georgia,serif;font-size:30px;color:var(--grape)}
+.say-box{margin-top:14px;text-align:center;background:#ecfeff;border:2px solid var(--sky);border-radius:14px;padding:12px;font-weight:700;font-size:19px}
+/* memory */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;max-width:760px;margin-left:auto;margin-right:auto}
+.mem{height:110px;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.12);padding:6px;user-select:none}
+.mem .face{display:none}
+.mem.open,.mem.done{background:#fff;color:var(--ink);border-color:var(--sky)}
+.mem.open .face,.mem.done .face{display:block}
+.mem.open .back,.mem.done .back{display:none}
+.mem.done{border-color:var(--good);background:#dcfce7}
+.mem .face.e{font-size:46px}
+/* true or silly */
+.tos-card{max-width:760px;margin:16px auto 0;background:linear-gradient(135deg,#fff7ed,#fef3c7);border:3px solid var(--orange);border-radius:22px;padding:22px;text-align:center}
+.tos-card .em{font-size:56px}
+.tos-card .st{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--kce-navy);margin-top:6px}
+.tos-btns{display:flex;gap:14px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.tos-btns button{min-width:170px}
+.btn-true{background:linear-gradient(135deg,#22c55e,#15803d)!important}
+.btn-silly{background:linear-gradient(135deg,#a855f7,#7c3aed)!important}
+/* sort */
+.sort-item{max-width:760px;margin:14px auto 0;background:#fff;border:3px solid var(--kce-navy);border-radius:18px;padding:16px;text-align:center;font-weight:800;font-size:22px}
+.buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.bucket{border-radius:18px;padding:14px;text-align:center;cursor:pointer;color:#fff;font-weight:800;font-size:19px;border:none;font-family:'Quicksand',Arial,sans-serif}
+.bucket small{display:block;font-weight:600;font-size:14px;opacity:.95;margin-top:4px}
+.bucket .cnt{display:block;font-size:14px;margin-top:6px;background:rgba(255,255,255,.25);border-radius:8px;padding:2px}
+.rule-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.rule{border-radius:16px;padding:12px 14px;color:#fff;font-size:17px}
+.rule b{font-size:20px;display:block}
+/* day plan */
+.plan-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.plan-col{border:3px solid var(--sun);border-radius:18px;padding:12px;background:#fffbeb}
+.plan-col h4{font-family:'Caprasimo',Georgia,serif;font-weight:400;font-size:21px;color:var(--sun-deep);text-align:center;margin-bottom:8px}
+.chip{display:block;width:100%;text-align:left;border:2px solid #f3dfb5;background:#fff;border-radius:12px;padding:8px 12px;margin-bottom:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.chip.sel{background:var(--sun);border-color:var(--sun-deep)}
+.story{margin-top:16px;background:linear-gradient(135deg,#e0f2fe,#ede9fe);border:3px solid var(--grape);border-radius:20px;padding:18px 22px;font-size:21px;font-weight:700;line-height:1.6;display:none}
+.story.show{display:block}
+.story .conn{color:var(--coral-deep)}
+/* talk */
+.check-list{max-width:760px;margin:16px auto 0;display:flex;flex-direction:column;gap:10px}
+.check{display:flex;align-items:center;gap:14px;border:3px solid var(--leaf);border-radius:16px;padding:12px 16px;background:#f0fdf4;cursor:pointer;font-weight:700;font-size:19px}
+.check .box{width:34px;height:34px;flex:none;border-radius:10px;border:3px solid var(--leaf);display:flex;align-items:center;justify-content:center;font-size:22px;background:#fff}
+.check.done{background:#bbf7d0}
+/* 2 truths */
+.ttl-list{max-width:760px;margin:14px auto 0;display:flex;flex-direction:column;gap:10px}
+/* victory */
+.victory{text-align:center;padding:10px}
+.medal{font-size:110px;line-height:1.1;margin-top:8px}
+.victory .score{font-family:'Caprasimo',Georgia,serif;font-size:34px;color:var(--accent-deep);margin-top:6px}
+.tiers{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.tiers div{background:var(--cream);border-radius:14px;padding:8px 14px;font-weight:700;font-size:16px;border:2px solid #f3dfb5}
+.tiers div.on{background:var(--sun);border-color:var(--sun-deep)}
+/* tutor */
+details.tutor{margin-top:18px;background:#f1f5f9;border-radius:12px;padding:8px 14px;font-size:15px;font-family:Arial,sans-serif;color:#334155}
+details.tutor summary{cursor:pointer;font-weight:700;color:var(--kce-navy)}
+details.tutor p{margin-top:6px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+.nav-btn{background:linear-gradient(135deg,var(--accent),var(--accent-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',Arial,sans-serif;font-size:16px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px}
+.nav-btn:disabled{opacity:.35;cursor:default}
+.nav-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.nav-dots button{width:14px;height:14px;border-radius:50%;border:none;background:#d1d5db;cursor:pointer;padding:0}
+.nav-dots button.on{background:var(--accent)}
+footer{margin-top:22px;text-align:center;font-family:Arial,sans-serif;font-size:12px;color:#64748b;line-height:1.6}
+footer .prov{color:var(--kce-navy);font-weight:700}
+.toast{position:fixed;left:50%;top:22px;transform:translateX(-50%) translateY(-120px);background:var(--kce-navy);color:#fff;padding:12px 22px;border-radius:14px;font-weight:800;font-size:19px;z-index:50;transition:transform .35s;font-family:'Poppins',Arial,sans-serif}
+.toast.show{transform:translateX(-50%) translateY(0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+@media(max-width:700px){.slide{padding:18px 14px}.wheel-q .q{font-size:22px}.slide-title{font-size:28px}.tot-row{grid-template-columns:1fr}.vs{text-align:center}.mem-grid{grid-template-columns:repeat(3,1fr)}.wheel-box{width:320px;height:320px}}
 </style>
 </head>
-<body class="notranslate" translate="no">
-
-<div class="hud">
-  <div class="hud-pill" id="progPill"><span>📍</span><span id="progText">1 / 11</span></div>
-  <div style="display:flex; gap:10px; align-items:center;">
-    <div class="hud-pill xp-pill"><span>⭐</span><span id="xpCount">0</span> XP</div>
+<body class="notranslate " translate="no">
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
+<div class="kce-mast">
+  <div class="kce-mono">KC</div>
+  <div>
+    <div class="kce-word">KingCretot Experience</div>
+    <div class="kce-tag">EDUCATE. <span class="g">EMPOWER.</span> <span class="r">EXCEL.</span></div>
   </div>
 </div>
-<div class="xp-pop" id="xpPop"></div>
-<div class="scroll-cue" id="scrollCue"><span>Scroll for more / Fais defiler</span><span class="arrow">&#8595;</span></div>
+<div class="kce-band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
 
-<div class="slide-viewport" id="slideViewport">
-
-<!-- SLIDE 0: HERO -->
-<div class="slide active" data-title="What Happens If...">
-  <div class="card" style="text-align:center;">
-    <div class="brandbar" style="justify-content:center;"><span class="dot"></span> KingCretot Experience</div>
-    <span class="hero-emoji">⚽</span>
-    <h1>Season One, Episode Five:<br><span class="accent">What Happens If...</span></h1>
-    <div class="hero-sub-en">Today you'll learn to talk about real things that might happen — and what you'll do either way.</div>
-    <div class="hero-sub-fr">Aujourd'hui, tu vas apprendre à parler de choses réelles qui pourraient arriver — et de ce que tu feras, dans un cas comme dans l'autre.</div>
-    <div class="bi-cols" style="margin-top:24px; text-align:left;">
-      <div class="bi-en">Today's guest has a real decision coming up next week, and he's already thought through both outcomes.</div>
-      <div class="bi-fr">L'invité d'aujourd'hui a une vraie décision qui arrive la semaine prochaine, et il a déjà réfléchi aux deux issues possibles.</div>
-    </div>
+<div class="stage">
+  <div class="hud">
+    <div class="hud-brand" id="hudBrand"></div>
+    <div class="hud-stat">⭐ <span id="stars">0</span> stars</div>
+    <div class="hud-spacer"></div>
+    <button class="pill star-btn" id="starBtn" title="Tutor: tap for every full English sentence">+1 ⭐ Full sentence</button>
+    <button class="pill fr-toggle" id="frBtn">FR: ON</button>
   </div>
-</div>
+  <div class="namedate"><span><b>Name:</b> <span id="stuName"></span></span><span><b>Date:</b> <span id="today"></span></span><span><b>Lesson:</b> <span id="lessonName"></span></span></div>
+  <div class="progress"><i id="prog"></i></div>
 
-<!-- SLIDE 1: THE SKILL -->
-<div class="slide" data-title="The Skill">
-  <div class="card">
-    <span class="badge-tag">Today's Skill · La compétence du jour</span>
-    <h2>🎯 Real Possibilities: If... Will...</h2>
-    <div class="bi-cols">
-      <div class="bi-en">The most common mistake: putting "will" in BOTH halves. Only one half gets "will" — never both.</div>
-      <div class="bi-fr">L'erreur la plus fréquente : mettre « will » dans les DEUX moitiés. Une seule moitié reçoit « will » — jamais les deux.</div>
-    </div>
-    <div class="skill-box">
-      <div class="skill-table">
-        <div class="skill-row">
-          <div class="skill-en">The pattern<span class="sample">If + present tense, ... will + base verb</span></div>
-          <div class="skill-fr">If + présent, ... will + verbe de base.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">Example<span class="sample">"If I make the team, I will practice more."</span></div>
-          <div class="skill-fr">« If » n'a jamais « will » avec lui.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">You can flip the order<span class="sample">"I will practice more if I make the team."</span></div>
-          <div class="skill-fr">On peut inverser l'ordre — même sens.</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-en">"If" vs. "When"<span class="sample">If = not sure. When = sure it happens.</span></div>
-          <div class="skill-fr">If = pas sûr. When = sûr que ça arrive.</div>
-        </div>
-      </div>
-      <div class="skill-tryit">You'll use these for real with me in a few minutes. / Tu vas les utiliser pour de vrai avec moi dans quelques minutes.</div>
-    </div>
-    <div class="vocab-grid" id="vocabGrid"></div>
-    <p style="font-size:15px; color:var(--muted); margin-top:8px;" id="vocabHint">Flip at least 5 cards to unlock Next. / Retourne au moins 5 cartes pour débloquer Suivant.</p>
+  <div id="slides"></div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn">◀ Back</button>
+    <div class="nav-dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▶</button>
   </div>
-</div>
 
-<!-- SLIDE 2: QUICK PRACTICE — MCQ MODE -->
-<div class="slide" data-title="Quick Practice">
-  <div class="card">
-    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
-    <h2>🎯 Find the Mistake</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Which sentence correctly uses "will" only once?</div>
-      <div class="bi-fr">Quelle phrase utilise « will » une seule fois, correctement ?</div>
-    </div>
-    <div class="mcq-options" data-gid="qp1">
-      <button class="mcq-opt" data-ans="A">A) If I will practice hard, I will make the team.<span class="opt-fr">Si je m'entraîne dur, j'entrerai dans l'équipe.</span></button>
-      <button class="mcq-opt" data-ans="B">B) If I practice hard, I will make the team.<span class="opt-fr">Si je m'entraîne dur, j'entrerai dans l'équipe.</span></button>
-      <button class="mcq-opt" data-ans="C">C) If I practiced hard, I will make the team.<span class="opt-fr">Si je m'entraîne dur, j'entrerai dans l'équipe.</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedbackQP1"></div>
-  </div>
-</div>
-
-<!-- SLIDE 3: QUICK PRACTICE 2 — SENTENCE BUILDER MODE -->
-<div class="slide" data-title="Build the Sentence">
-  <div class="card">
-    <span class="badge-tag">Quick Practice · Entraînement rapide</span>
-    <h2>🧩 Build the Sentence</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Tap the pieces in order to build a correct real-possibility sentence.</div>
-      <div class="bi-fr">Touche les pièces dans l'ordre pour construire une phrase de possibilité réelle correcte.</div>
-    </div>
-    <div class="word-bank-wrap">
-      <div class="sentence-slot" id="sentenceSlot"></div>
-      <div class="word-bank" id="wordBank"></div>
-    </div>
-    <div class="feedback-banner" id="phraseFeedback"></div>
-  </div>
-</div>
-
-<!-- SLIDE 4: GUEST BIO — READING ONLY -->
-<div class="slide" data-title="Guest Bio">
-  <div class="card">
-    <span class="badge-tag">Meet the Guest · Rencontre avec l'invité</span>
-    <h2>📋 Meet Today's Guest</h2>
-    <div class="bi-cols">
-      <div class="bi-en">Read carefully — notice how Diego has a plan for BOTH possible outcomes.</div>
-      <div class="bi-fr">Lis attentivement — remarque comment Diego a un plan pour LES DEUX issues possibles.</div>
-    </div>
-    <div class="passage-card">
-      <div class="ptitle">Guest Bio · Fiche invité</div>
-      <p>Meet today's guest: Diego Fernández, 15, from Buenos Aires. Next week, Diego has a tryout for a competitive soccer academy — the kind that sometimes sends players to professional clubs. He's nervous, but he has a plan either way. If he makes the team, he'll practice five days a week instead of three, and he's already talked to his parents about the schedule. If he doesn't make it this time, he says he'll try again next year, because his coach told him players rarely make it on the first try. His older sister keeps telling him not to get his hopes up, but Diego says that if he doesn't stay confident, he won't play his best on the day that matters. Whatever happens, one thing depends only on him: how hard he trains between now and then.</p>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 5: COMPREHENSION CHECK -->
-<div class="slide" data-title="What Did You Catch?">
-  <div class="card">
-    <span class="badge-tag">Precision Check · Vérification précise</span>
-    <h2>🧠 What Did You Catch?</h2>
-    <div class="bi-cols">
-      <div class="bi-en">These questions ask you to figure things out, not just find a matching sentence.</div>
-      <div class="bi-fr">Ces questions te demandent de comprendre, pas juste de retrouver une phrase identique.</div>
-    </div>
-    <div class="bi-en" style="margin-bottom:6px;">What will Diego do if he makes the academy team?</div>
-    <div class="bi-fr" style="margin-bottom:6px;">Que fera Diego s'il est pris dans l'équipe de l'académie ?</div>
-    <div class="mcq-options" data-gid="r1">
-      <button class="mcq-opt" data-ans="A">A) Practice five days a week instead of three<span class="opt-fr">S'entraîner cinq jours au lieu de trois</span></button>
-      <button class="mcq-opt" data-ans="B">B) Stop playing other sports at school<span class="opt-fr">Arrêter les autres sports à l'école</span></button>
-      <button class="mcq-opt" data-ans="C">C) Move to a different city<span class="opt-fr">Déménager dans une autre ville</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedbackR1"></div>
-
-    <div style="margin-top:24px;">
-      <div class="bi-en" style="margin-bottom:6px;">Why is Diego not too worried about failing this time?</div>
-      <div class="bi-fr" style="margin-bottom:6px;">Pourquoi Diego n'est-il pas trop inquiet à l'idée d'échouer cette fois ?</div>
-    </div>
-    <div class="mcq-options" data-gid="r2">
-      <button class="mcq-opt" data-ans="A">A) His parents already accepted it<span class="opt-fr">Ses parents l'ont déjà accepté</span></button>
-      <button class="mcq-opt" data-ans="B">B) The academy guarantees a spot next year<span class="opt-fr">L'académie garantit une place l'an prochain</span></button>
-      <button class="mcq-opt" data-ans="C">C) His coach said players rarely make it on the first try<span class="opt-fr">Son coach a dit que les joueurs réussissent rarement du premier coup</span></button>
-    </div>
-    <div class="feedback-banner" id="mcqFeedbackR2"></div>
-  </div>
-</div>
-
-<!-- SLIDE 6: APPLY IT — TRUE/FALSE MODE -->
-<div class="slide" data-title="True or False?">
-  <div class="card" style="text-align:center;">
-    <span class="badge-tag">Apply It · Mets-le en pratique</span>
-    <h2>✅❌ True or False?</h2>
-    <div class="bi-cols" style="text-align:left;">
-      <div class="bi-en">This tests the grammar rule itself — not the guest bio.</div>
-      <div class="bi-fr">Ceci teste la règle de grammaire elle-même — pas la fiche invité.</div>
-    </div>
-    <div class="passage-card" style="font-style:italic;">
-      "If I will make the team, I will practice harder." — Is this correct English?
-    </div>
-    <div class="tf-row">
-      <button class="tf-btn" id="tfTrue" data-ans="true">✅ True / Vrai</button>
-      <button class="tf-btn" id="tfFalse" data-ans="false">❌ False / Faux</button>
-    </div>
-    <div class="feedback-banner" id="tfFeedback"></div>
-  </div>
-</div>
-
-<!-- SLIDE 7: YOUR TURN — SPEAKING TASK -->
-<div class="slide" data-title="Your Turn">
-  <div class="card">
-    <span class="badge-tag">The Real Work · Le vrai travail</span>
-    <h2>🎤 Your Turn — Live</h2>
-    <div class="speak-card">
-      <span class="speak-icon">💬</span>
-      <div class="bi-en">Tell me about something real that might happen soon for you — and what you'll do either way. Use "If I..., I will..."</div>
-      <div class="bi-fr">Dis-moi quelque chose de réel qui pourrait t'arriver bientôt — et ce que tu feras dans les deux cas. Utilise « If I..., I will... »</div>
-      <button class="nudge-toggle" id="nudgeToggle">Need a nudge? / Besoin d'un coup de pouce ?</button>
-      <div class="nudge-box" id="nudgeBox">
-        <div class="starter">"If I..., I will..."</div>
-        <div class="starter">"I will... if I..."</div>
-      </div>
-      <button class="done-talking-btn" id="doneTalkingBtn">✅ We talked it through</button>
-      <div class="talk-confirm" id="talkConfirm">Nice work. That's the real lesson — you just did it. 🌟</div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 8: DEBRIEF -->
-<div class="slide" data-title="Debrief">
-  <div class="card">
-    <span class="badge-tag">Reflect · Réflexion</span>
-    <h2>💭 Quick Debrief</h2>
-    <div class="speak-card">
-      <span class="speak-icon">🌟</span>
-      <div class="bi-en">Which was easier to think of — the "if" part or the "will" part? What real possibility did you talk about?</div>
-      <div class="bi-fr">Qu'est-ce qui était plus facile à trouver — la partie « if » ou la partie « will » ? Quelle possibilité réelle as-tu évoquée ?</div>
-      <button class="nudge-toggle" id="nudgeToggle2">Need a nudge? / Besoin d'un coup de pouce ?</button>
-      <div class="nudge-box" id="nudgeBox2">
-        <div class="starter">"The 'if' part was easier because..."</div>
-        <div class="starter">"I talked about..."</div>
-      </div>
-      <button class="done-talking-btn" id="doneTalkingBtn2">✅ We talked it through</button>
-      <div class="talk-confirm" id="talkConfirm2">Good noticing that — that awareness is how you get better. 🌟</div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 9: BONUS ROUND (OPTIONAL WHEEL) -->
-<div class="slide" data-title="Bonus Round">
-  <div class="card">
-    <span class="badge-tag" style="background:rgba(255,184,48,0.14); color:var(--amber); border-color:rgba(255,184,48,0.3);">Optional · Facultatif</span>
-    <h2>🎡 Bonus Round — Only If We Have Time</h2>
-    <div class="bonus-frame">
-      <div class="bi-en">This part is completely optional. If we finish early or you want to keep talking about something new, spin the wheel and pick a topic. If not — no problem, the real work for today is already done.</div>
-      <div class="bi-fr">Cette partie est totalement facultative. Si on a fini en avance ou si tu veux continuer sur un autre sujet, fais tourner la roue. Sinon, pas de souci — le vrai travail d'aujourd'hui est déjà fait.</div>
-    </div>
-    <div class="wheel-frame">
-      <div class="wheel-main">
-        <div class="wheel-left">
-          <div class="wheel-wrap">
-            <div class="wheel-pointer"></div>
-            <svg class="wheel-svg" id="wheel" viewBox="0 0 300 300" aria-hidden="true"></svg>
-            <button class="wheel-hub" id="whub" aria-label="Spin the wheel">
-              <span class="spin-ico">↻</span><span class="word">SPIN</span>
-            </button>
-          </div>
-          <div class="wheel-hint" id="whint">Tap SPIN if you want to / Touche SPIN si tu veux</div>
-          <div class="wheel-legend" id="wlegend"></div>
-        </div>
-        <div class="wheel-right">
-          <div class="wpanel" id="wpanel">
-            <div class="wplaceholder" id="wplaceholder">Totally optional — spin only if there's time left. / Facultatif — fais tourner seulement s'il reste du temps.</div>
-          </div>
-          <div class="wactions" id="wactions" style="display:none">
-            <button class="wbtn wbtn-ghost" id="wagainBtn">Another in this topic</button>
-            <button class="wbtn wbtn-primary" id="wspinBtn">Spin again</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 10: CELEBRATION -->
-<div class="slide" data-title="Great Fifth Episode">
-  <div class="card" style="text-align:center;">
-    <span class="badge-tag">Episode Wrap · Fin de l'épisode</span>
-    <h1>Great fifth episode, <span class="accent">Berenice!</span></h1>
-    <div class="bi-cols" style="margin-top:20px; text-align:left;">
-      <div class="bi-en">Look what you actually did today — not just understood, <strong>did</strong>.</div>
-      <div class="bi-fr">Regarde ce que tu as vraiment fait aujourd'hui — pas juste compris, <strong>fait</strong>.</div>
-    </div>
-    <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num" id="statWords">0</div><div class="stat-lbl">Words &amp; chunks learned</div><div class="stat-lbl-fr">Mots et expressions appris</div></div>
-      <div class="stat-card"><div class="stat-num" id="statQuestions">4</div><div class="stat-lbl">Conditional patterns practiced</div><div class="stat-lbl-fr">Modèles conditionnels pratiqués</div></div>
-      <div class="stat-card"><div class="stat-num" id="statSpeak">1</div><div class="stat-lbl">Real possibility, live</div><div class="stat-lbl-fr">Vraie possibilité, en direct</div></div>
-    </div>
-    <button class="celebrate-btn" id="celebrateBtn">🎉 Open Your Episode Badge</button>
-    <div class="badge-reveal" id="badgeReveal">
-      <span class="badge-emoji">🏅</span>
-      <div class="badge-title">Possibility Pro — Episode 5 Complete!</div>
-      <div class="hero-sub-fr" style="margin-top:6px;">Pro des possibilités — Épisode 5 terminé !</div>
-    </div>
-    <p style="margin-top:20px; font-size:17px; color:var(--muted);">See you next episode. 🎬</p>
-  </div>
-</div>
-
-</div>
-
-<div class="nav-row">
-  <button class="nav-btn back" id="backBtn">⬅ Back</button>
-  <span class="progress-label" id="progressLabel">Slide 1 / 11</span>
-  <button class="nav-btn next" id="nextBtn">Next ➡</button>
+  <footer>
+    KingCretot Experience, LLC · PO Box 2322, Arcadia, FL 34265 · kingcretot.com · kce@kingcretot.com<br>
+    <span class="prov">Approved Provider: Step Up For Students · Arizona ESA · West Virginia Hope Scholarship</span>
+  </footer>
 </div>
 
 <script>
-/* ============ CORE NAV / XP ============ */
-const slides = document.querySelectorAll('.slide');
-const total = slides.length;
-let current = 0;
-let xp = 0;
-const locks = {1:false, 2:false, 3:false, 5:false, 6:false};
+const L = {"brand": "Bérénice • Lesson 5", "student": "Bérénice", "lesson": "Lesson 5 — What Happens If…?", "slides": [{"type": "intro", "min": 2, "title": "🎬 Season One, Episode 5: What Happens If…?", "sub": "Today's guest: Diego Fernández, 15, from Buenos Aires. Next week he has a tryout for a competitive soccer academy — and he already has a plan for BOTH outcomes.", "subFr": "L'invité du jour : Diego Fernández, 15 ans, de Buenos Aires. La semaine prochaine, il passe une sélection pour une académie de foot très exigeante — et il a déjà un plan pour LES DEUX issues possibles.", "emojis": "🎬⚽🤞🌧️🅱️", "goal": "I can talk about real possibilities with “If…, I'll…” and explain my plan B.", "goalFr": "Je peux parler de possibilités réelles avec « If…, I'll… » et expliquer mon plan B.", "how": [["⭐ Full, detailed answer = star", "Réponse complète et détaillée = étoile"], ["🧠 Beat the grammar challenges", "Réussis les défis de grammaire"], ["😎 Fool Jonathan in Two Truths and a Lie", "Piège Jonathan au jeu des 2 vérités et 1 mensonge"]], "tutor": "Read Diego's situation aloud together, then ask: 'What will he do if he makes it? And if he doesn't?' Key rule today: if + present, will in the other half — never 'if I will'. French trap: 'quand + futur' → English 'when + present' (When I get home, I'll call you). Also: unless = if… not, in case = to be ready for a possible problem."}, {"type": "chat", "min": 4, "title": "💬 Warm-Up Chat", "sub": "Tap a question for answer starters. Answer — then ask Jonathan back!", "subFr": "Touche une question pour des débuts de réponse. Réponds — puis pose-la à Jonathan !", "items": [{"q": "How's your week going so far?", "fr": "Comment se passe ta semaine jusqu'ici ?", "starters": [["Pretty well, actually! … How about you?", "Plutôt bien, en fait ! … Et toi ?"], ["Honestly, it's been a lot. … And yours?", "Franchement, il y a eu beaucoup de choses. … Et la tienne ?"]]}, {"q": "Do you have anything big coming up — a test, a match, a trip?", "fr": "Tu as quelque chose d'important qui arrive — un contrôle, un match, un voyage ?", "starters": [["Yes, I have a … next week, and I'm a bit nervous.", "Oui, j'ai un(e) … la semaine prochaine, et je suis un peu stressée."], ["Not really, but soon I…", "Pas vraiment, mais bientôt je…"]]}, {"q": "Are you someone who always has a plan B, or do you improvise?", "fr": "Tu es plutôt du genre à toujours avoir un plan B, ou à improviser ?", "starters": [["I always have a plan B, because…", "J'ai toujours un plan B, parce que…"], ["I usually improvise — it depends on…", "En général, j'improvise — ça dépend de…"]]}, {"q": "What will you do this weekend if the weather is bad?", "fr": "Qu'est-ce que tu feras ce week-end s'il fait mauvais ?", "starters": [["If it rains, I'll probably…", "S'il pleut, je vais sûrement…"], ["If the weather's bad, I'll just… And you?", "S'il fait mauvais, je vais juste… Et toi ?"]]}], "tutor": "Every answer → she asks you back ('How about you?' / 'And yours?'). Q4 is a preview: listen for 'If it rains, I'll…' and note any 'If it will rain'. Push for a reason: 'Why?'"}, {"type": "vocab", "min": 5, "title": "🅱️ Plan A, Plan B Vocabulary", "sub": "Tap to flip. Read the example, then make a sentence that's true for YOU.", "subFr": "Touche pour retourner. Lis l'exemple, puis fais une phrase vraie pour TOI.", "items": [{"e": "🥅", "w": "a tryout", "ex": "Diego's tryout for the academy is next week.", "fr": "une sélection / un essai"}, {"e": "🏆", "w": "make the team", "ex": "If he makes the team, he'll train five days a week.", "fr": "être pris(e) dans l'équipe"}, {"e": "🅱️", "w": "a backup plan", "ex": "I always have a backup plan in case things go wrong.", "fr": "un plan B / une solution de secours"}, {"e": "🌂", "w": "in case", "ex": "Take an umbrella in case it rains.", "fr": "au cas où"}, {"e": "🚫", "w": "unless", "ex": "I'll go to the party unless I have too much homework.", "fr": "sauf si / à moins que"}, {"e": "🤝", "w": "as long as", "ex": "You can borrow my laptop as long as you're careful.", "fr": "du moment que / tant que"}, {"e": "⚖️", "w": "either way", "ex": "Either way, I'll learn something from it.", "fr": "dans les deux cas"}, {"e": "🎈", "w": "get your hopes up", "ex": "Don't get your hopes up — the tickets might be sold out.", "fr": "trop espérer / se faire des illusions"}, {"e": "😬", "w": "worst-case scenario", "ex": "Worst-case scenario, we'll take the next train.", "fr": "dans le pire des cas"}, {"e": "🤞", "w": "fingers crossed", "ex": "Fingers crossed it doesn't rain on Saturday!", "fr": "croisons les doigts"}, {"e": "🎯", "w": "give it a shot", "ex": "I'm not sure I'll get in, but I'll give it a shot.", "fr": "tenter le coup"}, {"e": "🍀", "w": "if all goes well", "ex": "If all goes well, Diego will be on the team by spring.", "fr": "si tout se passe bien"}], "tutor": "After each card: 'Make your own sentence with it.' Watch for 'in case' vs 'if' (in case = prepare BEFORE), and 'unless I don't' (double negative)."}, {"type": "wheel", "min": 5, "title": "🎡 Spin: What Will You Do If…?", "sub": "Spin, then answer with at least TWO sentences — and add a plan B!", "subFr": "Fais tourner, puis réponds avec au moins DEUX phrases — et ajoute un plan B !", "hub": "🤞", "items": [{"e": "🌧️", "q": "If it rains all weekend, what will you do?", "st": "If it rains all weekend, I'll…", "fr": "S'il pleut tout le week-end, qu'est-ce que tu feras ?"}, {"e": "🔋", "q": "What will you do if your phone dies in the middle of the day?", "st": "If my phone dies, I'll…", "fr": "Qu'est-ce que tu feras si ton téléphone n'a plus de batterie en pleine journée ?"}, {"e": "📝", "q": "If you get a bad grade on your next test, how will you react?", "st": "If I get a bad grade, I'll… but I won't…", "fr": "Si tu as une mauvaise note au prochain contrôle, comment vas-tu réagir ?"}, {"e": "🚌", "q": "If you miss the bus tomorrow morning, what's your plan B?", "st": "If I miss the bus, I'll…", "fr": "Si tu rates le bus demain matin, c'est quoi ton plan B ?"}, {"e": "🎟️", "q": "If your favorite artist announces a concert in Paris, will you try to go?", "st": "If they announce a concert, I'll definitely…", "fr": "Si ton artiste préféré annonce un concert à Paris, tu essaieras d'y aller ?"}, {"e": "🍕", "q": "If friends show up at your house tonight, what will you cook or order?", "st": "If they show up, we'll…", "fr": "Si des amis débarquent chez toi ce soir, qu'est-ce que tu cuisineras ou commanderas ?"}, {"e": "☀️", "q": "If the weather is nice this weekend, where will you go?", "st": "If it's nice out, I'll go to…", "fr": "S'il fait beau ce week-end, où iras-tu ?"}, {"e": "😴", "q": "What will happen if you stay up too late tonight?", "st": "If I stay up too late, I'll be…", "fr": "Qu'est-ce qui va se passer si tu te couches trop tard ce soir ?"}, {"e": "🤫", "q": "If a friend tells you a secret, will you keep it — no matter what?", "st": "I'll keep it unless…", "fr": "Si une amie te confie un secret, tu le garderas — quoi qu'il arrive ?"}, {"e": "🎒", "q": "What will you do if you forget your homework at home?", "st": "If I forget it, I'll tell the teacher…", "fr": "Qu'est-ce que tu feras si tu oublies tes devoirs à la maison ?"}, {"e": "🌍", "q": "If you get the chance to study abroad one day, will you take it?", "st": "If I get the chance, I'll… because…", "fr": "Si un jour tu as l'occasion d'étudier à l'étranger, tu la saisiras ?"}, {"e": "🐶", "q": "If your family gets a pet, who will take care of it?", "st": "If we get a pet, I think… will…", "fr": "Si ta famille adopte un animal, qui s'en occupera ?"}], "tutor": "Each question comes up once before repeats. After her answer, push for the plan B: 'And if THAT doesn't work?' Correct 'If I will…' on the spot."}, {"type": "sort", "min": 4, "title": "🧠 If, When, or Unless?", "sub": "Read the clues. Which word fills the blank?", "subFr": "Lis les indices. Quel mot complète la phrase ?", "how": "Ask yourself: Not sure it will happen? → if · Sure it will happen? → when · Means “if… not”? → unless", "howFr": "Demande-toi : Pas sûr que ça arrive ? → if · Sûr que ça va arriver ? → when · Ça veut dire « si… ne… pas » ? → unless", "buckets": [{"name": "🤷 IF — not sure", "rule": "It might happen… or not.", "fr": "Ça arrivera peut-être… ou pas.", "ex": "If I make the team, I'll train more.", "c": "#0F8B8D"}, {"name": "✅ WHEN — sure", "rule": "It's definitely going to happen.", "fr": "Ça va arriver, c'est sûr.", "ex": "When I get home, I'll call you.", "c": "#7c3aed"}, {"name": "🚫 UNLESS — if… not", "rule": "Only if this does NOT happen.", "fr": "Seulement si ça n'arrive PAS.", "ex": "I'll walk unless it rains.", "c": "#E8573C"}], "items": [{"s": "___ I get the summer job — and lots of people applied — I'll buy a new laptop.", "b": 0, "why": "Lots of people applied — you can't be sure you'll get it → if.", "fr": "", "whyFr": "« Si je décroche le job d'été — et beaucoup de gens ont postulé —, je m'achèterai un nouvel ordinateur. » Beaucoup de candidats : tu ne peux pas être sûre de l'avoir → if."}, {"s": "___ the forecast is right — and it's often wrong — it'll snow tomorrow.", "b": 0, "why": "“It's often wrong” = maybe, maybe not → if.", "fr": "", "whyFr": "« Si la météo a raison — et elle se trompe souvent — il neigera demain. » « Elle se trompe souvent » = peut-être, peut-être pas → if."}, {"s": "___ Diego makes the academy team, he'll practice five days a week.", "b": 0, "why": "The tryout hasn't happened yet. Nobody knows the result → if.", "fr": "", "whyFr": "« Si Diego est pris dans l'équipe de l'académie, il s'entraînera cinq jours par semaine. » La sélection n'a pas encore eu lieu : personne ne connaît le résultat → if."}, {"s": "___ I get home from school, I'll text you.", "b": 1, "why": "You'll definitely get home from school → when. (No “will” after when!)", "fr": "", "whyFr": "« Quand je rentrerai de l'école, je t'enverrai un message. » Tu vas forcément rentrer de l'école → when. (Attention : en anglais, pas de « will » après when !)"}, {"s": "___ the movie ends, we'll grab something to eat.", "b": 1, "why": "Every movie ends — it's sure → when.", "fr": "", "whyFr": "« Quand le film sera fini, on ira manger un morceau. » Tous les films finissent : c'est sûr → when."}, {"s": "___ I turn eighteen, I'll be able to vote.", "b": 1, "why": "Your birthday will come — it's sure → when.", "fr": "", "whyFr": "« Quand j'aurai dix-huit ans, je pourrai voter. » Ton anniversaire arrivera forcément : c'est sûr → when."}, {"s": "We'll eat outside ___ it rains.", "b": 2, "why": "We'll eat outside if it does NOT rain → unless.", "fr": "", "whyFr": "« On mangera dehors, sauf s'il pleut. » On mangera dehors s'il ne pleut PAS → unless."}, {"s": "I won't go to the party ___ my best friend comes with me.", "b": 2, "why": "I won't go if she does NOT come with me → unless.", "fr": "", "whyFr": "« Je n'irai pas à la fête, sauf si ma meilleure amie vient avec moi. » Je n'irai pas si elle ne vient PAS avec moi → unless."}, {"s": "Diego will try again next year ___ he makes the team this time.", "b": 2, "why": "He'll try again only if he does NOT make it now → unless.", "fr": "", "whyFr": "« Diego réessaiera l'année prochaine, sauf s'il est pris cette fois-ci. » Il réessaiera seulement s'il n'est PAS pris maintenant → unless."}], "hint": "Not that one. Check the clue: Is it uncertain (if)? Is it sure to happen (when)? Does it mean “if… not” (unless)?", "hintFr": "Pas celle-là. Vérifie l'indice : c'est incertain (if) ? C'est sûr que ça arrive (when) ? Ça veut dire « si… ne… pas » (unless) ?", "doneMsg": "🎯 Possibility Pro! Now tell me three real sentences about YOUR week: one with if, one with when, one with unless.", "doneMsgFr": "🎯 Pro des possibilités ! Maintenant, dis-moi trois vraies phrases sur TA semaine : une avec if, une avec when, une avec unless.", "tutor": "After each item, ask 'Why?' — she must name the clue. Big French trap: 'Quand je rentrerai' → 'When I get home' (NOT 'When I will get home'). Same rule for if, when, unless: present tense in that half."}, {"type": "builder", "min": 4, "title": "🧩 Sentence Builder Pro", "sub": "Tap the words in the right order. Then say it out loud — like you mean it!", "subFr": "Touche les mots dans le bon ordre. Puis dis-le à voix haute — avec conviction !", "rounds": [{"e": "🏆⚽", "p": "Diego: make the team → train five days a week", "fr": "Diego : être pris → s'entraîner cinq jours par semaine", "a": "If I make the team, I'll train five days a week.", "afr": "Si je suis pris dans l'équipe, je m'entraînerai cinq jours par semaine."}, {"e": "🔁", "p": "Plan B: not this year → try again", "fr": "Plan B : pas cette année → réessayer", "a": "If I don't make it this year, I'll try again.", "afr": "Si je ne suis pas pris cette année, je réessaierai."}, {"e": "🌧️🎬", "p": "Rain on Saturday → watch a movie instead", "fr": "Pluie samedi → regarder un film à la place", "a": "If it rains on Saturday, we'll watch a movie instead.", "afr": "S'il pleut samedi, on regardera un film à la place."}, {"e": "🧥", "p": "Be ready: jacket — maybe cold", "fr": "Être prête : une veste — peut-être froid", "a": "Take a jacket in case it gets cold.", "afr": "Prends une veste au cas où il ferait froid."}, {"e": "🙅‍♀️", "p": "Not signing up… only if my best friend does", "fr": "Je ne m'inscris pas… sauf si ma meilleure amie le fait", "a": "I won't sign up unless my best friend does too.", "afr": "Je ne m'inscrirai pas, sauf si ma meilleure amie s'inscrit aussi."}, {"e": "🏠📱", "p": "Sure: get home → text you right away", "fr": "C'est sûr : rentrer → t'écrire tout de suite", "a": "When I get home, I'll text you right away.", "afr": "Quand je rentrerai, je t'écrirai tout de suite."}], "tutor": "First try = 2 ⭐. After each one, she changes it to be true for HER ('If I make the… team / If it rains on Wednesday…'). Point out round 6: French future after 'quand', English present after 'when'."}, {"type": "mcq", "min": 5, "title": "🛠️ Diego's Dilemma + Grammar Traps", "sub": "Some questions are about Diego, some are classic French-speaker traps. Think before you tap!", "subFr": "Certaines questions parlent de Diego, d'autres sont des pièges classiques pour les francophones. Réfléchis avant de toucher !", "items": [{"e": "🛠️", "q": "Which sentence is correct?", "fr": "Laquelle est correcte ?", "o": ["If I will make the team, I'll be so happy.", "If I make the team, I'll be so happy.", "If I made the team, I'll be so happy."], "ofr": ["Si je suis prise dans l'équipe, je serai trop contente.", "Si je suis prise dans l'équipe, je serai trop contente.", "Si je suis prise dans l'équipe, je serai trop contente."], "c": 1, "why": "If + present, will + verb. Only ONE half gets “will.”", "whyFr": "If + présent, will + verbe. Une seule moitié prend « will ».", "no": {"0": "Never put “will” right after “if” in a real possibility.", "2": "“Made” is past — it doesn't match “I'll.” For a real future possibility, use the present: “If I make…”"}}, {"e": "⏰", "q": "How do you say « Quand je serai grande, je serai coach » in English?", "fr": "Comment dit-on « Quand je serai grande, je serai coach » en anglais ?", "o": ["When I'll grow up, I'll be a coach.", "When I will be grown, I'm a coach.", "When I grow up, I'll be a coach."], "ofr": ["Quand je serai grande, je serai coach.", "Quand je serai grande, je serai coach.", "Quand je serai grande, je serai coach."], "c": 2, "why": "After “when” (like after “if”), English uses the present: “When I grow up…”", "whyFr": "Après « when » (comme après « if »), l'anglais utilise le présent : « When I grow up… »", "no": {"0": "That's the French future copied into English. No “will” after when.", "1": "Two problems: “will” after when, and “I'm a coach” is present, not future."}}, {"e": "⚽", "q": "Diego says: “I'll try again next year unless I make the team this time.” What does he mean?", "fr": "Diego dit : « I'll try again next year unless I make the team this time. » Qu'est-ce qu'il veut dire ?", "o": ["He'll try again only if he doesn't make it now.", "He'll try again next year no matter what.", "He won't try again, even if he fails."], "ofr": ["Il réessaiera seulement s'il n'est pas pris maintenant.", "Il réessaiera l'année prochaine, quoi qu'il arrive.", "Il ne réessaiera pas, même s'il échoue."], "c": 0, "why": "Unless = if… not. He'll try again IF he does NOT make the team this time.", "whyFr": "Unless = si… ne… pas. Il réessaiera S'il n'est PAS pris cette fois-ci.", "no": {"1": "If he makes the team now, he won't need to try again — so it's not “no matter what.”", "2": "The opposite! Diego never gives up — failing is exactly when he'll try again."}}, {"e": "🎈", "q": "Diego's sister keeps telling him: “Don't get your hopes up.” What is she telling him?", "fr": "La sœur de Diego n'arrête pas de lui dire : « Don't get your hopes up. » Qu'est-ce qu'elle lui dit ?", "o": ["Keep your head up and stay positive.", "Stop practicing so hard.", "Be careful not to expect too much."], "ofr": ["Garde la tête haute et reste positif.", "Arrête de t'entraîner autant.", "Fais attention à ne pas trop espérer."], "c": 2, "why": "“Don't get your hopes up” = don't expect too much, so you won't be too disappointed.", "whyFr": "« Don't get your hopes up » = ne t'attends pas à trop, pour ne pas être trop déçu.", "no": {"0": "Close in topic, but it's the opposite feeling: she wants him to expect LESS, not to feel more positive.", "1": "She's talking about his expectations, not his training."}}, {"e": "🌂", "q": "Which sentence shows you're prepared BEFORE a possible problem?", "fr": "Quelle phrase montre que tu te prépares AVANT un problème possible ?", "o": ["I'll take an umbrella if it rains.", "I'll take an umbrella in case it rains.", "I'll take an umbrella when it rains."], "ofr": ["Je prendrai un parapluie s'il pleut.", "Je prendrai un parapluie au cas où il pleuvrait.", "Je prendrai un parapluie quand il pleuvra."], "c": 1, "why": "“In case” = you take it now, just to be ready.", "whyFr": "« In case » = tu le prends maintenant, juste pour être prête.", "no": {"0": "“If it rains” = you'll only take it once it's already raining.", "2": "“When it rains” = you're sure it will rain, and you'll take it then — not before."}}, {"e": "💪", "q": "Diego says: “If I don't stay confident, I won't play my best.” Which sentence means the same?", "fr": "Diego dit : « If I don't stay confident, I won't play my best. » Quelle phrase veut dire la même chose ?", "o": ["Unless I stay confident, I won't play my best.", "Unless I don't stay confident, I won't play my best.", "If I stay confident, I won't play my best."], "ofr": ["Sauf si je reste confiant, je ne jouerai pas à mon meilleur niveau.", "Sauf si je ne reste pas confiant, je ne jouerai pas à mon meilleur niveau.", "Si je reste confiant, je ne jouerai pas à mon meilleur niveau."], "c": 0, "why": "Unless = if… not. “Unless I stay confident” = “If I don't stay confident.”", "whyFr": "Unless = si… ne… pas. « Unless I stay confident » = « If I don't stay confident ».", "no": {"1": "“Unless” already contains the “not” — “unless I don't” is a double negative.", "2": "That says confidence makes him play badly — the opposite of his idea."}}], "tutor": "After each answer she explains WHY in her own words. For the Diego items, ask: 'What would YOU do in his place?'"}, {"type": "tot", "min": 4, "title": "⚖️ This or That: Risk Edition", "sub": "Pick one — and explain what will happen if you choose it!", "subFr": "Choisis — et explique ce qui se passera si tu le choisis !", "frame": "I'd rather… because if I choose that, I'll… / The problem with the other one is…", "frameFr": "Je préférerais… parce que si je choisis ça, je vais… / Le problème avec l'autre, c'est…", "items": [{"a": ["📣", "Get your tryout results right away, in front of everyone", "Avoir le résultat de ta sélection tout de suite, devant tout le monde"], "b": ["✉️", "Wait a week and get them privately", "Attendre une semaine et l'avoir en privé"]}, {"a": ["🅰️", "One perfect plan A with no plan B", "Un plan A parfait, sans plan B"], "b": ["🔀", "Three OK plans you can switch between", "Trois plans corrects entre lesquels tu peux changer"]}, {"a": ["🎲", "Take a big risk that could pay off big", "Prendre un gros risque qui pourrait rapporter gros"], "b": ["🛟", "Play it safe and get a small sure reward", "Jouer la sécurité et avoir une petite récompense assurée"]}, {"a": ["🗺️", "Travel with no plans at all", "Voyager sans rien prévoir"], "b": ["📋", "Plan every hour of the trip", "Planifier chaque heure du voyage"]}, {"a": ["❤️", "Try out for something you love — and might fail", "Tenter quelque chose que tu adores — et peut-être échouer"], "b": ["✅", "Do something easy you're sure to succeed at", "Faire quelque chose de facile où tu es sûre de réussir"]}, {"a": ["🔮", "Know tomorrow's weather perfectly, every day", "Connaître parfaitement la météo du lendemain, tous les jours"], "b": ["📊", "Know your test grades one day early", "Connaître tes notes de contrôle un jour à l'avance"]}], "tutor": "Make her use the first conditional in every defense ('If I choose that, I'll…'). One round: she argues the OTHER side."}, {"type": "tos", "min": 3, "title": "🇦🇷 True or Silly? Diego's World", "sub": "Real fact about Argentina and soccer — or totally silly?", "subFr": "Vrai fait sur l'Argentine et le foot — ou complètement faux ?", "items": [{"e": "🏙️", "s": "Buenos Aires is the capital of Argentina.", "fr": "Buenos Aires est la capitale de l'Argentine.", "t": true, "why": "Yes — it's also the country's biggest city, on the Río de la Plata.", "whyFr": "Oui — c'est aussi la plus grande ville du pays, au bord du Río de la Plata."}, {"e": "🗣️", "s": "In Argentina, the main language is Portuguese.", "fr": "En Argentine, la langue principale est le portugais.", "t": false, "why": "Argentinians speak Spanish. Portuguese is the language of Brazil, next door.", "whyFr": "Les Argentins parlent espagnol. Le portugais, c'est la langue du Brésil, le pays voisin."}, {"e": "🏆", "s": "Argentina has won the FIFA World Cup three times.", "fr": "L'Argentine a gagné la Coupe du monde de la FIFA trois fois.", "t": true, "why": "In 1978, 1986 and 2022 — the last one in a final against France!", "whyFr": "En 1978, 1986 et 2022 — la dernière en finale contre la France !"}, {"e": "🐐", "s": "Lionel Messi was born in Argentina.", "fr": "Lionel Messi est né en Argentine.", "t": true, "why": "He was born in Rosario, Argentina, and moved to Barcelona as a young teen.", "whyFr": "Il est né à Rosario, en Argentine, et il est parti à Barcelone au début de son adolescence."}, {"e": "❄️", "s": "Argentina is in the Northern Hemisphere, so December is winter there.", "fr": "L'Argentine est dans l'hémisphère Nord, donc décembre, c'est l'hiver là-bas.", "t": false, "why": "Argentina is in the Southern Hemisphere: December is summer there!", "whyFr": "L'Argentine est dans l'hémisphère Sud : en décembre, c'est l'été là-bas !"}, {"e": "💃", "s": "The tango was born around the Río de la Plata, in Argentina and Uruguay.", "fr": "Le tango est né autour du Río de la Plata, en Argentine et en Uruguay.", "t": true, "why": "It started in the neighborhoods of Buenos Aires and Montevideo.", "whyFr": "Il est né dans les quartiers populaires de Buenos Aires et de Montevideo."}], "done": "🇦🇷 ¡Golazo! You know Diego's world!", "doneFr": "🇦🇷 ¡Golazo ! Tu connais le monde de Diego !", "tutor": "Follow-up with the grammar: 'If you visit Argentina one day, what will you do first?'"}, {"type": "plan", "min": 3, "title": "🗓️ Your Saturday: Plan A + Plan B", "sub": "Choose one for each part. Read your plan — then tell it in your OWN words!", "subFr": "Choisis une option par partie. Lis ton plan — puis raconte-le avec TES mots !", "parts": [{"icon": "☀️", "label": "Plan A", "fr": "Plan A", "conn": "If the weather's nice, I'll", "connFr": "S'il fait beau, je vais", "opts": [["🏖️", "go to the beach with my friends.", "aller à la plage avec mes amis."], ["🚴‍♀️", "take my bike out for a long ride.", "faire une longue balade à vélo."], ["🧺", "have a picnic in the park.", "faire un pique-nique au parc."], ["🛍️", "go to the outdoor market downtown.", "aller au marché en plein air, en ville."]]}, {"icon": "🌧️", "label": "Plan B", "fr": "Plan B", "conn": "If it rains, I'll", "connFr": "S'il pleut, je vais", "opts": [["📺", "binge-watch a series under a blanket.", "regarder une série d'un coup sous un plaid."], ["🍪", "bake cookies with my sister.", "faire des cookies avec ma sœur."], ["🖼️", "go to a museum.", "aller au musée."], ["🎲", "invite friends over for board games.", "inviter des amis pour jouer à des jeux de société."]]}, {"icon": "🚫", "label": "Unless…", "fr": "Sauf si…", "conn": "I'll also visit my grandparents unless", "connFr": "J'irai aussi voir mes grands-parents, sauf si", "opts": [["📅", "they already have plans.", "ils ont déjà quelque chose de prévu."], ["📚", "I have too much homework.", "j'ai trop de devoirs."], ["🏠", "my parents need my help at home.", "mes parents ont besoin de moi à la maison."], ["😵", "I'm completely exhausted.", "je suis complètement épuisée."]]}, {"icon": "⭐", "label": "Either way", "fr": "Dans les deux cas", "conn": "Either way, at night I'll", "connFr": "Dans tous les cas, le soir, je vais", "opts": [["📞", "call my best friend.", "appeler ma meilleure amie."], ["🎧", "listen to music and relax.", "écouter de la musique et me détendre."], ["🛌", "go to bed early for once.", "me coucher tôt, pour une fois."], ["📖", "read a few chapters of my book.", "lire quelques chapitres de mon livre."]]}], "tutor": "She retells her plan, then changes two parts. Challenge: 'And worst-case scenario?' to get one more sentence."}, {"type": "ttl", "min": 3, "title": "😎 Two Truths and a Lie", "sub": "Practice round first — find Diego's lie!", "subFr": "D'abord un entraînement — trouve le mensonge de Diego !", "example": {"who": "Diego, 15, from Buenos Aires", "lines": ["If I make the team, I'll practice five days a week instead of three.", "If I don't make it, I'll quit soccer forever.", "If I don't stay confident, I won't play my best."], "linesFr": ["Si je suis pris dans l'équipe, je m'entraînerai cinq jours par semaine au lieu de trois.", "Si je ne suis pas pris, j'arrêterai le foot pour toujours.", "Si je ne reste pas confiant, je ne jouerai pas à mon meilleur niveau."], "lie": 1, "why": "Diego never gives up — if he doesn't make it, he'll try again next year. That's the lie!", "whyFr": "Diego n'abandonne jamais — s'il n'est pas pris, il réessaiera l'année prochaine. C'est le mensonge !"}, "turn": "Your turn: tell Jonathan three “If…, I'll…” sentences about real things coming up for you — 2 true, 1 lie. Can he find the lie?", "turnFr": "À toi : dis à Jonathan trois phrases « If…, I'll… » sur des choses réelles qui t'attendent — 2 vraies, 1 fausse. Est-ce qu'il trouvera le mensonge ?", "tutor": "Then swap: give her three of yours. Listen for 'If I will…' and fix it at the end, not in the middle."}, {"type": "talk", "min": 4, "title": "🎤 On Air: Plan A, Plan B", "sub": "You're the guest now! Talk for 90 seconds about something real coming up for you. Can you check all six?", "subFr": "C'est toi l'invitée maintenant ! Parle 90 secondes de quelque chose de réel qui t'attend. Peux-tu tout cocher ?", "items": [["Use “If…, I'll…” for a real possibility.", "Utilise « If…, I'll… » pour une possibilité réelle."], ["Use “When…” for something that's sure — with no “will” after when.", "Utilise « When… » pour quelque chose de sûr — sans « will » après when."], ["Use “unless” once.", "Utilise « unless » une fois."], ["Explain your plan B with “in case” or “worst-case scenario.”", "Explique ton plan B avec « in case » ou « worst-case scenario »."], ["Say how you feel about it: “Either way, I think…”", "Dis ce que tu en penses : « Either way, I think… »"], ["Ask Jonathan: “What will you do if…?”", "Demande à Jonathan : « What will you do if…? »"]], "tutor": "Tap each line when she does it (+1 ⭐). Let her talk without interruption; note 2–3 mistakes to fix at the end."}, {"type": "victory", "min": 1, "title": "🏆 That's a Wrap, Bérénice!", "sub": "Episode 5 complete — you're a Possibility Pro!", "subFr": "Épisode 5 terminé — tu es une pro des possibilités !", "tiers": [[0, "🌟", "Rookie"], [18, "🥉", "Bronze"], [30, "🥈", "Silver"], [42, "🥇", "Gold"]], "msg": "See you next time! Next episode: “Two Sides of Yuki” — a shy student who turns into a rock drummer on stage. Get ready to describe people with nuance.", "msgFr": "À la prochaine ! Prochain épisode : « Two Sides of Yuki » — une élève timide qui se transforme en batteuse de rock sur scène. Prépare-toi à décrire les gens avec nuance.", "tutor": "Next episode: adverbs of degree (a bit, quite, really, extremely, not very) + personality adjectives."}]};
+let stars = 0;
+const $ = (s, r=document) => r.querySelector(s);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fr = s => s ? `<span class="fr">${esc(s)}</span>` : '';
+function shuffle(a){ a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 
-function addXP(n){ xp += n; document.getElementById('xpCount').textContent = xp;
-  const pop = document.getElementById('xpPop'); pop.textContent = '+' + n + ' XP';
-  pop.classList.add('show'); setTimeout(()=>pop.classList.remove('show'), 900); }
+function addStars(n, msg){
+  stars += n; $('#stars').textContent = stars;
+  if (msg) toast(msg);
+  if (n > 0) confetti(n >= 2 ? 90 : 45);
+}
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 1400); }
 
-function refreshNav(){
-  document.getElementById('backBtn').disabled = (current === 0);
-  const nextBtn = document.getElementById('nextBtn');
-  const locked = locks.hasOwnProperty(current) && !locks[current];
-  nextBtn.disabled = locked || current === total-1;
-  nextBtn.classList.toggle('locked', locked);
-  nextBtn.textContent = current === total-1 ? 'Finished! 🎉' : 'Next ➡';
-  document.getElementById('progressLabel').textContent = 'Slide ' + (current+1) + ' / ' + total;
-  document.getElementById('progText').textContent = (current+1) + ' / ' + total;
-  if(current === total-1) runCelebrationEntry();
+/* confetti */
+const cv = $('#confetti'), cx = cv.getContext('2d'); let parts = [], anim = null;
+function sizeCv(){ cv.width = innerWidth; cv.height = innerHeight; } addEventListener('resize', sizeCv); sizeCv();
+function confetti(n){
+  const cols = ['#F4B400','#E8573C','#7c3aed','#0F8B8D','#E85D9A','#22c55e','#F28C28'];
+  for (let i=0;i<n;i++) parts.push({x:innerWidth/2+(Math.random()-.5)*300,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*12-4,s:6+Math.random()*6,c:cols[i%cols.length],r:Math.random()*6,life:110});
+  if (!anim) anim = requestAnimationFrame(tick);
 }
-const slideViewport = document.getElementById('slideViewport');
-const scrollCue = document.getElementById('scrollCue');
-function checkScrollCue(){
-  const overflowing = slideViewport.scrollHeight > slideViewport.clientHeight + 4;
-  const atTop = slideViewport.scrollTop < 12;
-  scrollCue.classList.toggle('show', overflowing && atTop);
-}
-slideViewport.addEventListener('scroll', ()=>{
-  if(slideViewport.scrollTop > 12) scrollCue.classList.remove('show');
-  else checkScrollCue();
-});
-window.addEventListener('resize', checkScrollCue);
-function changeSlide(delta){
-  const newIdx = current + delta;
-  if(newIdx < 0 || newIdx >= total) return;
-  slides[current].classList.remove('active');
-  current = newIdx;
-  slides[current].classList.add('active');
-  refreshNav();
-  slideViewport.scrollTo({top:0, behavior:'auto'});
-  setTimeout(checkScrollCue, 60);
-}
-document.getElementById('backBtn').addEventListener('click', ()=>changeSlide(-1));
-document.getElementById('nextBtn').addEventListener('click', ()=>changeSlide(1));
-function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
-
-/* ============ VOCAB CARDS ============ */
-const vocabData = [
-  {e:"⚽", en:"tryout", fr:"essai / sélection", ex:"\"He has a tryout next week.\""},
-  {e:"😰", en:"nervous", fr:"nerveux(se)", ex:"\"I'm nervous about it.\""},
-  {e:"🏆", en:"make the team", fr:"être pris(e) dans l'équipe", ex:"\"If I make the team...\""},
-  {e:"💪", en:"practice", fr:"s'entraîner", ex:"\"I practice every day.\""},
-  {e:"🎯", en:"in case", fr:"au cas où", ex:"\"I'll pack extra shoes in case it rains.\""},
-  {e:"🔗", en:"depend on", fr:"dépendre de", ex:"\"It depends on how hard I train.\""},
-  {e:"😎", en:"confident", fr:"confiant(e)", ex:"\"I feel confident about it.\""},
-  {e:"🚫", en:"give up", fr:"abandonner", ex:"\"He won't give up.\""},
-];
-let vocabFlipped = 0;
-function buildVocab(){
-  const grid = document.getElementById('vocabGrid');
-  vocabData.forEach(item=>{
-    const card = document.createElement('div'); card.className = 'vocab-card';
-    card.innerHTML = `<span class="emoji">${item.e}</span><span class="word">${item.en}</span><span class="fr">${item.fr}<br><span style="font-size:11px;">${item.ex}</span></span>`;
-    card.addEventListener('click', ()=>{
-      if(!card.classList.contains('flipped')){
-        card.classList.add('flipped'); vocabFlipped++;
-        if(vocabFlipped >= 5 && !locks[1]){ locks[1] = true; addXP(1); document.getElementById('vocabHint').textContent = 'Nice! Next is unlocked. / Bien joué ! Suivant est débloqué.'; refreshNav(); }
-      }
-    });
-    grid.appendChild(card);
-  });
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; p.vy+=.35; p.r+=.1; p.life--; cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); cx.restore(); });
+  parts = parts.filter(p=>p.life>0 && p.y<innerHeight+40);
+  anim = parts.length ? requestAnimationFrame(tick) : (cx.clearRect(0,0,cv.width,cv.height), null);
 }
 
-/* ============ SENTENCE BUILDER ============ */
-const displayPhrase = ['If', 'I', 'practice', 'hard,', 'I', 'will', 'improve.'];
-const bankWords = shuffle(['I', 'will', 'If', 'hard,', 'practice', 'improve.', 'I']);
-let placedWords = [];
-function buildPhraseScreen(){
-  const bank = document.getElementById('wordBank');
-  bankWords.forEach(word=>{
-    const chip = document.createElement('div'); chip.className = 'word-chip';
-    chip.textContent = word;
-    chip.addEventListener('click', ()=>{
-      if(chip.classList.contains('used')) return;
-      // handle duplicate "I" chips by tagging a data-used flag on the specific element clicked
-      placedWords.push(word); chip.classList.add('used');
-      renderSlot(); checkPhrase();
-    });
-    bank.appendChild(chip);
-  });
-  renderSlot();
+/* ---------- slide builders ---------- */
+function head(s, i){
+  return `<div class="slide-top"><span class="slide-count">Slide ${i+1} of ${L.slides.length}</span><span class="minutes">⏱ about ${s.min} min</span></div>
+  <div class="slide-title">${s.title}</div>${s.sub ? `<div class="slide-sub">${s.sub}${fr(s.subFr)}</div>` : ''}`;
 }
-function renderSlot(){
-  const slot = document.getElementById('sentenceSlot');
-  slot.innerHTML = placedWords.map(w=>`<span class="placed">${w}</span>`).join(' ') ||
-    '<span style="color:#6b7a9a; font-size:16px;">Tap the words below… / Touche les mots ci-dessous…</span>';
-}
-function checkPhrase(){
-  const fb = document.getElementById('phraseFeedback');
-  if(placedWords.length < displayPhrase.length) return;
-  const correct = placedWords.join(' ') === displayPhrase.join(' ');
-  if(correct){
-    addXP(2);
-    fb.innerHTML = '<span class="fb-en">Perfect! "If I practice hard, I will improve." 🌟</span><span class="fb-fr">Parfait ! « Si je m\'entraîne dur, je vais progresser. »</span>';
-    fb.className = 'feedback-banner good';
-    locks[3] = true; refreshNav();
-  } else {
-    fb.innerHTML = '<span class="fb-en">Almost! Tap Reset and try again.</span><span class="fb-fr">Presque ! Réessaie.</span>';
-    fb.className = 'feedback-banner retry';
-    const resetBtn = document.createElement('button'); resetBtn.className = 'replay-btn'; resetBtn.textContent = '🔄 Reset / Recommencer';
-    resetBtn.onclick = ()=>{ placedWords = []; document.querySelectorAll('#wordBank .word-chip').forEach(c=>c.classList.remove('used')); fb.innerHTML=''; renderSlot(); };
-    fb.appendChild(resetBtn);
-  }
-}
+function tutor(s){ return s.tutor ? `<details class="tutor"><summary>Tutor notes</summary><p>${s.tutor}</p></details>` : ''; }
 
-/* ============ MCQ ============ */
-const FB = {
-  qp1: { lockKey:2, ok:"B", expl:{
-    A:{en:"\"Will\" appears twice — the if-clause never gets \"will.\" Try again!", fr:"« Will » apparaît deux fois — la proposition « if » n'a jamais « will ». Réessaie !"},
-    B:{en:"Yes! Present tense after \"if,\" \"will\" only in the result. 🎉", fr:"Oui ! Présent après « if », « will » seulement dans le résultat."},
-    C:{en:"The if-clause needs present tense, not past — try again!", fr:"La proposition « if » a besoin du présent, pas du passé — réessaie !"}
-  }},
-  r1: { lockKey:5, ok:"A", expl:{
-    A:{en:"Yes! Five days instead of three is exactly what the bio says. 🎉", fr:"Oui ! Cinq jours au lieu de trois, c'est exactement ce que dit la fiche."},
-    B:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
-    C:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"}
-  }},
-  r2: { lockKey:5, ok:"C", expl:{
-    A:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
-    B:{en:"Not mentioned in the bio — try again!", fr:"Pas mentionné dans la fiche — réessaie !"},
-    C:{en:"Yes! The coach's comment is exactly why he's not too worried. 🎉", fr:"Oui ! Le commentaire du coach est exactement pourquoi il n'est pas trop inquiet."}
-  }}
+const B = {};
+B.intro = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="emoji-row">${s.emojis}</div>
+  <div class="goal"><div>🎯 Today's goal</div><div class="big">${esc(s.goal)}</div>${fr(s.goalFr)}</div>
+  <div class="how">${s.how.map(h=>`<div>${h[0]}${fr(h[1])}</div>`).join('')}</div>`);
 };
-let mcqAnswered = {qp1:false, r1:false, r2:false};
-function checkLockGroup(lockKey, members){
-  const allDone = members.every(m=>mcqAnswered[m]);
-  if(allDone && !locks[lockKey]){ locks[lockKey] = true; refreshNav(); }
-}
-function initMCQ(gid, feedbackId){
-  const block = document.querySelector(`.mcq-options[data-gid="${gid}"]`);
-  const fb = document.getElementById(feedbackId);
-  block.querySelectorAll('.mcq-opt').forEach(opt=>{
-    opt.addEventListener('click', ()=>{
-      if(block.classList.contains('answered')) return;
-      const ans = opt.dataset.ans; const isCorrect = ans === FB[gid].ok;
-      if(isCorrect){
-        opt.classList.add('correct'); block.classList.add('answered');
-        block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.add('disabled'));
-        addXP(2);
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner good';
-        mcqAnswered[gid] = true;
-        if(gid === 'qp1') checkLockGroup(2, ['qp1']);
-        if(gid === 'r1' || gid === 'r2') checkLockGroup(5, ['r1','r2']);
-      } else {
-        opt.classList.add('incorrect'); setTimeout(()=>opt.classList.remove('incorrect'), 500);
-        fb.innerHTML = `<span class="fb-en">${FB[gid].expl[ans].en}</span><span class="fb-fr">${FB[gid].expl[ans].fr}</span>`;
-        fb.className = 'feedback-banner retry';
-      }
+B.chat = (s, box) => {
+  const g = el('div','chat-grid');
+  s.items.forEach(it=>{
+    const c = el('div','chat-card', `<h4>${esc(it.q)}</h4>${fr(it.fr)}<div class="tap-hint">Tap to see answer starters</div>
+      <div class="starters">${it.starters.map(st=>`<div class="starter">${esc(st[0])}${fr(st[1])}</div>`).join('')}<span class="askback">🔁 Ask me back!</span></div>`);
+    c.addEventListener('click', ()=>c.classList.toggle('open'));
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.vocab = (s, box) => {
+  const g = el('div','vocab-grid'); let seen = new Set();
+  s.items.forEach((it,k)=>{
+    const c = el('div','vcard', `<div class="vinner"><div class="vface vfront"><div class="em">${it.e}</div><div class="w">${esc(it.w)}</div></div>
+      <div class="vface vback"><div class="ex">${esc(it.ex)}</div>${fr(it.fr)}</div></div>`);
+    c.addEventListener('click', ()=>{ c.classList.toggle('flip'); if(!seen.has(k)){ seen.add(k); if(seen.size===s.items.length) addStars(1,'All words explored! +1 ⭐'); } });
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.wheel = (s, box) => {
+  const wrap = el('div','wheel-wrap');
+  wrap.innerHTML = `<div class="wheel-box"><div class="pointer"></div><canvas width="840" height="840"></canvas><div class="hub">${s.hub||'🎡'}</div></div>
+    <div class="wheel-q"><div class="q">Tap SPIN to get a question!</div><div class="st"></div><div class="fr-line"></div></div>`;
+  box.appendChild(wrap);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn">🎡 SPIN!</button></div><div class="round-tag">Questions asked: <span class="asked">0</span> of ${s.items.length}</div>`);
+  const canvas = $('canvas', wrap), ctx = canvas.getContext('2d'), n = s.items.length;
+  const cols = ['#F28C28','#E85D9A','#7c3aed','#0F8B8D','#F4B400','#E8573C','#4A9C5D','#0047BA'];
+  const R = 420, seg = 2*Math.PI/n;
+  for (let i=0;i<n;i++){
+    ctx.beginPath(); ctx.moveTo(R,R); ctx.arc(R,R,R-4,i*seg-Math.PI/2,(i+1)*seg-Math.PI/2); ctx.closePath();
+    ctx.fillStyle = cols[i%cols.length]; ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=6; ctx.stroke();
+    ctx.save(); ctx.translate(R,R); ctx.rotate(i*seg+seg/2-Math.PI/2);
+    ctx.font = '64px serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(s.items[i].e, R*0.68, 0);
+    ctx.fillStyle='#fff'; ctx.font='bold 34px Poppins, Arial'; ctx.fillText(String(i+1), R*0.40, 0);
+    ctx.restore();
+  }
+  let rot = 0, used = new Set(), spinning = false;
+  const btn = $('.big-btn', box), qEl = $('.q', wrap), stEl = $('.st', wrap), frEl = $('.fr-line', wrap);
+  btn.addEventListener('click', ()=>{
+    if (spinning) return;
+    let pool = [...Array(n).keys()].filter(i=>!used.has(i)); if (!pool.length){ used.clear(); pool=[...Array(n).keys()]; }
+    const pick = pool[Math.floor(Math.random()*pool.length)]; used.add(pick);
+    const centerDeg = (pick+0.5)*360/n;
+    const curr = ((rot % 360)+360)%360;
+    let delta = (360 - centerDeg) - curr; if (delta < 0) delta += 360;
+    rot += 360*5 + delta;
+    spinning = true; btn.disabled = true; qEl.textContent = '…'; stEl.textContent=''; frEl.innerHTML='';
+    canvas.style.transform = `rotate(${rot}deg)`;
+    setTimeout(()=>{
+      const it = s.items[pick];
+      qEl.textContent = `${it.e} ${it.q}`; stEl.textContent = it.st ? `Start with: “${it.st}”` : ''; frEl.innerHTML = fr(it.fr);
+      $('.asked', box).textContent = used.size; spinning = false; btn.disabled = false;
+    }, 4300);
+  });
+};
+B.builder = (s, box) => {
+  const area = el('div'); box.appendChild(area); let r = 0, tries = 0;
+  function render(){
+    if (r >= s.rounds.length){ area.innerHTML = `<div class="goal"><div class="big">🏆 Sentence Master!</div><div>You built all ${s.rounds.length} sentences.</div></div>`; return; }
+    const rd = s.rounds[r], words = rd.a.split(' '); tries = 0;
+    area.innerHTML = `<div class="round-tag">Sentence ${r+1} of ${s.rounds.length}</div><div class="builder-pic">${rd.e}</div>
+      <div class="builder-prompt">${esc(rd.p)}${fr(rd.fr)}</div><div class="answer-line"></div><div class="tiles"></div>
+      <div class="row-btns"><button class="sm-btn undo">↩ Undo</button><button class="sm-btn clear">✖ Clear</button><button class="sm-btn go check">✔ Check</button></div>
+      <div class="feedback"></div>`;
+    const line = $('.answer-line', area), tiles = $('.tiles', area), fb = $('.feedback', area); const chosen = [];
+    let order = shuffle(words.map((w,i)=>({w,i}))); if (words.length>2 && order.every((o,k)=>o.i===k)) order.reverse();
+    order.forEach(o=>{
+      const t = el('button','tile', esc(o.w));
+      t.addEventListener('click', ()=>{ if (t.classList.contains('used')) return; t.classList.add('used'); const c = el('button','tile', esc(o.w)); c.addEventListener('click',()=>{ c.remove(); t.classList.remove('used'); chosen.splice(chosen.indexOf(o),1); }); line.appendChild(c); chosen.push(o); });
+      tiles.appendChild(t);
     });
+    $('.undo', area).onclick = ()=>{ const o = chosen.pop(); if(!o) return; line.lastChild.remove(); [...tiles.children].find(t=>t.classList.contains('used') && t.textContent===o.w)?.classList.remove('used'); };
+    $('.clear', area).onclick = ()=>{ chosen.length=0; line.innerHTML=''; [...tiles.children].forEach(t=>t.classList.remove('used')); };
+    $('.check', area).onclick = ()=>{
+      if (!chosen.length){ fb.className='feedback no'; fb.innerHTML = 'Tap the words first!' + fr('Touche d’abord les mots !'); return; }
+      const got = chosen.map(o=>o.w).join(' ');
+      const finish = (ok)=>{ ['.check','.undo','.clear'].forEach(sel=>$(sel,area).style.display='none'); tiles.style.display='none';
+        if (!ok){ line.innerHTML = words.map(w=>`<span class="tile" style="border-color:var(--good);background:#dcfce7">${esc(w)}</span>`).join(''); }
+        fb.className = 'feedback ' + (ok ? 'ok' : ''); if (!ok) fb.style.color = 'var(--grape)';
+        fb.innerHTML = (ok ? '✅ Perfect! Now say it out loud! 🎤' : '👀 Here is the right sentence. Read it out loud! 🎤') + fr(rd.afr);
+        const nx = el('button','sm-btn go', r+1 < s.rounds.length ? 'Next sentence ▶' : 'Finish ▶'); nx.onclick = ()=>{ r++; render(); }; $('.row-btns',area).appendChild(nx); };
+      if (got === rd.a){ addStars(2,'First try! +2 ⭐'); finish(true); }
+      else { line.classList.remove('shake'); void line.offsetWidth; line.classList.add('shake'); setTimeout(()=>finish(false), 450); }
+    };
+  }
+  render();
+};
+B.mcq = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">🎉 Quiz complete!</div></div>`; return; }
+    const it = s.items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Question ${q+1} of ${s.items.length}</div>${it.e?`<div class="mcq-scene">${it.e}</div>`:''}<div class="mcq-q">${esc(it.q)}${fr(it.fr)}</div><div class="opts"></div><div class="explain"></div><div class="center"></div>`;
+    const opts = $('.opts', area), ex = $('.explain', area);
+    it.o.forEach((o,k)=>{
+      const b = el('button','opt', esc(o) + (it.ofr ? fr(it.ofr[k]) : ''));
+      b.onclick = ()=>{
+        if (area._done) return;
+        if (k === it.c){ b.classList.add('right'); area._done = true; ex.innerHTML = '✅ ' + esc(it.why || 'Correct!') + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+          const nx = el('button','big-btn', q+1<s.items.length?'Next question ▶':'Finish ▶'); nx.onclick=()=>{ q++; area._done=false; render(); }; $('.center',area).appendChild(nx); }
+        else { b.classList.add('wrong'); first = false; ex.innerHTML = '❌ ' + esc((it.no && it.no[k]) || 'Not quite — try again!') + fr('Pas tout à fait… Essaie encore !'); ex.classList.add('show'); }
+      };
+      opts.appendChild(b);
+    });
+  }
+  render();
+};
+B.tot = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Round ${q+1} of ${s.items.length}</div><div class="tot-row">
+      <div class="tot" data-k="0"><span class="em">${it.a[0]}</span>${esc(it.a[1])}${fr(it.a[2])}</div><div class="vs">OR</div>
+      <div class="tot" data-k="1"><span class="em">${it.b[0]}</span>${esc(it.b[1])}${fr(it.b[2])}</div></div>
+      <div class="say-box">🎤 ${esc(s.frame)}${fr(s.frameFr)}</div>
+      <div class="row-btns"><button class="sm-btn prev">◀ Previous</button><button class="sm-btn go next">${q+1<s.items.length?'Next round ▶':'Start over ↺'}</button></div>`;
+    area.querySelectorAll('.tot').forEach(t=>t.onclick=()=>{ area.querySelectorAll('.tot').forEach(x=>x.classList.remove('pick')); t.classList.add('pick'); });
+    $('.next',area).onclick=()=>{ q=(q+1)%s.items.length; render(); };
+    $('.prev',area).onclick=()=>{ q=(q-1+s.items.length)%s.items.length; render(); };
+  }
+  render();
+};
+B.memory = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  function render(){
+    let cards = []; s.pairs.forEach((p,k)=>{ cards.push({k,html:`<span class="face e">${p[0]}</span>`}); cards.push({k,html:`<span class="face">${esc(p[1])}</span>`}); });
+    cards = shuffle(cards); let open = [], found = 0, moves = 0, lock = false;
+    area.innerHTML = `<div class="round-tag">Pairs found: <span class="pf">0</span> of ${s.pairs.length} · Tries: <span class="mv">0</span></div><div class="mem-grid"></div><div class="center"></div>`;
+    const g = $('.mem-grid', area);
+    cards.forEach((c,ci)=>{
+      const m = el('div','mem', `<span class="back" style="font-size:34px">${ci+1}</span>${c.html}`);
+      m.onclick = ()=>{
+        if (lock || m.classList.contains('open') || m.classList.contains('done')) return;
+        m.classList.add('open'); open.push({m,c});
+        if (open.length === 2){
+          moves++; $('.mv',area).textContent = moves; const [a,b] = open;
+          if (a.c.k === b.c.k){ a.m.classList.replace('open','done'); b.m.classList.replace('open','done'); open = []; found++; $('.pf',area).textContent = found; toast('Match! Say the word! 🎤');
+            if (found === s.pairs.length){ addStars(2,'All pairs! +2 ⭐'); const again = el('button','big-btn','Play again ↺'); again.onclick = render; $('.center',area).appendChild(again); } }
+          else { lock = true; setTimeout(()=>{ a.m.classList.remove('open'); b.m.classList.remove('open'); open = []; lock = false; }, 950); }
+        }
+      };
+      g.appendChild(m);
+    });
+  }
+  render();
+};
+B.tos = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">${esc(s.done||'🌟 Great job!')}</div>${fr(s.doneFr)}</div>`; return; }
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Card ${q+1} of ${s.items.length}</div><div class="tos-card"><div class="em">${it.e}</div><div class="st">${esc(it.s)}</div>${fr(it.fr)}
+      <div class="tos-btns"><button class="big-btn btn-true" data-v="1">✅ TRUE</button><button class="big-btn btn-silly" data-v="0">🤪 SILLY</button></div>
+      <div class="explain"></div><div class="center"></div></div>`;
+    let done = false;
+    area.querySelectorAll('.tos-btns button').forEach(b=>b.onclick=()=>{
+      if (done) return; done = true; const ok = (b.dataset.v==='1') === it.t; const ex = $('.explain',area);
+      ex.innerHTML = (ok?'✅ Yes! ':'❌ Oops! ') + `It's <b>${it.t?'TRUE':'SILLY'}</b>. ` + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); if (ok) addStars(1,'+1 ⭐');
+      const nx = el('button','big-btn', q+1<s.items.length?'Next card ▶':'Finish ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx);
+    });
+  }
+  render();
+};
+B.sort = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="say-box" style="margin-top:10px">${esc(s.how)}${fr(s.howFr)}</div>`);
+  const area = el('div'); box.appendChild(area); let q = 0; const items = shuffle(s.items); const counts = s.buckets.map(()=>0);
+  function render(){
+    if (q >= items.length){ area.innerHTML = `<div class="goal"><div class="big">🧠 Grammar Boss!</div><div>${esc(s.doneMsg)}</div>${fr(s.doneMsgFr)}</div>`; return; }
+    const it = items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Sentence ${q+1} of ${items.length}</div><div class="sort-item">${esc(it.s)}${fr(it.fr)}</div>
+      <div class="buckets">${s.buckets.map((b,k)=>`<button class="bucket" data-k="${k}" style="background:${b.c}">${esc(b.name)}<small>${esc(b.rule)}</small><small style="opacity:.9;font-style:italic">${esc(b.fr)}</small><span class="cnt">e.g. “${esc(b.ex)}” · ${counts[k]} sorted</span></button>`).join('')}</div><div class="explain"></div><div class="center"></div>`;
+    let done = false;
+    area.querySelectorAll('.bucket').forEach(btn=>btn.onclick=()=>{
+      if (done) return; const k = +btn.dataset.k; const ex = $('.explain',area);
+      if (k === it.b){ done = true; counts[k]++; ex.innerHTML = '✅ ' + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+        const nx = el('button','big-btn','Next ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx); }
+      else { first = false; ex.innerHTML = '❌ ' + esc(s.hint) + fr(s.hintFr); ex.classList.add('show'); btn.classList.add('shake'); }
+    });
+  }
+  render();
+};
+B.plan = (s, box) => {
+  const sel = {}, selFr = {}; const cols = el('div','plan-cols');
+  s.parts.forEach((p,k)=>{
+    const c = el('div','plan-col', `<h4>${p.icon} ${esc(p.label)}</h4>${fr(p.fr)}`);
+    p.opts.forEach(o=>{ const ch = el('button','chip', `${o[0]} ${esc(o[1])}${fr(o[2])}`); ch.onclick=()=>{ c.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel')); ch.classList.add('sel'); sel[k]=o[1]; selFr[k]=o[2]; }; c.appendChild(ch); });
+    cols.appendChild(c);
   });
-}
-
-/* ============ TRUE/FALSE ============ */
-const tfTrue = document.getElementById('tfTrue');
-const tfFalse = document.getElementById('tfFalse');
-const tfFeedback = document.getElementById('tfFeedback');
-let tfAnswered = false;
-function handleTF(choseTrue){
-  if(tfAnswered) return;
-  tfAnswered = true;
-  tfTrue.classList.add('disabled'); tfFalse.classList.add('disabled');
-  if(!choseTrue){
-    tfFalse.classList.add('correct');
-    tfFeedback.innerHTML = '<span class="fb-en">Yes! The if-clause should just be present tense: "If I make the team..." 🎉</span><span class="fb-fr">Oui ! La proposition « if » doit être au présent : « If I make the team... »</span>';
-    tfFeedback.className = 'feedback-banner good';
-    addXP(2);
-  } else {
-    tfTrue.classList.add('incorrect');
-    tfFeedback.innerHTML = '<span class="fb-en">Not quite — "will" never goes in the if-clause. It should be "If I make the team, I will practice harder."</span><span class="fb-fr">Pas tout à fait — « will » ne va jamais dans la proposition « if ». Il faut dire « If I make the team, I will practice harder ».</span>';
-    tfFeedback.className = 'feedback-banner retry';
+  box.appendChild(cols);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn make">✨ Make my story!</button> <button class="sm-btn rnd">🎲 Surprise me</button></div><div class="story"></div>`);
+  const story = $('.story', box);
+  function make(){
+    if (Object.keys(sel).length < s.parts.length){ toast('Pick one for each part!'); return; }
+    story.innerHTML = s.parts.map((p,k)=>`<span class="conn">${esc(p.conn)}</span> ${esc(sel[k])}`).join(' ') + fr(s.parts.map((p,k)=>`${p.connFr} ${selFr[k]}`).join(' ')) + `<div style="margin-top:10px;font-size:17px;color:var(--sky-deep)">🎤 Now read your story out loud — then tell it again without looking!</div>`;
+    story.classList.add('show'); addStars(1,'Great story! +1 ⭐');
   }
-  if(!locks[6]){ locks[6] = true; refreshNav(); }
+  $('.make', box).onclick = make;
+  $('.rnd', box).onclick = ()=>{ s.parts.forEach((p,k)=>{ const col = cols.children[k]; const chips = col.querySelectorAll('.chip'); const i = Math.floor(Math.random()*chips.length); chips[i].click(); }); make(); };
+};
+B.talk = (s, box) => {
+  const list = el('div','check-list');
+  s.items.forEach(it=>{ const c = el('div','check', `<span class="box"></span><span>${esc(it[0])}${fr(it[1])}</span>`); c.onclick=()=>{ if(c.classList.contains('done')) return; c.classList.add('done'); $('.box',c).textContent='✔'; addStars(1,'+1 ⭐'); }; list.appendChild(c); });
+  box.appendChild(list);
+};
+B.ttl = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  const ex = s.example;
+  area.innerHTML = `<div class="sort-item" style="border-color:var(--grape)">Practice round: ${esc(ex.who)} says…</div><div class="ttl-list">${ex.lines.map((l,k)=>`<button class="opt" data-k="${k}">${esc(l)}${fr(ex.linesFr[k])}</button>`).join('')}</div><div class="explain"></div>
+    <div class="goal" style="margin-top:18px"><div class="big">🎤 Your turn!</div><div>${esc(s.turn)}</div>${fr(s.turnFr)}
+    <div class="row-btns"><button class="sm-btn go fool">😎 ${esc(L.student.split(' ')[0])} fooled Jonathan! (+2 ⭐)</button><button class="sm-btn found">🔎 Jonathan found the lie (+1 ⭐)</button></div></div>`;
+  let done = false;
+  area.querySelectorAll('.ttl-list .opt').forEach(b=>b.onclick=()=>{ if(done) return; const k=+b.dataset.k; const e=$('.explain',area);
+    if (k===ex.lie){ done=true; b.classList.add('right'); e.innerHTML='✅ '+esc(ex.why)+fr(ex.whyFr); addStars(1,'+1 ⭐'); } else { b.classList.add('wrong'); e.innerHTML='❌ That one is true! Look again.'+fr('Ça, c’est vrai ! Regarde encore.'); } e.classList.add('show'); });
+  $('.fool',area).onclick=()=>addStars(2,'Sneaky! +2 ⭐');
+  $('.found',area).onclick=()=>addStars(1,'Good try! +1 ⭐');
+};
+B.victory = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="victory"><div class="medal" id="medal">🏅</div><div class="score">You earned <span id="finalStars">0</span> stars!</div>
+    <div class="tiers">${s.tiers.map(t=>`<div data-min="${t[0]}">${t[1]} ${esc(t[2])} · ${t[0]}+ ⭐</div>`).join('')}</div>
+    <div class="goal" style="margin-top:18px"><div class="big">${esc(s.msg)}</div>${fr(s.msgFr)}</div></div>`);
+};
+function updateVictory(){
+  const f = $('#finalStars'); if (!f) return; f.textContent = stars;
+  const s = L.slides.find(x=>x.type==='victory'); let medal = '🌟';
+  document.querySelectorAll('.tiers div').forEach(d=>d.classList.remove('on'));
+  s.tiers.forEach((t,k)=>{ if (stars >= t[0]) { medal = t[1]; } });
+  const on = [...document.querySelectorAll('.tiers div')].filter(d=>stars >= +d.dataset.min).pop(); if (on) on.classList.add('on');
+  $('#medal').textContent = medal;
 }
-tfTrue.addEventListener('click', ()=>handleTF(true));
-tfFalse.addEventListener('click', ()=>handleTF(false));
 
-/* ============ SPEAKING TASK + DEBRIEF ============ */
-document.getElementById('nudgeToggle').addEventListener('click', (e)=>{
-  const box = document.getElementById('nudgeBox');
-  box.classList.toggle('show');
-  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
+/* ---------- build ---------- */
+const host = $('#slides'); const dots = $('#dots');
+L.slides.forEach((s,i)=>{
+  const sec = el('section','slide'); sec.innerHTML = head(s,i); B[s.type](s, sec); sec.insertAdjacentHTML('beforeend', tutor(s)); host.appendChild(sec);
+  const d = el('button'); d.title = `Slide ${i+1}`; d.onclick = ()=>go(i); dots.appendChild(d);
 });
-document.getElementById('doneTalkingBtn').addEventListener('click', function(){
-  document.getElementById('talkConfirm').classList.add('show');
-  this.disabled = true;
-  this.textContent = '✅ Done';
-  addXP(5);
-});
-document.getElementById('nudgeToggle2').addEventListener('click', (e)=>{
-  const box = document.getElementById('nudgeBox2');
-  box.classList.toggle('show');
-  e.target.textContent = box.classList.contains('show') ? 'Hide' : "Need a nudge? / Besoin d'un coup de pouce ?";
-});
-document.getElementById('doneTalkingBtn2').addEventListener('click', function(){
-  document.getElementById('talkConfirm2').classList.add('show');
-  this.disabled = true;
-  this.textContent = '✅ Done';
-  addXP(3);
-});
-
-/* ============ CONVERSATION WHEEL (optional bonus — never gates progress) ============ */
-const WCATS = [
-  { name:'About Me', emoji:'🙋', color:'#0fd4b8', text:'#00251f',
-    qs:[
-      {q:"What's one thing about you most people don't know?", qf:"Quelle est une chose sur toi que la plupart des gens ne savent pas ?", push:"Now tell me why you don't usually share it.", pushf:"Maintenant, dis-moi pourquoi tu ne le partages pas d'habitude."},
-      {q:"Describe yourself in three words. Explain the middle one.", qf:"Décris-toi en trois mots. Explique celui du milieu.", push:"Now give me a word your friends would use instead.", pushf:"Maintenant, donne un mot que tes amis utiliseraient à la place."},
-      {q:"What's something you're proud of this year?", qf:"De quoi es-tu fière cette année ?", push:"Now tell me what it took to get there.", pushf:"Maintenant, dis-moi ce qu'il a fallu pour y arriver."},
-      {q:"Are you more of a morning person or a night person?", qf:"Tu es plutôt du matin ou du soir ?", push:"Now describe what happens on the wrong side of that.", pushf:"Maintenant, décris ce qui se passe du mauvais côté."},
-      {q:"What's a small habit that says a lot about you?", qf:"Quelle petite habitude en dit long sur toi ?", push:"Now tell me when you noticed it.", pushf:"Maintenant, dis-moi quand tu l'as remarquée."},
-      {q:"If a stranger watched your day, what would surprise them?", qf:"Si un inconnu observait ta journée, qu'est-ce qui le surprendrait ?", push:"Now tell me if it would surprise you too.", pushf:"Maintenant, dis-moi si ça te surprendrait aussi."}
-    ]},
-  { name:'Home & Town', emoji:'🏠', color:'#ffb830', text:'#2a1c00',
-    qs:[
-      {q:"Give me a 30-second tour of your town for a visitor.", qf:"Fais-moi visiter ta ville en 30 secondes pour un visiteur.", push:"Now tell me the one place you'd save for last.", pushf:"Maintenant, dis-moi l'endroit que tu garderais pour la fin."},
-      {q:"What's the best-kept secret in your town?", qf:"Quel est le secret le mieux gardé de ta ville ?", push:"Now tell me who told you about it.", pushf:"Maintenant, dis-moi qui te l'a dit."},
-      {q:"Describe your bedroom in five sentences.", qf:"Décris ta chambre en cinq phrases.", push:"Now tell me which object you'd save in a fire.", pushf:"Maintenant, dis-moi quel objet tu sauverais dans un incendie."},
-      {q:"What's changed in your town since you were small?", qf:"Qu'est-ce qui a changé dans ta ville depuis que tu es petite ?", push:"Now tell me if that's better or worse.", pushf:"Maintenant, dis-moi si c'est mieux ou moins bien."},
-      {q:"Where do you go when you want to be alone?", qf:"Où tu vas quand tu veux être seule ?", push:"Now tell me what you do there.", pushf:"Maintenant, dis-moi ce que tu y fais."},
-      {q:"City center or middle of nowhere? Pick one and defend it.", qf:"Centre-ville ou milieu de nulle part ? Choisis et défends.", push:"Now tell me what you'd hate about your own choice.", pushf:"Maintenant, dis-moi ce que tu détesterais dans ton propre choix."}
-    ]},
-  { name:'School & Friends', emoji:'🎒', color:'#ff5a42', text:'#fff',
-    qs:[
-      {q:"How did you meet your closest friend?", qf:"Comment as-tu rencontré ta meilleure amie ?", push:"Now tell me the first thing you ever said to each other.", pushf:"Maintenant, dis-moi la première chose que vous vous êtes dite."},
-      {q:"What do you and your friends argue about most?", qf:"De quoi vous disputez-vous le plus avec tes amis ?", push:"Now tell me who usually wins.", pushf:"Maintenant, dis-moi qui gagne d'habitude."},
-      {q:"What's a running joke in your friend group?", qf:"Quelle est la blague récurrente dans ton groupe d'amis ?", push:"Now explain why it's funny to someone outside it.", pushf:"Maintenant, explique pourquoi c'est drôle à quelqu'un d'extérieur."},
-      {q:"Which subject this year are you actually looking forward to?", qf:"Quelle matière cette année tu attends vraiment avec impatience ?", push:"Now tell me which one you're dreading.", pushf:"Maintenant, dis-moi laquelle tu redoutes."},
-      {q:"Do you make the plans, or wait to be invited?", qf:"Tu proposes les plans, ou tu attends d'être invitée ?", push:"Now tell me which one you wish you were.", pushf:"Maintenant, dis-moi lequel tu aimerais être."},
-      {q:"Tell me about a time you laughed so hard you couldn't breathe.", qf:"Raconte-moi une fois où tu as tellement ri que tu ne pouvais plus respirer.", push:"Now tell me if it's still funny.", pushf:"Maintenant, dis-moi si c'est encore drôle."}
-    ]},
-  { name:'Favorites & Free Time', emoji:'🎧', color:'#a47aff', text:'#fff',
-    qs:[
-      {q:"What show or series would you make the whole world watch?", qf:"Quelle série ferais-tu regarder au monde entier ?", push:"Give me three reasons — no using the word 'good.'", pushf:"Donne trois raisons — interdit d'utiliser le mot « bien »."},
-      {q:"What's the last song stuck in your head? Describe it without singing.", qf:"Quelle est la dernière chanson coincée dans ta tête ? Décris-la sans chanter.", push:"Now tell me why it stuck.", pushf:"Maintenant, dis-moi pourquoi elle est restée."},
-      {q:"Sweet or savory? Pick your side for life.", qf:"Sucré ou salé ? Choisis ton camp pour la vie.", push:"Now name the one exception you'd allow.", pushf:"Maintenant, nomme la seule exception que tu t'autoriserais."},
-      {q:"Describe your perfect Saturday, hour by hour.", qf:"Décris ton samedi parfait, heure par heure.", push:"Now tell me the last time you actually had one.", pushf:"Maintenant, dis-moi la dernière fois que tu en as vraiment eu un."},
-      {q:"What's your comfort meal after a bad day?", qf:"Quel est ton plat réconfort après une mauvaise journée ?", push:"Now tell me who makes it best.", pushf:"Maintenant, dis-moi qui le fait le mieux."},
-      {q:"What's the most useless skill you have?", qf:"Quel est le talent le plus inutile que tu aies ?", push:"Now explain exactly how it works.", pushf:"Maintenant, explique exactement comment ça marche."}
-    ]},
-  { name:'Dreams & Future', emoji:'✨', color:'#3ee88a', text:'#00251f',
-    qs:[
-      {q:"Where do you want to be at 25? Paint me the picture.", qf:"Où veux-tu être à 25 ans ? Dépeins-moi le tableau.", push:"Now tell me what has to happen first.", pushf:"Maintenant, dis-moi ce qui doit se passer d'abord."},
-      {q:"If money didn't matter, what job would you choose?", qf:"Si l'argent n'avait aucune importance, quel métier choisirais-tu ?", push:"Now walk me through a normal Tuesday in that job.", pushf:"Maintenant, décris-moi un mardi ordinaire dans ce métier."},
-      {q:"One country you'd move to tomorrow — why there?", qf:"Un pays où tu déménagerais dès demain — pourquoi là-bas ?", push:"Now tell me what scares you about it.", pushf:"Maintenant, dis-moi ce qui te fait peur là-bas."},
-      {q:"What's a goal you're a little scared to say out loud?", qf:"Quel objectif as-tu un peu peur de dire à voix haute ?", push:"Now say one reason it matters to you.", pushf:"Maintenant, donne une raison pour laquelle il compte pour toi."},
-      {q:"What do you want to be able to say in English by Christmas?", qf:"Qu'est-ce que tu veux savoir dire en anglais d'ici Noël ?", push:"Now tell me what would make that possible.", pushf:"Maintenant, dis-moi ce qui rendrait ça possible."},
-      {q:"A whole free year anywhere, doing anything. Where and what?", qf:"Une année libre n'importe où, à faire n'importe quoi. Où et quoi ?", push:"Now tell me what you'd bring back.", pushf:"Maintenant, dis-moi ce que tu en ramènerais."}
-    ]},
-  { name:'Imagine!', emoji:'🎲', color:'#00d4ff', text:'#00251f',
-    qs:[
-      {q:"You wake up speaking perfect English. First thing you do?", qf:"Tu te réveilles en parlant anglais parfaitement. Tu fais quoi en premier ?", push:"Now tell me who you call.", pushf:"Maintenant, dis-moi qui tu appelles."},
-      {q:"Dinner with anyone, living or dead. Who, and what do you ask?", qf:"Un dîner avec qui tu veux, vivant ou mort. Qui, et tu demandes quoi ?", push:"Now tell me what they'd ask you.", pushf:"Maintenant, dis-moi ce qu'il te demanderait."},
-      {q:"You're invisible for 24 hours. Where do you go?", qf:"Tu es invisible pendant 24 heures. Tu vas où ?", push:"Now tell me what you'd never do.", pushf:"Maintenant, dis-moi ce que tu ne ferais jamais."},
-      {q:"Animals can talk for one day. Which one do you want to hear from?", qf:"Les animaux parlent pendant une journée. Lequel tu veux entendre ?", push:"Now tell me what it says about us.", pushf:"Maintenant, dis-moi ce qu'il pense de nous."},
-      {q:"You can delete one invention from history. Which one?", qf:"Tu peux effacer une invention de l'histoire. Laquelle ?", push:"Now tell me what breaks because of that.", pushf:"Maintenant, dis-moi ce que ça casse."},
-      {q:"One sentence to yourself at age ten. What is it?", qf:"Une phrase à toi-même à dix ans. C'est quoi ?", push:"Now tell me if she'd listen.", pushf:"Maintenant, dis-moi si elle écouterait."}
-    ]}
-];
-
-const SVGNS = "http://www.w3.org/2000/svg";
-const wheelEl = document.getElementById('wheel');
-const NW = WCATS.length, wseg = 360/NW, wcx=150, wcy=150, wr=148;
-function wpolar(rr, angDeg){ const a=(angDeg)*Math.PI/180; return [wcx + rr*Math.sin(a), wcy - rr*Math.cos(a)]; }
-WCATS.forEach((c,i)=>{
-  const start=i*wseg, end=(i+1)*wseg;
-  const [x1,y1]=wpolar(wr,start), [x2,y2]=wpolar(wr,end);
-  const large = wseg>180?1:0;
-  const path=document.createElementNS(SVGNS,'path');
-  path.setAttribute('d',`M${wcx},${wcy} L${x1.toFixed(2)},${y1.toFixed(2)} A${wr},${wr} 0 ${large} 1 ${x2.toFixed(2)},${y2.toFixed(2)} Z`);
-  path.setAttribute('fill',c.color); path.setAttribute('stroke','#09111f'); path.setAttribute('stroke-width','2');
-  wheelEl.appendChild(path);
-  const mid=start+wseg/2; const [ex,ey]=wpolar(wr*0.66, mid);
-  const t=document.createElementNS(SVGNS,'text');
-  t.setAttribute('x',ex.toFixed(2)); t.setAttribute('y',(ey+8).toFixed(2));
-  t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','22'); t.textContent=c.emoji;
-  wheelEl.appendChild(t);
-});
-const wrim=document.createElementNS(SVGNS,'circle');
-wrim.setAttribute('cx',wcx); wrim.setAttribute('cy',wcy); wrim.setAttribute('r',wr);
-wrim.setAttribute('fill','none'); wrim.setAttribute('stroke','#ffb830'); wrim.setAttribute('stroke-width','4');
-wheelEl.appendChild(wrim);
-
-const wlegend = document.getElementById('wlegend');
-WCATS.forEach((c,i)=>{
-  const b=document.createElement('button'); b.className='wchip';
-  b.style.background=c.color; b.style.color=c.text;
-  b.innerHTML=`<span>${c.emoji}</span> ${c.name}`;
-  b.addEventListener('click', ()=>spinWheelTo(i));
-  wlegend.appendChild(b);
-});
-
-const whub=document.getElementById('whub');
-const whint=document.getElementById('whint');
-const wpanel=document.getElementById('wpanel');
-const wactions=document.getElementById('wactions');
-const wchips=[...document.querySelectorAll('.wchip')];
-let wrotation=0, wspinning=false, wcurrentCat=null, wlastQ={}; const wdecks={};
-
-function wsetDisabled(state){
-  wspinning=state; whub.disabled=state;
-  const sb=document.getElementById('wspinBtn'), ab=document.getElementById('wagainBtn');
-  if(sb) sb.disabled=state; if(ab) ab.disabled=state;
-  wchips.forEach(ch=>ch.disabled=state);
+let cur = 0;
+function go(i){
+  cur = Math.max(0, Math.min(L.slides.length-1, i));
+  document.querySelectorAll('.slide').forEach((s,k)=>s.classList.toggle('active', k===cur));
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on', k===cur));
+  $('#prevBtn').disabled = cur===0; $('#nextBtn').disabled = cur===L.slides.length-1;
+  $('#prog').style.width = ((cur+1)/L.slides.length*100)+'%';
+  if (L.slides[cur].type === 'victory'){ updateVictory(); confetti(140); }
+  scrollTo({top:0,behavior:'smooth'});
 }
-function wpickQuestion(i){
-  const list = WCATS[i].qs;
-  if(!wdecks[i] || wdecks[i].length===0){
-    wdecks[i] = list.map((_,k)=>k);
-    for(let k=wdecks[i].length-1;k>0;k--){ const j=Math.floor(Math.random()*(k+1)); [wdecks[i][k],wdecks[i][j]]=[wdecks[i][j],wdecks[i][k]]; }
-    if(list.length>1 && wdecks[i][wdecks[i].length-1]===wlastQ[i]){ [wdecks[i][0],wdecks[i][wdecks[i].length-1]]=[wdecks[i][wdecks[i].length-1],wdecks[i][0]]; }
-  }
-  const idx = wdecks[i].pop(); wlastQ[i]=idx; return list[idx];
-}
-function wreveal(i){
-  const c = WCATS[i]; const item = wpickQuestion(i); wcurrentCat = i;
-  wpanel.classList.remove('show');
-  wpanel.innerHTML = `
-    <span class="wcat-chip" style="background:${c.color};color:${c.text}">${c.emoji} ${c.name}</span>
-    <div class="wq">${item.q}</div>
-    <div class="wqf" lang="fr">${item.qf}</div>
-    <button class="wpush-toggle" id="wpushToggle">Take it further →</button>
-    <div class="wpush" id="wpushBox"><span class="lbl">Take it further · Pour aller plus loin</span><span class="txt">${item.push}</span><span class="txt-fr" lang="fr">${item.pushf}</span></div>
-  `;
-  wactions.style.display = 'flex';
-  void wpanel.offsetWidth;
-  wpanel.classList.add('show');
-  document.getElementById('wpushToggle').addEventListener('click', (e)=>{
-    const box = document.getElementById('wpushBox');
-    box.classList.toggle('show');
-    e.target.textContent = box.classList.contains('show') ? 'Hide' : 'Take it further →';
-  });
-  whint.textContent = 'Talk it through, then spin again if you like. / Parle, puis fais tourner à nouveau si tu veux.';
-  wsetDisabled(false);
-}
-function spinWheelTo(i){
-  if(wspinning) return;
-  wsetDisabled(true); whint.textContent = 'Spinning…';
-  const center = i*wseg + wseg/2;
-  const jitter = (Math.random()*2-1)*(wseg/2 - 9);
-  const target = (center + jitter);
-  const align = ((360 - (target % 360)) % 360);
-  const currentMod = ((wrotation % 360)+360)%360;
-  let delta = (align - currentMod + 360)%360;
-  const turns = 5 + Math.floor(Math.random()*3);
-  wrotation = wrotation + turns*360 + delta;
-  wheelEl.style.transform = `rotate(${wrotation}deg)`;
-  const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const afterSpin = ()=>{ wreveal(i); };
-  if(reduce){ afterSpin(); return; }
-  const onEnd = ()=>{ wheelEl.removeEventListener('transitionend', onEnd); afterSpin(); };
-  wheelEl.addEventListener('transitionend', onEnd);
-}
-function spinWheelRandom(){ spinWheelTo(Math.floor(Math.random()*NW)); }
-whub.addEventListener('click', spinWheelRandom);
-document.getElementById('wspinBtn').addEventListener('click', spinWheelRandom);
-document.getElementById('wagainBtn').addEventListener('click', ()=>{ if(wcurrentCat!==null) wreveal(wcurrentCat); });
-
-/* ============ CELEBRATION SLIDE ============ */
-let celebrationRan = false;
-function animateCount(el, target, duration){
-  const start = performance.now();
-  function frame(now){
-    const p = Math.min((now-start)/duration, 1);
-    el.textContent = Math.round(p * target);
-    if(p < 1) requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-}
-function runCelebrationEntry(){
-  if(celebrationRan) return; celebrationRan = true;
-  animateCount(document.getElementById('statWords'), vocabFlipped, 700);
-}
-function spawnConfetti(){
-  const pieces = ['🎉','⭐','🎊','🎙️','✨'];
-  for(let i=0;i<26;i++){
-    const el = document.createElement('span'); el.className = 'confetti-piece';
-    el.textContent = pieces[Math.floor(Math.random()*pieces.length)];
-    el.style.left = Math.random()*100 + 'vw';
-    el.style.animationDuration = (2 + Math.random()*1.6) + 's';
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(), 4000);
-  }
-}
-document.getElementById('celebrateBtn').addEventListener('click', function(){
-  spawnConfetti();
-  document.getElementById('badgeReveal').classList.add('show');
-  addXP(5);
-  this.disabled = true;
-  this.textContent = '🏅 Badge Unlocked!';
-});
-
-/* ============ INIT ============ */
-buildVocab();
-buildPhraseScreen();
-initMCQ('qp1', 'mcqFeedbackQP1');
-initMCQ('r1', 'mcqFeedbackR1');
-initMCQ('r2', 'mcqFeedbackR2');
-refreshNav();
-setTimeout(checkScrollCue, 100);
+$('#prevBtn').onclick = ()=>go(cur-1); $('#nextBtn').onclick = ()=>go(cur+1);
+$('#starBtn').onclick = ()=>addStars(1,'Full sentence! +1 ⭐');
+const frBtn = $('#frBtn');
+function syncFr(){ frBtn.textContent = document.body.classList.contains('hide-fr') ? 'FR: OFF' : 'FR: ON'; }
+frBtn.onclick = ()=>{ document.body.classList.toggle('hide-fr'); syncFr(); }; syncFr();
+$('#hudBrand').textContent = L.brand; $('#stuName').textContent = L.student; $('#lessonName').textContent = L.lesson;
+const d = new Date(); $('#today').textContent = String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+'/'+d.getFullYear();
+go(0);
 </script>
 </body>
 </html>
