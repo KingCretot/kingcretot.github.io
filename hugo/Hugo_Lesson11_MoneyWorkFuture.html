@@ -4,209 +4,195 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="google" content="notranslate">
-<title>Hugo • Lesson 11 — Money, Work & the Future</title>
+<title>Hugo • Lesson 11 — Money, Work &amp; the Future</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --sun:#ffb703; --sun-deep:#e08e00;
-    --sky:#4cc9f0; --sky-deep:#219ebc;
-    --coral:#ff6b6b; --coral-deep:#e5484d;
-    --leaf:#52b788; --leaf-deep:#2d6a4f;
-    --sand:#d4a373; --sand-deep:#9c6644;
-    --cream:#fff8ea; --ink:#25324a; --violet:#7c3aed;
-    --good:#34d399; --bad:#ef4444;
-    --shadow:0 12px 36px rgba(76,201,240,0.18);
-    --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    font-family:'Quicksand',sans-serif;font-size:20px;line-height:1.55;color:var(--ink);
-    background:
-      radial-gradient(circle at 8% 12%,rgba(76,201,240,0.20) 0,transparent 42%),
-      radial-gradient(circle at 92% 82%,rgba(255,183,3,0.20) 0,transparent 42%),
-      linear-gradient(180deg,#fff8ea 0%,#fff 100%);
-    min-height:100vh;overflow-x:hidden;
-  }
-  .notranslate{translate:no}
-  .kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px;}
-  .kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px;}
-  .kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1;}
-  .kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700;}
-  .kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
-  .kce-band{height:3px;display:flex;}.kce-band i{flex:1}
-  .kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
-
-  .stage{max-width:1280px;margin:0 auto;padding:24px 24px 100px;position:relative}
-  .hud{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--sky);border-radius:24px;padding:14px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
-  .hud-brand{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);display:flex;align-items:center;gap:8px;}
-  .hud-brand::before{content:'💼';font-size:26px}
-  .hud-stat{display:flex;align-items:center;gap:6px;font-weight:700;font-size:18px;background:var(--cream);padding:8px 14px;border-radius:12px;border:2px solid var(--sky);color:var(--sky-deep);}
-  .hud-stat.streak{border-color:var(--sun);color:#a06400}
-  .xp-shell{flex:1;min-width:160px;height:16px;background:#e6f7fb;border-radius:999px;overflow:hidden;border:2px solid var(--sky);position:relative;}
-  .xp-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--sun),var(--coral),var(--sky));border-radius:999px;transition:width .8s cubic-bezier(.2,.9,.3,1.2);}
-  .xp-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--sky-deep);}
-
-  .slide{background:#fff;border:3px solid var(--sky);border-radius:26px;padding:28px 30px;margin-top:18px;box-shadow:var(--shadow);display:none;animation:slideIn .5s ease;position:relative;overflow:hidden;}
-  .slide::before{content:'';position:absolute;top:-30px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,183,3,0.28),transparent 70%);z-index:0;}
-  .slide.active{display:block}
-  @keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-  .slide-title{font-family:'Caprasimo',serif;font-size:34px;color:var(--coral-deep);margin-bottom:6px;text-align:center;position:relative;z-index:1;}
-  .slide-sub{font-size:16px;color:var(--violet);text-align:center;margin-bottom:18px;font-style:italic;position:relative;z-index:1;}
-  .slide-count{text-align:center;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;position:relative;z-index:1;}
-  .connect-note{background:#f3e8ff;border-left:5px solid var(--violet);border-radius:10px;padding:10px 14px;font-size:14px;color:var(--violet);font-weight:700;margin-bottom:14px;position:relative;z-index:1;}
-
-  .bilingual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;position:relative;z-index:1;}
-  .lang-card{background:linear-gradient(135deg,#fff,#eaf9ff);border-radius:16px;padding:18px 22px;border-left:6px solid var(--sky);box-shadow:0 4px 14px rgba(33,158,188,0.10);}
-  .lang-card.fr{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0);}
-  .lang-tag{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--sky-deep);background:#d4f1fa;padding:3px 10px;border-radius:6px;margin-bottom:8px;}
-  .lang-card.fr .lang-tag{color:var(--coral-deep);background:#ffe3e3}
-  .lang-card p{font-size:18px;line-height:1.6}
-  .lang-card.fr p{color:var(--violet);font-size:17px}
-
-  .modal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:16px 0;position:relative;z-index:1;}
-  .modal-card{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sun);border-radius:16px;padding:16px 20px;cursor:pointer;transition:all .3s;min-height:112px;}
-  .modal-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(255,183,3,0.30)}
-  .modal-card.flipped{background:linear-gradient(135deg,var(--sky),var(--sky-deep));color:#fff;border-color:var(--coral)}
-  .modal-card .who{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);margin-bottom:5px;}
-  .modal-card.flipped .who{color:#fff}
-  .modal-card .role{font-size:13px;font-weight:700;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;}
-  .modal-card.flipped .role{color:var(--sun)}
-  .modal-card .detail{font-size:15px;margin-top:7px;color:var(--ink)}
-  .modal-card.flipped .detail{color:#fff}
-  .modal-card .fr{font-size:13px;color:var(--violet);margin-top:5px;font-style:italic;}
-  .modal-card.flipped .fr{color:#fff8e1}
-  .modal-card .tap-hint{font-size:11px;font-weight:700;color:#888;margin-top:8px}
-  .modal-card.flipped .tap-hint{color:var(--cream)}
-
-  .map-track{display:flex;gap:12px;padding:10px 4px 16px;position:relative;z-index:1;}
-  .map-stop{flex:1;min-width:0;background:#fff;border:3px solid var(--sand);border-radius:16px;padding:24px 14px;text-align:center;cursor:pointer;transition:all .25s;}
-  @media(max-width:520px){ .map-track{flex-wrap:wrap;} .map-stop{flex:1 1 45%;} }
-  .map-stop:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(156,102,68,0.25)}
-  .map-stop.active{background:linear-gradient(135deg,var(--sand),var(--sand-deep));border-color:var(--coral);}
-  .map-stop.active .stop-num,.map-stop.active .stop-label{color:#fff}
-  .map-stop.visited{border-color:var(--good);}
-  .map-stop .stop-icon{font-size:52px;display:block;margin-bottom:8px;}
-  .map-stop .stop-num{font-size:13px;font-weight:800;color:var(--sand-deep);text-transform:uppercase;letter-spacing:1px;}
-  .map-stop .stop-label{font-size:18px;font-weight:700;color:var(--ink);margin-top:4px;}
-  .map-stop .stop-check{font-size:14px;color:var(--good);font-weight:800;margin-top:6px;visibility:hidden;}
-  .map-stop.visited .stop-check{visibility:visible;}
-  .stop-progress{text-align:center;font-size:13px;color:var(--sand-deep);font-weight:700;margin-bottom:6px;position:relative;z-index:1;}
-
-  .stop-panel{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sand);border-radius:18px;padding:20px 22px;position:relative;z-index:1;min-height:150px;}
-  .stop-panel .sp-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--sand-deep);margin-bottom:6px;}
-  .stop-panel h3{font-family:'Caprasimo',serif;font-size:24px;color:var(--coral-deep);margin-bottom:8px;}
-  .stop-panel .sp-en{font-size:17px;margin-bottom:4px;}
-  .stop-panel .sp-fr{font-size:14px;color:var(--violet);font-style:italic;margin-bottom:10px;}
-  .stop-panel .sp-fact{background:#fff;border-left:4px solid var(--leaf);border-radius:10px;padding:10px 14px;font-size:15px;}
-  .stop-panel .sp-fact .fr{display:block;color:var(--violet);font-style:italic;font-size:13px;margin-top:4px;}
-  .stop-panel .sp-placeholder{color:#aaa;font-style:italic;font-size:15px;text-align:center;padding:20px 0;}
-
-  .flag-btn{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:16px 12px;font-size:30px;cursor:pointer;text-align:center;min-width:80px;font-family:'Quicksand',sans-serif;transition:all .2s;}
-  .flag-btn:hover:not(:disabled){background:#eaf9ff;transform:translateY(-3px);border-color:var(--sky-deep)}
-  .flag-btn.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
-  .flag-btn.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
-  .flag-btn:disabled{cursor:default}
-
-  .mcq-q{font-family:'Caprasimo',serif;font-size:20px;color:var(--coral-deep);margin:14px 0 12px;padding:14px 18px;background:var(--cream);border-radius:14px;border-left:6px solid var(--sky);position:relative;z-index:1;}
-  .mcq-q .fr{display:block;font-family:'Quicksand',sans-serif;font-size:14px;color:var(--violet);font-weight:500;font-style:italic;margin-top:5px;}
-  .answers{display:grid;gap:8px;margin-bottom:10px;position:relative;z-index:1}
-  .ans{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:11px 16px;font-size:17px;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;transition:all .2s;font-family:'Quicksand',sans-serif;}
-  .ans:hover:not(:disabled){background:#eaf9ff;transform:translateX(4px);border-color:var(--sky-deep)}
-  .ans.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
-  .ans.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
-  .ans:disabled{cursor:default}
-  @keyframes pulse{0%,100%{transform:none}50%{transform:scale(1.03)}}
-  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-  .feedback{margin-top:6px;padding:11px 15px;border-radius:12px;font-size:15px;display:none;position:relative;z-index:1}
-  .feedback.show{display:block;animation:slideIn .3s ease}
-  .feedback.good{background:#d1fae5;color:#065f46;border-left:5px solid var(--good)}
-  .feedback.bad{background:#fee2e2;color:#991b1b;border-left:5px solid var(--bad)}
-  .feedback .fr{display:block;color:var(--violet);font-style:italic;margin-top:3px;font-size:13px}
-
-  .tot-cluster-label{font-size:13px;font-weight:800;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;margin:12px 0 6px;position:relative;z-index:1;}
-  .tot-row{display:flex;gap:8px;margin:8px 0;position:relative;z-index:1;}
-  .tot-pair{flex:1;display:flex;border:3px solid var(--sky);border-radius:14px;overflow:hidden;}
-  .tot-opt{flex:1;border:0;background:#fff;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer;padding:12px 8px;transition:all .2s;}
-  .tot-opt:hover{background:#eaf9ff;}
-  .tot-opt.sel{background:var(--coral);color:#fff;}
-  .tot-mid{width:2px;background:var(--sky);}
-  .tot-hint{font-size:11px;color:var(--violet);font-style:italic;margin-top:3px;display:block;}
-
-  .elicit-card{background:linear-gradient(135deg,#fff,#eaf9ff);border:3px dashed var(--sky);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
-  .elicit-card h4{font-family:'Caprasimo',serif;font-size:20px;color:var(--sky-deep);margin-bottom:8px;}
-  .starter-row{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
-  .starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:10px 14px;font-family:'Quicksand',sans-serif;}
-  .starter .en{font-weight:700;color:var(--ink);font-size:17px;font-family:'Quicksand',sans-serif;display:block;}
-  .starter .fr{display:block;color:var(--violet);font-style:italic;font-weight:500;font-size:13px;font-family:'Quicksand',sans-serif;margin-top:2px;}
-  .hint-toggle{background:var(--sun);border:none;color:var(--kce-navy);font-weight:800;padding:9px 18px;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:13px;margin-top:10px;}
-  .hint-facts{display:none;margin-top:10px;background:#fff;border-left:4px solid var(--sun);border-radius:10px;padding:12px 14px;font-size:14px;}
-  .hint-facts.show{display:block;}
-  .hint-facts li{margin-bottom:6px;}
-  .hint-facts .fr{color:var(--violet);font-style:italic;font-size:12px;}
-
-  .think-card{background:linear-gradient(135deg,#f3e8ff,#fff);border:3px solid var(--violet);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
-  .think-card h4{font-family:'Caprasimo',serif;font-size:21px;color:var(--violet);margin-bottom:8px;}
-  .think-card .qtext{font-size:18px;font-weight:600;margin-bottom:6px;}
-  .think-card .qtext-fr{font-size:15px;color:var(--violet);font-style:italic;margin-bottom:12px;}
-
-  .toolkit{background:linear-gradient(135deg,#eaf9ff,#fff);border:3px solid var(--sky);border-radius:18px;padding:18px 22px;margin:14px 0;position:relative;z-index:1;}
-  .toolkit h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--sky-deep);margin-bottom:10px;}
-  .toolkit-group{margin-bottom:12px;}
-  .toolkit-group .tk-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--violet);margin-bottom:5px;}
-  .toolkit-group .tk-phrase{background:#fff;border-left:4px solid var(--sky);border-radius:8px;padding:8px 12px;margin-bottom:5px;font-size:15px;}
-  .toolkit-group .tk-phrase .fr{display:block;color:var(--violet);font-style:italic;font-size:12px;margin-top:2px;}
-
-  .tiers{display:grid;gap:11px;margin-top:14px;position:relative;z-index:1}
-  .tier{background:#fff;border-radius:16px;padding:16px 20px;border-left:8px solid var(--sky);box-shadow:0 4px 14px rgba(0,0,0,0.06);}
-  .tier.silver{border-left-color:#9ca3af}
-  .tier.gold{border-left-color:var(--sun)}
-  .tier.diamond{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0)}
-  .tier-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#666;margin-bottom:5px;}
-  .tier h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--coral-deep);margin-bottom:5px}
-  .tier p{font-size:16px}
-  .tier .fr{color:var(--violet);font-style:italic;font-size:14px;margin-top:3px}
-
-  .wheel-embed-label{font-family:'Caprasimo',serif;font-size:18px;color:var(--sun-deep);text-align:center;margin-top:6px;margin-bottom:10px;position:relative;z-index:1;}
-  .wheel-embed{width:100%;min-height:640px;border:3px solid var(--sun);border-radius:20px;position:relative;z-index:1;box-shadow:0 8px 24px rgba(255,183,3,0.25);background:#fff;}
-  @media(max-width:780px){ .wheel-embed{min-height:760px;} }
-
-  .victory{background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#fff;border-radius:22px;padding:32px;text-align:center;border:4px solid var(--sun);margin:12px 0;box-shadow:0 12px 40px rgba(229,72,77,0.4);position:relative;z-index:1;}
-  .victory h2{font-family:'Caprasimo',serif;font-size:34px;margin-bottom:12px}
-  .victory p{font-size:17px;line-height:1.7;margin-bottom:8px}
-  .victory .fr{color:var(--sun);font-style:italic;font-size:15px;margin-top:6px}
-  .victory .recap{background:rgba(255,255,255,.15);border-radius:14px;padding:14px 18px;margin-top:14px;text-align:left;font-size:15px;}
-  .victory .recap b{color:var(--sun)}
-
-  .nav-wrap-fixed{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid var(--sky);padding:12px 0;z-index:500;box-shadow:0 -6px 20px rgba(0,0,0,0.12);}
-  .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1280px;margin:0 auto;padding:0 24px;flex-wrap:wrap;}
-  .dots{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:380px}
-  .dot{width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--coral);cursor:pointer;transition:all .25s;}
-  .dot.active{background:var(--coral);transform:scale(1.4)}
-  .dot.done{background:var(--sky);border-color:var(--sky)}
-  .nav-btn{background:linear-gradient(135deg,var(--coral),var(--coral-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(229,72,77,0.4);transition:all .25s;text-transform:uppercase;letter-spacing:0.5px;}
-  .nav-btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(229,72,77,0.55)}
-  .nav-btn.prev{background:linear-gradient(135deg,#888,#aaa);box-shadow:0 6px 18px rgba(0,0,0,0.2)}
-  .nav-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
-
-  .reaction{position:fixed;font-size:44px;pointer-events:none;z-index:9999;animation:floatUp 1.4s ease-out forwards;}
-  @keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(0.5)}20%{opacity:1;transform:translateY(-30px) scale(1.2)}100%{opacity:0;transform:translateY(-180px) scale(0.8)}}
-  .confetti{position:fixed;width:10px;height:10px;pointer-events:none;z-index:9999;animation:confettiFall 2s ease-out forwards;}
-  @keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(400px) rotate(720deg)}}
-
-  footer.kce-foot{text-align:center;padding:16px 20px;font-size:11px;color:#8a93a6;}
-
-  @media(max-width:780px){
-    .bilingual{grid-template-columns:1fr}
-    .slide-title{font-size:26px}
-    .modal-grid{grid-template-columns:1fr}
-  }
+:root{
+  --sun:#F4B400; --sun-deep:#A6821B;
+  --sky:#0F8B8D; --sky-deep:#0A5F60;
+  --coral:#E8573C; --coral-deep:#8E1B20;
+  --leaf:#4A9C5D; --leaf-deep:#2F5233;
+  --grape:#7c3aed; --pink:#E85D9A; --orange:#F28C28;
+  --cream:#fff8ea; --ink:#25324a;
+  --good:#22c55e; --bad:#ef4444;
+  --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  --accent:#0F8B8D; --accent-deep:#0A5F60;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Quicksand',Arial,sans-serif;font-size:20px;line-height:1.5;color:var(--ink);
+  background:radial-gradient(circle at 6% 10%,rgba(242,140,40,.20) 0,transparent 40%),radial-gradient(circle at 94% 85%,rgba(124,58,237,.14) 0,transparent 42%),linear-gradient(180deg,#fff4e3 0%,#fff 100%);min-height:100vh;overflow-x:hidden}
+.kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px}
+.kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px}
+.kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1}
+.kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700}
+.kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+.kce-band{height:3px;display:flex}.kce-band i{flex:1}.kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+.stage{max-width:1180px;margin:0 auto;padding:18px 20px 40px}
+.hud{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--accent);border-radius:22px;padding:10px 18px;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.hud-brand{font-family:'Caprasimo',Georgia,serif;font-size:21px;color:var(--accent-deep)}
+.hud-stat{font-weight:700;font-size:18px;background:var(--cream);padding:6px 14px;border-radius:12px;border:2px solid var(--sun);color:#8a5a00}
+.hud-spacer{flex:1}
+.pill{border:none;border-radius:50px;padding:8px 16px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:13px;cursor:pointer}
+.pill.fr-toggle{background:#ede9fe;color:var(--grape)}
+.pill.star-btn{background:var(--sun);color:var(--kce-navy)}
+.namedate{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;font-family:Arial,sans-serif;font-size:15px;color:var(--kce-navy);background:#fff;border:2px dashed var(--kce-gold);border-radius:12px;padding:8px 16px}
+.namedate b{font-family:Georgia,serif}
+.progress{height:10px;background:#eee;border-radius:99px;margin-top:10px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--pink),var(--grape));transition:width .5s}
+.slide{display:none;background:#fff;border:3px solid var(--accent);border-radius:26px;padding:24px 28px;margin-top:14px;box-shadow:0 12px 34px rgba(0,0,0,.07);animation:slideIn .45s ease;position:relative}
+.slide.active{display:block}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.slide-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.slide-count{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:#7a869a;text-transform:uppercase;letter-spacing:1px}
+.minutes{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;background:#e0f2f1;color:var(--sky-deep);padding:4px 12px;border-radius:99px}
+.slide-title{font-family:'Caprasimo',Georgia,serif;font-size:36px;color:var(--accent-deep);text-align:center;line-height:1.15}
+.slide-sub{text-align:center;font-size:19px;color:#4b5563;margin-top:4px}
+.fr{color:#7c5cc4;font-style:italic;font-weight:500;font-size:.78em;display:block;margin-top:3px;line-height:1.35}
+body.hide-fr .fr{display:none!important}
+.goal{margin:18px auto 0;max-width:760px;background:linear-gradient(135deg,#fff3d6,#ffe4ef);border:3px solid var(--sun);border-radius:20px;padding:18px 22px;text-align:center}
+.goal .big{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--coral-deep)}
+.emoji-row{font-size:54px;text-align:center;margin:14px 0 4px;letter-spacing:8px}
+.how{max-width:760px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.how div{background:var(--cream);border-radius:16px;padding:12px 14px;font-size:17px;text-align:center;border:2px solid #f3dfb5}
+/* chat */
+.chat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:16px}
+.chat-card{border:3px solid var(--sky);border-radius:18px;padding:14px 16px;background:#f3fbfb;cursor:pointer;transition:transform .15s}
+.chat-card:hover{transform:translateY(-2px)}
+.chat-card h4{font-family:'Caprasimo',Georgia,serif;font-size:22px;color:var(--sky-deep);font-weight:400}
+.starters{display:none;margin-top:10px;gap:8px;flex-direction:column}
+.chat-card.open .starters{display:flex}
+.starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:8px 12px;font-weight:700;font-size:17px}
+.starter .fr{font-weight:500}
+.askback{display:inline-block;margin-top:8px;background:var(--sun);color:var(--kce-navy);font-weight:800;font-size:14px;padding:5px 12px;border-radius:99px;font-family:'Poppins',Arial,sans-serif}
+.tap-hint{font-size:14px;color:#7a869a;margin-top:6px}
+/* vocab */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:16px}
+.vcard{perspective:800px;height:170px;cursor:pointer}
+.vinner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.vcard.flip .vinner{transform:rotateY(180deg)}
+.vface{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center}
+.vfront{border:3px solid var(--orange);background:#fff7ed}
+.vfront .em{font-size:56px;line-height:1.1}
+.vfront .w{font-weight:800;font-size:19px;margin-top:6px}
+.vback{transform:rotateY(180deg);background:linear-gradient(135deg,#ede9fe,#fce7f3);border:3px solid var(--grape);font-size:16px}
+.vback .ex{font-weight:700;color:var(--ink)}
+/* wheel */
+.wheel-wrap{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:4px;padding:12px 4px 8px;overflow:hidden}
+.wheel-box{position:relative;width:420px;height:420px;max-width:90vw;max-height:90vw}
+.wheel-box canvas{width:100%;height:100%;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform 4.2s cubic-bezier(.12,.8,.2,1)}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-top:38px solid var(--kce-navy);z-index:2;filter:drop-shadow(0 3px 2px rgba(0,0,0,.3))}
+.hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:#fff;border:5px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;font-size:30px;z-index:2}
+.wheel-q{flex:1;min-width:min(300px,100%);max-width:520px;background:linear-gradient(135deg,#fff3d6,#e0f2fe);border:3px solid var(--sun);border-radius:22px;padding:22px;text-align:center;min-height:200px;display:flex;flex-direction:column;justify-content:center}
+.wheel-q .q{font-family:'Caprasimo',Georgia,serif;font-size:27px;color:var(--kce-navy);line-height:1.25}
+.wheel-q .st{margin-top:10px;font-size:17px;font-weight:700;color:var(--sky-deep)}
+.big-btn{display:inline-block;border:none;border-radius:16px;padding:14px 28px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:18px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--orange),var(--coral));box-shadow:0 6px 16px rgba(232,87,60,.35)}
+.big-btn:disabled{opacity:.5;cursor:default}
+.center{text-align:center;margin-top:14px}
+/* builder */
+.builder-pic{font-size:64px;text-align:center;margin-top:10px}
+.builder-prompt{text-align:center;font-weight:700;font-size:19px}
+.answer-line{min-height:70px;border:3px dashed var(--grape);border-radius:16px;margin:14px 0;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:#faf5ff}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tile{border:3px solid var(--sky);background:#fff;border-radius:12px;padding:8px 14px;font-weight:800;font-size:20px;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.tile.used{visibility:hidden}
+.answer-line .tile{border-color:var(--grape);background:#fff}
+.row-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.sm-btn{border:none;border-radius:12px;padding:10px 18px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:15px;cursor:pointer;background:#e5e7eb;color:var(--ink)}
+.sm-btn.go{background:var(--leaf);color:#fff}
+.feedback{text-align:center;font-weight:800;font-size:19px;min-height:30px;margin-top:10px}
+.feedback.ok{color:#15803d}.feedback.no{color:#b91c1c}
+.round-tag{text-align:center;font-family:'Poppins',Arial,sans-serif;font-weight:700;color:#7a869a;font-size:14px;margin-top:6px}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+/* mcq */
+.mcq-scene{font-size:62px;text-align:center;margin-top:8px}
+.mcq-q{font-family:'Caprasimo',Georgia,serif;font-size:25px;color:var(--kce-navy);text-align:center;margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{border:3px solid var(--sky);background:#fff;border-radius:16px;padding:14px 16px;font-size:19px;font-weight:700;cursor:pointer;text-align:left;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.opt.right{background:#dcfce7;border-color:var(--good)}
+.opt.wrong{background:#fee2e2;border-color:var(--bad)}
+.explain{margin-top:12px;background:var(--cream);border-left:6px solid var(--sun);border-radius:12px;padding:12px 16px;font-size:18px;display:none}
+.explain.show{display:block}
+/* this or that */
+.tot-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:14px}
+.tot{border:3px solid var(--pink);background:#fff0f6;border-radius:20px;padding:18px;text-align:center;cursor:pointer;font-weight:800;font-size:20px;transition:transform .15s}
+.tot .em{font-size:52px;display:block}
+.tot.pick{background:var(--pink);color:#fff;transform:scale(1.04)}
+.tot.pick .fr{color:#fff}
+.vs{font-family:'Caprasimo',Georgia,serif;font-size:30px;color:var(--grape)}
+.say-box{margin-top:14px;text-align:center;background:#ecfeff;border:2px solid var(--sky);border-radius:14px;padding:12px;font-weight:700;font-size:19px}
+/* memory */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;max-width:760px;margin-left:auto;margin-right:auto}
+.mem{height:110px;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.12);padding:6px;user-select:none}
+.mem .face{display:none}
+.mem.open,.mem.done{background:#fff;color:var(--ink);border-color:var(--sky)}
+.mem.open .face,.mem.done .face{display:block}
+.mem.open .back,.mem.done .back{display:none}
+.mem.done{border-color:var(--good);background:#dcfce7}
+.mem .face.e{font-size:46px}
+/* true or silly */
+.tos-card{max-width:760px;margin:16px auto 0;background:linear-gradient(135deg,#fff7ed,#fef3c7);border:3px solid var(--orange);border-radius:22px;padding:22px;text-align:center}
+.tos-card .em{font-size:56px}
+.tos-card .st{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--kce-navy);margin-top:6px}
+.tos-btns{display:flex;gap:14px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.tos-btns button{min-width:170px}
+.btn-true{background:linear-gradient(135deg,#22c55e,#15803d)!important}
+.btn-silly{background:linear-gradient(135deg,#a855f7,#7c3aed)!important}
+/* sort */
+.sort-item{max-width:760px;margin:14px auto 0;background:#fff;border:3px solid var(--kce-navy);border-radius:18px;padding:16px;text-align:center;font-weight:800;font-size:22px}
+.buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.bucket{border-radius:18px;padding:14px;text-align:center;cursor:pointer;color:#fff;font-weight:800;font-size:19px;border:none;font-family:'Quicksand',Arial,sans-serif}
+.bucket small{display:block;font-weight:600;font-size:14px;opacity:.95;margin-top:4px}
+.bucket .cnt{display:block;font-size:14px;margin-top:6px;background:rgba(255,255,255,.25);border-radius:8px;padding:2px}
+.rule-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.rule{border-radius:16px;padding:12px 14px;color:#fff;font-size:17px}
+.rule b{font-size:20px;display:block}
+/* day plan */
+.plan-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.plan-col{border:3px solid var(--sun);border-radius:18px;padding:12px;background:#fffbeb}
+.plan-col h4{font-family:'Caprasimo',Georgia,serif;font-weight:400;font-size:21px;color:var(--sun-deep);text-align:center;margin-bottom:8px}
+.chip{display:block;width:100%;text-align:left;border:2px solid #f3dfb5;background:#fff;border-radius:12px;padding:8px 12px;margin-bottom:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.chip.sel{background:var(--sun);border-color:var(--sun-deep)}
+.story{margin-top:16px;background:linear-gradient(135deg,#e0f2fe,#ede9fe);border:3px solid var(--grape);border-radius:20px;padding:18px 22px;font-size:21px;font-weight:700;line-height:1.6;display:none}
+.story.show{display:block}
+.story .conn{color:var(--coral-deep)}
+/* talk */
+.check-list{max-width:760px;margin:16px auto 0;display:flex;flex-direction:column;gap:10px}
+.check{display:flex;align-items:center;gap:14px;border:3px solid var(--leaf);border-radius:16px;padding:12px 16px;background:#f0fdf4;cursor:pointer;font-weight:700;font-size:19px}
+.check .box{width:34px;height:34px;flex:none;border-radius:10px;border:3px solid var(--leaf);display:flex;align-items:center;justify-content:center;font-size:22px;background:#fff}
+.check.done{background:#bbf7d0}
+/* 2 truths */
+.ttl-list{max-width:760px;margin:14px auto 0;display:flex;flex-direction:column;gap:10px}
+/* victory */
+.victory{text-align:center;padding:10px}
+.medal{font-size:110px;line-height:1.1;margin-top:8px}
+.victory .score{font-family:'Caprasimo',Georgia,serif;font-size:34px;color:var(--accent-deep);margin-top:6px}
+.tiers{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.tiers div{background:var(--cream);border-radius:14px;padding:8px 14px;font-weight:700;font-size:16px;border:2px solid #f3dfb5}
+.tiers div.on{background:var(--sun);border-color:var(--sun-deep)}
+/* tutor */
+details.tutor{margin-top:18px;background:#f1f5f9;border-radius:12px;padding:8px 14px;font-size:15px;font-family:Arial,sans-serif;color:#334155}
+details.tutor summary{cursor:pointer;font-weight:700;color:var(--kce-navy)}
+details.tutor p{margin-top:6px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+.nav-btn{background:linear-gradient(135deg,var(--accent),var(--accent-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',Arial,sans-serif;font-size:16px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px}
+.nav-btn:disabled{opacity:.35;cursor:default}
+.nav-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.nav-dots button{width:14px;height:14px;border-radius:50%;border:none;background:#d1d5db;cursor:pointer;padding:0}
+.nav-dots button.on{background:var(--accent)}
+footer{margin-top:22px;text-align:center;font-family:Arial,sans-serif;font-size:12px;color:#64748b;line-height:1.6}
+footer .prov{color:var(--kce-navy);font-weight:700}
+.toast{position:fixed;left:50%;top:22px;transform:translateX(-50%) translateY(-120px);background:var(--kce-navy);color:#fff;padding:12px 22px;border-radius:14px;font-weight:800;font-size:19px;z-index:50;transition:transform .35s;font-family:'Poppins',Arial,sans-serif}
+.toast.show{transform:translateX(-50%) translateY(0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+@media(max-width:700px){.slide{padding:18px 14px}.wheel-q .q{font-size:22px}.slide-title{font-size:28px}.tot-row{grid-template-columns:1fr}.vs{text-align:center}.mem-grid{grid-template-columns:repeat(3,1fr)}.wheel-box{width:320px;height:320px}}
 </style>
 </head>
-<body class="notranslate" translate="no">
-
+<body class="notranslate " translate="no">
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
 <div class="kce-mast">
   <div class="kce-mono">KC</div>
   <div>
@@ -218,488 +204,328 @@
 
 <div class="stage">
   <div class="hud">
-    <div class="hud-brand" style="--_e:'💼'">Hugo • L11</div>
-    <div class="hud-stat">🎯 <span id="accuracy">0</span> right</div>
-    <div class="hud-stat">⭐ <span id="stars">0</span></div>
-    <div class="hud-stat streak">🔥 <span id="streak">0</span></div>
-    <div class="xp-shell">
-      <div class="xp-fill" id="xpFill"></div>
-      <div class="xp-text"><span id="xpText">0</span> / 300 XP</div>
-    </div>
+    <div class="hud-brand" id="hudBrand"></div>
+    <div class="hud-stat">⭐ <span id="stars">0</span> stars</div>
+    <div class="hud-spacer"></div>
+    <button class="pill star-btn" id="starBtn" title="Tutor: tap for every full English sentence">+1 ⭐ Full sentence</button>
+    <button class="pill fr-toggle" id="frBtn">FR: ON</button>
+  </div>
+  <div class="namedate"><span><b>Name:</b> <span id="stuName"></span></span><span><b>Date:</b> <span id="today"></span></span><span><b>Lesson:</b> <span id="lessonName"></span></span></div>
+  <div class="progress"><i id="prog"></i></div>
+
+  <div id="slides"></div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn">◀ Back</button>
+    <div class="nav-dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▶</button>
   </div>
 
-  <section class="slide active" data-slide="1">
-    <div class="slide-count">Slide 1 of 12</div>
-    <div class="slide-title">💼 Money, Work & the Future</div>
-    <div class="bilingual">
-      <div class="lang-card">
-        <span class="lang-tag">English</span>
-        <p>Hi Hugo! Today: what people actually value about work, and how that's totally different in France versus America. This isn't abstract — it's literally the future you're walking into.</p>
-      </div>
-      <div class="lang-card fr">
-        <span class="lang-tag">Français</span>
-        <p>Salut Hugo! Aujourd'hui : ce que les gens valorisent vraiment dans le travail, et à quel point c'est totalement différent en France et aux États-Unis. Ce n'est pas abstrait — c'est littéralement le futur vers lequel tu te diriges.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="2">
-    <div class="slide-count">Slide 2 of 12</div>
-    <div class="slide-title">🎤 What Do You Value?</div>
-    <div class="connect-note">No wrong answers — what actually matters to you about a future job?</div>
-    <div class="elicit-card">
-      <h4>Tell me first</h4>
-      <div class="starter-row">
-        <div class="starter"><span class="en">"A job I could see myself doing someday is..."</span><span class="fr">"Un métier que je pourrais me voir faire un jour, c'est..."</span></div>
-        <div class="starter"><span class="en">"What matters more to me is... money or free time... because..."</span><span class="fr">"Ce qui compte le plus pour moi, c'est... l'argent ou le temps libre... parce que..."</span></div>
-        <div class="starter"><span class="en">"Something I've noticed adults in France care about with work is..."</span><span class="fr">"Une chose que j'ai remarquée que les adultes en France valorisent dans le travail, c'est..."</span></div>
-      </div>
-      <button class="hint-toggle" id="hintToggle1">Need vocabulary? Tap for help 💡</button>
-      <ul class="hint-facts" id="hintFacts1">
-        <li><strong>a career</strong> — a long-term path of work in a field you choose. <span class="fr">une carrière.</span></li>
-        <li><strong>work-life balance</strong> — having enough time for both work and personal life. <span class="fr">l'équilibre vie pro/perso.</span></li>
-        <li><strong>paid vacation</strong> — time off from work where you still get paid. <span class="fr">les congés payés.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="3">
-    <div class="slide-count">Slide 3 of 12</div>
-    <div class="slide-title">⚡ This or That!</div>
-    <div class="slide-sub">Fast answers — no overthinking. / Réponses rapides — ne réfléchis pas trop.</div>
-    <div class="tot-cluster-label">💼 Work Instincts</div>
-    <div id="totRows1"></div>
-  </section>
-
-  <section class="slide" data-slide="4">
-    <div class="slide-count">Slide 4 of 12</div>
-    <div class="slide-title">🔭 Make a Prediction</div>
-    <div class="think-card">
-      <h4>Before you see the facts...</h4>
-      <div class="qtext">Which country do you think guarantees workers MORE paid vacation days by law — France or the USA?</div>
-      <div class="qtext-fr">Quel pays garantit, selon toi, PLUS de jours de congés payés par la loi — la France ou les États-Unis?</div>
-      <div id="predictRow" style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;position:relative;z-index:1;"></div>
-      <div id="predictResult" style="margin-top:12px;font-size:14px;font-weight:700;color:var(--violet);display:none;position:relative;z-index:1;"></div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="5">
-    <div class="slide-count">Slide 5 of 12</div>
-    <div class="slide-title">🌍 Three Real Differences in Work Culture</div>
-    <div class="connect-note">Tap each card — real laws and numbers, not stereotypes.</div>
-    <div class="stop-progress" id="stopProgress">0 / 3 explored</div>
-    <div class="map-track" id="mapTrack"></div>
-    <div class="stop-panel" id="stopPanel">
-      <div class="sp-placeholder">Tap a card above to begin! / Tape une carte pour commencer!</div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="6">
-    <div class="slide-count">Slide 6 of 12</div>
-    <div class="slide-title">🧠 Now Apply It</div>
-    <div class="slide-sub">Not just facts — what they mean for real people.</div>
-    <div id="leagueMCQ"></div>
-  </section>
-
-  <section class="slide" data-slide="7">
-    <div class="slide-count">Slide 7 of 12</div>
-    <div class="slide-title">🔍 Spot the American-Only Practice</div>
-    <div class="connect-note">Four of these are common or legally required in France. One is a distinctly American workplace practice, rare or nonexistent in France. Tap it.</div>
-    <div id="flagRow" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0;position:relative;z-index:1;"></div>
-    <div id="flagResult" style="display:none;margin-top:8px;position:relative;z-index:1;"></div>
-  </section>
-
-  <section class="slide" data-slide="8">
-    <div class="slide-count">Slide 8 of 12</div>
-    <div class="slide-title">🤔 Let's Think About This</div>
-    <div class="think-card">
-      <h4>The Big Question</h4>
-      <div class="qtext">The US has a much higher average income than France, but France guarantees far more vacation time, healthcare, and job protection by law. If you had to choose a country's work system to grow up and build a career in, which values matter more to you — and why?</div>
-      <div class="qtext-fr">Les États-Unis ont un revenu moyen bien plus élevé que la France, mais la France garantit bien plus de congés, de santé, et de protection de l'emploi par la loi. Si tu devais choisir un système de travail pour construire ta carrière, quelles valeurs compteraient le plus pour toi — et pourquoi?</div>
-      <button class="hint-toggle" id="hintToggle2">Stuck? Tap for angles to consider 💡</button>
-      <ul class="hint-facts" id="hintFacts2">
-        <li><strong>Income vs. security:</strong> The US system often rewards ambition and risk-taking with higher pay; the French system prioritizes stability and guaranteed protections for everyone. <span class="fr">Le système américain récompense souvent l'ambition avec un salaire plus élevé; le système français priorise la stabilité pour tous.</span></li>
-        <li><strong>Cost of living:</strong> Higher US salaries are often needed to cover things (healthcare, childcare) that are already included in French taxes and benefits. <span class="fr">Les salaires américains plus élevés couvrent souvent des choses déjà incluses dans les impôts et prestations français.</span></li>
-        <li><strong>Cultural values:</strong> One system reflects a belief that individual effort should be rewarded directly; the other reflects a belief that a whole society should share risk and protection. <span class="fr">Un système reflète l'idée que l'effort individuel doit être récompensé; l'autre, que la société doit partager le risque.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="9">
-    <div class="slide-count">Slide 9 of 12</div>
-    <div class="slide-title">⚡ This or That!</div>
-    <div class="slide-sub">Comparing two perspectives. / Comparer deux perspectives.</div>
-    <div class="tot-cluster-label">🇫🇷 vs 🇺🇸 Work Values</div>
-    <div id="totRows2"></div>
-  </section>
-
-  <section class="slide" data-slide="10">
-    <div class="slide-count">Slide 10 of 12</div>
-    <div class="slide-title">🎤 Your Turn to Argue!</div>
-    <div class="slide-sub">Pick your level with your teacher — argue your case out loud.</div>
-    <div class="connect-note">👩‍🏫 No clicking here — pick one tier together and have Hugo speak his answer out loud. Use the toolkit below as a starting point, not a script.</div>
-    <div class="toolkit">
-      <h4>🧰 Language Toolkit</h4>
-      <div class="toolkit-group">
-        <div class="tk-label">Comparing</div>
-        <div class="tk-phrase">"Unlike X, Y..." / "X is more... than Y because..."<span class="fr">"Contrairement à X, Y..." / "X est plus... que Y parce que..."</span></div>
-      </div>
-      <div class="toolkit-group">
-        <div class="tk-label">Cause & Effect</div>
-        <div class="tk-phrase">"This is because..." / "As a result..." / "This means that..."<span class="fr">"C'est parce que..." / "Par conséquent..." / "Cela signifie que..."</span></div>
-      </div>
-      <div class="toolkit-group">
-        <div class="tk-label">Giving an Opinion (with nuance)</div>
-        <div class="tk-phrase">"In my opinion..." / "Some people might say... but I'd argue..." / "While it's true that... I still think..."<span class="fr">"À mon avis..." / "Certains diraient... mais je pense que..." / "Même si c'est vrai que... je pense quand même que..."</span></div>
-      </div>
-    </div>
-    <div class="tiers">
-      <div class="tier silver">
-        <div class="tier-label">🥈 Silver Challenge</div>
-        <h4>Describe a job you might want and what matters most to you about it.</h4>
-        <p class="fr">Décris un métier que tu pourrais vouloir et ce qui compte le plus pour toi.</p>
-      </div>
-      <div class="tier gold">
-        <div class="tier-label">🥇 Gold Challenge</div>
-        <h4>Compare one work benefit France guarantees by law and one thing the American system tends to reward instead.</h4>
-        <p class="fr">Compare un avantage de travail que la France garantit par la loi et une chose que le système américain a tendance à récompenser à la place.</p>
-      </div>
-      <div class="tier diamond">
-        <div class="tier-label">💎 Diamond Challenge</div>
-        <h4>Make your own argument: is it better for a country to guarantee more security for everyone, or reward individual ambition with higher potential pay? Defend your answer with two reasons.</h4>
-        <p class="fr">Construis ton propre argument : vaut-il mieux qu'un pays garantisse plus de sécurité pour tous, ou récompense l'ambition individuelle avec un salaire potentiellement plus élevé? Défends ta réponse avec deux raisons.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="11">
-    <div class="slide-count">Slide 11 of 12</div>
-    <div class="slide-title">🎡 Bonus Round!</div>
-    <div class="slide-sub">Extra time? Spin for a totally different kind of question.</div>
-    <div class="wheel-embed-label">🎡 Tap to spin!</div>
-    <div id="spinResult" class="stop-panel" style="text-align:center;min-height:120px;display:flex;align-items:center;justify-content:center;">
-      <div class="sp-placeholder">Tap the button below to get your bonus question! / Appuie sur le bouton pour ta question bonus!</div>
-    </div>
-    <div style="text-align:center;margin-top:16px;position:relative;z-index:1;">
-      <button class="nav-btn" id="spinBtn" style="text-transform:none;letter-spacing:0;">🎡 Spin!</button>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="12">
-    <div class="slide-count">Slide 12 of 12</div>
-    <div class="victory">
-      <h2>🎉 Well Invested, Hugo!</h2>
-      <p>Today you compared real work systems in two countries, spotted the American-only workplace practice, and built your own argument about what you actually want from a future career — all in English!</p>
-      <p class="fr">Aujourd'hui, tu as comparé de vrais systèmes de travail dans deux pays, repéré la pratique typiquement américaine, et construit ton propre argument sur ce que tu veux vraiment d'une future carrière — tout en anglais!</p>
-      <div class="recap" id="recapBox"></div>
-    </div>
-  </section>
+  <footer>
+    KingCretot Experience, LLC · PO Box 2322, Arcadia, FL 34265 · kingcretot.com · kce@kingcretot.com<br>
+    <span class="prov">Approved Provider: Step Up For Students · Arizona ESA · West Virginia Hope Scholarship</span>
+  </footer>
 </div>
-<div class="nav-wrap-fixed">
-  <div class="nav-wrap">
-    <button class="nav-btn prev" id="prevBtn">◂ Back</button>
-    <div class="dots" id="dots"></div>
-    <button class="nav-btn" id="nextBtn">Next ▸</button>
-  </div>
-</div>
-<footer class="kce-foot">KingCretot Experience · Hugo · Lesson 11: Money, Work & the Future</footer>
 
 <script>
-const TOUR_STOPS = [{"icon": "🏖️", "tag": "Vacation Law", "label": "5 Weeks, Guaranteed", "en": "French labor law guarantees workers a minimum of 5 weeks of paid vacation per year — this is a legal right, not something an employer chooses to offer.", "fr": "Le droit du travail français garantit un minimum de 5 semaines de congés payés par an — c'est un droit légal, pas quelque chose que l'employeur choisit d'offrir.", "fact": "The USA has NO federal law requiring any paid vacation at all — it's entirely up to each employer, and many American workers get far less than French workers by default.", "factfr": "Les États-Unis n'ont AUCUNE loi fédérale exigeant des congés payés — cela dépend entièrement de chaque employeur."}, {"icon": "🏥", "tag": "Healthcare", "label": "Tied to Job, or Not", "en": "In France, healthcare is largely covered through the government system, funded by taxes — it doesn't depend on your employer at all.", "fr": "En France, la santé est largement couverte par le système public, financé par les impôts — cela ne dépend pas de l'employeur.", "fact": "In the US, many people get healthcare THROUGH their job — which means losing a job can also mean losing health insurance, a risk that doesn't exist in France's system.", "factfr": "Aux États-Unis, beaucoup de gens obtiennent leur assurance santé PAR leur emploi — perdre un emploi peut donc aussi signifier perdre son assurance santé."}, {"icon": "⚖️", "tag": "Job Protection", "label": "Harder to Fire, Harder to Hire", "en": "French law makes it significantly harder and more expensive for companies to fire employees compared to the US — offering workers much more job security.", "fr": "La loi française rend le licenciement bien plus difficile et coûteux pour les entreprises qu'aux États-Unis — offrant plus de sécurité de l'emploi.", "fact": "This same protection is often blamed for making French companies more cautious about hiring in the first place — security for existing workers can mean fewer new jobs created.", "factfr": "Cette même protection est souvent accusée de rendre les entreprises françaises plus prudentes pour embaucher — la sécurité peut aussi signifier moins de nouveaux emplois créés."}];
-const FB = {};
-let ac;
-function tone(freqs, durs){
-  try{
-    if(!ac) ac = new (window.AudioContext||window.webkitAudioContext)();
-    const now = ac.currentTime;
-    freqs.forEach((f,i)=>{
-      const o=ac.createOscillator(),g=ac.createGain();
-      o.type='triangle';o.frequency.value=f;
-      o.connect(g);g.connect(ac.destination);
-      const t0=now+i*0.09;
-      g.gain.setValueAtTime(0,t0);
-      g.gain.linearRampToValueAtTime(0.18,t0+0.02);
-      g.gain.exponentialRampToValueAtTime(0.001,t0+(durs[i]||0.25));
-      o.start(t0);o.stop(t0+(durs[i]||0.25));
+const L = {"brand": "Hugo • Lesson 11", "student": "Hugo Carreau", "lesson": "Lesson 11 — Money, Work & the Future", "slides": [{"type": "intro", "min": 2, "title": "💰 Money, Work & the Future 💼", "sub": "Earn it, save it, spend it — let's talk money like an American teen!", "subFr": "La gagner, l'économiser, la dépenser — parlons d'argent comme un ado américain !", "emojis": "💰💼🐷📈🛒", "goal": "I can give money advice with “should / shouldn't” and talk about my wishes with “I'd like to…”.", "goalFr": "Je peux donner des conseils sur l'argent avec « should / shouldn't » et parler de mes envies avec « I'd like to… ».", "how": [["⭐ Full sentence = star", "Phrase complète = étoile"], ["🧠 Beat the grammar challenges", "Réussis les défis de grammaire"], ["😎 Fool Jonathan in Two Truths and a Lie", "Piège Jonathan au jeu des 2 vérités et 1 mensonge"]], "tutor": "Two tools today. ADVICE: should / shouldn't + base verb (no 'to'!). WISHES: I'd like to + verb (= j'aimerais / je voudrais). Watch for: 'I like to' vs 'I'd like to' (j'aime vs j'aimerais), 'You should to save' ✗, 'I'd like that you come' ✗. American words: allowance, paycheck, part-time job, dollars. FR helper lines start OFF."}, {"type": "chat", "min": 4, "title": "💬 Warm-Up Chat", "sub": "Tap a question for answer starters. Then ask Jonathan back!", "subFr": "Touche une question pour des débuts de réponse. Puis pose-la à Jonathan !", "items": [{"q": "How are you today?", "fr": "Comment vas-tu aujourd'hui ?", "starters": [["I'm good, thanks! And you?", "Je vais bien, merci ! Et toi ?"], ["Pretty tired, honestly. How about you?", "Assez fatigué, franchement. Et toi ?"]]}, {"q": "Do you get an allowance?", "fr": "Est-ce que tu as de l'argent de poche ?", "starters": [["Yes, I get … euros a week / a month.", "Oui, j'ai … euros par semaine / par mois."], ["Not really, but my parents give me money when…", "Pas vraiment, mais mes parents me donnent de l'argent quand…"]]}, {"q": "What was the last thing you spent money on?", "fr": "Quelle est la dernière chose pour laquelle tu as dépensé de l'argent ?", "starters": [["The last thing I bought was…", "La dernière chose que j'ai achetée, c'est…"], ["I spent my money on… and I (don't) regret it.", "J'ai dépensé mon argent pour… et je (ne) le regrette (pas)."]]}, {"q": "What would you like to do as a job one day?", "fr": "Quel métier aimerais-tu faire un jour ?", "starters": [["I'd like to be a… because…", "J'aimerais être… parce que…"], ["I have no idea yet, but I'd like to work in…", "Je n'en ai aucune idée, mais j'aimerais travailler dans…"]]}], "tutor": "New American word: 'allowance' = argent de poche. He asks every question back ('And you?' / 'What about you?') — answer honestly about your first jobs so he hears real money talk."}, {"type": "vocab", "min": 5, "title": "💵 Money & Work Vocabulary", "sub": "Tap to flip. Read the example, then make your own sentence!", "subFr": "Touche pour retourner. Lis l'exemple, puis fais ta propre phrase !", "items": [{"e": "💵", "w": "earn", "ex": "You can earn money by babysitting or walking dogs.", "fr": "gagner (en travaillant)"}, {"e": "🐷", "w": "save", "ex": "I'm saving for a new game console.", "fr": "économiser / mettre de côté"}, {"e": "🛍️", "w": "spend", "ex": "I spend too much money on snacks after school.", "fr": "dépenser"}, {"e": "📊", "w": "budget", "ex": "If you make a budget, you know where your money goes.", "fr": "le budget"}, {"e": "🪙", "w": "allowance", "ex": "Many American kids get a weekly allowance.", "fr": "l'argent de poche"}, {"e": "🧹", "w": "chores", "ex": "My parents pay me a little for doing chores.", "fr": "les tâches ménagères"}, {"e": "🧾", "w": "paycheck", "ex": "My cousin gets her paycheck every two weeks.", "fr": "la paie / le salaire"}, {"e": "⏰", "w": "part-time job", "ex": "My brother has a part-time job at a pizza place.", "fr": "un petit boulot / un temps partiel"}, {"e": "💳", "w": "afford", "ex": "I can't afford those sneakers — they're way too expensive.", "fr": "avoir les moyens de (se payer)"}, {"e": "🗑️", "w": "waste", "ex": "Don't waste your money on things you don't need.", "fr": "gaspiller"}, {"e": "🤝", "w": "lend / borrow", "ex": "Can you lend me five dollars? I'll pay you back tomorrow.", "fr": "prêter / emprunter"}, {"e": "✅", "w": "worth it", "ex": "The concert tickets were expensive, but it was worth it.", "fr": "ça valait le coup"}], "tutor": "After each card: 'Give me a piece of advice with it' (You should save…). Traps: earn ≠ win (you WIN a game); lend = prêter, borrow = emprunter; 'afford' is almost always with can / can't."}, {"type": "wheel", "min": 6, "title": "🎡 Spin the Money Wheel!", "sub": "Spin, then answer with at least TWO sentences.", "subFr": "Fais tourner, puis réponds avec au moins DEUX phrases.", "hub": "💰", "items": [{"e": "💵", "q": "If you earned 50 dollars this weekend, should you save it or spend it?", "st": "I think I should… because…", "fr": "Si tu gagnais 50 dollars ce week-end, devrais-tu les économiser ou les dépenser ?"}, {"e": "📝", "q": "Should kids get money for good grades? Why or why not?", "st": "I think kids should / shouldn't… because…", "fr": "Les enfants devraient-ils recevoir de l'argent pour leurs bonnes notes ?"}, {"e": "🧹", "q": "Should parents pay kids for doing chores?", "st": "Parents should / shouldn't… because…", "fr": "Les parents devraient-ils payer les enfants pour les tâches ménagères ?"}, {"e": "💼", "q": "What job would you like to try for just one day?", "st": "I'd like to try being a… for a day.", "fr": "Quel métier aimerais-tu essayer pour une seule journée ?"}, {"e": "📱", "q": "At what age should kids get their own phone?", "st": "Kids should get a phone at… because…", "fr": "À quel âge les enfants devraient-ils avoir leur propre téléphone ?"}, {"e": "🗽", "q": "Would you like to live in France or in the U.S. as an adult? Why?", "st": "I'd like to live in… because…", "fr": "Aimerais-tu vivre en France ou aux États-Unis plus tard ? Pourquoi ?"}, {"e": "🛒", "q": "What's something you'd like to buy but can't afford yet?", "st": "I'd like to buy… but I can't afford it yet.", "fr": "Qu'est-ce que tu aimerais acheter mais que tu ne peux pas encore te payer ?"}, {"e": "⚽", "q": "Do pro soccer players earn too much money? What should change?", "st": "I think they earn… / They should…", "fr": "Les footballeurs pros gagnent-ils trop d'argent ? Que faudrait-il changer ?"}, {"e": "🐷", "q": "Your friend always runs out of money. What advice would you give?", "st": "You should… / You shouldn't…", "fr": "Ton ami est toujours à court d'argent. Quel conseil lui donnerais-tu ?"}, {"e": "🚀", "q": "Would you like to be your own boss one day? What business would you start?", "st": "I'd like to start a… because…", "fr": "Aimerais-tu être ton propre patron un jour ? Quelle entreprise créerais-tu ?"}, {"e": "❤️", "q": "Is it better to have a job you love or a job that pays a lot?", "st": "I'd rather have… because…", "fr": "Vaut-il mieux un métier que tu aimes ou un métier qui paie bien ?"}, {"e": "🎁", "q": "What's the best thing you've ever bought with your own money?", "st": "The best thing I've bought was…", "fr": "Quelle est la meilleure chose que tu aies achetée avec ton propre argent ?"}], "tutor": "Push for 'should' in advice answers and 'I'd like to' in wish answers. Disagree with him on purpose sometimes so he has to defend his opinion."}, {"type": "sort", "min": 5, "title": "🧠 Advice, Warning, or Wish?", "sub": "Read the sentence. Which form fills the blanks? Tap the right button!", "subFr": "Lis la phrase. Quelle forme va dans les trous ? Touche le bon bouton !", "how": "Ask yourself: Is it good advice? → should · Is it a bad idea? → shouldn't · Is it a wish or a dream? → 'd like to", "howFr": "Demande-toi : C'est un bon conseil ? → should · C'est une mauvaise idée ? → shouldn't · C'est une envie ou un rêve ? → 'd like to", "buckets": [{"name": "👍 should", "rule": "Good advice — a smart idea.", "fr": "Un bon conseil — une idée maligne.", "ex": "You should save a little every week.", "c": "#0F8B8D"}, {"name": "👎 shouldn't", "rule": "A warning — a bad idea.", "fr": "Un avertissement — une mauvaise idée.", "ex": "You shouldn't lend money to strangers.", "c": "#E8573C"}, {"name": "💭 'd like to", "rule": "A wish or a dream.", "fr": "Une envie ou un rêve.", "ex": "I'd like to work in New York one day.", "c": "#7c3aed"}], "items": [{"s": "Your friend spends his whole allowance on the first day. He ___ make a budget.", "b": 0, "why": "He has a problem, and a budget is the smart solution → should.", "fr": "Ton ami dépense tout son argent de poche le premier jour. Il ___ faire un budget.", "whyFr": "Il a un problème, et le budget est la bonne solution → should."}, {"s": "The sneakers cost 200 dollars and you only have 40. You ___ borrow the rest from your little sister.", "b": 1, "why": "Borrowing 160 dollars from a little kid? Bad idea → shouldn't.", "fr": "Les baskets coûtent 200 dollars et tu n'en as que 40. Tu ___ emprunter le reste à ta petite sœur.", "whyFr": "Emprunter 160 dollars à une enfant ? Mauvaise idée → shouldn't."}, {"s": "I ___ work for a soccer club when I'm older. It's my dream job!", "b": 2, "why": "“My dream job” = a wish → I'd like to.", "fr": "Je ___ travailler pour un club de foot plus tard. C'est le métier de mes rêves !", "whyFr": "« Le métier de mes rêves » = une envie → I'd like to."}, {"s": "You want a new console by summer. You ___ put a little money aside every week.", "b": 0, "why": "A goal + a smart plan → should.", "fr": "Tu veux une nouvelle console d'ici l'été. Tu ___ mettre un peu d'argent de côté chaque semaine.", "whyFr": "Un objectif + un bon plan → should."}, {"s": "You ___ buy something just because an influencer says it's cool.", "b": 1, "why": "That's how people waste money → shouldn't.", "fr": "Tu ___ acheter quelque chose juste parce qu'un influenceur dit que c'est cool.", "whyFr": "C'est comme ça qu'on gaspille son argent → shouldn't."}, {"s": "We ___ visit New York one day. We've never been there!", "b": 2, "why": "“One day” + “never been there” = a wish → We'd like to.", "fr": "On ___ visiter New York un jour. On n'y est jamais allés !", "whyFr": "« Un jour » + « jamais allés » = une envie → We'd like to."}, {"s": "You lent your friend 10 dollars and he never paid you back. You ___ lend him money again.", "b": 1, "why": "He didn't pay you back last time → bad idea → shouldn't.", "fr": "Tu as prêté 10 dollars à ton ami et il ne t'a jamais remboursé. Tu ___ lui prêter de l'argent à nouveau.", "whyFr": "Il ne t'a pas remboursé la dernière fois → mauvaise idée → shouldn't."}, {"s": "Your little brother wants to earn some money. He ___ offer to wash the neighbors' cars.", "b": 0, "why": "A good way to earn money → should.", "fr": "Ton petit frère veut gagner un peu d'argent. Il ___ proposer de laver les voitures des voisins.", "whyFr": "Une bonne façon de gagner de l'argent → should."}, {"s": "One day, I ___ earn enough money to buy a house by the ocean.", "b": 2, "why": "“One day” + a big dream → I'd like to.", "fr": "Un jour, je ___ gagner assez d'argent pour acheter une maison au bord de l'océan.", "whyFr": "« Un jour » + un grand rêve → I'd like to."}, {"s": "You ___ leave your wallet on the table when you go to the restroom at a café.", "b": 1, "why": "Someone could take it → bad idea → shouldn't.", "fr": "Tu ___ laisser ton portefeuille sur la table quand tu vas aux toilettes au café.", "whyFr": "Quelqu'un pourrait le prendre → mauvaise idée → shouldn't."}, {"s": "If you want something expensive, you ___ compare prices online first.", "b": 0, "why": "Comparing prices saves money → should.", "fr": "Si tu veux quelque chose de cher, tu ___ comparer les prix en ligne d'abord.", "whyFr": "Comparer les prix fait économiser → should."}], "hint": "Clue words: “dream, one day, never been there” = a wish → 'd like to. A problem + a smart solution → should. A risky or silly idea → shouldn't.", "hintFr": "Indices : « dream, one day, never been there » = une envie → 'd like to. Un problème + une bonne solution → should. Une idée risquée ou bête → shouldn't.", "doneMsg": "Great job! Now your turn: give Jonathan one money tip with “should,” one warning with “shouldn't,” and one thing you'd like to do one day.", "doneMsgFr": "Bravo ! À toi : donne à Jonathan un conseil avec « should », un avertissement avec « shouldn't », et une chose que tu aimerais faire un jour.", "tutor": "He reads the full sentence with the answer filled in. Remind him: should / shouldn't + verb with NO 'to'; I'd like + TO + verb."}, {"type": "builder", "min": 5, "title": "🧩 Sentence Builder Pro", "sub": "Tap the words in the right order. Then say it with feeling!", "subFr": "Touche les mots dans le bon ordre. Puis dis-le avec le ton !", "rounds": [{"e": "🐷", "p": "Advice: save a little money — every week", "fr": "Conseil : économiser un peu — chaque semaine", "a": "You should save a little money every week.", "afr": "Tu devrais économiser un peu d'argent chaque semaine."}, {"e": "💸", "p": "Warning: spend all your allowance — on the first day", "fr": "Avertissement : dépenser tout ton argent de poche — le premier jour", "a": "You shouldn't spend all your allowance on the first day.", "afr": "Tu ne devrais pas dépenser tout ton argent de poche le premier jour."}, {"e": "🎮💼", "p": "Wish: work for a video game company — one day", "fr": "Envie : travailler pour une entreprise de jeux vidéo — un jour", "a": "I'd like to work for a video game company one day.", "afr": "J'aimerais travailler pour une entreprise de jeux vidéo un jour."}, {"e": "📊", "p": "Advice: make a budget — before going shopping", "fr": "Conseil : faire un budget — avant d'aller faire du shopping", "a": "We should make a budget before we go shopping.", "afr": "On devrait faire un budget avant d'aller faire du shopping."}, {"e": "🎂", "p": "Ask for advice: my birthday money — what to do?", "fr": "Demander conseil : l'argent de mon anniversaire — quoi faire ?", "a": "What should I do with my birthday money?", "afr": "Qu'est-ce que je devrais faire avec l'argent de mon anniversaire ?"}, {"e": "🌍", "p": "Wish: travel the world — before buying a car", "fr": "Envie : faire le tour du monde — avant d'acheter une voiture", "a": "I'd like to travel the world before I buy a car.", "afr": "J'aimerais faire le tour du monde avant d'acheter une voiture."}], "tutor": "First try = 2 ⭐. Round 5 is a question — check his intonation goes down at the end of a Wh- question. After each round, he changes it to give advice to YOU."}, {"type": "mcq", "min": 5, "title": "🛠️ Fix the Mistake!", "sub": "French speakers often make these mistakes. Which sentence is correct in American English?", "subFr": "Les francophones font souvent ces erreurs. Quelle phrase est correcte en anglais américain ?", "items": [{"e": "🎉", "q": "You want your friend to come to your party. Which one is correct?", "o": ["I'd like you to come to my party.", "I'd like that you come to my party.", "I'd like you come to my party."], "c": 0, "why": "In English: would like + person + TO + verb.", "no": {"1": "That's the French structure « que tu viennes ». English doesn't use “that” here.", "2": "Almost! Don't forget “to”: “I'd like you TO come.”"}, "fr": "Tu veux que ton ami vienne à ta fête. Laquelle est correcte ?", "ofr": ["J'aimerais que tu viennes à ma fête.", "J'aimerais que tu viennes à ma fête. (structure française ✗)", "J'aimerais que tu viennes à ma fête. (« to » manquant ✗)"], "whyFr": "En anglais : would like + personne + TO + verbe. (« que tu viennes » = « you to come »)"}, {"e": "💵", "q": "« Je gagne 10 dollars par semaine en promenant des chiens. » Which one is correct?", "o": ["I win 10 dollars a week walking dogs.", "I gain 10 dollars a week walking dogs.", "I earn 10 dollars a week walking dogs."], "c": 2, "why": "Money from work = earn. You WIN a game or a prize.", "no": {"0": "“Win” is for games and prizes, not for work.", "1": "“Gain” is for weight, points, or experience — not for a salary."}, "fr": "« Je gagne 10 dollars par semaine en promenant des chiens. » Laquelle est correcte ?", "ofr": ["Je remporte 10 dollars par semaine… (✗)", "Je prends 10 dollars par semaine… (✗)", "Je gagne 10 dollars par semaine en promenant des chiens."], "whyFr": "L'argent d'un travail = earn. On « win » un match ou un prix."}, {"e": "📏", "q": "Which piece of advice is correct?", "o": ["You should to save your money.", "You should save your money.", "You should saving your money."], "c": 1, "why": "After “should,” use the base verb — no “to,” no -ing.", "no": {"0": "No “to” after “should”!", "2": "No -ing after “should.” Use the base verb: save."}, "fr": "Quel conseil est correct ?", "ofr": ["Tu devrais économiser ton argent. (« to » en trop ✗)", "Tu devrais économiser ton argent.", "Tu devrais économiser ton argent. (-ing ✗)"], "whyFr": "Après « should », on met le verbe de base — pas de « to », pas de -ing."}, {"e": "🏦", "q": "« Tu peux me prêter 5 dollars ? » Which one is correct?", "o": ["Can you borrow me 5 dollars?", "Can you lend me 5 dollars?", "Can you lend to me 5 dollars?"], "c": 1, "why": "Lend = give for a short time (prêter). Borrow = take for a short time (emprunter).", "no": {"0": "Careful: “borrow” = emprunter. You borrow FROM someone: “Can I borrow 5 dollars?”", "2": "No “to” here: “lend me 5 dollars” (or “lend 5 dollars to me”)."}, "fr": "« Tu peux me prêter 5 dollars ? » Laquelle est correcte ?", "ofr": ["Tu peux m'emprunter 5 dollars ? (✗)", "Tu peux me prêter 5 dollars ?", "Tu peux prêter à moi 5 dollars ? (✗)"], "whyFr": "Lend = prêter. Borrow = emprunter."}, {"e": "👔", "q": "« Mon père travaille comme vendeur. » Which one is correct?", "o": ["My father works as seller.", "My father works like a salesman.", "My father works as a salesman."], "c": 2, "why": "For jobs: “as a” + job (as a salesman, as a nurse). English needs the “a”!", "no": {"0": "English needs “a” before a job — and the job is “salesman,” not “seller.”", "1": "“Like” means “similar to” (he runs like a rabbit). For a job, use “as.”"}, "fr": "« Mon père travaille comme vendeur. » Laquelle est correcte ?", "ofr": ["Mon père travaille comme vendeur. (« a » manquant ✗)", "Mon père travaille comme un vendeur… (comparaison ✗)", "Mon père travaille comme vendeur."], "whyFr": "Pour un métier : « as a » + métier. L'anglais a besoin du « a » !"}, {"e": "💰", "q": "« L'argent est important. » Which one is correct?", "o": ["Money is important.", "The money is important.", "Moneys are important."], "c": 0, "why": "For things in general, English drops “the.” And “money” has no plural.", "no": {"1": "“The money” = a specific amount (the money in my wallet). In general, no “the.”", "2": "“Money” is uncountable — never “moneys.”"}, "fr": "« L'argent est important. » Laquelle est correcte ?", "ofr": ["L'argent (en général) est important.", "Cet argent-là est important. (sens différent ✗)", "Les argents sont importants. (✗)"], "whyFr": "Pour parler en général, l'anglais n'utilise pas « the ». Et « money » n'a pas de pluriel."}], "tutor": "He says the correct sentence, then makes a new one with the same rule (e.g., 'I'd like my mom to…', 'Can I borrow…?')."}, {"type": "tot", "min": 4, "title": "⚖️ Would You Rather? Money Edition", "sub": "Pick one — and defend your choice!", "subFr": "Choisis — et défends ton choix !", "frame": "I'd rather… because… / You shouldn't pick the other one because…", "frameFr": "Je préférerais… parce que… / Tu ne devrais pas choisir l'autre parce que…", "items": [{"a": ["💵", "Get 1,000 dollars today", "Recevoir 1 000 dollars aujourd'hui"], "b": ["📅", "Get 10 dollars a day for a whole year", "Recevoir 10 dollars par jour pendant un an"]}, {"a": ["⚽", "Be a pro soccer player with a normal salary", "Être footballeur pro avec un salaire normal"], "b": ["💼", "Be a millionaire with a boring office job", "Être millionnaire avec un boulot de bureau ennuyeux"]}, {"a": ["🏖️", "A job with five weeks of vacation, like in France", "Un travail avec cinq semaines de vacances, comme en France"], "b": ["💰", "A job that pays double, with only two weeks of vacation", "Un travail payé le double, avec seulement deux semaines de vacances"]}, {"a": ["🎮", "Test new video games all day", "Tester des nouveaux jeux vidéo toute la journée"], "b": ["🍫", "Taste new snacks all day for a food company", "Goûter des nouveaux snacks toute la journée pour une marque"]}, {"a": ["🐷", "Save all your birthday money", "Économiser tout l'argent de ton anniversaire"], "b": ["🛍️", "Spend it all on the same day", "Tout dépenser le jour même"]}, {"a": ["🏠", "Live with your parents until 25 and save a lot", "Vivre chez tes parents jusqu'à 25 ans et économiser beaucoup"], "b": ["🗝️", "Move out at 18 and pay rent", "Partir à 18 ans et payer un loyer"]}], "tutor": "Card 1 is a math trap: 10 dollars a day = 3,650 dollars a year! Let him do the math out loud in English. Make him argue the OTHER side once with 'You should…'."}, {"type": "tos", "min": 3, "title": "💸 True or Silly? Money Around the World", "sub": "Real money fact — or totally silly?", "subFr": "Vrai fait sur l'argent — ou complètement faux ?", "items": [{"e": "💵", "s": "All U.S. paper bills are the same size, from $1 to $100.", "fr": "Tous les billets américains ont la même taille, de 1 $ à 100 $.", "t": true, "why": "Euro bills get bigger as the value goes up — U.S. bills don't!", "whyFr": "Les billets en euros grandissent avec leur valeur — pas les billets américains !"}, {"e": "🇫🇷", "s": "In France, the law gives workers at least five weeks of paid vacation a year.", "fr": "En France, la loi donne aux salariés au moins cinq semaines de congés payés par an.", "t": true, "why": "Yes — five weeks by law. That's one of the most generous systems in the world.", "whyFr": "Oui — cinq semaines par la loi. C'est un des systèmes les plus généreux du monde."}, {"e": "🇺🇸", "s": "In the U.S., the law gives every worker four weeks of paid vacation.", "fr": "Aux États-Unis, la loi donne quatre semaines de congés payés à chaque salarié.", "t": false, "why": "There's no national law for paid vacation in the U.S. Many companies give about two weeks.", "whyFr": "Il n'y a pas de loi nationale sur les congés payés aux États-Unis. Beaucoup d'entreprises donnent environ deux semaines."}, {"e": "🪙", "s": "The euro is used in every country in Europe.", "fr": "L'euro est utilisé dans tous les pays d'Europe.", "t": false, "why": "No! The U.K. uses the pound and Switzerland uses the franc, for example.", "whyFr": "Non ! Le Royaume-Uni utilise la livre et la Suisse le franc, par exemple."}, {"e": "🧑‍💼", "s": "Most of the faces on U.S. bills are former presidents.", "fr": "La plupart des visages sur les billets américains sont d'anciens présidents.", "t": true, "why": "Most of them! But Alexander Hamilton ($10) and Benjamin Franklin ($100) were never presidents.", "whyFr": "La plupart ! Mais Alexander Hamilton (10 $) et Benjamin Franklin (100 $) n'ont jamais été présidents."}, {"e": "🧾", "s": "In most U.S. stores, the price on the tag doesn't include sales tax.", "fr": "Dans la plupart des magasins américains, le prix sur l'étiquette n'inclut pas la taxe.", "t": true, "why": "The tax is added at the register, so you pay a little more. In France, the TVA is already in the price.", "whyFr": "La taxe est ajoutée à la caisse, donc tu paies un peu plus. En France, la TVA est déjà comprise dans le prix."}, {"e": "🍽️", "s": "In the U.S., leaving a tip at a restaurant is considered rude.", "fr": "Aux États-Unis, laisser un pourboire au restaurant est considéré comme impoli.", "t": false, "why": "It's the opposite! People usually tip 15 to 20%, and servers count on tips.", "whyFr": "C'est l'inverse ! On laisse en général 15 à 20 % de pourboire, et les serveurs en ont besoin."}, {"e": "🪙", "s": "Making one U.S. penny costs more than one cent.", "fr": "Fabriquer une pièce américaine de 1 cent coûte plus d'un cent.", "t": true, "why": "It costs almost four cents to make one — that's one reason the U.S. stopped making new pennies.", "whyFr": "Ça coûte presque quatre cents d'en fabriquer une — c'est une des raisons pour lesquelles les États-Unis ont arrêté d'en produire."}], "done": "💰 You're money smart!", "doneFr": "💰 Tu t'y connais en argent !", "tutor": "Follow-up with advice: 'If you go to a U.S. restaurant, what should you remember?' (tip, tax not included)."}, {"type": "plan", "min": 4, "title": "📅 Plan Your First Paycheck", "sub": "Choose one for each part. Read the story — then tell it with your OWN words!", "subFr": "Choisis une option par moment. Lis l'histoire — puis raconte-la avec TES mots !", "parts": [{"icon": "💵", "label": "Earn", "fr": "Gagner", "conn": "To earn money, I'd like to", "opts": [["👶", "babysit for the neighbors.", "faire du baby-sitting pour les voisins."], ["🐕", "walk dogs after school.", "promener des chiens après l'école."], ["🎮", "sell my old video games online.", "vendre mes vieux jeux vidéo en ligne."], ["⚽", "help coach little kids at a soccer camp.", "aider à entraîner des petits dans un stage de foot."]], "connFr": "Pour gagner de l'argent, j'aimerais"}, {"icon": "🐷", "label": "Save", "fr": "Économiser", "conn": "First, I should save", "opts": [["📱", "half of it for a new phone.", "la moitié pour un nouveau téléphone."], ["📆", "a little every week.", "un peu chaque semaine."], ["🗽", "enough for a trip to New York.", "assez pour un voyage à New York."], ["🆘", "some money for emergencies.", "un peu d'argent pour les imprévus."]], "connFr": "D'abord, je devrais mettre de côté"}, {"icon": "🛍️", "label": "Spend", "fr": "Dépenser", "conn": "With the rest, I'd like to", "opts": [["🎟️", "buy tickets to a soccer game.", "acheter des places pour un match de foot."], ["👟", "get new sneakers.", "m'acheter de nouvelles baskets."], ["🍦", "treat my sister to ice cream.", "offrir une glace à ma sœur."], ["🕹️", "buy a new game.", "acheter un nouveau jeu."]], "connFr": "Avec le reste, j'aimerais"}, {"icon": "🚫", "label": "Avoid", "fr": "À éviter", "conn": "But I definitely shouldn't", "opts": [["🍬", "waste it all on candy.", "tout gaspiller en bonbons."], ["🤝", "lend it to someone who never pays back.", "le prêter à quelqu'un qui ne rembourse jamais."], ["⚡", "spend it all in one day.", "tout dépenser en un jour."], ["📦", "buy things I don't need.", "acheter des choses dont je n'ai pas besoin."]], "connFr": "Mais je ne devrais surtout pas"}], "tutor": "Notice the mix: I'd like to (wish) · should (advice) · shouldn't (warning). He retells it, changes two parts, then gives YOU advice for your paycheck."}, {"type": "ttl", "min": 4, "title": "😎 Two Truths and a Lie", "sub": "Practice round first — find Jayden's lie!", "subFr": "D'abord un entraînement — trouve le mensonge de Jayden !", "example": {"who": "Jayden, 14, from Ohio", "lines": ["I earn 20 dollars every Saturday mowing my neighbor's lawn.", "I'm saving for a car, and I'd like to buy it when I'm 16.", "My school pays students 100 dollars for every A on their report card."], "lie": 2, "why": "100 dollars for every A? No school could afford that! That's the lie.", "linesFr": ["Je gagne 20 dollars chaque samedi en tondant la pelouse de mon voisin.", "J'économise pour une voiture, et j'aimerais l'acheter à 16 ans.", "Mon école paie les élèves 100 dollars pour chaque A sur leur bulletin."], "whyFr": "100 dollars pour chaque A ? Aucune école n'aurait les moyens ! C'est le mensonge."}, "turn": "Your turn! Tell Jonathan three things about you and money — how you earn it, save it, or spend it. Two true, one lie.", "turnFr": "À toi ! Dis à Jonathan trois choses sur toi et l'argent — comment tu le gagnes, l'économises ou le dépenses. Deux vraies, une fausse.", "tutor": "Explain: an A is the best grade in U.S. schools (like 18–20/20). Mowing lawns is a classic American teen job. Then Hugo gives his three; guess, then swap."}, {"type": "talk", "min": 3, "title": "🎤 Big Talk Challenge", "sub": "Talk for one minute: How should a 12-year-old manage money? Can you check all six?", "subFr": "Parle une minute : Comment un ado de 12 ans devrait-il gérer son argent ? Peux-tu tout cocher ?", "items": [["Give two pieces of advice with “should.”", "Donne deux conseils avec « should »."], ["Give one warning with “shouldn't.”", "Donne un avertissement avec « shouldn't »."], ["Say two things you'd like to do or buy one day.", "Dis deux choses que tu aimerais faire ou acheter un jour."], ["Use three money words: earn, save, spend, budget, afford, waste.", "Utilise trois mots : earn, save, spend, budget, afford, waste."], ["Say what job you'd like to have and why.", "Dis quel métier tu aimerais faire et pourquoi."], ["Ask Jonathan: “What should I do if…?”", "Demande à Jonathan : « What should I do if… ? »"]], "tutor": "Tap each line when he does it (+1 ⭐). Note 2–3 mistakes ('should to', 'I like to' for 'I'd like to', earn/win) and fix them at the end."}, {"type": "victory", "min": 1, "title": "🏆 Great Job, Hugo!", "sub": "You talk about money like a pro!", "subFr": "Tu parles d'argent comme un pro !", "tiers": [[0, "🌟", "Rookie"], [18, "🥉", "Bronze"], [30, "🥈", "Silver"], [42, "🥇", "Gold"]], "msg": "See you next Friday! Next time: sports beyond soccer — have you ever tried baseball?", "msgFr": "À vendredi prochain ! La prochaine fois : les sports au-delà du foot — as-tu déjà essayé le baseball ?", "tutor": "Next lesson: present perfect for experience — Have you ever…? / I've never… (American sports)."}]};
+let stars = 0;
+const $ = (s, r=document) => r.querySelector(s);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fr = s => s ? `<span class="fr">${esc(s)}</span>` : '';
+function shuffle(a){ a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function addStars(n, msg){
+  stars += n; $('#stars').textContent = stars;
+  if (msg) toast(msg);
+  if (n > 0) confetti(n >= 2 ? 90 : 45);
+}
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 1400); }
+
+/* confetti */
+const cv = $('#confetti'), cx = cv.getContext('2d'); let parts = [], anim = null;
+function sizeCv(){ cv.width = innerWidth; cv.height = innerHeight; } addEventListener('resize', sizeCv); sizeCv();
+function confetti(n){
+  const cols = ['#F4B400','#E8573C','#7c3aed','#0F8B8D','#E85D9A','#22c55e','#F28C28'];
+  for (let i=0;i<n;i++) parts.push({x:innerWidth/2+(Math.random()-.5)*300,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*12-4,s:6+Math.random()*6,c:cols[i%cols.length],r:Math.random()*6,life:110});
+  if (!anim) anim = requestAnimationFrame(tick);
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; p.vy+=.35; p.r+=.1; p.life--; cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); cx.restore(); });
+  parts = parts.filter(p=>p.life>0 && p.y<innerHeight+40);
+  anim = parts.length ? requestAnimationFrame(tick) : (cx.clearRect(0,0,cv.width,cv.height), null);
+}
+
+/* ---------- slide builders ---------- */
+function head(s, i){
+  return `<div class="slide-top"><span class="slide-count">Slide ${i+1} of ${L.slides.length}</span><span class="minutes">⏱ about ${s.min} min</span></div>
+  <div class="slide-title">${s.title}</div>${s.sub ? `<div class="slide-sub">${s.sub}${fr(s.subFr)}</div>` : ''}`;
+}
+function tutor(s){ return s.tutor ? `<details class="tutor"><summary>Tutor notes</summary><p>${s.tutor}</p></details>` : ''; }
+
+const B = {};
+B.intro = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="emoji-row">${s.emojis}</div>
+  <div class="goal"><div>🎯 Today's goal</div><div class="big">${esc(s.goal)}</div>${fr(s.goalFr)}</div>
+  <div class="how">${s.how.map(h=>`<div>${h[0]}${fr(h[1])}</div>`).join('')}</div>`);
+};
+B.chat = (s, box) => {
+  const g = el('div','chat-grid');
+  s.items.forEach(it=>{
+    const c = el('div','chat-card', `<h4>${esc(it.q)}</h4>${fr(it.fr)}<div class="tap-hint">Tap to see answer starters</div>
+      <div class="starters">${it.starters.map(st=>`<div class="starter">${esc(st[0])}${fr(st[1])}</div>`).join('')}<span class="askback">🔁 Ask me back!</span></div>`);
+    c.addEventListener('click', ()=>c.classList.toggle('open'));
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.vocab = (s, box) => {
+  const g = el('div','vocab-grid'); let seen = new Set();
+  s.items.forEach((it,k)=>{
+    const c = el('div','vcard', `<div class="vinner"><div class="vface vfront"><div class="em">${it.e}</div><div class="w">${esc(it.w)}</div></div>
+      <div class="vface vback"><div class="ex">${esc(it.ex)}</div>${fr(it.fr)}</div></div>`);
+    c.addEventListener('click', ()=>{ c.classList.toggle('flip'); if(!seen.has(k)){ seen.add(k); if(seen.size===s.items.length) addStars(1,'All words explored! +1 ⭐'); } });
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.wheel = (s, box) => {
+  const wrap = el('div','wheel-wrap');
+  wrap.innerHTML = `<div class="wheel-box"><div class="pointer"></div><canvas width="840" height="840"></canvas><div class="hub">${s.hub||'🎡'}</div></div>
+    <div class="wheel-q"><div class="q">Tap SPIN to get a question!</div><div class="st"></div><div class="fr-line"></div></div>`;
+  box.appendChild(wrap);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn">🎡 SPIN!</button></div><div class="round-tag">Questions asked: <span class="asked">0</span> of ${s.items.length}</div>`);
+  const canvas = $('canvas', wrap), ctx = canvas.getContext('2d'), n = s.items.length;
+  const cols = ['#F28C28','#E85D9A','#7c3aed','#0F8B8D','#F4B400','#E8573C','#4A9C5D','#0047BA'];
+  const R = 420, seg = 2*Math.PI/n;
+  for (let i=0;i<n;i++){
+    ctx.beginPath(); ctx.moveTo(R,R); ctx.arc(R,R,R-4,i*seg-Math.PI/2,(i+1)*seg-Math.PI/2); ctx.closePath();
+    ctx.fillStyle = cols[i%cols.length]; ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=6; ctx.stroke();
+    ctx.save(); ctx.translate(R,R); ctx.rotate(i*seg+seg/2-Math.PI/2);
+    ctx.font = '64px serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(s.items[i].e, R*0.68, 0);
+    ctx.fillStyle='#fff'; ctx.font='bold 34px Poppins, Arial'; ctx.fillText(String(i+1), R*0.40, 0);
+    ctx.restore();
+  }
+  let rot = 0, used = new Set(), spinning = false;
+  const btn = $('.big-btn', box), qEl = $('.q', wrap), stEl = $('.st', wrap), frEl = $('.fr-line', wrap);
+  btn.addEventListener('click', ()=>{
+    if (spinning) return;
+    let pool = [...Array(n).keys()].filter(i=>!used.has(i)); if (!pool.length){ used.clear(); pool=[...Array(n).keys()]; }
+    const pick = pool[Math.floor(Math.random()*pool.length)]; used.add(pick);
+    const centerDeg = (pick+0.5)*360/n;
+    const curr = ((rot % 360)+360)%360;
+    let delta = (360 - centerDeg) - curr; if (delta < 0) delta += 360;
+    rot += 360*5 + delta;
+    spinning = true; btn.disabled = true; qEl.textContent = '…'; stEl.textContent=''; frEl.innerHTML='';
+    canvas.style.transform = `rotate(${rot}deg)`;
+    setTimeout(()=>{
+      const it = s.items[pick];
+      qEl.textContent = `${it.e} ${it.q}`; stEl.textContent = it.st ? `Start with: “${it.st}”` : ''; frEl.innerHTML = fr(it.fr);
+      $('.asked', box).textContent = used.size; spinning = false; btn.disabled = false;
+    }, 4300);
+  });
+};
+B.builder = (s, box) => {
+  const area = el('div'); box.appendChild(area); let r = 0, tries = 0;
+  function render(){
+    if (r >= s.rounds.length){ area.innerHTML = `<div class="goal"><div class="big">🏆 Sentence Master!</div><div>You built all ${s.rounds.length} sentences.</div></div>`; return; }
+    const rd = s.rounds[r], words = rd.a.split(' '); tries = 0;
+    area.innerHTML = `<div class="round-tag">Sentence ${r+1} of ${s.rounds.length}</div><div class="builder-pic">${rd.e}</div>
+      <div class="builder-prompt">${esc(rd.p)}${fr(rd.fr)}</div><div class="answer-line"></div><div class="tiles"></div>
+      <div class="row-btns"><button class="sm-btn undo">↩ Undo</button><button class="sm-btn clear">✖ Clear</button><button class="sm-btn go check">✔ Check</button></div>
+      <div class="feedback"></div>`;
+    const line = $('.answer-line', area), tiles = $('.tiles', area), fb = $('.feedback', area); const chosen = [];
+    let order = shuffle(words.map((w,i)=>({w,i}))); if (words.length>2 && order.every((o,k)=>o.i===k)) order.reverse();
+    order.forEach(o=>{
+      const t = el('button','tile', esc(o.w));
+      t.addEventListener('click', ()=>{ if (t.classList.contains('used')) return; t.classList.add('used'); const c = el('button','tile', esc(o.w)); c.addEventListener('click',()=>{ c.remove(); t.classList.remove('used'); chosen.splice(chosen.indexOf(o),1); }); line.appendChild(c); chosen.push(o); });
+      tiles.appendChild(t);
     });
-  }catch(e){}
-}
-const goodSound=()=>tone([523.25,659.25,783.99,1046.5],[0.18,0.18,0.18,0.36]);
-const badSound =()=>tone([392,329.63,261.63],[0.2,0.2,0.34]);
-
-const state = {correct:0,attempted:0,stars:0,streak:0,xp:0,slide:1,total:12,answered:{},visitedStops:new Set(),guess:null};
-function updateHUD(){
-  document.getElementById('accuracy').textContent=state.attempted ? state.correct+'/'+state.attempted : 0;
-  document.getElementById('stars').textContent=state.stars;
-  document.getElementById('streak').textContent=state.streak;
-  document.getElementById('xpFill').style.width=Math.min(100,(state.xp/300)*100)+'%';
-  document.getElementById('xpText').textContent=state.xp;
-}
-function addXP(n){state.xp=Math.min(300,state.xp+n);updateHUD()}
-function reaction(emoji){
-  const el=document.createElement('div');el.className='reaction';el.textContent=emoji;
-  el.style.left=(40+Math.random()*40)+'%';el.style.top='50%';
-  document.body.appendChild(el);setTimeout(()=>el.remove(),1400);
-}
-function confetti(){
-  const colors=['#ff6b6b','#4cc9f0','#ffb703','#7c3aed','#fff8ea','#34d399'];
-  for(let i=0;i<26;i++){
-    const c=document.createElement('div');c.className='confetti';
-    c.style.background=colors[i%colors.length];
-    c.style.left=Math.random()*100+'vw';c.style.top='-10px';
-    c.style.animationDelay=(Math.random()*0.4)+'s';
-    document.body.appendChild(c);setTimeout(()=>c.remove(),2400);
+    $('.undo', area).onclick = ()=>{ const o = chosen.pop(); if(!o) return; line.lastChild.remove(); [...tiles.children].find(t=>t.classList.contains('used') && t.textContent===o.w)?.classList.remove('used'); };
+    $('.clear', area).onclick = ()=>{ chosen.length=0; line.innerHTML=''; [...tiles.children].forEach(t=>t.classList.remove('used')); };
+    $('.check', area).onclick = ()=>{
+      if (!chosen.length){ fb.className='feedback no'; fb.innerHTML = 'Tap the words first!' + fr('Touche d’abord les mots !'); return; }
+      const got = chosen.map(o=>o.w).join(' ');
+      const finish = (ok)=>{ ['.check','.undo','.clear'].forEach(sel=>$(sel,area).style.display='none'); tiles.style.display='none';
+        if (!ok){ line.innerHTML = words.map(w=>`<span class="tile" style="border-color:var(--good);background:#dcfce7">${esc(w)}</span>`).join(''); }
+        fb.className = 'feedback ' + (ok ? 'ok' : ''); if (!ok) fb.style.color = 'var(--grape)';
+        fb.innerHTML = (ok ? '✅ Perfect! Now say it out loud! 🎤' : '👀 Here is the right sentence. Read it out loud! 🎤') + fr(rd.afr);
+        const nx = el('button','sm-btn go', r+1 < s.rounds.length ? 'Next sentence ▶' : 'Finish ▶'); nx.onclick = ()=>{ r++; render(); }; $('.row-btns',area).appendChild(nx); };
+      if (got === rd.a){ addStars(2,'First try! +2 ⭐'); finish(true); }
+      else { line.classList.remove('shake'); void line.offsetWidth; line.classList.add('shake'); setTimeout(()=>finish(false), 450); }
+    };
   }
+  render();
+};
+B.mcq = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">🎉 Quiz complete!</div></div>`; return; }
+    const it = s.items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Question ${q+1} of ${s.items.length}</div>${it.e?`<div class="mcq-scene">${it.e}</div>`:''}<div class="mcq-q">${esc(it.q)}${fr(it.fr)}</div><div class="opts"></div><div class="explain"></div><div class="center"></div>`;
+    const opts = $('.opts', area), ex = $('.explain', area);
+    it.o.forEach((o,k)=>{
+      const b = el('button','opt', esc(o) + (it.ofr ? fr(it.ofr[k]) : ''));
+      b.onclick = ()=>{
+        if (area._done) return;
+        if (k === it.c){ b.classList.add('right'); area._done = true; ex.innerHTML = '✅ ' + esc(it.why || 'Correct!') + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+          const nx = el('button','big-btn', q+1<s.items.length?'Next question ▶':'Finish ▶'); nx.onclick=()=>{ q++; area._done=false; render(); }; $('.center',area).appendChild(nx); }
+        else { b.classList.add('wrong'); first = false; ex.innerHTML = '❌ ' + esc((it.no && it.no[k]) || 'Not quite — try again!') + fr('Pas tout à fait… Essaie encore !'); ex.classList.add('show'); }
+      };
+      opts.appendChild(b);
+    });
+  }
+  render();
+};
+B.tot = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Round ${q+1} of ${s.items.length}</div><div class="tot-row">
+      <div class="tot" data-k="0"><span class="em">${it.a[0]}</span>${esc(it.a[1])}${fr(it.a[2])}</div><div class="vs">OR</div>
+      <div class="tot" data-k="1"><span class="em">${it.b[0]}</span>${esc(it.b[1])}${fr(it.b[2])}</div></div>
+      <div class="say-box">🎤 ${esc(s.frame)}${fr(s.frameFr)}</div>
+      <div class="row-btns"><button class="sm-btn prev">◀ Previous</button><button class="sm-btn go next">${q+1<s.items.length?'Next round ▶':'Start over ↺'}</button></div>`;
+    area.querySelectorAll('.tot').forEach(t=>t.onclick=()=>{ area.querySelectorAll('.tot').forEach(x=>x.classList.remove('pick')); t.classList.add('pick'); });
+    $('.next',area).onclick=()=>{ q=(q+1)%s.items.length; render(); };
+    $('.prev',area).onclick=()=>{ q=(q-1+s.items.length)%s.items.length; render(); };
+  }
+  render();
+};
+B.memory = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  function render(){
+    let cards = []; s.pairs.forEach((p,k)=>{ cards.push({k,html:`<span class="face e">${p[0]}</span>`}); cards.push({k,html:`<span class="face">${esc(p[1])}</span>`}); });
+    cards = shuffle(cards); let open = [], found = 0, moves = 0, lock = false;
+    area.innerHTML = `<div class="round-tag">Pairs found: <span class="pf">0</span> of ${s.pairs.length} · Tries: <span class="mv">0</span></div><div class="mem-grid"></div><div class="center"></div>`;
+    const g = $('.mem-grid', area);
+    cards.forEach((c,ci)=>{
+      const m = el('div','mem', `<span class="back" style="font-size:34px">${ci+1}</span>${c.html}`);
+      m.onclick = ()=>{
+        if (lock || m.classList.contains('open') || m.classList.contains('done')) return;
+        m.classList.add('open'); open.push({m,c});
+        if (open.length === 2){
+          moves++; $('.mv',area).textContent = moves; const [a,b] = open;
+          if (a.c.k === b.c.k){ a.m.classList.replace('open','done'); b.m.classList.replace('open','done'); open = []; found++; $('.pf',area).textContent = found; toast('Match! Say the word! 🎤');
+            if (found === s.pairs.length){ addStars(2,'All pairs! +2 ⭐'); const again = el('button','big-btn','Play again ↺'); again.onclick = render; $('.center',area).appendChild(again); } }
+          else { lock = true; setTimeout(()=>{ a.m.classList.remove('open'); b.m.classList.remove('open'); open = []; lock = false; }, 950); }
+        }
+      };
+      g.appendChild(m);
+    });
+  }
+  render();
+};
+B.tos = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">${esc(s.done||'🌟 Great job!')}</div>${fr(s.doneFr)}</div>`; return; }
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Card ${q+1} of ${s.items.length}</div><div class="tos-card"><div class="em">${it.e}</div><div class="st">${esc(it.s)}</div>${fr(it.fr)}
+      <div class="tos-btns"><button class="big-btn btn-true" data-v="1">✅ TRUE</button><button class="big-btn btn-silly" data-v="0">🤪 SILLY</button></div>
+      <div class="explain"></div><div class="center"></div></div>`;
+    let done = false;
+    area.querySelectorAll('.tos-btns button').forEach(b=>b.onclick=()=>{
+      if (done) return; done = true; const ok = (b.dataset.v==='1') === it.t; const ex = $('.explain',area);
+      ex.innerHTML = (ok?'✅ Yes! ':'❌ Oops! ') + `It's <b>${it.t?'TRUE':'SILLY'}</b>. ` + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); if (ok) addStars(1,'+1 ⭐');
+      const nx = el('button','big-btn', q+1<s.items.length?'Next card ▶':'Finish ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx);
+    });
+  }
+  render();
+};
+B.sort = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="say-box" style="margin-top:10px">${esc(s.how)}${fr(s.howFr)}</div>`);
+  const area = el('div'); box.appendChild(area); let q = 0; const items = shuffle(s.items); const counts = s.buckets.map(()=>0);
+  function render(){
+    if (q >= items.length){ area.innerHTML = `<div class="goal"><div class="big">🧠 Grammar Boss!</div><div>${esc(s.doneMsg)}</div>${fr(s.doneMsgFr)}</div>`; return; }
+    const it = items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Sentence ${q+1} of ${items.length}</div><div class="sort-item">${esc(it.s)}${fr(it.fr)}</div>
+      <div class="buckets">${s.buckets.map((b,k)=>`<button class="bucket" data-k="${k}" style="background:${b.c}">${esc(b.name)}<small>${esc(b.rule)}</small><small style="opacity:.9;font-style:italic">${esc(b.fr)}</small><span class="cnt">e.g. “${esc(b.ex)}” · ${counts[k]} sorted</span></button>`).join('')}</div><div class="explain"></div><div class="center"></div>`;
+    let done = false;
+    area.querySelectorAll('.bucket').forEach(btn=>btn.onclick=()=>{
+      if (done) return; const k = +btn.dataset.k; const ex = $('.explain',area);
+      if (k === it.b){ done = true; counts[k]++; ex.innerHTML = '✅ ' + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+        const nx = el('button','big-btn','Next ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx); }
+      else { first = false; ex.innerHTML = '❌ ' + esc(s.hint) + fr(s.hintFr); ex.classList.add('show'); btn.classList.add('shake'); }
+    });
+  }
+  render();
+};
+B.plan = (s, box) => {
+  const sel = {}, selFr = {}; const cols = el('div','plan-cols');
+  s.parts.forEach((p,k)=>{
+    const c = el('div','plan-col', `<h4>${p.icon} ${esc(p.label)}</h4>${fr(p.fr)}`);
+    p.opts.forEach(o=>{ const ch = el('button','chip', `${o[0]} ${esc(o[1])}${fr(o[2])}`); ch.onclick=()=>{ c.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel')); ch.classList.add('sel'); sel[k]=o[1]; selFr[k]=o[2]; }; c.appendChild(ch); });
+    cols.appendChild(c);
+  });
+  box.appendChild(cols);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn make">✨ Make my story!</button> <button class="sm-btn rnd">🎲 Surprise me</button></div><div class="story"></div>`);
+  const story = $('.story', box);
+  function make(){
+    if (Object.keys(sel).length < s.parts.length){ toast('Pick one for each part!'); return; }
+    story.innerHTML = s.parts.map((p,k)=>`<span class="conn">${esc(p.conn)}</span> ${esc(sel[k])}`).join(' ') + fr(s.parts.map((p,k)=>`${p.connFr} ${selFr[k]}`).join(' ')) + `<div style="margin-top:10px;font-size:17px;color:var(--sky-deep)">🎤 Now read your story out loud — then tell it again without looking!</div>`;
+    story.classList.add('show'); addStars(1,'Great story! +1 ⭐');
+  }
+  $('.make', box).onclick = make;
+  $('.rnd', box).onclick = ()=>{ s.parts.forEach((p,k)=>{ const col = cols.children[k]; const chips = col.querySelectorAll('.chip'); const i = Math.floor(Math.random()*chips.length); chips[i].click(); }); make(); };
+};
+B.talk = (s, box) => {
+  const list = el('div','check-list');
+  s.items.forEach(it=>{ const c = el('div','check', `<span class="box"></span><span>${esc(it[0])}${fr(it[1])}</span>`); c.onclick=()=>{ if(c.classList.contains('done')) return; c.classList.add('done'); $('.box',c).textContent='✔'; addStars(1,'+1 ⭐'); }; list.appendChild(c); });
+  box.appendChild(list);
+};
+B.ttl = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  const ex = s.example;
+  area.innerHTML = `<div class="sort-item" style="border-color:var(--grape)">Practice round: ${esc(ex.who)} says…</div><div class="ttl-list">${ex.lines.map((l,k)=>`<button class="opt" data-k="${k}">${esc(l)}${fr(ex.linesFr[k])}</button>`).join('')}</div><div class="explain"></div>
+    <div class="goal" style="margin-top:18px"><div class="big">🎤 Your turn!</div><div>${esc(s.turn)}</div>${fr(s.turnFr)}
+    <div class="row-btns"><button class="sm-btn go fool">😎 Hugo fooled Jonathan! (+2 ⭐)</button><button class="sm-btn found">🔎 Jonathan found the lie (+1 ⭐)</button></div></div>`;
+  let done = false;
+  area.querySelectorAll('.ttl-list .opt').forEach(b=>b.onclick=()=>{ if(done) return; const k=+b.dataset.k; const e=$('.explain',area);
+    if (k===ex.lie){ done=true; b.classList.add('right'); e.innerHTML='✅ '+esc(ex.why)+fr(ex.whyFr); addStars(1,'+1 ⭐'); } else { b.classList.add('wrong'); e.innerHTML='❌ That one is true! Look again.'+fr('Ça, c’est vrai ! Regarde encore.'); } e.classList.add('show'); });
+  $('.fool',area).onclick=()=>addStars(2,'Sneaky! +2 ⭐');
+  $('.found',area).onclick=()=>addStars(1,'Good try! +1 ⭐');
+};
+B.victory = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="victory"><div class="medal" id="medal">🏅</div><div class="score">You earned <span id="finalStars">0</span> stars!</div>
+    <div class="tiers">${s.tiers.map(t=>`<div data-min="${t[0]}">${t[1]} ${esc(t[2])} · ${t[0]}+ ⭐</div>`).join('')}</div>
+    <div class="goal" style="margin-top:18px"><div class="big">${esc(s.msg)}</div>${fr(s.msgFr)}</div></div>`);
+};
+function updateVictory(){
+  const f = $('#finalStars'); if (!f) return; f.textContent = stars;
+  const s = L.slides.find(x=>x.type==='victory'); let medal = '🌟';
+  document.querySelectorAll('.tiers div').forEach(d=>d.classList.remove('on'));
+  s.tiers.forEach((t,k)=>{ if (stars >= t[0]) { medal = t[1]; } });
+  const on = [...document.querySelectorAll('.tiers div')].filter(d=>stars >= +d.dataset.min).pop(); if (on) on.classList.add('on');
+  $('#medal').textContent = medal;
 }
 
-document.addEventListener('click', e=>{
-  const btn = e.target.closest('.ans');
-  if(!btn) return;
-  const group = btn.closest('.answers');
-  if(!group) return;
-  const gid = group.getAttribute('data-gid');
-  if(!FB[gid] || state.answered[gid]) return;
-  const ans = btn.getAttribute('data-ans');
-  const data = FB[gid][ans];
-  const fb = document.querySelector(`.feedback[data-gid="${gid}"]`);
-  state.attempted++;
-  if(data.ok){
-    state.answered[gid]=true;
-    btn.classList.add('correct');
-    group.querySelectorAll('.ans').forEach(b=>b.disabled=true);
-    fb.className='feedback show good';
-    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
-    state.stars++;state.streak++;state.correct++;addXP(15);updateHUD();
-    goodSound();reaction('🎉');confetti();
-  } else {
-    btn.classList.add('wrong');btn.disabled=true;
-    fb.className='feedback show bad';
-    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
-    state.streak=0;updateHUD();
-    badSound();reaction('👎');
-  }
+/* ---------- build ---------- */
+const host = $('#slides'); const dots = $('#dots');
+L.slides.forEach((s,i)=>{
+  const sec = el('section','slide'); sec.innerHTML = head(s,i); B[s.type](s, sec); sec.insertAdjacentHTML('beforeend', tutor(s)); host.appendChild(sec);
+  const d = el('button'); d.title = `Slide ${i+1}`; d.onclick = ()=>go(i); dots.appendChild(d);
 });
-
-function buildTOT(hostId, pairsArr){
-  const host = document.getElementById(hostId);
-  pairsArr.forEach(p=>{
-    const row=document.createElement('div');row.className='tot-row';
-    const pair=document.createElement('div');pair.className='tot-pair';
-    const optA=document.createElement('button');optA.className='tot-opt';optA.innerHTML=p[0]+'<span class="tot-hint">'+(p[2]||'')+'</span>';
-    const mid=document.createElement('div');mid.className='tot-mid';
-    const optB=document.createElement('button');optB.className='tot-opt';optB.innerHTML=p[1]+'<span class="tot-hint">'+(p[3]||'')+'</span>';
-    function pick(chosen,other){
-      chosen.classList.add('sel'); other.classList.remove('sel');
-      addXP(3); reaction('✨'); tone([587,740],[0.1,0.16]);
-    }
-    optA.addEventListener('click',()=>pick(optA,optB));
-    optB.addEventListener('click',()=>pick(optB,optA));
-    pair.appendChild(optA);pair.appendChild(mid);pair.appendChild(optB);
-    row.appendChild(pair); host.appendChild(row);
-  });
+let cur = 0;
+function go(i){
+  cur = Math.max(0, Math.min(L.slides.length-1, i));
+  document.querySelectorAll('.slide').forEach((s,k)=>s.classList.toggle('active', k===cur));
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on', k===cur));
+  $('#prevBtn').disabled = cur===0; $('#nextBtn').disabled = cur===L.slides.length-1;
+  $('#prog').style.width = ((cur+1)/L.slides.length*100)+'%';
+  if (L.slides[cur].type === 'victory'){ updateVictory(); confetti(140); }
+  scrollTo({top:0,behavior:'smooth'});
 }
-buildTOT('totRows1', [["High salary", "More free time", "salaire élevé", "plus de temps libre"], ["Job security", "Career risk-taking", "sécurité de l'emploi", "prise de risque de carrière"], ["Work to live", "Live to work", "travailler pour vivre", "vivre pour travailler"], ["Steady career", "Changing careers often", "carrière stable", "changer de carrière souvent"], ["Big company", "Own business", "grande entreprise", "sa propre entreprise"]]);
-buildTOT('totRows2', [["Guaranteed vacation", "Whatever the employer offers", "congés garantis", "ce que l'employeur propose"], ["Healthcare from government", "Healthcare through employer", "santé par l'État", "santé par l'employeur"], ["Hard to get fired", "Easy to get fired", "difficile à licencier", "facile à licencier"], ["Security for everyone", "Reward for top performers", "sécurité pour tous", "récompense pour les meilleurs"]]);
-
-function renderTour(){
-  const track = document.getElementById('mapTrack');
-  track.innerHTML = '';
-  TOUR_STOPS.forEach((l,i)=>{
-    const el = document.createElement('div');
-    el.className = 'map-stop';
-    el.dataset.idx = i;
-    el.innerHTML = `<span class="stop-icon">${l.icon}</span><div class="stop-num">${l.tag}</div><div class="stop-label">${l.label}</div><div class="stop-check">✓ explored</div>`;
-    el.addEventListener('click', ()=>showStop(i));
-    track.appendChild(el);
-  });
-}
-function updateStopProgress(){
-  document.getElementById('stopProgress').textContent = `${state.visitedStops.size} / ${TOUR_STOPS.length} explored`;
-}
-function showStop(idx){
-  const l = TOUR_STOPS[idx];
-  document.querySelectorAll('.map-stop').forEach((el,i)=>{
-    el.classList.toggle('active', i===idx);
-  });
-  if(!state.visitedStops.has(idx)){
-    state.visitedStops.add(idx);
-    document.querySelectorAll('.map-stop')[idx].classList.add('visited');
-    addXP(8); reaction('💼'); tone([494,622],[0.1,0.18]);
-    updateStopProgress();
-  }
-  const panel = document.getElementById('stopPanel');
-  let predictNote = '';
-  if(idx===0 && state.guess){
-    const right = state.guess==="france";
-    predictNote = right
-      ? `<div class="sp-fact" style="border-left-color:var(--good);margin-top:8px;">🎯 Your guess was right! <span class="fr">🎯 Ta prédiction était juste!</span></div>`
-      : `<div class="sp-fact" style="border-left-color:var(--coral);margin-top:8px;">🎯 Good guess, but not quite — this is actually it. <span class="fr">🎯 Bonne idée, mais pas tout à fait — c'est en fait celui-ci.</span></div>`;
-  }
-  panel.innerHTML = `
-    <div class="sp-eyebrow">${l.tag}</div>
-    <h3>${l.icon} ${l.label}</h3>
-    <div class="sp-en">${l.en}</div>
-    <div class="sp-fr">${l.fr}</div>
-    <div class="sp-fact">${l.fact} <span class="fr">${l.factfr}</span></div>
-    ${predictNote}
-  `;
-}
-
-function renderSpot(){
-  const row = document.getElementById('flagRow');
-  if(!row || row.dataset.built) return;
-  row.dataset.built = '1';
-  const options = [["🏖️", "5 weeks guaranteed vacation"], ["🏥", "Government-linked healthcare"], ["⚖️", "Strong job protection"], ["🎁", "Employer holiday bonus culture"], ["📋", "Legally required paid leave"]];
-  const correctName = "Employer holiday bonus culture";
-  options.forEach(([flag,name])=>{
-    const btn = document.createElement('button');
-    btn.className = 'flag-btn';
-    btn.innerHTML = `${flag}<br><span style="font-size:12px;font-weight:700;">${name}</span>`;
-    btn.addEventListener('click', ()=>{
-      if(row.dataset.answered) return;
-      const result = document.getElementById('flagResult');
-      if(name===correctName){
-        row.dataset.answered = '1';
-        row.querySelectorAll('button').forEach(b=>b.disabled=true);
-        btn.classList.add('correct');
-        result.style.display = 'block';
-        result.className = 'feedback show good';
-        result.innerHTML = `⭐ Exactly! Discretionary employer bonuses are much more of an American workplace norm than a French legal guarantee. <span class=\"fr\">⭐ Exactement! Les primes discrétionnaires de l'employeur sont bien plus une norme américaine qu'une garantie légale française.</span>`;
-        state.correct++;state.attempted++;state.stars++;state.streak++;addXP(15);updateHUD();
-        goodSound();reaction('🎉');confetti();
-      } else {
-        btn.classList.add('wrong');
-        tone([392,329.63],[0.15,0.2]);
-        reaction('🤔');
-      }
-    });
-    row.appendChild(btn);
-  });
-}
-
-function renderPrediction(){
-  const row = document.getElementById('predictRow');
-  if(!row || row.dataset.built) return;
-  row.dataset.built = '1';
-  const options = [["france", "🇫🇷 France"], ["usa", "🇺🇸 USA"]];
-  options.forEach(([key,label])=>{
-    const btn = document.createElement('button');
-    btn.className = 'nav-btn';
-    btn.style.cssText = 'background:linear-gradient(135deg,var(--sky),var(--sky-deep));box-shadow:0 6px 18px rgba(33,158,188,0.35);text-transform:none;letter-spacing:0;font-size:14px;padding:11px 18px;';
-    btn.textContent = label;
-    btn.addEventListener('click', ()=>{
-      if(state.guess) return;
-      state.guess = key;
-      row.querySelectorAll('button').forEach(b=>b.disabled=true);
-      btn.style.outline = '3px solid var(--violet)';
-      const result = document.getElementById('predictResult');
-      result.style.display = 'block';
-      result.innerHTML = "Locked in! Let's see if you're right → <span style=\"display:block;font-weight:500;font-style:italic;color:var(--ink);margin-top:2px;\">Prédiction enregistrée! On verra si tu as raison.</span>";
-      addXP(5); reaction('🔮'); tone([440,554],[0.1,0.16]);
-    });
-    row.appendChild(btn);
-  });
-}
-
-function renderMCQ(){
-  const host = document.getElementById('leagueMCQ');
-  host.innerHTML = `
-    <div class="mcq-q" data-gid="q1">
-      A worker in one country loses their job and immediately loses their health insurance too. Which country's system does this describe?
-      <span class="fr">Un travailleur dans un pays perd son emploi et perd immédiatement son assurance santé aussi. Quel système cela décrit-il?</span>
-    </div>
-    <div class="answers" data-gid="q1">
-      <button class="ans" data-ans="A">A. France — healthcare is tied to employment</button>
-      <button class="ans" data-ans="B">B. The USA — healthcare is often tied to your job</button>
-      <button class="ans" data-ans="C">C. Neither system works this way</button>
-    </div>
-    <div class="feedback" data-gid="q1"></div>
-    <div class="mcq-q" data-gid="q2">
-      A company complains it's too risky to hire new employees because firing someone later would be too expensive and difficult. Which country's labor laws would most likely cause this complaint?
-      <span class="fr">Une entreprise se plaint qu'il est trop risqué d'embaucher car licencier plus tard serait trop coûteux. Quel pays causerait le plus probablement cette plainte?</span>
-    </div>
-    <div class="answers" data-gid="q2">
-      <button class="ans" data-ans="A">A. France — strong job protection laws</button>
-      <button class="ans" data-ans="B">B. The USA — very easy to fire employees</button>
-      <button class="ans" data-ans="C">C. This complaint wouldn't happen anywhere</button>
-    </div>
-    <div class="feedback" data-gid="q2"></div>`;
-  
-  FB.q1 = {
-    A:{ok:false, msg:"French healthcare comes through the government system, independent of your job.", fr:"La santé française passe par le système public, indépendamment de l'emploi."},
-    B:{ok:true, msg:"⭐ Right! In the US, many people get healthcare through their employer — so losing the job can mean losing coverage too.", fr:"⭐ Exact! Aux États-Unis, beaucoup obtiennent leur santé par leur employeur — perdre l'emploi peut donc signifier perdre la couverture aussi."},
-    C:{ok:false, msg:"This is a real risk in the American system specifically.", fr:"C'est un vrai risque, spécifiquement dans le système américain."}
-  };
-  FB.q2 = {
-    A:{ok:true, msg:"⭐ Right! France's strong job-protection laws make firing harder and costlier, which can make companies more cautious about hiring.", fr:"⭐ Exact! Les fortes lois françaises de protection de l'emploi rendent le licenciement plus difficile, ce qui peut rendre les entreprises prudentes."},
-    B:{ok:false, msg:"US labor laws generally make firing easier and cheaper, the opposite of this complaint.", fr:"Le droit du travail américain rend généralement le licenciement plus facile et moins coûteux, l'inverse de cette plainte."},
-    C:{ok:false, msg:"This is actually a real, common debate about French labor law specifically.", fr:"C'est en fait un vrai débat courant, spécifiquement sur le droit du travail français."}
-  };
-}
-
-const BONUS_QUESTIONS = [{"en": "Would you rather have a higher salary with less job security, or a lower salary with guaranteed security? Why?", "fr": "Préférerais-tu un salaire plus élevé avec moins de sécurité de l'emploi, ou un salaire plus bas avec sécurité garantie? Pourquoi?"}, {"en": "What job do you think will still exist in 20 years, and what job might disappear?", "fr": "Quel métier penses-tu existera encore dans 20 ans, et lequel pourrait disparaître?"}, {"en": "Do you think healthcare should ever be tied to your job? Why or why not?", "fr": "Penses-tu que la santé devrait être liée à l'emploi? Pourquoi ou pourquoi pas?"}, {"en": "Would you rather work for a big company or start your own business? Why?", "fr": "Préférerais-tu travailler pour une grande entreprise ou créer ta propre entreprise? Pourquoi?"}, {"en": "Is it fair that some countries guarantee more vacation by law than others? Why or why not?", "fr": "Est-ce juste que certains pays garantissent plus de congés par la loi que d'autres? Pourquoi ou pourquoi pas?"}, {"en": "What does 'success' in a career actually mean to you — money, time, impact, or something else?", "fr": "Que signifie vraiment 'réussir' une carrière pour toi — l'argent, le temps, l'impact, ou autre chose?"}];
-const spinBtn = document.getElementById('spinBtn');
-if(spinBtn){
-  spinBtn.addEventListener('click', ()=>{
-    const q = BONUS_QUESTIONS[Math.floor(Math.random()*BONUS_QUESTIONS.length)];
-    const box = document.getElementById('spinResult');
-    box.innerHTML = `<div><div class="sp-en" style="font-size:18px;">${q.en}</div><div class="sp-fr" style="margin-top:8px;">${q.fr}</div></div>`;
-    addXP(5); reaction('🎡'); confetti(); tone([494,622,740],[0.12,0.12,0.2]);
-  });
-}
-
-const dots = document.getElementById('dots');
-for(let i=1;i<=state.total;i++){
-  const d=document.createElement('div');
-  d.className='dot'+(i===1?' active':'');
-  d.addEventListener('click',()=>goSlide(i));
-  dots.appendChild(d);
-}
-function goSlide(n){
-  const prevSlide = state.slide;
-  state.slide=Math.max(1,Math.min(state.total,n));
-
-  if(state.slide===4 && prevSlide!==4){ renderPrediction(); }
-  if(state.slide===5 && prevSlide!==5){ renderTour(); }
-  if(state.slide===6 && prevSlide!==6){ renderMCQ(); }
-  if(state.slide===7 && prevSlide!==7){ renderSpot(); }
-  if(state.slide===state.total && prevSlide!==state.total){
-    const acc = state.attempted ? state.correct+'/'+state.attempted : '0/0';
-    document.getElementById('recapBox').innerHTML = `You compared ${state.visitedStops.size}/3 real differences in work culture across two countries, spotted the American-only practice (${acc} correct), and built your own argument about what you actually want from a future career — all in English!`;
-  }
-
-  document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',+s.dataset.slide===state.slide));
-  document.querySelectorAll('.dot').forEach((d,i)=>{
-    d.classList.toggle('active',i+1===state.slide);
-    d.classList.toggle('done',i+1<state.slide);
-  });
-  document.getElementById('prevBtn').disabled=state.slide===1;
-  document.getElementById('nextBtn').textContent=state.slide===state.total?'🎉 Done!':'Next ▸';
-  requestAnimationFrame(()=>{
-    requestAnimationFrame(()=>{
-      window.scrollTo({top:0,behavior:'auto'});
-    });
-  });
-}
-document.getElementById('prevBtn').addEventListener('click',()=>goSlide(state.slide-1));
-document.getElementById('nextBtn').addEventListener('click',()=>{
-  if(state.slide===state.total){confetti();reaction('🏆');goodSound();return;}
-  goSlide(state.slide+1);
-});
-updateHUD();
-
-[['hintToggle1','hintFacts1'],['hintToggle2','hintFacts2']].forEach(([btnId,boxId])=>{
-  const btn = document.getElementById(btnId);
-  const box = document.getElementById(boxId);
-  if(btn && box){
-    const origText = btn.textContent;
-    btn.addEventListener('click', ()=>{
-      box.classList.toggle('show');
-      btn.textContent = box.classList.contains('show') ? 'Hide hint' : origText;
-    });
-  }
-});
+$('#prevBtn').onclick = ()=>go(cur-1); $('#nextBtn').onclick = ()=>go(cur+1);
+$('#starBtn').onclick = ()=>addStars(1,'Full sentence! +1 ⭐');
+const frBtn = $('#frBtn');
+function syncFr(){ frBtn.textContent = document.body.classList.contains('hide-fr') ? 'FR: OFF' : 'FR: ON'; }
+frBtn.onclick = ()=>{ document.body.classList.toggle('hide-fr'); syncFr(); }; syncFr();
+$('#hudBrand').textContent = L.brand; $('#stuName').textContent = L.student; $('#lessonName').textContent = L.lesson;
+const d = new Date(); $('#today').textContent = String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+'/'+d.getFullYear();
+go(0);
 </script>
-
 </body>
 </html>

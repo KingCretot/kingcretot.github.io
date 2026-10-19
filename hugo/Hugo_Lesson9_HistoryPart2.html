@@ -9,204 +9,190 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --sun:#ffb703; --sun-deep:#e08e00;
-    --sky:#4cc9f0; --sky-deep:#219ebc;
-    --coral:#ff6b6b; --coral-deep:#e5484d;
-    --leaf:#52b788; --leaf-deep:#2d6a4f;
-    --sand:#d4a373; --sand-deep:#9c6644;
-    --cream:#fff8ea; --ink:#25324a; --violet:#7c3aed;
-    --good:#34d399; --bad:#ef4444;
-    --shadow:0 12px 36px rgba(76,201,240,0.18);
-    --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    font-family:'Quicksand',sans-serif;font-size:20px;line-height:1.55;color:var(--ink);
-    background:
-      radial-gradient(circle at 8% 12%,rgba(76,201,240,0.20) 0,transparent 42%),
-      radial-gradient(circle at 92% 82%,rgba(255,183,3,0.20) 0,transparent 42%),
-      linear-gradient(180deg,#fff8ea 0%,#fff 100%);
-    min-height:100vh;overflow-x:hidden;
-  }
-  .notranslate{translate:no}
-  .kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px;}
-  .kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px;}
-  .kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1;}
-  .kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700;}
-  .kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
-  .kce-band{height:3px;display:flex;}.kce-band i{flex:1}
-  .kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
-
-  .stage{max-width:1280px;margin:0 auto;padding:24px 24px 100px;position:relative}
-  .hud{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--sky);border-radius:24px;padding:14px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
-  .hud-brand{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);display:flex;align-items:center;gap:8px;}
-  .hud-brand::before{content:'🏰';font-size:26px}
-  .hud-stat{display:flex;align-items:center;gap:6px;font-weight:700;font-size:18px;background:var(--cream);padding:8px 14px;border-radius:12px;border:2px solid var(--sky);color:var(--sky-deep);}
-  .hud-stat.streak{border-color:var(--sun);color:#a06400}
-  .xp-shell{flex:1;min-width:160px;height:16px;background:#e6f7fb;border-radius:999px;overflow:hidden;border:2px solid var(--sky);position:relative;}
-  .xp-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--sun),var(--coral),var(--sky));border-radius:999px;transition:width .8s cubic-bezier(.2,.9,.3,1.2);}
-  .xp-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--sky-deep);}
-
-  .slide{background:#fff;border:3px solid var(--sky);border-radius:26px;padding:28px 30px;margin-top:18px;box-shadow:var(--shadow);display:none;animation:slideIn .5s ease;position:relative;overflow:hidden;}
-  .slide::before{content:'';position:absolute;top:-30px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,183,3,0.28),transparent 70%);z-index:0;}
-  .slide.active{display:block}
-  @keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-  .slide-title{font-family:'Caprasimo',serif;font-size:34px;color:var(--coral-deep);margin-bottom:6px;text-align:center;position:relative;z-index:1;}
-  .slide-sub{font-size:16px;color:var(--violet);text-align:center;margin-bottom:18px;font-style:italic;position:relative;z-index:1;}
-  .slide-count{text-align:center;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;position:relative;z-index:1;}
-  .connect-note{background:#f3e8ff;border-left:5px solid var(--violet);border-radius:10px;padding:10px 14px;font-size:14px;color:var(--violet);font-weight:700;margin-bottom:14px;position:relative;z-index:1;}
-
-  .bilingual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;position:relative;z-index:1;}
-  .lang-card{background:linear-gradient(135deg,#fff,#eaf9ff);border-radius:16px;padding:18px 22px;border-left:6px solid var(--sky);box-shadow:0 4px 14px rgba(33,158,188,0.10);}
-  .lang-card.fr{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0);}
-  .lang-tag{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--sky-deep);background:#d4f1fa;padding:3px 10px;border-radius:6px;margin-bottom:8px;}
-  .lang-card.fr .lang-tag{color:var(--coral-deep);background:#ffe3e3}
-  .lang-card p{font-size:18px;line-height:1.6}
-  .lang-card.fr p{color:var(--violet);font-size:17px}
-
-  .modal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:16px 0;position:relative;z-index:1;}
-  .modal-card{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sun);border-radius:16px;padding:16px 20px;cursor:pointer;transition:all .3s;min-height:112px;}
-  .modal-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(255,183,3,0.30)}
-  .modal-card.flipped{background:linear-gradient(135deg,var(--sky),var(--sky-deep));color:#fff;border-color:var(--coral)}
-  .modal-card .who{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);margin-bottom:5px;}
-  .modal-card.flipped .who{color:#fff}
-  .modal-card .role{font-size:13px;font-weight:700;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;}
-  .modal-card.flipped .role{color:var(--sun)}
-  .modal-card .detail{font-size:15px;margin-top:7px;color:var(--ink)}
-  .modal-card.flipped .detail{color:#fff}
-  .modal-card .fr{font-size:13px;color:var(--violet);margin-top:5px;font-style:italic;}
-  .modal-card.flipped .fr{color:#fff8e1}
-  .modal-card .tap-hint{font-size:11px;font-weight:700;color:#888;margin-top:8px}
-  .modal-card.flipped .tap-hint{color:var(--cream)}
-
-  .map-track{display:flex;gap:12px;padding:10px 4px 16px;position:relative;z-index:1;}
-  .map-stop{flex:1;min-width:0;background:#fff;border:3px solid var(--sand);border-radius:16px;padding:24px 14px;text-align:center;cursor:pointer;transition:all .25s;}
-  @media(max-width:520px){ .map-track{flex-wrap:wrap;} .map-stop{flex:1 1 45%;} }
-  .map-stop:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(156,102,68,0.25)}
-  .map-stop.active{background:linear-gradient(135deg,var(--sand),var(--sand-deep));border-color:var(--coral);}
-  .map-stop.active .stop-num,.map-stop.active .stop-label{color:#fff}
-  .map-stop.visited{border-color:var(--good);}
-  .map-stop .stop-icon{font-size:52px;display:block;margin-bottom:8px;}
-  .map-stop .stop-num{font-size:13px;font-weight:800;color:var(--sand-deep);text-transform:uppercase;letter-spacing:1px;}
-  .map-stop .stop-label{font-size:18px;font-weight:700;color:var(--ink);margin-top:4px;}
-  .map-stop .stop-check{font-size:14px;color:var(--good);font-weight:800;margin-top:6px;visibility:hidden;}
-  .map-stop.visited .stop-check{visibility:visible;}
-  .stop-progress{text-align:center;font-size:13px;color:var(--sand-deep);font-weight:700;margin-bottom:6px;position:relative;z-index:1;}
-
-  .stop-panel{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sand);border-radius:18px;padding:20px 22px;position:relative;z-index:1;min-height:150px;}
-  .stop-panel .sp-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--sand-deep);margin-bottom:6px;}
-  .stop-panel h3{font-family:'Caprasimo',serif;font-size:24px;color:var(--coral-deep);margin-bottom:8px;}
-  .stop-panel .sp-en{font-size:17px;margin-bottom:4px;}
-  .stop-panel .sp-fr{font-size:14px;color:var(--violet);font-style:italic;margin-bottom:10px;}
-  .stop-panel .sp-fact{background:#fff;border-left:4px solid var(--leaf);border-radius:10px;padding:10px 14px;font-size:15px;}
-  .stop-panel .sp-fact .fr{display:block;color:var(--violet);font-style:italic;font-size:13px;margin-top:4px;}
-  .stop-panel .sp-placeholder{color:#aaa;font-style:italic;font-size:15px;text-align:center;padding:20px 0;}
-
-  .flag-btn{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:16px 12px;font-size:30px;cursor:pointer;text-align:center;min-width:80px;font-family:'Quicksand',sans-serif;transition:all .2s;}
-  .flag-btn:hover:not(:disabled){background:#eaf9ff;transform:translateY(-3px);border-color:var(--sky-deep)}
-  .flag-btn.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
-  .flag-btn.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
-  .flag-btn:disabled{cursor:default}
-
-  .mcq-q{font-family:'Caprasimo',serif;font-size:20px;color:var(--coral-deep);margin:14px 0 12px;padding:14px 18px;background:var(--cream);border-radius:14px;border-left:6px solid var(--sky);position:relative;z-index:1;}
-  .mcq-q .fr{display:block;font-family:'Quicksand',sans-serif;font-size:14px;color:var(--violet);font-weight:500;font-style:italic;margin-top:5px;}
-  .answers{display:grid;gap:8px;margin-bottom:10px;position:relative;z-index:1}
-  .ans{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:11px 16px;font-size:17px;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;transition:all .2s;font-family:'Quicksand',sans-serif;}
-  .ans:hover:not(:disabled){background:#eaf9ff;transform:translateX(4px);border-color:var(--sky-deep)}
-  .ans.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
-  .ans.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
-  .ans:disabled{cursor:default}
-  @keyframes pulse{0%,100%{transform:none}50%{transform:scale(1.03)}}
-  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-  .feedback{margin-top:6px;padding:11px 15px;border-radius:12px;font-size:15px;display:none;position:relative;z-index:1}
-  .feedback.show{display:block;animation:slideIn .3s ease}
-  .feedback.good{background:#d1fae5;color:#065f46;border-left:5px solid var(--good)}
-  .feedback.bad{background:#fee2e2;color:#991b1b;border-left:5px solid var(--bad)}
-  .feedback .fr{display:block;color:var(--violet);font-style:italic;margin-top:3px;font-size:13px}
-
-  .tot-cluster-label{font-size:13px;font-weight:800;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;margin:12px 0 6px;position:relative;z-index:1;}
-  .tot-row{display:flex;gap:8px;margin:8px 0;position:relative;z-index:1;}
-  .tot-pair{flex:1;display:flex;border:3px solid var(--sky);border-radius:14px;overflow:hidden;}
-  .tot-opt{flex:1;border:0;background:#fff;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer;padding:12px 8px;transition:all .2s;}
-  .tot-opt:hover{background:#eaf9ff;}
-  .tot-opt.sel{background:var(--coral);color:#fff;}
-  .tot-mid{width:2px;background:var(--sky);}
-  .tot-hint{font-size:11px;color:var(--violet);font-style:italic;margin-top:3px;display:block;}
-
-  .elicit-card{background:linear-gradient(135deg,#fff,#eaf9ff);border:3px dashed var(--sky);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
-  .elicit-card h4{font-family:'Caprasimo',serif;font-size:20px;color:var(--sky-deep);margin-bottom:8px;}
-  .starter-row{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
-  .starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:10px 14px;font-family:'Quicksand',sans-serif;}
-  .starter .en{font-weight:700;color:var(--ink);font-size:17px;font-family:'Quicksand',sans-serif;display:block;}
-  .starter .fr{display:block;color:var(--violet);font-style:italic;font-weight:500;font-size:13px;font-family:'Quicksand',sans-serif;margin-top:2px;}
-  .hint-toggle{background:var(--sun);border:none;color:var(--kce-navy);font-weight:800;padding:9px 18px;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:13px;margin-top:10px;}
-  .hint-facts{display:none;margin-top:10px;background:#fff;border-left:4px solid var(--sun);border-radius:10px;padding:12px 14px;font-size:14px;}
-  .hint-facts.show{display:block;}
-  .hint-facts li{margin-bottom:6px;}
-  .hint-facts .fr{color:var(--violet);font-style:italic;font-size:12px;}
-
-  .think-card{background:linear-gradient(135deg,#f3e8ff,#fff);border:3px solid var(--violet);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
-  .think-card h4{font-family:'Caprasimo',serif;font-size:21px;color:var(--violet);margin-bottom:8px;}
-  .think-card .qtext{font-size:18px;font-weight:600;margin-bottom:6px;}
-  .think-card .qtext-fr{font-size:15px;color:var(--violet);font-style:italic;margin-bottom:12px;}
-
-  .toolkit{background:linear-gradient(135deg,#eaf9ff,#fff);border:3px solid var(--sky);border-radius:18px;padding:18px 22px;margin:14px 0;position:relative;z-index:1;}
-  .toolkit h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--sky-deep);margin-bottom:10px;}
-  .toolkit-group{margin-bottom:12px;}
-  .toolkit-group .tk-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--violet);margin-bottom:5px;}
-  .toolkit-group .tk-phrase{background:#fff;border-left:4px solid var(--sky);border-radius:8px;padding:8px 12px;margin-bottom:5px;font-size:15px;}
-  .toolkit-group .tk-phrase .fr{display:block;color:var(--violet);font-style:italic;font-size:12px;margin-top:2px;}
-
-  .tiers{display:grid;gap:11px;margin-top:14px;position:relative;z-index:1}
-  .tier{background:#fff;border-radius:16px;padding:16px 20px;border-left:8px solid var(--sky);box-shadow:0 4px 14px rgba(0,0,0,0.06);}
-  .tier.silver{border-left-color:#9ca3af}
-  .tier.gold{border-left-color:var(--sun)}
-  .tier.diamond{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0)}
-  .tier-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#666;margin-bottom:5px;}
-  .tier h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--coral-deep);margin-bottom:5px}
-  .tier p{font-size:16px}
-  .tier .fr{color:var(--violet);font-style:italic;font-size:14px;margin-top:3px}
-
-  .wheel-embed-label{font-family:'Caprasimo',serif;font-size:18px;color:var(--sun-deep);text-align:center;margin-top:6px;margin-bottom:10px;position:relative;z-index:1;}
-  .wheel-embed{width:100%;min-height:640px;border:3px solid var(--sun);border-radius:20px;position:relative;z-index:1;box-shadow:0 8px 24px rgba(255,183,3,0.25);background:#fff;}
-  @media(max-width:780px){ .wheel-embed{min-height:760px;} }
-
-  .victory{background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#fff;border-radius:22px;padding:32px;text-align:center;border:4px solid var(--sun);margin:12px 0;box-shadow:0 12px 40px rgba(229,72,77,0.4);position:relative;z-index:1;}
-  .victory h2{font-family:'Caprasimo',serif;font-size:34px;margin-bottom:12px}
-  .victory p{font-size:17px;line-height:1.7;margin-bottom:8px}
-  .victory .fr{color:var(--sun);font-style:italic;font-size:15px;margin-top:6px}
-  .victory .recap{background:rgba(255,255,255,.15);border-radius:14px;padding:14px 18px;margin-top:14px;text-align:left;font-size:15px;}
-  .victory .recap b{color:var(--sun)}
-
-  .nav-wrap-fixed{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid var(--sky);padding:12px 0;z-index:500;box-shadow:0 -6px 20px rgba(0,0,0,0.12);}
-  .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1280px;margin:0 auto;padding:0 24px;flex-wrap:wrap;}
-  .dots{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:380px}
-  .dot{width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--coral);cursor:pointer;transition:all .25s;}
-  .dot.active{background:var(--coral);transform:scale(1.4)}
-  .dot.done{background:var(--sky);border-color:var(--sky)}
-  .nav-btn{background:linear-gradient(135deg,var(--coral),var(--coral-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(229,72,77,0.4);transition:all .25s;text-transform:uppercase;letter-spacing:0.5px;}
-  .nav-btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(229,72,77,0.55)}
-  .nav-btn.prev{background:linear-gradient(135deg,#888,#aaa);box-shadow:0 6px 18px rgba(0,0,0,0.2)}
-  .nav-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
-
-  .reaction{position:fixed;font-size:44px;pointer-events:none;z-index:9999;animation:floatUp 1.4s ease-out forwards;}
-  @keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(0.5)}20%{opacity:1;transform:translateY(-30px) scale(1.2)}100%{opacity:0;transform:translateY(-180px) scale(0.8)}}
-  .confetti{position:fixed;width:10px;height:10px;pointer-events:none;z-index:9999;animation:confettiFall 2s ease-out forwards;}
-  @keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(400px) rotate(720deg)}}
-
-  footer.kce-foot{text-align:center;padding:16px 20px;font-size:11px;color:#8a93a6;}
-
-  @media(max-width:780px){
-    .bilingual{grid-template-columns:1fr}
-    .slide-title{font-size:26px}
-    .modal-grid{grid-template-columns:1fr}
-  }
+:root{
+  --sun:#F4B400; --sun-deep:#A6821B;
+  --sky:#0F8B8D; --sky-deep:#0A5F60;
+  --coral:#E8573C; --coral-deep:#8E1B20;
+  --leaf:#4A9C5D; --leaf-deep:#2F5233;
+  --grape:#7c3aed; --pink:#E85D9A; --orange:#F28C28;
+  --cream:#fff8ea; --ink:#25324a;
+  --good:#22c55e; --bad:#ef4444;
+  --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  --accent:#0F8B8D; --accent-deep:#0A5F60;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Quicksand',Arial,sans-serif;font-size:20px;line-height:1.5;color:var(--ink);
+  background:radial-gradient(circle at 6% 10%,rgba(242,140,40,.20) 0,transparent 40%),radial-gradient(circle at 94% 85%,rgba(124,58,237,.14) 0,transparent 42%),linear-gradient(180deg,#fff4e3 0%,#fff 100%);min-height:100vh;overflow-x:hidden}
+.kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px}
+.kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px}
+.kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1}
+.kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700}
+.kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+.kce-band{height:3px;display:flex}.kce-band i{flex:1}.kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+.stage{max-width:1180px;margin:0 auto;padding:18px 20px 40px}
+.hud{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--accent);border-radius:22px;padding:10px 18px;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.hud-brand{font-family:'Caprasimo',Georgia,serif;font-size:21px;color:var(--accent-deep)}
+.hud-stat{font-weight:700;font-size:18px;background:var(--cream);padding:6px 14px;border-radius:12px;border:2px solid var(--sun);color:#8a5a00}
+.hud-spacer{flex:1}
+.pill{border:none;border-radius:50px;padding:8px 16px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:13px;cursor:pointer}
+.pill.fr-toggle{background:#ede9fe;color:var(--grape)}
+.pill.star-btn{background:var(--sun);color:var(--kce-navy)}
+.namedate{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;font-family:Arial,sans-serif;font-size:15px;color:var(--kce-navy);background:#fff;border:2px dashed var(--kce-gold);border-radius:12px;padding:8px 16px}
+.namedate b{font-family:Georgia,serif}
+.progress{height:10px;background:#eee;border-radius:99px;margin-top:10px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--pink),var(--grape));transition:width .5s}
+.slide{display:none;background:#fff;border:3px solid var(--accent);border-radius:26px;padding:24px 28px;margin-top:14px;box-shadow:0 12px 34px rgba(0,0,0,.07);animation:slideIn .45s ease;position:relative}
+.slide.active{display:block}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.slide-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.slide-count{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:#7a869a;text-transform:uppercase;letter-spacing:1px}
+.minutes{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;background:#e0f2f1;color:var(--sky-deep);padding:4px 12px;border-radius:99px}
+.slide-title{font-family:'Caprasimo',Georgia,serif;font-size:36px;color:var(--accent-deep);text-align:center;line-height:1.15}
+.slide-sub{text-align:center;font-size:19px;color:#4b5563;margin-top:4px}
+.fr{color:#7c5cc4;font-style:italic;font-weight:500;font-size:.78em;display:block;margin-top:3px;line-height:1.35}
+body.hide-fr .fr{display:none!important}
+.goal{margin:18px auto 0;max-width:760px;background:linear-gradient(135deg,#fff3d6,#ffe4ef);border:3px solid var(--sun);border-radius:20px;padding:18px 22px;text-align:center}
+.goal .big{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--coral-deep)}
+.emoji-row{font-size:54px;text-align:center;margin:14px 0 4px;letter-spacing:8px}
+.how{max-width:760px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.how div{background:var(--cream);border-radius:16px;padding:12px 14px;font-size:17px;text-align:center;border:2px solid #f3dfb5}
+/* chat */
+.chat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:16px}
+.chat-card{border:3px solid var(--sky);border-radius:18px;padding:14px 16px;background:#f3fbfb;cursor:pointer;transition:transform .15s}
+.chat-card:hover{transform:translateY(-2px)}
+.chat-card h4{font-family:'Caprasimo',Georgia,serif;font-size:22px;color:var(--sky-deep);font-weight:400}
+.starters{display:none;margin-top:10px;gap:8px;flex-direction:column}
+.chat-card.open .starters{display:flex}
+.starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:8px 12px;font-weight:700;font-size:17px}
+.starter .fr{font-weight:500}
+.askback{display:inline-block;margin-top:8px;background:var(--sun);color:var(--kce-navy);font-weight:800;font-size:14px;padding:5px 12px;border-radius:99px;font-family:'Poppins',Arial,sans-serif}
+.tap-hint{font-size:14px;color:#7a869a;margin-top:6px}
+/* vocab */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:16px}
+.vcard{perspective:800px;height:170px;cursor:pointer}
+.vinner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.vcard.flip .vinner{transform:rotateY(180deg)}
+.vface{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center}
+.vfront{border:3px solid var(--orange);background:#fff7ed}
+.vfront .em{font-size:56px;line-height:1.1}
+.vfront .w{font-weight:800;font-size:19px;margin-top:6px}
+.vback{transform:rotateY(180deg);background:linear-gradient(135deg,#ede9fe,#fce7f3);border:3px solid var(--grape);font-size:16px}
+.vback .ex{font-weight:700;color:var(--ink)}
+/* wheel */
+.wheel-wrap{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:4px;padding:12px 4px 8px;overflow:hidden}
+.wheel-box{position:relative;width:420px;height:420px;max-width:90vw;max-height:90vw}
+.wheel-box canvas{width:100%;height:100%;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform 4.2s cubic-bezier(.12,.8,.2,1)}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-top:38px solid var(--kce-navy);z-index:2;filter:drop-shadow(0 3px 2px rgba(0,0,0,.3))}
+.hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:#fff;border:5px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;font-size:30px;z-index:2}
+.wheel-q{flex:1;min-width:min(300px,100%);max-width:520px;background:linear-gradient(135deg,#fff3d6,#e0f2fe);border:3px solid var(--sun);border-radius:22px;padding:22px;text-align:center;min-height:200px;display:flex;flex-direction:column;justify-content:center}
+.wheel-q .q{font-family:'Caprasimo',Georgia,serif;font-size:27px;color:var(--kce-navy);line-height:1.25}
+.wheel-q .st{margin-top:10px;font-size:17px;font-weight:700;color:var(--sky-deep)}
+.big-btn{display:inline-block;border:none;border-radius:16px;padding:14px 28px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:18px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--orange),var(--coral));box-shadow:0 6px 16px rgba(232,87,60,.35)}
+.big-btn:disabled{opacity:.5;cursor:default}
+.center{text-align:center;margin-top:14px}
+/* builder */
+.builder-pic{font-size:64px;text-align:center;margin-top:10px}
+.builder-prompt{text-align:center;font-weight:700;font-size:19px}
+.answer-line{min-height:70px;border:3px dashed var(--grape);border-radius:16px;margin:14px 0;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:#faf5ff}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tile{border:3px solid var(--sky);background:#fff;border-radius:12px;padding:8px 14px;font-weight:800;font-size:20px;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.tile.used{visibility:hidden}
+.answer-line .tile{border-color:var(--grape);background:#fff}
+.row-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.sm-btn{border:none;border-radius:12px;padding:10px 18px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:15px;cursor:pointer;background:#e5e7eb;color:var(--ink)}
+.sm-btn.go{background:var(--leaf);color:#fff}
+.feedback{text-align:center;font-weight:800;font-size:19px;min-height:30px;margin-top:10px}
+.feedback.ok{color:#15803d}.feedback.no{color:#b91c1c}
+.round-tag{text-align:center;font-family:'Poppins',Arial,sans-serif;font-weight:700;color:#7a869a;font-size:14px;margin-top:6px}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+/* mcq */
+.mcq-scene{font-size:62px;text-align:center;margin-top:8px}
+.mcq-q{font-family:'Caprasimo',Georgia,serif;font-size:25px;color:var(--kce-navy);text-align:center;margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{border:3px solid var(--sky);background:#fff;border-radius:16px;padding:14px 16px;font-size:19px;font-weight:700;cursor:pointer;text-align:left;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.opt.right{background:#dcfce7;border-color:var(--good)}
+.opt.wrong{background:#fee2e2;border-color:var(--bad)}
+.explain{margin-top:12px;background:var(--cream);border-left:6px solid var(--sun);border-radius:12px;padding:12px 16px;font-size:18px;display:none}
+.explain.show{display:block}
+/* this or that */
+.tot-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:14px}
+.tot{border:3px solid var(--pink);background:#fff0f6;border-radius:20px;padding:18px;text-align:center;cursor:pointer;font-weight:800;font-size:20px;transition:transform .15s}
+.tot .em{font-size:52px;display:block}
+.tot.pick{background:var(--pink);color:#fff;transform:scale(1.04)}
+.tot.pick .fr{color:#fff}
+.vs{font-family:'Caprasimo',Georgia,serif;font-size:30px;color:var(--grape)}
+.say-box{margin-top:14px;text-align:center;background:#ecfeff;border:2px solid var(--sky);border-radius:14px;padding:12px;font-weight:700;font-size:19px}
+/* memory */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;max-width:760px;margin-left:auto;margin-right:auto}
+.mem{height:110px;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.12);padding:6px;user-select:none}
+.mem .face{display:none}
+.mem.open,.mem.done{background:#fff;color:var(--ink);border-color:var(--sky)}
+.mem.open .face,.mem.done .face{display:block}
+.mem.open .back,.mem.done .back{display:none}
+.mem.done{border-color:var(--good);background:#dcfce7}
+.mem .face.e{font-size:46px}
+/* true or silly */
+.tos-card{max-width:760px;margin:16px auto 0;background:linear-gradient(135deg,#fff7ed,#fef3c7);border:3px solid var(--orange);border-radius:22px;padding:22px;text-align:center}
+.tos-card .em{font-size:56px}
+.tos-card .st{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--kce-navy);margin-top:6px}
+.tos-btns{display:flex;gap:14px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.tos-btns button{min-width:170px}
+.btn-true{background:linear-gradient(135deg,#22c55e,#15803d)!important}
+.btn-silly{background:linear-gradient(135deg,#a855f7,#7c3aed)!important}
+/* sort */
+.sort-item{max-width:760px;margin:14px auto 0;background:#fff;border:3px solid var(--kce-navy);border-radius:18px;padding:16px;text-align:center;font-weight:800;font-size:22px}
+.buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.bucket{border-radius:18px;padding:14px;text-align:center;cursor:pointer;color:#fff;font-weight:800;font-size:19px;border:none;font-family:'Quicksand',Arial,sans-serif}
+.bucket small{display:block;font-weight:600;font-size:14px;opacity:.95;margin-top:4px}
+.bucket .cnt{display:block;font-size:14px;margin-top:6px;background:rgba(255,255,255,.25);border-radius:8px;padding:2px}
+.rule-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.rule{border-radius:16px;padding:12px 14px;color:#fff;font-size:17px}
+.rule b{font-size:20px;display:block}
+/* day plan */
+.plan-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.plan-col{border:3px solid var(--sun);border-radius:18px;padding:12px;background:#fffbeb}
+.plan-col h4{font-family:'Caprasimo',Georgia,serif;font-weight:400;font-size:21px;color:var(--sun-deep);text-align:center;margin-bottom:8px}
+.chip{display:block;width:100%;text-align:left;border:2px solid #f3dfb5;background:#fff;border-radius:12px;padding:8px 12px;margin-bottom:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.chip.sel{background:var(--sun);border-color:var(--sun-deep)}
+.story{margin-top:16px;background:linear-gradient(135deg,#e0f2fe,#ede9fe);border:3px solid var(--grape);border-radius:20px;padding:18px 22px;font-size:21px;font-weight:700;line-height:1.6;display:none}
+.story.show{display:block}
+.story .conn{color:var(--coral-deep)}
+/* talk */
+.check-list{max-width:760px;margin:16px auto 0;display:flex;flex-direction:column;gap:10px}
+.check{display:flex;align-items:center;gap:14px;border:3px solid var(--leaf);border-radius:16px;padding:12px 16px;background:#f0fdf4;cursor:pointer;font-weight:700;font-size:19px}
+.check .box{width:34px;height:34px;flex:none;border-radius:10px;border:3px solid var(--leaf);display:flex;align-items:center;justify-content:center;font-size:22px;background:#fff}
+.check.done{background:#bbf7d0}
+/* 2 truths */
+.ttl-list{max-width:760px;margin:14px auto 0;display:flex;flex-direction:column;gap:10px}
+/* victory */
+.victory{text-align:center;padding:10px}
+.medal{font-size:110px;line-height:1.1;margin-top:8px}
+.victory .score{font-family:'Caprasimo',Georgia,serif;font-size:34px;color:var(--accent-deep);margin-top:6px}
+.tiers{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.tiers div{background:var(--cream);border-radius:14px;padding:8px 14px;font-weight:700;font-size:16px;border:2px solid #f3dfb5}
+.tiers div.on{background:var(--sun);border-color:var(--sun-deep)}
+/* tutor */
+details.tutor{margin-top:18px;background:#f1f5f9;border-radius:12px;padding:8px 14px;font-size:15px;font-family:Arial,sans-serif;color:#334155}
+details.tutor summary{cursor:pointer;font-weight:700;color:var(--kce-navy)}
+details.tutor p{margin-top:6px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+.nav-btn{background:linear-gradient(135deg,var(--accent),var(--accent-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',Arial,sans-serif;font-size:16px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px}
+.nav-btn:disabled{opacity:.35;cursor:default}
+.nav-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.nav-dots button{width:14px;height:14px;border-radius:50%;border:none;background:#d1d5db;cursor:pointer;padding:0}
+.nav-dots button.on{background:var(--accent)}
+footer{margin-top:22px;text-align:center;font-family:Arial,sans-serif;font-size:12px;color:#64748b;line-height:1.6}
+footer .prov{color:var(--kce-navy);font-weight:700}
+.toast{position:fixed;left:50%;top:22px;transform:translateX(-50%) translateY(-120px);background:var(--kce-navy);color:#fff;padding:12px 22px;border-radius:14px;font-weight:800;font-size:19px;z-index:50;transition:transform .35s;font-family:'Poppins',Arial,sans-serif}
+.toast.show{transform:translateX(-50%) translateY(0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+@media(max-width:700px){.slide{padding:18px 14px}.wheel-q .q{font-size:22px}.slide-title{font-size:28px}.tot-row{grid-template-columns:1fr}.vs{text-align:center}.mem-grid{grid-template-columns:repeat(3,1fr)}.wheel-box{width:320px;height:320px}}
 </style>
 </head>
-<body class="notranslate" translate="no">
-
+<body class="notranslate " translate="no">
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
 <div class="kce-mast">
   <div class="kce-mono">KC</div>
   <div>
@@ -218,488 +204,328 @@
 
 <div class="stage">
   <div class="hud">
-    <div class="hud-brand" style="--_e:'🏰'">Hugo • L9</div>
-    <div class="hud-stat">🎯 <span id="accuracy">0</span> right</div>
-    <div class="hud-stat">⭐ <span id="stars">0</span></div>
-    <div class="hud-stat streak">🔥 <span id="streak">0</span></div>
-    <div class="xp-shell">
-      <div class="xp-fill" id="xpFill"></div>
-      <div class="xp-text"><span id="xpText">0</span> / 300 XP</div>
-    </div>
+    <div class="hud-brand" id="hudBrand"></div>
+    <div class="hud-stat">⭐ <span id="stars">0</span> stars</div>
+    <div class="hud-spacer"></div>
+    <button class="pill star-btn" id="starBtn" title="Tutor: tap for every full English sentence">+1 ⭐ Full sentence</button>
+    <button class="pill fr-toggle" id="frBtn">FR: ON</button>
+  </div>
+  <div class="namedate"><span><b>Name:</b> <span id="stuName"></span></span><span><b>Date:</b> <span id="today"></span></span><span><b>Lesson:</b> <span id="lessonName"></span></span></div>
+  <div class="progress"><i id="prog"></i></div>
+
+  <div id="slides"></div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn">◀ Back</button>
+    <div class="nav-dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▶</button>
   </div>
 
-  <section class="slide active" data-slide="1">
-    <div class="slide-count">Slide 1 of 12</div>
-    <div class="slide-title">🏰 History of the World, Part 2</div>
-    <div class="bilingual">
-      <div class="lang-card">
-        <span class="lang-tag">English</span>
-        <p>Hi Hugo! Picking up where we left off — from castles and knights to the explosion of art and science we call the Renaissance. This is the thousand-year stretch that built modern Europe.</p>
-      </div>
-      <div class="lang-card fr">
-        <span class="lang-tag">Français</span>
-        <p>Salut Hugo! On reprend où on s'était arrêtés — des châteaux et chevaliers jusqu'à l'explosion d'art et de science qu'on appelle la Renaissance. C'est la période de mille ans qui a construit l'Europe moderne.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="2">
-    <div class="slide-count">Slide 2 of 12</div>
-    <div class="slide-title">🎤 What Do You Picture?</div>
-    <div class="connect-note">Everyone has an image of the Middle Ages — let's hear yours.</div>
-    <div class="elicit-card">
-      <h4>Tell me first</h4>
-      <div class="starter-row">
-        <div class="starter"><span class="en">"When I think 'Middle Ages,' I picture..."</span><span class="fr">"Quand je pense 'Moyen Âge', j'imagine..."</span></div>
-        <div class="starter"><span class="en">"A Renaissance artist or thinker I've heard of is..."</span><span class="fr">"Un artiste ou penseur de la Renaissance dont j'ai entendu parler, c'est..."</span></div>
-        <div class="starter"><span class="en">"I think the biggest change from Middle Ages to Renaissance was..."</span><span class="fr">"Je pense que le plus grand changement du Moyen Âge à la Renaissance, c'était..."</span></div>
-      </div>
-      <button class="hint-toggle" id="hintToggle1">Need vocabulary? Tap for help 💡</button>
-      <ul class="hint-facts" id="hintFacts1">
-        <li><strong>a kingdom</strong> — land ruled by a king or queen. <span class="fr">un royaume.</span></li>
-        <li><strong>the Renaissance</strong> — a period of huge growth in art, science, and ideas. <span class="fr">la Renaissance.</span></li>
-        <li><strong>a printing press</strong> — a machine that could copy books quickly. <span class="fr">une presse à imprimer.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="3">
-    <div class="slide-count">Slide 3 of 12</div>
-    <div class="slide-title">⚡ This or That!</div>
-    <div class="slide-sub">Fast answers — no overthinking. / Réponses rapides — ne réfléchis pas trop.</div>
-    <div class="tot-cluster-label">🏰 Medieval Instincts</div>
-    <div id="totRows1"></div>
-  </section>
-
-  <section class="slide" data-slide="4">
-    <div class="slide-count">Slide 4 of 12</div>
-    <div class="slide-title">🔭 Make a Prediction</div>
-    <div class="think-card">
-      <h4>Before you see the facts...</h4>
-      <div class="qtext">What do you think ended the Middle Ages faster — a disease (the Black Death) or an invention (the printing press)?</div>
-      <div class="qtext-fr">Qu'est-ce qui, selon toi, a fait basculer le Moyen Âge le plus vite — une maladie (la peste noire) ou une invention (la presse à imprimer)?</div>
-      <div id="predictRow" style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;position:relative;z-index:1;"></div>
-      <div id="predictResult" style="margin-top:12px;font-size:14px;font-weight:700;color:var(--violet);display:none;position:relative;z-index:1;"></div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="5">
-    <div class="slide-count">Slide 5 of 12</div>
-    <div class="slide-title">🌍 Three Turning Points That Rebuilt Europe</div>
-    <div class="connect-note">Tap each card — this is the thousand-year hinge between ancient and modern.</div>
-    <div class="stop-progress" id="stopProgress">0 / 3 explored</div>
-    <div class="map-track" id="mapTrack"></div>
-    <div class="stop-panel" id="stopPanel">
-      <div class="sp-placeholder">Tap a card above to begin! / Tape une carte pour commencer!</div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="6">
-    <div class="slide-count">Slide 6 of 12</div>
-    <div class="slide-title">🧠 Now Apply It</div>
-    <div class="slide-sub">Not just the events — the cause and effect.</div>
-    <div id="leagueMCQ"></div>
-  </section>
-
-  <section class="slide" data-slide="7">
-    <div class="slide-count">Slide 7 of 12</div>
-    <div class="slide-title">🔍 Spot the Ancient (Not Medieval) Thing</div>
-    <div class="connect-note">Four of these belong to the Middle Ages or Renaissance. One is actually from Ancient history, hundreds of years earlier. Tap it.</div>
-    <div id="flagRow" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0;position:relative;z-index:1;"></div>
-    <div id="flagResult" style="display:none;margin-top:8px;position:relative;z-index:1;"></div>
-  </section>
-
-  <section class="slide" data-slide="8">
-    <div class="slide-count">Slide 8 of 12</div>
-    <div class="slide-title">🤔 Let's Think About This</div>
-    <div class="think-card">
-      <h4>The Big Question</h4>
-      <div class="qtext">A horrific plague (the Black Death) killed roughly a third of Europe's population — and yet many historians argue it actually helped set up the Renaissance that followed. How can something so devastating end up leading to one of history's greatest periods of progress?</div>
-      <div class="qtext-fr">Une peste horrible (la peste noire) a tué environ un tiers de la population européenne — et pourtant beaucoup d'historiens pensent qu'elle a aidé à préparer la Renaissance qui a suivi. Comment quelque chose d'aussi dévastateur peut-il mener à l'une des plus grandes périodes de progrès de l'histoire?</div>
-      <button class="hint-toggle" id="hintToggle2">Stuck? Tap for angles to consider 💡</button>
-      <ul class="hint-facts" id="hintFacts2">
-        <li><strong>Labor shortage:</strong> So many workers died that survivors could demand better pay and more freedom, weakening the rigid feudal system. <span class="fr">Tant de travailleurs sont morts que les survivants ont pu exiger de meilleurs salaires, affaiblissant le système féodal.</span></li>
-        <li><strong>Questioning authority:</strong> When prayer and the Church couldn't stop the plague, some people began questioning old authorities and looking for new answers — including in science. <span class="fr">Quand la prière et l'Église n'ont pas pu arrêter la peste, certains ont commencé à questionner les anciennes autorités.</span></li>
-        <li><strong>Wealth redistribution:</strong> Survivors often inherited money and land from those who died, which created more people with resources to fund art, ideas, and exploration. <span class="fr">Les survivants héritaient souvent d'argent et de terres, créant plus de gens avec des ressources pour financer l'art et les idées.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="9">
-    <div class="slide-count">Slide 9 of 12</div>
-    <div class="slide-title">⚡ This or That!</div>
-    <div class="slide-sub">Comparing two perspectives. / Comparer deux perspectives.</div>
-    <div class="tot-cluster-label">🏰 Middle Ages vs. 🎨 Renaissance</div>
-    <div id="totRows2"></div>
-  </section>
-
-  <section class="slide" data-slide="10">
-    <div class="slide-count">Slide 10 of 12</div>
-    <div class="slide-title">🎤 Your Turn to Argue!</div>
-    <div class="slide-sub">Pick your level with your teacher — argue your case out loud.</div>
-    <div class="connect-note">👩‍🏫 No clicking here — pick one tier together and have Hugo speak his answer out loud. Use the toolkit below as a starting point, not a script.</div>
-    <div class="toolkit">
-      <h4>🧰 Language Toolkit</h4>
-      <div class="toolkit-group">
-        <div class="tk-label">Comparing</div>
-        <div class="tk-phrase">"Unlike X, Y..." / "X is more... than Y because..."<span class="fr">"Contrairement à X, Y..." / "X est plus... que Y parce que..."</span></div>
-      </div>
-      <div class="toolkit-group">
-        <div class="tk-label">Cause & Effect</div>
-        <div class="tk-phrase">"This is because..." / "As a result..." / "This means that..."<span class="fr">"C'est parce que..." / "Par conséquent..." / "Cela signifie que..."</span></div>
-      </div>
-      <div class="toolkit-group">
-        <div class="tk-label">Giving an Opinion (with nuance)</div>
-        <div class="tk-phrase">"In my opinion..." / "Some people might say... but I'd argue..." / "While it's true that... I still think..."<span class="fr">"À mon avis..." / "Certains diraient... mais je pense que..." / "Même si c'est vrai que... je pense quand même que..."</span></div>
-      </div>
-    </div>
-    <div class="tiers">
-      <div class="tier silver">
-        <div class="tier-label">🥈 Silver Challenge</div>
-        <h4>Describe one thing about life in the Middle Ages and one thing about the Renaissance.</h4>
-        <p class="fr">Décris une chose sur la vie au Moyen Âge et une chose sur la Renaissance.</p>
-      </div>
-      <div class="tier gold">
-        <div class="tier-label">🥇 Gold Challenge</div>
-        <h4>Explain how the Black Death actually helped lead to the Renaissance, using what you learned today.</h4>
-        <p class="fr">Explique comment la peste noire a aidé à mener à la Renaissance, en utilisant ce que tu as appris aujourd'hui.</p>
-      </div>
-      <div class="tier diamond">
-        <div class="tier-label">💎 Diamond Challenge</div>
-        <h4>Make your own argument: can something terrible ever be a necessary step toward something good? Defend your answer with a historical example plus your own reasoning.</h4>
-        <p class="fr">Construis ton propre argument : quelque chose de terrible peut-il parfois être une étape nécessaire vers quelque chose de bon? Défends ta réponse avec un exemple historique et ton propre raisonnement.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="11">
-    <div class="slide-count">Slide 11 of 12</div>
-    <div class="slide-title">🎡 Bonus Round!</div>
-    <div class="slide-sub">Extra time? Spin for a totally different kind of question.</div>
-    <div class="wheel-embed-label">🎡 Tap to spin!</div>
-    <div id="spinResult" class="stop-panel" style="text-align:center;min-height:120px;display:flex;align-items:center;justify-content:center;">
-      <div class="sp-placeholder">Tap the button below to get your bonus question! / Appuie sur le bouton pour ta question bonus!</div>
-    </div>
-    <div style="text-align:center;margin-top:16px;position:relative;z-index:1;">
-      <button class="nav-btn" id="spinBtn" style="text-transform:none;letter-spacing:0;">🎡 Spin!</button>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="12">
-    <div class="slide-count">Slide 12 of 12</div>
-    <div class="victory">
-      <h2>🎉 Well Traveled, Hugo!</h2>
-      <p>Today you traced three turning points from castles to the Renaissance, spotted the out-of-place ancient fact, and built your own argument about how disaster can lead to progress — all in English!</p>
-      <p class="fr">Aujourd'hui, tu as retracé trois tournants des châteaux à la Renaissance, repéré le fait ancien déplacé, et construit ton propre argument sur comment le désastre peut mener au progrès — tout en anglais!</p>
-      <div class="recap" id="recapBox"></div>
-    </div>
-  </section>
+  <footer>
+    KingCretot Experience, LLC · PO Box 2322, Arcadia, FL 34265 · kingcretot.com · kce@kingcretot.com<br>
+    <span class="prov">Approved Provider: Step Up For Students · Arizona ESA · West Virginia Hope Scholarship</span>
+  </footer>
 </div>
-<div class="nav-wrap-fixed">
-  <div class="nav-wrap">
-    <button class="nav-btn prev" id="prevBtn">◂ Back</button>
-    <div class="dots" id="dots"></div>
-    <button class="nav-btn" id="nextBtn">Next ▸</button>
-  </div>
-</div>
-<footer class="kce-foot">KingCretot Experience · Hugo · Lesson 9: History of the World, Part 2</footer>
 
 <script>
-const TOUR_STOPS = [{"icon": "🏰", "tag": "Middle Ages", "label": "The Feudal System", "en": "Medieval Europe ran on feudalism — kings gave land to lords, lords protected peasants who farmed the land, and everyone owed loyalty and labor up the chain.", "fr": "L'Europe médiévale fonctionnait sur le féodalisme — les rois donnaient des terres aux seigneurs, les seigneurs protégeaient les paysans qui cultivaient la terre.", "fact": "Most peasants never traveled more than a few miles from where they were born their entire lives — the medieval world was tiny and local.", "factfr": "La plupart des paysans ne voyageaient jamais à plus de quelques kilomètres de leur lieu de naissance de toute leur vie."}, {"icon": "☠️", "tag": "The Black Death", "label": "The Plague That Broke Everything", "en": "Between 1347-1351, the Black Death killed an estimated 30-50% of Europe's population — one of the deadliest events in human history.", "fr": "Entre 1347 et 1351, la peste noire a tué environ 30 à 50% de la population européenne — l'un des événements les plus meurtriers de l'histoire humaine.", "fact": "The massive loss of workers gave survivors unprecedented bargaining power, cracking open the rigid feudal system that had lasted for centuries.", "factfr": "L'énorme perte de travailleurs a donné aux survivants un pouvoir de négociation sans précédent, fissurant le système féodal rigide."}, {"icon": "🎨", "tag": "The Renaissance", "label": "The Printing Press Changes Everything", "en": "Around 1440, Johannes Gutenberg's printing press made books dramatically cheaper and faster to produce — ideas that once took years to copy by hand could now spread across Europe in months.", "fr": "Vers 1440, la presse à imprimer de Gutenberg a rendu les livres beaucoup moins chers et plus rapides à produire — des idées qui prenaient des années à copier à la main pouvaient maintenant se répandre en quelques mois.", "fact": "This single invention is why the Renaissance's explosion of art, science, and new ideas could spread so fast — knowledge stopped being locked away in a few hand-copied books.", "factfr": "Cette seule invention explique pourquoi l'explosion d'art et de science de la Renaissance a pu se répandre si vite."}];
-const FB = {};
-let ac;
-function tone(freqs, durs){
-  try{
-    if(!ac) ac = new (window.AudioContext||window.webkitAudioContext)();
-    const now = ac.currentTime;
-    freqs.forEach((f,i)=>{
-      const o=ac.createOscillator(),g=ac.createGain();
-      o.type='triangle';o.frequency.value=f;
-      o.connect(g);g.connect(ac.destination);
-      const t0=now+i*0.09;
-      g.gain.setValueAtTime(0,t0);
-      g.gain.linearRampToValueAtTime(0.18,t0+0.02);
-      g.gain.exponentialRampToValueAtTime(0.001,t0+(durs[i]||0.25));
-      o.start(t0);o.stop(t0+(durs[i]||0.25));
+const L = {"brand": "Hugo • Lesson 9", "student": "Hugo Carreau", "lesson": "Lesson 9 — History of the World, Part 2", "slides": [{"type": "intro", "min": 2, "title": "🏰 History of the World, Part 2 🎨", "sub": "From knights and castles to the explosion of art and science — the thousand years that built modern Europe.", "subFr": "Des chevaliers et des châteaux à l'explosion de l'art et de la science — les mille ans qui ont construit l'Europe moderne.", "emojis": "🏰⚔️🐀📜🎨", "goal": "I can talk about the Middle Ages and the Renaissance, and tell what was happening when something important happened (was doing … when …).", "goalFr": "Je peux parler du Moyen Âge et de la Renaissance, et dire ce qui se passait quand un événement important a eu lieu (was doing … when …).", "how": [["⭐ Full sentence = star", "Phrase complète = étoile"], ["🎞️ Background or event? Choose the right tense", "Arrière-plan ou événement ? Choisis le bon temps"], ["😎 Catch the history lie", "Démasque le mensonge historique"]], "tutor": "Same period as the old Lesson 9: Middle Ages → Renaissance (feudal system, Black Death 1347–1351, printing press, Renaissance art and exploration). Key rule: the long action in progress = was/were + -ing; the short event that interrupts = past simple. Trap: when + a reaction = past simple ('When the plague came, rich families left')."}, {"type": "chat", "min": 4, "title": "💬 Warm-Up Chat", "sub": "Tap a question for answer starters. Then ask Jonathan back: “What about you?”", "subFr": "Touche une question pour des débuts de réponse. Puis pose-la à Jonathan : « What about you? »", "items": [{"q": "Hi Hugo! How are you today?", "fr": "Salut Hugo ! Comment ça va aujourd'hui ?", "starters": [["I'm good! I was just… when the lesson started.", "Ça va ! J'étais en train de… quand la leçon a commencé."], ["A little tired, but OK. How about you?", "Un peu fatigué, mais ça va. Et toi ?"]]}, {"q": "What were you doing at this time last Friday?", "fr": "Que faisais-tu vendredi dernier à cette heure-ci ?", "starters": [["At this time last Friday, I was…", "Vendredi dernier à cette heure-ci, j'étais en train de…"], ["I don't remember! I was probably…", "Je ne m'en souviens pas ! J'étais sûrement en train de…"]]}, {"q": "When you think of the Middle Ages, what do you picture?", "fr": "Quand tu penses au Moyen Âge, qu'est-ce que tu imagines ?", "starters": [["I picture knights, castles, and…", "J'imagine des chevaliers, des châteaux et…"], ["I think life was really hard because…", "Je pense que la vie était très dure parce que…"]]}, {"q": "Do you know any famous people from the Middle Ages or the Renaissance?", "fr": "Connais-tu des personnes célèbres du Moyen Âge ou de la Renaissance ?", "starters": [["Yes! I know… He / She was famous for…", "Oui ! Je connais… Il / Elle était célèbre pour…"], ["Not really, but my teacher told us about…", "Pas vraiment, mais mon prof nous a parlé de…"]]}], "tutor": "The second question previews today's grammar: push for 'I was + -ing.' Make him ask you back every time."}, {"type": "vocab", "min": 5, "title": "⚔️ Middle Ages & Renaissance Vocabulary", "sub": "Tap to flip. Read the example, then make your own sentence — about history or about you!", "subFr": "Touche pour retourner. Lis l'exemple, puis fais ta propre phrase — sur l'Histoire ou sur toi !", "items": [{"e": "🏰", "w": "the Middle Ages", "ex": "The Middle Ages lasted about 1,000 years, from around 500 to 1500.", "fr": "le Moyen Âge"}, {"e": "⚔️", "w": "knight", "ex": "Boys often started training to become knights at about age seven.", "fr": "le chevalier"}, {"e": "🛡️", "w": "armor", "ex": "A full suit of armor usually weighed between 15 and 25 kilograms.", "fr": "l'armure"}, {"e": "👑", "w": "lord", "ex": "Peasants worked on the lord's land and gave him part of their harvest.", "fr": "le seigneur"}, {"e": "🌾", "w": "peasant", "ex": "Most people in the Middle Ages were peasants who worked the land.", "fr": "le paysan"}, {"e": "📖", "w": "monk", "ex": "A monk could spend months copying a single book by hand.", "fr": "le moine"}, {"e": "⛪", "w": "cathedral", "ex": "Workers began building Notre-Dame de Paris in 1163.", "fr": "la cathédrale"}, {"e": "🏹", "w": "siege", "ex": "During a siege, an army surrounded a castle so no food could get in.", "fr": "le siège"}, {"e": "🐀", "w": "plague", "ex": "The Black Death was a terrible plague that reached Europe in 1347.", "fr": "la peste"}, {"e": "📜", "w": "printing press", "ex": "Gutenberg's printing press made books much cheaper.", "fr": "la presse à imprimer"}, {"e": "🖼️", "w": "masterpiece", "ex": "The Mona Lisa is Leonardo da Vinci's most famous masterpiece.", "fr": "le chef-d'œuvre"}, {"e": "⛵", "w": "set sail", "ex": "Columbus set sail from Spain in 1492.", "fr": "prendre la mer"}], "tutor": "Spelling: American 'armor' (no u). 'The Middle Ages' is always plural. After each card, ask a quick 'why' question (Why did peasants give part of their harvest? Why did books get cheaper?)."}, {"type": "wheel", "min": 6, "title": "🎡 Spin the Time Machine Wheel!", "sub": "Spin, then answer with at least TWO sentences.", "subFr": "Fais tourner, puis réponds avec au moins DEUX phrases.", "hub": "🏰", "items": [{"e": "⏰", "q": "What were you doing when your alarm rang this morning?", "st": "When my alarm rang, I was…", "fr": "Que faisais-tu quand ton réveil a sonné ce matin ?"}, {"e": "🏰", "q": "In the Middle Ages, would you rather live in a castle or in a big city? Why?", "st": "I'd rather… because…", "fr": "Au Moyen Âge, préférerais-tu vivre dans un château ou dans une grande ville ? Pourquoi ?"}, {"e": "⚔️", "q": "Would you be a good knight? What would be the hardest part?", "st": "I'd be… The hardest part would be…", "fr": "Serais-tu un bon chevalier ? Qu'est-ce qui serait le plus dur ?"}, {"e": "🐀", "q": "The Black Death killed millions of people. How do you think people felt?", "st": "I think people felt… because…", "fr": "La peste noire a tué des millions de personnes. Que ressentaient les gens, d'après toi ?"}, {"e": "📖", "q": "Before printing, monks copied books by hand. How long would it take you to copy one?", "st": "It would take me… because…", "fr": "Avant l'imprimerie, les moines recopiaient les livres à la main. Combien de temps te faudrait-il pour en copier un ?"}, {"e": "🧭", "q": "Would you sail with an explorer into the unknown? Why or why not?", "st": "I would / wouldn't, because…", "fr": "Partirais-tu en mer avec un explorateur vers l'inconnu ? Pourquoi ?"}, {"e": "🎨", "q": "If you could meet Leonardo da Vinci, what would you ask him?", "st": "I would ask him…", "fr": "Si tu pouvais rencontrer Léonard de Vinci, que lui demanderais-tu ?"}, {"e": "🔋", "q": "What were you doing the last time your phone died?", "st": "I was… when my phone died.", "fr": "Que faisais-tu la dernière fois que ton téléphone s'est éteint (plus de batterie) ?"}, {"e": "🍫", "q": "Before 1492, Europeans had no potatoes, tomatoes, or chocolate. Which would you miss most?", "st": "I'd miss… the most because…", "fr": "Avant 1492, les Européens n'avaient ni pommes de terre, ni tomates, ni chocolat. Qu'est-ce qui te manquerait le plus ?"}, {"e": "⚽", "q": "What were you doing when your favorite team scored its last big goal?", "st": "I was… when they scored!", "fr": "Que faisais-tu quand ton équipe préférée a marqué son dernier gros but ?"}, {"e": "💡", "q": "Which invention from history changed the world the most? Why?", "st": "I think… changed the world the most because…", "fr": "Quelle invention de l'Histoire a le plus changé le monde ? Pourquoi ?"}, {"e": "👑", "q": "If you were a medieval king, what would your first law be?", "st": "My first law would be…", "fr": "Si tu étais un roi du Moyen Âge, quelle serait ta première loi ?"}], "tutor": "For the 'What were you doing when…' questions, insist on was/were + -ing. For history questions, ask one 'why' follow-up."}, {"type": "sort", "min": 5, "title": "🧠 Background or Event?", "sub": "Read the history sentence and the verb in ( ). Which tense fills the blank?", "subFr": "Lis la phrase d'Histoire et le verbe entre ( ). Quel temps complète la phrase ?", "how": "Ask yourself: Was it a long action IN PROGRESS (the background)? → was/were + -ing · Was it a short event, a finished action, or a reaction? → past simple", "howFr": "Demande-toi : C'était une action longue EN COURS (l'arrière-plan) ? → was/were + -ing · C'était un événement court, une action terminée ou une réaction ? → prétérit", "buckets": [{"name": "🎞️ PAST CONTINUOUS", "rule": "was / were + -ing: the long action in progress (the background).", "fr": "was / were + -ing : l'action longue en cours (l'arrière-plan).", "ex": "Columbus was looking for Asia when he reached the Americas.", "c": "#0F8B8D"}, {"name": "⚡ PAST SIMPLE", "rule": "The short event, the interruption, or a finished action.", "fr": "L'événement court, l'interruption ou une action terminée.", "ex": "The Black Death arrived in Europe in 1347.", "c": "#E8573C"}], "items": [{"s": "Columbus ___ (look) for a new route to Asia when he reached the Americas in 1492.", "b": 0, "why": "The long action (looking for Asia) was interrupted by the event → was looking.", "fr": "", "whyFr": "« Christophe Colomb cherchait une nouvelle route vers l'Asie quand il a atteint les Amériques en 1492. » L'action longue (chercher l'Asie) est interrompue par l'événement → was looking."}, {"s": "In 1347, the Black Death ___ (arrive) in Europe on trading ships.", "b": 1, "why": "A finished event with a date → arrived.", "fr": "", "whyFr": "« En 1347, la peste noire est arrivée en Europe sur des navires marchands. » Un événement terminé, avec une date → arrived."}, {"s": "While Michelangelo ___ (paint) the Sistine Chapel ceiling, Raphael was decorating rooms nearby in the Vatican.", "b": 0, "why": "Two long actions at the same time, with “while” → was painting.", "fr": "", "whyFr": "« Pendant que Michel-Ange peignait le plafond de la chapelle Sixtine, Raphaël décorait des salles tout près, au Vatican. » Deux actions longues en même temps, avec « while » → was painting."}, {"s": "When the plague reached their town, many rich families ___ (leave) for the countryside.", "b": 1, "why": "Trap! “When” + a reaction: first the plague came, THEN they left → left.", "fr": "", "whyFr": "« Quand la peste a atteint leur ville, beaucoup de familles riches sont parties à la campagne. » Piège ! « When » + une réaction : d'abord la peste, ENSUITE ils sont partis → left."}, {"s": "The English army ___ (attack) Orléans when Joan of Arc arrived with her soldiers.", "b": 0, "why": "The siege was in progress when she arrived. “Army” here = the soldiers → were attacking (or was attacking).", "fr": "", "whyFr": "« L'armée anglaise attaquait Orléans quand Jeanne d'Arc est arrivée avec ses soldats. » Le siège était en cours quand elle est arrivée → were attacking (ou was attacking)."}, {"s": "Joan of Arc ___ (lead) the French army to victory at Orléans in 1429.", "b": 1, "why": "One finished event with a date → led (irregular!).", "fr": "", "whyFr": "« Jeanne d'Arc a mené l'armée française à la victoire à Orléans en 1429. » Un événement terminé, avec une date → led (irrégulier !)."}, {"s": "In 1453, while Gutenberg ___ (work) on his famous Bible in Mainz, the Ottomans captured Constantinople.", "b": 0, "why": "“While” + the long action in the background → was working.", "fr": "", "whyFr": "« En 1453, pendant que Gutenberg travaillait sur sa célèbre Bible à Mayence, les Ottomans ont pris Constantinople. » « While » + l'action longue en arrière-plan → was working."}, {"s": "In 1066, William the Conqueror ___ (cross) the Channel and won the Battle of Hastings.", "b": 1, "why": "A list of finished actions, one after the other → crossed.", "fr": "", "whyFr": "« En 1066, Guillaume le Conquérant a traversé la Manche et a gagné la bataille d'Hastings. » Une suite d'actions terminées, l'une après l'autre → crossed."}, {"s": "Galileo ___ (look) through his telescope when he discovered four of Jupiter's moons.", "b": 0, "why": "He was in the middle of observing when the discovery happened → was looking.", "fr": "", "whyFr": "« Galilée regardait dans son télescope quand il a découvert quatre lunes de Jupiter. » Il était en train d'observer quand la découverte a eu lieu → was looking."}, {"s": "Magellan ___ (die) in the Philippines while his ships were sailing around the world.", "b": 1, "why": "Careful! The long action is already there (were sailing). His death is the short event → died.", "fr": "", "whyFr": "« Magellan est mort aux Philippines pendant que ses navires faisaient le tour du monde. » Attention ! L'action longue est déjà là (were sailing). Sa mort est l'événement court → died."}, {"s": "Leonardo da Vinci ___ (move) to France in 1516 and spent his last years near Amboise.", "b": 1, "why": "A finished event with a date, then another one → moved.", "fr": "", "whyFr": "« Léonard de Vinci s'est installé en France en 1516 et a passé ses dernières années près d'Amboise. » Un événement terminé avec une date, puis un autre → moved."}], "hint": "Clue words: “while” + long action, or a long action that gets interrupted by “when …” → was/were + -ing · a date, one finished event, “and,” or “when” + a reaction → past simple. Look at the OTHER half of the sentence too!", "hintFr": "Mots indices : « while » + action longue, ou action longue interrompue par « when … » → was/were + -ing · une date, un événement terminé, « and », ou « when » + une réaction → prétérit. Regarde aussi l'AUTRE moitié de la phrase !", "doneMsg": "🏰 Great work, historian! Now make your OWN sentence: “I was … when …” — about today, about last weekend, or about history.", "doneMsgFr": "🏰 Bravo, historien ! Maintenant, fais TA phrase : « I was … when … » — sur aujourd'hui, le week-end dernier ou l'Histoire.", "tutor": "Make him SAY the full sentence with the verb (was looking, arrived, left…). Items 4 and 10 are traps — ask him to explain the order of events. Bonus: ask the 'why' behind a fact (Why did rich families leave?)."}, {"type": "builder", "min": 5, "title": "🧩 Sentence Builder: History Edition", "sub": "Tap the words in the right order. Then say it like a history documentary narrator!", "subFr": "Touche les mots dans le bon ordre. Puis dis-le comme le narrateur d'un documentaire !", "rounds": [{"e": "🧭🌎", "p": "Background: looking for Asia — reached the Americas", "fr": "Arrière-plan : chercher l'Asie — atteindre les Amériques", "a": "Columbus was looking for Asia when he reached the Americas.", "afr": "Christophe Colomb cherchait l'Asie quand il a atteint les Amériques."}, {"e": "🐀⚔️", "p": "The Black Death — while — the Hundred Years' War", "fr": "La peste noire — pendant que — la guerre de Cent Ans", "a": "The Black Death spread while the Hundred Years' War was going on.", "afr": "La peste noire s'est répandue pendant que la guerre de Cent Ans faisait rage."}, {"e": "💀⏳", "p": "The plague — millions of people — a few years", "fr": "La peste — des millions de personnes — quelques années", "a": "The plague killed millions of people in just a few years.", "afr": "La peste a tué des millions de personnes en quelques années seulement."}, {"e": "📜📚", "p": "Printing press → books cheaper and easier to find", "fr": "Presse à imprimer → livres moins chers et plus faciles à trouver", "a": "Gutenberg's printing press made books much cheaper and easier to find.", "afr": "La presse de Gutenberg a rendu les livres beaucoup moins chers et plus faciles à trouver."}, {"e": "🔔❓", "p": "Question: what — doing — fire alarm rang?", "fr": "Question : que — faire — l'alarme incendie a sonné ?", "a": "What were you doing when the fire alarm rang?", "afr": "Que faisais-tu quand l'alarme incendie a sonné ?"}, {"e": "⚔️🇫🇷", "p": "Joan of Arc — only seventeen — led the French army", "fr": "Jeanne d'Arc — seulement dix-sept ans — a mené l'armée française", "a": "Joan of Arc was only seventeen when she led the French army.", "afr": "Jeanne d'Arc n'avait que dix-sept ans quand elle a mené l'armée française."}], "tutor": "First try = 2 ⭐. After round 5, have him actually answer it ('I was… when the fire alarm rang'). Round 6: she was 17 at Orléans in 1429 — a teenager leading an army!"}, {"type": "mcq", "min": 5, "title": "🛠️ Fix the Mistake & Spot the Fake!", "sub": "Grammar traps and history detective work. Which answer is correct?", "subFr": "Pièges de grammaire et enquête historique. Quelle réponse est correcte ?", "items": [{"e": "📞", "q": "Jonathan called you in the middle of your game. Which is correct?", "fr": "Jonathan t'a appelé en plein milieu de ta partie. Laquelle est correcte ?", "o": ["I was play video games when you called.", "I played video games when you called.", "I was playing video games when you called."], "ofr": ["Je jouais aux jeux vidéo quand tu as appelé.", "J'ai joué aux jeux vidéo quand tu as appelé.", "Je jouais aux jeux vidéo quand tu as appelé."], "c": 2, "why": "The game was in progress, and the call interrupted it → was playing … when you called.", "whyFr": "La partie était en cours et l'appel l'a interrompue → was playing … when you called.", "no": {"0": "You need the -ing form: was playing.", "1": "This means you STARTED playing after the call — not what happened!"}}, {"e": "🌧️", "q": "Which one is correct?", "fr": "Laquelle est correcte ?", "o": ["While I was walking to school, it started to rain.", "While I walked to school, it was starting to rain.", "When I was walk to school, it started to rain."], "ofr": ["Pendant que j'allais à l'école à pied, il s'est mis à pleuvoir.", "Pendant que j'allais à l'école à pied, il s'est mis à pleuvoir.", "Pendant que j'allais à l'école à pied, il s'est mis à pleuvoir."], "c": 0, "why": "The long action (walking) → past continuous. The short event (the rain started) → past simple.", "whyFr": "L'action longue (marcher) → past continuous. L'événement court (la pluie commence) → prétérit.", "no": {"1": "It's backward: the walk is the long action, and the rain starting is the short event.", "2": "“Was walk” is missing -ing: was walking."}}, {"e": "🕵️", "q": "History detective: which sentence CAN'T be true?", "fr": "Détective de l'Histoire : quelle phrase NE PEUT PAS être vraie ?", "o": ["In 1300, a monk was copying a book by hand.", "In 1300, a knight in France was reading a printed book.", "In 1300, a peasant was working in the fields."], "ofr": ["En 1300, un moine recopiait un livre à la main.", "En 1300, un chevalier en France lisait un livre imprimé.", "En 1300, un paysan travaillait dans les champs."], "c": 1, "why": "Gutenberg's printing press came around 1450. In 1300, books in France were copied by hand — no printed books yet!", "whyFr": "La presse de Gutenberg date d'environ 1450. En 1300, en France, les livres étaient copiés à la main — pas encore de livres imprimés !", "no": {"0": "Totally possible — monks copied books by hand for centuries.", "2": "Totally possible — most people in the Middle Ages were peasants."}}, {"e": "🏰", "q": "How do you say « le Moyen Âge » in English?", "fr": "Comment dit-on « le Moyen Âge » en anglais ?", "o": ["the Middle Age", "the Medium Age", "the Middle Ages"], "ofr": ["le Moyen Âge", "le Moyen Âge", "le Moyen Âge"], "c": 2, "why": "It's always plural in English: the Middle Ages.", "whyFr": "C'est toujours au pluriel en anglais : the Middle Ages.", "no": {"0": "Almost! In English it's always plural: Ages.", "1": "“Medium” is for sizes (small, medium, large)."}}, {"e": "🐉", "q": "Your little cousin wants a made-up tale about a dragon. You say: “Let me tell you a…”", "fr": "Ton petit cousin veut un conte inventé sur un dragon. Tu dis : « Laisse-moi te raconter une… »", "o": ["history.", "story.", "historic."], "ofr": ["histoire (la matière, les vrais faits)", "histoire (un récit)", "historique"], "c": 1, "why": "An invented tale = a story. History = what really happened in the past.", "whyFr": "Un conte inventé = a story. History = ce qui s'est vraiment passé (l'Histoire).", "no": {"0": "« Histoire » is tricky! History is the school subject and real events, not a tale.", "2": "“Historic” is an adjective (a historic day)."}}, {"e": "💡", "q": "Which one is correct?", "fr": "Laquelle est correcte ?", "o": ["Gutenberg invented the printing press in Europe.", "Gutenberg discovered the printing press in Europe.", "Gutenberg founded the printing press in Europe."], "ofr": ["Gutenberg a inventé la presse à imprimer en Europe.", "Gutenberg a découvert la presse à imprimer en Europe.", "Gutenberg a fondé la presse à imprimer en Europe."], "c": 0, "why": "You invent a machine that didn't exist before.", "whyFr": "On invente (invent) une machine qui n'existait pas avant.", "no": {"1": "You discover something that was already there — like Galileo discovering Jupiter's moons.", "2": "You found a company or a city, not a machine."}}], "tutor": "Have him say the correct sentence out loud, then make a new one with the same rule. On the 'can't be true' item, ask him to explain WHY using dates."}, {"type": "tot", "min": 4, "title": "⚖️ Would You Rather? Time Travel Edition", "sub": "Pick one — and defend your choice!", "subFr": "Choisis — et défends ton choix !", "frame": "I'd rather… because… / The problem with the other one is…", "frameFr": "Je préférerais… parce que… / Le problème avec l'autre, c'est…", "items": [{"a": ["⚔️", "Be a knight in training", "Être un chevalier en formation"], "b": ["📖", "Be a monk copying books all day", "Être un moine qui recopie des livres toute la journée"]}, {"a": ["🏰", "Live in a cold castle with no heating", "Vivre dans un château glacial sans chauffage"], "b": ["🐄", "Live in a warm peasant house — with the animals inside", "Vivre dans une maison de paysan chaude — avec les animaux dedans"]}, {"a": ["🧭", "Sail around the world with Magellan's crew (three years at sea)", "Faire le tour du monde avec l'équipage de Magellan (trois ans en mer)"], "b": ["🎨", "Stay in Florence and watch Leonardo da Vinci paint", "Rester à Florence et regarder Léonard de Vinci peindre"]}, {"a": ["🛡️", "Meet Joan of Arc", "Rencontrer Jeanne d'Arc"], "b": ["🖌️", "Meet Michelangelo", "Rencontrer Michel-Ange"]}, {"a": ["🦾", "Wear full armor for a whole day", "Porter une armure complète toute une journée"], "b": ["🍞", "Eat only medieval food for a week — no potatoes, no chocolate!", "Ne manger que de la nourriture médiévale pendant une semaine — ni pommes de terre ni chocolat !"]}, {"a": ["📜", "Be the first person to read a printed book", "Être la première personne à lire un livre imprimé"], "b": ["⛵", "Be on Columbus's ship when it reached the Americas", "Être sur le bateau de Colomb quand il a atteint les Amériques"]}], "tutor": "Push for a historical reason in each answer (no potatoes — they came from the Americas; Magellan's voyage took three years). Have him argue the OTHER side once."}, {"type": "tos", "min": 3, "title": "🏰 True or Silly? Middle Ages & Renaissance", "sub": "Real history — or totally silly?", "subFr": "Vraie Histoire — ou complètement faux ?", "items": [{"e": "🌍", "s": "Most educated people in the Middle Ages thought the Earth was flat.", "fr": "Au Moyen Âge, la plupart des gens instruits pensaient que la Terre était plate.", "t": false, "why": "That's a myth! Educated people knew the Earth was round — Greek scholars had shown it more than 1,500 years earlier.", "whyFr": "C'est un mythe ! Les gens instruits savaient que la Terre était ronde — des savants grecs l'avaient montré plus de 1 500 ans avant."}, {"e": "⚔️", "s": "The Hundred Years' War between France and England actually lasted 116 years.", "fr": "La guerre de Cent Ans entre la France et l'Angleterre a en fait duré 116 ans.", "t": true, "why": "It went from 1337 to 1453 — with some long breaks in the fighting.", "whyFr": "Elle a duré de 1337 à 1453 — avec de longues pauses dans les combats."}, {"e": "🍫", "s": "Before 1492, nobody in Europe had ever eaten a potato or chocolate.", "fr": "Avant 1492, personne en Europe n'avait jamais mangé de pomme de terre ni de chocolat.", "t": true, "why": "Potatoes, tomatoes, corn, and chocolate all came from the Americas after Columbus's voyages.", "whyFr": "Les pommes de terre, les tomates, le maïs et le chocolat sont tous venus des Amériques après les voyages de Colomb."}, {"e": "🎨", "s": "Michelangelo painted the Sistine Chapel ceiling lying on his back.", "fr": "Michel-Ange a peint le plafond de la chapelle Sixtine allongé sur le dos.", "t": false, "why": "Another myth! He painted standing up on a scaffold, bending his head back — for about four years.", "whyFr": "Encore un mythe ! Il peignait debout sur un échafaudage, la tête penchée en arrière — pendant environ quatre ans."}, {"e": "🇫🇷", "s": "Leonardo da Vinci, an Italian, died in France.", "fr": "Léonard de Vinci, un Italien, est mort en France.", "t": true, "why": "King Francis I invited him to France. He spent his last years near Amboise — and that's one reason the Mona Lisa is in the Louvre.", "whyFr": "Le roi François Ier l'a invité en France. Il a passé ses dernières années près d'Amboise — c'est une des raisons pour lesquelles la Joconde est au Louvre."}, {"e": "🧭", "s": "Christopher Columbus knew he had found a new continent.", "fr": "Christophe Colomb savait qu'il avait trouvé un nouveau continent.", "t": false, "why": "He believed he had reached islands near Asia — that's why he called the people there “Indians.”", "whyFr": "Il croyait être arrivé sur des îles près de l'Asie — c'est pour ça qu'il a appelé les habitants « Indiens »."}, {"e": "🧵", "s": "The Bayeux Tapestry, which tells the story of the Battle of Hastings, is about 70 meters long.", "fr": "La tapisserie de Bayeux, qui raconte la bataille d'Hastings, mesure environ 70 mètres de long.", "t": true, "why": "It was made about 950 years ago. Fun fact: it's actually embroidery, not a real tapestry!", "whyFr": "Elle a été faite il y a environ 950 ans. Le savais-tu ? C'est en fait une broderie, pas une vraie tapisserie !"}], "done": "🏰 You're a real history expert!", "doneFr": "🏰 Tu es un vrai expert en Histoire !", "tutor": "After each one, ask 'Why do you think people believe that myth?' or 'What else came from the Americas?'"}, {"type": "plan", "min": 4, "title": "⏳ Time Travel Story: A Day in 1450", "sub": "Choose one for each part. Read your adventure — then tell it with your OWN words!", "subFr": "Choisis une option par partie. Lis ton aventure — puis raconte-la avec TES mots !", "parts": [{"icon": "🌀", "label": "Arrival", "fr": "L'arrivée", "conn": "When I landed in the year 1450, I was standing", "connFr": "Quand j'ai atterri en 1450, j'étais", "opts": [["🛒", "in the middle of a busy market.", "au milieu d'un marché animé."], ["🏰", "next to a huge castle wall.", "à côté d'un immense mur de château."], ["⛪", "inside an enormous cathedral.", "dans une cathédrale gigantesque."], ["🐖", "in a muddy field full of pigs.", "dans un champ boueux plein de cochons."]]}, {"icon": "🤝", "label": "Who I met", "fr": "Ma rencontre", "conn": "While I was looking around, I met", "connFr": "Pendant que je regardais autour de moi, j'ai rencontré", "opts": [["⚔️", "a knight in shining armor.", "un chevalier dans une armure étincelante."], ["📖", "a monk who was copying a book.", "un moine qui recopiait un livre."], ["🥕", "a peasant who was carrying vegetables.", "un paysan qui portait des légumes."], ["🌶️", "a merchant who was selling spices.", "un marchand qui vendait des épices."]]}, {"icon": "⚡", "label": "The problem", "fr": "Le problème", "conn": "Suddenly, while we were talking,", "connFr": "Soudain, pendant qu'on parlait,", "opts": [["🔔", "the church bells started ringing.", "les cloches de l'église se sont mises à sonner."], ["🐎", "soldiers arrived on horses.", "des soldats sont arrivés à cheval."], ["⛈️", "it started to pour.", "il s'est mis à pleuvoir à verse."], ["📱", "someone stole my phone!", "quelqu'un m'a volé mon téléphone !"]]}, {"icon": "🏁", "label": "The ending", "fr": "La fin", "conn": "In the end, I", "connFr": "Finalement,", "opts": [["🚀", "jumped back into my time machine.", "j'ai sauté dans ma machine à remonter le temps."], ["📜", "stayed and became a famous printer.", "je suis resté et je suis devenu un imprimeur célèbre."], ["⚽", "showed everyone how to play soccer.", "j'ai montré à tout le monde comment jouer au foot."], ["😴", "woke up — I was sleeping in history class!", "je me suis réveillé — je dormais en cours d'histoire !"]]}], "tutor": "Point out the pattern: was standing / was looking / were talking (background) + met / started / arrived (events). Have him retell it in his own words and add one more 'while…' sentence."}, {"type": "ttl", "min": 4, "title": "😎 Two Truths and a Lie", "sub": "Practice round first — find Noah's lie! Use your history knowledge.", "subFr": "D'abord un entraînement — trouve le mensonge de Noah ! Utilise tes connaissances en Histoire.", "example": {"who": "Noah, 13, from Boston", "lines": ["At a museum in New York, I saw a printed European book from the year 1200.", "I was eating lunch in the cafeteria when my friend told me about the Black Death.", "Last summer, I was visiting my aunt in Spain when we found an old castle on a hill."], "linesFr": ["Dans un musée à New York, j'ai vu un livre européen imprimé de l'an 1200.", "Je mangeais à la cantine quand mon ami m'a parlé de la peste noire.", "L'été dernier, je rendais visite à ma tante en Espagne quand on a trouvé un vieux château sur une colline."], "lie": 0, "why": "Printing presses appeared in Europe around 1450 — a printed European book from 1200 can't exist!", "whyFr": "Les presses à imprimer sont apparues en Europe vers 1450 — un livre européen imprimé de 1200 ne peut pas exister !"}, "turn": "Your turn! Tell Jonathan 3 sentences with “I was … when …” about your life — 2 true, 1 lie!", "turnFr": "À toi ! Dis à Jonathan 3 phrases avec « I was … when … » sur ta vie — 2 vraies, 1 fausse !", "tutor": "Check every sentence has was/were + -ing AND a past simple. Ask follow-ups to find the lie. Then swap: you tell him 3."}, {"type": "talk", "min": 3, "title": "🎤 Big Talk Challenge", "sub": "Talk for one minute about the Middle Ages and the Renaissance. Can you check all six?", "subFr": "Parle une minute du Moyen Âge et de la Renaissance. Peux-tu tout cocher ?", "items": [["Use was / were + -ing for a background action.", "Utilise was / were + -ing pour une action en arrière-plan."], ["Use when + past simple for an interruption.", "Utilise when + prétérit pour une interruption."], ["Use while in one sentence.", "Utilise while dans une phrase."], ["Name one historical event and its date.", "Cite un événement historique et sa date."], ["Explain one cause and effect: “…, so …”", "Explique une cause et une conséquence : « …, so … »"], ["Ask Jonathan: “What were you doing when…?”", "Demande à Jonathan : « What were you doing when… ? »"]], "tutor": "Tap each line when he does it (+1 ⭐). Good cause-and-effect: the printing press → books got cheaper → ideas spread. Note 2–3 mistakes (was play, discovered/invented, Middle Age) to fix at the end."}, {"type": "victory", "min": 1, "title": "🏆 Well Done, Historian!", "sub": "You traveled a thousand years in one lesson!", "subFr": "Tu as voyagé mille ans en une seule leçon !", "tiers": [[0, "🌟", "Rookie"], [18, "🥉", "Bronze"], [30, "🥈", "Silver"], [42, "🥇", "Gold"]], "msg": "See you next Friday! Next time: Space & Big Questions — what will happen if…? What would you do if you could…? 🚀", "msgFr": "À vendredi prochain ! La prochaine fois : l'espace et les grandes questions — que se passera-t-il si… ? Que ferais-tu si tu pouvais… ? 🚀", "tutor": "Next lesson: Space & Big Questions — first conditional (If … will) and second conditional (If I could …, I would …)."}]};
+let stars = 0;
+const $ = (s, r=document) => r.querySelector(s);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fr = s => s ? `<span class="fr">${esc(s)}</span>` : '';
+function shuffle(a){ a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function addStars(n, msg){
+  stars += n; $('#stars').textContent = stars;
+  if (msg) toast(msg);
+  if (n > 0) confetti(n >= 2 ? 90 : 45);
+}
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 1400); }
+
+/* confetti */
+const cv = $('#confetti'), cx = cv.getContext('2d'); let parts = [], anim = null;
+function sizeCv(){ cv.width = innerWidth; cv.height = innerHeight; } addEventListener('resize', sizeCv); sizeCv();
+function confetti(n){
+  const cols = ['#F4B400','#E8573C','#7c3aed','#0F8B8D','#E85D9A','#22c55e','#F28C28'];
+  for (let i=0;i<n;i++) parts.push({x:innerWidth/2+(Math.random()-.5)*300,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*12-4,s:6+Math.random()*6,c:cols[i%cols.length],r:Math.random()*6,life:110});
+  if (!anim) anim = requestAnimationFrame(tick);
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; p.vy+=.35; p.r+=.1; p.life--; cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); cx.restore(); });
+  parts = parts.filter(p=>p.life>0 && p.y<innerHeight+40);
+  anim = parts.length ? requestAnimationFrame(tick) : (cx.clearRect(0,0,cv.width,cv.height), null);
+}
+
+/* ---------- slide builders ---------- */
+function head(s, i){
+  return `<div class="slide-top"><span class="slide-count">Slide ${i+1} of ${L.slides.length}</span><span class="minutes">⏱ about ${s.min} min</span></div>
+  <div class="slide-title">${s.title}</div>${s.sub ? `<div class="slide-sub">${s.sub}${fr(s.subFr)}</div>` : ''}`;
+}
+function tutor(s){ return s.tutor ? `<details class="tutor"><summary>Tutor notes</summary><p>${s.tutor}</p></details>` : ''; }
+
+const B = {};
+B.intro = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="emoji-row">${s.emojis}</div>
+  <div class="goal"><div>🎯 Today's goal</div><div class="big">${esc(s.goal)}</div>${fr(s.goalFr)}</div>
+  <div class="how">${s.how.map(h=>`<div>${h[0]}${fr(h[1])}</div>`).join('')}</div>`);
+};
+B.chat = (s, box) => {
+  const g = el('div','chat-grid');
+  s.items.forEach(it=>{
+    const c = el('div','chat-card', `<h4>${esc(it.q)}</h4>${fr(it.fr)}<div class="tap-hint">Tap to see answer starters</div>
+      <div class="starters">${it.starters.map(st=>`<div class="starter">${esc(st[0])}${fr(st[1])}</div>`).join('')}<span class="askback">🔁 Ask me back!</span></div>`);
+    c.addEventListener('click', ()=>c.classList.toggle('open'));
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.vocab = (s, box) => {
+  const g = el('div','vocab-grid'); let seen = new Set();
+  s.items.forEach((it,k)=>{
+    const c = el('div','vcard', `<div class="vinner"><div class="vface vfront"><div class="em">${it.e}</div><div class="w">${esc(it.w)}</div></div>
+      <div class="vface vback"><div class="ex">${esc(it.ex)}</div>${fr(it.fr)}</div></div>`);
+    c.addEventListener('click', ()=>{ c.classList.toggle('flip'); if(!seen.has(k)){ seen.add(k); if(seen.size===s.items.length) addStars(1,'All words explored! +1 ⭐'); } });
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.wheel = (s, box) => {
+  const wrap = el('div','wheel-wrap');
+  wrap.innerHTML = `<div class="wheel-box"><div class="pointer"></div><canvas width="840" height="840"></canvas><div class="hub">${s.hub||'🎡'}</div></div>
+    <div class="wheel-q"><div class="q">Tap SPIN to get a question!</div><div class="st"></div><div class="fr-line"></div></div>`;
+  box.appendChild(wrap);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn">🎡 SPIN!</button></div><div class="round-tag">Questions asked: <span class="asked">0</span> of ${s.items.length}</div>`);
+  const canvas = $('canvas', wrap), ctx = canvas.getContext('2d'), n = s.items.length;
+  const cols = ['#F28C28','#E85D9A','#7c3aed','#0F8B8D','#F4B400','#E8573C','#4A9C5D','#0047BA'];
+  const R = 420, seg = 2*Math.PI/n;
+  for (let i=0;i<n;i++){
+    ctx.beginPath(); ctx.moveTo(R,R); ctx.arc(R,R,R-4,i*seg-Math.PI/2,(i+1)*seg-Math.PI/2); ctx.closePath();
+    ctx.fillStyle = cols[i%cols.length]; ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=6; ctx.stroke();
+    ctx.save(); ctx.translate(R,R); ctx.rotate(i*seg+seg/2-Math.PI/2);
+    ctx.font = '64px serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(s.items[i].e, R*0.68, 0);
+    ctx.fillStyle='#fff'; ctx.font='bold 34px Poppins, Arial'; ctx.fillText(String(i+1), R*0.40, 0);
+    ctx.restore();
+  }
+  let rot = 0, used = new Set(), spinning = false;
+  const btn = $('.big-btn', box), qEl = $('.q', wrap), stEl = $('.st', wrap), frEl = $('.fr-line', wrap);
+  btn.addEventListener('click', ()=>{
+    if (spinning) return;
+    let pool = [...Array(n).keys()].filter(i=>!used.has(i)); if (!pool.length){ used.clear(); pool=[...Array(n).keys()]; }
+    const pick = pool[Math.floor(Math.random()*pool.length)]; used.add(pick);
+    const centerDeg = (pick+0.5)*360/n;
+    const curr = ((rot % 360)+360)%360;
+    let delta = (360 - centerDeg) - curr; if (delta < 0) delta += 360;
+    rot += 360*5 + delta;
+    spinning = true; btn.disabled = true; qEl.textContent = '…'; stEl.textContent=''; frEl.innerHTML='';
+    canvas.style.transform = `rotate(${rot}deg)`;
+    setTimeout(()=>{
+      const it = s.items[pick];
+      qEl.textContent = `${it.e} ${it.q}`; stEl.textContent = it.st ? `Start with: “${it.st}”` : ''; frEl.innerHTML = fr(it.fr);
+      $('.asked', box).textContent = used.size; spinning = false; btn.disabled = false;
+    }, 4300);
+  });
+};
+B.builder = (s, box) => {
+  const area = el('div'); box.appendChild(area); let r = 0, tries = 0;
+  function render(){
+    if (r >= s.rounds.length){ area.innerHTML = `<div class="goal"><div class="big">🏆 Sentence Master!</div><div>You built all ${s.rounds.length} sentences.</div></div>`; return; }
+    const rd = s.rounds[r], words = rd.a.split(' '); tries = 0;
+    area.innerHTML = `<div class="round-tag">Sentence ${r+1} of ${s.rounds.length}</div><div class="builder-pic">${rd.e}</div>
+      <div class="builder-prompt">${esc(rd.p)}${fr(rd.fr)}</div><div class="answer-line"></div><div class="tiles"></div>
+      <div class="row-btns"><button class="sm-btn undo">↩ Undo</button><button class="sm-btn clear">✖ Clear</button><button class="sm-btn go check">✔ Check</button></div>
+      <div class="feedback"></div>`;
+    const line = $('.answer-line', area), tiles = $('.tiles', area), fb = $('.feedback', area); const chosen = [];
+    let order = shuffle(words.map((w,i)=>({w,i}))); if (words.length>2 && order.every((o,k)=>o.i===k)) order.reverse();
+    order.forEach(o=>{
+      const t = el('button','tile', esc(o.w));
+      t.addEventListener('click', ()=>{ if (t.classList.contains('used')) return; t.classList.add('used'); const c = el('button','tile', esc(o.w)); c.addEventListener('click',()=>{ c.remove(); t.classList.remove('used'); chosen.splice(chosen.indexOf(o),1); }); line.appendChild(c); chosen.push(o); });
+      tiles.appendChild(t);
     });
-  }catch(e){}
-}
-const goodSound=()=>tone([523.25,659.25,783.99,1046.5],[0.18,0.18,0.18,0.36]);
-const badSound =()=>tone([392,329.63,261.63],[0.2,0.2,0.34]);
-
-const state = {correct:0,attempted:0,stars:0,streak:0,xp:0,slide:1,total:12,answered:{},visitedStops:new Set(),guess:null};
-function updateHUD(){
-  document.getElementById('accuracy').textContent=state.attempted ? state.correct+'/'+state.attempted : 0;
-  document.getElementById('stars').textContent=state.stars;
-  document.getElementById('streak').textContent=state.streak;
-  document.getElementById('xpFill').style.width=Math.min(100,(state.xp/300)*100)+'%';
-  document.getElementById('xpText').textContent=state.xp;
-}
-function addXP(n){state.xp=Math.min(300,state.xp+n);updateHUD()}
-function reaction(emoji){
-  const el=document.createElement('div');el.className='reaction';el.textContent=emoji;
-  el.style.left=(40+Math.random()*40)+'%';el.style.top='50%';
-  document.body.appendChild(el);setTimeout(()=>el.remove(),1400);
-}
-function confetti(){
-  const colors=['#ff6b6b','#4cc9f0','#ffb703','#7c3aed','#fff8ea','#34d399'];
-  for(let i=0;i<26;i++){
-    const c=document.createElement('div');c.className='confetti';
-    c.style.background=colors[i%colors.length];
-    c.style.left=Math.random()*100+'vw';c.style.top='-10px';
-    c.style.animationDelay=(Math.random()*0.4)+'s';
-    document.body.appendChild(c);setTimeout(()=>c.remove(),2400);
+    $('.undo', area).onclick = ()=>{ const o = chosen.pop(); if(!o) return; line.lastChild.remove(); [...tiles.children].find(t=>t.classList.contains('used') && t.textContent===o.w)?.classList.remove('used'); };
+    $('.clear', area).onclick = ()=>{ chosen.length=0; line.innerHTML=''; [...tiles.children].forEach(t=>t.classList.remove('used')); };
+    $('.check', area).onclick = ()=>{
+      if (!chosen.length){ fb.className='feedback no'; fb.innerHTML = 'Tap the words first!' + fr('Touche d’abord les mots !'); return; }
+      const got = chosen.map(o=>o.w).join(' ');
+      const finish = (ok)=>{ ['.check','.undo','.clear'].forEach(sel=>$(sel,area).style.display='none'); tiles.style.display='none';
+        if (!ok){ line.innerHTML = words.map(w=>`<span class="tile" style="border-color:var(--good);background:#dcfce7">${esc(w)}</span>`).join(''); }
+        fb.className = 'feedback ' + (ok ? 'ok' : ''); if (!ok) fb.style.color = 'var(--grape)';
+        fb.innerHTML = (ok ? '✅ Perfect! Now say it out loud! 🎤' : '👀 Here is the right sentence. Read it out loud! 🎤') + fr(rd.afr);
+        const nx = el('button','sm-btn go', r+1 < s.rounds.length ? 'Next sentence ▶' : 'Finish ▶'); nx.onclick = ()=>{ r++; render(); }; $('.row-btns',area).appendChild(nx); };
+      if (got === rd.a){ addStars(2,'First try! +2 ⭐'); finish(true); }
+      else { line.classList.remove('shake'); void line.offsetWidth; line.classList.add('shake'); setTimeout(()=>finish(false), 450); }
+    };
   }
+  render();
+};
+B.mcq = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">🎉 Quiz complete!</div></div>`; return; }
+    const it = s.items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Question ${q+1} of ${s.items.length}</div>${it.e?`<div class="mcq-scene">${it.e}</div>`:''}<div class="mcq-q">${esc(it.q)}${fr(it.fr)}</div><div class="opts"></div><div class="explain"></div><div class="center"></div>`;
+    const opts = $('.opts', area), ex = $('.explain', area);
+    it.o.forEach((o,k)=>{
+      const b = el('button','opt', esc(o) + (it.ofr ? fr(it.ofr[k]) : ''));
+      b.onclick = ()=>{
+        if (area._done) return;
+        if (k === it.c){ b.classList.add('right'); area._done = true; ex.innerHTML = '✅ ' + esc(it.why || 'Correct!') + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+          const nx = el('button','big-btn', q+1<s.items.length?'Next question ▶':'Finish ▶'); nx.onclick=()=>{ q++; area._done=false; render(); }; $('.center',area).appendChild(nx); }
+        else { b.classList.add('wrong'); first = false; ex.innerHTML = '❌ ' + esc((it.no && it.no[k]) || 'Not quite — try again!') + fr('Pas tout à fait… Essaie encore !'); ex.classList.add('show'); }
+      };
+      opts.appendChild(b);
+    });
+  }
+  render();
+};
+B.tot = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Round ${q+1} of ${s.items.length}</div><div class="tot-row">
+      <div class="tot" data-k="0"><span class="em">${it.a[0]}</span>${esc(it.a[1])}${fr(it.a[2])}</div><div class="vs">OR</div>
+      <div class="tot" data-k="1"><span class="em">${it.b[0]}</span>${esc(it.b[1])}${fr(it.b[2])}</div></div>
+      <div class="say-box">🎤 ${esc(s.frame)}${fr(s.frameFr)}</div>
+      <div class="row-btns"><button class="sm-btn prev">◀ Previous</button><button class="sm-btn go next">${q+1<s.items.length?'Next round ▶':'Start over ↺'}</button></div>`;
+    area.querySelectorAll('.tot').forEach(t=>t.onclick=()=>{ area.querySelectorAll('.tot').forEach(x=>x.classList.remove('pick')); t.classList.add('pick'); });
+    $('.next',area).onclick=()=>{ q=(q+1)%s.items.length; render(); };
+    $('.prev',area).onclick=()=>{ q=(q-1+s.items.length)%s.items.length; render(); };
+  }
+  render();
+};
+B.memory = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  function render(){
+    let cards = []; s.pairs.forEach((p,k)=>{ cards.push({k,html:`<span class="face e">${p[0]}</span>`}); cards.push({k,html:`<span class="face">${esc(p[1])}</span>`}); });
+    cards = shuffle(cards); let open = [], found = 0, moves = 0, lock = false;
+    area.innerHTML = `<div class="round-tag">Pairs found: <span class="pf">0</span> of ${s.pairs.length} · Tries: <span class="mv">0</span></div><div class="mem-grid"></div><div class="center"></div>`;
+    const g = $('.mem-grid', area);
+    cards.forEach((c,ci)=>{
+      const m = el('div','mem', `<span class="back" style="font-size:34px">${ci+1}</span>${c.html}`);
+      m.onclick = ()=>{
+        if (lock || m.classList.contains('open') || m.classList.contains('done')) return;
+        m.classList.add('open'); open.push({m,c});
+        if (open.length === 2){
+          moves++; $('.mv',area).textContent = moves; const [a,b] = open;
+          if (a.c.k === b.c.k){ a.m.classList.replace('open','done'); b.m.classList.replace('open','done'); open = []; found++; $('.pf',area).textContent = found; toast('Match! Say the word! 🎤');
+            if (found === s.pairs.length){ addStars(2,'All pairs! +2 ⭐'); const again = el('button','big-btn','Play again ↺'); again.onclick = render; $('.center',area).appendChild(again); } }
+          else { lock = true; setTimeout(()=>{ a.m.classList.remove('open'); b.m.classList.remove('open'); open = []; lock = false; }, 950); }
+        }
+      };
+      g.appendChild(m);
+    });
+  }
+  render();
+};
+B.tos = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">${esc(s.done||'🌟 Great job!')}</div>${fr(s.doneFr)}</div>`; return; }
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Card ${q+1} of ${s.items.length}</div><div class="tos-card"><div class="em">${it.e}</div><div class="st">${esc(it.s)}</div>${fr(it.fr)}
+      <div class="tos-btns"><button class="big-btn btn-true" data-v="1">✅ TRUE</button><button class="big-btn btn-silly" data-v="0">🤪 SILLY</button></div>
+      <div class="explain"></div><div class="center"></div></div>`;
+    let done = false;
+    area.querySelectorAll('.tos-btns button').forEach(b=>b.onclick=()=>{
+      if (done) return; done = true; const ok = (b.dataset.v==='1') === it.t; const ex = $('.explain',area);
+      ex.innerHTML = (ok?'✅ Yes! ':'❌ Oops! ') + `It's <b>${it.t?'TRUE':'SILLY'}</b>. ` + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); if (ok) addStars(1,'+1 ⭐');
+      const nx = el('button','big-btn', q+1<s.items.length?'Next card ▶':'Finish ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx);
+    });
+  }
+  render();
+};
+B.sort = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="say-box" style="margin-top:10px">${esc(s.how)}${fr(s.howFr)}</div>`);
+  const area = el('div'); box.appendChild(area); let q = 0; const items = shuffle(s.items); const counts = s.buckets.map(()=>0);
+  function render(){
+    if (q >= items.length){ area.innerHTML = `<div class="goal"><div class="big">🧠 Grammar Boss!</div><div>${esc(s.doneMsg)}</div>${fr(s.doneMsgFr)}</div>`; return; }
+    const it = items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Sentence ${q+1} of ${items.length}</div><div class="sort-item">${esc(it.s)}${fr(it.fr)}</div>
+      <div class="buckets">${s.buckets.map((b,k)=>`<button class="bucket" data-k="${k}" style="background:${b.c}">${esc(b.name)}<small>${esc(b.rule)}</small><small style="opacity:.9;font-style:italic">${esc(b.fr)}</small><span class="cnt">e.g. “${esc(b.ex)}” · ${counts[k]} sorted</span></button>`).join('')}</div><div class="explain"></div><div class="center"></div>`;
+    let done = false;
+    area.querySelectorAll('.bucket').forEach(btn=>btn.onclick=()=>{
+      if (done) return; const k = +btn.dataset.k; const ex = $('.explain',area);
+      if (k === it.b){ done = true; counts[k]++; ex.innerHTML = '✅ ' + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+        const nx = el('button','big-btn','Next ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx); }
+      else { first = false; ex.innerHTML = '❌ ' + esc(s.hint) + fr(s.hintFr); ex.classList.add('show'); btn.classList.add('shake'); }
+    });
+  }
+  render();
+};
+B.plan = (s, box) => {
+  const sel = {}, selFr = {}; const cols = el('div','plan-cols');
+  s.parts.forEach((p,k)=>{
+    const c = el('div','plan-col', `<h4>${p.icon} ${esc(p.label)}</h4>${fr(p.fr)}`);
+    p.opts.forEach(o=>{ const ch = el('button','chip', `${o[0]} ${esc(o[1])}${fr(o[2])}`); ch.onclick=()=>{ c.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel')); ch.classList.add('sel'); sel[k]=o[1]; selFr[k]=o[2]; }; c.appendChild(ch); });
+    cols.appendChild(c);
+  });
+  box.appendChild(cols);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn make">✨ Make my story!</button> <button class="sm-btn rnd">🎲 Surprise me</button></div><div class="story"></div>`);
+  const story = $('.story', box);
+  function make(){
+    if (Object.keys(sel).length < s.parts.length){ toast('Pick one for each part!'); return; }
+    story.innerHTML = s.parts.map((p,k)=>`<span class="conn">${esc(p.conn)}</span> ${esc(sel[k])}`).join(' ') + fr(s.parts.map((p,k)=>`${p.connFr} ${selFr[k]}`).join(' ')) + `<div style="margin-top:10px;font-size:17px;color:var(--sky-deep)">🎤 Now read your story out loud — then tell it again without looking!</div>`;
+    story.classList.add('show'); addStars(1,'Great story! +1 ⭐');
+  }
+  $('.make', box).onclick = make;
+  $('.rnd', box).onclick = ()=>{ s.parts.forEach((p,k)=>{ const col = cols.children[k]; const chips = col.querySelectorAll('.chip'); const i = Math.floor(Math.random()*chips.length); chips[i].click(); }); make(); };
+};
+B.talk = (s, box) => {
+  const list = el('div','check-list');
+  s.items.forEach(it=>{ const c = el('div','check', `<span class="box"></span><span>${esc(it[0])}${fr(it[1])}</span>`); c.onclick=()=>{ if(c.classList.contains('done')) return; c.classList.add('done'); $('.box',c).textContent='✔'; addStars(1,'+1 ⭐'); }; list.appendChild(c); });
+  box.appendChild(list);
+};
+B.ttl = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  const ex = s.example;
+  area.innerHTML = `<div class="sort-item" style="border-color:var(--grape)">Practice round: ${esc(ex.who)} says…</div><div class="ttl-list">${ex.lines.map((l,k)=>`<button class="opt" data-k="${k}">${esc(l)}${fr(ex.linesFr[k])}</button>`).join('')}</div><div class="explain"></div>
+    <div class="goal" style="margin-top:18px"><div class="big">🎤 Your turn!</div><div>${esc(s.turn)}</div>${fr(s.turnFr)}
+    <div class="row-btns"><button class="sm-btn go fool">😎 Hugo fooled Jonathan! (+2 ⭐)</button><button class="sm-btn found">🔎 Jonathan found the lie (+1 ⭐)</button></div></div>`;
+  let done = false;
+  area.querySelectorAll('.ttl-list .opt').forEach(b=>b.onclick=()=>{ if(done) return; const k=+b.dataset.k; const e=$('.explain',area);
+    if (k===ex.lie){ done=true; b.classList.add('right'); e.innerHTML='✅ '+esc(ex.why)+fr(ex.whyFr); addStars(1,'+1 ⭐'); } else { b.classList.add('wrong'); e.innerHTML='❌ That one is true! Look again.'+fr('Ça, c’est vrai ! Regarde encore.'); } e.classList.add('show'); });
+  $('.fool',area).onclick=()=>addStars(2,'Sneaky! +2 ⭐');
+  $('.found',area).onclick=()=>addStars(1,'Good try! +1 ⭐');
+};
+B.victory = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="victory"><div class="medal" id="medal">🏅</div><div class="score">You earned <span id="finalStars">0</span> stars!</div>
+    <div class="tiers">${s.tiers.map(t=>`<div data-min="${t[0]}">${t[1]} ${esc(t[2])} · ${t[0]}+ ⭐</div>`).join('')}</div>
+    <div class="goal" style="margin-top:18px"><div class="big">${esc(s.msg)}</div>${fr(s.msgFr)}</div></div>`);
+};
+function updateVictory(){
+  const f = $('#finalStars'); if (!f) return; f.textContent = stars;
+  const s = L.slides.find(x=>x.type==='victory'); let medal = '🌟';
+  document.querySelectorAll('.tiers div').forEach(d=>d.classList.remove('on'));
+  s.tiers.forEach((t,k)=>{ if (stars >= t[0]) { medal = t[1]; } });
+  const on = [...document.querySelectorAll('.tiers div')].filter(d=>stars >= +d.dataset.min).pop(); if (on) on.classList.add('on');
+  $('#medal').textContent = medal;
 }
 
-document.addEventListener('click', e=>{
-  const btn = e.target.closest('.ans');
-  if(!btn) return;
-  const group = btn.closest('.answers');
-  if(!group) return;
-  const gid = group.getAttribute('data-gid');
-  if(!FB[gid] || state.answered[gid]) return;
-  const ans = btn.getAttribute('data-ans');
-  const data = FB[gid][ans];
-  const fb = document.querySelector(`.feedback[data-gid="${gid}"]`);
-  state.attempted++;
-  if(data.ok){
-    state.answered[gid]=true;
-    btn.classList.add('correct');
-    group.querySelectorAll('.ans').forEach(b=>b.disabled=true);
-    fb.className='feedback show good';
-    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
-    state.stars++;state.streak++;state.correct++;addXP(15);updateHUD();
-    goodSound();reaction('🎉');confetti();
-  } else {
-    btn.classList.add('wrong');btn.disabled=true;
-    fb.className='feedback show bad';
-    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
-    state.streak=0;updateHUD();
-    badSound();reaction('👎');
-  }
+/* ---------- build ---------- */
+const host = $('#slides'); const dots = $('#dots');
+L.slides.forEach((s,i)=>{
+  const sec = el('section','slide'); sec.innerHTML = head(s,i); B[s.type](s, sec); sec.insertAdjacentHTML('beforeend', tutor(s)); host.appendChild(sec);
+  const d = el('button'); d.title = `Slide ${i+1}`; d.onclick = ()=>go(i); dots.appendChild(d);
 });
-
-function buildTOT(hostId, pairsArr){
-  const host = document.getElementById(hostId);
-  pairsArr.forEach(p=>{
-    const row=document.createElement('div');row.className='tot-row';
-    const pair=document.createElement('div');pair.className='tot-pair';
-    const optA=document.createElement('button');optA.className='tot-opt';optA.innerHTML=p[0]+'<span class="tot-hint">'+(p[2]||'')+'</span>';
-    const mid=document.createElement('div');mid.className='tot-mid';
-    const optB=document.createElement('button');optB.className='tot-opt';optB.innerHTML=p[1]+'<span class="tot-hint">'+(p[3]||'')+'</span>';
-    function pick(chosen,other){
-      chosen.classList.add('sel'); other.classList.remove('sel');
-      addXP(3); reaction('✨'); tone([587,740],[0.1,0.16]);
-    }
-    optA.addEventListener('click',()=>pick(optA,optB));
-    optB.addEventListener('click',()=>pick(optB,optA));
-    pair.appendChild(optA);pair.appendChild(mid);pair.appendChild(optB);
-    row.appendChild(pair); host.appendChild(row);
-  });
+let cur = 0;
+function go(i){
+  cur = Math.max(0, Math.min(L.slides.length-1, i));
+  document.querySelectorAll('.slide').forEach((s,k)=>s.classList.toggle('active', k===cur));
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on', k===cur));
+  $('#prevBtn').disabled = cur===0; $('#nextBtn').disabled = cur===L.slides.length-1;
+  $('#prog').style.width = ((cur+1)/L.slides.length*100)+'%';
+  if (L.slides[cur].type === 'victory'){ updateVictory(); confetti(140); }
+  scrollTo({top:0,behavior:'smooth'});
 }
-buildTOT('totRows1', [["Knights", "Artists", "chevaliers", "artistes"], ["Castles", "Cathedrals of art", "châteaux", "cathédrales d'art"], ["Hand-copied books", "Printed books", "livres copiés à la main", "livres imprimés"], ["Local village life", "Traveling and trade", "vie de village locale", "voyages et commerce"], ["Faith over science", "Science alongside faith", "la foi avant la science", "la science aux côtés de la foi"]]);
-buildTOT('totRows2', [["Rigid feudal system", "More social mobility", "système féodal rigide", "plus de mobilité sociale"], ["Everything by hand", "Printing press speed", "tout fait à la main", "vitesse de la presse à imprimer"], ["Small, local world", "Wider, connected world", "petit monde local", "monde plus connecté"], ["Middle Ages mindset", "Renaissance mindset", "mentalité médiévale", "mentalité de la Renaissance"]]);
-
-function renderTour(){
-  const track = document.getElementById('mapTrack');
-  track.innerHTML = '';
-  TOUR_STOPS.forEach((l,i)=>{
-    const el = document.createElement('div');
-    el.className = 'map-stop';
-    el.dataset.idx = i;
-    el.innerHTML = `<span class="stop-icon">${l.icon}</span><div class="stop-num">${l.tag}</div><div class="stop-label">${l.label}</div><div class="stop-check">✓ explored</div>`;
-    el.addEventListener('click', ()=>showStop(i));
-    track.appendChild(el);
-  });
-}
-function updateStopProgress(){
-  document.getElementById('stopProgress').textContent = `${state.visitedStops.size} / ${TOUR_STOPS.length} explored`;
-}
-function showStop(idx){
-  const l = TOUR_STOPS[idx];
-  document.querySelectorAll('.map-stop').forEach((el,i)=>{
-    el.classList.toggle('active', i===idx);
-  });
-  if(!state.visitedStops.has(idx)){
-    state.visitedStops.add(idx);
-    document.querySelectorAll('.map-stop')[idx].classList.add('visited');
-    addXP(8); reaction('🏰'); tone([494,622],[0.1,0.18]);
-    updateStopProgress();
-  }
-  const panel = document.getElementById('stopPanel');
-  let predictNote = '';
-  if(idx===1 && state.guess){
-    const right = state.guess==="disease";
-    predictNote = right
-      ? `<div class="sp-fact" style="border-left-color:var(--good);margin-top:8px;">🎯 Your guess was right! <span class="fr">🎯 Ta prédiction était juste!</span></div>`
-      : `<div class="sp-fact" style="border-left-color:var(--coral);margin-top:8px;">🎯 Good guess, but not quite — this is actually it. <span class="fr">🎯 Bonne idée, mais pas tout à fait — c'est en fait celui-ci.</span></div>`;
-  }
-  panel.innerHTML = `
-    <div class="sp-eyebrow">${l.tag}</div>
-    <h3>${l.icon} ${l.label}</h3>
-    <div class="sp-en">${l.en}</div>
-    <div class="sp-fr">${l.fr}</div>
-    <div class="sp-fact">${l.fact} <span class="fr">${l.factfr}</span></div>
-    ${predictNote}
-  `;
-}
-
-function renderSpot(){
-  const row = document.getElementById('flagRow');
-  if(!row || row.dataset.built) return;
-  row.dataset.built = '1';
-  const options = [["🏰", "Feudal castles"], ["☠️", "The Black Death"], ["🖨️", "Gutenberg's printing press"], ["🏺", "Ancient Egyptian pyramids"], ["🎨", "Renaissance art"]];
-  const correctName = "Ancient Egyptian pyramids";
-  options.forEach(([flag,name])=>{
-    const btn = document.createElement('button');
-    btn.className = 'flag-btn';
-    btn.innerHTML = `${flag}<br><span style="font-size:12px;font-weight:700;">${name}</span>`;
-    btn.addEventListener('click', ()=>{
-      if(row.dataset.answered) return;
-      const result = document.getElementById('flagResult');
-      if(name===correctName){
-        row.dataset.answered = '1';
-        row.querySelectorAll('button').forEach(b=>b.disabled=true);
-        btn.classList.add('correct');
-        result.style.display = 'block';
-        result.className = 'feedback show good';
-        result.innerHTML = `⭐ Exactly! The pyramids are Ancient Egypt — thousands of years before the Middle Ages even began. <span class=\"fr\">⭐ Exactement! Les pyramides datent de l'Égypte antique — des milliers d'années avant le Moyen Âge.</span>`;
-        state.correct++;state.attempted++;state.stars++;state.streak++;addXP(15);updateHUD();
-        goodSound();reaction('🎉');confetti();
-      } else {
-        btn.classList.add('wrong');
-        tone([392,329.63],[0.15,0.2]);
-        reaction('🤔');
-      }
-    });
-    row.appendChild(btn);
-  });
-}
-
-function renderPrediction(){
-  const row = document.getElementById('predictRow');
-  if(!row || row.dataset.built) return;
-  row.dataset.built = '1';
-  const options = [["disease", "☠️ The disease"], ["invention", "🖨️ The invention"]];
-  options.forEach(([key,label])=>{
-    const btn = document.createElement('button');
-    btn.className = 'nav-btn';
-    btn.style.cssText = 'background:linear-gradient(135deg,var(--sky),var(--sky-deep));box-shadow:0 6px 18px rgba(33,158,188,0.35);text-transform:none;letter-spacing:0;font-size:14px;padding:11px 18px;';
-    btn.textContent = label;
-    btn.addEventListener('click', ()=>{
-      if(state.guess) return;
-      state.guess = key;
-      row.querySelectorAll('button').forEach(b=>b.disabled=true);
-      btn.style.outline = '3px solid var(--violet)';
-      const result = document.getElementById('predictResult');
-      result.style.display = 'block';
-      result.innerHTML = "Locked in! Let's see if you're right → <span style=\"display:block;font-weight:500;font-style:italic;color:var(--ink);margin-top:2px;\">Prédiction enregistrée! On verra si tu as raison.</span>";
-      addXP(5); reaction('🔮'); tone([440,554],[0.1,0.16]);
-    });
-    row.appendChild(btn);
-  });
-}
-
-function renderMCQ(){
-  const host = document.getElementById('leagueMCQ');
-  host.innerHTML = `
-    <div class="mcq-q" data-gid="q1">
-      After the Black Death killed a huge share of workers, survivors suddenly had more bargaining power. What system did this weaken?
-      <span class="fr">Après que la peste noire a tué une grande partie des travailleurs, les survivants ont eu plus de pouvoir de négociation. Quel système cela a-t-il affaibli?</span>
-    </div>
-    <div class="answers" data-gid="q1">
-      <button class="ans" data-ans="A">A. The printing press</button>
-      <button class="ans" data-ans="B">B. The rigid feudal system</button>
-      <button class="ans" data-ans="C">C. The Renaissance</button>
-    </div>
-    <div class="feedback" data-gid="q1"></div>
-    <div class="mcq-q" data-gid="q2">
-      A new idea is written down in 1300. Based on what you learned, would it likely spread faster before or after Gutenberg's press (1440)?
-      <span class="fr">Une nouvelle idée est écrite en 1300. D'après ce que tu as appris, se répandrait-elle plus vite avant ou après la presse de Gutenberg (1440)?</span>
-    </div>
-    <div class="answers" data-gid="q2">
-      <button class="ans" data-ans="A">A. Before — hand-copying was faster</button>
-      <button class="ans" data-ans="B">B. After — the printing press made copying dramatically faster and cheaper</button>
-      <button class="ans" data-ans="C">C. No difference either way</button>
-    </div>
-    <div class="feedback" data-gid="q2"></div>`;
-  
-  FB.q1 = {
-    A:{ok:false, msg:"The printing press is a different turning point, about spreading ideas, not labor power.", fr:"La presse à imprimer est un autre tournant, sur la diffusion des idées, pas le pouvoir des travailleurs."},
-    B:{ok:true, msg:"⭐ Right! Fewer workers meant survivors could demand better treatment, cracking open the rigid feudal system.", fr:"⭐ Exact! Moins de travailleurs signifiait que les survivants pouvaient exiger un meilleur traitement, fissurant le système féodal rigide."},
-    C:{ok:false, msg:"The Renaissance is the period that followed, not something the plague weakened directly.", fr:"La Renaissance est la période qui a suivi, pas quelque chose que la peste a directement affaibli."}
-  };
-  FB.q2 = {
-    A:{ok:false, msg:"Hand-copying was actually extremely slow — that's exactly the problem the printing press solved.", fr:"La copie à la main était en fait extrêmement lente — c'est exactement le problème que la presse a résolu."},
-    B:{ok:true, msg:"⭐ Right! The printing press made copies dramatically faster and cheaper, letting ideas spread across Europe in months instead of years.", fr:"⭐ Exact! La presse a rendu les copies bien plus rapides et moins chères, permettant aux idées de se répandre en quelques mois."},
-    C:{ok:false, msg:"The printing press made a massive difference in how fast ideas could travel.", fr:"La presse a fait une différence énorme dans la vitesse de diffusion des idées."}
-  };
-}
-
-const BONUS_QUESTIONS = [{"en": "If you lived in the Middle Ages, do you think you'd rather be a knight, a peasant, or a merchant? Why?", "fr": "Si tu vivais au Moyen Âge, préférerais-tu être chevalier, paysan, ou marchand? Pourquoi?"}, {"en": "What's a modern invention that you think will change history as much as the printing press did?", "fr": "Quelle invention moderne penses-tu changera l'histoire autant que la presse à imprimer?"}, {"en": "Do you think a global disaster today could ever lead to a new 'Renaissance'? What would it look like?", "fr": "Penses-tu qu'un désastre mondial aujourd'hui pourrait mener à une nouvelle 'Renaissance'? À quoi ressemblerait-elle?"}, {"en": "Why do you think art exploded so much during the Renaissance specifically?", "fr": "Pourquoi penses-tu que l'art a autant explosé pendant la Renaissance en particulier?"}, {"en": "If you could ask one Renaissance thinker or artist a question, who would it be and what would you ask?", "fr": "Si tu pouvais poser une question à un penseur ou artiste de la Renaissance, qui choisirais-tu et que demanderais-tu?"}, {"en": "Is progress always good, or can moving forward too fast cause problems too?", "fr": "Le progrès est-il toujours bon, ou avancer trop vite peut-il aussi poser des problèmes?"}];
-const spinBtn = document.getElementById('spinBtn');
-if(spinBtn){
-  spinBtn.addEventListener('click', ()=>{
-    const q = BONUS_QUESTIONS[Math.floor(Math.random()*BONUS_QUESTIONS.length)];
-    const box = document.getElementById('spinResult');
-    box.innerHTML = `<div><div class="sp-en" style="font-size:18px;">${q.en}</div><div class="sp-fr" style="margin-top:8px;">${q.fr}</div></div>`;
-    addXP(5); reaction('🎡'); confetti(); tone([494,622,740],[0.12,0.12,0.2]);
-  });
-}
-
-const dots = document.getElementById('dots');
-for(let i=1;i<=state.total;i++){
-  const d=document.createElement('div');
-  d.className='dot'+(i===1?' active':'');
-  d.addEventListener('click',()=>goSlide(i));
-  dots.appendChild(d);
-}
-function goSlide(n){
-  const prevSlide = state.slide;
-  state.slide=Math.max(1,Math.min(state.total,n));
-
-  if(state.slide===4 && prevSlide!==4){ renderPrediction(); }
-  if(state.slide===5 && prevSlide!==5){ renderTour(); }
-  if(state.slide===6 && prevSlide!==6){ renderMCQ(); }
-  if(state.slide===7 && prevSlide!==7){ renderSpot(); }
-  if(state.slide===state.total && prevSlide!==state.total){
-    const acc = state.attempted ? state.correct+'/'+state.attempted : '0/0';
-    document.getElementById('recapBox').innerHTML = `You traced ${state.visitedStops.size}/3 turning points from castles to the Renaissance, spotted the out-of-place ancient fact (${acc} correct), and built your own argument about how disaster can lead to progress — all in English!`;
-  }
-
-  document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',+s.dataset.slide===state.slide));
-  document.querySelectorAll('.dot').forEach((d,i)=>{
-    d.classList.toggle('active',i+1===state.slide);
-    d.classList.toggle('done',i+1<state.slide);
-  });
-  document.getElementById('prevBtn').disabled=state.slide===1;
-  document.getElementById('nextBtn').textContent=state.slide===state.total?'🎉 Done!':'Next ▸';
-  requestAnimationFrame(()=>{
-    requestAnimationFrame(()=>{
-      window.scrollTo({top:0,behavior:'auto'});
-    });
-  });
-}
-document.getElementById('prevBtn').addEventListener('click',()=>goSlide(state.slide-1));
-document.getElementById('nextBtn').addEventListener('click',()=>{
-  if(state.slide===state.total){confetti();reaction('🏆');goodSound();return;}
-  goSlide(state.slide+1);
-});
-updateHUD();
-
-[['hintToggle1','hintFacts1'],['hintToggle2','hintFacts2']].forEach(([btnId,boxId])=>{
-  const btn = document.getElementById(btnId);
-  const box = document.getElementById(boxId);
-  if(btn && box){
-    const origText = btn.textContent;
-    btn.addEventListener('click', ()=>{
-      box.classList.toggle('show');
-      btn.textContent = box.classList.contains('show') ? 'Hide hint' : origText;
-    });
-  }
-});
+$('#prevBtn').onclick = ()=>go(cur-1); $('#nextBtn').onclick = ()=>go(cur+1);
+$('#starBtn').onclick = ()=>addStars(1,'Full sentence! +1 ⭐');
+const frBtn = $('#frBtn');
+function syncFr(){ frBtn.textContent = document.body.classList.contains('hide-fr') ? 'FR: OFF' : 'FR: ON'; }
+frBtn.onclick = ()=>{ document.body.classList.toggle('hide-fr'); syncFr(); }; syncFr();
+$('#hudBrand').textContent = L.brand; $('#stuName').textContent = L.student; $('#lessonName').textContent = L.lesson;
+const d = new Date(); $('#today').textContent = String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+'/'+d.getFullYear();
+go(0);
 </script>
-
 </body>
 </html>

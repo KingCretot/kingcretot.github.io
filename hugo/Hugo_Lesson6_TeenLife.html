@@ -9,204 +9,190 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --sun:#ffb703; --sun-deep:#e08e00;
-    --sky:#4cc9f0; --sky-deep:#219ebc;
-    --coral:#ff6b6b; --coral-deep:#e5484d;
-    --leaf:#52b788; --leaf-deep:#2d6a4f;
-    --sand:#d4a373; --sand-deep:#9c6644;
-    --cream:#fff8ea; --ink:#25324a; --violet:#7c3aed;
-    --good:#34d399; --bad:#ef4444;
-    --shadow:0 12px 36px rgba(76,201,240,0.18);
-    --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    font-family:'Quicksand',sans-serif;font-size:20px;line-height:1.55;color:var(--ink);
-    background:
-      radial-gradient(circle at 8% 12%,rgba(76,201,240,0.20) 0,transparent 42%),
-      radial-gradient(circle at 92% 82%,rgba(255,183,3,0.20) 0,transparent 42%),
-      linear-gradient(180deg,#fff8ea 0%,#fff 100%);
-    min-height:100vh;overflow-x:hidden;
-  }
-  .notranslate{translate:no}
-  .kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px;}
-  .kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px;}
-  .kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1;}
-  .kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700;}
-  .kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
-  .kce-band{height:3px;display:flex;}.kce-band i{flex:1}
-  .kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
-
-  .stage{max-width:1280px;margin:0 auto;padding:24px 24px 100px;position:relative}
-  .hud{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--sky);border-radius:24px;padding:14px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
-  .hud-brand{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);display:flex;align-items:center;gap:8px;}
-  .hud-brand::before{content:'🎒';font-size:26px}
-  .hud-stat{display:flex;align-items:center;gap:6px;font-weight:700;font-size:18px;background:var(--cream);padding:8px 14px;border-radius:12px;border:2px solid var(--sky);color:var(--sky-deep);}
-  .hud-stat.streak{border-color:var(--sun);color:#a06400}
-  .xp-shell{flex:1;min-width:160px;height:16px;background:#e6f7fb;border-radius:999px;overflow:hidden;border:2px solid var(--sky);position:relative;}
-  .xp-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--sun),var(--coral),var(--sky));border-radius:999px;transition:width .8s cubic-bezier(.2,.9,.3,1.2);}
-  .xp-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--sky-deep);}
-
-  .slide{background:#fff;border:3px solid var(--sky);border-radius:26px;padding:28px 30px;margin-top:18px;box-shadow:var(--shadow);display:none;animation:slideIn .5s ease;position:relative;overflow:hidden;}
-  .slide::before{content:'';position:absolute;top:-30px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,183,3,0.28),transparent 70%);z-index:0;}
-  .slide.active{display:block}
-  @keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-  .slide-title{font-family:'Caprasimo',serif;font-size:34px;color:var(--coral-deep);margin-bottom:6px;text-align:center;position:relative;z-index:1;}
-  .slide-sub{font-size:16px;color:var(--violet);text-align:center;margin-bottom:18px;font-style:italic;position:relative;z-index:1;}
-  .slide-count{text-align:center;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;position:relative;z-index:1;}
-  .connect-note{background:#f3e8ff;border-left:5px solid var(--violet);border-radius:10px;padding:10px 14px;font-size:14px;color:var(--violet);font-weight:700;margin-bottom:14px;position:relative;z-index:1;}
-
-  .bilingual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;position:relative;z-index:1;}
-  .lang-card{background:linear-gradient(135deg,#fff,#eaf9ff);border-radius:16px;padding:18px 22px;border-left:6px solid var(--sky);box-shadow:0 4px 14px rgba(33,158,188,0.10);}
-  .lang-card.fr{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0);}
-  .lang-tag{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--sky-deep);background:#d4f1fa;padding:3px 10px;border-radius:6px;margin-bottom:8px;}
-  .lang-card.fr .lang-tag{color:var(--coral-deep);background:#ffe3e3}
-  .lang-card p{font-size:18px;line-height:1.6}
-  .lang-card.fr p{color:var(--violet);font-size:17px}
-
-  .modal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:16px 0;position:relative;z-index:1;}
-  .modal-card{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sun);border-radius:16px;padding:16px 20px;cursor:pointer;transition:all .3s;min-height:112px;}
-  .modal-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(255,183,3,0.30)}
-  .modal-card.flipped{background:linear-gradient(135deg,var(--sky),var(--sky-deep));color:#fff;border-color:var(--coral)}
-  .modal-card .who{font-family:'Caprasimo',serif;font-size:22px;color:var(--coral-deep);margin-bottom:5px;}
-  .modal-card.flipped .who{color:#fff}
-  .modal-card .role{font-size:13px;font-weight:700;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;}
-  .modal-card.flipped .role{color:var(--sun)}
-  .modal-card .detail{font-size:15px;margin-top:7px;color:var(--ink)}
-  .modal-card.flipped .detail{color:#fff}
-  .modal-card .fr{font-size:13px;color:var(--violet);margin-top:5px;font-style:italic;}
-  .modal-card.flipped .fr{color:#fff8e1}
-  .modal-card .tap-hint{font-size:11px;font-weight:700;color:#888;margin-top:8px}
-  .modal-card.flipped .tap-hint{color:var(--cream)}
-
-  .map-track{display:flex;gap:12px;padding:10px 4px 16px;position:relative;z-index:1;}
-  .map-stop{flex:1;min-width:0;background:#fff;border:3px solid var(--sand);border-radius:16px;padding:24px 14px;text-align:center;cursor:pointer;transition:all .25s;}
-  @media(max-width:520px){ .map-track{flex-wrap:wrap;} .map-stop{flex:1 1 45%;} }
-  .map-stop:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(156,102,68,0.25)}
-  .map-stop.active{background:linear-gradient(135deg,var(--sand),var(--sand-deep));border-color:var(--coral);}
-  .map-stop.active .stop-num,.map-stop.active .stop-label{color:#fff}
-  .map-stop.visited{border-color:var(--good);}
-  .map-stop .stop-icon{font-size:52px;display:block;margin-bottom:8px;}
-  .map-stop .stop-num{font-size:13px;font-weight:800;color:var(--sand-deep);text-transform:uppercase;letter-spacing:1px;}
-  .map-stop .stop-label{font-size:18px;font-weight:700;color:var(--ink);margin-top:4px;}
-  .map-stop .stop-check{font-size:14px;color:var(--good);font-weight:800;margin-top:6px;visibility:hidden;}
-  .map-stop.visited .stop-check{visibility:visible;}
-  .stop-progress{text-align:center;font-size:13px;color:var(--sand-deep);font-weight:700;margin-bottom:6px;position:relative;z-index:1;}
-
-  .stop-panel{background:linear-gradient(135deg,var(--cream),#fff);border:3px solid var(--sand);border-radius:18px;padding:20px 22px;position:relative;z-index:1;min-height:150px;}
-  .stop-panel .sp-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--sand-deep);margin-bottom:6px;}
-  .stop-panel h3{font-family:'Caprasimo',serif;font-size:24px;color:var(--coral-deep);margin-bottom:8px;}
-  .stop-panel .sp-en{font-size:17px;margin-bottom:4px;}
-  .stop-panel .sp-fr{font-size:14px;color:var(--violet);font-style:italic;margin-bottom:10px;}
-  .stop-panel .sp-fact{background:#fff;border-left:4px solid var(--leaf);border-radius:10px;padding:10px 14px;font-size:15px;}
-  .stop-panel .sp-fact .fr{display:block;color:var(--violet);font-style:italic;font-size:13px;margin-top:4px;}
-  .stop-panel .sp-placeholder{color:#aaa;font-style:italic;font-size:15px;text-align:center;padding:20px 0;}
-
-  .flag-btn{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:16px 12px;font-size:30px;cursor:pointer;text-align:center;min-width:80px;font-family:'Quicksand',sans-serif;transition:all .2s;}
-  .flag-btn:hover:not(:disabled){background:#eaf9ff;transform:translateY(-3px);border-color:var(--sky-deep)}
-  .flag-btn.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
-  .flag-btn.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
-  .flag-btn:disabled{cursor:default}
-
-  .mcq-q{font-family:'Caprasimo',serif;font-size:20px;color:var(--coral-deep);margin:14px 0 12px;padding:14px 18px;background:var(--cream);border-radius:14px;border-left:6px solid var(--sky);position:relative;z-index:1;}
-  .mcq-q .fr{display:block;font-family:'Quicksand',sans-serif;font-size:14px;color:var(--violet);font-weight:500;font-style:italic;margin-top:5px;}
-  .answers{display:grid;gap:8px;margin-bottom:10px;position:relative;z-index:1}
-  .ans{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:11px 16px;font-size:17px;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;transition:all .2s;font-family:'Quicksand',sans-serif;}
-  .ans:hover:not(:disabled){background:#eaf9ff;transform:translateX(4px);border-color:var(--sky-deep)}
-  .ans.correct{background:#d1fae5;border-color:var(--good);color:#065f46;animation:pulse .5s}
-  .ans.wrong{background:#fee2e2;border-color:var(--bad);color:#991b1b;animation:shake .4s}
-  .ans:disabled{cursor:default}
-  @keyframes pulse{0%,100%{transform:none}50%{transform:scale(1.03)}}
-  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-  .feedback{margin-top:6px;padding:11px 15px;border-radius:12px;font-size:15px;display:none;position:relative;z-index:1}
-  .feedback.show{display:block;animation:slideIn .3s ease}
-  .feedback.good{background:#d1fae5;color:#065f46;border-left:5px solid var(--good)}
-  .feedback.bad{background:#fee2e2;color:#991b1b;border-left:5px solid var(--bad)}
-  .feedback .fr{display:block;color:var(--violet);font-style:italic;margin-top:3px;font-size:13px}
-
-  .tot-cluster-label{font-size:13px;font-weight:800;color:var(--sky-deep);text-transform:uppercase;letter-spacing:1px;margin:12px 0 6px;position:relative;z-index:1;}
-  .tot-row{display:flex;gap:8px;margin:8px 0;position:relative;z-index:1;}
-  .tot-pair{flex:1;display:flex;border:3px solid var(--sky);border-radius:14px;overflow:hidden;}
-  .tot-opt{flex:1;border:0;background:#fff;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer;padding:12px 8px;transition:all .2s;}
-  .tot-opt:hover{background:#eaf9ff;}
-  .tot-opt.sel{background:var(--coral);color:#fff;}
-  .tot-mid{width:2px;background:var(--sky);}
-  .tot-hint{font-size:11px;color:var(--violet);font-style:italic;margin-top:3px;display:block;}
-
-  .elicit-card{background:linear-gradient(135deg,#fff,#eaf9ff);border:3px dashed var(--sky);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
-  .elicit-card h4{font-family:'Caprasimo',serif;font-size:20px;color:var(--sky-deep);margin-bottom:8px;}
-  .starter-row{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
-  .starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:10px 14px;font-family:'Quicksand',sans-serif;}
-  .starter .en{font-weight:700;color:var(--ink);font-size:17px;font-family:'Quicksand',sans-serif;display:block;}
-  .starter .fr{display:block;color:var(--violet);font-style:italic;font-weight:500;font-size:13px;font-family:'Quicksand',sans-serif;margin-top:2px;}
-  .hint-toggle{background:var(--sun);border:none;color:var(--kce-navy);font-weight:800;padding:9px 18px;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:13px;margin-top:10px;}
-  .hint-facts{display:none;margin-top:10px;background:#fff;border-left:4px solid var(--sun);border-radius:10px;padding:12px 14px;font-size:14px;}
-  .hint-facts.show{display:block;}
-  .hint-facts li{margin-bottom:6px;}
-  .hint-facts .fr{color:var(--violet);font-style:italic;font-size:12px;}
-
-  .think-card{background:linear-gradient(135deg,#f3e8ff,#fff);border:3px solid var(--violet);border-radius:18px;padding:20px 22px;margin:14px 0;position:relative;z-index:1;}
-  .think-card h4{font-family:'Caprasimo',serif;font-size:21px;color:var(--violet);margin-bottom:8px;}
-  .think-card .qtext{font-size:18px;font-weight:600;margin-bottom:6px;}
-  .think-card .qtext-fr{font-size:15px;color:var(--violet);font-style:italic;margin-bottom:12px;}
-
-  .toolkit{background:linear-gradient(135deg,#eaf9ff,#fff);border:3px solid var(--sky);border-radius:18px;padding:18px 22px;margin:14px 0;position:relative;z-index:1;}
-  .toolkit h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--sky-deep);margin-bottom:10px;}
-  .toolkit-group{margin-bottom:12px;}
-  .toolkit-group .tk-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--violet);margin-bottom:5px;}
-  .toolkit-group .tk-phrase{background:#fff;border-left:4px solid var(--sky);border-radius:8px;padding:8px 12px;margin-bottom:5px;font-size:15px;}
-  .toolkit-group .tk-phrase .fr{display:block;color:var(--violet);font-style:italic;font-size:12px;margin-top:2px;}
-
-  .tiers{display:grid;gap:11px;margin-top:14px;position:relative;z-index:1}
-  .tier{background:#fff;border-radius:16px;padding:16px 20px;border-left:8px solid var(--sky);box-shadow:0 4px 14px rgba(0,0,0,0.06);}
-  .tier.silver{border-left-color:#9ca3af}
-  .tier.gold{border-left-color:var(--sun)}
-  .tier.diamond{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fff0f0)}
-  .tier-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#666;margin-bottom:5px;}
-  .tier h4{font-family:'Caprasimo',serif;font-size:19px;color:var(--coral-deep);margin-bottom:5px}
-  .tier p{font-size:16px}
-  .tier .fr{color:var(--violet);font-style:italic;font-size:14px;margin-top:3px}
-
-  .wheel-embed-label{font-family:'Caprasimo',serif;font-size:18px;color:var(--sun-deep);text-align:center;margin-top:6px;margin-bottom:10px;position:relative;z-index:1;}
-  .wheel-embed{width:100%;min-height:640px;border:3px solid var(--sun);border-radius:20px;position:relative;z-index:1;box-shadow:0 8px 24px rgba(255,183,3,0.25);background:#fff;}
-  @media(max-width:780px){ .wheel-embed{min-height:760px;} }
-
-  .victory{background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#fff;border-radius:22px;padding:32px;text-align:center;border:4px solid var(--sun);margin:12px 0;box-shadow:0 12px 40px rgba(229,72,77,0.4);position:relative;z-index:1;}
-  .victory h2{font-family:'Caprasimo',serif;font-size:34px;margin-bottom:12px}
-  .victory p{font-size:17px;line-height:1.7;margin-bottom:8px}
-  .victory .fr{color:var(--sun);font-style:italic;font-size:15px;margin-top:6px}
-  .victory .recap{background:rgba(255,255,255,.15);border-radius:14px;padding:14px 18px;margin-top:14px;text-align:left;font-size:15px;}
-  .victory .recap b{color:var(--sun)}
-
-  .nav-wrap-fixed{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid var(--sky);padding:12px 0;z-index:500;box-shadow:0 -6px 20px rgba(0,0,0,0.12);}
-  .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1280px;margin:0 auto;padding:0 24px;flex-wrap:wrap;}
-  .dots{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:380px}
-  .dot{width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--coral);cursor:pointer;transition:all .25s;}
-  .dot.active{background:var(--coral);transform:scale(1.4)}
-  .dot.done{background:var(--sky);border-color:var(--sky)}
-  .nav-btn{background:linear-gradient(135deg,var(--coral),var(--coral-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(229,72,77,0.4);transition:all .25s;text-transform:uppercase;letter-spacing:0.5px;}
-  .nav-btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(229,72,77,0.55)}
-  .nav-btn.prev{background:linear-gradient(135deg,#888,#aaa);box-shadow:0 6px 18px rgba(0,0,0,0.2)}
-  .nav-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
-
-  .reaction{position:fixed;font-size:44px;pointer-events:none;z-index:9999;animation:floatUp 1.4s ease-out forwards;}
-  @keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(0.5)}20%{opacity:1;transform:translateY(-30px) scale(1.2)}100%{opacity:0;transform:translateY(-180px) scale(0.8)}}
-  .confetti{position:fixed;width:10px;height:10px;pointer-events:none;z-index:9999;animation:confettiFall 2s ease-out forwards;}
-  @keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(400px) rotate(720deg)}}
-
-  footer.kce-foot{text-align:center;padding:16px 20px;font-size:11px;color:#8a93a6;}
-
-  @media(max-width:780px){
-    .bilingual{grid-template-columns:1fr}
-    .slide-title{font-size:26px}
-    .modal-grid{grid-template-columns:1fr}
-  }
+:root{
+  --sun:#F4B400; --sun-deep:#A6821B;
+  --sky:#0F8B8D; --sky-deep:#0A5F60;
+  --coral:#E8573C; --coral-deep:#8E1B20;
+  --leaf:#4A9C5D; --leaf-deep:#2F5233;
+  --grape:#7c3aed; --pink:#E85D9A; --orange:#F28C28;
+  --cream:#fff8ea; --ink:#25324a;
+  --good:#22c55e; --bad:#ef4444;
+  --kce-navy:#0A1F3D; --kce-navyband:#0A2540; --kce-gold:#C9A84C; --kce-blue:#0047BA; --kce-red:#DB2F30;
+  --accent:#0F8B8D; --accent-deep:#0A5F60;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Quicksand',Arial,sans-serif;font-size:20px;line-height:1.5;color:var(--ink);
+  background:radial-gradient(circle at 6% 10%,rgba(242,140,40,.20) 0,transparent 40%),radial-gradient(circle at 94% 85%,rgba(124,58,237,.14) 0,transparent 42%),linear-gradient(180deg,#fff4e3 0%,#fff 100%);min-height:100vh;overflow-x:hidden}
+.kce-mast{background:var(--kce-navyband);display:flex;align-items:center;gap:12px;padding:12px 20px}
+.kce-mono{width:34px;height:34px;flex:none;border:2px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:15px}
+.kce-word{color:var(--kce-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;line-height:1}
+.kce-tag{font-size:7px;letter-spacing:2px;color:#fff;margin-top:3px;font-weight:700}
+.kce-tag .g{color:var(--kce-gold)} .kce-tag .r{color:var(--kce-red)}
+.kce-band{height:3px;display:flex}.kce-band i{flex:1}.kce-band .b1{background:var(--kce-blue)}.kce-band .b2{background:var(--kce-gold)}.kce-band .b3{background:var(--kce-red)}
+.stage{max-width:1180px;margin:0 auto;padding:18px 20px 40px}
+.hud{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--accent);border-radius:22px;padding:10px 18px;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.hud-brand{font-family:'Caprasimo',Georgia,serif;font-size:21px;color:var(--accent-deep)}
+.hud-stat{font-weight:700;font-size:18px;background:var(--cream);padding:6px 14px;border-radius:12px;border:2px solid var(--sun);color:#8a5a00}
+.hud-spacer{flex:1}
+.pill{border:none;border-radius:50px;padding:8px 16px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:13px;cursor:pointer}
+.pill.fr-toggle{background:#ede9fe;color:var(--grape)}
+.pill.star-btn{background:var(--sun);color:var(--kce-navy)}
+.namedate{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;font-family:Arial,sans-serif;font-size:15px;color:var(--kce-navy);background:#fff;border:2px dashed var(--kce-gold);border-radius:12px;padding:8px 16px}
+.namedate b{font-family:Georgia,serif}
+.progress{height:10px;background:#eee;border-radius:99px;margin-top:10px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--pink),var(--grape));transition:width .5s}
+.slide{display:none;background:#fff;border:3px solid var(--accent);border-radius:26px;padding:24px 28px;margin-top:14px;box-shadow:0 12px 34px rgba(0,0,0,.07);animation:slideIn .45s ease;position:relative}
+.slide.active{display:block}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.slide-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.slide-count{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:#7a869a;text-transform:uppercase;letter-spacing:1px}
+.minutes{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;background:#e0f2f1;color:var(--sky-deep);padding:4px 12px;border-radius:99px}
+.slide-title{font-family:'Caprasimo',Georgia,serif;font-size:36px;color:var(--accent-deep);text-align:center;line-height:1.15}
+.slide-sub{text-align:center;font-size:19px;color:#4b5563;margin-top:4px}
+.fr{color:#7c5cc4;font-style:italic;font-weight:500;font-size:.78em;display:block;margin-top:3px;line-height:1.35}
+body.hide-fr .fr{display:none!important}
+.goal{margin:18px auto 0;max-width:760px;background:linear-gradient(135deg,#fff3d6,#ffe4ef);border:3px solid var(--sun);border-radius:20px;padding:18px 22px;text-align:center}
+.goal .big{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--coral-deep)}
+.emoji-row{font-size:54px;text-align:center;margin:14px 0 4px;letter-spacing:8px}
+.how{max-width:760px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.how div{background:var(--cream);border-radius:16px;padding:12px 14px;font-size:17px;text-align:center;border:2px solid #f3dfb5}
+/* chat */
+.chat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:16px}
+.chat-card{border:3px solid var(--sky);border-radius:18px;padding:14px 16px;background:#f3fbfb;cursor:pointer;transition:transform .15s}
+.chat-card:hover{transform:translateY(-2px)}
+.chat-card h4{font-family:'Caprasimo',Georgia,serif;font-size:22px;color:var(--sky-deep);font-weight:400}
+.starters{display:none;margin-top:10px;gap:8px;flex-direction:column}
+.chat-card.open .starters{display:flex}
+.starter{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:8px 12px;font-weight:700;font-size:17px}
+.starter .fr{font-weight:500}
+.askback{display:inline-block;margin-top:8px;background:var(--sun);color:var(--kce-navy);font-weight:800;font-size:14px;padding:5px 12px;border-radius:99px;font-family:'Poppins',Arial,sans-serif}
+.tap-hint{font-size:14px;color:#7a869a;margin-top:6px}
+/* vocab */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:16px}
+.vcard{perspective:800px;height:170px;cursor:pointer}
+.vinner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.vcard.flip .vinner{transform:rotateY(180deg)}
+.vface{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center}
+.vfront{border:3px solid var(--orange);background:#fff7ed}
+.vfront .em{font-size:56px;line-height:1.1}
+.vfront .w{font-weight:800;font-size:19px;margin-top:6px}
+.vback{transform:rotateY(180deg);background:linear-gradient(135deg,#ede9fe,#fce7f3);border:3px solid var(--grape);font-size:16px}
+.vback .ex{font-weight:700;color:var(--ink)}
+/* wheel */
+.wheel-wrap{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:4px;padding:12px 4px 8px;overflow:hidden}
+.wheel-box{position:relative;width:420px;height:420px;max-width:90vw;max-height:90vw}
+.wheel-box canvas{width:100%;height:100%;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform 4.2s cubic-bezier(.12,.8,.2,1)}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-top:38px solid var(--kce-navy);z-index:2;filter:drop-shadow(0 3px 2px rgba(0,0,0,.3))}
+.hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:#fff;border:5px solid var(--kce-gold);display:flex;align-items:center;justify-content:center;font-size:30px;z-index:2}
+.wheel-q{flex:1;min-width:min(300px,100%);max-width:520px;background:linear-gradient(135deg,#fff3d6,#e0f2fe);border:3px solid var(--sun);border-radius:22px;padding:22px;text-align:center;min-height:200px;display:flex;flex-direction:column;justify-content:center}
+.wheel-q .q{font-family:'Caprasimo',Georgia,serif;font-size:27px;color:var(--kce-navy);line-height:1.25}
+.wheel-q .st{margin-top:10px;font-size:17px;font-weight:700;color:var(--sky-deep)}
+.big-btn{display:inline-block;border:none;border-radius:16px;padding:14px 28px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:18px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--orange),var(--coral));box-shadow:0 6px 16px rgba(232,87,60,.35)}
+.big-btn:disabled{opacity:.5;cursor:default}
+.center{text-align:center;margin-top:14px}
+/* builder */
+.builder-pic{font-size:64px;text-align:center;margin-top:10px}
+.builder-prompt{text-align:center;font-weight:700;font-size:19px}
+.answer-line{min-height:70px;border:3px dashed var(--grape);border-radius:16px;margin:14px 0;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:#faf5ff}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tile{border:3px solid var(--sky);background:#fff;border-radius:12px;padding:8px 14px;font-weight:800;font-size:20px;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.tile.used{visibility:hidden}
+.answer-line .tile{border-color:var(--grape);background:#fff}
+.row-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.sm-btn{border:none;border-radius:12px;padding:10px 18px;font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:15px;cursor:pointer;background:#e5e7eb;color:var(--ink)}
+.sm-btn.go{background:var(--leaf);color:#fff}
+.feedback{text-align:center;font-weight:800;font-size:19px;min-height:30px;margin-top:10px}
+.feedback.ok{color:#15803d}.feedback.no{color:#b91c1c}
+.round-tag{text-align:center;font-family:'Poppins',Arial,sans-serif;font-weight:700;color:#7a869a;font-size:14px;margin-top:6px}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+/* mcq */
+.mcq-scene{font-size:62px;text-align:center;margin-top:8px}
+.mcq-q{font-family:'Caprasimo',Georgia,serif;font-size:25px;color:var(--kce-navy);text-align:center;margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{border:3px solid var(--sky);background:#fff;border-radius:16px;padding:14px 16px;font-size:19px;font-weight:700;cursor:pointer;text-align:left;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.opt.right{background:#dcfce7;border-color:var(--good)}
+.opt.wrong{background:#fee2e2;border-color:var(--bad)}
+.explain{margin-top:12px;background:var(--cream);border-left:6px solid var(--sun);border-radius:12px;padding:12px 16px;font-size:18px;display:none}
+.explain.show{display:block}
+/* this or that */
+.tot-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:14px}
+.tot{border:3px solid var(--pink);background:#fff0f6;border-radius:20px;padding:18px;text-align:center;cursor:pointer;font-weight:800;font-size:20px;transition:transform .15s}
+.tot .em{font-size:52px;display:block}
+.tot.pick{background:var(--pink);color:#fff;transform:scale(1.04)}
+.tot.pick .fr{color:#fff}
+.vs{font-family:'Caprasimo',Georgia,serif;font-size:30px;color:var(--grape)}
+.say-box{margin-top:14px;text-align:center;background:#ecfeff;border:2px solid var(--sky);border-radius:14px;padding:12px;font-weight:700;font-size:19px}
+/* memory */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;max-width:760px;margin-left:auto;margin-right:auto}
+.mem{height:110px;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.12);padding:6px;user-select:none}
+.mem .face{display:none}
+.mem.open,.mem.done{background:#fff;color:var(--ink);border-color:var(--sky)}
+.mem.open .face,.mem.done .face{display:block}
+.mem.open .back,.mem.done .back{display:none}
+.mem.done{border-color:var(--good);background:#dcfce7}
+.mem .face.e{font-size:46px}
+/* true or silly */
+.tos-card{max-width:760px;margin:16px auto 0;background:linear-gradient(135deg,#fff7ed,#fef3c7);border:3px solid var(--orange);border-radius:22px;padding:22px;text-align:center}
+.tos-card .em{font-size:56px}
+.tos-card .st{font-family:'Caprasimo',Georgia,serif;font-size:26px;color:var(--kce-navy);margin-top:6px}
+.tos-btns{display:flex;gap:14px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.tos-btns button{min-width:170px}
+.btn-true{background:linear-gradient(135deg,#22c55e,#15803d)!important}
+.btn-silly{background:linear-gradient(135deg,#a855f7,#7c3aed)!important}
+/* sort */
+.sort-item{max-width:760px;margin:14px auto 0;background:#fff;border:3px solid var(--kce-navy);border-radius:18px;padding:16px;text-align:center;font-weight:800;font-size:22px}
+.buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.bucket{border-radius:18px;padding:14px;text-align:center;cursor:pointer;color:#fff;font-weight:800;font-size:19px;border:none;font-family:'Quicksand',Arial,sans-serif}
+.bucket small{display:block;font-weight:600;font-size:14px;opacity:.95;margin-top:4px}
+.bucket .cnt{display:block;font-size:14px;margin-top:6px;background:rgba(255,255,255,.25);border-radius:8px;padding:2px}
+.rule-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.rule{border-radius:16px;padding:12px 14px;color:#fff;font-size:17px}
+.rule b{font-size:20px;display:block}
+/* day plan */
+.plan-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.plan-col{border:3px solid var(--sun);border-radius:18px;padding:12px;background:#fffbeb}
+.plan-col h4{font-family:'Caprasimo',Georgia,serif;font-weight:400;font-size:21px;color:var(--sun-deep);text-align:center;margin-bottom:8px}
+.chip{display:block;width:100%;text-align:left;border:2px solid #f3dfb5;background:#fff;border-radius:12px;padding:8px 12px;margin-bottom:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'Quicksand',Arial,sans-serif;color:var(--ink)}
+.chip.sel{background:var(--sun);border-color:var(--sun-deep)}
+.story{margin-top:16px;background:linear-gradient(135deg,#e0f2fe,#ede9fe);border:3px solid var(--grape);border-radius:20px;padding:18px 22px;font-size:21px;font-weight:700;line-height:1.6;display:none}
+.story.show{display:block}
+.story .conn{color:var(--coral-deep)}
+/* talk */
+.check-list{max-width:760px;margin:16px auto 0;display:flex;flex-direction:column;gap:10px}
+.check{display:flex;align-items:center;gap:14px;border:3px solid var(--leaf);border-radius:16px;padding:12px 16px;background:#f0fdf4;cursor:pointer;font-weight:700;font-size:19px}
+.check .box{width:34px;height:34px;flex:none;border-radius:10px;border:3px solid var(--leaf);display:flex;align-items:center;justify-content:center;font-size:22px;background:#fff}
+.check.done{background:#bbf7d0}
+/* 2 truths */
+.ttl-list{max-width:760px;margin:14px auto 0;display:flex;flex-direction:column;gap:10px}
+/* victory */
+.victory{text-align:center;padding:10px}
+.medal{font-size:110px;line-height:1.1;margin-top:8px}
+.victory .score{font-family:'Caprasimo',Georgia,serif;font-size:34px;color:var(--accent-deep);margin-top:6px}
+.tiers{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.tiers div{background:var(--cream);border-radius:14px;padding:8px 14px;font-weight:700;font-size:16px;border:2px solid #f3dfb5}
+.tiers div.on{background:var(--sun);border-color:var(--sun-deep)}
+/* tutor */
+details.tutor{margin-top:18px;background:#f1f5f9;border-radius:12px;padding:8px 14px;font-size:15px;font-family:Arial,sans-serif;color:#334155}
+details.tutor summary{cursor:pointer;font-weight:700;color:var(--kce-navy)}
+details.tutor p{margin-top:6px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+.nav-btn{background:linear-gradient(135deg,var(--accent),var(--accent-deep));border:none;color:#fff;padding:13px 26px;border-radius:16px;font-family:'Poppins',Arial,sans-serif;font-size:16px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px}
+.nav-btn:disabled{opacity:.35;cursor:default}
+.nav-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.nav-dots button{width:14px;height:14px;border-radius:50%;border:none;background:#d1d5db;cursor:pointer;padding:0}
+.nav-dots button.on{background:var(--accent)}
+footer{margin-top:22px;text-align:center;font-family:Arial,sans-serif;font-size:12px;color:#64748b;line-height:1.6}
+footer .prov{color:var(--kce-navy);font-weight:700}
+.toast{position:fixed;left:50%;top:22px;transform:translateX(-50%) translateY(-120px);background:var(--kce-navy);color:#fff;padding:12px 22px;border-radius:14px;font-weight:800;font-size:19px;z-index:50;transition:transform .35s;font-family:'Poppins',Arial,sans-serif}
+.toast.show{transform:translateX(-50%) translateY(0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+@media(max-width:700px){.slide{padding:18px 14px}.wheel-q .q{font-size:22px}.slide-title{font-size:28px}.tot-row{grid-template-columns:1fr}.vs{text-align:center}.mem-grid{grid-template-columns:repeat(3,1fr)}.wheel-box{width:320px;height:320px}}
 </style>
 </head>
-<body class="notranslate" translate="no">
-
+<body class="notranslate " translate="no">
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
 <div class="kce-mast">
   <div class="kce-mono">KC</div>
   <div>
@@ -218,488 +204,328 @@
 
 <div class="stage">
   <div class="hud">
-    <div class="hud-brand" style="--_e:'🎒'">Hugo • L6</div>
-    <div class="hud-stat">🎯 <span id="accuracy">0</span> right</div>
-    <div class="hud-stat">⭐ <span id="stars">0</span></div>
-    <div class="hud-stat streak">🔥 <span id="streak">0</span></div>
-    <div class="xp-shell">
-      <div class="xp-fill" id="xpFill"></div>
-      <div class="xp-text"><span id="xpText">0</span> / 300 XP</div>
-    </div>
+    <div class="hud-brand" id="hudBrand"></div>
+    <div class="hud-stat">⭐ <span id="stars">0</span> stars</div>
+    <div class="hud-spacer"></div>
+    <button class="pill star-btn" id="starBtn" title="Tutor: tap for every full English sentence">+1 ⭐ Full sentence</button>
+    <button class="pill fr-toggle" id="frBtn">FR: ON</button>
+  </div>
+  <div class="namedate"><span><b>Name:</b> <span id="stuName"></span></span><span><b>Date:</b> <span id="today"></span></span><span><b>Lesson:</b> <span id="lessonName"></span></span></div>
+  <div class="progress"><i id="prog"></i></div>
+
+  <div id="slides"></div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn">◀ Back</button>
+    <div class="nav-dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn">Next ▶</button>
   </div>
 
-  <section class="slide active" data-slide="1">
-    <div class="slide-count">Slide 1 of 12</div>
-    <div class="slide-title">🎒 Teen Life: Europe vs. America</div>
-    <div class="bilingual">
-      <div class="lang-card">
-        <span class="lang-tag">English</span>
-        <p>Hi Hugo! Today: what's it actually like to be a teenager in France versus in America? School, freedom, rules — the differences are bigger than people think.</p>
-      </div>
-      <div class="lang-card fr">
-        <span class="lang-tag">Français</span>
-        <p>Salut Hugo! Aujourd'hui : à quoi ressemble vraiment la vie d'ado en France par rapport aux États-Unis? École, liberté, règles — les différences sont plus grandes qu'on ne le pense.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="2">
-    <div class="slide-count">Slide 2 of 12</div>
-    <div class="slide-title">🎤 Tell Me About Your Days</div>
-    <div class="connect-note">You live this every day — what actually stands out to you?</div>
-    <div class="elicit-card">
-      <h4>Tell me first</h4>
-      <div class="starter-row">
-        <div class="starter"><span class="en">"A typical school day for me looks like..."</span><span class="fr">"Une journée d'école typique pour moi ressemble à..."</span></div>
-        <div class="starter"><span class="en">"Something I have more freedom to do than American teens is..."</span><span class="fr">"Un truc pour lequel j'ai plus de liberté que les ados américains, c'est..."</span></div>
-        <div class="starter"><span class="en">"Something American teens seem to have that I don't is..."</span><span class="fr">"Un truc que les ados américains semblent avoir et que je n'ai pas, c'est..."</span></div>
-      </div>
-      <button class="hint-toggle" id="hintToggle1">Need vocabulary? Tap for help 💡</button>
-      <ul class="hint-facts" id="hintFacts1">
-        <li><strong>independence</strong> — being allowed to do things on your own. <span class="fr">l'indépendance.</span></li>
-        <li><strong>curfew</strong> — a time you have to be home by. <span class="fr">un couvre-feu.</span></li>
-        <li><strong>extracurricular</strong> — activities outside of regular school classes. <span class="fr">activité extrascolaire.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="3">
-    <div class="slide-count">Slide 3 of 12</div>
-    <div class="slide-title">⚡ This or That!</div>
-    <div class="slide-sub">Fast answers — no overthinking. / Réponses rapides — ne réfléchis pas trop.</div>
-    <div class="tot-cluster-label">🎒 Teen Life Instincts</div>
-    <div id="totRows1"></div>
-  </section>
-
-  <section class="slide" data-slide="4">
-    <div class="slide-count">Slide 4 of 12</div>
-    <div class="slide-title">🔭 Make a Prediction</div>
-    <div class="think-card">
-      <h4>Before you see the facts...</h4>
-      <div class="qtext">At what age do you think most French teens are legally allowed to go out with friends unsupervised at night — younger or older than in most of the US?</div>
-      <div class="qtext-fr">À quel âge penses-tu que la plupart des ados français sont légalement autorisés à sortir avec des amis sans surveillance le soir — plus jeune ou plus vieux qu'aux États-Unis?</div>
-      <div id="predictRow" style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;position:relative;z-index:1;"></div>
-      <div id="predictResult" style="margin-top:12px;font-size:14px;font-weight:700;color:var(--violet);display:none;position:relative;z-index:1;"></div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="5">
-    <div class="slide-count">Slide 5 of 12</div>
-    <div class="slide-title">🌍 Three Real Differences in Teen Life</div>
-    <div class="connect-note">Tap each card — not stereotypes, actual systems.</div>
-    <div class="stop-progress" id="stopProgress">0 / 3 explored</div>
-    <div class="map-track" id="mapTrack"></div>
-    <div class="stop-panel" id="stopPanel">
-      <div class="sp-placeholder">Tap a card above to begin! / Tape une carte pour commencer!</div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="6">
-    <div class="slide-count">Slide 6 of 12</div>
-    <div class="slide-title">🧠 Now Apply It</div>
-    <div class="slide-sub">Not the facts alone — what they actually mean.</div>
-    <div id="leagueMCQ"></div>
-  </section>
-
-  <section class="slide" data-slide="7">
-    <div class="slide-count">Slide 7 of 12</div>
-    <div class="slide-title">🔍 Spot the American High School Thing</div>
-    <div class="connect-note">Four of these are common in French teen life. One is a very American high school tradition that barely exists in France. Tap it.</div>
-    <div id="flagRow" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0;position:relative;z-index:1;"></div>
-    <div id="flagResult" style="display:none;margin-top:8px;position:relative;z-index:1;"></div>
-  </section>
-
-  <section class="slide" data-slide="8">
-    <div class="slide-count">Slide 8 of 12</div>
-    <div class="slide-title">🤔 Let's Think About This</div>
-    <div class="think-card">
-      <h4>The Big Question</h4>
-      <div class="qtext">American teen life (in movies, at least) is full of school dances, sports teams tied to the school, and driving at 16. French teen life looks very different. Which system do you think actually prepares teens better for adulthood — and is 'preparing for adulthood' even the right way to judge it?</div>
-      <div class="qtext-fr">La vie d'ado américaine (dans les films au moins) est pleine de bals scolaires, d'équipes sportives liées à l'école, et de conduite dès 16 ans. La vie d'ado française semble très différente. Quel système prépare mieux, selon toi, à l'âge adulte — et est-ce même le bon critère pour juger?</div>
-      <button class="hint-toggle" id="hintToggle2">Stuck? Tap for angles to consider 💡</button>
-      <ul class="hint-facts" id="hintFacts2">
-        <li><strong>Independence timing:</strong> French teens often get more unsupervised freedom earlier (public transit, cafés); American teens often get driving freedom earlier instead. <span class="fr">Les ados français ont souvent plus de liberté sans surveillance plus tôt; les ados américains ont souvent la liberté de conduire plus tôt.</span></li>
-        <li><strong>School vs. social life:</strong> American schools often ARE the social hub (sports, dances); French social life often happens more separately from school. <span class="fr">Les écoles américaines sont souvent le centre de la vie sociale; la vie sociale française se passe souvent plus à part de l'école.</span></li>
-        <li><strong>What 'ready' means:</strong> Different cultures value different skills as signs of being 'ready' — independence, responsibility, social confidence can all count differently. <span class="fr">Différentes cultures valorisent différentes compétences comme signes d'être 'prêt'.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="9">
-    <div class="slide-count">Slide 9 of 12</div>
-    <div class="slide-title">⚡ This or That!</div>
-    <div class="slide-sub">Comparing two perspectives. / Comparer deux perspectives.</div>
-    <div class="tot-cluster-label">🇫🇷 vs 🇺🇸 Teen Freedom</div>
-    <div id="totRows2"></div>
-  </section>
-
-  <section class="slide" data-slide="10">
-    <div class="slide-count">Slide 10 of 12</div>
-    <div class="slide-title">🎤 Your Turn to Argue!</div>
-    <div class="slide-sub">Pick your level with your teacher — argue your case out loud.</div>
-    <div class="connect-note">👩‍🏫 No clicking here — pick one tier together and have Hugo speak his answer out loud. Use the toolkit below as a starting point, not a script.</div>
-    <div class="toolkit">
-      <h4>🧰 Language Toolkit</h4>
-      <div class="toolkit-group">
-        <div class="tk-label">Comparing</div>
-        <div class="tk-phrase">"Unlike X, Y..." / "X is more... than Y because..."<span class="fr">"Contrairement à X, Y..." / "X est plus... que Y parce que..."</span></div>
-      </div>
-      <div class="toolkit-group">
-        <div class="tk-label">Cause & Effect</div>
-        <div class="tk-phrase">"This is because..." / "As a result..." / "This means that..."<span class="fr">"C'est parce que..." / "Par conséquent..." / "Cela signifie que..."</span></div>
-      </div>
-      <div class="toolkit-group">
-        <div class="tk-label">Giving an Opinion (with nuance)</div>
-        <div class="tk-phrase">"In my opinion..." / "Some people might say... but I'd argue..." / "While it's true that... I still think..."<span class="fr">"À mon avis..." / "Certains diraient... mais je pense que..." / "Même si c'est vrai que... je pense quand même que..."</span></div>
-      </div>
-    </div>
-    <div class="tiers">
-      <div class="tier silver">
-        <div class="tier-label">🥈 Silver Challenge</div>
-        <h4>Describe a typical day in your life as a French-American teen.</h4>
-        <p class="fr">Décris une journée typique de ta vie d'ado franco-américain.</p>
-      </div>
-      <div class="tier gold">
-        <div class="tier-label">🥇 Gold Challenge</div>
-        <h4>Compare one freedom French teens get earlier and one freedom American teens get earlier. Which would you rather have first?</h4>
-        <p class="fr">Compare une liberté que les ados français ont plus tôt et une que les ados américains ont plus tôt. Laquelle voudrais-tu avoir en premier?</p>
-      </div>
-      <div class="tier diamond">
-        <div class="tier-label">💎 Diamond Challenge</div>
-        <h4>Make your own argument: does more freedom earlier actually make teens more responsible, or does it just mean more freedom? Defend your answer with two reasons.</h4>
-        <p class="fr">Construis ton propre argument : plus de liberté plus tôt rend-il vraiment les ados plus responsables, ou est-ce juste plus de liberté? Défends ta réponse avec deux raisons.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="11">
-    <div class="slide-count">Slide 11 of 12</div>
-    <div class="slide-title">🎡 Bonus Round!</div>
-    <div class="slide-sub">Extra time? Spin for a totally different kind of question.</div>
-    <div class="wheel-embed-label">🎡 Tap to spin!</div>
-    <div id="spinResult" class="stop-panel" style="text-align:center;min-height:120px;display:flex;align-items:center;justify-content:center;">
-      <div class="sp-placeholder">Tap the button below to get your bonus question! / Appuie sur le bouton pour ta question bonus!</div>
-    </div>
-    <div style="text-align:center;margin-top:16px;position:relative;z-index:1;">
-      <button class="nav-btn" id="spinBtn" style="text-transform:none;letter-spacing:0;">🎡 Spin!</button>
-    </div>
-  </section>
-
-  <section class="slide" data-slide="12">
-    <div class="slide-count">Slide 12 of 12</div>
-    <div class="victory">
-      <h2>🎉 Well Argued, Hugo!</h2>
-      <p>Today you compared real systems behind teen life in two countries, spotted the very American high school tradition, and built your own argument about what actually prepares teens for adulthood — all in English!</p>
-      <p class="fr">Aujourd'hui, tu as comparé les vrais systèmes derrière la vie d'ado dans deux pays, repéré la tradition très américaine du lycée, et construit ton propre argument sur ce qui prépare vraiment les ados à l'âge adulte — tout en anglais!</p>
-      <div class="recap" id="recapBox"></div>
-    </div>
-  </section>
+  <footer>
+    KingCretot Experience, LLC · PO Box 2322, Arcadia, FL 34265 · kingcretot.com · kce@kingcretot.com<br>
+    <span class="prov">Approved Provider: Step Up For Students · Arizona ESA · West Virginia Hope Scholarship</span>
+  </footer>
 </div>
-<div class="nav-wrap-fixed">
-  <div class="nav-wrap">
-    <button class="nav-btn prev" id="prevBtn">◂ Back</button>
-    <div class="dots" id="dots"></div>
-    <button class="nav-btn" id="nextBtn">Next ▸</button>
-  </div>
-</div>
-<footer class="kce-foot">KingCretot Experience · Hugo · Lesson 6: Teen Life: Europe vs. America</footer>
 
 <script>
-const TOUR_STOPS = [{"icon": "🚇", "tag": "Independence", "label": "Public Transit Freedom", "en": "French teens in cities often ride public transit alone from a young age — the Paris metro doesn't require an adult, and many young teens commute to school this way.", "fr": "Les ados français en ville prennent souvent les transports en commun seuls dès un jeune âge — le métro parisien ne demande pas d'adulte, et beaucoup vont à l'école ainsi.", "fact": "American teens, especially outside big cities, often depend on parents driving or school buses well into their teenage years, since public transit is rare.", "factfr": "Les ados américains, surtout hors des grandes villes, dépendent souvent de leurs parents ou du bus scolaire, car les transports en commun sont rares."}, {"icon": "🚗", "tag": "Driving Age", "label": "16 vs. 18", "en": "Most US states allow driving at 16 — a huge independence milestone. In France, you can't drive unsupervised until 18 (17 with supervision), so cars come much later.", "fr": "La plupart des États américains autorisent la conduite dès 16 ans — une immense étape d'indépendance. En France, on ne peut pas conduire seul avant 18 ans (17 ans accompagné).", "fact": "This means American teen independence often centers on cars, while French teen independence centers more on walking, biking, and public transit.", "factfr": "Cela veut dire que l'indépendance des ados américains tourne souvent autour de la voiture, alors que celle des ados français tourne plus autour de la marche, du vélo et des transports."}, {"icon": "🏫", "tag": "School & Social Life", "label": "School Hub vs. Separate Worlds", "en": "American high schools are often the center of social life — sports teams, dances, clubs are all school-run. French schools focus mostly on academics; social life often happens outside, in separate clubs or with friends.", "fr": "Les lycées américains sont souvent le centre de la vie sociale — sports, bals, clubs sont gérés par l'école. Les écoles françaises se concentrent surtout sur l'académique; la vie sociale se passe souvent à part.", "fact": "This is part of why American 'school spirit' culture (mascots, pep rallies) barely exists in France — school and social identity are simply more separated.", "factfr": "C'est en partie pourquoi la culture américaine de 'l'esprit d'école' existe à peine en France — l'école et l'identité sociale sont plus séparées."}];
-const FB = {};
-let ac;
-function tone(freqs, durs){
-  try{
-    if(!ac) ac = new (window.AudioContext||window.webkitAudioContext)();
-    const now = ac.currentTime;
-    freqs.forEach((f,i)=>{
-      const o=ac.createOscillator(),g=ac.createGain();
-      o.type='triangle';o.frequency.value=f;
-      o.connect(g);g.connect(ac.destination);
-      const t0=now+i*0.09;
-      g.gain.setValueAtTime(0,t0);
-      g.gain.linearRampToValueAtTime(0.18,t0+0.02);
-      g.gain.exponentialRampToValueAtTime(0.001,t0+(durs[i]||0.25));
-      o.start(t0);o.stop(t0+(durs[i]||0.25));
+const L = {"brand": "Hugo • Lesson 6", "student": "Hugo Carreau", "lesson": "Lesson 6 — Teen Life: Europe vs. America", "slides": [{"type": "intro", "min": 2, "title": "🇫🇷 Teen Life: Europe vs. America 🇺🇸", "sub": "Welcome back! What did you REALLY do on break — and how is teen life different in the U.S.?", "subFr": "Bon retour ! Qu'est-ce que tu as VRAIMENT fait pendant les vacances — et en quoi la vie d'ado est-elle différente aux États-Unis ?", "emojis": "🇫🇷🏫🚌🍔🇺🇸", "goal": "I can say what I did on fall break and compare teen life in France and the U.S. with more / less … than, both, and while.", "goalFr": "Je peux raconter ce que j'ai fait pendant les vacances et comparer la vie d'ado en France et aux États-Unis avec more / less … than, both et while.", "how": [["⭐ Full sentence = star", "Phrase complète = étoile"], ["🧠 Pick the right comparison", "Choisis la bonne comparaison"], ["😎 Fool Jonathan with your fall break story", "Piège Jonathan avec ton histoire de vacances"]], "tutor": "First lesson back after Toussaint. In Lesson 5 he made predictions with going to / will / might — ask what really happened (past simple). Watch irregular verbs (went, ate, saw, bought, slept). FR helper lines start OFF — turn them on only if he's stuck."}, {"type": "chat", "min": 4, "title": "💬 Welcome Back Chat", "sub": "Tap a question for answer starters. After each answer, ask Jonathan back: “And you?” / “How about you?”", "subFr": "Touche une question pour des débuts de réponse. Après chaque réponse, pose la question à Jonathan : « And you? » / « How about you? »", "items": [{"q": "Hey Hugo, welcome back! How are you today?", "fr": "Salut Hugo, bon retour ! Comment ça va aujourd'hui ?", "starters": [["I'm good, thanks! A little tired because…", "Ça va, merci ! Un peu fatigué parce que…"], ["Pretty good! I'm happy to be back. How about you?", "Plutôt bien ! Je suis content d'être de retour. Et toi ?"]]}, {"q": "How was your fall break? What was the best part?", "fr": "C'était comment, tes vacances ? Quel a été le meilleur moment ?", "starters": [["It was awesome! The best part was when I…", "C'était génial ! Le meilleur moment, c'est quand j'ai…"], ["It was OK. I mostly stayed home and…", "C'était bien. Je suis surtout resté à la maison et j'ai…"]]}, {"q": "Before the break, you made predictions. Did they come true?", "fr": "Avant les vacances, tu as fait des prédictions. Elles se sont réalisées ?", "starters": [["I said I was going to…, and I did!", "J'avais dit que j'allais…, et je l'ai fait !"], ["I thought I would…, but actually I…", "Je pensais que j'allais…, mais en fait j'ai…"]]}, {"q": "Was there anything you wanted to do but didn't?", "fr": "Il y a quelque chose que tu voulais faire mais que tu n'as pas fait ?", "starters": [["Yes — I didn't… because…", "Oui — je n'ai pas… parce que…"], ["No, I did everything! I even…", "Non, j'ai tout fait ! J'ai même…"], ["I wanted to…, but it rained.", "Je voulais…, mais il a plu."]]}], "tutor": "Make him ask you back after EVERY question — that's the target skill. For the predictions question, remind him of 1–2 things he said in Lesson 5 (sleep in, stay up late, sleepover…). Push for 'I thought I would…, but…'."}, {"type": "vocab", "min": 5, "title": "🏫 American Teen Life Vocabulary", "sub": "Tap to flip. Read the example, then say if it's the same or different in France!", "subFr": "Touche pour retourner. Lis l'exemple, puis dis si c'est pareil ou différent en France !", "items": [{"e": "🏫", "w": "middle school", "ex": "In the U.S., middle school is usually sixth to eighth grade.", "fr": "le collège"}, {"e": "🔢", "w": "grade", "ex": "Hugo's class in France is like seventh grade in the U.S.", "fr": "la classe / le niveau (aussi : une note)"}, {"e": "🔔", "w": "homeroom", "ex": "We start every morning in homeroom for attendance.", "fr": "la classe du matin (où on fait l'appel)"}, {"e": "🔐", "w": "locker", "ex": "I keep my books and my jacket in my locker.", "fr": "le casier"}, {"e": "🍱", "w": "cafeteria", "ex": "We only have thirty minutes to eat in the cafeteria.", "fr": "la cantine"}, {"e": "🚌", "w": "school bus", "ex": "The yellow school bus picks me up at 7:15.", "fr": "le car scolaire"}, {"e": "🎭", "w": "after-school club", "ex": "I joined the robotics club, an after-school club.", "fr": "un club / une activité après les cours"}, {"e": "💵", "w": "allowance", "ex": "My parents give me an allowance of ten dollars a week.", "fr": "l'argent de poche"}, {"e": "🧹", "w": "chores", "ex": "My chores are taking out the trash and walking the dog.", "fr": "les tâches ménagères"}, {"e": "🕘", "w": "curfew", "ex": "On weekends, my curfew is 10 p.m.", "fr": "l'heure limite pour rentrer"}, {"e": "📱", "w": "screen time", "ex": "My parents limit my screen time on school nights.", "fr": "le temps d'écran"}, {"e": "🚗", "w": "driver's license", "ex": "In many U.S. states, teens can get a driver's license at 16.", "fr": "le permis de conduire"}], "tutor": "After each card ask: 'Same or different in France?' and make him answer with a comparison (more/less … than, both, while). Pronunciation: 'chores' (one syllable), 'curfew' (KUR-fyoo)."}, {"type": "wheel", "min": 6, "title": "🎡 Spin the Teen Life Wheel!", "sub": "Spin, then answer with at least TWO sentences — one can be a comparison!", "subFr": "Fais tourner, puis réponds avec au moins DEUX phrases — l'une peut être une comparaison !", "hub": "🇺🇸", "items": [{"e": "🏫", "q": "What's one thing about American schools you'd like to try? Why?", "st": "I'd like to try… because…", "fr": "Quelle chose des écoles américaines aimerais-tu essayer ? Pourquoi ?"}, {"e": "🗓️", "q": "What's one thing you did on break that you'll remember for a long time?", "st": "I'll always remember when I…", "fr": "Quelle chose faite pendant les vacances vas-tu garder longtemps en mémoire ?"}, {"e": "🍱", "q": "What did you eat for lunch at school this week? Was it good?", "st": "I had… It was…", "fr": "Qu'as-tu mangé à la cantine cette semaine ? C'était bon ?"}, {"e": "💵", "q": "Do you get an allowance? What did you buy with your last money?", "st": "I get… / The last thing I bought was…", "fr": "Tu as de l'argent de poche ? Qu'as-tu acheté avec ton dernier argent ?"}, {"e": "🧹", "q": "Which chores do you do at home? Which one do you hate the most?", "st": "I usually… The worst one is…", "fr": "Quelles tâches fais-tu à la maison ? Laquelle détestes-tu le plus ?"}, {"e": "🕘", "q": "Should 12-year-olds have a curfew? What time is fair?", "st": "I think… is fair because…", "fr": "Les ados de 12 ans devraient-ils avoir une heure limite ? Quelle heure est juste ?"}, {"e": "📱", "q": "Is your screen time more or less than your parents'? Be honest!", "st": "Honestly, my screen time is more / less than…", "fr": "Ton temps d'écran est-il plus ou moins long que celui de tes parents ? Sois honnête !"}, {"e": "🎮", "q": "What was the best game, movie, or show you discovered on break?", "st": "The best one was… because…", "fr": "Quel est le meilleur jeu, film ou série que tu as découvert pendant les vacances ?"}, {"e": "🗽", "q": "Do American teens have more freedom than French teens? Why do you think so?", "st": "I think they have more / less freedom because…", "fr": "Les ados américains ont-ils plus de liberté que les ados français ? Pourquoi ?"}, {"e": "🍔", "q": "What's an American food you love, and one you'd never eat?", "st": "I love…, but I'd never eat…", "fr": "Quel plat américain adores-tu, et lequel ne mangerais-tu jamais ?"}, {"e": "⚽", "q": "In the U.S., teens often play sports for their school. In France, it's usually a club. Which is better?", "st": "I think it's better to… because…", "fr": "Aux États-Unis, les ados font souvent du sport avec leur école. En France, plutôt en club. C'est quoi le mieux ?"}, {"e": "🧳", "q": "Did you sleep more or less than usual on break? Why?", "st": "I slept a lot more / less because…", "fr": "As-tu dormi plus ou moins que d'habitude pendant les vacances ? Pourquoi ?"}], "tutor": "New questions — none from Lesson 5. Push for one comparison in every answer. If he says 'more good,' stop and fix: 'better.'"}, {"type": "sort", "min": 5, "title": "🧠 Which Comparison Fits?", "sub": "Read the facts and the word in ( ). Which comparison do you need?", "subFr": "Lis les faits et le mot entre ( ). De quelle comparaison as-tu besoin ?", "how": "Look at the word in ( ): short word → -ER than · long word → MORE … than · the same in both countries → BOTH / AS … AS", "howFr": "Regarde le mot entre ( ) : mot court → -ER than · mot long → MORE … than · pareil dans les deux pays → BOTH / AS … AS", "buckets": [{"name": "📏 -ER than", "rule": "Short word: one syllable, or two syllables ending in -y.", "fr": "Mot court : une syllabe, ou deux syllabes finissant par -y.", "ex": "American summer vacation is longer than French summer vacation.", "c": "#0F8B8D"}, {"name": "📐 MORE … than", "rule": "Longer word: two syllables or more (not ending in -y).", "fr": "Mot plus long : deux syllabes ou plus (sauf en -y).", "ex": "Soccer is more popular in France than in the U.S.", "c": "#7c3aed"}, {"name": "🤝 BOTH / AS … AS", "rule": "It's the same in both countries.", "fr": "C'est pareil dans les deux pays.", "ex": "Both French and American teens love video games.", "c": "#E8573C"}], "items": [{"s": "🇫🇷 School often ends around 5 p.m. · 🇺🇸 School often ends around 3 p.m. → American school days end ___ (early) than French ones.", "b": 0, "why": "“Early” ends in -y → earlier than.", "fr": "", "whyFr": "« 🇫🇷 Les cours finissent souvent vers 17 h · 🇺🇸 vers 15 h → Les journées américaines finissent plus tôt que les françaises. » « Early » finit par -y → earlier than."}, {"s": "🇺🇸 Universities often cost tens of thousands of dollars a year · 🇫🇷 Public universities cost a few hundred euros → American universities are much ___ (expensive).", "b": 1, "why": "“Expensive” has three syllables → more expensive than.", "fr": "", "whyFr": "« 🇺🇸 L'université coûte souvent des dizaines de milliers de dollars par an · 🇫🇷 La fac publique coûte quelques centaines d'euros → Les universités américaines sont beaucoup plus chères. » « Expensive » a trois syllabes → more expensive than."}, {"s": "🇫🇷 and 🇺🇸: Kids start first grade (CP) at about age 6 → Kids start first grade at the same age in ___ countries.", "b": 2, "why": "It's the same in France and the U.S. → both.", "fr": "", "whyFr": "« 🇫🇷 et 🇺🇸 : Les enfants entrent en CP vers 6 ans → Les enfants entrent en CP au même âge dans les deux pays. » C'est pareil en France et aux États-Unis → both."}, {"s": "🇺🇸 Summer vacation: often 10–11 weeks · 🇫🇷 Summer vacation: about 8 weeks → American summer vacation is ___ (long) than French summer vacation.", "b": 0, "why": "“Long” has one syllable → longer than.", "fr": "", "whyFr": "« 🇺🇸 Les grandes vacances : souvent 10 à 11 semaines · 🇫🇷 environ 8 semaines → Les vacances d'été américaines sont plus longues que les françaises. » « Long » a une syllabe → longer than."}, {"s": "🇫🇷 Many middle schoolers have Wednesday afternoons off · 🇺🇸 No afternoon off → A French Wednesday is ___ (relaxed) than an American one.", "b": 1, "why": "Careful! “Relaxed” has two syllables and doesn't end in -y → more relaxed than.", "fr": "", "whyFr": "« 🇫🇷 Beaucoup de collégiens n'ont pas cours le mercredi après-midi · 🇺🇸 Pas d'après-midi libre → Un mercredi français est plus détendu qu'un mercredi américain. » Attention ! « Relaxed » a deux syllabes et ne finit pas par -y → more relaxed than."}, {"s": "🇫🇷 and 🇺🇸: Lots of teens play video games and use social media → Teens in ___ countries spend a lot of time on screens.", "b": 2, "why": "Same habit in France and the U.S. → both.", "fr": "", "whyFr": "« 🇫🇷 et 🇺🇸 : Beaucoup d'ados jouent aux jeux vidéo et vont sur les réseaux sociaux → Les ados des deux pays passent beaucoup de temps sur les écrans. » Même habitude en France et aux États-Unis → both."}, {"s": "🇺🇸 After school: practice, clubs, homework · 🇫🇷 Wednesday afternoon free → On Wednesdays, American students are ___ (busy) than French students.", "b": 0, "why": "“Busy” has two syllables but ends in -y → busier than (y → i).", "fr": "", "whyFr": "« 🇺🇸 Après les cours : entraînement, clubs, devoirs · 🇫🇷 Mercredi après-midi libre → Le mercredi, les élèves américains sont plus occupés que les élèves français. » « Busy » a deux syllabes mais finit par -y → busier than (y → i)."}, {"s": "🇫🇷 Soccer is the #1 sport · 🇺🇸 Soccer is behind football, basketball, and baseball → Soccer is ___ (popular) in France than in the U.S.", "b": 1, "why": "“Popular” has three syllables → more popular than.", "fr": "", "whyFr": "« 🇫🇷 Le foot est le sport n°1 · 🇺🇸 Le foot est derrière le football américain, le basket et le baseball → Le foot est plus populaire en France qu'aux États-Unis. » « Popular » a trois syllabes → more popular than."}, {"s": "🇫🇷 and 🇺🇸: The school year starts in late August or early September → The school year starts ___ (early) in France as in the U.S. — about the same time!", "b": 2, "why": "Trap! It's the SAME time → “as early as” (not “earlier than”).", "fr": "", "whyFr": "« 🇫🇷 et 🇺🇸 : L'année scolaire commence fin août ou début septembre → L'année scolaire commence aussi tôt en France qu'aux États-Unis — à peu près en même temps ! » Piège ! C'est PAREIL → « as early as » (pas « earlier than »)."}, {"s": "🇺🇸 You can drive at 16 in many states · 🇫🇷 You can drive alone at 17 → Many American teens start driving at a ___ (young) age than French teens.", "b": 0, "why": "“Young” has one syllable → younger than.", "fr": "", "whyFr": "« 🇺🇸 On peut conduire à 16 ans dans beaucoup d'États · 🇫🇷 On peut conduire seul à 17 ans → Beaucoup d'ados américains commencent à conduire plus jeunes que les ados français. » « Young » a une syllabe → younger than."}, {"s": "🇺🇸 The bright yellow school bus is in tons of movies and shows · 🇫🇷 School buses look like normal buses → The American school bus is ___ (famous) than the French one.", "b": 1, "why": "“Famous” has two syllables and doesn't end in -y → more famous than.", "fr": "", "whyFr": "« 🇺🇸 Le car scolaire jaune est dans plein de films et de séries · 🇫🇷 Les cars scolaires ressemblent à des cars normaux → Le car scolaire américain est plus célèbre que le français. » « Famous » a deux syllabes et ne finit pas par -y → more famous than."}], "hint": "Clue words: count the syllables! young, long → -er · busy, early (ending in -y) → -ier · popular, expensive, relaxed, famous → more · “same,” “both,” “and” in the facts → both / as … as", "hintFr": "Indice : compte les syllabes ! young, long → -er · busy, early (en -y) → -ier · popular, expensive, relaxed, famous → more · « same », « both », « and » dans les faits → both / as … as", "doneMsg": "🏆 Nice! Now make your OWN sentences: one with -er than, one with more … than, and one with both — about France and the U.S.", "doneMsgFr": "🏆 Bravo ! Maintenant, fais TES phrases : une avec -er than, une avec more … than et une avec both — sur la France et les États-Unis.", "tutor": "Make him SAY the full sentence with the right form each time (earlier, more expensive, as early as…). Item 9 is the trap: same time → as … as. Then ask for his own three sentences."}, {"type": "builder", "min": 5, "title": "🧩 Sentence Builder Pro", "sub": "Tap the words in the right order. Then say it like you mean it!", "subFr": "Touche les mots dans le bon ordre. Puis dis-le avec conviction !", "rounds": [{"e": "😴⏰", "p": "Prediction vs. reality: sleep in — got up early", "fr": "Prédiction ou réalité : faire la grasse matinée — levé tôt", "a": "I thought I would sleep in, but I got up early.", "afr": "Je pensais faire la grasse matinée, mais je me suis levé tôt."}, {"e": "🏚️🌧️", "p": "Didn't: haunted house — because of the rain", "fr": "Pas fait : maison hantée — à cause de la pluie", "a": "We didn't go to the haunted house because it rained.", "afr": "On n'est pas allés à la maison hantée parce qu'il a plu."}, {"e": "🕔🏫", "p": "Compare: French school days — American ones", "fr": "Comparer : journées d'école françaises — américaines", "a": "French school days are longer than American school days.", "afr": "Les journées d'école françaises sont plus longues que les journées américaines."}, {"e": "⚽🇺🇸", "p": "Less … than: soccer — the U.S. — France", "fr": "Less … than : le foot — les États-Unis — la France", "a": "Soccer is less popular in the U.S. than in France.", "afr": "Le foot est moins populaire aux États-Unis qu'en France."}, {"e": "🎮🤝", "p": "Both: French and American teens — video games", "fr": "Both : ados français et américains — jeux vidéo", "a": "Both French and American teens play a lot of video games.", "afr": "Les ados français et américains jouent tous beaucoup aux jeux vidéo."}, {"e": "🛋️📚", "p": "My break — more relaxing — first weeks of school", "fr": "Mes vacances — plus reposantes — premières semaines d'école", "a": "My break was more relaxing than my first weeks of school.", "afr": "Mes vacances ont été plus reposantes que mes premières semaines d'école."}], "tutor": "First try = 2 ⭐. After each one, have him change it so it's true for HIM (his real break, his real school)."}, {"type": "mcq", "min": 5, "title": "🛠️ Fix the Mistake!", "sub": "French speakers often make these mistakes. Which sentence is correct in American English?", "subFr": "Les francophones font souvent ces erreurs. Quelle phrase est correcte en anglais américain ?", "items": [{"e": "🏃", "q": "Which one is correct?", "fr": "Laquelle est correcte ?", "o": ["I goed to my grandma's house on Tuesday.", "I went to my grandma's house on Tuesday.", "I was go to my grandma's house on Tuesday."], "ofr": ["Je suis allé chez ma grand-mère mardi.", "Je suis allé chez ma grand-mère mardi.", "Je suis allé chez ma grand-mère mardi."], "c": 1, "why": "“Go” is irregular: go → went.", "whyFr": "« Go » est irrégulier : go → went.", "no": {"0": "“Goed” doesn't exist — go is irregular: went.", "2": "“Was go” mixes two forms. Just say “went.”"}}, {"e": "🍫", "q": "Your break was great — even better than school! Which is correct?", "fr": "Tes vacances étaient géniales — encore mieux que l'école ! Laquelle est correcte ?", "o": ["My break was more better than school.", "My break was more good than school.", "My break was better than school."], "ofr": ["Mes vacances étaient mieux que l'école.", "Mes vacances étaient mieux que l'école.", "Mes vacances étaient mieux que l'école."], "c": 2, "why": "“Good” is irregular: good → better → the best. Never “more better.”", "whyFr": "« Good » est irrégulier : good → better → the best. Jamais « more better ».", "no": {"0": "“Better” already means “more good.” Don't add “more.”", "1": "“Good” is irregular — its comparative is “better.”"}}, {"e": "❓", "q": "How do you ask Jonathan about his break?", "fr": "Comment demander à Jonathan s'il est parti pendant les vacances ?", "o": ["Did you go anywhere?", "Did you went anywhere?", "Do you went anywhere?"], "ofr": ["Tu es parti quelque part ?", "Tu es parti quelque part ?", "Tu es parti quelque part ?"], "c": 0, "why": "After “did,” use the base verb: did + go.", "whyFr": "Après « did », on met le verbe de base : did + go.", "no": {"1": "“Did” already shows the past, so the verb stays “go,” not “went.”", "2": "“Do” is present and “went” is past — they don't match."}}, {"e": "🕐", "q": "Which comparison is correct?", "fr": "Quelle comparaison est correcte ?", "o": ["Lunch in France is longer that in the U.S.", "Lunch in France is longer than in the U.S.", "Lunch in France is more long than in the U.S."], "ofr": ["Le déjeuner en France est plus long qu'aux États-Unis.", "Le déjeuner en France est plus long qu'aux États-Unis.", "Le déjeuner en France est plus long qu'aux États-Unis."], "c": 1, "why": "Comparisons use “than” (= que). “Long” is a short word → longer.", "whyFr": "Les comparaisons utilisent « than » (= que). « Long » est un mot court → longer.", "no": {"0": "“That” isn't “than.” For comparisons, always use “than.”", "2": "“Long” is a short word: just add -er → longer."}}, {"e": "🤝", "q": "Which one is correct?", "fr": "Laquelle est correcte ?", "o": ["Both of countries love pizza.", "The both countries love pizza.", "Both countries love pizza."], "ofr": ["Les deux pays adorent la pizza.", "Les deux pays adorent la pizza.", "Les deux pays adorent la pizza."], "c": 2, "why": "Say “both + plural noun” — or “both of the countries.”", "whyFr": "On dit « both + nom au pluriel » — ou « both of the countries ».", "no": {"0": "With “of,” you need “the”: “both of the countries.”", "1": "Never put “the” before “both” (« les deux » ≠ « the both »)."}}, {"e": "⏪", "q": "You came back from vacation on Saturday. Today is Monday. Which is correct?", "fr": "Tu es rentré de vacances samedi. On est lundi. Laquelle est correcte ?", "o": ["I came back two days ago.", "I came back there are two days.", "I came back since two days."], "ofr": ["Je suis rentré il y a deux jours.", "Je suis rentré il y a deux jours.", "Je suis rentré il y a deux jours."], "c": 0, "why": "“Il y a + time” = “… ago,” and “ago” comes AFTER the time: two days ago.", "whyFr": "« Il y a + durée » = « … ago », et « ago » se met APRÈS : two days ago.", "no": {"1": "That's French word for word (il y a). In English: “two days ago.”", "2": "“Since” needs a starting point (since Saturday) — it doesn't mean “il y a.”"}}], "tutor": "Ask him to say the correct sentence out loud, then make a new one using the same rule (another irregular verb, another comparison, another '… ago')."}, {"type": "tot", "min": 4, "title": "⚖️ Would You Rather? France vs. America", "sub": "Pick one — and defend your choice with a comparison!", "subFr": "Choisis — et défends ton choix avec une comparaison !", "frame": "I'd rather… because it's more / less … than… / The problem with the other one is…", "frameFr": "Je préférerais… parce que c'est plus / moins … que… / Le problème avec l'autre, c'est…", "items": [{"a": ["🚌", "Ride a yellow school bus every day", "Prendre le car scolaire jaune tous les jours"], "b": ["🚲", "Bike to school every day, rain or shine", "Aller à l'école à vélo tous les jours, qu'il pleuve ou qu'il vente"]}, {"a": ["🍱", "30-minute lunch and finish school at 3 p.m.", "30 minutes pour déjeuner et finir l'école à 15 h"], "b": ["🥖", "Two-hour lunch and finish school at 5 p.m.", "Deux heures pour déjeuner et finir l'école à 17 h"]}, {"a": ["🏈", "Watch a Friday night high school football game", "Assister à un match de football américain de lycée le vendredi soir"], "b": ["⚽", "Watch a PSG match at the Parc des Princes", "Assister à un match du PSG au Parc des Princes"]}, {"a": ["💵", "A big allowance, but lots of chores", "Beaucoup d'argent de poche, mais plein de tâches ménagères"], "b": ["🛋️", "No allowance and no chores", "Pas d'argent de poche et pas de tâches"]}, {"a": ["🌞", "An 11-week summer vacation, but no Wednesday afternoons off", "11 semaines de vacances d'été, mais pas de mercredi après-midi libre"], "b": ["📅", "An 8-week summer vacation, plus Wednesday afternoons off", "8 semaines de vacances d'été, plus le mercredi après-midi libre"]}, {"a": ["🔐", "Your own locker at school", "Ton propre casier à l'école"], "b": ["🎒", "No locker, but a lighter schedule", "Pas de casier, mais un emploi du temps plus léger"]}], "tutor": "Every answer needs one comparison (longer, more fun, less tiring…). Challenge him to argue the OTHER side for one round."}, {"type": "tos", "min": 3, "title": "🇺🇸 True or Silly? American School Life", "sub": "Real fact about American teens — or totally silly?", "subFr": "Vrai fait sur les ados américains — ou complètement faux ?", "items": [{"e": "🏈", "s": "Many American high schools have their own football stadium and marching band.", "fr": "Beaucoup de lycées américains ont leur propre stade de football américain et leur fanfare.", "t": true, "why": "Friday night high school football games are a big tradition in many U.S. towns.", "whyFr": "Les matchs de football américain des lycées le vendredi soir sont une grande tradition dans beaucoup de villes."}, {"e": "🍱", "s": "American students usually have a two-hour lunch break.", "fr": "Les élèves américains ont en général deux heures de pause déjeuner.", "t": false, "why": "U.S. school lunch usually lasts about 20 to 30 minutes — much shorter than in France!", "whyFr": "Le déjeuner dans les écoles américaines dure en général 20 à 30 minutes — bien moins qu'en France !"}, {"e": "💃", "s": "Prom is a big formal dance for high school students, usually in the spring.", "fr": "Le « prom » est un grand bal de fin d'année pour les lycéens, en général au printemps.", "t": true, "why": "Students dress up in suits and gowns. It's a huge event in American high schools.", "whyFr": "Les élèves mettent costumes et robes de soirée. C'est un énorme événement dans les lycées américains."}, {"e": "📅", "s": "American students usually go to school on Saturday mornings.", "fr": "Les élèves américains vont en général à l'école le samedi matin.", "t": false, "why": "U.S. schools are closed on weekends. School is Monday to Friday.", "whyFr": "Les écoles américaines sont fermées le week-end. L'école, c'est du lundi au vendredi."}, {"e": "🎓", "s": "American students take the bac at the end of high school.", "fr": "Les élèves américains passent le bac à la fin du lycée.", "t": false, "why": "The bac is French! In the U.S., students earn a high school diploma, and many take the SAT or ACT for college.", "whyFr": "Le bac, c'est français ! Aux États-Unis, on obtient un « high school diploma », et beaucoup passent le SAT ou l'ACT pour l'université."}, {"e": "🚌", "s": "U.S. school buses are yellow so other drivers can see them easily.", "fr": "Les cars scolaires américains sont jaunes pour que les autres conducteurs les voient facilement.", "t": true, "why": "That yellow-orange color is easy to see, even early in the morning or in bad weather.", "whyFr": "Ce jaune-orangé se voit très bien, même tôt le matin ou par mauvais temps."}, {"e": "🔢", "s": "In the U.S., twelfth grade is the last year of high school.", "fr": "Aux États-Unis, la « twelfth grade » est la dernière année du lycée.", "t": true, "why": "Students in twelfth grade are called seniors. In France, that's terminale.", "whyFr": "Les élèves de « twelfth grade » s'appellent les « seniors ». En France, c'est la terminale."}], "done": "🇺🇸 You know American school life!", "doneFr": "🇺🇸 Tu connais la vie scolaire américaine !", "tutor": "After each answer: 'Is it the same in France?' — make him answer with both / while / more … than."}, {"type": "plan", "min": 4, "title": "🗓️ My Day as an American Teen (Yesterday!)", "sub": "Choose one for each part. Read the story in the PAST — then tell it with your OWN words!", "subFr": "Choisis une option par moment. Lis l'histoire au PASSÉ — puis raconte-la avec TES mots !", "parts": [{"icon": "🌅", "label": "Morning", "fr": "Le matin", "conn": "In the morning, I", "connFr": "Le matin, j'ai", "opts": [["🚌", "took the yellow school bus to school.", "pris le car scolaire jaune pour aller à l'école."], ["🚲", "rode my bike to school with my friends.", "fait le trajet à vélo avec mes amis."], ["🔐", "grabbed my books from my locker before homeroom.", "récupéré mes livres dans mon casier avant l'appel."], ["🚗", "got a ride to school from my older cousin.", "été emmené à l'école en voiture par mon cousin plus âgé."]]}, {"icon": "🍱", "label": "Lunch", "fr": "Le déjeuner", "conn": "At lunch, I", "connFr": "Au déjeuner, j'ai", "opts": [["🍕", "ate pizza in the cafeteria with my friends.", "mangé de la pizza à la cantine avec mes amis."], ["🍪", "traded snacks with my best friend.", "échangé mes goûters avec mon meilleur ami."], ["🏀", "played basketball in the gym.", "joué au basket dans le gymnase."], ["⚽", "talked about soccer the whole time.", "parlé de foot tout le temps."]]}, {"icon": "🏫", "label": "After school", "fr": "Après les cours", "conn": "After school, I", "connFr": "Après les cours, j'ai", "opts": [["🤖", "went to robotics club.", "participé au club de robotique."], ["⚽", "had soccer practice with the school team.", "eu entraînement de foot avec l'équipe de l'école."], ["🧹", "did my chores and got my allowance.", "fait mes tâches et reçu mon argent de poche."], ["🏈", "watched the football game at the stadium.", "regardé le match de football américain au stade."]]}, {"icon": "🌙", "label": "That night", "fr": "Le soir", "conn": "That night, I", "connFr": "Le soir, j'ai", "opts": [["📚", "finished my homework before dinner.", "fini mes devoirs avant le dîner."], ["📞", "called my cousin in France.", "appelé mon cousin en France."], ["🎮", "played video games until bedtime.", "joué aux jeux vidéo jusqu'à l'heure du coucher."], ["🥞", "had pancakes for dinner — breakfast for dinner!", "mangé des pancakes au dîner — le petit-déj au dîner !"]]}], "tutor": "All past simple — check irregulars (took, rode, ate, had, got). Then ask: 'Is that day more fun or less fun than YOUR day in France? Why?' and have him retell it, changing two parts."}, {"type": "ttl", "min": 4, "title": "😎 Two Truths and a Lie", "sub": "Practice round first — find Jake's lie!", "subFr": "D'abord un entraînement — trouve le mensonge de Jake !", "example": {"who": "Jake, 13, from Ohio", "lines": ["At my school, our lunch break lasts two hours every day.", "During fall break, I visited my cousins in Chicago.", "My parents raised my allowance to fifteen dollars a week."], "linesFr": ["Dans mon école, la pause déjeuner dure deux heures tous les jours.", "Pendant les vacances d'automne, je suis allé voir mes cousins à Chicago.", "Mes parents ont augmenté mon argent de poche à quinze dollars par semaine."], "lie": 0, "why": "A two-hour lunch at an American school? No way — it's usually about 30 minutes. That's the lie!", "whyFr": "Deux heures de pause déjeuner dans une école américaine ? Impossible — c'est plutôt 30 minutes. C'est le mensonge !"}, "turn": "Your turn! Tell Jonathan 3 things you did on fall break — 2 true, 1 lie. Use the past simple!", "turnFr": "À toi ! Raconte à Jonathan 3 choses que tu as faites pendant les vacances — 2 vraies, 1 fausse. Utilise le prétérit !", "tutor": "Guess, then tap. Ask follow-up questions to catch the lie ('Where exactly? Who was there?'). Swap: you tell him 3 about YOUR break."}, {"type": "talk", "min": 3, "title": "🎤 Big Talk Challenge", "sub": "Talk for one minute: your break + France vs. the U.S. Can you check all six?", "subFr": "Parle une minute : tes vacances + la France et les États-Unis. Peux-tu tout cocher ?", "items": [["Say three things you DID on break (past simple).", "Dis trois choses que tu as FAITES pendant les vacances (prétérit)."], ["Compare a prediction with reality: “I thought I would…, but…”", "Compare une prédiction et la réalité : « I thought I would…, but… »"], ["Use one -er than comparison.", "Utilise une comparaison en -er than."], ["Use more … than or less … than.", "Utilise more … than ou less … than."], ["Use both or while to compare France and the U.S.", "Utilise both ou while pour comparer la France et les États-Unis."], ["Ask Jonathan two questions about HIS break.", "Pose deux questions à Jonathan sur SES vacances."]], "tutor": "Tap each line when he does it (+1 ⭐). Let him talk without interrupting; note 2–3 mistakes (went/goed, more better, than/that) to fix at the end."}, {"type": "victory", "min": 1, "title": "🏆 Great Job, Hugo!", "sub": "Welcome back — great first lesson after the break!", "subFr": "Bon retour — super première leçon après les vacances !", "tiers": [[0, "🌟", "Rookie"], [18, "🥉", "Bronze"], [30, "🥈", "Silver"], [42, "🥇", "Gold"]], "msg": "See you next Friday! Next time, you're the detective: mysteries, clues, and logic puzzles. 🕵️", "msgFr": "À vendredi prochain ! La prochaine fois, c'est toi le détective : mystères, indices et énigmes. 🕵️", "tutor": "Next lesson: Mysteries & Logic — deduction with must / might / can't be."}]};
+let stars = 0;
+const $ = (s, r=document) => r.querySelector(s);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fr = s => s ? `<span class="fr">${esc(s)}</span>` : '';
+function shuffle(a){ a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function addStars(n, msg){
+  stars += n; $('#stars').textContent = stars;
+  if (msg) toast(msg);
+  if (n > 0) confetti(n >= 2 ? 90 : 45);
+}
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 1400); }
+
+/* confetti */
+const cv = $('#confetti'), cx = cv.getContext('2d'); let parts = [], anim = null;
+function sizeCv(){ cv.width = innerWidth; cv.height = innerHeight; } addEventListener('resize', sizeCv); sizeCv();
+function confetti(n){
+  const cols = ['#F4B400','#E8573C','#7c3aed','#0F8B8D','#E85D9A','#22c55e','#F28C28'];
+  for (let i=0;i<n;i++) parts.push({x:innerWidth/2+(Math.random()-.5)*300,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*12-4,s:6+Math.random()*6,c:cols[i%cols.length],r:Math.random()*6,life:110});
+  if (!anim) anim = requestAnimationFrame(tick);
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; p.vy+=.35; p.r+=.1; p.life--; cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); cx.restore(); });
+  parts = parts.filter(p=>p.life>0 && p.y<innerHeight+40);
+  anim = parts.length ? requestAnimationFrame(tick) : (cx.clearRect(0,0,cv.width,cv.height), null);
+}
+
+/* ---------- slide builders ---------- */
+function head(s, i){
+  return `<div class="slide-top"><span class="slide-count">Slide ${i+1} of ${L.slides.length}</span><span class="minutes">⏱ about ${s.min} min</span></div>
+  <div class="slide-title">${s.title}</div>${s.sub ? `<div class="slide-sub">${s.sub}${fr(s.subFr)}</div>` : ''}`;
+}
+function tutor(s){ return s.tutor ? `<details class="tutor"><summary>Tutor notes</summary><p>${s.tutor}</p></details>` : ''; }
+
+const B = {};
+B.intro = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="emoji-row">${s.emojis}</div>
+  <div class="goal"><div>🎯 Today's goal</div><div class="big">${esc(s.goal)}</div>${fr(s.goalFr)}</div>
+  <div class="how">${s.how.map(h=>`<div>${h[0]}${fr(h[1])}</div>`).join('')}</div>`);
+};
+B.chat = (s, box) => {
+  const g = el('div','chat-grid');
+  s.items.forEach(it=>{
+    const c = el('div','chat-card', `<h4>${esc(it.q)}</h4>${fr(it.fr)}<div class="tap-hint">Tap to see answer starters</div>
+      <div class="starters">${it.starters.map(st=>`<div class="starter">${esc(st[0])}${fr(st[1])}</div>`).join('')}<span class="askback">🔁 Ask me back!</span></div>`);
+    c.addEventListener('click', ()=>c.classList.toggle('open'));
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.vocab = (s, box) => {
+  const g = el('div','vocab-grid'); let seen = new Set();
+  s.items.forEach((it,k)=>{
+    const c = el('div','vcard', `<div class="vinner"><div class="vface vfront"><div class="em">${it.e}</div><div class="w">${esc(it.w)}</div></div>
+      <div class="vface vback"><div class="ex">${esc(it.ex)}</div>${fr(it.fr)}</div></div>`);
+    c.addEventListener('click', ()=>{ c.classList.toggle('flip'); if(!seen.has(k)){ seen.add(k); if(seen.size===s.items.length) addStars(1,'All words explored! +1 ⭐'); } });
+    g.appendChild(c);
+  });
+  box.appendChild(g);
+};
+B.wheel = (s, box) => {
+  const wrap = el('div','wheel-wrap');
+  wrap.innerHTML = `<div class="wheel-box"><div class="pointer"></div><canvas width="840" height="840"></canvas><div class="hub">${s.hub||'🎡'}</div></div>
+    <div class="wheel-q"><div class="q">Tap SPIN to get a question!</div><div class="st"></div><div class="fr-line"></div></div>`;
+  box.appendChild(wrap);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn">🎡 SPIN!</button></div><div class="round-tag">Questions asked: <span class="asked">0</span> of ${s.items.length}</div>`);
+  const canvas = $('canvas', wrap), ctx = canvas.getContext('2d'), n = s.items.length;
+  const cols = ['#F28C28','#E85D9A','#7c3aed','#0F8B8D','#F4B400','#E8573C','#4A9C5D','#0047BA'];
+  const R = 420, seg = 2*Math.PI/n;
+  for (let i=0;i<n;i++){
+    ctx.beginPath(); ctx.moveTo(R,R); ctx.arc(R,R,R-4,i*seg-Math.PI/2,(i+1)*seg-Math.PI/2); ctx.closePath();
+    ctx.fillStyle = cols[i%cols.length]; ctx.fill(); ctx.strokeStyle='#fff'; ctx.lineWidth=6; ctx.stroke();
+    ctx.save(); ctx.translate(R,R); ctx.rotate(i*seg+seg/2-Math.PI/2);
+    ctx.font = '64px serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(s.items[i].e, R*0.68, 0);
+    ctx.fillStyle='#fff'; ctx.font='bold 34px Poppins, Arial'; ctx.fillText(String(i+1), R*0.40, 0);
+    ctx.restore();
+  }
+  let rot = 0, used = new Set(), spinning = false;
+  const btn = $('.big-btn', box), qEl = $('.q', wrap), stEl = $('.st', wrap), frEl = $('.fr-line', wrap);
+  btn.addEventListener('click', ()=>{
+    if (spinning) return;
+    let pool = [...Array(n).keys()].filter(i=>!used.has(i)); if (!pool.length){ used.clear(); pool=[...Array(n).keys()]; }
+    const pick = pool[Math.floor(Math.random()*pool.length)]; used.add(pick);
+    const centerDeg = (pick+0.5)*360/n;
+    const curr = ((rot % 360)+360)%360;
+    let delta = (360 - centerDeg) - curr; if (delta < 0) delta += 360;
+    rot += 360*5 + delta;
+    spinning = true; btn.disabled = true; qEl.textContent = '…'; stEl.textContent=''; frEl.innerHTML='';
+    canvas.style.transform = `rotate(${rot}deg)`;
+    setTimeout(()=>{
+      const it = s.items[pick];
+      qEl.textContent = `${it.e} ${it.q}`; stEl.textContent = it.st ? `Start with: “${it.st}”` : ''; frEl.innerHTML = fr(it.fr);
+      $('.asked', box).textContent = used.size; spinning = false; btn.disabled = false;
+    }, 4300);
+  });
+};
+B.builder = (s, box) => {
+  const area = el('div'); box.appendChild(area); let r = 0, tries = 0;
+  function render(){
+    if (r >= s.rounds.length){ area.innerHTML = `<div class="goal"><div class="big">🏆 Sentence Master!</div><div>You built all ${s.rounds.length} sentences.</div></div>`; return; }
+    const rd = s.rounds[r], words = rd.a.split(' '); tries = 0;
+    area.innerHTML = `<div class="round-tag">Sentence ${r+1} of ${s.rounds.length}</div><div class="builder-pic">${rd.e}</div>
+      <div class="builder-prompt">${esc(rd.p)}${fr(rd.fr)}</div><div class="answer-line"></div><div class="tiles"></div>
+      <div class="row-btns"><button class="sm-btn undo">↩ Undo</button><button class="sm-btn clear">✖ Clear</button><button class="sm-btn go check">✔ Check</button></div>
+      <div class="feedback"></div>`;
+    const line = $('.answer-line', area), tiles = $('.tiles', area), fb = $('.feedback', area); const chosen = [];
+    let order = shuffle(words.map((w,i)=>({w,i}))); if (words.length>2 && order.every((o,k)=>o.i===k)) order.reverse();
+    order.forEach(o=>{
+      const t = el('button','tile', esc(o.w));
+      t.addEventListener('click', ()=>{ if (t.classList.contains('used')) return; t.classList.add('used'); const c = el('button','tile', esc(o.w)); c.addEventListener('click',()=>{ c.remove(); t.classList.remove('used'); chosen.splice(chosen.indexOf(o),1); }); line.appendChild(c); chosen.push(o); });
+      tiles.appendChild(t);
     });
-  }catch(e){}
-}
-const goodSound=()=>tone([523.25,659.25,783.99,1046.5],[0.18,0.18,0.18,0.36]);
-const badSound =()=>tone([392,329.63,261.63],[0.2,0.2,0.34]);
-
-const state = {correct:0,attempted:0,stars:0,streak:0,xp:0,slide:1,total:12,answered:{},visitedStops:new Set(),guess:null};
-function updateHUD(){
-  document.getElementById('accuracy').textContent=state.attempted ? state.correct+'/'+state.attempted : 0;
-  document.getElementById('stars').textContent=state.stars;
-  document.getElementById('streak').textContent=state.streak;
-  document.getElementById('xpFill').style.width=Math.min(100,(state.xp/300)*100)+'%';
-  document.getElementById('xpText').textContent=state.xp;
-}
-function addXP(n){state.xp=Math.min(300,state.xp+n);updateHUD()}
-function reaction(emoji){
-  const el=document.createElement('div');el.className='reaction';el.textContent=emoji;
-  el.style.left=(40+Math.random()*40)+'%';el.style.top='50%';
-  document.body.appendChild(el);setTimeout(()=>el.remove(),1400);
-}
-function confetti(){
-  const colors=['#ff6b6b','#4cc9f0','#ffb703','#7c3aed','#fff8ea','#34d399'];
-  for(let i=0;i<26;i++){
-    const c=document.createElement('div');c.className='confetti';
-    c.style.background=colors[i%colors.length];
-    c.style.left=Math.random()*100+'vw';c.style.top='-10px';
-    c.style.animationDelay=(Math.random()*0.4)+'s';
-    document.body.appendChild(c);setTimeout(()=>c.remove(),2400);
+    $('.undo', area).onclick = ()=>{ const o = chosen.pop(); if(!o) return; line.lastChild.remove(); [...tiles.children].find(t=>t.classList.contains('used') && t.textContent===o.w)?.classList.remove('used'); };
+    $('.clear', area).onclick = ()=>{ chosen.length=0; line.innerHTML=''; [...tiles.children].forEach(t=>t.classList.remove('used')); };
+    $('.check', area).onclick = ()=>{
+      if (!chosen.length){ fb.className='feedback no'; fb.innerHTML = 'Tap the words first!' + fr('Touche d’abord les mots !'); return; }
+      const got = chosen.map(o=>o.w).join(' ');
+      const finish = (ok)=>{ ['.check','.undo','.clear'].forEach(sel=>$(sel,area).style.display='none'); tiles.style.display='none';
+        if (!ok){ line.innerHTML = words.map(w=>`<span class="tile" style="border-color:var(--good);background:#dcfce7">${esc(w)}</span>`).join(''); }
+        fb.className = 'feedback ' + (ok ? 'ok' : ''); if (!ok) fb.style.color = 'var(--grape)';
+        fb.innerHTML = (ok ? '✅ Perfect! Now say it out loud! 🎤' : '👀 Here is the right sentence. Read it out loud! 🎤') + fr(rd.afr);
+        const nx = el('button','sm-btn go', r+1 < s.rounds.length ? 'Next sentence ▶' : 'Finish ▶'); nx.onclick = ()=>{ r++; render(); }; $('.row-btns',area).appendChild(nx); };
+      if (got === rd.a){ addStars(2,'First try! +2 ⭐'); finish(true); }
+      else { line.classList.remove('shake'); void line.offsetWidth; line.classList.add('shake'); setTimeout(()=>finish(false), 450); }
+    };
   }
+  render();
+};
+B.mcq = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">🎉 Quiz complete!</div></div>`; return; }
+    const it = s.items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Question ${q+1} of ${s.items.length}</div>${it.e?`<div class="mcq-scene">${it.e}</div>`:''}<div class="mcq-q">${esc(it.q)}${fr(it.fr)}</div><div class="opts"></div><div class="explain"></div><div class="center"></div>`;
+    const opts = $('.opts', area), ex = $('.explain', area);
+    it.o.forEach((o,k)=>{
+      const b = el('button','opt', esc(o) + (it.ofr ? fr(it.ofr[k]) : ''));
+      b.onclick = ()=>{
+        if (area._done) return;
+        if (k === it.c){ b.classList.add('right'); area._done = true; ex.innerHTML = '✅ ' + esc(it.why || 'Correct!') + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+          const nx = el('button','big-btn', q+1<s.items.length?'Next question ▶':'Finish ▶'); nx.onclick=()=>{ q++; area._done=false; render(); }; $('.center',area).appendChild(nx); }
+        else { b.classList.add('wrong'); first = false; ex.innerHTML = '❌ ' + esc((it.no && it.no[k]) || 'Not quite — try again!') + fr('Pas tout à fait… Essaie encore !'); ex.classList.add('show'); }
+      };
+      opts.appendChild(b);
+    });
+  }
+  render();
+};
+B.tot = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Round ${q+1} of ${s.items.length}</div><div class="tot-row">
+      <div class="tot" data-k="0"><span class="em">${it.a[0]}</span>${esc(it.a[1])}${fr(it.a[2])}</div><div class="vs">OR</div>
+      <div class="tot" data-k="1"><span class="em">${it.b[0]}</span>${esc(it.b[1])}${fr(it.b[2])}</div></div>
+      <div class="say-box">🎤 ${esc(s.frame)}${fr(s.frameFr)}</div>
+      <div class="row-btns"><button class="sm-btn prev">◀ Previous</button><button class="sm-btn go next">${q+1<s.items.length?'Next round ▶':'Start over ↺'}</button></div>`;
+    area.querySelectorAll('.tot').forEach(t=>t.onclick=()=>{ area.querySelectorAll('.tot').forEach(x=>x.classList.remove('pick')); t.classList.add('pick'); });
+    $('.next',area).onclick=()=>{ q=(q+1)%s.items.length; render(); };
+    $('.prev',area).onclick=()=>{ q=(q-1+s.items.length)%s.items.length; render(); };
+  }
+  render();
+};
+B.memory = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  function render(){
+    let cards = []; s.pairs.forEach((p,k)=>{ cards.push({k,html:`<span class="face e">${p[0]}</span>`}); cards.push({k,html:`<span class="face">${esc(p[1])}</span>`}); });
+    cards = shuffle(cards); let open = [], found = 0, moves = 0, lock = false;
+    area.innerHTML = `<div class="round-tag">Pairs found: <span class="pf">0</span> of ${s.pairs.length} · Tries: <span class="mv">0</span></div><div class="mem-grid"></div><div class="center"></div>`;
+    const g = $('.mem-grid', area);
+    cards.forEach((c,ci)=>{
+      const m = el('div','mem', `<span class="back" style="font-size:34px">${ci+1}</span>${c.html}`);
+      m.onclick = ()=>{
+        if (lock || m.classList.contains('open') || m.classList.contains('done')) return;
+        m.classList.add('open'); open.push({m,c});
+        if (open.length === 2){
+          moves++; $('.mv',area).textContent = moves; const [a,b] = open;
+          if (a.c.k === b.c.k){ a.m.classList.replace('open','done'); b.m.classList.replace('open','done'); open = []; found++; $('.pf',area).textContent = found; toast('Match! Say the word! 🎤');
+            if (found === s.pairs.length){ addStars(2,'All pairs! +2 ⭐'); const again = el('button','big-btn','Play again ↺'); again.onclick = render; $('.center',area).appendChild(again); } }
+          else { lock = true; setTimeout(()=>{ a.m.classList.remove('open'); b.m.classList.remove('open'); open = []; lock = false; }, 950); }
+        }
+      };
+      g.appendChild(m);
+    });
+  }
+  render();
+};
+B.tos = (s, box) => {
+  const area = el('div'); box.appendChild(area); let q = 0;
+  function render(){
+    if (q >= s.items.length){ area.innerHTML = `<div class="goal"><div class="big">${esc(s.done||'🌟 Great job!')}</div>${fr(s.doneFr)}</div>`; return; }
+    const it = s.items[q];
+    area.innerHTML = `<div class="round-tag">Card ${q+1} of ${s.items.length}</div><div class="tos-card"><div class="em">${it.e}</div><div class="st">${esc(it.s)}</div>${fr(it.fr)}
+      <div class="tos-btns"><button class="big-btn btn-true" data-v="1">✅ TRUE</button><button class="big-btn btn-silly" data-v="0">🤪 SILLY</button></div>
+      <div class="explain"></div><div class="center"></div></div>`;
+    let done = false;
+    area.querySelectorAll('.tos-btns button').forEach(b=>b.onclick=()=>{
+      if (done) return; done = true; const ok = (b.dataset.v==='1') === it.t; const ex = $('.explain',area);
+      ex.innerHTML = (ok?'✅ Yes! ':'❌ Oops! ') + `It's <b>${it.t?'TRUE':'SILLY'}</b>. ` + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); if (ok) addStars(1,'+1 ⭐');
+      const nx = el('button','big-btn', q+1<s.items.length?'Next card ▶':'Finish ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx);
+    });
+  }
+  render();
+};
+B.sort = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="say-box" style="margin-top:10px">${esc(s.how)}${fr(s.howFr)}</div>`);
+  const area = el('div'); box.appendChild(area); let q = 0; const items = shuffle(s.items); const counts = s.buckets.map(()=>0);
+  function render(){
+    if (q >= items.length){ area.innerHTML = `<div class="goal"><div class="big">🧠 Grammar Boss!</div><div>${esc(s.doneMsg)}</div>${fr(s.doneMsgFr)}</div>`; return; }
+    const it = items[q]; let first = true;
+    area.innerHTML = `<div class="round-tag">Sentence ${q+1} of ${items.length}</div><div class="sort-item">${esc(it.s)}${fr(it.fr)}</div>
+      <div class="buckets">${s.buckets.map((b,k)=>`<button class="bucket" data-k="${k}" style="background:${b.c}">${esc(b.name)}<small>${esc(b.rule)}</small><small style="opacity:.9;font-style:italic">${esc(b.fr)}</small><span class="cnt">e.g. “${esc(b.ex)}” · ${counts[k]} sorted</span></button>`).join('')}</div><div class="explain"></div><div class="center"></div>`;
+    let done = false;
+    area.querySelectorAll('.bucket').forEach(btn=>btn.onclick=()=>{
+      if (done) return; const k = +btn.dataset.k; const ex = $('.explain',area);
+      if (k === it.b){ done = true; counts[k]++; ex.innerHTML = '✅ ' + esc(it.why) + fr(it.whyFr); ex.classList.add('show'); addStars(first?1:0, first?'+1 ⭐':'');
+        const nx = el('button','big-btn','Next ▶'); nx.onclick=()=>{ q++; render(); }; $('.center',area).appendChild(nx); }
+      else { first = false; ex.innerHTML = '❌ ' + esc(s.hint) + fr(s.hintFr); ex.classList.add('show'); btn.classList.add('shake'); }
+    });
+  }
+  render();
+};
+B.plan = (s, box) => {
+  const sel = {}, selFr = {}; const cols = el('div','plan-cols');
+  s.parts.forEach((p,k)=>{
+    const c = el('div','plan-col', `<h4>${p.icon} ${esc(p.label)}</h4>${fr(p.fr)}`);
+    p.opts.forEach(o=>{ const ch = el('button','chip', `${o[0]} ${esc(o[1])}${fr(o[2])}`); ch.onclick=()=>{ c.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel')); ch.classList.add('sel'); sel[k]=o[1]; selFr[k]=o[2]; }; c.appendChild(ch); });
+    cols.appendChild(c);
+  });
+  box.appendChild(cols);
+  box.insertAdjacentHTML('beforeend', `<div class="center"><button class="big-btn make">✨ Make my story!</button> <button class="sm-btn rnd">🎲 Surprise me</button></div><div class="story"></div>`);
+  const story = $('.story', box);
+  function make(){
+    if (Object.keys(sel).length < s.parts.length){ toast('Pick one for each part!'); return; }
+    story.innerHTML = s.parts.map((p,k)=>`<span class="conn">${esc(p.conn)}</span> ${esc(sel[k])}`).join(' ') + fr(s.parts.map((p,k)=>`${p.connFr} ${selFr[k]}`).join(' ')) + `<div style="margin-top:10px;font-size:17px;color:var(--sky-deep)">🎤 Now read your story out loud — then tell it again without looking!</div>`;
+    story.classList.add('show'); addStars(1,'Great story! +1 ⭐');
+  }
+  $('.make', box).onclick = make;
+  $('.rnd', box).onclick = ()=>{ s.parts.forEach((p,k)=>{ const col = cols.children[k]; const chips = col.querySelectorAll('.chip'); const i = Math.floor(Math.random()*chips.length); chips[i].click(); }); make(); };
+};
+B.talk = (s, box) => {
+  const list = el('div','check-list');
+  s.items.forEach(it=>{ const c = el('div','check', `<span class="box"></span><span>${esc(it[0])}${fr(it[1])}</span>`); c.onclick=()=>{ if(c.classList.contains('done')) return; c.classList.add('done'); $('.box',c).textContent='✔'; addStars(1,'+1 ⭐'); }; list.appendChild(c); });
+  box.appendChild(list);
+};
+B.ttl = (s, box) => {
+  const area = el('div'); box.appendChild(area);
+  const ex = s.example;
+  area.innerHTML = `<div class="sort-item" style="border-color:var(--grape)">Practice round: ${esc(ex.who)} says…</div><div class="ttl-list">${ex.lines.map((l,k)=>`<button class="opt" data-k="${k}">${esc(l)}${fr(ex.linesFr[k])}</button>`).join('')}</div><div class="explain"></div>
+    <div class="goal" style="margin-top:18px"><div class="big">🎤 Your turn!</div><div>${esc(s.turn)}</div>${fr(s.turnFr)}
+    <div class="row-btns"><button class="sm-btn go fool">😎 Hugo fooled Jonathan! (+2 ⭐)</button><button class="sm-btn found">🔎 Jonathan found the lie (+1 ⭐)</button></div></div>`;
+  let done = false;
+  area.querySelectorAll('.ttl-list .opt').forEach(b=>b.onclick=()=>{ if(done) return; const k=+b.dataset.k; const e=$('.explain',area);
+    if (k===ex.lie){ done=true; b.classList.add('right'); e.innerHTML='✅ '+esc(ex.why)+fr(ex.whyFr); addStars(1,'+1 ⭐'); } else { b.classList.add('wrong'); e.innerHTML='❌ That one is true! Look again.'+fr('Ça, c’est vrai ! Regarde encore.'); } e.classList.add('show'); });
+  $('.fool',area).onclick=()=>addStars(2,'Sneaky! +2 ⭐');
+  $('.found',area).onclick=()=>addStars(1,'Good try! +1 ⭐');
+};
+B.victory = (s, box) => {
+  box.insertAdjacentHTML('beforeend', `<div class="victory"><div class="medal" id="medal">🏅</div><div class="score">You earned <span id="finalStars">0</span> stars!</div>
+    <div class="tiers">${s.tiers.map(t=>`<div data-min="${t[0]}">${t[1]} ${esc(t[2])} · ${t[0]}+ ⭐</div>`).join('')}</div>
+    <div class="goal" style="margin-top:18px"><div class="big">${esc(s.msg)}</div>${fr(s.msgFr)}</div></div>`);
+};
+function updateVictory(){
+  const f = $('#finalStars'); if (!f) return; f.textContent = stars;
+  const s = L.slides.find(x=>x.type==='victory'); let medal = '🌟';
+  document.querySelectorAll('.tiers div').forEach(d=>d.classList.remove('on'));
+  s.tiers.forEach((t,k)=>{ if (stars >= t[0]) { medal = t[1]; } });
+  const on = [...document.querySelectorAll('.tiers div')].filter(d=>stars >= +d.dataset.min).pop(); if (on) on.classList.add('on');
+  $('#medal').textContent = medal;
 }
 
-document.addEventListener('click', e=>{
-  const btn = e.target.closest('.ans');
-  if(!btn) return;
-  const group = btn.closest('.answers');
-  if(!group) return;
-  const gid = group.getAttribute('data-gid');
-  if(!FB[gid] || state.answered[gid]) return;
-  const ans = btn.getAttribute('data-ans');
-  const data = FB[gid][ans];
-  const fb = document.querySelector(`.feedback[data-gid="${gid}"]`);
-  state.attempted++;
-  if(data.ok){
-    state.answered[gid]=true;
-    btn.classList.add('correct');
-    group.querySelectorAll('.ans').forEach(b=>b.disabled=true);
-    fb.className='feedback show good';
-    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
-    state.stars++;state.streak++;state.correct++;addXP(15);updateHUD();
-    goodSound();reaction('🎉');confetti();
-  } else {
-    btn.classList.add('wrong');btn.disabled=true;
-    fb.className='feedback show bad';
-    fb.innerHTML = `${data.msg} <span class="fr">${data.fr}</span>`;
-    state.streak=0;updateHUD();
-    badSound();reaction('👎');
-  }
+/* ---------- build ---------- */
+const host = $('#slides'); const dots = $('#dots');
+L.slides.forEach((s,i)=>{
+  const sec = el('section','slide'); sec.innerHTML = head(s,i); B[s.type](s, sec); sec.insertAdjacentHTML('beforeend', tutor(s)); host.appendChild(sec);
+  const d = el('button'); d.title = `Slide ${i+1}`; d.onclick = ()=>go(i); dots.appendChild(d);
 });
-
-function buildTOT(hostId, pairsArr){
-  const host = document.getElementById(hostId);
-  pairsArr.forEach(p=>{
-    const row=document.createElement('div');row.className='tot-row';
-    const pair=document.createElement('div');pair.className='tot-pair';
-    const optA=document.createElement('button');optA.className='tot-opt';optA.innerHTML=p[0]+'<span class="tot-hint">'+(p[2]||'')+'</span>';
-    const mid=document.createElement('div');mid.className='tot-mid';
-    const optB=document.createElement('button');optB.className='tot-opt';optB.innerHTML=p[1]+'<span class="tot-hint">'+(p[3]||'')+'</span>';
-    function pick(chosen,other){
-      chosen.classList.add('sel'); other.classList.remove('sel');
-      addXP(3); reaction('✨'); tone([587,740],[0.1,0.16]);
-    }
-    optA.addEventListener('click',()=>pick(optA,optB));
-    optB.addEventListener('click',()=>pick(optB,optA));
-    pair.appendChild(optA);pair.appendChild(mid);pair.appendChild(optB);
-    row.appendChild(pair); host.appendChild(row);
-  });
+let cur = 0;
+function go(i){
+  cur = Math.max(0, Math.min(L.slides.length-1, i));
+  document.querySelectorAll('.slide').forEach((s,k)=>s.classList.toggle('active', k===cur));
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on', k===cur));
+  $('#prevBtn').disabled = cur===0; $('#nextBtn').disabled = cur===L.slides.length-1;
+  $('#prog').style.width = ((cur+1)/L.slides.length*100)+'%';
+  if (L.slides[cur].type === 'victory'){ updateVictory(); confetti(140); }
+  scrollTo({top:0,behavior:'smooth'});
 }
-buildTOT('totRows1', [["Ride the metro alone", "Get driven by parents", "métro tout seul", "conduit par les parents"], ["School is social life", "School is just school", "l'école, c'est social", "l'école, c'est juste l'école"], ["Long school day", "Short school day", "longue journée d'école", "courte journée d'école"], ["Sports at school", "Sports outside school", "sport à l'école", "sport hors école"], ["Early curfew", "Late curfew", "couvre-feu tôt", "couvre-feu tard"]]);
-buildTOT('totRows2', [["Public transit freedom", "Driving freedom", "liberté des transports", "liberté de conduire"], ["School dances", "No school dances", "bals scolaires", "pas de bals scolaires"], ["Academic-only school", "School as social hub", "école juste académique", "école comme centre social"], ["Freedom earlier", "Freedom later", "liberté plus tôt", "liberté plus tard"]]);
-
-function renderTour(){
-  const track = document.getElementById('mapTrack');
-  track.innerHTML = '';
-  TOUR_STOPS.forEach((l,i)=>{
-    const el = document.createElement('div');
-    el.className = 'map-stop';
-    el.dataset.idx = i;
-    el.innerHTML = `<span class="stop-icon">${l.icon}</span><div class="stop-num">${l.tag}</div><div class="stop-label">${l.label}</div><div class="stop-check">✓ explored</div>`;
-    el.addEventListener('click', ()=>showStop(i));
-    track.appendChild(el);
-  });
-}
-function updateStopProgress(){
-  document.getElementById('stopProgress').textContent = `${state.visitedStops.size} / ${TOUR_STOPS.length} explored`;
-}
-function showStop(idx){
-  const l = TOUR_STOPS[idx];
-  document.querySelectorAll('.map-stop').forEach((el,i)=>{
-    el.classList.toggle('active', i===idx);
-  });
-  if(!state.visitedStops.has(idx)){
-    state.visitedStops.add(idx);
-    document.querySelectorAll('.map-stop')[idx].classList.add('visited');
-    addXP(8); reaction('🎒'); tone([494,622],[0.1,0.18]);
-    updateStopProgress();
-  }
-  const panel = document.getElementById('stopPanel');
-  let predictNote = '';
-  if(idx===0 && state.guess){
-    const right = state.guess==="younger";
-    predictNote = right
-      ? `<div class="sp-fact" style="border-left-color:var(--good);margin-top:8px;">🎯 Your guess was right! <span class="fr">🎯 Ta prédiction était juste!</span></div>`
-      : `<div class="sp-fact" style="border-left-color:var(--coral);margin-top:8px;">🎯 Good guess, but not quite — this is actually it. <span class="fr">🎯 Bonne idée, mais pas tout à fait — c'est en fait celui-ci.</span></div>`;
-  }
-  panel.innerHTML = `
-    <div class="sp-eyebrow">${l.tag}</div>
-    <h3>${l.icon} ${l.label}</h3>
-    <div class="sp-en">${l.en}</div>
-    <div class="sp-fr">${l.fr}</div>
-    <div class="sp-fact">${l.fact} <span class="fr">${l.factfr}</span></div>
-    ${predictNote}
-  `;
-}
-
-function renderSpot(){
-  const row = document.getElementById('flagRow');
-  if(!row || row.dataset.built) return;
-  row.dataset.built = '1';
-  const options = [["🚇", "Riding transit alone"], ["🎉", "School Prom"], ["🥐", "Café after school"], ["📚", "Long academic day"], ["👥", "Friends outside school clubs"]];
-  const correctName = "School Prom";
-  options.forEach(([flag,name])=>{
-    const btn = document.createElement('button');
-    btn.className = 'flag-btn';
-    btn.innerHTML = `${flag}<br><span style="font-size:12px;font-weight:700;">${name}</span>`;
-    btn.addEventListener('click', ()=>{
-      if(row.dataset.answered) return;
-      const result = document.getElementById('flagResult');
-      if(name===correctName){
-        row.dataset.answered = '1';
-        row.querySelectorAll('button').forEach(b=>b.disabled=true);
-        btn.classList.add('correct');
-        result.style.display = 'block';
-        result.className = 'feedback show good';
-        result.innerHTML = `⭐ Exactly! Prom is a distinctly American high-school tradition — it barely exists in French schools. <span class=\"fr\">⭐ Exactement! Le bal de promo est une tradition typiquement américaine — elle existe à peine dans les écoles françaises.</span>`;
-        state.correct++;state.attempted++;state.stars++;state.streak++;addXP(15);updateHUD();
-        goodSound();reaction('🎉');confetti();
-      } else {
-        btn.classList.add('wrong');
-        tone([392,329.63],[0.15,0.2]);
-        reaction('🤔');
-      }
-    });
-    row.appendChild(btn);
-  });
-}
-
-function renderPrediction(){
-  const row = document.getElementById('predictRow');
-  if(!row || row.dataset.built) return;
-  row.dataset.built = '1';
-  const options = [["younger", "Younger in France"], ["older", "Older in France"]];
-  options.forEach(([key,label])=>{
-    const btn = document.createElement('button');
-    btn.className = 'nav-btn';
-    btn.style.cssText = 'background:linear-gradient(135deg,var(--sky),var(--sky-deep));box-shadow:0 6px 18px rgba(33,158,188,0.35);text-transform:none;letter-spacing:0;font-size:14px;padding:11px 18px;';
-    btn.textContent = label;
-    btn.addEventListener('click', ()=>{
-      if(state.guess) return;
-      state.guess = key;
-      row.querySelectorAll('button').forEach(b=>b.disabled=true);
-      btn.style.outline = '3px solid var(--violet)';
-      const result = document.getElementById('predictResult');
-      result.style.display = 'block';
-      result.innerHTML = "Locked in! Let's see if you're right → <span style=\"display:block;font-weight:500;font-style:italic;color:var(--ink);margin-top:2px;\">Prédiction enregistrée! On verra si tu as raison.</span>";
-      addXP(5); reaction('🔮'); tone([440,554],[0.1,0.16]);
-    });
-    row.appendChild(btn);
-  });
-}
-
-function renderMCQ(){
-  const host = document.getElementById('leagueMCQ');
-  host.innerHTML = `
-    <div class="mcq-q" data-gid="q1">
-      A 14-year-old wants to get around their city independently. Based on what you saw, which country's system would make that easier at that age?
-      <span class="fr">Un ado de 14 ans veut se déplacer seul dans sa ville. D'après ce que tu as vu, quel système rendrait ça plus facile à cet âge?</span>
-    </div>
-    <div class="answers" data-gid="q1">
-      <button class="ans" data-ans="A">A. The US — driving age is 16</button>
-      <button class="ans" data-ans="B">B. France — public transit doesn't require an adult</button>
-      <button class="ans" data-ans="C">C. Neither system allows any independence before 18</button>
-    </div>
-    <div class="feedback" data-gid="q1"></div>
-    <div class="mcq-q" data-gid="q2">
-      A new student moves from an American high school (with school dances and sports teams) to a French school. What's most likely to surprise them?
-      <span class="fr">Un nouvel élève passe d'un lycée américain (avec bals et équipes sportives) à une école française. Qu'est-ce qui va probablement le surprendre?</span>
-    </div>
-    <div class="answers" data-gid="q2">
-      <button class="ans" data-ans="A">A. Nothing — school social life is identical everywhere</button>
-      <button class="ans" data-ans="B">B. That the school doesn't organize their social life the way American schools do</button>
-      <button class="ans" data-ans="C">C. That French schools are shorter</button>
-    </div>
-    <div class="feedback" data-gid="q2"></div>`;
-  
-  FB.q1 = {
-    A:{ok:false, msg:"16 is actually older than when French city teens can already ride transit alone.", fr:"16 ans, c'est en fait plus vieux que l'âge où les ados français en ville prennent déjà les transports seuls."},
-    B:{ok:true, msg:"⭐ Right! French public transit doesn't require an adult, so city teens get independent mobility earlier than American teens waiting to drive.", fr:"⭐ Exact! Les transports français ne demandent pas d'adulte, donc les ados en ville ont une mobilité indépendante plus tôt."},
-    C:{ok:false, msg:"French teens in cities already move independently well before 18, via public transit.", fr:"Les ados français en ville se déplacent déjà de façon indépendante bien avant 18 ans, via les transports."}
-  };
-  FB.q2 = {
-    A:{ok:false, msg:"It's actually quite different — that's the whole point of the comparison.", fr:"C'est en fait très différent — c'est tout l'intérêt de la comparaison."},
-    B:{ok:true, msg:"⭐ Right! French schools focus on academics; social life (clubs, sports) usually happens separately, unlike the American school-as-social-hub model.", fr:"⭐ Exact! Les écoles françaises se concentrent sur l'académique; la vie sociale se passe généralement à part."},
-    C:{ok:false, msg:"School length isn't the most striking cultural difference here — the social structure is.", fr:"La durée de l'école n'est pas la différence culturelle la plus frappante ici — c'est la structure sociale."}
-  };
-}
-
-const BONUS_QUESTIONS = [{"en": "If you had to design the perfect school day, what would it include from each culture?", "fr": "Si tu devais créer la journée d'école parfaite, qu'y inclurais-tu de chaque culture?"}, {"en": "Is driving at 16 a good idea or too young? Defend your answer.", "fr": "Conduire à 16 ans, c'est une bonne idée ou trop jeune? Défends ta réponse."}, {"en": "Would you rather your school organize your social life, or keep it totally separate? Why?", "fr": "Préférerais-tu que ton école organise ta vie sociale, ou qu'elle reste totalement séparée? Pourquoi?"}, {"en": "What's one American teen tradition you wish existed in France, or vice versa?", "fr": "Quelle tradition d'ado américaine voudrais-tu voir en France, ou inversement?"}, {"en": "Do you think teens should get more independence earlier in general? Why or why not?", "fr": "Penses-tu que les ados devraient avoir plus d'indépendance plus tôt en général? Pourquoi ou pourquoi pas?"}, {"en": "What does 'growing up' actually mean to you — is it about freedom, responsibility, or something else?", "fr": "Que signifie vraiment 'grandir' pour toi — est-ce la liberté, la responsabilité, ou autre chose?"}];
-const spinBtn = document.getElementById('spinBtn');
-if(spinBtn){
-  spinBtn.addEventListener('click', ()=>{
-    const q = BONUS_QUESTIONS[Math.floor(Math.random()*BONUS_QUESTIONS.length)];
-    const box = document.getElementById('spinResult');
-    box.innerHTML = `<div><div class="sp-en" style="font-size:18px;">${q.en}</div><div class="sp-fr" style="margin-top:8px;">${q.fr}</div></div>`;
-    addXP(5); reaction('🎡'); confetti(); tone([494,622,740],[0.12,0.12,0.2]);
-  });
-}
-
-const dots = document.getElementById('dots');
-for(let i=1;i<=state.total;i++){
-  const d=document.createElement('div');
-  d.className='dot'+(i===1?' active':'');
-  d.addEventListener('click',()=>goSlide(i));
-  dots.appendChild(d);
-}
-function goSlide(n){
-  const prevSlide = state.slide;
-  state.slide=Math.max(1,Math.min(state.total,n));
-
-  if(state.slide===4 && prevSlide!==4){ renderPrediction(); }
-  if(state.slide===5 && prevSlide!==5){ renderTour(); }
-  if(state.slide===6 && prevSlide!==6){ renderMCQ(); }
-  if(state.slide===7 && prevSlide!==7){ renderSpot(); }
-  if(state.slide===state.total && prevSlide!==state.total){
-    const acc = state.attempted ? state.correct+'/'+state.attempted : '0/0';
-    document.getElementById('recapBox').innerHTML = `You explored ${state.visitedStops.size}/3 real differences in teen life across two countries, spotted the American-only tradition (${acc} correct), and built your own argument about what actually prepares teens for adulthood — all in English!`;
-  }
-
-  document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',+s.dataset.slide===state.slide));
-  document.querySelectorAll('.dot').forEach((d,i)=>{
-    d.classList.toggle('active',i+1===state.slide);
-    d.classList.toggle('done',i+1<state.slide);
-  });
-  document.getElementById('prevBtn').disabled=state.slide===1;
-  document.getElementById('nextBtn').textContent=state.slide===state.total?'🎉 Done!':'Next ▸';
-  requestAnimationFrame(()=>{
-    requestAnimationFrame(()=>{
-      window.scrollTo({top:0,behavior:'auto'});
-    });
-  });
-}
-document.getElementById('prevBtn').addEventListener('click',()=>goSlide(state.slide-1));
-document.getElementById('nextBtn').addEventListener('click',()=>{
-  if(state.slide===state.total){confetti();reaction('🏆');goodSound();return;}
-  goSlide(state.slide+1);
-});
-updateHUD();
-
-[['hintToggle1','hintFacts1'],['hintToggle2','hintFacts2']].forEach(([btnId,boxId])=>{
-  const btn = document.getElementById(btnId);
-  const box = document.getElementById(boxId);
-  if(btn && box){
-    const origText = btn.textContent;
-    btn.addEventListener('click', ()=>{
-      box.classList.toggle('show');
-      btn.textContent = box.classList.contains('show') ? 'Hide hint' : origText;
-    });
-  }
-});
+$('#prevBtn').onclick = ()=>go(cur-1); $('#nextBtn').onclick = ()=>go(cur+1);
+$('#starBtn').onclick = ()=>addStars(1,'Full sentence! +1 ⭐');
+const frBtn = $('#frBtn');
+function syncFr(){ frBtn.textContent = document.body.classList.contains('hide-fr') ? 'FR: OFF' : 'FR: ON'; }
+frBtn.onclick = ()=>{ document.body.classList.toggle('hide-fr'); syncFr(); }; syncFr();
+$('#hudBrand').textContent = L.brand; $('#stuName').textContent = L.student; $('#lessonName').textContent = L.lesson;
+const d = new Date(); $('#today').textContent = String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+'/'+d.getFullYear();
+go(0);
 </script>
-
 </body>
 </html>
