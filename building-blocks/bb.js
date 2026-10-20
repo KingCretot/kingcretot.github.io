@@ -14,19 +14,20 @@ function prettyDate(iso){var d=new Date(iso+'T12:00:00');return d.toLocaleDateSt
 
 /* ---------- visuals ---------- */
 function rep(s,n){var o='';for(var i=0;i<n;i++)o+=s;return o}
+function gcls(n){return n>9?' grp-xl':(n>6?' grp-l':'')}
 function vis(v){
   if(!v) return '';
   var k=v.kind, e=v.emoji||'●';
-  if(k==='groups'){var o='<div class="vis">';for(var g=0;g<v.groups;g++)o+='<div class="grp">'+rep('<span>'+e+'</span>',v.each)+'</div>';return o+'</div>'+(v.label?'<p style="text-align:center;margin:0;font-family:Fredoka,sans-serif">'+esc(v.label)+'</p>':'');}
-  if(k==='compare'){return '<div class="cmp">'+v.sets.map(function(st){return '<div class="cmpset"><div class="cmpl">'+esc(st.label)+'</div><div class="vis">'+st.groups.map(function(n){return '<div class="grp">'+rep('<span>'+(st.emoji||e)+'</span>',n)+'</div>'}).join('')+'</div></div>'}).join('')+'</div>';}
-  if(k==='uneven'){var o2='<div class="vis">';v.sets.forEach(function(n){o2+='<div class="grp">'+rep('<span>'+e+'</span>',n)+'</div>'});return o2+'</div>';}
+  if(k==='groups'){var o='<div class="vis">';for(var g=0;g<v.groups;g++)o+='<div class="grp'+gcls(v.each)+'">'+rep('<span>'+e+'</span>',v.each)+'</div>';return o+'</div>'+(v.label?'<p style="text-align:center;margin:0;font-family:Fredoka,sans-serif">'+esc(v.label)+'</p>':'');}
+  if(k==='compare'){return '<div class="cmp">'+v.sets.map(function(st){return '<div class="cmpset"><div class="cmpl">'+esc(st.label)+'</div><div class="vis">'+st.groups.map(function(n){return '<div class="grp'+gcls(n)+'">'+rep('<span>'+(st.emoji||e)+'</span>',n)+'</div>'}).join('')+'</div></div>'}).join('')+'</div>';}
+  if(k==='uneven'){var o2='<div class="vis">';v.sets.forEach(function(n){o2+='<div class="grp'+gcls(n)+'">'+rep('<span>'+e+'</span>',n)+'</div>'});return o2+'</div>';}
   if(k==='array'){return '<div class="vis"><div class="arr" style="grid-template-columns:repeat('+v.cols+',auto)">'+rep('<span>'+e+'</span>',v.rows*v.cols)+'</div></div>'+(v.label?'<p style="text-align:center;margin:0;font-family:Fredoka,sans-serif">'+esc(v.label)+'</p>':'');}
   if(k==='numberline'){var j=v.jump,n=v.jumps,end=(v.start||0)+j*n,W=Math.max(520,n*70),s='<div class="nl"><svg viewBox="0 0 '+(W+40)+' 110" width="100%" style="max-width:'+(W+40)+'px;display:block;margin:auto"><line x1="20" y1="80" x2="'+(W+20)+'" y2="80" stroke="#0A1F3D" stroke-width="3"/>';
     for(var t=0;t<=n;t++){var x=20+t*W/n;s+='<line x1="'+x+'" y1="72" x2="'+x+'" y2="88" stroke="#0A1F3D" stroke-width="3"/><text x="'+x+'" y="106" text-anchor="middle" font-size="16" font-family="Fredoka,sans-serif">'+((v.start||0)+t*j)+'</text>';
       if(t<n){var x2=20+(t+1)*W/n;s+='<path d="M'+x+' 72 Q'+((x+x2)/2)+' 20 '+x2+' 72" fill="none" stroke="'+(v.color||'#2E86DE')+'" stroke-width="3"/><text x="'+((x+x2)/2)+'" y="34" text-anchor="middle" font-size="14" fill="#2E86DE" font-family="Fredoka,sans-serif">+'+j+'</text>';}}
     return s+'</svg></div>';}
   if(k==='triangle'){return '<div class="vis"><svg viewBox="0 0 240 200" width="240"><polygon points="120,12 228,188 12,188" fill="#F3F8FF" stroke="#2E86DE" stroke-width="5" stroke-linejoin="round"/><text x="120" y="78" text-anchor="middle" font-size="34" font-family="Fredoka,sans-serif" fill="#DB2F30">'+esc(v.c)+'</text><text x="62" y="170" text-anchor="middle" font-size="30" font-family="Fredoka,sans-serif" fill="#0A1F3D">'+esc(v.a)+'</text><text x="178" y="170" text-anchor="middle" font-size="30" font-family="Fredoka,sans-serif" fill="#0A1F3D">'+esc(v.b)+'</text><text x="120" y="172" text-anchor="middle" font-size="22" fill="#5b6578">×  ÷</text></svg></div>';}
-  if(k==='area'){var cols=v.split,o3='<table class="area"><tr><th></th>';cols.forEach(function(c){o3+='<th>'+c+'</th>'});o3+='</tr><tr><th>'+v.b+'</th>';cols.forEach(function(c){o3+='<td>'+(v.show?c+' × '+v.b+'<br><b>'+(c*v.b)+'</b>':'?')+'</td>'});return o3+'</tr></table>'+(v.show?'<p style="text-align:center;font-family:Fredoka,sans-serif;font-size:22px;margin:4px 0">'+cols.map(function(c){return c*v.b}).join(' + ')+' = <b>'+cols.reduce(function(a,c){return a+c*v.b},0)+'</b></p>':'');}
+  if(k==='area'){var cols=v.split,o3='<table class="area"><tr><th></th>';cols.forEach(function(c){o3+='<th>'+c+'</th>'});o3+='</tr><tr><th>'+v.b+'</th>';cols.forEach(function(c){o3+='<td>'+(v.show?c+' × '+v.b+'<br><b>'+(c*v.b).toLocaleString('en-US')+'</b>':'?')+'</td>'});return o3+'</tr></table>'+(v.show?'<p style="text-align:center;font-family:Fredoka,sans-serif;font-size:22px;margin:4px 0">'+cols.map(function(c){return (c*v.b).toLocaleString('en-US')}).join(' + ')+' = <b>'+cols.reduce(function(a,c){return a+c*v.b},0).toLocaleString('en-US')+'</b></p>':'');}
   if(k==='longdiv'){return '<div class="vis"><div class="ld">'+esc(v.text)+'</div></div>';}
   if(k==='placevalue'){var d=String(v.n).split(''),names=['Thousands','Hundreds','Tens','Ones'].slice(4-d.length),o4='<table class="pv"><tr>';names.forEach(function(x){o4+='<th>'+x+'</th>'});o4+='</tr><tr>';d.forEach(function(x){o4+='<td>'+x+'</td>'});return o4+'</tr></table>';}
   if(k==='contraction'){return '<div class="bigword">'+esc(v.a)+' '+v.b.split('').map(function(ch,i){return (v.drop&&v.drop.indexOf(i)>-1)?'<span class="strike">'+esc(ch)+'</span>':esc(ch)}).join('')+'</div><div class="big" style="font-size:40px">⬇️</div><div class="bigword" style="color:#DB2F30">'+esc(v.result)+'</div>';}
@@ -39,7 +40,7 @@ function vis(v){
 window.BBvis=vis;
 
 /* ---------- multiple choice widget ---------- */
-function norm(x){return String(x==null?'':x).toLowerCase().replace(/[’‘'`"“”]/g,'').replace(/[×*✕]/g,'x').replace(/[.,!?;:$]/g,'').replace(/\s+/g,'')}
+function norm(x){return String(x==null?'':x).toLowerCase().replace(/[’‘'`"“”]/g,'').replace(/[×*✕]/g,'x').replace(/[.,!?;:$]/g,'').replace(/\s+/g,'').replace(/[−–—]/g,'-').replace(/([a-z])-(?=[a-z])/g,'$1')}
 function strip(x){var d=document.createElement('div');d.innerHTML=x;return d.textContent}
 function answerText(q){return q.type==='fill'?q.answers[0]:q.choices[q.a]}
 /* ask(): one question, up to 3 tries. Wrong tries reset everything (nothing stays marked).
@@ -132,10 +133,10 @@ window.BBLesson=function(L){
         box.querySelector('#gp').onclick=chg(function(){if(g<10)g++});box.querySelector('#gm').onclick=chg(function(){if(g>0)g--});box.querySelector('#ep').onclick=chg(function(){if(e2<10)e2++});box.querySelector('#em').onclick=chg(function(){if(e2>0)e2--});
         bc.onclick=function(){if(bdone)return;if(!g||!e2){fb.className='fb show no';fb.innerHTML='Use the + buttons to make the groups first.';return}
           if(g===s.groups&&e2===s.each){bdone=true;bc.disabled=true;fb.className='fb show ok';fb.innerHTML='✅ <b>Yes!</b> '+html(s.why);star(bt?1:2);return}
-          bt++;if(bt<3){fb.className='fb show no';fb.innerHTML='❌ Not yet. Try '+(bt+1)+' of 3. '+html(s.hint||'Read the problem again. How many groups? How many in each?')}
+          bt++;var wh=(g!==s.groups&&e2!==s.each)?'Both numbers need to change.':(g!==s.groups?'Your <b>Groups</b> number is not right yet.':'Your <b>In each group</b> number is not right yet.');if(bt<3){fb.className='fb show no';fb.innerHTML='❌ Not yet. '+wh+' '+html(s.hint||'Read the problem again.')+' <i>('+(3-bt)+(3-bt===1?' try':' tries')+' left)</i>'}
           else{bdone=true;bc.disabled=true;g=s.groups;e2=s.each;box.querySelector('#gv').textContent=g;box.querySelector('#ev').textContent=e2;box.querySelector('#bv').innerHTML=vis({kind:'groups',groups:g,each:e2,emoji:s.emoji});box.querySelector('#bl').innerHTML=g+' groups of '+e2;fb.className='fb show no';fb.innerHTML='Here is how it looks. '+html(s.why)}};},0);}
-    else if(T==='talk'){box.innerHTML=head+(s.text?'<div class="say">'+html(s.text)+'</div>':'')+vis(s.visual)+s.prompts.map(function(p){return '<div class="talkp">🗣️ '+html(p)+'</div>'}).join('')+(s.starters?'<div class="starters">Start with: '+s.starters.map(function(x){return '<span>'+html(x)+'</span>'}).join('')+'</div>':'')+'<button class="btn2 gold" id="tk">Teacher: great answer +1 ⭐</button>';
-      setTimeout(function(){box.querySelector('#tk').onclick=function(){star(1)}},0);}
+    else if(T==='talk'){box.innerHTML=head+(s.text?'<div class="say">'+html(s.text)+'</div>':'')+vis(s.visual)+s.prompts.map(function(p){return '<div class="talkp">🗣️ '+html(p)+'</div>'}).join('')+(s.starters?'<div class="starters">Start with: '+s.starters.map(function(x){return '<span>'+html(x)+'</span>'}).join('')+'</div>':'')+(L.teacherView?'<button class="btn2 gold" id="tk">Teacher: great answer +1 ⭐</button>':'');
+      setTimeout(function(){var tk=box.querySelector('#tk');if(tk)tk.onclick=function(){star(1)}},0);}
     else if(T==='check'){var sets=s.sets||[s.questions];checkState=checkState||{i:0,right:0,missed:[],done:false,attempt:1};var cs=checkState;var QS=sets[(cs.attempt-1)%sets.length];cs.n=QS.length;
       if(cs.done){box.innerHTML=result();}
       else{box.innerHTML='<span class="kick">⭐ Show What You Know · '+(cs.i+1)+' of '+QS.length+(sets.length>1?' · Set '+(((cs.attempt-1)%sets.length)+1):'')+'</span><h2>'+html(s.title||'Show What You Know')+'</h2><p style="font-size:16px;color:#5b6578">You get 3 tries. Only your <b>first try</b> counts for your score. You need '+L.mastery+' to open the next lesson.</p><div id="cq"></div>';
@@ -157,7 +158,7 @@ window.BBLesson=function(L){
   function result(fromDone){var cs=checkState;
     if(L.teacherView) return '<div class="res"><div class="big">🧱</div><h2>Class lesson done!</h2><p>Next: she does the <b>after-class lesson</b> on her own and finishes with Show What You Know.</p><p><a href="index.html">Back to the course page</a></p></div>';
     if(!cs||!cs.done) return '<div class="res"><div class="big">🧱</div><h2>Great work today!</h2><p>Go back and finish <b>Show What You Know</b> so your score is saved.</p></div>';
-    return '<div class="res"><div class="big">'+(cs.ok?'🏆':'💪')+'</div><div class="score">'+cs.score+'</div><h2>'+(cs.ok?'You did it! Next lesson is open.':'Almost! You need '+L.mastery+'.')+'</h2><p>'+(cs.ok?html(L.win||'Your score was sent to KCE.'):'Look at the ones you missed. When you try again, you get brand-new questions.')+'</p>'+
+    return '<div class="res"><div class="big">'+(cs.ok?'🏆':'💪')+'</div><div class="score">'+cs.score+'</div><h2>'+(cs.ok?'You did it! Next lesson is open.':(cs.score>=L.mastery-15?'Almost! You need '+L.mastery+'.':'Not yet. You need '+L.mastery+'. You can do this!'))+'</h2><p>'+(cs.ok?html(L.win||'Your score was sent to KCE.'):'Look at the ones you missed. When you try again, you get brand-new questions.')+'</p>'+
       (cs.missed.length?'<div style="text-align:left;background:#FFF3C9;border-radius:16px;padding:10px 14px;font-size:16px"><b>Look again at:</b><ul>'+cs.missed.map(function(m){return '<li>'+esc(m.q)+' <br>✅ '+esc(m.answer)+'</li>'}).join('')+'</ul></div>':'')+
       (cs.ok?'':'<button class="btn2" id="again">Try again</button>')+'<p><a href="index.html">Back to my lessons</a></p><p style="font-size:15px;color:#5b6578">⭐ Stars today: '+stars+'</p></div>';}
   document.getElementById('back').onclick=function(){if(cur>0){cur--;render()}};
