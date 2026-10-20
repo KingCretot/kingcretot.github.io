@@ -128,7 +128,7 @@ window.BBLesson=function(L){
   function strip(x){var d=document.createElement('div');d.innerHTML=x;return d.textContent}
   function finish(s){var cs=checkState,score=Math.round(100*cs.right/s.questions.length),ok=score>=L.mastery;cs.score=score;cs.ok=ok;
     var p=rd(PKEY),old=p[id]||{};p[id]={best:Math.max(old.best||0,score),passed:!!(old.passed||ok),last:score};wr(PKEY,p);
-    post({program:'KCE Building Blocks',part:'Lesson check',student:L.studentName,name_typed:name,lesson:L.label,lesson_title:L.title,lesson_date:L.date,score:score,correct:cs.right,total:s.questions.length,mastered:ok?'yes':'no',mastery_needed:L.mastery,attempt:cs.attempt,stars:stars,missed:cs.missed,timestamp:new Date().toISOString(),_subject:'Building Blocks: '+L.studentName+' '+L.label+' check '+score+(ok?' (mastered)':' (not yet)')});
+    post({program:'KCE Building Blocks',part:'Lesson check',student:L.studentName,lesson:L.label,lesson_title:L.title,lesson_date:L.date,score:score,correct:cs.right,total:s.questions.length,mastered:ok?'yes':'no',mastery_needed:L.mastery,attempt:cs.attempt,stars:stars,missed:cs.missed,timestamp:new Date().toISOString(),_subject:'Building Blocks: '+L.studentName+' '+L.label+' check '+score+(ok?' (mastered)':' (not yet)')});
     if(ok&&window.confetti)window.confetti();}
   function result(fromDone){var cs=checkState;
     if(!cs||!cs.done) return '<div class="res"><div class="big">🧱</div><h2>Great work today!</h2><p>Go back and finish <b>Show What You Know</b> so your score is saved.</p></div>';
