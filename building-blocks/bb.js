@@ -1,6 +1,6 @@
 /* KCE Building Blocks runtime: lessons, practice sets, course page, teacher lock */
 (function(){
-var FORM='https://formspree.io/f/maeqzabe', TPIN='9110', PKEY='kce_bb_progress', UKEY='kce_bb_unlocked';
+var FORM='https://formspree.io/f/maeqzabe', TPIN='9110', PKEY='kce_bb_progress', UKEY='kce_bb_unlocked', AKEY='kce_bb_attempts';
 function rd(k){try{return JSON.parse(localStorage.getItem(k)||'{}')||{}}catch(e){return {}}}
 function wr(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
@@ -135,7 +135,7 @@ window.BBLesson=function(L){
           else{bdone=true;bc.disabled=true;g=s.groups;e2=s.each;box.querySelector('#gv').textContent=g;box.querySelector('#ev').textContent=e2;box.querySelector('#bv').innerHTML=vis({kind:'groups',groups:g,each:e2,emoji:s.emoji});box.querySelector('#bl').innerHTML=g+' groups of '+e2;fb.className='fb show no';fb.innerHTML='Here is how it looks. '+html(s.why)}};},0);}
     else if(T==='talk'){box.innerHTML=head+(s.text?'<div class="say">'+html(s.text)+'</div>':'')+vis(s.visual)+s.prompts.map(function(p){return '<div class="talkp">🗣️ '+html(p)+'</div>'}).join('')+(s.starters?'<div class="starters">Start with: '+s.starters.map(function(x){return '<span>'+html(x)+'</span>'}).join('')+'</div>':'')+(L.teacherView?'<button class="btn2 gold" id="tk">Teacher: great answer +1 ⭐</button>':'');
       setTimeout(function(){var tk=box.querySelector('#tk');if(tk)tk.onclick=function(){star(1)}},0);}
-    else if(T==='check'){var sets=s.sets||[s.questions];checkState=checkState||{i:0,right:0,missed:[],done:false,attempt:1};var cs=checkState;var QS=sets[(cs.attempt-1)%sets.length];cs.n=QS.length;
+    else if(T==='check'){var sets=s.sets||[s.questions];checkState=checkState||{i:0,right:0,missed:[],done:false,attempt:(rd(AKEY)[id]||1)};var cs=checkState;var QS=sets[(cs.attempt-1)%sets.length];cs.n=QS.length;
       if(cs.done){box.innerHTML=result();}
       else{box.innerHTML='<span class="kick">⭐ Show What You Know · '+(cs.i+1)+' of '+QS.length+(sets.length>1?' · Set '+(((cs.attempt-1)%sets.length)+1):'')+'</span><h2>'+html(s.title||'Show What You Know')+'</h2><p style="font-size:16px;color:#5b6578">You get 3 tries. Only your <b>first try</b> counts for your score. You need '+L.mastery+' to open the next lesson.</p><div id="cq"></div>';
         setTimeout(function(){var q=QS[cs.i];ask(box.querySelector('#cq'),q,{tries:3,onDone:function(ok,got,firstResp){if(ok){cs.right++;star(1)}else cs.missed.push({q:strip(q.q),first_try:strip(firstResp),answer:strip(answerText(q)),v:q.visual||null});
@@ -150,7 +150,7 @@ window.BBLesson=function(L){
     var r=box.querySelector('#again');if(r)r.onclick=function(){checkState={i:0,right:0,missed:[],done:false,attempt:(checkState?checkState.attempt+1:1)};cur=slides.findIndex(function(x){return x.type==='check'});render()};
   }
   function finish(){var cs=checkState,score=Math.round(100*cs.right/cs.n),ok=score>=L.mastery;cs.score=score;cs.ok=ok;
-    var p=rd(PKEY),old=p[id]||{};p[id]={best:Math.max(old.best||0,score),passed:!!(old.passed||ok),last:score};wr(PKEY,p);
+    var p=rd(PKEY),old=p[id]||{};p[id]={best:Math.max(old.best||0,score),passed:!!(old.passed||ok),last:score};wr(PKEY,p);var at=rd(AKEY);at[id]=cs.attempt+1;wr(AKEY,at);
     post({program:'KCE Building Blocks',part:'Lesson check',student:L.studentName,lesson:L.label,lesson_title:L.title,lesson_date:L.date,score:score,correct:cs.right,total:cs.n,question_set:cs.attempt,mastered:ok?'yes':'no',mastery_needed:L.mastery,attempt:cs.attempt,stars:stars,missed:cs.missed.map(function(m){return {q:m.q,first_try:m.first_try,answer:m.answer}}),timestamp:new Date().toISOString(),_subject:'Building Blocks: '+L.studentName+' '+L.label+' check '+score+(ok?' (mastered)':' (not yet)')});
     if(ok&&window.confetti)window.confetti();}
   function result(fromDone){var cs=checkState;
@@ -167,12 +167,12 @@ window.BBLesson=function(L){
 /* ---------- practice set ---------- */
 window.BBPractice=function(P){
   document.documentElement.style.setProperty('--acc',P.color||'#2E86DE');
-  var st=document.getElementById('stage'),i=0,right=0,missed=[],qs=P.questions;
+  var st=document.getElementById('stage'),i=0,right=0,missed=[],sets=P.sets||[P.questions],pk='practice-'+P.id,pa=rd(AKEY)[pk]||1,setNo=((pa-1)%sets.length)+1,qs=sets[setNo-1];
   function show(){document.getElementById('pi').style.width=(100*i/qs.length)+'%';
     if(i>=qs.length){var score=Math.round(100*right/qs.length);
-      post({program:'KCE Building Blocks',part:'Practice set',student:P.studentName,lesson:P.label,lesson_title:P.title,score:score,correct:right,total:qs.length,missed:missed,timestamp:new Date().toISOString(),_subject:'Building Blocks: '+P.studentName+' '+P.label+' practice '+score});
-      st.innerHTML='<div class="slide res"><div class="big">'+(score>=P.mastery?'🌟':'💪')+'</div><div class="score">'+score+'</div><h2>'+(score>=P.mastery?'Great practice!':'Good effort! Practice again tomorrow.')+'</h2><p>Only first tries count. Your score was sent to KCE.</p><button class="btn2" onclick="location.reload()">Practice again</button><p><a href="index.html">Back to my lessons</a></p></div>';if(score>=P.mastery&&window.confetti)window.confetti();return;}
-    var box=document.createElement('div');box.className='slide';box.innerHTML='<span class="kick">Practice · '+(i+1)+' of '+qs.length+'</span><div id="pq"></div>';st.innerHTML='';st.appendChild(box);window.scrollTo(0,0);
+      var at=rd(AKEY);at[pk]=pa+1;wr(AKEY,at);post({program:'KCE Building Blocks',part:'Practice set',student:P.studentName,lesson:P.label,lesson_title:P.title,question_set:setNo,score:score,correct:right,total:qs.length,missed:missed,timestamp:new Date().toISOString(),_subject:'Building Blocks: '+P.studentName+' '+P.label+' practice '+score});
+      st.innerHTML='<div class="slide res"><div class="big">'+(score>=P.mastery?'🌟':'💪')+'</div><div class="score">'+score+'</div><h2>'+(score>=P.mastery?'Great practice!':'Good effort! Practice again tomorrow.')+'</h2><p>Only first tries count. Your score was sent to KCE.'+(sets.length>1?' Practice again for a new set of questions.':'')+'</p><button class="btn2" onclick="location.reload()">Practice again</button><p><a href="index.html">Back to my lessons</a></p></div>';if(score>=P.mastery&&window.confetti)window.confetti();return;}
+    var box=document.createElement('div');box.className='slide';box.innerHTML='<span class="kick">Practice · '+(i+1)+' of '+qs.length+(sets.length>1?' · Set '+setNo:'')+'</span><div id="pq"></div>';st.innerHTML='';st.appendChild(box);window.scrollTo(0,0);
     var q=qs[i];ask(box.querySelector('#pq'),q,{tries:3,onDone:function(ok,got,firstResp){if(ok)right++;else missed.push({q:strip(q.q),first_try:strip(firstResp),answer:strip(answerText(q))});
       var nb=document.createElement('button');nb.className='btn2';nb.textContent='Next ➜';box.appendChild(nb);nb.onclick=function(){i++;show()}}});}
   show();
