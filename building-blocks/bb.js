@@ -53,7 +53,7 @@ function ask(box,q,opts){
     var inp=box.querySelector('.fillin'),go=box.querySelector('.fillgo'),fb=box.querySelector('.fb');
     function submit(){if(done)return;var v=norm(inp.value);if(!v){fb.className='fb show no';fb.innerHTML='Type an answer first.';return}
       used++;if(first===null)first=inp.value;
-      if(q.answers.some(function(a){return norm(a)===v})){inp.classList.add('ok');inp.disabled=true;go.disabled=true;fb.className='fb show ok';fb.innerHTML='✅ <b>Yes!</b> '+html(q.why||'');finishQ(true);return}
+      if(q.answers.some(function(a){var n=norm(a);return n===v||(/^\d+$/.test(n)&&new RegExp('^'+n+'[a-z]{3,}$').test(v))})){inp.classList.add('ok');inp.disabled=true;go.disabled=true;fb.className='fb show ok';fb.innerHTML='✅ <b>Yes!</b> '+html(q.why||'');finishQ(true);return}
       if(used>=tries){inp.disabled=true;go.disabled=true;fb.className='fb show no';fb.innerHTML='The answer is <b>'+html(q.answers[0])+'</b>. '+html(q.why||'');finishQ(false);return}
       fb.className='fb show no';fb.innerHTML=wrongMsg(used===2&&q.hint?q.hint:(q.no||'Not yet. Think about what you learned.'));inp.value='';inp.focus();}
     go.onclick=submit;inp.onkeydown=function(e){if(e.key==='Enter')submit()};
