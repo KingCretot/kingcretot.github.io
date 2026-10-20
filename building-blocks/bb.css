@@ -93,3 +93,10 @@ body{background:#FFF9EF radial-gradient(circle at 10% 10%,#FFE9F2 0,transparent 
 .bucket:nth-child(1){background:#EAF4FF}.bucket:nth-child(2){background:#FFF0F6}.bucket:nth-child(3){background:#EFFBF1}
 .chip:not(.done){box-shadow:0 3px 0 rgba(10,31,61,.08)}
 .kick{box-shadow:0 3px 0 rgba(0,0,0,.12)}
+.fillrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.fillin{font-family:Fredoka,Nunito,sans-serif;font-size:24px;padding:10px 14px;border:3px solid var(--line);border-radius:16px;min-width:220px;flex:1;max-width:420px;background:#FFFDF6}
+.fillin:focus{outline:none;border-color:var(--acc)}
+.fillin.ok{border-color:var(--ok);background:var(--okbg)}
+.fillrow .btn2{margin-top:0}
+.tnote{background:#FFF6DB;border:3px solid #C9A84C;border-radius:16px;padding:10px 14px;margin-top:14px;font-size:17px}
+.tnote b{color:#0A1F3D}

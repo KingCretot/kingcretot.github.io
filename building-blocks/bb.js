@@ -38,23 +38,39 @@ function vis(v){
 window.BBvis=vis;
 
 /* ---------- multiple choice widget ---------- */
-function mcq(box,q,opts){ // opts: {tries, onDone(correct,chosenIndex)}
-  var tries=opts.tries||2, used=0, done=false;
-  var h='<div class="q">'+html(q.q)+'</div>'+vis(q.visual)+'<div class="choices">';
-  q.choices.forEach(function(c,i){h+='<button class="ch" data-i="'+i+'">'+html(c)+'</button>'});
-  h+='</div><div class="fb"></div>';box.innerHTML=h;
-  var fb=box.querySelector('.fb'),bs=box.querySelectorAll('.ch');
+function norm(x){return String(x==null?'':x).toLowerCase().replace(/[’‘'`"“”]/g,'').replace(/[×*✕]/g,'x').replace(/[.,!?;:$]/g,'').replace(/\s+/g,'')}
+function strip(x){var d=document.createElement('div');d.innerHTML=x;return d.textContent}
+function answerText(q){return q.type==='fill'?q.answers[0]:q.choices[q.a]}
+/* ask(): one question, up to 3 tries. Wrong tries reset everything (nothing stays marked).
+   After the 3rd wrong try: explanation + answer. onDone(firstTry, gotIt, firstResponse) */
+function ask(box,q,opts){
+  var tries=opts.tries||3, used=0, done=false, first=null;
+  var head='<div class="q">'+html(q.q)+'</div>'+vis(q.visual);
+  function finishQ(ok){done=true;opts.onDone&&opts.onDone(ok&&used===1,ok,first)}
+  function wrongMsg(extra){return '❌ '+html(extra||'Not yet.')+' <b>Try again'+(tries-used===1?' (last try)':'')+'!</b>'}
+  if(q.type==='fill'){
+    box.innerHTML=head+'<div class="fillrow"><input class="fillin" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="'+esc(q.placeholder||'Type your answer')+'"><button class="btn2 fillgo">Check</button></div><div class="fb"></div>';
+    var inp=box.querySelector('.fillin'),go=box.querySelector('.fillgo'),fb=box.querySelector('.fb');
+    function submit(){if(done)return;var v=norm(inp.value);if(!v){fb.className='fb show no';fb.innerHTML='Type an answer first.';return}
+      used++;if(first===null)first=inp.value;
+      if(q.answers.some(function(a){return norm(a)===v})){inp.classList.add('ok');inp.disabled=true;go.disabled=true;fb.className='fb show ok';fb.innerHTML='✅ <b>Yes!</b> '+html(q.why||'');finishQ(true);return}
+      if(used>=tries){inp.disabled=true;go.disabled=true;fb.className='fb show no';fb.innerHTML='The answer is <b>'+html(q.answers[0])+'</b>. '+html(q.why||'');finishQ(false);return}
+      fb.className='fb show no';fb.innerHTML=wrongMsg(used===2&&q.hint?q.hint:(q.no||'Not yet. Think about what you learned.'));inp.value='';inp.focus();}
+    go.onclick=submit;inp.onkeydown=function(e){if(e.key==='Enter')submit()};
+    return;
+  }
+  var h=head+'<div class="choices">';q.choices.forEach(function(c,i){h+='<button class="ch" data-i="'+i+'">'+html(c)+'</button>'});
+  box.innerHTML=h+'</div><div class="fb"></div>';
+  var fb2=box.querySelector('.fb'),bs=box.querySelectorAll('.ch');
   bs.forEach(function(b){b.onclick=function(){
-    if(done)return; var i=+b.dataset.i; used++;
-    if(i===q.a){b.classList.add('right');done=true;bs.forEach(function(x){x.disabled=true});
-      fb.className='fb show ok';fb.innerHTML='✅ <b>Yes!</b> '+html(q.why||'');opts.onDone&&opts.onDone(used===1,i);}
-    else{b.classList.add('wrong');b.disabled=true;var why=(q.no&&q.no[i])||'Look again.';
-      if(used>=tries){done=true;bs.forEach(function(x){x.disabled=true});bs[q.a].classList.add('right');
-        fb.className='fb show no';fb.innerHTML='❌ '+html(why)+'<br>✅ The answer is <b>'+html(q.choices[q.a])+'</b>. '+html(q.why||'');opts.onDone&&opts.onDone(false,i);}
-      else{fb.className='fb show no';fb.innerHTML='❌ '+html(why)+' <b>Try again!</b>';}}
+    if(done)return;var i=+b.dataset.i;used++;if(first===null)first=strip(q.choices[i]);
+    if(i===q.a){b.classList.add('right');bs.forEach(function(x){x.disabled=true});fb2.className='fb show ok';fb2.innerHTML='✅ <b>Yes!</b> '+html(q.why||'');finishQ(true);return}
+    if(used>=tries){bs.forEach(function(x){x.disabled=true});bs[q.a].classList.add('right');fb2.className='fb show no';fb2.innerHTML='The answer is <b>'+html(q.choices[q.a])+'</b>. '+html(q.why||'');finishQ(false);return}
+    var why=(q.no&&q.no[i])||'Not yet.';
+    b.classList.add('wrong');setTimeout(function(){bs.forEach(function(x){x.classList.remove('wrong')})},700);
+    fb2.className='fb show no';fb2.innerHTML=wrongMsg(why);
   }});
 }
-
 /* ---------- lock overlay ---------- */
 function lockScreen(msg,id,label,onOpen,student){
   var ov=document.createElement('div');ov.className='lockov';
@@ -74,7 +90,10 @@ function lockScreen(msg,id,label,onOpen,student){
 window.BBLesson=function(L){
   document.documentElement.style.setProperty('--acc',L.color||'#2E86DE');
   var id=L.id, prev=L.prev;
-  if(prev&&!passed(prev)&&!unlocked(id)&&!teacher()){lockScreen('First pass <b>'+esc(L.prevTitle)+'</b> with '+L.mastery+' or more. Then this lesson opens.',id,L.label,null,L.studentName);}
+  if(L.teacherView){var tok=false;try{tok=sessionStorage.getItem('kce_bb_t')==='1'||teacher()}catch(e){}
+    if(!tok){var ov=document.createElement('div');ov.className='lockov';ov.innerHTML='<div class="lockbox"><div class="big">🔒</div><h2 class="fred" style="color:#0A1F3D">Class lesson: teacher only</h2><p>Type the teacher code.</p><input id="tp" type="password" inputmode="numeric"> <button class="btn2" id="to">Open</button><div class="m" id="tm"></div><p><a href="index.html">Back</a></p></div>';document.body.appendChild(ov);
+      ov.querySelector('#to').onclick=function(){if(ov.querySelector('#tp').value===TPIN){try{sessionStorage.setItem('kce_bb_t','1')}catch(e){}ov.remove()}else ov.querySelector('#tm').textContent='That code is not right.'};}}
+  else if(prev&&!passed(prev)&&!unlocked(id)&&!teacher()){lockScreen('First pass <b>'+esc(L.prevTitle)+'</b> with '+L.mastery+' or more. Then this lesson opens.',id,L.label,null,L.studentName);}
   var slides=L.slides.slice(), stage=document.getElementById('stage'), cur=0, stars=0, checkState=null;
   slides.push({type:'done'});
   var name=''; try{name=localStorage.getItem('kce_bb_name_'+L.student)||''}catch(e){}
@@ -91,7 +110,7 @@ window.BBLesson=function(L){
       setTimeout(function(){box.querySelectorAll('.vc').forEach(function(c){c.onclick=function(){c.classList.toggle('flip')}})},0);}
     else if(T==='tap'||T==='recall'){box.innerHTML=head+(s.text?'<div class="say">'+html(s.text)+'</div>':'');
       var qs=s.items||[s], wrap=document.createElement('div');box.appendChild(wrap);
-      qs.forEach(function(q,qi){var d=document.createElement('div');d.style.marginTop=qi?'22px':'0';wrap.appendChild(d);mcq(d,q,{onDone:function(ok){if(ok)star(1)}});});}
+      qs.forEach(function(q,qi){var d=document.createElement('div');d.style.marginTop=qi?'22px':'0';wrap.appendChild(d);ask(d,q,{onDone:function(ok){if(ok)star(1)}});});}
     else if(T==='sort'){box.innerHTML=head+'<div class="say">'+html(s.text||'Tap a card, then tap the box where it belongs.')+'</div><div id="pool"></div><div class="buckets">'+s.buckets.map(function(b,i){return '<div class="bucket" data-b="'+i+'"><h4>'+html(b)+'</h4></div>'}).join('')+'</div><div class="fb"></div>';
       setTimeout(function(){var pool=box.querySelector('#pool'),sel=null,fb=box.querySelector('.fb'),left=s.items.length;
         s.items.forEach(function(it,i){var c=document.createElement('span');c.className='chip';c.innerHTML=html(it.text);c.onclick=function(){if(c.classList.contains('done'))return;pool.querySelectorAll('.chip').forEach(function(x){x.classList.remove('sel')});c.classList.add('sel');sel={c:c,it:it}};pool.appendChild(c)});
@@ -112,27 +131,28 @@ window.BBLesson=function(L){
         box.querySelector('#bc').onclick=function(){var fb=box.querySelector('.fb');if(g===s.groups&&e2===s.each){fb.className='fb show ok';fb.innerHTML='✅ '+html(s.why);star(2)}else{fb.className='fb show no';fb.innerHTML='❌ '+html(s.hint||'Read the problem again. How many groups? How many in each?')}};},0);}
     else if(T==='talk'){box.innerHTML=head+(s.text?'<div class="say">'+html(s.text)+'</div>':'')+vis(s.visual)+s.prompts.map(function(p){return '<div class="talkp">🗣️ '+html(p)+'</div>'}).join('')+(s.starters?'<div class="starters">Start with: '+s.starters.map(function(x){return '<span>'+html(x)+'</span>'}).join('')+'</div>':'')+'<button class="btn2 gold" id="tk">Teacher: great answer +1 ⭐</button>';
       setTimeout(function(){box.querySelector('#tk').onclick=function(){star(1)}},0);}
-    else if(T==='check'){checkState=checkState||{i:0,right:0,missed:[],done:false,attempt:1};var cs=checkState;
+    else if(T==='check'){var sets=s.sets||[s.questions];checkState=checkState||{i:0,right:0,missed:[],done:false,attempt:1};var cs=checkState;var QS=sets[(cs.attempt-1)%sets.length];cs.n=QS.length;
       if(cs.done){box.innerHTML=result();}
-      else{box.innerHTML='<span class="kick">⭐ Show What You Know · '+(cs.i+1)+' of '+s.questions.length+'</span><h2>'+html(s.title||'Show What You Know')+'</h2><p style="font-size:16px;color:#5b6578">One try for each question. You need '+L.mastery+' to open the next lesson.</p><div id="cq"></div>';
-        setTimeout(function(){var q=s.questions[cs.i];mcq(box.querySelector('#cq'),q,{tries:1,onDone:function(ok,ch){if(ok){cs.right++;star(1)}else cs.missed.push({q:strip(q.q),chose:strip(q.choices[ch]),answer:strip(q.choices[q.a])});
-          var nb=document.createElement('button');nb.className='btn2';nb.textContent=cs.i+1<s.questions.length?'Next question ➜':'See my score ➜';box.appendChild(nb);
-          nb.onclick=function(){cs.i++;if(cs.i>=s.questions.length){cs.done=true;finish(s)}render()}}})},0);}}
+      else{box.innerHTML='<span class="kick">⭐ Show What You Know · '+(cs.i+1)+' of '+QS.length+(sets.length>1?' · Set '+(((cs.attempt-1)%sets.length)+1):'')+'</span><h2>'+html(s.title||'Show What You Know')+'</h2><p style="font-size:16px;color:#5b6578">You get 3 tries. Only your <b>first try</b> counts for your score. You need '+L.mastery+' to open the next lesson.</p><div id="cq"></div>';
+        setTimeout(function(){var q=QS[cs.i];ask(box.querySelector('#cq'),q,{tries:3,onDone:function(ok,got,firstResp){if(ok){cs.right++;star(1)}else cs.missed.push({q:strip(q.q),first_try:strip(firstResp),answer:strip(answerText(q))});
+          var nb=document.createElement('button');nb.className='btn2';nb.textContent=cs.i+1<QS.length?'Next question ➜':'See my score ➜';box.appendChild(nb);
+          nb.onclick=function(){cs.i++;if(cs.i>=QS.length){cs.done=true;finish()}render()}}})},0);}}
     else if(T==='done'){box.innerHTML=result(true);}
+    if(L.teacherView&&s.notes){var n=s.notes,t='<div class="tnote">🧑‍🏫 ';['do','say','ask','listen'].forEach(function(k){if(n[k])t+='<div><b>'+{do:'Do',say:'Say',ask:'Ask',listen:'Listen for'}[k]+':</b> '+html(n[k])+'</div>'});box.insertAdjacentHTML('beforeend',t+'</div>')}
     stage.innerHTML='';stage.appendChild(box);window.scrollTo(0,0);
     document.getElementById('back').disabled=cur===0;
     document.getElementById('next').textContent=cur===slides.length-1?'All done ✔':'Next ➜';
     document.getElementById('next').disabled=cur===slides.length-1;
     var r=box.querySelector('#again');if(r)r.onclick=function(){checkState={i:0,right:0,missed:[],done:false,attempt:(checkState?checkState.attempt+1:1)};cur=slides.findIndex(function(x){return x.type==='check'});render()};
   }
-  function strip(x){var d=document.createElement('div');d.innerHTML=x;return d.textContent}
-  function finish(s){var cs=checkState,score=Math.round(100*cs.right/s.questions.length),ok=score>=L.mastery;cs.score=score;cs.ok=ok;
+  function finish(){var cs=checkState,score=Math.round(100*cs.right/cs.n),ok=score>=L.mastery;cs.score=score;cs.ok=ok;
     var p=rd(PKEY),old=p[id]||{};p[id]={best:Math.max(old.best||0,score),passed:!!(old.passed||ok),last:score};wr(PKEY,p);
-    post({program:'KCE Building Blocks',part:'Lesson check',student:L.studentName,lesson:L.label,lesson_title:L.title,lesson_date:L.date,score:score,correct:cs.right,total:s.questions.length,mastered:ok?'yes':'no',mastery_needed:L.mastery,attempt:cs.attempt,stars:stars,missed:cs.missed,timestamp:new Date().toISOString(),_subject:'Building Blocks: '+L.studentName+' '+L.label+' check '+score+(ok?' (mastered)':' (not yet)')});
+    post({program:'KCE Building Blocks',part:'Lesson check',student:L.studentName,lesson:L.label,lesson_title:L.title,lesson_date:L.date,score:score,correct:cs.right,total:cs.n,question_set:cs.attempt,mastered:ok?'yes':'no',mastery_needed:L.mastery,attempt:cs.attempt,stars:stars,missed:cs.missed,timestamp:new Date().toISOString(),_subject:'Building Blocks: '+L.studentName+' '+L.label+' check '+score+(ok?' (mastered)':' (not yet)')});
     if(ok&&window.confetti)window.confetti();}
   function result(fromDone){var cs=checkState;
+    if(L.teacherView) return '<div class="res"><div class="big">🧱</div><h2>Class lesson done!</h2><p>Next: she does the <b>after-class lesson</b> on her own and finishes with Show What You Know.</p><p><a href="index.html">Back to the course page</a></p></div>';
     if(!cs||!cs.done) return '<div class="res"><div class="big">🧱</div><h2>Great work today!</h2><p>Go back and finish <b>Show What You Know</b> so your score is saved.</p></div>';
-    return '<div class="res"><div class="big">'+(cs.ok?'🏆':'💪')+'</div><div class="score">'+cs.score+'</div><h2>'+(cs.ok?'You did it! Next lesson is open.':'Almost! You need '+L.mastery+'.')+'</h2><p>'+(cs.ok?html(L.win||'Your score was sent to KCE.'):'Look at the ones you missed with your teacher, then try again.')+'</p>'+
+    return '<div class="res"><div class="big">'+(cs.ok?'🏆':'💪')+'</div><div class="score">'+cs.score+'</div><h2>'+(cs.ok?'You did it! Next lesson is open.':'Almost! You need '+L.mastery+'.')+'</h2><p>'+(cs.ok?html(L.win||'Your score was sent to KCE.'):'Look at the ones you missed. When you try again, you get brand-new questions.')+'</p>'+
       (cs.missed.length?'<div style="text-align:left;background:#FFF3C9;border-radius:16px;padding:10px 14px;font-size:16px"><b>Look again at:</b><ul>'+cs.missed.map(function(m){return '<li>'+esc(m.q)+' <br>✅ '+esc(m.answer)+'</li>'}).join('')+'</ul></div>':'')+
       (cs.ok?'':'<button class="btn2" id="again">Try again</button>')+'<p><a href="index.html">Back to my lessons</a></p><p style="font-size:15px;color:#5b6578">⭐ Stars today: '+stars+'</p></div>';}
   document.getElementById('back').onclick=function(){if(cur>0){cur--;render()}};
@@ -147,9 +167,9 @@ window.BBPractice=function(P){
   function show(){document.getElementById('pi').style.width=(100*i/qs.length)+'%';
     if(i>=qs.length){var score=Math.round(100*right/qs.length);
       post({program:'KCE Building Blocks',part:'Practice set',student:P.studentName,lesson:P.label,lesson_title:P.title,score:score,correct:right,total:qs.length,missed:missed,timestamp:new Date().toISOString(),_subject:'Building Blocks: '+P.studentName+' '+P.label+' practice '+score});
-      st.innerHTML='<div class="slide res"><div class="big">'+(score>=P.mastery?'🌟':'💪')+'</div><div class="score">'+score+'</div><h2>'+(score>=P.mastery?'Great practice!':'Good effort! Practice again tomorrow.')+'</h2><p>Your score was sent to KCE.</p><button class="btn2" onclick="location.reload()">Practice again</button><p><a href="index.html">Back to my lessons</a></p></div>';if(score>=P.mastery&&window.confetti)window.confetti();return;}
+      st.innerHTML='<div class="slide res"><div class="big">'+(score>=P.mastery?'🌟':'💪')+'</div><div class="score">'+score+'</div><h2>'+(score>=P.mastery?'Great practice!':'Good effort! Practice again tomorrow.')+'</h2><p>Only first tries count. Your score was sent to KCE.</p><button class="btn2" onclick="location.reload()">Practice again</button><p><a href="index.html">Back to my lessons</a></p></div>';if(score>=P.mastery&&window.confetti)window.confetti();return;}
     var box=document.createElement('div');box.className='slide';box.innerHTML='<span class="kick">Practice · '+(i+1)+' of '+qs.length+'</span><div id="pq"></div>';st.innerHTML='';st.appendChild(box);window.scrollTo(0,0);
-    var q=qs[i];mcq(box.querySelector('#pq'),q,{tries:2,onDone:function(ok,ch){if(ok)right++;else missed.push({q:q.q.replace(/<[^>]+>/g,''),answer:q.choices[q.a].replace(/<[^>]+>/g,'')});
+    var q=qs[i];ask(box.querySelector('#pq'),q,{tries:3,onDone:function(ok,got,firstResp){if(ok)right++;else missed.push({q:strip(q.q),first_try:strip(firstResp),answer:strip(answerText(q))});
       var nb=document.createElement('button');nb.className='btn2';nb.textContent='Next ➜';box.appendChild(nb);nb.onclick=function(){i++;show()}}});}
   show();
 };
