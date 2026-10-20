@@ -140,7 +140,7 @@ window.BBLesson=function(L){
     else if(T==='check'){var sets=s.sets||[s.questions];checkState=checkState||{i:0,right:0,missed:[],done:false,attempt:1};var cs=checkState;var QS=sets[(cs.attempt-1)%sets.length];cs.n=QS.length;
       if(cs.done){box.innerHTML=result();}
       else{box.innerHTML='<span class="kick">⭐ Show What You Know · '+(cs.i+1)+' of '+QS.length+(sets.length>1?' · Set '+(((cs.attempt-1)%sets.length)+1):'')+'</span><h2>'+html(s.title||'Show What You Know')+'</h2><p style="font-size:16px;color:#5b6578">You get 3 tries. Only your <b>first try</b> counts for your score. You need '+L.mastery+' to open the next lesson.</p><div id="cq"></div>';
-        setTimeout(function(){var q=QS[cs.i];ask(box.querySelector('#cq'),q,{tries:3,onDone:function(ok,got,firstResp){if(ok){cs.right++;star(1)}else cs.missed.push({q:strip(q.q),first_try:strip(firstResp),answer:strip(answerText(q))});
+        setTimeout(function(){var q=QS[cs.i];ask(box.querySelector('#cq'),q,{tries:3,onDone:function(ok,got,firstResp){if(ok){cs.right++;star(1)}else cs.missed.push({q:strip(q.q),first_try:strip(firstResp),answer:strip(answerText(q)),v:q.visual||null});
           var nb=document.createElement('button');nb.className='btn2';nb.textContent=cs.i+1<QS.length?'Next question ➜':'See my score ➜';box.appendChild(nb);
           nb.onclick=function(){cs.i++;if(cs.i>=QS.length){cs.done=true;finish()}render()}}})},0);}}
     else if(T==='done'){box.innerHTML=result(true);}
@@ -153,13 +153,13 @@ window.BBLesson=function(L){
   }
   function finish(){var cs=checkState,score=Math.round(100*cs.right/cs.n),ok=score>=L.mastery;cs.score=score;cs.ok=ok;
     var p=rd(PKEY),old=p[id]||{};p[id]={best:Math.max(old.best||0,score),passed:!!(old.passed||ok),last:score};wr(PKEY,p);
-    post({program:'KCE Building Blocks',part:'Lesson check',student:L.studentName,lesson:L.label,lesson_title:L.title,lesson_date:L.date,score:score,correct:cs.right,total:cs.n,question_set:cs.attempt,mastered:ok?'yes':'no',mastery_needed:L.mastery,attempt:cs.attempt,stars:stars,missed:cs.missed,timestamp:new Date().toISOString(),_subject:'Building Blocks: '+L.studentName+' '+L.label+' check '+score+(ok?' (mastered)':' (not yet)')});
+    post({program:'KCE Building Blocks',part:'Lesson check',student:L.studentName,lesson:L.label,lesson_title:L.title,lesson_date:L.date,score:score,correct:cs.right,total:cs.n,question_set:cs.attempt,mastered:ok?'yes':'no',mastery_needed:L.mastery,attempt:cs.attempt,stars:stars,missed:cs.missed.map(function(m){return {q:m.q,first_try:m.first_try,answer:m.answer}}),timestamp:new Date().toISOString(),_subject:'Building Blocks: '+L.studentName+' '+L.label+' check '+score+(ok?' (mastered)':' (not yet)')});
     if(ok&&window.confetti)window.confetti();}
   function result(fromDone){var cs=checkState;
     if(L.teacherView) return '<div class="res"><div class="big">🧱</div><h2>Class lesson done!</h2><p>Next: she does the <b>after-class lesson</b> on her own and finishes with Show What You Know.</p><p><a href="index.html">Back to the course page</a></p></div>';
     if(!cs||!cs.done) return '<div class="res"><div class="big">🧱</div><h2>Great work today!</h2><p>Go back and finish <b>Show What You Know</b> so your score is saved.</p></div>';
     return '<div class="res"><div class="big">'+(cs.ok?'🏆':'💪')+'</div><div class="score">'+cs.score+'</div><h2>'+(cs.ok?'You did it! Next lesson is open.':(cs.score>=L.mastery-15?'Almost! You need '+L.mastery+'.':'Not yet. You need '+L.mastery+'. You can do this!'))+'</h2><p>'+(cs.ok?html(L.win||'Your score was sent to KCE.'):'Look at the ones you missed. When you try again, you get brand-new questions.')+'</p>'+
-      (cs.missed.length?'<div style="text-align:left;background:#FFF3C9;border-radius:16px;padding:10px 14px;font-size:16px"><b>Look again at:</b><ul>'+cs.missed.map(function(m){return '<li>'+esc(m.q)+' <br>✅ '+esc(m.answer)+'</li>'}).join('')+'</ul></div>':'')+
+      (cs.missed.length?'<div style="text-align:left;background:#FFF3C9;border-radius:16px;padding:10px 14px;font-size:16px"><b>Look again at:</b><ul>'+cs.missed.map(function(m){return '<li>'+esc(m.q)+(m.v?vis(m.v):'')+' <br>✅ '+esc(m.answer)+'</li>'}).join('')+'</ul></div>':'')+
       (cs.ok?'':'<button class="btn2" id="again">Try again</button>')+'<p><a href="index.html">Back to my lessons</a></p><p style="font-size:15px;color:#5b6578">⭐ Stars today: '+stars+'</p></div>';}
   document.getElementById('back').onclick=function(){if(cur>0){cur--;render()}};
   document.getElementById('next').onclick=function(){if(cur<slides.length-1){cur++;render()}};
