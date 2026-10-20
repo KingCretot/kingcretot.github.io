@@ -104,3 +104,12 @@ body{background:#FFF9EF radial-gradient(circle at 10% 10%,#FFE9F2 0,transparent 
 .cmp{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}.cmpset{border:3px dashed #c9d6ea;border-radius:16px;padding:6px 10px}.cmpl{font-family:Fredoka,sans-serif;font-size:26px;font-weight:700;text-align:center;color:#0A1F3D}
 .grp.grp-l{width:138px;height:138px;font-size:21px}.grp.grp-xl{width:160px;height:160px;font-size:19px}@media(max-width:560px){.grp.grp-l{width:112px;height:112px;font-size:17px}.grp.grp-xl{width:128px;height:128px;font-size:15px}}
 #stage{padding-bottom:110px}
+@media print{
+ @page{size:letter;margin:0.5in}
+ body{background:#fff!important}
+ .nav,.bar,#tmode,.btnrow,.lockov{display:none!important}
+ a[href="index.html"]{display:none}
+ table,tr,td,th,li,.tip,.card{break-inside:avoid;page-break-inside:avoid}
+ h1,h2,h3{break-after:avoid;page-break-after:avoid}
+ .top,.tri{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
