@@ -1,6 +1,6 @@
 /* KCE Building Blocks runtime: lessons, practice sets, course page, teacher lock */
 (function(){
-var FORM='https://formspree.io/f/maeqzabe', TPIN='9110', SPIN='1111', PKEY='kce_bb_progress', UKEY='kce_bb_unlocked';
+var FORM='https://formspree.io/f/maeqzabe', TPIN='9110', PKEY='kce_bb_progress', UKEY='kce_bb_unlocked';
 function rd(k){try{return JSON.parse(localStorage.getItem(k)||'{}')||{}}catch(e){return {}}}
 function wr(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
@@ -78,14 +78,11 @@ function ask(box,q,opts){
 function lockScreen(msg,id,label,onOpen,student){
   var ov=document.createElement('div');ov.className='lockov';
   ov.innerHTML='<div class="lockbox"><div class="big">🔒</div><h2 class="fred" style="color:#0A1F3D;margin:4px 0">Not open yet</h2><p>'+msg+'</p>'+
-  '<p style="font-size:16px;color:#5b6578">Locked but it is your lesson day? Type your code <b>1111</b>.</p>'+
-  '<input id="bbpin" type="password" inputmode="numeric" placeholder="code"> <button class="btn2" id="bbok">Open</button><div class="m" id="bbm"></div>'+
-  '<p><a href="index.html">Back to my lessons</a></p></div>';
+  '<p><a class="btn2" href="index.html" style="text-decoration:none;display:inline-block">Back to my lessons</a></p>'+
+  '<p style="font-size:13px;color:#8a93a3;margin-top:18px">Teacher code: <input id="bbpin" type="password" inputmode="numeric" style="width:90px"> <button class="btn2" id="bbok" style="padding:6px 12px;font-size:13px">Open</button></p><div class="m" id="bbm"></div></div>';
   document.body.appendChild(ov);
   ov.querySelector('#bbok').onclick=function(){var v=ov.querySelector('#bbpin').value;
-    if(v===TPIN||v===SPIN){var u=rd(UKEY);u[id]=true;wr(UKEY,u);
-      if(v===SPIN)post({program:'KCE Building Blocks',type:'Student unlock code 1111 used',student:student,lesson:label,page:location.href,timestamp:new Date().toISOString(),_subject:'Building Blocks: '+student+' used code 1111 ('+label+')'});
-      ov.remove();onOpen&&onOpen();}
+    if(v===TPIN){var u=rd(UKEY);u[id]=true;wr(UKEY,u);ov.remove();onOpen&&onOpen();}
     else ov.querySelector('#bbm').textContent='That code is not right.';};
 }
 
