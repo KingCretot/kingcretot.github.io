@@ -41,7 +41,8 @@ function vis(v){
 window.BBvis=vis;
 
 /* ---------- multiple choice widget ---------- */
-function norm(x){return String(x==null?'':x).toLowerCase().replace(/[’‘'`"“”]/g,'').replace(/[×*✕]/g,'x').replace(/[.,!?;:$]/g,'').replace(/\s+/g,'').replace(/[−–—]/g,'-').replace(/([a-z])-(?=[a-z])/g,'$1')}
+function norm0(x){return String(x==null?'':x).toLowerCase().replace(/[’‘'`"“”]/g,'').replace(/[×*✕]/g,'x').replace(/[,!?;:$]/g,'').replace(/\.(?!\d)/g,'').replace(/\s+/g,'').replace(/[−–—]/g,'-').replace(/([a-z])-(?=[a-z])/g,'$1')}
+function norm(x){var n=norm0(x);if(/^-?\d*\.?\d+$/.test(n)){var v=parseFloat(n);if(!isNaN(v))return String(v)}return n}
 function strip(x){var d=document.createElement('div');d.innerHTML=x;return d.textContent}
 function answerText(q){return q.type==='fill'?q.answers[0]:q.choices[q.a]}
 /* ask(): one question, up to 3 tries. Wrong tries reset everything (nothing stays marked).
@@ -147,6 +148,7 @@ window.BBLesson=function(L){
     document.getElementById('back').disabled=cur===0;
     document.getElementById('next').textContent=cur===slides.length-1?'All done ✔':'Next ➜';
     document.getElementById('next').disabled=cur===slides.length-1;
+    if(T==='check'&&checkState&&!checkState.done){document.getElementById('back').disabled=true;document.getElementById('next').disabled=true;}
     var r=box.querySelector('#again');if(r)r.onclick=function(){checkState={i:0,right:0,missed:[],done:false,attempt:(checkState?checkState.attempt+1:1)};cur=slides.findIndex(function(x){return x.type==='check'});render()};
   }
   function finish(){var cs=checkState,score=Math.round(100*cs.right/cs.n),ok=score>=L.mastery;cs.score=score;cs.ok=ok;
@@ -154,7 +156,7 @@ window.BBLesson=function(L){
     post({program:'KCE Building Blocks',part:'Lesson check',student:L.studentName,lesson:L.label,lesson_title:L.title,lesson_date:L.date,score:score,correct:cs.right,total:cs.n,question_set:((cs.attempt-1)%((slides.find(function(x){return x.type==='check'})||{sets:[1]}).sets||[1]).length)+1,mastered:ok?'yes':'no',mastery_needed:L.mastery,attempt:cs.attempt,stars:stars,missed:cs.missed.map(function(m){return {q:m.q,first_try:m.first_try,answer:m.answer}}),timestamp:new Date().toISOString(),_subject:'Building Blocks: '+L.studentName+' '+L.label+' check '+score+(ok?' (mastered)':' (not yet)')});
     if(ok&&window.confetti)window.confetti();}
   function result(fromDone){var cs=checkState;
-    if(L.teacherView) return '<div class="res"><div class="big">🧱</div><h2>Class lesson done!</h2><p>Next: she does the <b>after-class lesson</b> on her own and finishes with Show What You Know.</p><p><a href="index.html">Back to the course page</a></p></div>';
+    if(L.teacherView) return '<div class="res"><div class="big">🧱</div><h2>Class lesson done!</h2><p>Next: '+esc(L.studentName||'The student')+' does the <b>after-class lesson</b> independently and finishes with Show What You Know.</p><p><a href="index.html">Back to the course page</a></p></div>';
     if(!cs||!cs.done) return '<div class="res"><div class="big">🧱</div><h2>Great work today!</h2><p>Go back and finish <b>Show What You Know</b> so your score is saved.</p></div>';
     return '<div class="res"><div class="big">'+(cs.ok?'🏆':'💪')+'</div><div class="score">'+cs.score+'</div><h2>'+(cs.ok?'You did it! Next lesson is open.':(cs.score>=L.mastery-15?'Almost! You need '+L.mastery+'.':'Not yet. You need '+L.mastery+'. You can do this!'))+'</h2><p>'+(cs.ok?html(L.win||'Your score was sent to KCE.'):'Look at the ones you missed. When you try again, you get brand-new questions.')+'</p>'+
       (cs.missed.length?'<div style="text-align:left;background:#FFF3C9;border-radius:16px;padding:10px 14px;font-size:16px"><b>Look again at:</b><ul>'+cs.missed.map(function(m){return '<li>'+esc(m.q)+(m.v?vis(m.v):'')+' <br><b>Right answer:</b> '+esc(m.answer)+'</li>'}).join('')+'</ul></div>':'')+
