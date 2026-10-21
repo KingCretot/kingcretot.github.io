@@ -41,7 +41,7 @@ function vis(v){
 window.BBvis=vis;
 
 /* ---------- multiple choice widget ---------- */
-function norm0(x){return String(x==null?'':x).toLowerCase().replace(/[’‘'`"“”]/g,'').replace(/[×*✕]/g,'x').replace(/[,!?;:$]/g,'').replace(/\.(?!\d)/g,'').replace(/\s+/g,'').replace(/[−–—]/g,'-').replace(/([a-z])-(?=[a-z])/g,'$1')}
+function norm0(x){return String(x==null?'':x).toLowerCase().replace(/(\d)\s+(\d+\s*\/\s*\d+)/g,'$1_$2').replace(/[’‘'`"“”]/g,'').replace(/[×*✕]/g,'x').replace(/[,!?;:$]/g,'').replace(/\.(?!\d)/g,'').replace(/\s+/g,'').replace(/[−–—]/g,'-').replace(/([a-z])-(?=[a-z])/g,'$1')}
 function norm(x){var n=norm0(x);if(/^-?\d*\.?\d+$/.test(n)){var v=parseFloat(n);if(!isNaN(v))return String(v)}return n}
 function strip(x){var d=document.createElement('div');d.innerHTML=x;return d.textContent}
 function answerText(q){return q.type==='fill'?q.answers[0]:q.choices[q.a]}
