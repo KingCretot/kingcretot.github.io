@@ -499,9 +499,7 @@
      "skill": "Function notation",
      "difficulty": 2,
      "prompt": "<p>The function g is defined as g(x) = &minus;3x<sup>2</sup> + 4x &minus; 2. What is the value of g(&minus;1)?</p>",
-     "answer": [
-      "-9"
-     ],
+     "answer": ["-9", "−9"],
      "value": -9,
      "tol": 0.001,
      "explain": "<p>Substitute &minus;1 for every x:</p><p>g(&minus;1) = &minus;3(&minus;1)<sup>2</sup> + 4(&minus;1) &minus; 2</p><p>(&minus;1)<sup>2</sup> = 1, so &minus;3(1) = &minus;3</p><p>4(&minus;1) = &minus;4</p><p>&minus;3 &minus; 4 &minus; 2 = <strong>&minus;9</strong></p><p>A common error is to square &minus;3 along with &minus;1 and get +3 for the first term, which leads to &minus;3.</p>"
@@ -554,7 +552,7 @@
       "x = (&minus;3 &plusmn; &radic;17) / 4"
      ],
      "answer": 2,
-     "explain": "<p>Use the quadratic formula from the formula sheet: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 2, b = 3, c = &minus;4.</p><p>b<sup>2</sup> &minus; 4ac = 3<sup>2</sup> &minus; 4(2)(&minus;4) = 9 + 32 = 41</p><p>2a = 2(2) = 4</p><p>x = <strong>(&minus;3 &plusmn; &radic;41) / 4</strong></p><p>(3 &plusmn; &radic;41) / 4 forgets the negative in &minus;b. Dividing by 2 instead of 2a = 4 gives the second choice. &radic;17 comes from computing 4ac as 2(&minus;4) = &minus;8 and leaving out the 4.</p>"
+     "explain": "<p>Use the quadratic formula from the formula sheet: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 2, b = 3, c = &minus;4.</p><p>b<sup>2</sup> &minus; 4ac = 3<sup>2</sup> &minus; 4(2)(&minus;4) = 9 + 32 = 41</p><p>2a = 2(2) = 4</p><p>x = <strong>(&minus;3 &plusmn; &radic;41) / 4</strong></p><p>(3 &plusmn; &radic;41) / 4 forgets the negative in &minus;b. Dividing by 2 instead of 2a = 4 gives (&minus;3 &plusmn; &radic;41) / 2. &radic;17 comes from computing 4ac as 2(&minus;4) = &minus;8 and leaving out the 4.</p>"
     },
     {
      "id": "m34",
