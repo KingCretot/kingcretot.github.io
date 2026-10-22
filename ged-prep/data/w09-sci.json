@@ -301,10 +301,11 @@
     "stim": "s1",
     "prompt": "<p>Using PE = mgh, calculate the gravitational potential energy of the 0.50 kg pendulum ball when it is held at a release height of 0.80 m. Enter your answer in joules.</p>",
     "answer": [
-     "3.92"
+     "3.92",
+     "3.9"
     ],
     "value": 3.92,
-    "tol": 0.01,
+    "tol": 0.03,
     "suffix": "J",
     "hint": "Multiply the mass, 9.8, and the height.",
     "explain": "<p>PE = mgh<br>PE = 0.50 &times; 9.8 &times; 0.80<br>0.50 &times; 9.8 = 4.9<br>4.9 &times; 0.80 = <strong>3.92 J</strong></p><p>A common error is to leave out g and multiply only 0.50 &times; 0.80 = 0.40. The 9.8 m/s<sup>2</sup> for gravity must be included.</p>"
