@@ -1,0 +1,602 @@
+{
+  "form": 5,
+  "subject": "sci",
+  "title": "Practice GED Form 5 — Science",
+  "minutes": 90,
+  "stimuli": [
+    {
+      "id": "s1",
+      "title": "Yeast and Sugar",
+      "html": "<p>Bakers add sugar to bread dough to help it rise. A student wanted to know how the amount of sugar affects the gas that yeast produces. She set up four identical bottles. Each bottle held 200 mL of water at 35 °C and one 7-gram packet of dry baker's yeast. She added a different mass of table sugar to each bottle, sealed it with a stopper and tube, and collected the gas given off over 30 minutes in an upside-down graduated cylinder filled with water. She repeated the whole test three times.</p><table><thead><tr><th>Sugar added (g)</th><th>Trial 1 (mL)</th><th>Trial 2 (mL)</th><th>Trial 3 (mL)</th><th>Mean gas collected (mL)</th></tr></thead><tbody><tr><td>0</td><td>4</td><td>6</td><td>5</td><td>5</td></tr><tr><td>5</td><td>38</td><td>42</td><td>40</td><td>40</td></tr><tr><td>10</td><td>71</td><td>77</td><td>74</td><td>?</td></tr><tr><td>20</td><td>82</td><td>78</td><td>86</td><td>82</td></tr></tbody></table>"
+    },
+    {
+      "id": "s2",
+      "title": "A Forest After a Fire",
+      "html": "<p>A severe fire burned every tree on a plot of mixed pine and oak forest. Ecologists returned to the same plot several times over the next 100 years and recorded the plants growing there.</p><table><thead><tr><th>Years since fire</th><th>Main plants observed</th><th>Number of plant species</th><th>Height of tallest plants (m)</th></tr></thead><tbody><tr><td>1</td><td>Grasses and wildflowers</td><td>18</td><td>0.5</td></tr><tr><td>5</td><td>Shrubs, grasses, small tree seedlings</td><td>34</td><td>2</td></tr><tr><td>15</td><td>Young aspen and pine trees, shrubs</td><td>41</td><td>8</td></tr><tr><td>40</td><td>Aspen and pine trees</td><td>30</td><td>18</td></tr><tr><td>100</td><td>Mature oak and pine trees, shade-tolerant seedlings</td><td>26</td><td>25</td></tr></tbody></table><p>This gradual, predictable change in the living community of an area over time is called ecological succession.</p>"
+    },
+    {
+      "id": "s3",
+      "title": "A Northern Forest Food Web",
+      "html": "<p>In a northern hardwood forest, oak trees produce leaves and acorns. Deer mice, gray squirrels, and white-tailed deer eat acorns. Caterpillars feed on oak leaves, and warblers (small songbirds) eat caterpillars. Great horned owls hunt deer mice and squirrels at night, and red foxes also eat deer mice. Fungi break down fallen leaves and the remains of dead animals, returning nutrients to the soil.</p><p>As energy moves through a food chain, only about 10% of the energy at one feeding level is passed to the next level. The rest is used for life processes or lost as heat.</p>"
+    },
+    {
+      "id": "s4",
+      "title": "Fur Color in Deer Mice",
+      "html": "<p>Deer mice live both on the dark, leaf-covered floor of a forest and on nearby light-colored sand dunes. In this population, fur color is controlled by one gene. The allele for dark fur (<strong>D</strong>) is dominant over the allele for light fur (<strong>d</strong>).</p><p>Owls, the main predators of these mice, hunt mostly by sight. A field survey found that about 90% of the mice living in the forest have dark fur, while about 85% of the mice living on the dunes have light fur. Tagging studies show that individual mice rarely travel between the two habitats.</p>"
+    },
+    {
+      "id": "s5",
+      "title": "Starch, Saliva, and Temperature",
+      "html": "<p>When you chew a plain cracker for a long time, it starts to taste slightly sweet. Saliva contains amylase, an enzyme that breaks starch into sugar. A student mixed equal amounts of amylase solution and starch solution in test tubes held at different temperatures. She used iodine, which turns blue-black when starch is present, to measure how quickly the starch was broken down. Her results are shown in the graph as a relative rate (higher numbers mean faster breakdown).</p>",
+      "figure": {
+        "type": "bar",
+        "title": "Rate of Starch Breakdown by Amylase",
+        "xLabel": "Temperature (°C)",
+        "yLabel": "Relative rate",
+        "labels": ["10", "20", "30", "37", "45", "60", "80"],
+        "series": [{"name": "Relative rate", "values": [12, 30, 62, 85, 70, 25, 0]}]
+      }
+    },
+    {
+      "id": "s6",
+      "title": "Baking Soda and Vinegar",
+      "html": "<p>A student placed 50 mL of white vinegar in a flask each time and added a different mass of baking soda. A tube carried the gas from the sealed flask into an upside-down 2-liter cylinder filled with water, so the gas volume could be measured. The reaction is:</p><p>NaHCO<sub>3</sub> + CH<sub>3</sub>COOH → NaCH<sub>3</sub>COO + H<sub>2</sub>O + CO<sub>2</sub><br>(baking soda + acetic acid in vinegar → sodium acetate + water + carbon dioxide)</p><table><thead><tr><th>Baking soda added (g)</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead><tbody><tr><td>Gas collected (mL)</td><td>290</td><td>570</td><td>860</td><td>1,000</td><td>1,000</td></tr></tbody></table><p>In the 4-gram and 5-gram trials, some white powder was still sitting at the bottom of the flask after the bubbling stopped.</p>"
+    },
+    {
+      "id": "s7",
+      "title": "A Red Cabbage Indicator",
+      "html": "<p>Juice from boiled red cabbage changes color depending on how acidic or basic a liquid is. A student added a few drops of cabbage juice to several kitchen liquids and compared the colors with a pH chart.</p><table><thead><tr><th>Liquid</th><th>Color with cabbage juice</th><th>pH</th></tr></thead><tbody><tr><td>Lemon juice</td><td>Red</td><td>2</td></tr><tr><td>White vinegar</td><td>Pink-red</td><td>3</td></tr><tr><td>Black coffee</td><td>Pink-purple</td><td>5</td></tr><tr><td>Distilled water</td><td>Purple</td><td>7</td></tr><tr><td>Baking soda solution</td><td>Blue-green</td><td>9</td></tr><tr><td>Household ammonia</td><td>Green</td><td>11</td></tr></tbody></table><p>A pH below 7 is acidic, a pH of 7 is neutral, and a pH above 7 is basic. Each decrease of 1 pH unit means the concentration of hydrogen ions is 10 times greater.</p>"
+    },
+    {
+      "id": "s8",
+      "title": "Salt in Pasta Water",
+      "html": "<p>A cooking website claims that adding salt to pasta water \"makes the water boil much hotter, so the pasta cooks a lot faster.\" A student tested the claim. She dissolved different amounts of table salt in 1 liter of water, heated each pot to a full boil, and measured the boiling temperature with a digital thermometer.</p><table><thead><tr><th>Salt added to 1 L of water (g)</th><th>0</th><th>30</th><th>60</th><th>90</th><th>120</th></tr></thead><tbody><tr><td>Boiling point (°C)</td><td>100.0</td><td>100.5</td><td>101.1</td><td>101.6</td><td>102.1</td></tr></tbody></table><p>Most recipes call for about 10 g of salt per liter of pasta water.</p>"
+    },
+    {
+      "id": "s9",
+      "title": "Heating Water on a Stove",
+      "html": "<p>The heat energy needed to warm a substance can be found with the equation</p><p><strong>Q = m &times; c &times; &Delta;T</strong></p><p>where Q is heat energy in joules (J), m is mass in grams (g), c is specific heat in J/(g·°C), and &Delta;T is the change in temperature in °C. The specific heat of water is 4.18 J/(g·°C).</p><p>A cook places a pot holding 500 g of water at 20 °C on a gas burner and heats it until it boils at 100 °C.</p>"
+    },
+    {
+      "id": "s10",
+      "title": "A Falling Pinecone",
+      "html": "<p>A pinecone breaks off a high branch of a tall pine tree. The table shows the pinecone's speed as it falls, assuming air resistance is small enough to ignore.</p><table><thead><tr><th>Time (s)</th><th>0</th><th>0.5</th><th>1.0</th><th>1.5</th><th>2.0</th></tr></thead><tbody><tr><td>Speed (m/s)</td><td>0</td><td>4.9</td><td>9.8</td><td>14.7</td><td>19.6</td></tr></tbody></table>",
+      "figure": {
+        "type": "line",
+        "title": "Speed of a Falling Pinecone",
+        "xLabel": "Time (s)",
+        "yLabel": "Speed (m/s)",
+        "labels": ["0", "0.5", "1.0", "1.5", "2.0"],
+        "series": [{"name": "Speed (m/s)", "values": [0, 4.9, 9.8, 14.7, 19.6]}]
+      }
+    },
+    {
+      "id": "s11",
+      "title": "Loading a Log with a Ramp",
+      "html": "<p>A forestry worker needs to load a log that weighs 900 newtons (N) onto a truck bed 1.5 meters (m) above the ground. Instead of lifting it straight up, he lays a ramp 6.0 m long from the ground to the truck bed. He pushes the log up the ramp with a steady force of 250 N, applied along the ramp.</p><p>Work (in joules) = force (in newtons) &times; distance moved in the direction of the force (in meters).</p>"
+    },
+    {
+      "id": "s12",
+      "title": "What Tree Rings Record",
+      "html": "<p>Each year, a tree in a temperate forest adds one growth ring to its trunk. A scientist drilled a thin core from an old ponderosa pine without harming the tree. She measured the width of recent rings and compared them with rainfall records from a nearby weather station.</p><table><thead><tr><th>Year</th><th>Ring width (mm)</th><th>Growing-season rainfall (cm)</th></tr></thead><tbody><tr><td>2015</td><td>2.4</td><td>38</td></tr><tr><td>2016</td><td>2.9</td><td>46</td></tr><tr><td>2017</td><td>1.1</td><td>17</td></tr><tr><td>2018</td><td>1.6</td><td>25</td></tr><tr><td>2019</td><td>3.1</td><td>50</td></tr><tr><td>2020</td><td>2.0</td><td>31</td></tr></tbody></table>"
+    },
+    {
+      "id": "s13",
+      "title": "Forests and Soil Erosion",
+      "html": "<p>Scientists studied two neighboring small watersheds that have the same slope, the same type of soil, and the same rainfall. One watershed was left forested. In the other, all the trees were cut down and removed (clear-cut). For three years, the scientists measured the soil sediment carried away by the stream draining each watershed.</p><table><thead><tr><th>Year</th><th>Forested watershed (metric tons per km<sup>2</sup>)</th><th>Clear-cut watershed (metric tons per km<sup>2</sup>)</th></tr></thead><tbody><tr><td>1</td><td>12</td><td>96</td></tr><tr><td>2</td><td>10</td><td>132</td></tr><tr><td>3</td><td>14</td><td>117</td></tr></tbody></table>"
+    },
+    {
+      "id": "s14",
+      "title": "Daylight Through the Year",
+      "html": "<p>A forest research station in the Northern Hemisphere, at about 45° north latitude, recorded the number of hours of daylight on four dates during one year.</p>",
+      "figure": {
+        "type": "bar",
+        "title": "Hours of Daylight at 45° N",
+        "xLabel": "Date",
+        "yLabel": "Hours of daylight",
+        "labels": ["March 20", "June 21", "September 22", "December 21"],
+        "series": [{"name": "Hours of daylight", "values": [12.1, 15.6, 12.2, 8.7]}]
+      }
+    }
+  ],
+  "parts": [
+    {
+      "name": "Science",
+      "items": [
+        {
+          "id": "q1",
+          "type": "mc",
+          "skill": "Identifying hypotheses",
+          "difficulty": 1,
+          "stim": "s1",
+          "prompt": "<p>Which hypothesis was the student most likely testing?</p>",
+          "options": [
+            "If more sugar is added to the yeast mixture, then more gas will be produced.",
+            "If the water is warmer, then the yeast will produce more gas.",
+            "If more yeast is added, then the sugar will dissolve faster.",
+            "If the gas is collected for a longer time, then the yeast will use less sugar."
+          ],
+          "answer": 0,
+          "explain": "<p>The only thing the student changed from bottle to bottle was the <strong>mass of sugar</strong> (the independent variable), and she measured the <strong>gas produced</strong> (the dependent variable). A testable hypothesis links the two: more sugar leads to more gas.</p><p>Temperature (35 °C), amount of yeast (one packet), and collection time (30 minutes) were all kept the same, so the experiment cannot test hypotheses about them.</p>"
+        },
+        {
+          "id": "q2",
+          "type": "fill",
+          "skill": "Calculating the mean",
+          "difficulty": 1,
+          "stim": "s1",
+          "prompt": "<p>What is the mean volume of gas collected in the bottles with 10 g of sugar? Enter a whole number.</p>",
+          "answer": ["74"],
+          "value": 74,
+          "tol": 0.001,
+          "suffix": "mL",
+          "explain": "<p>Mean = sum of the trials &divide; number of trials.</p><p>71 + 77 + 74 = 222<br>222 &divide; 3 = <strong>74 mL</strong></p><p>Divide by 3 (the number of trials), not by 4 (the number of bottles).</p>"
+        },
+        {
+          "id": "q3",
+          "type": "mc",
+          "skill": "Purpose of a control",
+          "difficulty": 2,
+          "stim": "s1",
+          "prompt": "<p>Why did the student include a bottle with 0 g of sugar?</p>",
+          "options": [
+            "It keeps the water temperature the same in all the bottles.",
+            "It provides extra yeast for the other bottles.",
+            "It proves that sugar is the only food yeast can use.",
+            "It shows how much gas forms without added sugar, so the effect of sugar can be measured by comparison."
+          ],
+          "answer": 3,
+          "explain": "<p>The 0 g bottle is the <strong>control</strong>. It is set up exactly like the others except that it gets no sugar, so it shows the baseline amount of gas (about 5 mL). Comparing the other bottles to this baseline shows how much of the gas is caused by the sugar.</p><p>The control does not change the temperature or supply yeast, and one bottle cannot prove that sugar is the <em>only</em> food yeast can use.</p>"
+        },
+        {
+          "id": "q4",
+          "type": "dropdown",
+          "skill": "Cellular respiration and fermentation",
+          "difficulty": 2,
+          "stim": "s1",
+          "prompt": "<p>Complete the statements about the experiment.</p><p>The gas collected from the bottles is mainly {{0}}. The yeast cells break down sugar to release {{1}} that they use for their life processes. Because the sealed bottles contain little oxygen, most of the sugar is broken down by a process called {{2}}.</p>",
+          "blanks": [
+            {"options": ["carbon dioxide", "oxygen", "nitrogen", "water vapor"], "answer": 0},
+            {"options": ["energy", "oxygen", "protein", "sunlight"], "answer": 0},
+            {"options": ["fermentation", "photosynthesis", "condensation", "digestion"], "answer": 0}
+          ],
+          "explain": "<p>Yeast are single-celled fungi. When they break down sugar, they release <strong>energy</strong> for the cell and give off <strong>carbon dioxide</strong> gas, the same gas that makes bread dough rise.</p><p>When little oxygen is available, yeast break down sugar by <strong>fermentation</strong>, which produces carbon dioxide and alcohol. Photosynthesis is done by plants and algae and uses carbon dioxide rather than producing it; oxygen is not a product of yeast breaking down sugar.</p>"
+        },
+        {
+          "id": "q5",
+          "type": "mc",
+          "skill": "Interpreting data in a table",
+          "difficulty": 1,
+          "stim": "s2",
+          "prompt": "<p>Which statement is supported by the data in the table?</p>",
+          "options": [
+            "The number of plant species increased steadily during all 100 years.",
+            "The number of plant species increased during the first 15 years and then decreased as the trees grew taller.",
+            "The tallest plants were shorter 100 years after the fire than 40 years after the fire.",
+            "Grasses and wildflowers were the main plants at every stage after the fire."
+          ],
+          "answer": 1,
+          "explain": "<p>The species counts are 18 (year 1), 34 (year 5), 41 (year 15), 30 (year 40), and 26 (year 100). The count <strong>rose to a peak at 15 years and then fell</strong> while the height of the tallest plants kept increasing (8 m to 18 m to 25 m).</p><p>The count did not rise steadily, the tallest plants were taller at 100 years (25 m) than at 40 years (18 m), and grasses were the main plants only in year 1.</p>"
+        },
+        {
+          "id": "q6",
+          "type": "drag",
+          "skill": "Ecological succession",
+          "difficulty": 2,
+          "stim": "s2",
+          "prompt": "<p>Put the stages of succession on the burned plot in the order they occurred. Drag each stage into the correct position, from first to last.</p>",
+          "choices": [
+            "Young aspen and pine trees form a dense stand.",
+            "Grasses and wildflowers sprout in the ash.",
+            "Shade-tolerant oaks grow beneath older trees, forming a mature forest.",
+            "Shrubs and small tree seedlings spread across the plot."
+          ],
+          "bins": ["1st", "2nd", "3rd", "4th"],
+          "answer": [2, 0, 3, 1],
+          "explain": "<p>The table shows the order directly:</p><ol><li><strong>Grasses and wildflowers</strong> (1 year): fast-growing plants that sprout quickly in open, sunny ground.</li><li><strong>Shrubs and small tree seedlings</strong> (5 years).</li><li><strong>Young aspen and pine trees</strong> (15 to 40 years): sun-loving trees that grow fast in the open.</li><li><strong>Mature oak and pine forest with shade-tolerant seedlings</strong> (100 years).</li></ol><p>Shade-tolerant trees come last because they can grow in the shade that the earlier trees create.</p>"
+        },
+        {
+          "id": "q7",
+          "type": "mc",
+          "skill": "Food web changes",
+          "difficulty": 2,
+          "stim": "s3",
+          "prompt": "<p>A late spring frost destroys most of the oak flowers in the forest, so very few acorns are produced that year. Which effect is most likely to follow?</p>",
+          "options": [
+            "Fewer deer mice survive, so owls and foxes have less food.",
+            "Caterpillars decrease because they depend on acorns for food.",
+            "Owls increase because deer mice become easier to catch.",
+            "Fungi disappear because they depend on acorns for food."
+          ],
+          "answer": 0,
+          "explain": "<p>Deer mice eat acorns. With few acorns, fewer mice survive and reproduce. Owls and foxes both eat deer mice, so their food supply <strong>shrinks</strong> too. A change at one level of a food web passes up to the levels that depend on it.</p><p>Caterpillars eat oak <em>leaves</em>, not acorns, and fungi break down fallen leaves and dead animals, so neither depends on acorns. Fewer mice means less food for owls, not more.</p>"
+        },
+        {
+          "id": "q8",
+          "type": "fill",
+          "skill": "Energy transfer (10% rule)",
+          "difficulty": 3,
+          "stim": "s3",
+          "prompt": "<p>Suppose the oak trees in one part of the forest capture 600,000 kilocalories (kcal) of energy. Using the 10% rule, about how many kilocalories reach the great horned owls through the food chain oak trees → deer mice → great horned owls?</p>",
+          "answer": ["6000", "6,000"],
+          "value": 6000,
+          "tol": 0.5,
+          "suffix": "kcal",
+          "explain": "<p>Each step passes about 10% of the energy to the next level.</p><p>Oak trees to deer mice: 600,000 &times; 0.10 = 60,000 kcal<br>Deer mice to owls: 60,000 &times; 0.10 = <strong>6,000 kcal</strong></p><p>A common error is stopping after one step (60,000 kcal). The owls are two steps above the oak trees, so the 10% rule must be applied twice.</p>"
+        },
+        {
+          "id": "q9",
+          "type": "mc",
+          "skill": "Punnett square probability",
+          "difficulty": 2,
+          "stim": "s4",
+          "prompt": "<p>A dark-furred mouse that is heterozygous (Dd) mates with a light-furred mouse (dd). What fraction of their offspring are expected to have light fur?</p>",
+          "options": ["0", "1/4", "1/2", "3/4"],
+          "noShuffle": true,
+          "answer": 2,
+          "explain": "<p>Set up the Punnett square:</p><table><thead><tr><th></th><th>D</th><th>d</th></tr></thead><tbody><tr><th>d</th><td>Dd</td><td>dd</td></tr><tr><th>d</th><td>Dd</td><td>dd</td></tr></tbody></table><p>Two of the four boxes are dd (light fur): 2/4 = <strong>1/2</strong>. The other two are Dd, which have dark fur because D is dominant.</p><p>The answer 1/4 is the result for a Dd &times; Dd cross, not this one.</p>"
+        },
+        {
+          "id": "q10",
+          "type": "mc",
+          "skill": "Inferring genotypes",
+          "difficulty": 3,
+          "stim": "s4",
+          "prompt": "<p>Two dark-furred mice have a litter that includes some light-furred pups. What are the most likely genotypes of the two parents?</p>",
+          "options": [
+            "both homozygous dominant (DD)",
+            "one homozygous dominant (DD) and one heterozygous (Dd)",
+            "both heterozygous (Dd)",
+            "one heterozygous (Dd) and one homozygous recessive (dd)"
+          ],
+          "answer": 2,
+          "explain": "<p>A light-furred pup must be <strong>dd</strong>, so it received one d allele from <em>each</em> parent. Both parents therefore carry d. Because both parents have dark fur, each must also have a D. So both parents are <strong>heterozygous (Dd)</strong>.</p><p>If either parent were homozygous dominant (DD), every pup would get at least one D and have dark fur. A homozygous recessive (dd) parent would have light fur, but both parents are dark.</p>"
+        },
+        {
+          "id": "q11",
+          "type": "mc",
+          "skill": "Natural selection",
+          "difficulty": 2,
+          "stim": "s4",
+          "prompt": "<p>Which statement best explains why most forest mice have dark fur while most dune mice have light fur?</p>",
+          "options": [
+            "Each mouse slowly changes its fur color during its life to match the ground it lives on.",
+            "Dark soil causes new mutations for dark fur in the mice that live on it.",
+            "Light-furred mice in the forest choose to move to the dunes, and dark-furred mice on the dunes choose to move to the forest.",
+            "Owls more easily spot mice whose fur contrasts with the ground, so mice that match their background survive and reproduce more, passing on their fur-color alleles."
+          ],
+          "answer": 3,
+          "explain": "<p>This is <strong>natural selection</strong>. Owls hunt by sight, so mice whose fur stands out against the ground are caught more often. Mice that blend in survive longer and have more offspring, so their fur-color alleles become more common in each habitat over many generations.</p><p>Individual mice do not change their inherited fur color during their lives, and the environment does not cause the specific mutations an organism needs. The passage also states that mice rarely travel between the two habitats, so movement does not explain the pattern.</p>"
+        },
+        {
+          "id": "q12",
+          "type": "mc",
+          "skill": "Interpreting a graph",
+          "difficulty": 1,
+          "stim": "s5",
+          "prompt": "<p>Which conclusion is best supported by the graph?</p>",
+          "options": [
+            "Amylase works fastest at the highest temperature tested.",
+            "Temperature has no effect on how fast amylase breaks down starch.",
+            "Amylase stops working completely at temperatures below 20 °C.",
+            "Amylase activity increases as temperature rises to about 37 °C and decreases at higher temperatures."
+          ],
+          "answer": 3,
+          "explain": "<p>The rate rises from 12 (10 °C) to a peak of <strong>85 at 37 °C</strong>, then falls to 70, 25, and finally 0 at 80 °C. That is a rise to an optimum temperature followed by a decline.</p><p>The highest temperature tested (80 °C) shows a rate of 0, not the fastest rate. The rate at 10 °C is 12, so the enzyme still works below 20 °C, just slowly.</p>"
+        },
+        {
+          "id": "q13",
+          "type": "mc",
+          "skill": "Enzymes and denaturing",
+          "difficulty": 3,
+          "stim": "s5",
+          "prompt": "<p>The student took amylase that had been held at 80 °C, cooled it back to 37 °C, and mixed it with a fresh starch solution. The starch was still not broken down. Which statement best explains this result?</p>",
+          "options": [
+            "The high temperature permanently changed the shape of the amylase, so it can no longer fit and break down starch.",
+            "A temperature of 37 °C is too cold for amylase to work.",
+            "The heat turned the amylase into starch.",
+            "All the starch had already been used up during the 80 °C test."
+          ],
+          "answer": 0,
+          "explain": "<p>Enzymes are proteins with a specific shape that fits their target molecule. High heat <strong>denatures</strong> an enzyme: it unfolds the protein and changes its shape permanently. Cooling it afterward does not restore the shape, so the amylase still cannot break down starch.</p><p>The graph shows that 37 °C is the best temperature, not too cold. The student used a <em>fresh</em> starch solution, so the starch had not been used up.</p>"
+        },
+        {
+          "id": "q14",
+          "type": "hotspot",
+          "skill": "Immune system",
+          "difficulty": 1,
+          "prompt": "<p>The sentences below describe what can happen after a person eats undercooked chicken that contains <em>Salmonella</em> bacteria. Click the sentence that describes the body's immune system fighting the infection.</p>",
+          "spans": [
+            "The bacteria survive the trip through the stomach and reach the small intestine.",
+            "There, they attach to the lining of the intestine and multiply rapidly.",
+            "The infection irritates the lining of the intestine, causing cramps and diarrhea.",
+            "White blood cells travel to the infected area, where they surround and destroy many of the bacteria.",
+            "After several days, most of the bacteria are gone and the symptoms fade."
+          ],
+          "answer": 3,
+          "explain": "<p><strong>White blood cells</strong> are the main cells of the immune system. Moving to an infected area and engulfing and destroying bacteria is the body's defense in action.</p><p>The other sentences describe what the bacteria do or the symptoms and outcome of the illness. The last sentence describes the result of the immune response, but not the response itself.</p>"
+        },
+        {
+          "id": "q15",
+          "type": "mc",
+          "skill": "Limiting reactants",
+          "difficulty": 3,
+          "stim": "s6",
+          "prompt": "<p>Why did the 4-gram and 5-gram trials produce the same volume of gas?</p>",
+          "options": [
+            "The cylinder could not hold more than 1,000 mL of gas, so the extra gas escaped.",
+            "Mass is not conserved when more than 4 g of baking soda is used.",
+            "All the acetic acid in the 50 mL of vinegar had reacted, so the extra baking soda had nothing left to react with.",
+            "Baking soda stops being a reactant when more than 4 g is added."
+          ],
+          "answer": 2,
+          "explain": "<p>Every trial used the same 50 mL of vinegar. Up to 3 g, adding more baking soda made more gas (about 290 mL per gram). By 4 g, the <strong>acetic acid ran out</strong>: it became the limiting reactant. Extra baking soda had nothing to react with, which is why white powder was left in the flask and the gas volume stayed at 1,000 mL.</p><p>The cylinder held 2 liters, so it was not full. Mass is always conserved in a chemical reaction, and baking soda does not stop being a reactant; it simply runs out of acid to react with.</p>"
+        },
+        {
+          "id": "q16",
+          "type": "mc",
+          "skill": "Interpolating from data",
+          "difficulty": 2,
+          "stim": "s6",
+          "prompt": "<p>Based on the data, about how much gas would be collected if the student added 2.5 g of baking soda to 50 mL of vinegar?</p>",
+          "options": ["about 430 mL", "about 715 mL", "about 860 mL", "about 1,000 mL"],
+          "noShuffle": true,
+          "answer": 1,
+          "explain": "<p>2.5 g is halfway between 2 g (570 mL) and 3 g (860 mL), in the range where gas increases steadily.</p><p>(570 + 860) &divide; 2 = 1,430 &divide; 2 = <strong>715 mL</strong></p><p>The answer 860 mL is the 3 g result, and 1,000 mL is the maximum reached only after the acid runs out.</p>"
+        },
+        {
+          "id": "q17",
+          "type": "dropdown",
+          "skill": "Chemical and physical changes",
+          "difficulty": 1,
+          "stim": "s6",
+          "prompt": "<p>Complete the statements about the reaction.</p><p>The bubbling in the flask is evidence of a {{0}} change, because {{1}}. According to the equation, the gas in the bubbles is {{2}}.</p>",
+          "blanks": [
+            {"options": ["physical", "chemical", "nuclear"], "answer": 1},
+            {"options": ["a new substance with different properties forms", "the baking soda melts into a liquid", "the total mass of the atoms increases", "the vinegar evaporates"], "answer": 0},
+            {"options": ["oxygen", "hydrogen", "carbon dioxide", "water vapor"], "answer": 2}
+          ],
+          "explain": "<p>Baking soda and acetic acid react to form new substances, including a gas that was not there before. Forming a <strong>new substance with different properties</strong> is the sign of a <strong>chemical</strong> change.</p><p>The equation shows the products are sodium acetate, water (a liquid), and <strong>carbon dioxide</strong> (CO<sub>2</sub>), the gas. Melting or evaporating would be physical changes, and the total mass of atoms never increases in a reaction.</p>"
+        },
+        {
+          "id": "q18",
+          "type": "drag",
+          "skill": "Acids and bases (pH)",
+          "difficulty": 1,
+          "stim": "s7",
+          "prompt": "<p>Use the pH values in the table to classify each liquid. Drag each one into the correct category.</p>",
+          "choices": ["Lemon juice", "Black coffee", "Distilled water", "Baking soda solution", "Household ammonia"],
+          "bins": ["Acidic", "Neutral", "Basic"],
+          "answer": [0, 0, 1, 2, 2],
+          "explain": "<p><strong>Acidic</strong> (pH below 7): lemon juice (pH 2) and black coffee (pH 5).</p><p><strong>Neutral</strong> (pH 7): distilled water.</p><p><strong>Basic</strong> (pH above 7): baking soda solution (pH 9) and household ammonia (pH 11).</p><p>Black coffee is weakly acidic. It is closer to neutral than lemon juice, but its pH is still below 7.</p>"
+        },
+        {
+          "id": "q19",
+          "type": "mc",
+          "skill": "pH scale calculations",
+          "difficulty": 3,
+          "stim": "s7",
+          "prompt": "<p>How many times greater is the concentration of hydrogen ions in white vinegar than in black coffee?</p>",
+          "options": ["2 times", "20 times", "100 times", "1,000 times"],
+          "noShuffle": true,
+          "answer": 2,
+          "explain": "<p>White vinegar has a pH of 3 and black coffee has a pH of 5, a difference of 2 pH units.</p><p>Each pH unit is a factor of 10, so: 10 &times; 10 = 10<sup>2</sup> = <strong>100 times</strong>.</p><p>A common error is subtracting (5 &minus; 3 = 2) and stopping at \"2 times.\" The pH scale is not a simple counting scale; each step multiplies by 10.</p>"
+        },
+        {
+          "id": "q20",
+          "type": "mc",
+          "skill": "Relationship between variables",
+          "difficulty": 2,
+          "stim": "s8",
+          "prompt": "<p>Which statement best describes the relationship shown in the data?</p>",
+          "options": [
+            "The boiling point doubles each time the amount of salt doubles.",
+            "The boiling point rises by about 0.5 °C for every 30 g of salt added.",
+            "The boiling point falls as more salt is added.",
+            "The boiling point rises sharply at first and then stops changing."
+          ],
+          "answer": 1,
+          "explain": "<p>Find the change between each pair of columns:</p><p>100.5 &minus; 100.0 = 0.5<br>101.1 &minus; 100.5 = 0.6<br>101.6 &minus; 101.1 = 0.5<br>102.1 &minus; 101.6 = 0.5</p><p>Each extra 30 g of salt raises the boiling point by <strong>about 0.5 °C</strong>, a steady increase. Doubling the salt from 60 g to 120 g raises the boiling point from 101.1 °C to 102.1 °C, which is nowhere near double.</p>"
+        },
+        {
+          "id": "q21",
+          "type": "mc",
+          "skill": "Evaluating a claim with evidence",
+          "difficulty": 3,
+          "stim": "s8",
+          "prompt": "<p>The website claims that adding salt makes pasta water boil much hotter, so pasta cooks a lot faster. Which evaluation of the claim is best supported by the data?</p>",
+          "options": [
+            "The claim is not well supported, because the amount of salt cooks usually add raises the boiling point by only about 0.2 °C, too little to change cooking time much.",
+            "The claim is supported, because the boiling point was higher in every pot that contained salt.",
+            "The claim is supported, because 120 g of salt raised the boiling point by more than 2 °C.",
+            "The claim is not well supported, because salt lowers the boiling point of water."
+          ],
+          "answer": 0,
+          "explain": "<p>Salt does raise the boiling point, but by very little. From the table, 30 g raises it about 0.5 °C, so the usual 10 g per liter raises it about 0.5 &divide; 3 &asymp; <strong>0.2 °C</strong>. Water at 100.2 °C cooks pasta at nearly the same rate as water at 100 °C, so \"much hotter\" and \"a lot faster\" are not supported.</p><p>The 120 g result (+2.1 °C) uses about 12 times the normal amount of salt, so it does not reflect real cooking. The data show the boiling point rising, not falling.</p>"
+        },
+        {
+          "id": "q22",
+          "type": "fill",
+          "skill": "Calculating heat energy",
+          "difficulty": 2,
+          "stim": "s9",
+          "prompt": "<p>How much heat energy, in joules, is needed to raise the temperature of the 500 g of water from 20 °C to 100 °C?</p>",
+          "answer": ["167200", "167,200"],
+          "value": 167200,
+          "tol": 0.5,
+          "suffix": "J",
+          "explain": "<p>&Delta;T = 100 &minus; 20 = 80 °C</p><p>Q = m &times; c &times; &Delta;T<br>Q = 500 &times; 4.18 &times; 80<br>500 &times; 4.18 = 2,090<br>2,090 &times; 80 = <strong>167,200 J</strong></p><p>A common error is using 100 °C as &Delta;T instead of the change in temperature (80 °C), which gives 209,000 J.</p>"
+        },
+        {
+          "id": "q23",
+          "type": "mc",
+          "skill": "Heat transfer",
+          "difficulty": 1,
+          "stim": "s9",
+          "prompt": "<p>As the pot heats, warm water at the bottom rises and cooler water from the top sinks to take its place, setting up a circular flow. Which type of heat transfer does this describe?</p>",
+          "options": ["conduction", "radiation", "insulation", "convection"],
+          "answer": 3,
+          "explain": "<p><strong>Convection</strong> is heat transfer by the movement of a fluid (a liquid or gas). Warm water is less dense and rises; cooler, denser water sinks, forming a convection current.</p><p>Conduction is transfer through direct contact, such as from the burner through the metal bottom of the pot. Radiation is transfer by electromagnetic waves, such as heat felt from a broiler. Insulation slows heat transfer rather than being a type of it.</p>"
+        },
+        {
+          "id": "q24",
+          "type": "mc",
+          "skill": "Calculating acceleration",
+          "difficulty": 2,
+          "stim": "s10",
+          "prompt": "<p>What is the acceleration of the falling pinecone?</p>",
+          "options": ["4.9 m/s<sup>2</sup>", "9.8 m/s<sup>2</sup>", "19.6 m/s<sup>2</sup>", "39.2 m/s<sup>2</sup>"],
+          "noShuffle": true,
+          "answer": 1,
+          "explain": "<p>Acceleration = change in speed &divide; change in time.</p><p>(19.6 &minus; 0) m/s &divide; (2.0 &minus; 0) s = <strong>9.8 m/s<sup>2</sup></strong></p><p>The table confirms it: the speed increases by 4.9 m/s every 0.5 s, which is 9.8 m/s every second. The value 4.9 is the change per half second, and 19.6 m/s is the final speed, not the acceleration.</p>"
+        },
+        {
+          "id": "q25",
+          "type": "fill",
+          "skill": "Calculating work",
+          "difficulty": 1,
+          "stim": "s11",
+          "prompt": "<p>How much work, in joules, does the worker do pushing the log up the full length of the ramp?</p>",
+          "answer": ["1500", "1,500"],
+          "value": 1500,
+          "tol": 0.5,
+          "suffix": "J",
+          "explain": "<p>Work = force &times; distance in the direction of the force.</p><p>The worker pushes with 250 N along the 6.0 m ramp:<br>250 &times; 6.0 = <strong>1,500 J</strong></p><p>A common error is using the log's weight and the height (900 &times; 1.5 = 1,350 J). That is the work the ramp does in lifting the log, not the work the worker puts in.</p>"
+        },
+        {
+          "id": "q26",
+          "type": "multi",
+          "skill": "Simple machines",
+          "difficulty": 2,
+          "stim": "s11",
+          "prompt": "<p>Which statements about the ramp are correct? Select <strong>two</strong> answers.</p>",
+          "options": [
+            "The ramp lets the worker push with a force smaller than the log's weight.",
+            "The ramp lets the worker do less work than lifting the log straight up.",
+            "The worker must move the log a greater distance than the height of the truck bed.",
+            "The ramp creates extra energy that helps lift the log.",
+            "Friction makes the work put in smaller than the work that lifts the log."
+          ],
+          "answer": [0, 2],
+          "explain": "<p><strong>Correct:</strong> The worker pushes with 250 N instead of lifting 900 N, so the ramp reduces the force. In exchange, he moves the log 6.0 m along the ramp instead of 1.5 m straight up.</p><p><strong>Incorrect:</strong> Work put in = 250 &times; 6.0 = 1,500 J, while the work that lifts the log = 900 &times; 1.5 = 1,350 J. The ramp does not reduce the work; friction makes the work put in <em>larger</em> than the useful work, not smaller. No machine creates energy.</p>"
+        },
+        {
+          "id": "q27",
+          "type": "mc",
+          "skill": "Wave calculations",
+          "difficulty": 3,
+          "prompt": "<p>A microwave oven heats food with electromagnetic waves that have a frequency of 2.45 &times; 10<sup>9</sup> hertz (Hz). These waves travel at 3.0 &times; 10<sup>8</sup> meters per second. Using the equation wave speed = frequency &times; wavelength, what is the approximate wavelength of the microwaves?</p>",
+          "options": ["about 0.012 m", "about 0.12 m", "about 8.2 m", "about 7.4 &times; 10<sup>17</sup> m"],
+          "noShuffle": true,
+          "answer": 1,
+          "explain": "<p>Rearrange the equation: wavelength = wave speed &divide; frequency.</p><p>(3.0 &times; 10<sup>8</sup>) &divide; (2.45 &times; 10<sup>9</sup>) = (3.0 &divide; 2.45) &times; 10<sup>8 &minus; 9</sup> &asymp; 1.22 &times; 10<sup>&minus;1</sup> = <strong>about 0.12 m</strong> (about 12 cm).</p><p>Dividing frequency by speed gives about 8.2, and multiplying speed by frequency gives about 7.4 &times; 10<sup>17</sup>; neither follows the rearranged equation.</p>"
+        },
+        {
+          "id": "q28",
+          "type": "dropdown",
+          "skill": "Balancing chemical equations",
+          "difficulty": 2,
+          "prompt": "<p>A gas stove burns methane (CH<sub>4</sub>), the main part of natural gas, in oxygen. Choose the coefficients that balance the equation.</p><p>CH<sub>4</sub> + {{0}} O<sub>2</sub> → CO<sub>2</sub> + {{1}} H<sub>2</sub>O</p>",
+          "blanks": [
+            {"options": ["1", "2", "3", "4"], "answer": 1},
+            {"options": ["1", "2", "3", "4"], "answer": 1}
+          ],
+          "explain": "<p>Balance hydrogen first: CH<sub>4</sub> has 4 hydrogen atoms, and each H<sub>2</sub>O has 2, so the products need <strong>2</strong> H<sub>2</sub>O.</p><p>Now count oxygen on the product side: CO<sub>2</sub> has 2 and 2 H<sub>2</sub>O have 2, for 4 oxygen atoms. Each O<sub>2</sub> has 2, so the reactants need <strong>2</strong> O<sub>2</sub>.</p><p>Check: CH<sub>4</sub> + 2O<sub>2</sub> → CO<sub>2</sub> + 2H<sub>2</sub>O has 1 C, 4 H, and 4 O on each side.</p>"
+        },
+        {
+          "id": "q29",
+          "type": "mc",
+          "skill": "Identifying patterns in data",
+          "difficulty": 1,
+          "stim": "s12",
+          "prompt": "<p>Which pattern is shown in the table?</p>",
+          "options": [
+            "Ring width decreased every year from 2015 to 2020.",
+            "Years with less rainfall produced wider rings.",
+            "Ring width and rainfall show no relationship.",
+            "Years with more rainfall produced wider rings."
+          ],
+          "answer": 3,
+          "explain": "<p>Rank the years by rainfall: 2017 (17 cm), 2018 (25), 2020 (31), 2015 (38), 2016 (46), 2019 (50). The ring widths in the same order are 1.1, 1.6, 2.0, 2.4, 2.9, and 3.1 mm. As rainfall increases, ring width increases, so <strong>wetter years produced wider rings</strong>.</p><p>Ring width went up and down from year to year (for example, it rose from 2017 to 2019), so it did not decrease every year.</p>"
+        },
+        {
+          "id": "q30",
+          "type": "mc",
+          "skill": "Making inferences from data",
+          "difficulty": 2,
+          "stim": "s12",
+          "prompt": "<p>Deeper in the same core, the ring for the year 1934 measures 0.8 mm, the narrowest ring in the tree. Which inference is best supported by the data?</p>",
+          "options": [
+            "The growing season of 1934 was probably drier than any year shown in the table.",
+            "The tree probably grew faster in 1934 than in 2019.",
+            "The tree was probably cut down in 1934.",
+            "1934 probably had more rainfall than 2019."
+          ],
+          "answer": 0,
+          "explain": "<p>The table shows that narrower rings form in drier years. The driest year listed, 2017 (17 cm), produced a 1.1 mm ring. A 0.8 mm ring is even narrower, so 1934 was <strong>probably even drier</strong>, likely a drought year.</p><p>A narrow ring means slow growth, not fast growth, and the tree is still alive (the core was taken without harming it), so it was not cut down in 1934.</p>"
+        },
+        {
+          "id": "q31",
+          "type": "hotspot",
+          "skill": "Water cycle",
+          "difficulty": 2,
+          "prompt": "<p>A student wrote the following description of how water moves through a forest. Click the sentence that describes <strong>transpiration</strong>.</p>",
+          "spans": [
+            "Rain falls on the forest canopy, and some of it drips down to the forest floor.",
+            "Water soaks into the soil and slowly moves downhill as groundwater toward streams.",
+            "Tree roots take up water from the soil and carry it up to the leaves.",
+            "Water vapor exits through tiny openings in the leaves and enters the air.",
+            "As the moist air rises and cools, the vapor condenses to form clouds."
+          ],
+          "answer": 3,
+          "explain": "<p><strong>Transpiration</strong> is the release of water vapor from plant leaves into the air, mainly through tiny pores called stomata.</p><p>Roots taking up water is the step just before transpiration, but water is not entering the air yet. The other sentences describe precipitation, infiltration and groundwater flow, and condensation.</p>"
+        },
+        {
+          "id": "q32",
+          "type": "mc",
+          "skill": "Comparing data with averages",
+          "difficulty": 2,
+          "stim": "s13",
+          "prompt": "<p>Over the three years, the average amount of sediment carried from the clear-cut watershed was about how many times the average from the forested watershed?</p>",
+          "options": ["about 2 times", "about 5 times", "about 10 times", "about 100 times"],
+          "noShuffle": true,
+          "answer": 2,
+          "explain": "<p>Forested average: (12 + 10 + 14) &divide; 3 = 36 &divide; 3 = 12 metric tons per km<sup>2</sup></p><p>Clear-cut average: (96 + 132 + 117) &divide; 3 = 345 &divide; 3 = 115 metric tons per km<sup>2</sup></p><p>115 &divide; 12 &asymp; 9.6, which is <strong>about 10 times</strong>.</p><p>Choosing 100 times comes from comparing the difference (115 &minus; 12 = 103) instead of dividing.</p>"
+        },
+        {
+          "id": "q33",
+          "type": "multi",
+          "skill": "Explaining results",
+          "difficulty": 2,
+          "stim": "s13",
+          "prompt": "<p>Which features of a forest best explain why less sediment washed out of the forested watershed? Select <strong>two</strong> answers.</p>",
+          "options": [
+            "Tree roots hold soil particles in place.",
+            "Trees cause more rain to fall on the forested watershed.",
+            "Leaves and fallen leaf litter soften the impact of raindrops and slow runoff.",
+            "The forested watershed has a gentler slope.",
+            "Trees release oxygen during photosynthesis."
+          ],
+          "answer": [0, 2],
+          "explain": "<p><strong>Tree roots</strong> bind the soil, and the <strong>canopy and leaf litter</strong> break the force of falling rain and slow water moving across the ground. Both reduce erosion. When the trees are removed, bare soil is loosened by raindrops and carried off by fast runoff.</p><p>The passage states both watersheds have the same slope and the same rainfall, so those cannot explain the difference. Trees do release oxygen, but that has nothing to do with soil erosion.</p>"
+        },
+        {
+          "id": "q34",
+          "type": "mc",
+          "skill": "Seasons and Earth's tilt",
+          "difficulty": 2,
+          "stim": "s14",
+          "prompt": "<p>Which statement best explains why the research station has much more daylight in June than in December?</p>",
+          "options": [
+            "Earth is closest to the Sun in June.",
+            "The Sun gives off more energy in June than in December.",
+            "Earth spins faster in December, so days are shorter.",
+            "Earth's axis is tilted, and in June the Northern Hemisphere is tilted toward the Sun."
+          ],
+          "answer": 3,
+          "explain": "<p>Earth's axis is tilted about 23.5°. In June, the Northern Hemisphere leans <strong>toward the Sun</strong>, so places there spend more of each rotation in sunlight (15.6 hours at this station). In December, it leans away, and daylight drops to 8.7 hours.</p><p>Distance is not the cause: Earth is actually closest to the Sun in early January, during the Northern Hemisphere's winter. Earth's spin rate and the Sun's output stay essentially the same through the year.</p>"
+        }
+      ]
+    }
+  ]
+}
