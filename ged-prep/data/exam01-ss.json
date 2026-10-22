@@ -49,7 +49,7 @@
           {"name": "2020", "values": [57, 69, 74]}
         ]
       },
-      "source": "U.S. Census Bureau, Current Population Survey, November 2016 and November 2020 (rounded)"
+      "source": "U.S. Census Bureau, Current Population Survey, November 2016 and November 2020 (approximate; age groups combined and rounded)"
     },
     {
       "id": "s7",
@@ -60,7 +60,7 @@
     {
       "id": "s8",
       "title": "Marbury v. Madison (1803)",
-      "html": "<p>Thus, the particular phraseology of the constitution of the United States confirms and strengthens the principle, supposed to be essential to all written constitutions, that a law repugnant to the constitution is void, and that courts, as well as other departments, are bound by that instrument.</p><p>. . . It is emphatically the province and duty of the judicial department to say what the law is.</p>",
+      "html": "<p>It is emphatically the province and duty of the judicial department to say what the law is. . . .</p><p>. . . Thus, the particular phraseology of the constitution of the United States confirms and strengthens the principle, supposed to be essential to all written constitutions, that a law repugnant to the constitution is void, and that courts, as well as other departments, are bound by that instrument.</p>",
       "source": "Excerpts from the opinion of Chief Justice John Marshall, Marbury v. Madison, U.S. Supreme Court, 1803"
     },
     {
@@ -187,7 +187,7 @@
           "prompt": "<p>Which statement best summarizes Madison's main idea in the excerpt?</p>",
           "options": ["Government is unnecessary because most people are naturally good.", "Because people are not angels, government must be strong enough to govern the people but also be controlled so it cannot abuse its own power.", "The people should elect only honest leaders so that limits on government will not be needed.", "The states, not the national government, should hold most political power."],
           "answer": 1,
-          "explain": "<p>Madison argues that government is needed because people are not angels, but since government is also run by imperfect people, it must \"control the governed\" and also be obliged \"to control itself.\" Choice \"elect only honest leaders\" is the opposite of his point: he says controls are needed precisely because leaders cannot be trusted to be angels. The excerpt does not discuss state versus national power.</p>"
+          "explain": "<p>Madison argues that government is needed because people are not angels, but since government is also run by imperfect people, it must \"control the governed\" and also be obliged \"to control itself.\" The idea that electing only honest leaders would remove the need for limits is the opposite of his point: he says controls are needed precisely because leaders cannot be trusted to be angels. The excerpt does not discuss state versus national power.</p>"
         },
         {
           "id": "q4",
@@ -234,7 +234,7 @@
           "choices": ["Make treaties with other nations", "Issue marriage licenses", "Collect taxes", "Regulate trade between states", "Create county and city governments", "Borrow money"],
           "bins": ["Federal government only (delegated)", "State governments only (reserved)", "Both levels (concurrent)"],
           "answer": [0, 1, 2, 0, 1, 2],
-          "explain": "<p><strong>Federal only:</strong> making treaties (states are forbidden to make treaties in Article I, Section 10) and regulating trade between states (the Commerce Clause). <strong>States only:</strong> issuing marriage licenses and creating local governments are not delegated to the national government, so under the Tenth Amendment they are reserved to the states. <strong>Both:</strong> collecting taxes and borrowing money are concurrent powers—the national government and every state government do both. A common mistake is placing \"collect taxes\" under federal only; states and cities collect sales and property taxes, too.</p>"
+          "explain": "<p><strong>Federal only:</strong> making treaties (states are forbidden to make treaties in Article I, Section 10) and regulating trade between states (the Commerce Clause). <strong>States only:</strong> issuing marriage licenses and creating local governments are not delegated to the national government, so under the Tenth Amendment they are reserved to the states. <strong>Both:</strong> collecting taxes and borrowing money are concurrent powers—the national government and the state governments both exercise them. A common mistake is placing \"collect taxes\" under federal only; states and cities collect sales and property taxes, too.</p>"
         },
         {
           "id": "q8",
@@ -276,7 +276,7 @@
           "difficulty": 2,
           "stim": "s6",
           "prompt": "<p>In 2020, how many percentage points higher was the turnout of citizens 65 and older than the turnout of citizens ages 18–34?</p>",
-          "answer": ["17"],
+          "answer": ["17", "17%"],
           "value": 17,
           "tol": 0.001,
           "suffix": "percentage points",
@@ -332,7 +332,7 @@
           "skill": "Civics: fact vs. opinion",
           "difficulty": 2,
           "stim": "s9",
-          "prompt": "<p>The sentences from the letter are shown below. Click the sentence that states a <strong>fact</strong> that can be checked, rather than an opinion.</p>",
+          "prompt": "<p>Most of this letter is the writer's personal judgment. Only one sentence could be proved true using a reliable reference source. Click that <strong>factual</strong> sentence.</p>",
           "spans": ["The Electoral College is an outdated system that no longer serves our democracy.", "Today, a candidate must win at least 270 of the 538 electoral votes to become president.", "Candidates spend far too much time in a handful of swing states.", "Every voter deserves to feel that his or her ballot truly counts.", "The fairest solution would be to elect the president by national popular vote.", "Congress should begin work on this change immediately."],
           "answer": 1,
           "explain": "<p>There are 538 electors, and winning the presidency through the Electoral College requires a majority—at least 270. This can be verified. Every other sentence contains a judgment: \"outdated,\" \"far too much,\" \"deserves,\" \"fairest,\" and \"should\" signal opinions. Note that \"Candidates spend far too much time in a handful of swing states\" mixes a checkable idea (where candidates campaign) with an opinion (\"far too much\"), so it is not a pure statement of fact.</p>"
