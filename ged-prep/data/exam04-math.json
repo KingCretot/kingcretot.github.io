@@ -28,7 +28,7 @@
 {"id": "m05", "type": "mc", "skill": "Distributive property and like terms", "difficulty": 1,
  "prompt": "<p>Which expression is equivalent to &minus;2(3x &minus; 5) + 4x?</p>",
  "options": ["&minus;2x &minus; 10", "&minus;2x + 10", "&minus;2x &minus; 5", "&minus;10x + 10"], "answer": 1,
- "explain": "<p>Distribute &minus;2 to both terms in the parentheses: &minus;2(3x) = &minus;6x and &minus;2(&minus;5) = +10.</p><p>&minus;6x + 10 + 4x</p><p>Combine like terms: &minus;6x + 4x = &minus;2x.</p><p>Result: <strong>&minus;2x + 10</strong>.</p><p>&minus;2x &minus; 10 forgets that a negative times a negative is positive. &minus;2x + 5 distributes the &minus;2 to the 3x only.</p>"}
+ "explain": "<p>Distribute &minus;2 to both terms in the parentheses: &minus;2(3x) = &minus;6x and &minus;2(&minus;5) = +10.</p><p>&minus;6x + 10 + 4x</p><p>Combine like terms: &minus;6x + 4x = &minus;2x.</p><p>Result: <strong>&minus;2x + 10</strong>.</p><p>&minus;2x &minus; 10 forgets that a negative times a negative is positive. &minus;2x &minus; 5 distributes the &minus;2 to the 3x only: &minus;6x &minus; 5 + 4x. &minus;10x + 10 subtracts 4x instead of adding it.</p>"}
 ]},
 {"name": "Part 2", "calculator": true, "items": [
 {"id": "m06", "type": "mc", "skill": "Unit rates", "difficulty": 1,

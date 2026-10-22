@@ -195,9 +195,9 @@
         {
           "id": "q16", "type": "mc", "skill": "Interpreting motion data", "difficulty": 3, "stim": "s8",
           "prompt": "<p>Which statement best describes the sprinter's motion during the race?</p>",
-          "options": ["She ran at a constant speed for the entire race.", "She ran fastest during the first 20 meters and then slowed down.", "She sped up during the first 60 meters and then ran at a nearly constant speed.", "She slowed down steadily during the last 40 meters."],
+          "options": ["She ran at a constant speed for the entire race.", "She ran fastest during the first 20 meters and then slowed down.", "She sped up during the first 40 meters and then ran at a nearly constant speed.", "She slowed down steadily during the last 40 meters."],
           "answer": 2,
-          "explain": "<p>Find the time for each 20 m section:</p><p>0&ndash;20 m: 3.0 s (20 &divide; 3.0 &asymp; 6.7 m/s)<br>20&ndash;40 m: 2.0 s (10.0 m/s)<br>40&ndash;60 m: 1.8 s (&asymp; 11.1 m/s)<br>60&ndash;80 m: 1.8 s (&asymp; 11.1 m/s)<br>80&ndash;100 m: 1.8 s (&asymp; 11.1 m/s)</p><p>Her speed increased through the first 60 m and then stayed the same, so she <strong>sped up and then held a nearly constant speed</strong>.</p><p>The first 20 m was her <em>slowest</em> section, because she started from rest. The last three sections took equal times, so she did not slow down.</p>"
+          "explain": "<p>Find the time for each 20 m section:</p><p>0&ndash;20 m: 3.0 s (20 &divide; 3.0 &asymp; 6.7 m/s)<br>20&ndash;40 m: 2.0 s (10.0 m/s)<br>40&ndash;60 m: 1.8 s (&asymp; 11.1 m/s)<br>60&ndash;80 m: 1.8 s (&asymp; 11.1 m/s)<br>80&ndash;100 m: 1.8 s (&asymp; 11.1 m/s)</p><p>Her speed increased over the first two sections, and from the 40 m mark on, every 20 m section took the same 1.8 s. So she <strong>sped up during the first 40 m and then held a nearly constant speed</strong>.</p><p>The first 20 m was her <em>slowest</em> section, because she started from rest. The last three sections took equal times, so she did not slow down.</p>"
         },
         {
           "id": "q17", "type": "mc", "skill": "Calculating speed", "difficulty": 2, "stim": "s8", "noShuffle": true,
