@@ -1,58 +1,759 @@
 {
-"form": 8,
-"subject": "sci",
-"title": "Practice GED Form 8 — Science",
-"minutes": 90,
-"stimuli": [
-{"id": "s1", "title": "Comparing Light Bulbs", "html": "<p>A family is choosing light bulbs for their home. The table compares three bulbs that give off the same amount of light. Brightness is measured in lumens. Any electrical energy a bulb does not give off as visible light is given off as heat.</p><table><thead><tr><th>Bulb type</th><th>Power (watts)</th><th>Brightness (lumens)</th><th>Rated life (hours)</th><th>Share of electrical energy given off as visible light</th></tr></thead><tbody><tr><td>Incandescent</td><td>60</td><td>800</td><td>1,000</td><td>about 10%</td></tr><tr><td>Compact fluorescent (CFL)</td><td>14</td><td>800</td><td>8,000</td><td>about 20%</td></tr><tr><td>Light-emitting diode (LED)</td><td>9</td><td>800</td><td>25,000</td><td>about 40%</td></tr></tbody></table>"},
-{"id": "s2", "title": "Algae Blooms in Willow Lake", "html": "<p>Willow Lake is fed by a river that flows past several farms. After heavy spring rains, fertilizer washed off the fields and into the river. Fertilizer contains phosphorus, a nutrient that algae need to grow. When algae grow very quickly, they can turn the water green; this is called an algae bloom.</p><p>Algae live only a short time. When they die, they sink to the bottom, where bacteria decompose them. The bacteria use up dissolved oxygen as they break down the dead algae. Most fish become stressed, and many die, when dissolved oxygen falls below about 3 milligrams per liter (mg/L).</p><p>A lake monitoring team collected the data below in the middle of each month.</p><table><thead><tr><th>Month</th><th>Phosphorus (micrograms per liter)</th><th>Algae (chlorophyll, micrograms per liter)</th><th>Dissolved oxygen near the bottom (mg/L)</th><th>Dead fish reported</th></tr></thead><tbody><tr><td>May</td><td>15</td><td>4</td><td>8.5</td><td>0</td></tr><tr><td>June</td><td>30</td><td>12</td><td>6.0</td><td>0</td></tr><tr><td>July</td><td>55</td><td>38</td><td>2.5</td><td>140</td></tr><tr><td>August</td><td>60</td><td>45</td><td>1.5</td><td>310</td></tr><tr><td>September</td><td>25</td><td>10</td><td>5.0</td><td>0</td></tr></tbody></table>"},
-{"id": "s3", "title": "Appliances on a Home Circuit", "html": "<p>Outlets in a home supply electricity at 120 volts (V). The power an appliance uses, in watts (W), is related to the voltage and the current it draws, in amperes (A), by the equation</p><p><strong>P = V &times; I</strong></p><p>where P is power, V is voltage, and I is current. The energy an appliance uses equals its power multiplied by the time it runs. Energy is often measured in kilowatt-hours (kWh); 1 kWh = 1,000 watts used for 1 hour.</p><table><thead><tr><th>Appliance</th><th>Power (W)</th><th>Typical use per day (hours)</th></tr></thead><tbody><tr><td>Refrigerator</td><td>150 (average)</td><td>24</td></tr><tr><td>Space heater</td><td>1,500</td><td>4</td></tr><tr><td>Microwave oven</td><td>1,200</td><td>0.5</td></tr><tr><td>Television</td><td>100</td><td>3</td></tr><tr><td>Hair dryer</td><td>1,800</td><td>0.25</td></tr></tbody></table>"},
-{"id": "s4", "title": "Insects as Water-Quality Clues", "html": "<p>Many insects spend the early part of their lives as larvae living on the bottom of streams and rivers. Some, such as mayfly and caddisfly larvae, are <strong>pollution-sensitive</strong>: they survive only in clean water with plenty of dissolved oxygen. Others, such as midge larvae and aquatic worms, are <strong>pollution-tolerant</strong>: they can survive in water with little oxygen. Because these animals live in one stretch of river for months, the kinds found there reflect water conditions over a long period.</p><p>A class sampled a river at three sites on the same day. At each site, they collected animals from 1 square meter of river bottom with a net and counted them.</p><ul><li><strong>Site 1:</strong> upstream of a town</li><li><strong>Site 2:</strong> just below the outflow pipe of the town's wastewater treatment plant</li><li><strong>Site 3:</strong> 5 kilometers downstream of the outflow pipe</li></ul><table><thead><tr><th>Animal</th><th>Type</th><th>Site 1</th><th>Site 2</th><th>Site 3</th></tr></thead><tbody><tr><td>Mayfly larvae</td><td>Sensitive</td><td>42</td><td>3</td><td>25</td></tr><tr><td>Caddisfly larvae</td><td>Sensitive</td><td>30</td><td>2</td><td>19</td></tr><tr><td>Midge larvae</td><td>Tolerant</td><td>18</td><td>85</td><td>30</td></tr><tr><td>Aquatic worms</td><td>Tolerant</td><td>10</td><td>110</td><td>26</td></tr><tr><td><strong>Total</strong></td><td></td><td>100</td><td>200</td><td>100</td></tr></tbody></table>"},
-{"id": "s5", "title": "A River Rises After a Storm", "html": "<p>A gauge on Cedar Creek records the height of the river every 2 hours. A thunderstorm passed over the area just after hour 0, and the heaviest rain fell at hour 1. Rain soaked into the ground, ran across the land surface, and drained into the creek.</p><p>Hydrologists use the term <strong>lag time</strong> for the time between the heaviest rainfall and the highest (peak) river level. The creek floods its banks when its height reaches the <strong>flood stage</strong> of 8 feet.</p><table><thead><tr><th>Hours after the storm began</th><th>0</th><th>2</th><th>4</th><th>6</th><th>8</th><th>10</th><th>12</th></tr></thead><tbody><tr><td>River height (feet)</td><td>3</td><td>4</td><td>7</td><td>9</td><td>8</td><td>6</td><td>4</td></tr></tbody></table>"},
-{"id": "s6", "title": "Series and Parallel Wiring", "html": "<p>An electric circuit is a closed path through which current flows. Circuits can be wired in two basic ways.</p><p>In a <strong>series circuit</strong>, the devices are connected one after another along a single path. If any one device fails or is switched off, the path is broken and current stops flowing to every device. Older strings of holiday lights were often wired this way.</p><p>In a <strong>parallel circuit</strong>, each device is on its own branch. Current can still flow through the other branches if one device fails or is switched off. The outlets and lights in a home are wired in parallel, so every outlet supplies about 120 volts no matter how many other outlets are being used. Each device that is turned on draws its own current, and the currents in all the branches add together in the main wire of the circuit.</p><p>Each home circuit is protected by a circuit breaker. If the total current in the circuit becomes greater than the breaker's rating, the breaker switches off (trips) and stops the current. This keeps the wires from overheating and starting a fire.</p>"},
-{"id": "s7", "title": "An Inherited Disorder", "html": "<p>Phenylketonuria (PKU) is an inherited disorder. People with PKU cannot properly break down phenylalanine, a substance found in many protein foods. If it builds up in the body, it can damage the brain. Newborn babies are tested for PKU, and people with the disorder can stay healthy by following a special diet.</p><p>PKU is caused by a recessive allele, <strong>p</strong>. The dominant allele, <strong>P</strong>, allows the body to break down phenylalanine normally.</p><ul><li>A person with two dominant alleles (homozygous dominant, <strong>PP</strong>) does not have PKU.</li><li>A person with one of each allele (heterozygous, <strong>Pp</strong>) does not have PKU but is a carrier.</li><li>A person with two recessive alleles (homozygous recessive, <strong>pp</strong>) has PKU.</li></ul><p>A woman who is a carrier (<strong>Pp</strong>) and a man who has PKU (<strong>pp</strong>) are planning a family.</p>"},
-{"id": "s8", "title": "Building an Electromagnet", "html": "<p>The motors in many household appliances, such as fans, blenders, and washing machines, use electromagnets. A student built an electromagnet by wrapping insulated copper wire around a large iron nail and connecting the ends of the wire to a 1.5-volt battery. She counted how many small steel paper clips the nail could lift with different numbers of wire coils. She used the same nail and the same battery in every trial and ran three trials for each number of coils.</p><table><thead><tr><th>Number of coils</th><th>Trial 1</th><th>Trial 2</th><th>Trial 3</th><th>Mean (paper clips lifted)</th></tr></thead><tbody><tr><td>10</td><td>4</td><td>5</td><td>3</td><td>4</td></tr><tr><td>20</td><td>9</td><td>7</td><td>8</td><td>8</td></tr><tr><td>30</td><td>11</td><td>13</td><td>12</td><td>12</td></tr><tr><td>40</td><td>15</td><td>18</td><td>18</td><td>?</td></tr><tr><td>50</td><td>20</td><td>19</td><td>21</td><td>20</td></tr></tbody></table>"},
-{"id": "s9", "title": "Keeping Water Balance in Fresh Water", "html": "<p>Osmosis is the movement of water across a membrane from the side where the water has fewer dissolved particles (such as salt) to the side where it has more dissolved particles.</p><p>The body fluids of a freshwater fish are saltier than the river or lake water around it. As a result, water constantly moves into the fish's body through the thin membranes of its gills. A freshwater fish rarely drinks. Its kidneys produce large amounts of very dilute urine, and special cells in its gills use energy to take in salt from the water.</p><p>Single-celled organisms that live in ponds face the same problem. A paramecium has a structure called a <strong>contractile vacuole</strong> that collects extra water from inside the cell and squeezes it out. A student placed paramecia in pond water with different amounts of added salt and counted how many times a contractile vacuole emptied in one minute.</p><table><thead><tr><th>Salt added (grams per liter)</th><th>0</th><th>2</th><th>4</th><th>6</th></tr></thead><tbody><tr><td>Contractions per minute</td><td>12</td><td>8</td><td>5</td><td>2</td></tr></tbody></table>"},
-{"id": "s10", "title": "What a River Can Carry", "html": "<p>Flowing water picks up and carries loose particles of rock and soil, called sediment. The faster water flows, the larger the particles it can carry. When water slows down, the largest particles it was carrying settle out first. The table gives the approximate minimum water speed needed to keep each size of particle moving (simplified values).</p><table><thead><tr><th>Particle</th><th>Typical diameter (mm)</th><th>Minimum water speed to keep it moving (cm/s)</th></tr></thead><tbody><tr><td>Silt</td><td>0.01</td><td>1</td></tr><tr><td>Sand</td><td>0.5</td><td>10</td></tr><tr><td>Gravel</td><td>5</td><td>50</td></tr><tr><td>Pebbles</td><td>30</td><td>150</td></tr><tr><td>Cobbles</td><td>100</td><td>300</td></tr></tbody></table><p>Where a river curves, the water on the outside of the bend flows fastest and wears away (erodes) the bank, making the bank steep. Water on the inside of the bend flows slowly and drops sediment, building a gently sloping bar of sand and gravel. Where a river enters a lake, the water slows down sharply and drops its sediment, which can build a fan-shaped landform called a delta.</p>"},
-{"id": "s11", "title": "Removing Scale from an Electric Kettle", "html": "<p>Water from many wells and rivers is \"hard,\" meaning it contains dissolved calcium. Each time hard water is boiled in an electric kettle, a little calcium carbonate (CaCO<sub>3</sub>) is left behind as a white, chalky crust called scale. Scale conducts heat poorly, so a kettle coated with scale takes longer and uses more energy to boil water.</p><p>To clean the kettle, a homeowner poured in white vinegar, which contains acetic acid (CH<sub>3</sub>COOH). The liquid fizzed where it touched the scale, and after an hour the crust was gone. The unbalanced equation for the reaction is:</p><p>CaCO<sub>3</sub> + CH<sub>3</sub>COOH &rarr; Ca(CH<sub>3</sub>COO)<sub>2</sub> + H<sub>2</sub>O + CO<sub>2</sub></p><p>(calcium carbonate + acetic acid &rarr; calcium acetate + water + carbon dioxide)</p>"},
-{"id": "s12", "title": "Illness After a Water System Failure", "html": "<p>A small river town draws its drinking water from the river and treats it with chlorine, which kills bacteria. During a week in June, the chlorine equipment failed for three days. Shortly afterward, many residents developed stomach illness. Health workers surveyed residents about where their drinking water came from that week.</p><table><thead><tr><th>Main drinking-water source</th><th>Number of people</th><th>Number who became ill</th></tr></thead><tbody><tr><td>Town water system (from the river)</td><td>4,000</td><td>480</td></tr><tr><td>Private wells</td><td>1,500</td><td>15</td></tr><tr><td>Bottled water</td><td>500</td><td>5</td></tr></tbody></table><p>Laboratory tests later found disease-causing bacteria in river water collected just downstream from a large livestock farm.</p>"}
-],
-"parts": [
-{"name": "Science", "items": [
-{"id": "q1", "type": "mc", "skill": "Energy transformations", "difficulty": 1, "stim": "s1", "prompt": "<p>When the incandescent bulb is switched on, which energy transformation mainly takes place in the bulb?</p>", "options": ["Light energy into electrical energy", "Chemical energy into electrical energy", "Electrical energy into thermal energy and light energy", "Thermal energy into chemical energy"], "answer": 2, "explain": "<p>A bulb takes in <strong>electrical energy</strong> from the circuit. The table shows that only about 10% of it leaves as visible light; the passage says the rest is given off as heat. So the bulb changes electrical energy into <strong>thermal energy and light energy</strong>.</p><p>Light into electrical energy is what a solar panel does, the reverse of a bulb. Chemical into electrical energy describes a battery, not a bulb.</p>"},
-{"id": "q2", "type": "mc", "skill": "Interpreting data tables", "difficulty": 2, "stim": "s1", "prompt": "<p>Which statement is best supported by the data in the table?</p>", "options": ["The LED bulb gives the same brightness as the incandescent bulb while using less than one-sixth of the power.", "The incandescent bulb is brighter than the other bulbs because it uses more power.", "The CFL gives off a smaller share of its energy as heat than the LED does.", "The LED bulb lasts 25 times as long as the CFL."], "answer": 0, "explain": "<p>All three bulbs give 800 lumens, so they are equally bright. The LED uses 9 W and the incandescent uses 60 W: 9 &divide; 60 = 0.15, which is less than 1/6 (about 0.167). So <strong>the LED gives the same brightness using less than one-sixth of the power</strong>.</p><p>The incandescent bulb is not brighter; it only uses more power. The CFL turns about 20% of its energy into light, so about 80% becomes heat, more than the LED's 60%. The LED lasts 25,000 &divide; 8,000 &asymp; 3 times as long as the CFL; it lasts 25 times as long as the <em>incandescent</em> bulb.</p>"},
-{"id": "q3", "type": "fill", "skill": "Calculating energy and cost", "difficulty": 3, "stim": "s1", "prompt": "<p>A family keeps one 60-watt incandescent bulb on for 5 hours each day. They replace it with the 9-watt LED bulb. Electricity costs $0.15 per kilowatt-hour (kWh), and 1 kWh = 1,000 watt-hours.</p><p>How much money will the family save on electricity over 30 days? Round to the nearest cent.</p>", "answer": ["1.15", "$1.15"], "value": 1.15, "tol": 0.005, "suffix": "dollars", "explain": "<p>Power saved: 60 W &minus; 9 W = 51 W</p><p>Energy saved: 51 W &times; 5 hours/day &times; 30 days = 7,650 watt-hours<br>7,650 &divide; 1,000 = 7.65 kWh</p><p>Money saved: 7.65 kWh &times; $0.15 = $1.1475, which rounds to <strong>$1.15</strong>.</p><p>A common error is finding the cost of running the incandescent bulb alone (60 &times; 5 &times; 30 = 9,000 Wh = 9 kWh; 9 &times; $0.15 = $1.35). The savings is the <em>difference</em> between the two bulbs' costs: $1.35 &minus; $0.2025 &asymp; $1.15.</p>"},
-{"id": "q4", "type": "drag", "skill": "Cause and effect in ecosystems", "difficulty": 2, "stim": "s2", "prompt": "<p>Put the events that led to the fish deaths in Willow Lake in the correct order. Drag each event to its position, from first to last.</p>", "choices": ["Dissolved oxygen near the lake bottom drops", "Fertilizer washes from fields into the river and lake", "Fish die", "Bacteria decompose large amounts of dead algae", "The algae population grows rapidly"], "bins": ["1st", "2nd", "3rd", "4th", "5th"], "answer": [3, 0, 4, 2, 1], "explain": "<p>The passage describes a chain of causes:</p><ol><li><strong>Fertilizer washes</strong> into the river and lake, adding phosphorus.</li><li>Phosphorus is a nutrient, so <strong>algae grow rapidly</strong> (a bloom).</li><li>The algae die and sink, and <strong>bacteria decompose</strong> them.</li><li>The bacteria use up oxygen, so <strong>dissolved oxygen drops</strong>.</li><li>Below about 3 mg/L, <strong>fish die</strong>.</li></ol><p>A common mistake is placing the oxygen drop before decomposition. The algae themselves do not remove the oxygen; the bacteria breaking down the dead algae do.</p>"},
-{"id": "q5", "type": "mc", "skill": "Drawing conclusions from data", "difficulty": 2, "stim": "s2", "prompt": "<p>Which conclusion is best supported by the monitoring data?</p>", "options": ["Phosphorus is directly poisonous to fish.", "More algae in the lake always means more dissolved oxygen near the bottom.", "Fish deaths were highest in May, when phosphorus was lowest.", "Fish deaths were reported only in months when oxygen near the bottom was below 3 mg/L."], "answer": 3, "explain": "<p>Dead fish were reported only in July (2.5 mg/L) and August (1.5 mg/L). In May, June, and September, oxygen was 5.0 mg/L or higher and no dead fish were reported. So <strong>fish deaths happened only when bottom oxygen was below 3 mg/L</strong>.</p><p>The data do not show phosphorus poisoning fish; the passage explains that the harm comes through low oxygen. As algae increased, bottom oxygen <em>decreased</em> (4 &rarr; 45 algae; 8.5 &rarr; 1.5 mg/L oxygen). No dead fish were reported in May.</p>"},
-{"id": "q6", "type": "multi", "skill": "Human impact on ecosystems", "difficulty": 2, "stim": "s2", "prompt": "<p>Based on the passage, which actions would most likely reduce future algae blooms in Willow Lake?</p><p>Select <strong>two</strong> answers.</p>", "options": ["Planting strips of grass and trees along the river to trap runoff from the fields", "Adding phosphorus to the lake so the algae finish growing sooner", "Removing fish from the lake before each summer", "Using less fertilizer on nearby fields and not spreading it just before heavy rain", "Adding more bacteria to the bottom of the lake"], "answer": [0, 3], "explain": "<p>The blooms start when phosphorus from fertilizer washes into the lake. Actions that keep fertilizer out of the water will reduce blooms: <strong>planting strips of plants along the river</strong> to catch runoff, and <strong>using less fertilizer and timing it to avoid heavy rain</strong>.</p><p>Adding phosphorus would feed more algae. Removing fish does nothing to the cause. Adding bacteria would use up even more oxygen as they decompose dead algae.</p>"},
-{"id": "q7", "type": "fill", "skill": "Electric power and current", "difficulty": 2, "stim": "s3", "prompt": "<p>Using <strong>P = V &times; I</strong>, how much current, in amperes, does the space heater draw from a 120-volt outlet? Enter your answer as a decimal.</p>", "answer": ["12.5"], "value": 12.5, "tol": 0.001, "suffix": "amperes", "explain": "<p>Solve P = V &times; I for current: I = P &divide; V.</p><p>I = 1,500 W &divide; 120 V = <strong>12.5 A</strong></p><p>Multiplying instead (1,500 &times; 120 = 180,000) gives a number far too large; current is found by dividing power by voltage.</p>"},
-{"id": "q8", "type": "mc", "skill": "Electric circuits and safety", "difficulty": 3, "stim": "s3", "prompt": "<p>A bedroom circuit is protected by a 20-ampere circuit breaker, which switches off if the total current is greater than 20 A. Currents add when appliances run at the same time on one circuit. Which pair of appliances could run on this circuit at the same time without tripping the breaker?</p>", "options": ["The space heater and the microwave oven", "The space heater and the television", "The microwave oven and the hair dryer", "The hair dryer and the space heater"], "answer": 1, "explain": "<p>Find each current with I = P &divide; V:</p><p>Space heater: 1,500 &divide; 120 = 12.5 A<br>Microwave: 1,200 &divide; 120 = 10 A<br>Hair dryer: 1,800 &divide; 120 = 15 A<br>Television: 100 &divide; 120 &asymp; 0.83 A</p><p>Heater + television = 12.5 + 0.83 &asymp; 13.3 A, which is under 20 A. So <strong>the space heater and the television</strong> can run together.</p><p>Heater + microwave = 22.5 A, microwave + hair dryer = 25 A, and hair dryer + heater = 27.5 A; each is over 20 A and would trip the breaker.</p>"},
-{"id": "q9", "type": "drag", "skill": "Calculating energy use", "difficulty": 3, "stim": "s3", "prompt": "<p>Using each appliance's power and typical hours of use per day, rank these appliances by the energy they use in one day. Drag each appliance to its position, from <strong>most</strong> energy to <strong>least</strong> energy.</p>", "choices": ["Microwave oven", "Refrigerator", "Television", "Space heater"], "bins": ["1st (most energy)", "2nd", "3rd", "4th (least energy)"], "answer": [2, 1, 3, 0], "explain": "<p>Energy = power &times; time.</p><p>Space heater: 1,500 W &times; 4 h = 6,000 Wh = <strong>6.0 kWh</strong><br>Refrigerator: 150 W &times; 24 h = 3,600 Wh = <strong>3.6 kWh</strong><br>Microwave oven: 1,200 W &times; 0.5 h = 600 Wh = <strong>0.6 kWh</strong><br>Television: 100 W &times; 3 h = 300 Wh = <strong>0.3 kWh</strong></p><p>The common mistake is ranking by power alone, which would put the microwave above the refrigerator. The refrigerator uses little power but runs all day, so it uses six times as much energy as the microwave.</p>"},
-{"id": "q10", "type": "fill", "skill": "Calculating percent", "difficulty": 2, "stim": "s4", "prompt": "<p>What percent of the animals counted at Site 2 were pollution-sensitive? Enter your answer as a decimal if needed.</p>", "answer": ["2.5", "2.5%"], "value": 2.5, "tol": 0.001, "suffix": "percent", "explain": "<p>Pollution-sensitive animals at Site 2: mayflies 3 + caddisflies 2 = 5</p><p>Total animals at Site 2: 200</p><p>5 &divide; 200 = 0.025 = <strong>2.5%</strong></p><p>A common error is dividing by 100 (giving 5%) because Sites 1 and 3 each had 100 animals. Site 2 had 200 animals in total.</p>"},
-{"id": "q11", "type": "mc", "skill": "Drawing conclusions from data", "difficulty": 2, "stim": "s4", "prompt": "<p>Which conclusion is best supported by the survey data?</p>", "options": ["The river water was cleanest just below the treatment plant, because more animals were found there.", "The treatment plant had no effect on the river, because all four kinds of animals were found at every site.", "Water quality was poorest just below the treatment plant outflow and improved farther downstream.", "Water quality at Site 3 was better than at Site 1, because Site 3 had more midge larvae."], "answer": 2, "explain": "<p>Site 2 had the fewest sensitive animals (5 of 200, or 2.5%) and the most tolerant ones, a sign of low oxygen and poor water quality. At Site 3, sensitive animals rose to 44 of 100 (44%). So <strong>water quality was poorest just below the outflow and improved downstream</strong>, though not back to Site 1's 72%.</p><p>A larger total count does not mean cleaner water; Site 2's extra animals were almost all tolerant. Finding all four kinds at every site ignores the large changes in their numbers. More midge larvae (a tolerant animal) points to <em>poorer</em> water, not better.</p>"},
-{"id": "q12", "type": "mc", "skill": "Improving an investigation", "difficulty": 3, "stim": "s4", "prompt": "<p>The class collected one sample at each site on a single day. Which change would most improve the reliability of their conclusions?</p>", "options": ["Sample each site several more times, on different dates, and compare the results.", "Sample only Site 2 again, since it had the most animals.", "Count only the midge larvae at each site, since they were the most common.", "Add the counts from all three sites together into one total."], "answer": 0, "explain": "<p>A single sample could be unusual by chance, for example if the net landed on an especially rocky or muddy spot. <strong>Repeating the sampling at every site on several dates</strong> shows whether the pattern holds up, which makes the conclusions more reliable.</p><p>Resampling only one site gives nothing new to compare it with. Counting only one tolerant animal throws away the sensitive-species data the comparison depends on. Combining the sites erases the differences between them, which are the whole point of the study.</p>"},
-{"id": "q13", "type": "hotspot", "skill": "Reading a graph", "difficulty": 1, "stim": "s5", "prompt": "<p>The graph shows the river height data from the table. The horizontal line marks flood stage (8 feet). The x-axis shows hours after the storm began, and the y-axis shows river height in feet.</p><p>Click the point on the graph that shows the <strong>peak</strong> (highest) river height recorded.</p>", "figure": {"type": "plane", "xmin": 0, "xmax": 12, "ymin": 0, "ymax": 10, "lines": [{"m": 0, "b": 8, "label": "Flood stage = 8 ft"}], "segments": [[[0, 3], [2, 4]], [[2, 4], [4, 7]], [[4, 7], [6, 9]], [[6, 9], [8, 8]], [[8, 8], [10, 6]], [[10, 6], [12, 4]]]}, "plane": {"xmin": 0, "xmax": 12, "ymin": 0, "ymax": 10}, "answer": [6, 9], "explain": "<p>The highest reading in the table is 9 feet, recorded 6 hours after the storm began. On the graph, that is the point <strong>(6, 9)</strong>, where the line stops rising and starts to fall.</p><p>The point (8, 8) is where the falling river is back at flood stage, not the peak.</p>"},
-{"id": "q14", "type": "mc", "skill": "Interpreting data", "difficulty": 2, "stim": "s5", "noShuffle": true, "prompt": "<p>What was the lag time for Cedar Creek after this storm?</p>", "options": ["1 hour", "5 hours", "6 hours", "12 hours"], "answer": 1, "explain": "<p>Lag time is the time from the heaviest rainfall to the peak river level.</p><p>Heaviest rain: hour 1<br>Peak river height (9 ft): hour 6<br>6 &minus; 1 = <strong>5 hours</strong></p><p>6 hours is the time from the start of the storm (hour 0) to the peak, but the passage measures lag time from the heaviest rain, at hour 1. 12 hours is simply the last reading in the table.</p>"},
-{"id": "q15", "type": "mc", "skill": "Predicting outcomes", "difficulty": 3, "stim": "s5", "prompt": "<p>A large area of forest and wetland upstream of the gauge is cleared and paved to build a shopping center. If the same storm struck again, how would the river height data most likely change?</p>", "options": ["The river would rise more slowly and reach a lower peak, because pavement stores rainwater.", "The river would reach a lower peak, because pavement soaks up more rain than soil does.", "The river height data would not change, because the same amount of rain would fall.", "The river would rise faster and reach a higher peak, because less rainwater would soak into the ground."], "answer": 3, "explain": "<p>The passage says some rain soaks into the ground and some runs across the surface. Pavement does not let water soak in, and paved surfaces carry water away quickly. More of the rain would reach the creek, and it would get there sooner, so <strong>the river would rise faster and peak higher</strong> (a shorter lag time and a greater flood risk).</p><p>Pavement does not absorb or store rain; that is what soil, forests, and wetlands do. Even with the same rainfall, changing the land surface changes how much water reaches the creek and how fast.</p>"},
-{"id": "q16", "type": "dropdown", "skill": "Series and parallel circuits", "difficulty": 2, "stim": "s6", "prompt": "<p>Complete the statements based on the passage.</p><p>Older strings of holiday lights were wired in {{0}}, so when one bulb burned out, the rest of the bulbs {{1}}. Because the outlets in a home are wired in parallel, each outlet supplies about {{2}} volts, no matter how many other outlets are in use.</p>", "blanks": [{"options": ["series", "parallel"], "answer": 0}, {"options": ["went dark", "stayed lit", "glowed brighter"], "answer": 0}, {"options": ["120", "60", "240"], "answer": 0}], "explain": "<p>The passage says older holiday lights were wired in <strong>series</strong>: one single path. When one bulb burns out, the path is broken and every bulb <strong>goes dark</strong>.</p><p>Home outlets are wired in parallel, and the passage states that every outlet supplies about <strong>120</strong> volts no matter how many others are in use. Each branch gets the full voltage; it is not split between outlets, so 60 V is wrong.</p>"},
-{"id": "q17", "type": "mc", "skill": "Electric circuits and safety", "difficulty": 2, "stim": "s6", "prompt": "<p>Someone plugs several high-power appliances into outlets on the same kitchen circuit and switches them all on. The circuit breaker trips. Which explanation is best supported by the passage?</p>", "options": ["Each appliance on its own parallel branch draws its own current, so the total current in the main wire rose above the breaker's rating.", "Each added appliance lowered the voltage at every outlet to zero.", "The appliances were all on one single path, so the first appliance blocked current to the others.", "Adding appliances lowered the total current below a safe level."], "answer": 0, "explain": "<p>The passage says each device that is turned on draws its own current, and the branch currents <strong>add together</strong> in the main wire. With several high-power appliances running, the total current became greater than the breaker's rating, so the breaker tripped to keep the wires from overheating.</p><p>Home outlets are wired in parallel, not on a single path, and each still gets about 120 volts. Adding appliances <em>raises</em> the total current; it does not lower it.</p>"},
-{"id": "q18", "type": "mc", "skill": "Punnett square probability", "difficulty": 2, "stim": "s7", "noShuffle": true, "prompt": "<p>What is the probability that any one child of this couple will have PKU?</p>", "options": ["0%", "25%", "50%", "75%"], "answer": 2, "explain": "<p>Cross the mother (Pp) with the father (pp):</p><table><thead><tr><th></th><th>P</th><th>p</th></tr></thead><tbody><tr><th>p</th><td>Pp</td><td>pp</td></tr><tr><th>p</th><td>Pp</td><td>pp</td></tr></tbody></table><p>2 of the 4 boxes are pp (has PKU): 2 &divide; 4 = <strong>50%</strong>.</p><p>25% is the answer for two carrier parents (Pp &times; Pp). Here the father has PKU, so he can pass on only the recessive allele.</p>"},
-{"id": "q19", "type": "mc", "skill": "Genotypes and phenotypes", "difficulty": 3, "stim": "s7", "prompt": "<p>The couple has a child who does <strong>not</strong> have PKU. What must this child's genotype be?</p>", "options": ["Homozygous dominant (PP)", "Heterozygous (Pp)", "Homozygous recessive (pp)", "Either homozygous dominant (PP) or heterozygous (Pp)"], "answer": 1, "explain": "<p>The father has PKU (pp), so every child receives a recessive allele (p) from him. A child without PKU must also have a dominant allele (P), which can come only from the mother. So the child must be <strong>heterozygous (Pp)</strong>, a carrier.</p><p>Homozygous dominant (PP) is impossible, because the father has no P allele to give. Homozygous recessive (pp) would mean the child has PKU. \"Either PP or Pp\" would be correct only if both parents could pass on a P allele.</p>"},
-{"id": "q20", "type": "fill", "skill": "Calculating the mean", "difficulty": 1, "stim": "s8", "prompt": "<p>What is the mean number of paper clips lifted with 40 coils? Enter a whole number.</p>", "answer": ["17"], "value": 17, "tol": 0.001, "suffix": "paper clips", "explain": "<p>Mean = sum of trials &divide; number of trials.</p><p>15 + 18 + 18 = 51<br>51 &divide; 3 = <strong>17</strong></p><p>Do not choose the most common value (18); that is the mode, not the mean.</p>"},
-{"id": "q21", "type": "mc", "skill": "Drawing conclusions from data", "difficulty": 2, "stim": "s8", "prompt": "<p>Which conclusion is best supported by the data?</p>", "options": ["Doubling the number of coils always exactly doubles the number of paper clips lifted.", "The strength of the electromagnet depends only on the battery, not on the number of coils.", "An electromagnet with 100 coils would lift exactly 40 paper clips.", "Within the range tested, adding more coils made the electromagnet stronger."], "answer": 3, "explain": "<p>The mean number of clips rose at every step: 4 &rarr; 8 &rarr; 12 &rarr; 17 &rarr; 20 as the coils went from 10 to 50. So, <strong>within the range tested, more coils made a stronger electromagnet</strong>.</p><p>Doubling did not always exactly double the result: 20 coils lifted 8 clips, but 40 coils lifted 17, not 16. The battery stayed the same in every trial, so the change in strength came from the coils. The experiment stopped at 50 coils, so it cannot support an exact prediction for 100 coils.</p>"},
-{"id": "q22", "type": "multi", "skill": "Controlled variables", "difficulty": 1, "stim": "s8", "prompt": "<p>According to the description, which factors did the student keep the same in every trial?</p><p>Select <strong>two</strong> answers.</p>", "options": ["The battery", "The number of wire coils", "The iron nail", "The number of paper clips lifted"], "answer": [0, 2], "explain": "<p>The passage states that the student \"used the same nail and the same battery in every trial,\" so <strong>the battery</strong> and <strong>the iron nail</strong> are controlled variables.</p><p>The number of coils was changed on purpose (the independent variable). The number of paper clips lifted was measured (the dependent variable).</p>"},
-{"id": "q23", "type": "mc", "skill": "Homeostasis and osmosis", "difficulty": 2, "stim": "s9", "prompt": "<p>Why does a freshwater fish produce large amounts of very dilute urine?</p>", "options": ["To take in more salt from the surrounding water", "To get rid of the extra water that keeps entering its body by osmosis", "To make its body fluids less salty than the surrounding water", "Because it drinks large amounts of water every day"], "answer": 1, "explain": "<p>The fish's body fluids are saltier than the water around it, so water constantly moves <em>into</em> its body through the gills by osmosis. Producing large amounts of dilute urine <strong>removes this extra water</strong> while losing as little salt as possible, keeping the body's water balance steady.</p><p>The passage says the fish rarely drinks, and that salt is taken in by special gill cells, not by urine. Urine that made the body fluids less salty would upset the fish's balance, not maintain it.</p>"},
-{"id": "q24", "type": "mc", "skill": "Interpreting experimental data", "difficulty": 3, "stim": "s9", "prompt": "<p>Which explanation best accounts for the student's paramecium data?</p>", "options": ["As the water around the cell became saltier, less water entered the cell by osmosis, so the contractile vacuole needed to empty less often.", "As the water around the cell became saltier, more water entered the cell, so the contractile vacuole emptied less often.", "Salt destroyed the contractile vacuole, so it could no longer contract at all.", "Salt gave the paramecium extra energy, so it no longer needed to remove water."], "answer": 0, "explain": "<p>Contractions fell steadily from 12 to 8 to 5 to 2 per minute as salt increased. Saltier outside water means a smaller difference in dissolved particles between the inside and outside of the cell, so <strong>less water enters by osmosis</strong> and the vacuole has less extra water to pump out.</p><p>If more water entered, the vacuole would need to empty <em>more</em> often, not less. The vacuole still contracted at every salt level, so it was not destroyed. Nothing in the passage connects salt to the cell's energy supply.</p>"},
-{"id": "q25", "type": "hotspot", "skill": "Osmosis", "difficulty": 2, "stim": "s9", "prompt": "<p>The sentences below describe a freshwater fish. Click the sentence that explains <strong>why</strong> water constantly enters the fish's body.</p>", "spans": ["The fish's scales protect its skin from injury.", "Because its body fluids are saltier than the surrounding water, water moves into the fish by osmosis through the thin membranes of its gills.", "Special cells in the gills use energy to take in salt from the water.", "The fish's kidneys produce large amounts of very dilute urine.", "A gas-filled swim bladder helps the fish float at the right depth."], "answer": 1, "explain": "<p>Osmosis moves water toward the side with more dissolved particles. The fish's body fluids are saltier than the water around it, so <strong>water moves into the fish through its gill membranes</strong>. That sentence gives the cause.</p><p>The kidney sentence describes how the fish <em>responds</em> to the extra water, not why it enters. The gill-cell sentence explains how the fish gains salt, not water.</p>"},
-{"id": "q26", "type": "mc", "skill": "Erosion and deposition", "difficulty": 1, "stim": "s10", "prompt": "<p>A homeowner's land lies along a curving river. Based on the passage, where is the riverbank most likely to be worn away over time?</p>", "options": ["Along the inside of the bend, where the water moves slowly", "Where the river enters a lake, where the water slows sharply", "Along the outside of the bend, where the water moves fastest", "On a gently sloping bar of sand and gravel"], "answer": 2, "explain": "<p>The passage says water on the <strong>outside of a bend</strong> flows fastest and erodes the bank, making it steep.</p><p>The inside of the bend, the sand and gravel bar, and the river mouth at a lake are all places where water slows and <em>drops</em> sediment (deposition), so land builds up there instead of wearing away.</p>"},
-{"id": "q27", "type": "mc", "skill": "Interpreting data", "difficulty": 3, "stim": "s10", "prompt": "<p>A river flowing at 60 cm/s enters a lake, where its speed drops to 20 cm/s. Based on the table, what happens to the sediment the river was carrying?</p>", "options": ["Pebbles and gravel settle out, while sand and silt keep moving.", "All of the sediment settles out, because the water slows down.", "Sand settles out, while gravel and silt keep moving.", "Gravel settles out, while sand and silt keep moving."], "answer": 3, "explain": "<p>At 60 cm/s, the river can carry particles that need 60 cm/s or less: silt (1), sand (10), and gravel (50). Pebbles need 150 cm/s, so the river was <em>not</em> carrying pebbles in the first place.</p><p>At 20 cm/s, gravel (needs 50) can no longer be carried and settles out. Sand (needs 10) and silt (needs 1) can still be carried. So <strong>gravel settles out, while sand and silt keep moving</strong>.</p><p>The first choice includes pebbles, which this river could not carry at 60 cm/s. Water at 20 cm/s is still fast enough to move sand and silt, so not all sediment settles out.</p>"},
-{"id": "q28", "type": "dropdown", "skill": "Balancing chemical equations", "difficulty": 3, "stim": "s11", "prompt": "<p>Choose the coefficients that balance the equation for the reaction between scale and vinegar.</p><p>{{0}} CaCO<sub>3</sub> + {{1}} CH<sub>3</sub>COOH &rarr; 1 Ca(CH<sub>3</sub>COO)<sub>2</sub> + 1 H<sub>2</sub>O + 1 CO<sub>2</sub></p>", "blanks": [{"options": ["1", "2", "3", "4"], "answer": 0}, {"options": ["1", "2", "3", "4"], "answer": 1}], "explain": "<p>Start with calcium: there is 1 Ca on the right, so use <strong>1</strong> CaCO<sub>3</sub>.</p><p>Ca(CH<sub>3</sub>COO)<sub>2</sub> contains two acetate groups, so use <strong>2</strong> CH<sub>3</sub>COOH.</p><p>Check each element with 1 CaCO<sub>3</sub> + 2 CH<sub>3</sub>COOH:</p><ul><li>Ca: left 1; right 1</li><li>C: left 1 + 2(2) = 5; right 4 + 1 = 5</li><li>H: left 2(4) = 8; right 6 + 2 = 8</li><li>O: left 3 + 2(2) = 7; right 4 + 1 + 2 = 7</li></ul><p>With only 1 CH<sub>3</sub>COOH, the left side would have 3 C, 4 H, and 5 O, which does not match the right side.</p>"},
-{"id": "q29", "type": "mc", "skill": "Physical and chemical changes", "difficulty": 1, "stim": "s11", "prompt": "<p>Which observation is the best evidence that a <strong>chemical</strong> change took place when the vinegar was poured into the kettle?</p>", "options": ["The water in the kettle boiled when the kettle was switched on.", "Bubbles of gas formed where the vinegar touched the scale.", "The scale was white and chalky.", "The kettle felt warm after it was unplugged."], "answer": 1, "explain": "<p>Production of a gas is a sign that a new substance formed. The fizzing was <strong>carbon dioxide gas produced by the reaction</strong> between calcium carbonate and acetic acid, so it shows a chemical change.</p><p>Boiling is a physical change (liquid water becoming water vapor). The white, chalky appearance is a property of the scale, not evidence of a reaction. A warm kettle after use reflects stored heat, not a new substance.</p>"},
-{"id": "q30", "type": "mc", "skill": "Drawing conclusions from data", "difficulty": 2, "stim": "s12", "prompt": "<p>Which conclusion is best supported by the survey and the laboratory tests?</p>", "options": ["The illness was most likely spread through the town water system after the chlorine equipment failed.", "Private wells were the main source of the illness.", "Bottled water caused about as many illnesses as town water.", "The illness was most likely spread from person to person by coughing."], "answer": 0, "explain": "<p>Compare the percent of each group that became ill:</p><p>Town water: 480 &divide; 4,000 = 0.12 = 12%<br>Private wells: 15 &divide; 1,500 = 0.01 = 1%<br>Bottled water: 5 &divide; 500 = 0.01 = 1%</p><p>The rate was much higher among town water users, the illness followed the chlorine failure, and disease-causing bacteria were found in the river. So <strong>the illness most likely spread through the untreated town water</strong>.</p><p>Wells and bottled water each had only a 1% illness rate. Nothing in the survey points to coughing; the evidence ties the illness to a water source.</p>"},
-{"id": "q31", "type": "mc", "skill": "Evaluating data reasoning", "difficulty": 3, "stim": "s12", "prompt": "<p>A local newspaper reported, \"Town water users were 32 times as likely to get sick as well users, because 480 town water users became ill but only 15 well users did.\" Why is this claim flawed?</p>", "options": ["The newspaper should have added the bottled water group to the well group.", "The number of ill people does not matter in a disease outbreak.", "Well water and town water both come from the same river.", "The groups were different sizes, so the percent of each group that became ill should be compared; by percent, town water users were 12 times as likely to get sick."], "answer": 3, "explain": "<p>480 &divide; 15 = 32 compares raw counts, but 4,000 people drank town water and only 1,500 used wells. The fair comparison uses rates:</p><p>Town water: 480 &divide; 4,000 = 12%<br>Wells: 15 &divide; 1,500 = 1%<br>12% &divide; 1% = <strong>12 times as likely</strong></p><p>Town water users were still far more likely to get sick, but by 12 times, not 32. Adding unrelated groups together would not fix the error, and the passage does not say the wells draw from the river.</p>"},
-{"id": "q32", "type": "mc", "skill": "Wave calculations", "difficulty": 3, "noShuffle": true, "prompt": "<p>A microwave oven heats food with electromagnetic waves that have a frequency of 2.45 &times; 10<sup>9</sup> hertz (Hz). All electromagnetic waves travel at 3.0 &times; 10<sup>8</sup> meters per second. Using <strong>v = f &times; &lambda;</strong> (speed = frequency &times; wavelength), what is the approximate wavelength of these microwaves?</p>", "options": ["0.12 m", "1.2 m", "8.2 m", "7.4 &times; 10<sup>17</sup> m"], "answer": 0, "explain": "<p>Solve for wavelength: &lambda; = v &divide; f.</p><p>&lambda; = (3.0 &times; 10<sup>8</sup>) &divide; (2.45 &times; 10<sup>9</sup>)<br>= (3.0 &divide; 2.45) &times; 10<sup>8 &minus; 9</sup><br>&asymp; 1.22 &times; 10<sup>&minus;1</sup> = <strong>0.12 m</strong> (about 12 cm)</p><p>8.2 m comes from dividing frequency by speed (upside down). 7.4 &times; 10<sup>17</sup> m comes from multiplying instead of dividing. 1.2 m results from a power-of-ten slip.</p>"},
-{"id": "q33", "type": "mc", "skill": "Natural selection", "difficulty": 2, "prompt": "<p>Before a dam was built in 1980, a small fish species lived in a fast-flowing river, where most individuals had slender, streamlined bodies. Body shape varies among individuals and is inherited. The dam turned the river into a still lake. In still water, deeper-bodied fish can turn more sharply to escape predators. Surveys now show that most fish in the lake have deeper bodies.</p><p>Which explanation best accounts for this change?</p>", "options": ["Each fish grew a deeper body during its lifetime because it needed to escape predators.", "The still water of the lake caused mutations that made every fish's body deeper.", "Deeper-bodied fish survived and reproduced more often in the lake, so the trait became more common over many generations.", "All of the slender fish left the lake and swam upstream past the dam."], "answer": 2, "explain": "<p>This is natural selection. Body shape already <em>varied</em> and is inherited. In the lake, <strong>deeper-bodied fish escaped predators more often, survived, and had more offspring</strong>, passing on the trait, so it became more common over generations.</p><p>Individual fish do not change their inherited body shape because they need to, and the environment does not cause helpful mutations on demand. A dam blocks fish from swimming upstream, so the slender fish could not simply have left.</p>"},
-{"id": "q34", "type": "mc", "skill": "The water cycle", "difficulty": 1, "prompt": "<p>During a hot, dry summer, the water level of a small lake drops by several inches. No stream flows out of the lake, and the lake sits on a bed of tightly packed clay that water cannot soak through. Which process most likely removed the water from the lake?</p>", "options": ["Condensation", "Evaporation", "Precipitation", "Infiltration"], "answer": 1, "explain": "<p>Heat from the Sun changes liquid water at the lake's surface into water vapor, which rises into the air. This is <strong>evaporation</strong>, and it is fastest in hot, dry weather.</p><p>Infiltration (water soaking into the ground) is ruled out by the clay bed. Condensation turns vapor back into liquid, and precipitation adds water to the lake rather than removing it.</p>"}
-]}
-]
+ "form": 8,
+ "subject": "sci",
+ "title": "Practice GED Form 8 — Science",
+ "minutes": 90,
+ "stimuli": [
+  {
+   "id": "s1",
+   "title": "Comparing Light Bulbs",
+   "html": "<p>A family is choosing light bulbs for their home. The table compares three bulbs that give off the same amount of light. Brightness is measured in lumens. Any electrical energy a bulb does not give off as visible light is given off as heat.</p><table><thead><tr><th>Bulb type</th><th>Power (watts)</th><th>Brightness (lumens)</th><th>Rated life (hours)</th><th>Share of electrical energy given off as visible light</th></tr></thead><tbody><tr><td>Incandescent</td><td>60</td><td>800</td><td>1,000</td><td>about 10%</td></tr><tr><td>Compact fluorescent (CFL)</td><td>14</td><td>800</td><td>8,000</td><td>about 20%</td></tr><tr><td>Light-emitting diode (LED)</td><td>9</td><td>800</td><td>25,000</td><td>about 40%</td></tr></tbody></table>"
+  },
+  {
+   "id": "s2",
+   "title": "Algae Blooms in Willow Lake",
+   "html": "<p>Willow Lake is fed by a river that flows past several farms. After heavy spring rains, fertilizer washed off the fields and into the river. Fertilizer contains phosphorus, a nutrient that algae need to grow. When algae grow very quickly, they can turn the water green; this is called an algae bloom.</p><p>Algae live only a short time. When they die, they sink to the bottom, where bacteria decompose them. The bacteria use up dissolved oxygen as they break down the dead algae. Most fish become stressed, and many die, when dissolved oxygen falls below about 3 milligrams per liter (mg/L).</p><p>A lake monitoring team collected the data below in the middle of each month.</p><table><thead><tr><th>Month</th><th>Phosphorus (micrograms per liter)</th><th>Algae (chlorophyll, micrograms per liter)</th><th>Dissolved oxygen near the bottom (mg/L)</th><th>Dead fish reported</th></tr></thead><tbody><tr><td>May</td><td>15</td><td>4</td><td>8.5</td><td>0</td></tr><tr><td>June</td><td>30</td><td>12</td><td>6.0</td><td>0</td></tr><tr><td>July</td><td>55</td><td>38</td><td>2.5</td><td>140</td></tr><tr><td>August</td><td>60</td><td>45</td><td>1.5</td><td>310</td></tr><tr><td>September</td><td>25</td><td>10</td><td>5.0</td><td>0</td></tr></tbody></table>"
+  },
+  {
+   "id": "s3",
+   "title": "Appliances on a Home Circuit",
+   "html": "<p>Outlets in a home supply electricity at 120 volts (V). The power an appliance uses, in watts (W), is related to the voltage and the current it draws, in amperes (A), by the equation</p><p><strong>P = V &times; I</strong></p><p>where P is power, V is voltage, and I is current. The energy an appliance uses equals its power multiplied by the time it runs. Energy is often measured in kilowatt-hours (kWh); 1 kWh = 1,000 watts used for 1 hour.</p><table><thead><tr><th>Appliance</th><th>Power (W)</th><th>Typical use per day (hours)</th></tr></thead><tbody><tr><td>Refrigerator</td><td>150 (average)</td><td>24</td></tr><tr><td>Space heater</td><td>1,500</td><td>4</td></tr><tr><td>Microwave oven</td><td>1,200</td><td>0.5</td></tr><tr><td>Television</td><td>100</td><td>3</td></tr><tr><td>Hair dryer</td><td>1,800</td><td>0.25</td></tr></tbody></table>"
+  },
+  {
+   "id": "s4",
+   "title": "Insects as Water-Quality Clues",
+   "html": "<p>Many insects spend the early part of their lives as larvae living on the bottom of streams and rivers. Some, such as mayfly and caddisfly larvae, are <strong>pollution-sensitive</strong>: they survive only in clean water with plenty of dissolved oxygen. Others, such as midge larvae and aquatic worms, are <strong>pollution-tolerant</strong>: they can survive in water with little oxygen. Because these animals live in one stretch of river for months, the kinds found there reflect water conditions over a long period.</p><p>A class sampled a river at three sites on the same day. At each site, they collected animals from 1 square meter of river bottom with a net and counted them.</p><ul><li><strong>Site 1:</strong> upstream of a town</li><li><strong>Site 2:</strong> just below the outflow pipe of the town's wastewater treatment plant</li><li><strong>Site 3:</strong> 5 kilometers downstream of the outflow pipe</li></ul><table><thead><tr><th>Animal</th><th>Type</th><th>Site 1</th><th>Site 2</th><th>Site 3</th></tr></thead><tbody><tr><td>Mayfly larvae</td><td>Sensitive</td><td>42</td><td>3</td><td>25</td></tr><tr><td>Caddisfly larvae</td><td>Sensitive</td><td>30</td><td>2</td><td>19</td></tr><tr><td>Midge larvae</td><td>Tolerant</td><td>18</td><td>85</td><td>30</td></tr><tr><td>Aquatic worms</td><td>Tolerant</td><td>10</td><td>110</td><td>26</td></tr><tr><td><strong>Total</strong></td><td></td><td>100</td><td>200</td><td>100</td></tr></tbody></table>"
+  },
+  {
+   "id": "s5",
+   "title": "A River Rises After a Storm",
+   "html": "<p>A gauge on Cedar Creek records the height of the river every 2 hours. A thunderstorm passed over the area just after hour 0, and the heaviest rain fell at hour 1. Rain soaked into the ground, ran across the land surface, and drained into the creek.</p><p>Hydrologists use the term <strong>lag time</strong> for the time between the heaviest rainfall and the highest (peak) river level. The creek floods its banks when its height reaches the <strong>flood stage</strong> of 8 feet.</p><table><thead><tr><th>Hours after the storm began</th><th>0</th><th>2</th><th>4</th><th>6</th><th>8</th><th>10</th><th>12</th></tr></thead><tbody><tr><td>River height (feet)</td><td>3</td><td>4</td><td>7</td><td>9</td><td>8</td><td>6</td><td>4</td></tr></tbody></table>"
+  },
+  {
+   "id": "s6",
+   "title": "Series and Parallel Wiring",
+   "html": "<p>An electric circuit is a closed path through which current flows. Circuits can be wired in two basic ways.</p><p>In a <strong>series circuit</strong>, the devices are connected one after another along a single path. If any one device fails or is switched off, the path is broken and current stops flowing to every device. Older strings of holiday lights were often wired this way.</p><p>In a <strong>parallel circuit</strong>, each device is on its own branch. Current can still flow through the other branches if one device fails or is switched off. The outlets and lights in a home are wired in parallel, so every outlet supplies about 120 volts no matter how many other outlets are being used. Each device that is turned on draws its own current, and the currents in all the branches add together in the main wire of the circuit.</p><p>Each home circuit is protected by a circuit breaker. If the total current in the circuit becomes greater than the breaker's rating, the breaker switches off (trips) and stops the current. This keeps the wires from overheating and starting a fire.</p>"
+  },
+  {
+   "id": "s7",
+   "title": "An Inherited Disorder",
+   "html": "<p>Phenylketonuria (PKU) is an inherited disorder. People with PKU cannot properly break down phenylalanine, a substance found in many protein foods. If it builds up in the body, it can damage the brain. Newborn babies are tested for PKU, and people with the disorder can stay healthy by following a special diet.</p><p>PKU is caused by a recessive allele, <strong>p</strong>. The dominant allele, <strong>P</strong>, allows the body to break down phenylalanine normally.</p><ul><li>A person with two dominant alleles (homozygous dominant, <strong>PP</strong>) does not have PKU.</li><li>A person with one of each allele (heterozygous, <strong>Pp</strong>) does not have PKU but is a carrier.</li><li>A person with two recessive alleles (homozygous recessive, <strong>pp</strong>) has PKU.</li></ul><p>A woman who is a carrier (<strong>Pp</strong>) and a man who has PKU (<strong>pp</strong>) are planning a family.</p>"
+  },
+  {
+   "id": "s8",
+   "title": "Building an Electromagnet",
+   "html": "<p>The motors in many household appliances, such as fans, blenders, and washing machines, use electromagnets. A student built an electromagnet by wrapping insulated copper wire around a large iron nail and connecting the ends of the wire to a 1.5-volt battery. She counted how many small steel paper clips the nail could lift with different numbers of wire coils. She used the same nail and the same battery in every trial and ran three trials for each number of coils.</p><table><thead><tr><th>Number of coils</th><th>Trial 1</th><th>Trial 2</th><th>Trial 3</th><th>Mean (paper clips lifted)</th></tr></thead><tbody><tr><td>10</td><td>4</td><td>5</td><td>3</td><td>4</td></tr><tr><td>20</td><td>9</td><td>7</td><td>8</td><td>8</td></tr><tr><td>30</td><td>11</td><td>13</td><td>12</td><td>12</td></tr><tr><td>40</td><td>15</td><td>18</td><td>18</td><td>?</td></tr><tr><td>50</td><td>20</td><td>19</td><td>21</td><td>20</td></tr></tbody></table>"
+  },
+  {
+   "id": "s9",
+   "title": "Keeping Water Balance in Fresh Water",
+   "html": "<p>Osmosis is the movement of water across a membrane from the side where the water has fewer dissolved particles (such as salt) to the side where it has more dissolved particles.</p><p>The body fluids of a freshwater fish are saltier than the river or lake water around it. As a result, water constantly moves into the fish's body through the thin membranes of its gills. A freshwater fish rarely drinks. Its kidneys produce large amounts of very dilute urine, and special cells in its gills use energy to take in salt from the water.</p><p>Single-celled organisms that live in ponds face the same problem. A paramecium has a structure called a <strong>contractile vacuole</strong> that collects extra water from inside the cell and squeezes it out. A student placed paramecia in pond water with different amounts of added salt and counted how many times a contractile vacuole emptied in one minute.</p><table><thead><tr><th>Salt added (grams per liter)</th><th>0</th><th>2</th><th>4</th><th>6</th></tr></thead><tbody><tr><td>Contractions per minute</td><td>12</td><td>8</td><td>5</td><td>2</td></tr></tbody></table>"
+  },
+  {
+   "id": "s10",
+   "title": "What a River Can Carry",
+   "html": "<p>Flowing water picks up and carries loose particles of rock and soil, called sediment. The faster water flows, the larger the particles it can carry. When water slows down, the largest particles it was carrying settle out first. The table gives the approximate minimum water speed needed to keep each size of particle moving (simplified values).</p><table><thead><tr><th>Particle</th><th>Typical diameter (mm)</th><th>Minimum water speed to keep it moving (cm/s)</th></tr></thead><tbody><tr><td>Silt</td><td>0.01</td><td>1</td></tr><tr><td>Sand</td><td>0.5</td><td>10</td></tr><tr><td>Gravel</td><td>5</td><td>50</td></tr><tr><td>Pebbles</td><td>30</td><td>150</td></tr><tr><td>Cobbles</td><td>100</td><td>300</td></tr></tbody></table><p>Where a river curves, the water on the outside of the bend flows fastest and wears away (erodes) the bank, making the bank steep. Water on the inside of the bend flows slowly and drops sediment, building a gently sloping bar of sand and gravel. Where a river enters a lake, the water slows down sharply and drops its sediment, which can build a fan-shaped landform called a delta.</p>"
+  },
+  {
+   "id": "s11",
+   "title": "Removing Scale from an Electric Kettle",
+   "html": "<p>Water from many wells and rivers is \"hard,\" meaning it contains dissolved calcium. Each time hard water is boiled in an electric kettle, a little calcium carbonate (CaCO<sub>3</sub>) is left behind as a white, chalky crust called scale. Scale conducts heat poorly, so a kettle coated with scale takes longer and uses more energy to boil water.</p><p>To clean the kettle, a homeowner poured in white vinegar, which contains acetic acid (CH<sub>3</sub>COOH). The liquid fizzed where it touched the scale, and after an hour the crust was gone. The unbalanced equation for the reaction is:</p><p>CaCO<sub>3</sub> + CH<sub>3</sub>COOH &rarr; Ca(CH<sub>3</sub>COO)<sub>2</sub> + H<sub>2</sub>O + CO<sub>2</sub></p><p>(calcium carbonate + acetic acid &rarr; calcium acetate + water + carbon dioxide)</p>"
+  },
+  {
+   "id": "s12",
+   "title": "Illness After a Water System Failure",
+   "html": "<p>A small river town draws its drinking water from the river and treats it with chlorine, which kills bacteria. During a week in June, the chlorine equipment failed for three days. Shortly afterward, many residents developed stomach illness. Health workers surveyed residents about where their drinking water came from that week.</p><table><thead><tr><th>Main drinking-water source</th><th>Number of people</th><th>Number who became ill</th></tr></thead><tbody><tr><td>Town water system (from the river)</td><td>4,000</td><td>480</td></tr><tr><td>Private wells</td><td>1,500</td><td>15</td></tr><tr><td>Bottled water</td><td>500</td><td>5</td></tr></tbody></table><p>Laboratory tests later found disease-causing bacteria in river water collected just downstream from a large livestock farm.</p>"
+  }
+ ],
+ "parts": [
+  {
+   "name": "Science",
+   "items": [
+    {
+     "id": "q1",
+     "type": "mc",
+     "skill": "Energy transformations",
+     "difficulty": 1,
+     "stim": "s1",
+     "prompt": "<p>When the incandescent bulb is switched on, which energy transformation mainly takes place in the bulb?</p>",
+     "options": [
+      "Light energy into electrical energy",
+      "Chemical energy into electrical energy",
+      "Electrical energy into thermal energy and light energy",
+      "Thermal energy into chemical energy"
+     ],
+     "answer": 2,
+     "explain": "<p>A bulb takes in <strong>electrical energy</strong> from the circuit. The table shows that only about 10% of it leaves as visible light; the passage says the rest is given off as heat. So the bulb changes electrical energy into <strong>thermal energy and light energy</strong>.</p><p>Light into electrical energy is what a solar panel does, the reverse of a bulb. Chemical into electrical energy describes a battery, not a bulb.</p>"
+    },
+    {
+     "id": "q2",
+     "type": "mc",
+     "skill": "Interpreting data tables",
+     "difficulty": 2,
+     "stim": "s1",
+     "prompt": "<p>Which statement is best supported by the data in the table?</p>",
+     "options": [
+      "The LED bulb gives the same brightness as the incandescent bulb while using less than one-sixth of the power.",
+      "The incandescent bulb is brighter than the other bulbs because it uses more power.",
+      "The CFL gives off a smaller share of its energy as heat than the LED does.",
+      "The LED bulb lasts 25 times as long as the CFL."
+     ],
+     "answer": 0,
+     "explain": "<p>All three bulbs give 800 lumens, so they are equally bright. The LED uses 9 W and the incandescent uses 60 W: 9 &divide; 60 = 0.15, which is less than 1/6 (about 0.167). So <strong>the LED gives the same brightness using less than one-sixth of the power</strong>.</p><p>The incandescent bulb is not brighter; it only uses more power. The CFL turns about 20% of its energy into light, so about 80% becomes heat, more than the LED's 60%. The LED lasts 25,000 &divide; 8,000 &asymp; 3 times as long as the CFL; it lasts 25 times as long as the <em>incandescent</em> bulb.</p>"
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "skill": "Calculating energy and cost",
+     "difficulty": 3,
+     "stim": "s1",
+     "prompt": "<p>A family keeps one 60-watt incandescent bulb on for 5 hours each day. They replace it with the 9-watt LED bulb. Electricity costs $0.15 per kilowatt-hour (kWh), and 1 kWh = 1,000 watt-hours.</p><p>How much money will the family save on electricity over 30 days? Round to the nearest cent.</p>",
+     "answer": [
+      "1.15",
+      "$1.15"
+     ],
+     "value": 1.15,
+     "tol": 0.005,
+     "suffix": "dollars",
+     "explain": "<p>Power saved: 60 W &minus; 9 W = 51 W</p><p>Energy saved: 51 W &times; 5 hours/day &times; 30 days = 7,650 watt-hours<br>7,650 &divide; 1,000 = 7.65 kWh</p><p>Money saved: 7.65 kWh &times; $0.15 = $1.1475, which rounds to <strong>$1.15</strong>.</p><p>A common error is finding the cost of running the incandescent bulb alone (60 &times; 5 &times; 30 = 9,000 Wh = 9 kWh; 9 &times; $0.15 = $1.35). The savings is the <em>difference</em> between the two bulbs' costs: $1.35 &minus; $0.2025 &asymp; $1.15.</p>"
+    },
+    {
+     "id": "q4",
+     "type": "drag",
+     "skill": "Cause and effect in ecosystems",
+     "difficulty": 2,
+     "stim": "s2",
+     "prompt": "<p>Put the events that led to the fish deaths in Willow Lake in the correct order. Drag each event to its position, from first to last.</p>",
+     "choices": [
+      "Dissolved oxygen near the lake bottom drops",
+      "Fertilizer washes from fields into the river and lake",
+      "Fish die",
+      "Bacteria decompose large amounts of dead algae",
+      "The algae population grows rapidly"
+     ],
+     "bins": [
+      "1st",
+      "2nd",
+      "3rd",
+      "4th",
+      "5th"
+     ],
+     "answer": [
+      3,
+      0,
+      4,
+      2,
+      1
+     ],
+     "explain": "<p>The passage describes a chain of causes:</p><ol><li><strong>Fertilizer washes</strong> into the river and lake, adding phosphorus.</li><li>Phosphorus is a nutrient, so <strong>algae grow rapidly</strong> (a bloom).</li><li>The algae die and sink, and <strong>bacteria decompose</strong> them.</li><li>The bacteria use up oxygen, so <strong>dissolved oxygen drops</strong>.</li><li>Below about 3 mg/L, <strong>fish die</strong>.</li></ol><p>A common mistake is placing the oxygen drop before decomposition. The algae themselves do not remove the oxygen; the bacteria breaking down the dead algae do.</p>"
+    },
+    {
+     "id": "q5",
+     "type": "mc",
+     "skill": "Drawing conclusions from data",
+     "difficulty": 2,
+     "stim": "s2",
+     "prompt": "<p>Which conclusion is best supported by the monitoring data?</p>",
+     "options": [
+      "Phosphorus is directly poisonous to fish.",
+      "More algae in the lake always means more dissolved oxygen near the bottom.",
+      "Fish deaths were highest in May, when phosphorus was lowest.",
+      "Fish deaths were reported only in months when oxygen near the bottom was below 3 mg/L."
+     ],
+     "answer": 3,
+     "explain": "<p>Dead fish were reported only in July (2.5 mg/L) and August (1.5 mg/L). In May, June, and September, oxygen was 5.0 mg/L or higher and no dead fish were reported. So <strong>fish deaths happened only when bottom oxygen was below 3 mg/L</strong>.</p><p>The data do not show phosphorus poisoning fish; the passage explains that the harm comes through low oxygen. As algae increased, bottom oxygen <em>decreased</em> (4 &rarr; 45 algae; 8.5 &rarr; 1.5 mg/L oxygen). No dead fish were reported in May.</p>"
+    },
+    {
+     "id": "q6",
+     "type": "multi",
+     "skill": "Human impact on ecosystems",
+     "difficulty": 2,
+     "stim": "s2",
+     "prompt": "<p>Based on the passage, which actions would most likely reduce future algae blooms in Willow Lake?</p><p>Select <strong>two</strong> answers.</p>",
+     "options": [
+      "Planting strips of grass and trees along the river to trap runoff from the fields",
+      "Adding phosphorus to the lake so the algae finish growing sooner",
+      "Removing fish from the lake before each summer",
+      "Using less fertilizer on nearby fields and not spreading it just before heavy rain",
+      "Adding more bacteria to the bottom of the lake"
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explain": "<p>The blooms start when phosphorus from fertilizer washes into the lake. Actions that keep fertilizer out of the water will reduce blooms: <strong>planting strips of plants along the river</strong> to catch runoff, and <strong>using less fertilizer and timing it to avoid heavy rain</strong>.</p><p>Adding phosphorus would feed more algae. Removing fish does nothing to the cause. Adding bacteria would use up even more oxygen as they decompose dead algae.</p>"
+    },
+    {
+     "id": "q7",
+     "type": "fill",
+     "skill": "Electric power and current",
+     "difficulty": 2,
+     "stim": "s3",
+     "prompt": "<p>Using <strong>P = V &times; I</strong>, how much current, in amperes, does the space heater draw from a 120-volt outlet? Enter your answer as a decimal.</p>",
+     "answer": [
+      "12.5"
+     ],
+     "value": 12.5,
+     "tol": 0.001,
+     "suffix": "amperes",
+     "explain": "<p>Solve P = V &times; I for current: I = P &divide; V.</p><p>I = 1,500 W &divide; 120 V = <strong>12.5 A</strong></p><p>Multiplying instead (1,500 &times; 120 = 180,000) gives a number far too large; current is found by dividing power by voltage.</p>"
+    },
+    {
+     "id": "q8",
+     "type": "mc",
+     "skill": "Electric circuits and safety",
+     "difficulty": 3,
+     "stim": "s3",
+     "prompt": "<p>A bedroom circuit is protected by a 20-ampere circuit breaker, which switches off if the total current is greater than 20 A. Currents add when appliances run at the same time on one circuit. Which pair of appliances could run on this circuit at the same time without tripping the breaker?</p>",
+     "options": [
+      "The space heater and the microwave oven",
+      "The space heater and the television",
+      "The microwave oven and the hair dryer",
+      "The hair dryer and the space heater"
+     ],
+     "answer": 1,
+     "explain": "<p>Find each current with I = P &divide; V:</p><p>Space heater: 1,500 &divide; 120 = 12.5 A<br>Microwave: 1,200 &divide; 120 = 10 A<br>Hair dryer: 1,800 &divide; 120 = 15 A<br>Television: 100 &divide; 120 &asymp; 0.83 A</p><p>Heater + television = 12.5 + 0.83 &asymp; 13.3 A, which is under 20 A. So <strong>the space heater and the television</strong> can run together.</p><p>Heater + microwave = 22.5 A, microwave + hair dryer = 25 A, and hair dryer + heater = 27.5 A; each is over 20 A and would trip the breaker.</p>"
+    },
+    {
+     "id": "q9",
+     "type": "drag",
+     "skill": "Calculating energy use",
+     "difficulty": 3,
+     "stim": "s3",
+     "prompt": "<p>Using each appliance's power and typical hours of use per day, rank these appliances by the energy they use in one day. Drag each appliance to its position, from <strong>most</strong> energy to <strong>least</strong> energy.</p>",
+     "choices": [
+      "Microwave oven",
+      "Refrigerator",
+      "Television",
+      "Space heater"
+     ],
+     "bins": [
+      "1st (most energy)",
+      "2nd",
+      "3rd",
+      "4th (least energy)"
+     ],
+     "answer": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "explain": "<p>Energy = power &times; time.</p><p>Space heater: 1,500 W &times; 4 h = 6,000 Wh = <strong>6.0 kWh</strong><br>Refrigerator: 150 W &times; 24 h = 3,600 Wh = <strong>3.6 kWh</strong><br>Microwave oven: 1,200 W &times; 0.5 h = 600 Wh = <strong>0.6 kWh</strong><br>Television: 100 W &times; 3 h = 300 Wh = <strong>0.3 kWh</strong></p><p>The common mistake is ranking by power alone, which would put the microwave above the refrigerator. The refrigerator uses little power but runs all day, so it uses six times as much energy as the microwave.</p>"
+    },
+    {
+     "id": "q10",
+     "type": "fill",
+     "skill": "Calculating percent",
+     "difficulty": 2,
+     "stim": "s4",
+     "prompt": "<p>What percent of the animals counted at Site 2 were pollution-sensitive? Enter your answer as a decimal if needed.</p>",
+     "answer": [
+      "2.5",
+      "2.5%"
+     ],
+     "value": 2.5,
+     "tol": 0.001,
+     "suffix": "percent",
+     "explain": "<p>Pollution-sensitive animals at Site 2: mayflies 3 + caddisflies 2 = 5</p><p>Total animals at Site 2: 200</p><p>5 &divide; 200 = 0.025 = <strong>2.5%</strong></p><p>A common error is dividing by 100 (giving 5%) because Sites 1 and 3 each had 100 animals. Site 2 had 200 animals in total.</p>"
+    },
+    {
+     "id": "q11",
+     "type": "mc",
+     "skill": "Drawing conclusions from data",
+     "difficulty": 2,
+     "stim": "s4",
+     "prompt": "<p>Which conclusion is best supported by the survey data?</p>",
+     "options": [
+      "The river water was cleanest just below the treatment plant, because more animals were found there.",
+      "The treatment plant had no effect on the river, because all four kinds of animals were found at every site.",
+      "Water quality was poorest just below the treatment plant outflow and improved farther downstream.",
+      "Water quality at Site 3 was better than at Site 1, because Site 3 had more midge larvae."
+     ],
+     "answer": 2,
+     "explain": "<p>Site 2 had the fewest sensitive animals (5 of 200, or 2.5%) and the most tolerant ones, a sign of low oxygen and poor water quality. At Site 3, sensitive animals rose to 44 of 100 (44%). So <strong>water quality was poorest just below the outflow and improved downstream</strong>, though not back to Site 1's 72%.</p><p>A larger total count does not mean cleaner water; Site 2's extra animals were almost all tolerant. Finding all four kinds at every site ignores the large changes in their numbers. More midge larvae (a tolerant animal) points to <em>poorer</em> water, not better.</p>"
+    },
+    {
+     "id": "q12",
+     "type": "mc",
+     "skill": "Improving an investigation",
+     "difficulty": 3,
+     "stim": "s4",
+     "prompt": "<p>The class collected one sample at each site on a single day. Which change would most improve the reliability of their conclusions?</p>",
+     "options": [
+      "Sample each site several more times, on different dates, and compare the results.",
+      "Sample only Site 2 again, since it had the most animals.",
+      "Count only the midge larvae at each site, since they were the most common.",
+      "Add the counts from all three sites together into one total."
+     ],
+     "answer": 0,
+     "explain": "<p>A single sample could be unusual by chance, for example if the net landed on an especially rocky or muddy spot. <strong>Repeating the sampling at every site on several dates</strong> shows whether the pattern holds up, which makes the conclusions more reliable.</p><p>Resampling only one site gives nothing new to compare it with. Counting only one tolerant animal throws away the sensitive-species data the comparison depends on. Combining the sites erases the differences between them, which are the whole point of the study.</p>"
+    },
+    {
+     "id": "q13",
+     "type": "hotspot",
+     "skill": "Reading a graph",
+     "difficulty": 1,
+     "stim": "s5",
+     "prompt": "<p>The graph shows the river height data from the table. The horizontal line marks flood stage (8 feet). The x-axis shows hours after the storm began, and the y-axis shows river height in feet.</p><p>Click the point on the graph that shows the <strong>peak</strong> (highest) river height recorded.</p>",
+     "figure": {
+      "type": "plane",
+      "xmin": 0,
+      "xmax": 12,
+      "ymin": 0,
+      "ymax": 10,
+      "lines": [
+       {
+        "m": 0,
+        "b": 8,
+        "label": "Flood stage = 8 ft"
+       }
+      ],
+      "segments": [
+       [
+        [
+         0,
+         3
+        ],
+        [
+         2,
+         4
+        ]
+       ],
+       [
+        [
+         2,
+         4
+        ],
+        [
+         4,
+         7
+        ]
+       ],
+       [
+        [
+         4,
+         7
+        ],
+        [
+         6,
+         9
+        ]
+       ],
+       [
+        [
+         6,
+         9
+        ],
+        [
+         8,
+         8
+        ]
+       ],
+       [
+        [
+         8,
+         8
+        ],
+        [
+         10,
+         6
+        ]
+       ],
+       [
+        [
+         10,
+         6
+        ],
+        [
+         12,
+         4
+        ]
+       ]
+      ]
+     },
+     "plane": {
+      "xmin": 0,
+      "xmax": 12,
+      "ymin": 0,
+      "ymax": 10
+     },
+     "answer": [
+      6,
+      9
+     ],
+     "explain": "<p>The highest reading in the table is 9 feet, recorded 6 hours after the storm began. On the graph, that is the point <strong>(6, 9)</strong>, where the line stops rising and starts to fall.</p><p>The point (8, 8) is where the falling river is back at flood stage, not the peak.</p>"
+    },
+    {
+     "id": "q14",
+     "type": "mc",
+     "skill": "Interpreting data",
+     "difficulty": 2,
+     "stim": "s5",
+     "noShuffle": true,
+     "prompt": "<p>What was the lag time for Cedar Creek after this storm?</p>",
+     "options": [
+      "1 hour",
+      "5 hours",
+      "6 hours",
+      "12 hours"
+     ],
+     "answer": 1,
+     "explain": "<p>Lag time is the time from the heaviest rainfall to the peak river level.</p><p>Heaviest rain: hour 1<br>Peak river height (9 ft): hour 6<br>6 &minus; 1 = <strong>5 hours</strong></p><p>6 hours is the time from the start of the storm (hour 0) to the peak, but the passage measures lag time from the heaviest rain, at hour 1. 12 hours is simply the last reading in the table.</p>"
+    },
+    {
+     "id": "q15",
+     "type": "mc",
+     "skill": "Predicting outcomes",
+     "difficulty": 3,
+     "stim": "s5",
+     "prompt": "<p>A large area of forest and wetland upstream of the gauge is cleared and paved to build a shopping center. If the same storm struck again, how would the river height data most likely change?</p>",
+     "options": [
+      "The river would rise more slowly and reach a lower peak, because pavement stores rainwater.",
+      "The river would reach a lower peak, because pavement soaks up more rain than soil does.",
+      "The river height data would not change, because the same amount of rain would fall.",
+      "The river would rise faster and reach a higher peak, because less rainwater would soak into the ground."
+     ],
+     "answer": 3,
+     "explain": "<p>The passage says some rain soaks into the ground and some runs across the surface. Pavement does not let water soak in, and paved surfaces carry water away quickly. More of the rain would reach the creek, and it would get there sooner, so <strong>the river would rise faster and peak higher</strong> (a shorter lag time and a greater flood risk).</p><p>Pavement does not absorb or store rain; that is what soil, forests, and wetlands do. Even with the same rainfall, changing the land surface changes how much water reaches the creek and how fast.</p>"
+    },
+    {
+     "id": "q16",
+     "type": "dropdown",
+     "skill": "Series and parallel circuits",
+     "difficulty": 2,
+     "stim": "s6",
+     "prompt": "<p>Complete the statements based on the passage.</p><p>Older strings of holiday lights were wired in {{0}}, so when one bulb burned out, the rest of the bulbs {{1}}. Because the outlets in a home are wired in parallel, each outlet supplies about {{2}} volts, no matter how many other outlets are in use.</p>",
+     "blanks": [
+      {
+       "options": [
+        "series",
+        "parallel"
+       ],
+       "answer": 0
+      },
+      {
+       "options": [
+        "went dark",
+        "stayed lit",
+        "glowed brighter"
+       ],
+       "answer": 0
+      },
+      {
+       "options": [
+        "120",
+        "60",
+        "240"
+       ],
+       "answer": 0
+      }
+     ],
+     "explain": "<p>The passage says older holiday lights were wired in <strong>series</strong>: one single path. When one bulb burns out, the path is broken and every bulb <strong>goes dark</strong>.</p><p>Home outlets are wired in parallel, and the passage states that every outlet supplies about <strong>120</strong> volts no matter how many others are in use. Each branch gets the full voltage; it is not split between outlets, so 60 V is wrong.</p>"
+    },
+    {
+     "id": "q17",
+     "type": "mc",
+     "skill": "Electric circuits and safety",
+     "difficulty": 2,
+     "stim": "s6",
+     "prompt": "<p>Someone plugs several high-power appliances into outlets on the same kitchen circuit and switches them all on. The circuit breaker trips. Which explanation is best supported by the passage?</p>",
+     "options": [
+      "Each appliance on its own parallel branch draws its own current, so the total current in the main wire rose above the breaker's rating.",
+      "Each added appliance lowered the voltage at every outlet to zero.",
+      "The appliances were all on one single path, so the first appliance blocked current to the others.",
+      "Adding appliances lowered the total current below a safe level."
+     ],
+     "answer": 0,
+     "explain": "<p>The passage says each device that is turned on draws its own current, and the branch currents <strong>add together</strong> in the main wire. With several high-power appliances running, the total current became greater than the breaker's rating, so the breaker tripped to keep the wires from overheating.</p><p>Home outlets are wired in parallel, not on a single path, and each still gets about 120 volts. Adding appliances <em>raises</em> the total current; it does not lower it.</p>"
+    },
+    {
+     "id": "q18",
+     "type": "mc",
+     "skill": "Punnett square probability",
+     "difficulty": 2,
+     "stim": "s7",
+     "noShuffle": true,
+     "prompt": "<p>What is the probability that any one child of this couple will have PKU?</p>",
+     "options": [
+      "0%",
+      "25%",
+      "50%",
+      "75%"
+     ],
+     "answer": 2,
+     "explain": "<p>Cross the mother (Pp) with the father (pp):</p><table><thead><tr><th></th><th>P</th><th>p</th></tr></thead><tbody><tr><th>p</th><td>Pp</td><td>pp</td></tr><tr><th>p</th><td>Pp</td><td>pp</td></tr></tbody></table><p>2 of the 4 boxes are pp (has PKU): 2 &divide; 4 = <strong>50%</strong>.</p><p>25% is the answer for two carrier parents (Pp &times; Pp). Here the father has PKU, so he can pass on only the recessive allele.</p>"
+    },
+    {
+     "id": "q19",
+     "type": "mc",
+     "skill": "Genotypes and phenotypes",
+     "difficulty": 3,
+     "stim": "s7",
+     "prompt": "<p>The couple has a child who does <strong>not</strong> have PKU. What must this child's genotype be?</p>",
+     "options": [
+      "Homozygous dominant (PP)",
+      "Heterozygous (Pp)",
+      "Homozygous recessive (pp)",
+      "Either homozygous dominant (PP) or heterozygous (Pp)"
+     ],
+     "answer": 1,
+     "explain": "<p>The father has PKU (pp), so every child receives a recessive allele (p) from him. A child without PKU must also have a dominant allele (P), which can come only from the mother. So the child must be <strong>heterozygous (Pp)</strong>, a carrier.</p><p>Homozygous dominant (PP) is impossible, because the father has no P allele to give. Homozygous recessive (pp) would mean the child has PKU. \"Either PP or Pp\" would be correct only if both parents could pass on a P allele.</p>"
+    },
+    {
+     "id": "q20",
+     "type": "fill",
+     "skill": "Calculating the mean",
+     "difficulty": 1,
+     "stim": "s8",
+     "prompt": "<p>What is the mean number of paper clips lifted with 40 coils? Enter a whole number.</p>",
+     "answer": [
+      "17"
+     ],
+     "value": 17,
+     "tol": 0.001,
+     "suffix": "paper clips",
+     "explain": "<p>Mean = sum of trials &divide; number of trials.</p><p>15 + 18 + 18 = 51<br>51 &divide; 3 = <strong>17</strong></p><p>Do not choose the most common value (18); that is the mode, not the mean.</p>"
+    },
+    {
+     "id": "q21",
+     "type": "mc",
+     "skill": "Drawing conclusions from data",
+     "difficulty": 2,
+     "stim": "s8",
+     "prompt": "<p>Which conclusion is best supported by the data?</p>",
+     "options": [
+      "Doubling the number of coils always exactly doubles the number of paper clips lifted.",
+      "The strength of the electromagnet depends only on the battery, not on the number of coils.",
+      "An electromagnet with 100 coils would lift exactly 40 paper clips.",
+      "Within the range tested, adding more coils made the electromagnet stronger."
+     ],
+     "answer": 3,
+     "explain": "<p>The mean number of clips rose at every step: 4 &rarr; 8 &rarr; 12 &rarr; 17 &rarr; 20 as the coils went from 10 to 50. So, <strong>within the range tested, more coils made a stronger electromagnet</strong>.</p><p>Doubling did not always exactly double the result: 20 coils lifted 8 clips, but 40 coils lifted 17, not 16. The battery stayed the same in every trial, so the change in strength came from the coils. The experiment stopped at 50 coils, so it cannot support an exact prediction for 100 coils.</p>"
+    },
+    {
+     "id": "q22",
+     "type": "multi",
+     "skill": "Controlled variables",
+     "difficulty": 1,
+     "stim": "s8",
+     "prompt": "<p>According to the description, which factors did the student keep the same in every trial?</p><p>Select <strong>two</strong> answers.</p>",
+     "options": [
+      "The battery",
+      "The number of wire coils",
+      "The iron nail",
+      "The number of paper clips lifted"
+     ],
+     "answer": [
+      0,
+      2
+     ],
+     "explain": "<p>The passage states that the student \"used the same nail and the same battery in every trial,\" so <strong>the battery</strong> and <strong>the iron nail</strong> are controlled variables.</p><p>The number of coils was changed on purpose (the independent variable). The number of paper clips lifted was measured (the dependent variable).</p>"
+    },
+    {
+     "id": "q23",
+     "type": "mc",
+     "skill": "Homeostasis and osmosis",
+     "difficulty": 2,
+     "stim": "s9",
+     "prompt": "<p>Why does a freshwater fish produce large amounts of very dilute urine?</p>",
+     "options": [
+      "To take in more salt from the surrounding water",
+      "To get rid of the extra water that keeps entering its body by osmosis",
+      "To make its body fluids less salty than the surrounding water",
+      "Because it drinks large amounts of water every day"
+     ],
+     "answer": 1,
+     "explain": "<p>The fish's body fluids are saltier than the water around it, so water constantly moves <em>into</em> its body through the gills by osmosis. Producing large amounts of dilute urine <strong>removes this extra water</strong> while losing as little salt as possible, keeping the body's water balance steady.</p><p>The passage says the fish rarely drinks, and that salt is taken in by special gill cells, not by urine. Urine that made the body fluids less salty would upset the fish's balance, not maintain it.</p>"
+    },
+    {
+     "id": "q24",
+     "type": "mc",
+     "skill": "Interpreting experimental data",
+     "difficulty": 3,
+     "stim": "s9",
+     "prompt": "<p>Which explanation best accounts for the student's paramecium data?</p>",
+     "options": [
+      "As the water around the cell became saltier, less water entered the cell by osmosis, so the contractile vacuole needed to empty less often.",
+      "As the water around the cell became saltier, more water entered the cell, so the contractile vacuole emptied less often.",
+      "Salt destroyed the contractile vacuole, so it could no longer contract at all.",
+      "Salt gave the paramecium extra energy, so it no longer needed to remove water."
+     ],
+     "answer": 0,
+     "explain": "<p>Contractions fell steadily from 12 to 8 to 5 to 2 per minute as salt increased. Saltier outside water means a smaller difference in dissolved particles between the inside and outside of the cell, so <strong>less water enters by osmosis</strong> and the vacuole has less extra water to pump out.</p><p>If more water entered, the vacuole would need to empty <em>more</em> often, not less. The vacuole still contracted at every salt level, so it was not destroyed. Nothing in the passage connects salt to the cell's energy supply.</p>"
+    },
+    {
+     "id": "q25",
+     "type": "hotspot",
+     "skill": "Osmosis",
+     "difficulty": 2,
+     "stim": "s9",
+     "prompt": "<p>The sentences below describe a freshwater fish. Click the sentence that explains <strong>why</strong> water constantly enters the fish's body.</p>",
+     "spans": [
+      "The fish's scales protect its skin from injury.",
+      "Because its body fluids are saltier than the surrounding water, water moves into the fish by osmosis through the thin membranes of its gills.",
+      "Special cells in the gills use energy to take in salt from the water.",
+      "The fish's kidneys produce large amounts of very dilute urine.",
+      "A gas-filled swim bladder helps the fish float at the right depth."
+     ],
+     "answer": 1,
+     "explain": "<p>Osmosis moves water toward the side with more dissolved particles. The fish's body fluids are saltier than the water around it, so <strong>water moves into the fish through its gill membranes</strong>. That sentence gives the cause.</p><p>The kidney sentence describes how the fish <em>responds</em> to the extra water, not why it enters. The gill-cell sentence explains how the fish gains salt, not water.</p>"
+    },
+    {
+     "id": "q26",
+     "type": "mc",
+     "skill": "Erosion and deposition",
+     "difficulty": 1,
+     "stim": "s10",
+     "prompt": "<p>A homeowner's land lies along a curving river. Based on the passage, where is the riverbank most likely to be worn away over time?</p>",
+     "options": [
+      "Along the inside of the bend, where the water moves slowly",
+      "Where the river enters a lake, where the water slows sharply",
+      "Along the outside of the bend, where the water moves fastest",
+      "On a gently sloping bar of sand and gravel"
+     ],
+     "answer": 2,
+     "explain": "<p>The passage says water on the <strong>outside of a bend</strong> flows fastest and erodes the bank, making it steep.</p><p>The inside of the bend, the sand and gravel bar, and the river mouth at a lake are all places where water slows and <em>drops</em> sediment (deposition), so land builds up there instead of wearing away.</p>"
+    },
+    {
+     "id": "q27",
+     "type": "mc",
+     "skill": "Interpreting data",
+     "difficulty": 3,
+     "stim": "s10",
+     "prompt": "<p>A river flowing at 60 cm/s enters a lake, where its speed drops to 20 cm/s. Based on the table, what happens to the sediment the river was carrying?</p>",
+     "options": [
+      "Pebbles and gravel settle out, while sand and silt keep moving.",
+      "All of the sediment settles out, because the water slows down.",
+      "Sand settles out, while gravel and silt keep moving.",
+      "Gravel settles out, while sand and silt keep moving."
+     ],
+     "answer": 3,
+     "explain": "<p>At 60 cm/s, the river can carry particles that need 60 cm/s or less: silt (1), sand (10), and gravel (50). Pebbles need 150 cm/s, so the river was <em>not</em> carrying pebbles in the first place.</p><p>At 20 cm/s, gravel (needs 50) can no longer be carried and settles out. Sand (needs 10) and silt (needs 1) can still be carried. So <strong>gravel settles out, while sand and silt keep moving</strong>.</p><p>The first choice includes pebbles, which this river could not carry at 60 cm/s. Water at 20 cm/s is still fast enough to move sand and silt, so not all sediment settles out.</p>"
+    },
+    {
+     "id": "q28",
+     "type": "dropdown",
+     "skill": "Balancing chemical equations",
+     "difficulty": 3,
+     "stim": "s11",
+     "prompt": "<p>Choose the coefficients that balance the equation for the reaction between scale and vinegar.</p><p>{{0}} CaCO<sub>3</sub> + {{1}} CH<sub>3</sub>COOH &rarr; 1 Ca(CH<sub>3</sub>COO)<sub>2</sub> + 1 H<sub>2</sub>O + 1 CO<sub>2</sub></p>",
+     "blanks": [
+      {
+       "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+       ],
+       "answer": 0
+      },
+      {
+       "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+       ],
+       "answer": 1
+      }
+     ],
+     "explain": "<p>Start with calcium: there is 1 Ca on the right, so use <strong>1</strong> CaCO<sub>3</sub>.</p><p>Ca(CH<sub>3</sub>COO)<sub>2</sub> contains two acetate groups, so use <strong>2</strong> CH<sub>3</sub>COOH.</p><p>Check each element with 1 CaCO<sub>3</sub> + 2 CH<sub>3</sub>COOH:</p><ul><li>Ca: left 1; right 1</li><li>C: left 1 + 2(2) = 5; right 4 + 1 = 5</li><li>H: left 2(4) = 8; right 6 + 2 = 8</li><li>O: left 3 + 2(2) = 7; right 4 + 1 + 2 = 7</li></ul><p>With only 1 CH<sub>3</sub>COOH, the left side would have 3 C, 4 H, and 5 O, which does not match the right side.</p>"
+    },
+    {
+     "id": "q29",
+     "type": "mc",
+     "skill": "Physical and chemical changes",
+     "difficulty": 1,
+     "stim": "s11",
+     "prompt": "<p>Which observation is the best evidence that a <strong>chemical</strong> change took place when the vinegar was poured into the kettle?</p>",
+     "options": [
+      "The water in the kettle boiled when the kettle was switched on.",
+      "Bubbles of gas formed where the vinegar touched the scale.",
+      "The scale was white and chalky.",
+      "The kettle felt warm after it was unplugged."
+     ],
+     "answer": 1,
+     "explain": "<p>Production of a gas is a sign that a new substance formed. The fizzing was <strong>carbon dioxide gas produced by the reaction</strong> between calcium carbonate and acetic acid, so it shows a chemical change.</p><p>Boiling is a physical change (liquid water becoming water vapor). The white, chalky appearance is a property of the scale, not evidence of a reaction. A warm kettle after use reflects stored heat, not a new substance.</p>"
+    },
+    {
+     "id": "q30",
+     "type": "mc",
+     "skill": "Drawing conclusions from data",
+     "difficulty": 2,
+     "stim": "s12",
+     "prompt": "<p>Which conclusion is best supported by the survey and the laboratory tests?</p>",
+     "options": [
+      "The illness was most likely spread through the town water system after the chlorine equipment failed.",
+      "Private wells were the main source of the illness.",
+      "Bottled water caused about as many illnesses as town water.",
+      "The illness was most likely spread from person to person by coughing."
+     ],
+     "answer": 0,
+     "explain": "<p>Compare the percent of each group that became ill:</p><p>Town water: 480 &divide; 4,000 = 0.12 = 12%<br>Private wells: 15 &divide; 1,500 = 0.01 = 1%<br>Bottled water: 5 &divide; 500 = 0.01 = 1%</p><p>The rate was much higher among town water users, the illness followed the chlorine failure, and disease-causing bacteria were found in the river. So <strong>the illness most likely spread through the untreated town water</strong>.</p><p>Wells and bottled water each had only a 1% illness rate. Nothing in the survey points to coughing; the evidence ties the illness to a water source.</p>"
+    },
+    {
+     "id": "q31",
+     "type": "mc",
+     "skill": "Evaluating data reasoning",
+     "difficulty": 3,
+     "stim": "s12",
+     "prompt": "<p>A local newspaper reported, \"Town water users were 32 times as likely to get sick as well users, because 480 town water users became ill but only 15 well users did.\" Why is this claim flawed?</p>",
+     "options": [
+      "The newspaper should have added the bottled water group to the well group.",
+      "The number of ill people does not matter in a disease outbreak.",
+      "Well water and town water both come from the same river.",
+      "The groups were different sizes, so the percent of each group that became ill should be compared; by percent, town water users were 12 times as likely to get sick."
+     ],
+     "answer": 3,
+     "explain": "<p>480 &divide; 15 = 32 compares raw counts, but 4,000 people drank town water and only 1,500 used wells. The fair comparison uses rates:</p><p>Town water: 480 &divide; 4,000 = 12%<br>Wells: 15 &divide; 1,500 = 1%<br>12% &divide; 1% = <strong>12 times as likely</strong></p><p>Town water users were still far more likely to get sick, but by 12 times, not 32. Adding unrelated groups together would not fix the error, and the passage does not say the wells draw from the river.</p>"
+    },
+    {
+     "id": "q32",
+     "type": "mc",
+     "skill": "Heat transfer and convection",
+     "difficulty": 2,
+     "prompt": "<p>On a sunny summer afternoon, people on the shore of a large lake often feel a cool breeze blowing from the lake toward the land. Water must absorb more energy than soil and rock to warm by the same number of degrees. Which explanation best accounts for the afternoon breeze?</p>",
+     "options": [
+      "The land warms faster than the lake, so the warm air over the land rises, and cooler, denser air from over the lake flows in to replace it.",
+      "The lake warms faster than the land, so the air over the lake rises and is pushed toward the shore.",
+      "Heat moves by conduction from the lake water into the land, which pulls the air along with it.",
+      "Cool air over the lake is less dense than warm air, so it floats toward the land."
+     ],
+     "answer": 0,
+     "explain": "<p>Because water needs more energy to warm by each degree, the <strong>land heats up faster</strong> than the lake in the sun. Air over the land is warmed, expands, becomes less dense, and rises. <strong>Cooler, denser air over the lake moves in</strong> to take its place. This circulation of air is <strong>convection</strong>.</p><p>The lake warms more slowly, not faster, than the land. Conduction moves heat through direct contact and does not drive a wind. Cool air is <em>more</em> dense than warm air, not less, which is why it sinks and flows along the surface toward the land.</p>"
+    },
+    {
+     "id": "q33",
+     "type": "mc",
+     "skill": "Natural selection",
+     "difficulty": 2,
+     "prompt": "<p>Before a dam was built in 1980, a small fish species lived in a fast-flowing river, where most individuals had slender, streamlined bodies. Body shape varies among individuals and is inherited. The dam turned the river into a still lake. In still water, deeper-bodied fish can turn more sharply to escape predators. Surveys now show that most fish in the lake have deeper bodies.</p><p>Which explanation best accounts for this change?</p>",
+     "options": [
+      "Each fish grew a deeper body during its lifetime because it needed to escape predators.",
+      "The still water of the lake caused mutations that made every fish's body deeper.",
+      "Deeper-bodied fish survived and reproduced more often in the lake, so the trait became more common over many generations.",
+      "All of the slender fish left the lake and swam upstream past the dam."
+     ],
+     "answer": 2,
+     "explain": "<p>This is natural selection. Body shape already <em>varied</em> and is inherited. In the lake, <strong>deeper-bodied fish escaped predators more often, survived, and had more offspring</strong>, passing on the trait, so it became more common over generations.</p><p>Individual fish do not change their inherited body shape because they need to, and the environment does not cause helpful mutations on demand. A dam blocks fish from swimming upstream, so the slender fish could not simply have left.</p>"
+    },
+    {
+     "id": "q34",
+     "type": "mc",
+     "skill": "The water cycle",
+     "difficulty": 1,
+     "prompt": "<p>During a hot, dry summer, the water level of a small lake drops by several inches. No stream flows out of the lake, and the lake sits on a bed of tightly packed clay that water cannot soak through. Which process most likely removed the water from the lake?</p>",
+     "options": [
+      "Condensation",
+      "Evaporation",
+      "Precipitation",
+      "Infiltration"
+     ],
+     "answer": 1,
+     "explain": "<p>Heat from the Sun changes liquid water at the lake's surface into water vapor, which rises into the air. This is <strong>evaporation</strong>, and it is fastest in hot, dry weather.</p><p>Infiltration (water soaking into the ground) is ruled out by the clay bed. Condensation turns vapor back into liquid, and precipitation adds water to the lake rather than removing it.</p>"
+    }
+   ]
+  }
+ ]
 }
