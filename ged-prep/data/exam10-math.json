@@ -1,0 +1,889 @@
+{
+ "form": 10,
+ "subject": "math",
+ "title": "Practice GED Form 10 — Mathematical Reasoning",
+ "minutes": 115,
+ "stimuli": [],
+ "parts": [
+  {
+   "name": "Part 1",
+   "calculator": false,
+   "items": [
+    {
+     "id": "m01",
+     "type": "mc",
+     "skill": "Operations with integers",
+     "difficulty": 1,
+     "prompt": "<p>Maria's checking account was overdrawn, with a balance of &minus;$35. She deposited $120 and then paid three bills of $28 each from the account. What is the balance in her account now?</p>",
+     "options": [
+      "$71",
+      "$57",
+      "$1",
+      "$85"
+     ],
+     "answer": 2,
+     "explain": "<p>Start with the negative balance and add the deposit: &minus;35 + 120 = 85.</p><p>The three bills total 3 &times; 28 = 84.</p><p>Subtract the bills: 85 &minus; 84 = <strong>$1</strong>.</p><p>$71 comes from treating the overdrawn balance as +$35: 35 + 120 &minus; 84 = 71. $57 subtracts only one bill: 85 &minus; 28 = 57. $85 forgets the bills entirely.</p>"
+    },
+    {
+     "id": "m02",
+     "type": "fill",
+     "skill": "Subtracting fractions",
+     "difficulty": 2,
+     "prompt": "<p>Jamal budgets &frac14; of his monthly take-home pay for rent and &frac16; of it for groceries. What fraction of his take-home pay is left for everything else?</p><p>Write your answer as a fraction in lowest terms or as a decimal rounded to the nearest thousandth.</p>",
+     "answer": [
+      "7/12",
+      "0.583",
+      ".583"
+     ],
+     "value": 0.5833333333333334,
+     "tol": 0.001,
+     "explain": "<p>The whole paycheck is 1. Use a common denominator of 12.</p><p>&frac14; = 3/12 and &frac16; = 2/12.</p><p>Rent and groceries together: 3/12 + 2/12 = 5/12.</p><p>Left over: 12/12 &minus; 5/12 = <strong>7/12</strong> (about 0.583).</p><p>A common error is to add the denominators: 1/4 + 1/6 = 2/10. Fractions must have a common denominator before they are added.</p>"
+    },
+    {
+     "id": "m03",
+     "type": "mc",
+     "skill": "Exponent rules with variables",
+     "difficulty": 2,
+     "prompt": "<p>Which expression is equivalent to the expression below?</p><p>(6x<sup>3</sup> &middot; x<sup>5</sup>) &divide; (3x<sup>2</sup>)</p>",
+     "options": [
+      "2x<sup>6</sup>",
+      "3x<sup>6</sup>",
+      "2x<sup>13</sup>",
+      "2x<sup>4</sup>"
+     ],
+     "answer": 0,
+     "explain": "<p>Multiply in the numerator: when multiplying powers of the same base, add the exponents. x<sup>3</sup> &middot; x<sup>5</sup> = x<sup>8</sup>, so the numerator is 6x<sup>8</sup>.</p><p>Divide the coefficients: 6 &divide; 3 = 2.</p><p>Divide the powers by subtracting exponents: x<sup>8</sup> &divide; x<sup>2</sup> = x<sup>6</sup>.</p><p>Result: <strong>2x<sup>6</sup></strong>.</p><p>2x<sup>13</sup> comes from multiplying the exponents 3 and 5 (15) and then subtracting 2. 2x<sup>4</sup> divides the exponents (8 &divide; 2) instead of subtracting. 3x<sup>6</sup> subtracts the coefficients (6 &minus; 3) instead of dividing.</p>"
+    },
+    {
+     "id": "m04",
+     "type": "mc",
+     "skill": "Estimating square roots",
+     "difficulty": 1,
+     "prompt": "<p>Between which two consecutive whole numbers does &radic;58 lie?</p>",
+     "options": [
+      "6 and 7",
+      "7 and 8",
+      "8 and 9",
+      "29 and 30"
+     ],
+     "answer": 1,
+     "noShuffle": true,
+     "explain": "<p>Find the perfect squares on either side of 58: 7<sup>2</sup> = 49 and 8<sup>2</sup> = 64.</p><p>Because 49 &lt; 58 &lt; 64, &radic;49 &lt; &radic;58 &lt; &radic;64, so &radic;58 is between <strong>7 and 8</strong>.</p><p>29 and 30 comes from dividing 58 by 2. Taking a square root is not the same as dividing by 2.</p>"
+    },
+    {
+     "id": "m05",
+     "type": "mc",
+     "skill": "Linear equation word problem",
+     "difficulty": 2,
+     "prompt": "<p>Ana has $240 in a savings account and adds $35 each week. Lee has $380 in a savings account and adds $15 each week. Neither person makes any withdrawals. After how many weeks will Ana and Lee have the same amount in their accounts?</p>",
+     "options": [
+      "4",
+      "2.8",
+      "14",
+      "7"
+     ],
+     "answer": 3,
+     "explain": "<p>Let w be the number of weeks. Ana: 240 + 35w. Lee: 380 + 15w.</p><p>Set them equal: 240 + 35w = 380 + 15w</p><p>Subtract 15w from both sides: 240 + 20w = 380</p><p>Subtract 240: 20w = 140</p><p>Divide by 20: w = <strong>7 weeks</strong>.</p><p>Check: Ana has 240 + 35(7) = 240 + 245 = $485; Lee has 380 + 15(7) = 380 + 105 = $485.</p><p>4 comes from 140 &divide; 35, which ignores Lee's weekly deposits. 2.8 comes from adding the weekly amounts (140 &divide; 50). Ana gains only $20 per week on Lee, so you must use the difference of the weekly amounts. 14 comes from dividing 140 by 10.</p>"
+    }
+   ]
+  },
+  {
+   "name": "Part 2",
+   "calculator": true,
+   "items": [
+    {
+     "id": "m06",
+     "type": "mc",
+     "skill": "Simple interest",
+     "difficulty": 1,
+     "prompt": "<p>Keisha deposits $2,500 in a certificate of deposit (CD) that earns 3.2% simple interest per year. She leaves the money in the CD for 4 years. How much interest does she earn? Use I = Prt.</p>",
+     "options": [
+      "$80",
+      "$320",
+      "$2,820",
+      "$3,200"
+     ],
+     "answer": 1,
+     "explain": "<p>Use I = Prt with P = 2,500, r = 0.032 (3.2% as a decimal), and t = 4.</p><p>I = 2,500 &times; 0.032 &times; 4</p><p>2,500 &times; 0.032 = 80 (interest for one year)</p><p>80 &times; 4 = <strong>$320</strong></p><p>$80 is only one year of interest. $2,820 is the total balance (2,500 + 320), not the interest. $3,200 comes from writing 3.2% as 0.32 instead of 0.032.</p>"
+    },
+    {
+     "id": "m07",
+     "type": "mc",
+     "skill": "Writing expressions",
+     "difficulty": 1,
+     "prompt": "<p>A bank charges a $4.50 monthly maintenance fee on a checking account, plus $2.75 for each withdrawal made at an out-of-network ATM. Which expression gives the total amount the bank charges, in dollars, in a month when the account holder makes w out-of-network ATM withdrawals?</p>",
+     "options": [
+      "4.50 + 2.75w",
+      "2.75 + 4.50w",
+      "7.25w",
+      "4.50w + 2.75w"
+     ],
+     "answer": 0,
+     "explain": "<p>The $4.50 fee is charged once each month, so it is a constant.</p><p>The $2.75 is charged for each withdrawal, so it is multiplied by w.</p><p>Total = <strong>4.50 + 2.75w</strong>.</p><p>Check with 3 withdrawals: 4.50 + 2.75(3) = 4.50 + 8.25 = $12.75.</p><p>2.75 + 4.50w switches the roles of the two numbers. 7.25w and 4.50w + 2.75w both charge the monthly fee once for every withdrawal.</p>"
+    },
+    {
+     "id": "m08",
+     "type": "mc",
+     "skill": "Percents in a budget",
+     "difficulty": 1,
+     "prompt": "<p>Darnell's monthly budget is shown in the table.</p><table><thead><tr><th>Category</th><th>Monthly amount</th></tr></thead><tbody><tr><td>Rent</td><td>$1,050</td></tr><tr><td>Food</td><td>$420</td></tr><tr><td>Transportation</td><td>$280</td></tr><tr><td>Utilities</td><td>$175</td></tr><tr><td>Savings</td><td>$350</td></tr><tr><td>Other</td><td>$225</td></tr></tbody></table><p>What percent of Darnell's total monthly budget goes to savings?</p>",
+     "options": [
+      "35%",
+      "16.3%",
+      "14%",
+      "1.4%"
+     ],
+     "answer": 2,
+     "explain": "<p>Find the total budget: 1,050 + 420 + 280 + 175 + 350 + 225 = 2,500.</p><p>Percent for savings = part &divide; whole = 350 &divide; 2,500 = 0.14.</p><p>0.14 = <strong>14%</strong>.</p><p>16.3% comes from dividing 350 by the spending without savings (2,150). The whole is the entire budget, $2,500. 1.4% misplaces the decimal point when changing 0.14 to a percent.</p>"
+    },
+    {
+     "id": "m09",
+     "type": "mc",
+     "skill": "Interpreting linear functions",
+     "difficulty": 1,
+     "prompt": "<p>The equation S = 1,200 + 85m gives the balance S, in dollars, in Devon's savings account m months after he starts a monthly savings plan. What does the number 85 represent?</p>",
+     "options": [
+      "The balance in the account when Devon starts the plan",
+      "The balance in the account after one month",
+      "The number of months Devon has been saving",
+      "The amount Devon adds to the account each month"
+     ],
+     "answer": 3,
+     "explain": "<p>In the form S = b + km, the constant b is the starting value and k is the rate of change.</p><p>Here 1,200 is the starting balance (the value of S when m = 0), and 85 is multiplied by the number of months, so the balance grows by $85 each month.</p><p>So 85 is <strong>the amount Devon adds each month</strong>.</p><p>The balance after one month would be 1,200 + 85(1) = $1,285, not $85. The starting balance is 1,200.</p>"
+    },
+    {
+     "id": "m10",
+     "type": "mc",
+     "skill": "Proportions and conversion",
+     "difficulty": 1,
+     "prompt": "<p>Before a trip, Luis exchanges $650 for euros. At the exchange counter, 1 U.S. dollar can be exchanged for 0.92 euro. Ignoring fees, how many euros does Luis receive?</p>",
+     "options": [
+      "706.52 euros",
+      "598 euros",
+      "59.80 euros",
+      "650.92 euros"
+     ],
+     "answer": 1,
+     "explain": "<p>Each dollar is worth 0.92 euro, so multiply: 650 &times; 0.92 = <strong>598 euros</strong>.</p><p>Check the size of the answer: each dollar buys a little less than one euro, so Luis should receive a little less than 650 euros.</p><p>706.52 comes from dividing 650 by 0.92, which would be correct only if converting euros to dollars. 650.92 adds the rate instead of multiplying.</p>"
+    },
+    {
+     "id": "m11",
+     "type": "mc",
+     "skill": "Percent change",
+     "difficulty": 2,
+     "prompt": "<p>At the start of the year, the balance in Priya's savings account was $3,200. At the end of the year, after deposits and interest, the balance was $3,680. By what percent did the balance increase?</p>",
+     "options": [
+      "15%",
+      "13%",
+      "48%",
+      "115%"
+     ],
+     "answer": 0,
+     "explain": "<p>Amount of change: 3,680 &minus; 3,200 = 480.</p><p>Percent change = change &divide; original amount = 480 &divide; 3,200 = 0.15.</p><p>0.15 = <strong>15%</strong>.</p><p>13% comes from dividing by the new balance (480 &divide; 3,680 &asymp; 0.13). 115% compares the new balance to the old one (3,680 &divide; 3,200 = 1.15) but does not subtract the original 100%.</p>"
+    },
+    {
+     "id": "m12",
+     "type": "fill",
+     "skill": "Payroll with overtime",
+     "difficulty": 2,
+     "prompt": "<p>Rosa earns $15.50 per hour for her first 40 hours of work each week and $23.25 per hour for every overtime hour after 40. Last week she worked 40 regular hours plus some overtime hours, and her gross pay was $736.25. How many overtime hours did she work?</p>",
+     "answer": [
+      "5"
+     ],
+     "value": 5,
+     "tol": 0.001,
+     "suffix": "hours",
+     "explain": "<p>Regular pay: 40 &times; 15.50 = $620.00.</p><p>Overtime pay: 736.25 &minus; 620.00 = $116.25.</p><p>Overtime hours: 116.25 &divide; 23.25 = <strong>5 hours</strong>.</p><p>Check: 620 + 5(23.25) = 620 + 116.25 = $736.25.</p><p>Dividing the whole paycheck by the overtime rate (736.25 &divide; 23.25 &asymp; 31.7) is wrong because the first 40 hours are paid at the regular rate.</p>"
+    },
+    {
+     "id": "m13",
+     "type": "dropdown",
+     "skill": "Mean, median, and range",
+     "difficulty": 2,
+     "prompt": "<p>To plan her budget, Teresa recorded her electric bills for six months.</p><table><thead><tr><th>Month</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th></tr></thead><tbody><tr><td>Electric bill</td><td>$84</td><td>$97</td><td>$118</td><td>$76</td><td>$91</td><td>$104</td></tr></tbody></table><p>The mean monthly bill is {{0}}.</p><p>The median monthly bill is {{1}}.</p><p>The range of the bills is {{2}}.</p>",
+     "blanks": [
+      {
+       "options": [
+        "$94",
+        "$95",
+        "$97",
+        "$114"
+       ],
+       "answer": 1
+      },
+      {
+       "options": [
+        "$91",
+        "$94",
+        "$97",
+        "$104"
+       ],
+       "answer": 1
+      },
+      {
+       "options": [
+        "$14",
+        "$34",
+        "$42",
+        "$118"
+       ],
+       "answer": 2
+      }
+     ],
+     "explain": "<p><strong>Mean:</strong> add the bills and divide by 6. 84 + 97 + 118 + 76 + 91 + 104 = 570, and 570 &divide; 6 = <strong>$95</strong>.</p><p><strong>Median:</strong> put the bills in order: 76, 84, 91, 97, 104, 118. With six values, the median is the mean of the 3rd and 4th values: (91 + 97) &divide; 2 = <strong>$94</strong>.</p><p><strong>Range:</strong> greatest minus least: 118 &minus; 76 = <strong>$42</strong>.</p><p>Choosing $97 for the median comes from averaging the two middle bills in the table without first putting them in order ((118 + 76) &divide; 2 = 97). The values must be sorted before you find the middle.</p>"
+    },
+    {
+     "id": "m14",
+     "type": "drag",
+     "skill": "Comparing and ordering rational numbers",
+     "difficulty": 2,
+     "prompt": "<p>Five savings accounts pay the annual percentage yields (APYs) listed below. Drag each APY into the correct position to order the yields from least to greatest.</p>",
+     "choices": [
+      "0.4%",
+      "1/3%",
+      "0.38%",
+      "3/8%",
+      "0.35%"
+     ],
+     "bins": [
+      "1st (least)",
+      "2nd",
+      "3rd",
+      "4th",
+      "5th (greatest)"
+     ],
+     "answer": [
+      4,
+      0,
+      3,
+      2,
+      1
+     ],
+     "explain": "<p>Write every yield as a decimal percent:</p><p>1/3% &asymp; 0.333%; 0.35%; 3/8% = 0.375%; 0.38%; 0.4% = 0.400%</p><p>Order from least to greatest: <strong>1/3%, 0.35%, 3/8%, 0.38%, 0.4%</strong>.</p><p>A common mistake is to think 0.4% is less than 0.38% because 4 has fewer digits than 38. Write 0.4 as 0.40 to compare: 0.40 &gt; 0.38. Also, 3/8 = 0.375 is just below 0.38.</p>"
+    },
+    {
+     "id": "m15",
+     "type": "fill",
+     "skill": "Ratios",
+     "difficulty": 2,
+     "prompt": "<p>Kendra and her brother split the money in a joint savings account in the ratio 5 : 3, with Kendra receiving the larger share. The account holds $1,840. How many dollars does Kendra receive?</p>",
+     "answer": [
+      "1150",
+      "1,150"
+     ],
+     "value": 1150,
+     "tol": 0.001,
+     "suffix": "dollars",
+     "explain": "<p>The ratio 5 : 3 has 5 + 3 = 8 total parts.</p><p>Value of one part: 1,840 &divide; 8 = 230.</p><p>Kendra gets 5 parts: 5 &times; 230 = <strong>$1,150</strong>.</p><p>Check: her brother gets 3 &times; 230 = 690, and 1,150 + 690 = 1,840.</p><p>Dividing 1,840 by 5 or by 3 is a common error; you must divide by the total number of parts, 8.</p>"
+    },
+    {
+     "id": "m16",
+     "type": "mc",
+     "skill": "Solving literal equations",
+     "difficulty": 2,
+     "prompt": "<p>The formula A = P + Prt gives the balance A in an account after t years, where P is the amount deposited and r is the annual simple interest rate. Which equation is correctly solved for t?</p>",
+     "options": [
+      "t = A / (Pr) &minus; P",
+      "t = (A &minus; P)Pr",
+      "t = (A &minus; P) / (Pr)",
+      "t = (A &minus; Pr) / P"
+     ],
+     "answer": 2,
+     "explain": "<p>Subtract P from both sides: A &minus; P = Prt</p><p>Divide both sides by Pr: <strong>t = (A &minus; P) / (Pr)</strong></p><p>Check with numbers: P = 1,000, r = 0.04, and t = 3 give A = 1,000 + 1,000(0.04)(3) = 1,120. Then (1,120 &minus; 1,000) / (1,000 &times; 0.04) = 120 / 40 = 3. It works.</p><p>t = A / (Pr) &minus; P divides before subtracting, which does not undo the steps in the right order. t = (A &minus; P)Pr multiplies by Pr instead of dividing.</p>"
+    },
+    {
+     "id": "m17",
+     "type": "mc",
+     "skill": "Scientific notation",
+     "difficulty": 2,
+     "prompt": "<p>A large bank processes about 4.5 &times; 10<sup>6</sup> debit card transactions each day. At this rate, about how many transactions does it process in a 30-day month?</p>",
+     "options": [
+      "1.35 &times; 10<sup>7</sup>",
+      "1.5 &times; 10<sup>5</sup>",
+      "1.35 &times; 10<sup>9</sup>",
+      "1.35 &times; 10<sup>8</sup>"
+     ],
+     "answer": 3,
+     "explain": "<p>Multiply: (4.5 &times; 10<sup>6</sup>) &times; 30 = 135 &times; 10<sup>6</sup>.</p><p>Rewrite in scientific notation: 135 = 1.35 &times; 10<sup>2</sup>, so 135 &times; 10<sup>6</sup> = <strong>1.35 &times; 10<sup>8</sup></strong> (135,000,000 transactions).</p><p>1.35 &times; 10<sup>7</sup> moves the decimal two places but raises the exponent by only 1. 1.5 &times; 10<sup>5</sup> divides by 30 instead of multiplying.</p>"
+    },
+    {
+     "id": "m18",
+     "type": "dropdown",
+     "skill": "Inequality word problem",
+     "difficulty": 2,
+     "prompt": "<p>Tom&aacute;s has $2,150 in a savings account. The bank requires a minimum balance of $500, so his balance must never fall below $500. He plans to withdraw $275 at the start of each month and make no deposits. Let m be the number of monthly withdrawals.</p><p>The inequality that represents this situation is 2,150 &minus; 275m {{0}} 500.</p><p>The greatest number of monthly withdrawals Tom&aacute;s can make is {{1}}.</p>",
+     "blanks": [
+      {
+       "options": [
+        "&lt;",
+        "&le;",
+        "&gt;",
+        "&ge;"
+       ],
+       "answer": 3
+      },
+      {
+       "options": [
+        "5",
+        "6",
+        "7",
+        "9"
+       ],
+       "answer": 1
+      }
+     ],
+     "explain": "<p>The balance must stay at $500 or more, so the symbol is <strong>&ge;</strong>: 2,150 &minus; 275m &ge; 500.</p><p>Subtract 2,150 from both sides: &minus;275m &ge; &minus;1,650</p><p>Divide by &minus;275 and reverse the inequality: m &le; 6.</p><p>The greatest number of withdrawals is <strong>6</strong>. Check: 2,150 &minus; 275(6) = 2,150 &minus; 1,650 = $500, which is allowed. Seven withdrawals would leave 2,150 &minus; 1,925 = $225, which is below the minimum.</p><p>Choosing 7 comes from 2,150 &divide; 275 &asymp; 7.8, which ignores the $500 minimum balance.</p>"
+    },
+    {
+     "id": "m19",
+     "type": "mc",
+     "skill": "Pythagorean theorem",
+     "difficulty": 2,
+     "prompt": "<p>A television screen is a rectangle 48 inches wide and 27 inches tall. Screen sizes are measured along the diagonal. To the nearest inch, how long is the diagonal of this screen?</p>",
+     "options": [
+      "55 inches",
+      "75 inches",
+      "40 inches",
+      "3,033 inches"
+     ],
+     "answer": 0,
+     "explain": "<p>The width, height, and diagonal form a right triangle, with the diagonal as the hypotenuse.</p><p>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></p><p>48<sup>2</sup> + 27<sup>2</sup> = 2,304 + 729 = 3,033</p><p>c = &radic;3,033 &asymp; 55.07, or <strong>55 inches</strong>.</p><p>75 inches adds the sides (48 + 27) without squaring. 40 inches subtracts the squares (&radic;1,575 &asymp; 39.7). 3,033 forgets to take the square root.</p>"
+    },
+    {
+     "id": "m20",
+     "type": "mc",
+     "skill": "Linear models from a graph",
+     "difficulty": 2,
+     "prompt": "<p>The graph shows the balance B, in dollars, in a savings account m months after the account was opened. The balance grows by the same amount each month. Which equation models the balance?</p>",
+     "figure": {
+      "type": "line",
+      "title": "Savings Account Balance",
+      "xLabel": "Months since opening (m)",
+      "yLabel": "Balance (dollars)",
+      "labels": [
+       "0",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6"
+      ],
+      "series": [
+       {
+        "name": "Balance",
+        "values": [
+         400,
+         480,
+         560,
+         640,
+         720,
+         800,
+         880
+        ]
+       }
+      ]
+     },
+     "options": [
+      "B = 400m + 80",
+      "B = 80m + 400",
+      "B = 80m + 880",
+      "B = 480m"
+     ],
+     "answer": 1,
+     "explain": "<p>The balance at month 0 is $400, so the y-intercept is 400.</p><p>The balance rises from $400 to $480 in the first month, and by $80 every month after that (for example, 880 &minus; 400 = 480 over 6 months, and 480 &divide; 6 = 80). The slope is 80.</p><p>The equation is <strong>B = 80m + 400</strong>.</p><p>Check: at m = 6, B = 80(6) + 400 = 880, which matches the graph.</p><p>B = 400m + 80 switches the slope and the intercept. B = 80m + 880 uses the last balance on the graph as the starting value.</p>"
+    },
+    {
+     "id": "m21",
+     "type": "mc",
+     "skill": "Counting principle",
+     "difficulty": 2,
+     "prompt": "<p>A bank lets customers choose a 4-digit PIN for their debit cards. Each digit can be any number from 0 to 9, digits may repeat, but the first digit cannot be 0. How many different PINs are possible?</p>",
+     "options": [
+      "10,000",
+      "5,040",
+      "6,561",
+      "9,000"
+     ],
+     "answer": 3,
+     "explain": "<p>Count the choices for each position: first digit 9 choices (1 through 9), then 10 choices for each of the other three digits.</p><p>9 &times; 10 &times; 10 &times; 10 = <strong>9,000</strong></p><p>10,000 allows 0 as the first digit. 5,040 (10 &times; 9 &times; 8 &times; 7) assumes digits cannot repeat. 6,561 (9<sup>4</sup>) wrongly removes 0 from every position.</p>"
+    },
+    {
+     "id": "m22",
+     "type": "mc",
+     "skill": "Solving linear inequalities",
+     "difficulty": 2,
+     "prompt": "<p>Which inequality is equivalent to 5 &minus; 2(x + 4) &le; 9?</p>",
+     "options": [
+      "x &le; &minus;6",
+      "x &ge; 0",
+      "x &ge; &minus;6",
+      "x &le; &minus;1"
+     ],
+     "answer": 2,
+     "explain": "<p>Distribute &minus;2 to both terms in the parentheses: 5 &minus; 2x &minus; 8 &le; 9</p><p>Combine like terms: &minus;2x &minus; 3 &le; 9</p><p>Add 3 to both sides: &minus;2x &le; 12</p><p>Divide both sides by &minus;2 and reverse the inequality sign: <strong>x &ge; &minus;6</strong>.</p><p>Check with x = 0: 5 &minus; 2(4) = &minus;3, and &minus;3 &le; 9 is true. Zero is in the solution set x &ge; &minus;6.</p><p>x &le; &minus;6 forgets to reverse the sign when dividing by a negative number. x &ge; 0 comes from distributing &minus;2 as 5 &minus; 2x + 4 (forgetting to multiply the 4 by &minus;2).</p>"
+    },
+    {
+     "id": "m23",
+     "type": "mc",
+     "skill": "Volume of a cylinder",
+     "difficulty": 2,
+     "prompt": "<p>A coin bank is shaped like a cylinder with a diameter of 4 inches and a height of 6 inches. What is the volume of the coin bank, to the nearest cubic inch? Use the formula V = &pi;r<sup>2</sup>h.</p>",
+     "options": [
+      "75 cubic inches",
+      "302 cubic inches",
+      "38 cubic inches",
+      "24 cubic inches"
+     ],
+     "answer": 0,
+     "explain": "<p>The radius is half the diameter: r = 4 &divide; 2 = 2 inches.</p><p>V = &pi;r<sup>2</sup>h = &pi;(2)<sup>2</sup>(6) = 24&pi;</p><p>24 &times; &pi; &asymp; 75.4, or <strong>75 cubic inches</strong>.</p><p>302 uses the diameter as the radius (&pi; &times; 16 &times; 6 &asymp; 301.6). 38 forgets to square the radius (&pi; &times; 2 &times; 6 &asymp; 37.7). 24 leaves out &pi;.</p>"
+    },
+    {
+     "id": "m24",
+     "type": "hotspot",
+     "skill": "Solving systems by graphing",
+     "difficulty": 2,
+     "prompt": "<p>The graphs of y = &minus;x + 4 and y = 2x &minus; 5 are shown on the coordinate plane. Click the point that represents the solution to the system of equations.</p>",
+     "figure": {
+      "type": "plane",
+      "xmin": -6,
+      "xmax": 6,
+      "ymin": -6,
+      "ymax": 6,
+      "lines": [
+       {
+        "m": -1,
+        "b": 4,
+        "label": "y = −x + 4"
+       },
+       {
+        "m": 2,
+        "b": -5,
+        "label": "y = 2x − 5"
+       }
+      ]
+     },
+     "plane": {
+      "xmin": -6,
+      "xmax": 6,
+      "ymin": -6,
+      "ymax": 6
+     },
+     "answer": [
+      3,
+      1
+     ],
+     "explain": "<p>The solution of a system is the point where the two lines cross. Set the expressions equal:</p><p>&minus;x + 4 = 2x &minus; 5</p><p>Add x to both sides: 4 = 3x &minus; 5</p><p>Add 5 to both sides: 9 = 3x, so x = 3</p><p>y = &minus;3 + 4 = 1</p><p>The solution is <strong>(3, 1)</strong>. Check in the second equation: 2(3) &minus; 5 = 1.</p><p>The y-intercepts (0, 4) and (0, &minus;5) each lie on only one of the lines, so they are not solutions of the system.</p>"
+    },
+    {
+     "id": "m25",
+     "type": "fill",
+     "skill": "Two-way tables and probability",
+     "difficulty": 2,
+     "prompt": "<p>A credit union surveyed 200 of its members about whether they use the mobile deposit feature of its banking app. The results are shown in the table.</p><table><thead><tr><th></th><th>Uses mobile deposit</th><th>Does not use mobile deposit</th><th>Total</th></tr></thead><tbody><tr><td>Under age 35</td><td>72</td><td>18</td><td>90</td></tr><tr><td>Age 35 and older</td><td>55</td><td>55</td><td>110</td></tr><tr><td>Total</td><td>127</td><td>73</td><td>200</td></tr></tbody></table><p>One member <strong>under age 35</strong> is chosen at random from this group. What is the probability that this member uses mobile deposit?</p><p>Write your answer as a decimal or a fraction.</p>",
+     "answer": [
+      "0.8",
+      ".8",
+      "4/5",
+      "72/90"
+     ],
+     "value": 0.8,
+     "tol": 0.001,
+     "explain": "<p>The member is chosen only from those under age 35, so the total is the row total, 90.</p><p>Of those 90 members, 72 use mobile deposit.</p><p>P = 72/90 = 4/5 = <strong>0.8</strong>.</p><p>72/200 = 0.36 is the probability that a member chosen from the whole group is under 35 <em>and</em> uses mobile deposit. 72/127 &asymp; 0.57 divides by the column total instead of the row total.</p>"
+    },
+    {
+     "id": "m26",
+     "type": "mc",
+     "skill": "Equation of a line from slope and a point",
+     "difficulty": 2,
+     "prompt": "<p>A line has a slope of &minus;3 and passes through the point (&minus;2, 5). Which equation represents the line?</p>",
+     "options": [
+      "y = &minus;3x + 11",
+      "y = &minus;3x + 5",
+      "y = 3x + 11",
+      "y = &minus;3x &minus; 1"
+     ],
+     "answer": 3,
+     "explain": "<p>Use point-slope form, y &minus; y<sub>1</sub> = m(x &minus; x<sub>1</sub>), with m = &minus;3 and (x<sub>1</sub>, y<sub>1</sub>) = (&minus;2, 5):</p><p>y &minus; 5 = &minus;3(x &minus; (&minus;2)) = &minus;3(x + 2)</p><p>y &minus; 5 = &minus;3x &minus; 6</p><p>y = <strong>&minus;3x &minus; 1</strong></p><p>Check: &minus;3(&minus;2) &minus; 1 = 6 &minus; 1 = 5. The point is on the line.</p><p>y = &minus;3x + 11 comes from using x &minus; 2 instead of x + 2. y = &minus;3x + 5 uses the y-coordinate of the point as the y-intercept, which is true only when the point is on the y-axis.</p>"
+    },
+    {
+     "id": "m27",
+     "type": "fill",
+     "skill": "Volume of a cone",
+     "difficulty": 2,
+     "prompt": "<p>A paper water cup is shaped like a cone with a radius of 1.5 inches and a height of 4 inches. What is the volume of the cup, in cubic inches, rounded to the nearest tenth? Use the formula V = &frac13;&pi;r<sup>2</sup>h.</p>",
+     "answer": [
+      "9.4"
+     ],
+     "value": 9.4,
+     "tol": 0.05,
+     "suffix": "cubic inches",
+     "explain": "<p>V = &frac13;&pi;r<sup>2</sup>h = &frac13; &times; &pi; &times; (1.5)<sup>2</sup> &times; 4</p><p>(1.5)<sup>2</sup> = 2.25</p><p>&frac13; &times; 2.25 &times; 4 = 3, so V = 3&pi;</p><p>3&pi; &asymp; 9.42, or <strong>9.4 cubic inches</strong>.</p><p>Forgetting the &frac13; gives 9&pi; &asymp; 28.3, the volume of a cylinder with the same radius and height.</p>"
+    },
+    {
+     "id": "m28",
+     "type": "mc",
+     "skill": "Multiplying polynomials",
+     "difficulty": 2,
+     "prompt": "<p>A rectangular rug has a length of (3x + 2) feet and a width of (x &minus; 4) feet. Which expression represents the area of the rug, in square feet?</p>",
+     "options": [
+      "3x<sup>2</sup> &minus; 14x &minus; 8",
+      "3x<sup>2</sup> &minus; 10x &minus; 8",
+      "3x<sup>2</sup> &minus; 8",
+      "3x<sup>2</sup> + 10x &minus; 8"
+     ],
+     "answer": 1,
+     "explain": "<p>Area = length &times; width = (3x + 2)(x &minus; 4).</p><p>Multiply each term in the first binomial by each term in the second:</p><p>3x &times; x = 3x<sup>2</sup>; 3x &times; (&minus;4) = &minus;12x; 2 &times; x = 2x; 2 &times; (&minus;4) = &minus;8</p><p>Combine the middle terms: &minus;12x + 2x = &minus;10x.</p><p>Area = <strong>3x<sup>2</sup> &minus; 10x &minus; 8</strong>.</p><p>3x<sup>2</sup> &minus; 14x &minus; 8 subtracts 2x instead of adding it. 3x<sup>2</sup> &minus; 8 multiplies only the first terms and the last terms.</p>"
+    },
+    {
+     "id": "m29",
+     "type": "mc",
+     "skill": "Systems of equations word problem",
+     "difficulty": 3,
+     "prompt": "<p>An ATM dispensed a total of 32 bills during one hour. Every bill was either a $10 bill or a $20 bill, and the total amount dispensed was $470. How many $20 bills did the ATM dispense?</p>",
+     "options": [
+      "17",
+      "16",
+      "15",
+      "23"
+     ],
+     "answer": 2,
+     "explain": "<p>Let t = number of $10 bills and w = number of $20 bills.</p><p>t + w = 32</p><p>10t + 20w = 470</p><p>From the first equation, t = 32 &minus; w. Substitute:</p><p>10(32 &minus; w) + 20w = 470</p><p>320 &minus; 10w + 20w = 470</p><p>10w = 150, so w = <strong>15</strong> twenty-dollar bills (and t = 17 ten-dollar bills).</p><p>Check: 15 &times; 20 + 17 &times; 10 = 300 + 170 = $470, and 15 + 17 = 32.</p><p>17 is the number of $10 bills. 23 comes from 470 &divide; 20 &asymp; 23.5, which assumes every bill was a $20 bill.</p>"
+    },
+    {
+     "id": "m30",
+     "type": "mc",
+     "skill": "Identifying functions",
+     "difficulty": 1,
+     "prompt": "<p>Which set of ordered pairs does <strong>not</strong> represent a function?</p>",
+     "options": [
+      "{(2, 5), (3, 7), (2, 9)}",
+      "{(1, 3), (2, 3), (3, 3)}",
+      "{(&minus;1, 2), (0, 4), (1, 6)}",
+      "{(4, 1), (5, 1), (6, 2)}"
+     ],
+     "answer": 0,
+     "explain": "<p>In a function, each input (x-value) has exactly one output (y-value).</p><p>In <strong>{(2, 5), (3, 7), (2, 9)}</strong>, the input 2 is paired with two different outputs, 5 and 9. So this relation is not a function.</p><p>{(1, 3), (2, 3), (3, 3)} is a function: different inputs may share the same output. The same is true of {(4, 1), (5, 1), (6, 2)}.</p>"
+    },
+    {
+     "id": "m31",
+     "type": "mc",
+     "skill": "Volume of a sphere",
+     "difficulty": 2,
+     "prompt": "<p>A spherical propane storage tank has a radius of 6 feet. What is the volume of the tank, to the nearest tenth of a cubic foot? Use the formula V = &frac43;&pi;r<sup>3</sup>.</p>",
+     "options": [
+      "452.4 cubic feet",
+      "678.6 cubic feet",
+      "7,238.2 cubic feet",
+      "904.8 cubic feet"
+     ],
+     "answer": 3,
+     "explain": "<p>V = &frac43;&pi;r<sup>3</sup> = &frac43; &times; &pi; &times; 6<sup>3</sup></p><p>6<sup>3</sup> = 216</p><p>&frac43; &times; 216 = 288, so V = 288&pi;</p><p>288 &times; &pi; &asymp; 904.78, or <strong>904.8 cubic feet</strong>.</p><p>452.4 is the surface area, 4&pi;r<sup>2</sup> = 144&pi;. 678.6 leaves out the &frac43; (216&pi;). 7,238.2 uses the diameter, 12, as the radius.</p>"
+    },
+    {
+     "id": "m32",
+     "type": "mc",
+     "skill": "Solving systems of equations",
+     "difficulty": 2,
+     "prompt": "<p>What is the solution to the system of equations below?</p><p>2x + 3y = 7<br>x &minus; y = 6</p>",
+     "options": [
+      "(&minus;1, 5)",
+      "(5, &minus;1)",
+      "(4, &minus;2)",
+      "(7, 1)"
+     ],
+     "answer": 1,
+     "explain": "<p>Solve the second equation for x: x = y + 6.</p><p>Substitute into the first equation: 2(y + 6) + 3y = 7</p><p>2y + 12 + 3y = 7, so 5y = &minus;5 and y = &minus;1.</p><p>x = &minus;1 + 6 = 5.</p><p>The solution is <strong>(5, &minus;1)</strong>. Check: 2(5) + 3(&minus;1) = 10 &minus; 3 = 7, and 5 &minus; (&minus;1) = 6.</p><p>(4, &minus;2) and (7, 1) satisfy x &minus; y = 6 but not 2x + 3y = 7. (&minus;1, 5) reverses the coordinates.</p>"
+    },
+    {
+     "id": "m33",
+     "type": "drag",
+     "skill": "Equivalent expressions",
+     "difficulty": 2,
+     "prompt": "<p>Consider the expression 4(x &minus; 3) + 2x. Drag each expression into the correct category.</p>",
+     "choices": [
+      "6x &minus; 12",
+      "6(x &minus; 2)",
+      "2(3x &minus; 6)",
+      "6x &minus; 3",
+      "4x &minus; 10",
+      "6x &minus; 10"
+     ],
+     "bins": [
+      "Equivalent to 4(x &minus; 3) + 2x",
+      "Not equivalent"
+     ],
+     "answer": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+     ],
+     "explain": "<p>Simplify: distribute the 4, then combine like terms.</p><p>4(x &minus; 3) + 2x = 4x &minus; 12 + 2x = 6x &minus; 12</p><p><strong>Equivalent:</strong> 6x &minus; 12; 6(x &minus; 2) = 6x &minus; 12; 2(3x &minus; 6) = 6x &minus; 12.</p><p><strong>Not equivalent:</strong> 6x &minus; 3 forgets to multiply the 3 by 4. 4x &minus; 10 treats 2x as the number 2. 6x &minus; 10 adds 2 to &minus;12 as if it were a constant.</p>"
+    },
+    {
+     "id": "m34",
+     "type": "fill",
+     "skill": "Evaluating a quadratic function",
+     "difficulty": 2,
+     "prompt": "<p>A bakery's weekly profit, in dollars, is modeled by P(x) = 18x &minus; 0.05x<sup>2</sup> &minus; 200, where x is the number of cakes sold in the week. What is the bakery's profit in a week when it sells 100 cakes?</p>",
+     "answer": [
+      "1100",
+      "1,100"
+     ],
+     "value": 1100,
+     "tol": 0.001,
+     "suffix": "dollars",
+     "explain": "<p>Substitute 100 for x:</p><p>P(100) = 18(100) &minus; 0.05(100)<sup>2</sup> &minus; 200</p><p>18(100) = 1,800</p><p>(100)<sup>2</sup> = 10,000, and 0.05(10,000) = 500</p><p>1,800 &minus; 500 &minus; 200 = <strong>$1,100</strong></p><p>A common error is to compute 0.05(100) = 5 and then square it, giving 25. The exponent applies to x only, so square 100 first.</p>"
+    },
+    {
+     "id": "m35",
+     "type": "fill",
+     "skill": "Compound interest",
+     "difficulty": 3,
+     "prompt": "<p>Marcus deposits $1,000 in a savings account that earns 4% interest compounded once a year. He makes no other deposits or withdrawals. What will the balance be at the end of 3 years? Round to the nearest cent.</p>",
+     "answer": [
+      "1124.86",
+      "1,124.86",
+      "$1,124.86"
+     ],
+     "value": 1124.86,
+     "tol": 0.01,
+     "suffix": "dollars",
+     "explain": "<p>Each year the balance is multiplied by 1 + 0.04 = 1.04.</p><p>End of year 1: 1,000 &times; 1.04 = 1,040.00</p><p>End of year 2: 1,040.00 &times; 1.04 = 1,081.60</p><p>End of year 3: 1,081.60 &times; 1.04 = 1,124.864</p><p>Rounded to the nearest cent: <strong>$1,124.86</strong>. (In one step: 1,000 &times; 1.04<sup>3</sup> = 1,124.864.)</p><p>Simple interest would give 1,000 + 1,000(0.04)(3) = $1,120.00. Compound interest is a little more because each year's interest also earns interest.</p>"
+    },
+    {
+     "id": "m36",
+     "type": "mc",
+     "skill": "Area of composite figures",
+     "difficulty": 3,
+     "prompt": "<p>A stage floor is made of a rectangle 18 feet long and 10 feet wide with a semicircle attached to one 10-foot side, as shown. What is the area of the stage floor, to the nearest tenth of a square foot?</p>",
+     "figure": {
+      "type": "svg",
+      "svg": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M60,50 L220,50 A50,50 0 0 1 220,150 L60,150 Z' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='220' y1='50' x2='220' y2='150' stroke='#0A1F3D' stroke-dasharray='5,4'/><text x='125' y='40' font-size='14' fill='#0A1F3D'>18 ft</text><text x='12' y='105' font-size='14' fill='#0A1F3D'>10 ft</text></svg>",
+      "alt": "A rectangle 18 feet long and 10 feet wide. A semicircle is attached to the right 10-foot side; the 10-foot side is the semicircle's diameter."
+     },
+     "options": [
+      "258.5 square feet",
+      "337.1 square feet",
+      "219.3 square feet",
+      "192.5 square feet"
+     ],
+     "answer": 2,
+     "explain": "<p>Rectangle: 18 &times; 10 = 180 square feet.</p><p>The semicircle's diameter is the 10-foot side, so its radius is 5 feet.</p><p>Semicircle: &frac12;&pi;r<sup>2</sup> = &frac12; &times; &pi; &times; 5<sup>2</sup> = 12.5&pi; &asymp; 39.27 square feet.</p><p>Total: 180 + 39.27 = 219.27, or <strong>219.3 square feet</strong>.</p><p>258.5 adds a full circle (25&pi; &asymp; 78.5) instead of half. 337.1 uses 10 feet as the radius. 192.5 leaves &pi; out of the semicircle's area.</p>"
+    },
+    {
+     "id": "m37",
+     "type": "mc",
+     "skill": "Perpendicular lines",
+     "difficulty": 2,
+     "prompt": "<p>Line k is perpendicular to the line whose equation is 2x &minus; 5y = 10. What is the slope of line k?</p>",
+     "options": [
+      "&minus;5/2",
+      "5/2",
+      "2/5",
+      "&minus;2/5"
+     ],
+     "answer": 0,
+     "explain": "<p>Write the given equation in slope-intercept form:</p><p>&minus;5y = &minus;2x + 10</p><p>y = (2/5)x &minus; 2, so the slope of the given line is 2/5.</p><p>Perpendicular lines have slopes that are negative reciprocals. The negative reciprocal of 2/5 is <strong>&minus;5/2</strong>.</p><p>Check: (2/5)(&minus;5/2) = &minus;1.</p><p>2/5 is the slope of a parallel line. 5/2 takes the reciprocal but forgets to change the sign. &minus;2/5 comes from reading the slope as &minus;2/5 directly from 2x &minus; 5y = 10 without solving for y.</p>"
+    },
+    {
+     "id": "m38",
+     "type": "multi",
+     "skill": "Factoring completely",
+     "difficulty": 2,
+     "prompt": "<p>The expression 2x<sup>2</sup> &minus; 18 is factored completely. Which expressions are factors? Select <strong>three</strong> answers.</p>",
+     "options": [
+      "2",
+      "x &minus; 3",
+      "x + 3",
+      "x &minus; 9",
+      "x + 9",
+      "2x &minus; 3"
+     ],
+     "answer": [
+      0,
+      1,
+      2
+     ],
+     "explain": "<p>First factor out the greatest common factor, 2: 2x<sup>2</sup> &minus; 18 = 2(x<sup>2</sup> &minus; 9).</p><p>Then x<sup>2</sup> &minus; 9 is a difference of squares: x<sup>2</sup> &minus; 3<sup>2</sup> = (x &minus; 3)(x + 3).</p><p>Complete factorization: <strong>2(x &minus; 3)(x + 3)</strong>. The factors are 2, x &minus; 3, and x + 3.</p><p>Check: 2(x &minus; 3)(x + 3) = 2(x<sup>2</sup> &minus; 9) = 2x<sup>2</sup> &minus; 18.</p><p>(x &minus; 9)(x + 9) would equal x<sup>2</sup> &minus; 81, not x<sup>2</sup> &minus; 9; the square root of 9 is 3.</p>"
+    },
+    {
+     "id": "m39",
+     "type": "dropdown",
+     "skill": "Comparing linear functions",
+     "difficulty": 3,
+     "prompt": "<p>A teen savings club offers two plans. The balance in Plan A grows at a constant rate, as shown in the table.</p><table><thead><tr><th>Week (w)</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead><tbody><tr><td>Plan A balance (dollars)</td><td>45</td><td>57</td><td>69</td><td>81</td></tr></tbody></table><p>The balance in Plan B, in dollars, after w weeks is given by B(w) = 30 + 15w.</p><p>Plan A adds {{0}} each week.</p><p>The plan with the greater starting balance is {{1}}.</p><p>After 20 weeks, the plan with the greater balance is {{2}}.</p>",
+     "blanks": [
+      {
+       "options": [
+        "$12",
+        "$15",
+        "$45",
+        "$57"
+       ],
+       "answer": 0
+      },
+      {
+       "options": [
+        "Plan A",
+        "Plan B",
+        "neither; the starting balances are equal"
+       ],
+       "answer": 0
+      },
+      {
+       "options": [
+        "Plan A, by $45",
+        "Plan B, by $45",
+        "Plan A, by $15",
+        "Plan B, by $15"
+       ],
+       "answer": 1
+      }
+     ],
+     "explain": "<p><strong>Rate of Plan A:</strong> the balance increases by 12 each week (45 to 57, 57 to 69, 69 to 81), so Plan A adds <strong>$12</strong> per week. Its equation is A(w) = 45 + 12w.</p><p><strong>Starting balances:</strong> Plan A starts at $45 (week 0); Plan B starts at B(0) = $30. <strong>Plan A</strong> starts higher.</p><p><strong>After 20 weeks:</strong> A(20) = 45 + 12(20) = 45 + 240 = 285. B(20) = 30 + 15(20) = 30 + 300 = 330. 330 &minus; 285 = 45, so <strong>Plan B is greater, by $45</strong>.</p><p>Plan B starts lower but grows faster, so it catches up: 45 + 12w = 30 + 15w gives w = 5. After week 5, Plan B is ahead.</p>"
+    },
+    {
+     "id": "m40",
+     "type": "mc",
+     "skill": "Probability of dependent events",
+     "difficulty": 3,
+     "prompt": "<p>A credit union holds a drawing among 12 members of its youth savings club: 8 adults who help run the club and 4 teens. Two different members are chosen at random, one after the other, and a member cannot be chosen twice. What is the probability that both members chosen are teens?</p>",
+     "options": [
+      "1/9",
+      "1/3",
+      "7/12",
+      "1/11"
+     ],
+     "answer": 3,
+     "explain": "<p>First draw: 4 of the 12 members are teens, so P(first is a teen) = 4/12.</p><p>Second draw: one teen has been removed, leaving 3 teens among 11 members, so P(second is a teen) = 3/11.</p><p>Multiply: 4/12 &times; 3/11 = 12/132 = <strong>1/11</strong>.</p><p>1/9 comes from (4/12) &times; (4/12), which assumes the first member is put back before the second draw. 7/12 adds the fractions 4/12 + 3/12 instead of multiplying.</p>"
+    },
+    {
+     "id": "m41",
+     "type": "mc",
+     "skill": "Surface area of a pyramid",
+     "difficulty": 2,
+     "prompt": "<p>A decorative paperweight is shaped like a square pyramid. Each side of the square base is 10 centimeters, and the slant height of each triangular face is 12 centimeters. What is the total surface area of the paperweight? Use the formula SA = B + &frac12;ps, where B is the area of the base, p is the perimeter of the base, and s is the slant height.</p>",
+     "figure": {
+      "type": "svg",
+      "svg": "<svg viewBox='0 0 300 220' xmlns='http://www.w3.org/2000/svg'><polygon points='60,170 200,170 250,130 110,130' fill='none' stroke='#0A1F3D' stroke-width='2'/><line x1='60' y1='170' x2='155' y2='30' stroke='#0A1F3D' stroke-width='2'/><line x1='200' y1='170' x2='155' y2='30' stroke='#0A1F3D' stroke-width='2'/><line x1='250' y1='130' x2='155' y2='30' stroke='#0A1F3D' stroke-width='2'/><line x1='110' y1='130' x2='155' y2='30' stroke='#0A1F3D' stroke-dasharray='5,4'/><line x1='130' y1='170' x2='155' y2='30' stroke='#0A1F3D' stroke-dasharray='3,3'/><text x='118' y='192' font-size='14' fill='#0A1F3D'>10 cm</text><text x='232' y='162' font-size='14' fill='#0A1F3D'>10 cm</text><text x='146' y='112' font-size='14' fill='#0A1F3D'>12 cm</text></svg>",
+      "alt": "A square pyramid. Each side of the square base is labeled 10 cm. A dashed segment from the top down the middle of a triangular face is the slant height, labeled 12 cm."
+     },
+     "options": [
+      "580 square centimeters",
+      "240 square centimeters",
+      "340 square centimeters",
+      "400 square centimeters"
+     ],
+     "answer": 2,
+     "explain": "<p>Area of the base: B = 10 &times; 10 = 100 cm<sup>2</sup>.</p><p>Perimeter of the base: p = 4 &times; 10 = 40 cm.</p><p>Lateral area: &frac12;ps = &frac12; &times; 40 &times; 12 = 240 cm<sup>2</sup>.</p><p>Total: SA = 100 + 240 = <strong>340 square centimeters</strong>.</p><p>240 is only the four triangular faces; it leaves out the base. 580 forgets the &frac12; (100 + 40 &times; 12). 400 is &frac13;Bh with the slant height used as the height, a volume formula, not surface area.</p>"
+    },
+    {
+     "id": "m42",
+     "type": "multi",
+     "skill": "Solving quadratics by factoring",
+     "difficulty": 2,
+     "prompt": "<p>What are the solutions of the equation 2x<sup>2</sup> &minus; 3x &minus; 5 = 0? Select <strong>two</strong> answers.</p>",
+     "options": [
+      "5/2",
+      "&minus;1",
+      "&minus;5/2",
+      "1",
+      "5",
+      "&minus;5"
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "explain": "<p>Factor the trinomial: 2x<sup>2</sup> &minus; 3x &minus; 5 = (2x &minus; 5)(x + 1).</p><p>Check the middle term: 2x(1) + (&minus;5)(x) = 2x &minus; 5x = &minus;3x.</p><p>Set each factor equal to 0: 2x &minus; 5 = 0 gives x = 5/2; x + 1 = 0 gives x = &minus;1.</p><p>The solutions are <strong>5/2 and &minus;1</strong>.</p><p>Check: 2(5/2)<sup>2</sup> &minus; 3(5/2) &minus; 5 = 12.5 &minus; 7.5 &minus; 5 = 0, and 2(&minus;1)<sup>2</sup> &minus; 3(&minus;1) &minus; 5 = 2 + 3 &minus; 5 = 0.</p><p>Choosing &minus;5/2 and 1 reverses the signs. Choosing 5 forgets to divide by the coefficient 2 in 2x &minus; 5 = 0.</p>"
+    },
+    {
+     "id": "m43",
+     "type": "hotspot",
+     "skill": "Intercepts of a line",
+     "difficulty": 3,
+     "prompt": "<p>A line passes through the points A(&minus;3, 7) and B(3, &minus;1), shown on the coordinate plane. Click the point where this line crosses the y-axis.</p>",
+     "figure": {
+      "type": "plane",
+      "xmin": -8,
+      "xmax": 8,
+      "ymin": -8,
+      "ymax": 8,
+      "points": [
+       [
+        -3,
+        7,
+        "A"
+       ],
+       [
+        3,
+        -1,
+        "B"
+       ]
+      ]
+     },
+     "plane": {
+      "xmin": -8,
+      "xmax": 8,
+      "ymin": -8,
+      "ymax": 8
+     },
+     "answer": [
+      0,
+      3
+     ],
+     "explain": "<p>Find the slope: m = (&minus;1 &minus; 7) / (3 &minus; (&minus;3)) = &minus;8/6 = &minus;4/3.</p><p>Use point B to find the y-intercept b: &minus;1 = (&minus;4/3)(3) + b, so &minus;1 = &minus;4 + b and b = 3.</p><p>The line is y = (&minus;4/3)x + 3, so it crosses the y-axis at <strong>(0, 3)</strong>.</p><p>Check with A: (&minus;4/3)(&minus;3) + 3 = 4 + 3 = 7.</p><p>The midpoint of AB is (0, 3) as well, which is a quick way to confirm the answer here, because A and B are the same horizontal distance from the y-axis. Using a slope of &minus;3/4 (run over rise) would give the wrong intercept.</p>"
+    },
+    {
+     "id": "m44",
+     "type": "mc",
+     "skill": "Quadratic formula",
+     "difficulty": 3,
+     "prompt": "<p>What are the solutions of x<sup>2</sup> &minus; 4x &minus; 7 = 0? Use the quadratic formula x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a).</p>",
+     "options": [
+      "&minus;2 &plusmn; &radic;11",
+      "2 &plusmn; &radic;11",
+      "2 &plusmn; 2&radic;11",
+      "4 &plusmn; &radic;11"
+     ],
+     "answer": 1,
+     "explain": "<p>Here a = 1, b = &minus;4, and c = &minus;7.</p><p>Discriminant: b<sup>2</sup> &minus; 4ac = (&minus;4)<sup>2</sup> &minus; 4(1)(&minus;7) = 16 + 28 = 44.</p><p>&radic;44 = &radic;(4 &times; 11) = 2&radic;11.</p><p>x = (4 &plusmn; 2&radic;11) / 2 = <strong>2 &plusmn; &radic;11</strong> (about 5.32 and &minus;1.32).</p><p>&minus;2 &plusmn; &radic;11 forgets that &minus;b = &minus;(&minus;4) = +4. 2 &plusmn; 2&radic;11 divides only the 4 by 2 and not the 2&radic;11.</p>"
+    },
+    {
+     "id": "m45",
+     "type": "mc",
+     "skill": "Maximum of a quadratic function",
+     "difficulty": 3,
+     "prompt": "<p>A student club sells tickets to a fundraiser. If the ticket price is p dollars, the club's profit, in dollars, is modeled by P(p) = &minus;20p<sup>2</sup> + 240p + 300. Which ticket price gives the greatest profit, and what is that profit?</p>",
+     "options": [
+      "A price of $6 gives a profit of $1,020.",
+      "A price of $12 gives a profit of $300.",
+      "A price of $6 gives a profit of $2,460.",
+      "A price of $3 gives a profit of $840."
+     ],
+     "answer": 0,
+     "explain": "<p>The graph is a parabola that opens downward (a = &minus;20 is negative), so the vertex is the maximum.</p><p>x-coordinate of the vertex: p = &minus;b / (2a) = &minus;240 / (2 &times; &minus;20) = &minus;240 / &minus;40 = 6.</p><p>Profit at p = 6: P(6) = &minus;20(36) + 240(6) + 300 = &minus;720 + 1,440 + 300 = 1,020.</p><p><strong>A price of $6 gives a profit of $1,020.</strong></p><p>$12 comes from &minus;b / a without the 2; at $12 the profit is only &minus;20(144) + 2,880 + 300 = $300. $2,460 comes from treating &minus;20(36) as +720.</p>"
+    },
+    {
+     "id": "m46",
+     "type": "mc",
+     "skill": "Simplifying rational expressions",
+     "difficulty": 3,
+     "prompt": "<p>Which expression is equivalent to (x<sup>2</sup> &minus; 9) / (x<sup>2</sup> + 5x + 6) for all values of x where the expression is defined?</p>",
+     "options": [
+      "(x + 3) / (x + 2)",
+      "&minus;9 / (5x + 6)",
+      "(x &minus; 3) / (x + 2)",
+      "(x &minus; 3) / (x + 3)"
+     ],
+     "answer": 2,
+     "explain": "<p>Factor the numerator (difference of squares): x<sup>2</sup> &minus; 9 = (x &minus; 3)(x + 3).</p><p>Factor the denominator: two numbers that multiply to 6 and add to 5 are 2 and 3, so x<sup>2</sup> + 5x + 6 = (x + 2)(x + 3).</p><p>Cancel the common factor (x + 3): <strong>(x &minus; 3) / (x + 2)</strong>.</p><p>Check with x = 1: (1 &minus; 9)/(1 + 5 + 6) = &minus;8/12 = &minus;2/3, and (1 &minus; 3)/(1 + 2) = &minus;2/3.</p><p>&minus;9 / (5x + 6) cancels the x<sup>2</sup> terms, but only common <em>factors</em> can be canceled, not terms that are added or subtracted.</p>"
+    }
+   ]
+  }
+ ]
+}

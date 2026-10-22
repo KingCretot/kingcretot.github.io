@@ -7,7 +7,7 @@
 "parts": [
 {"name": "Part 1", "calculator": false, "items": [
 {"id": "m01", "type": "mc", "skill": "Order of operations with integers", "difficulty": 2,
- "prompt": "<p>What is the value of the expression below?</p><p>10 &minus; 3(1 &minus; 5)<sup>2</sup> &divide; 8</p>",
+ "prompt": "<p>Simplify this numerical expression using the order of operations.</p><p>10 &minus; 3(1 &minus; 5)<sup>2</sup> &divide; 8</p>",
  "options": ["14", "4", "&minus;8", "16"], "answer": 1,
  "explain": "<p>Work inside the parentheses first: 1 &minus; 5 = &minus;4.</p><p>Exponent: (&minus;4)<sup>2</sup> = 16.</p><p>Multiply and divide from left to right: 3 &times; 16 = 48, then 48 &divide; 8 = 6.</p><p>Subtract: 10 &minus; 6 = <strong>4</strong>.</p><p>The answer 14 comes from subtracting first: (10 &minus; 3) &times; 16 &divide; 8 = 14. The answer 16 comes from treating (&minus;4)<sup>2</sup> as &minus;16. The answer &minus;8 comes from multiplying 3 by &minus;4 before squaring: (&minus;12)<sup>2</sup> &divide; 8 = 18, and 10 &minus; 18 = &minus;8.</p>"},
 {"id": "m02", "type": "fill", "skill": "Adding mixed numbers", "difficulty": 1,
@@ -159,7 +159,7 @@
 {"id": "m37", "type": "fill", "skill": "Quadratic formula", "difficulty": 3,
  "prompt": "<p>The equation 3x<sup>2</sup> + 2x &minus; 7 = 0 has one positive solution and one negative solution. What is the <strong>positive</strong> solution, rounded to the nearest hundredth? Use the formula sheet if needed.</p>",
  "answer": ["1.23"], "value": 1.23, "tol": 0.005,
- "explain": "<p>Quadratic formula: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 3, b = 2, c = &minus;7.</p><p>b<sup>2</sup> &minus; 4ac = 2<sup>2</sup> &minus; 4(3)(&minus;7) = 4 + 84 = 88</p><p>&radic;88 &asymp; 9.381</p><p>Positive solution: x = (&minus;2 + 9.381) / 6 = 7.381 / 6 &asymp; <strong>1.23</strong></p><p>(The negative solution is (&minus;2 &minus; 9.381) / 6 &asymp; &minus;1.90.)</p><p>A common error is to compute 4(3)(&minus;7) as +84 and then subtract it, getting 4 &minus; 84 = &minus;80. Subtracting a negative product makes it positive: 4 &minus; (&minus;84) = 88.</p>"},
+ "explain": "<p>Quadratic formula: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 3, b = 2, c = &minus;7.</p><p>b<sup>2</sup> &minus; 4ac = 2<sup>2</sup> &minus; 4(3)(&minus;7) = 4 + 84 = 88</p><p>&radic;88 &asymp; 9.381</p><p>Positive solution: x = (&minus;2 + 9.381) / 6 = 7.381 / 6 &asymp; <strong>1.23</strong></p><p>(The negative solution is (&minus;2 &minus; 9.381) / 6 &asymp; &minus;1.90.)</p><p>A common error is to drop the negative sign on c, treating 4(3)(&minus;7) as 84 and getting 4 &minus; 84 = &minus;80. Because 4(3)(&minus;7) = &minus;84, subtracting it adds 84: 4 &minus; (&minus;84) = 88.</p>"},
 {"id": "m38", "type": "mc", "skill": "Weighted mean", "difficulty": 3,
  "prompt": "<p>A grocery store has 25 hourly employees. The table shows their hourly pay rates.</p><table><thead><tr><th>Hourly rate</th><th>Number of employees</th></tr></thead><tbody><tr><td>$15.00</td><td>12</td></tr><tr><td>$20.00</td><td>8</td></tr><tr><td>$28.00</td><td>5</td></tr></tbody></table><p>What is the mean hourly pay rate of these 25 employees?</p>",
  "options": ["$19.20", "$21.00", "$20.00", "$16.00"], "answer": 0,

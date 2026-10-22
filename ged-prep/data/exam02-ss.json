@@ -31,7 +31,7 @@
     {
       "id": "s5",
       "title": "Washington's Farewell Address (1796)",
-      "html": "<p>In contemplating the causes which may disturb our Union, it occurs as matter of serious concern that any ground should have been furnished for characterizing parties by geographical discriminations, Northern and Southern, Atlantic and Western; whence designing men may endeavor to excite a belief that there is a real difference of local interests and views. . . .</p><p>The great rule of conduct for us in regard to foreign nations is in extending our commercial relations, to have with them as little political connection as possible. . . . It is our true policy to steer clear of permanent alliances with any portion of the foreign world . . .</p>",
+      "html": "<p>In contemplating the causes which may disturb our Union, it occurs as matter of serious concern that any ground should have been furnished for characterizing parties by geographical discriminations, Northern and Southern, Atlantic and Western; whence designing men may endeavor to excite a belief that there is a real difference of local interests and views. . . .</p><p>Observe good faith and justice towards all nations; cultivate peace and harmony with all. . . . Europe has a set of primary interests which to us have none; or a very remote relation. Hence she must be engaged in frequent controversies, the causes of which are essentially foreign to our concerns. . . . Why, by interweaving our destiny with that of any part of Europe, entangle our peace and prosperity in the toils of European ambition, rivalship, interest, humor or caprice?</p><p><em>Word help:</em> <strong>designing men</strong> = scheming people; <strong>toils</strong> = traps or nets; <strong>rivalship</strong> = rivalry; <strong>caprice</strong> = a sudden, unpredictable change of mind.</p>",
       "source": "Excerpts from President George Washington's Farewell Address, published September 1796"
     },
     {
@@ -49,10 +49,31 @@
         "title": "Percent of Voting-Age Citizens Who Voted, by Sex",
         "xLabel": "Election year",
         "yLabel": "Percent who voted",
-        "labels": ["2008", "2012", "2016", "2020"],
+        "labels": [
+          "2008",
+          "2012",
+          "2016",
+          "2020"
+        ],
         "series": [
-          {"name": "Women", "values": [65.7, 63.7, 63.3, 68.4]},
-          {"name": "Men", "values": [61.5, 59.8, 59.3, 65.0]}
+          {
+            "name": "Women",
+            "values": [
+              65.7,
+              63.7,
+              63.3,
+              68.4
+            ]
+          },
+          {
+            "name": "Men",
+            "values": [
+              61.5,
+              59.8,
+              59.3,
+              65.0
+            ]
+          }
         ]
       },
       "source": "Center for American Women and Politics, based on U.S. Census Bureau, Current Population Survey"
@@ -90,9 +111,26 @@
         "title": "Consumer Price Index, Annual Average (1982–1984 = 100)",
         "xLabel": "Year",
         "yLabel": "CPI",
-        "labels": ["2018", "2019", "2020", "2021", "2022", "2023"],
+        "labels": [
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
         "series": [
-          {"name": "CPI", "values": [251.1, 255.7, 258.8, 271.0, 292.7, 304.7]}
+          {
+            "name": "CPI",
+            "values": [
+              251.1,
+              255.7,
+              258.8,
+              271.0,
+              292.7,
+              304.7
+            ]
+          }
         ]
       },
       "source": "U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban Consumers (rounded)"
@@ -166,7 +204,10 @@
             "The number of votes a state had in Congress depended on its population.",
             "A national supreme court could overturn state laws."
           ],
-          "answer": [0, 1],
+          "answer": [
+            0,
+            1
+          ],
           "explain": "<p>Article V states that \"each State shall have one vote,\" and Article XIII requires that any alteration be \"confirmed by the legislatures of every State.\" Representation by population is the opposite of one vote per state. The Articles created no President and no national court system—both were added by the Constitution of 1787.</p>"
         },
         {
@@ -209,9 +250,32 @@
           "stim": "s3",
           "prompt": "<p>Complete the statement.</p><p>The Great Compromise settled the dispute between large and small states by creating a Congress with {{0}}. In the {{1}}, representation is based on each state's population, while in the {{2}}, every state has two members.</p>",
           "blanks": [
-            {"options": ["one house", "two houses", "three houses"], "answer": 1},
-            {"options": ["House of Representatives", "Senate", "Supreme Court", "Cabinet"], "answer": 0},
-            {"options": ["Senate", "House of Representatives", "Electoral College", "Supreme Court"], "answer": 0}
+            {
+              "options": [
+                "one house",
+                "two houses",
+                "three houses"
+              ],
+              "answer": 1
+            },
+            {
+              "options": [
+                "House of Representatives",
+                "Senate",
+                "Supreme Court",
+                "Cabinet"
+              ],
+              "answer": 0
+            },
+            {
+              "options": [
+                "Senate",
+                "House of Representatives",
+                "Electoral College",
+                "Supreme Court"
+              ],
+              "answer": 0
+            }
           ],
           "explain": "<p>The Great Compromise blended the large states' plan (representation by population) and the small states' plan (equal representation). It created a <strong>bicameral</strong>, or <strong>two-house</strong>, Congress. Seats in the <strong>House of Representatives</strong> are divided according to population, and each state has two members in the <strong>Senate</strong>, giving every state an equal voice there. The Supreme Court and the Cabinet are not part of Congress, and the Electoral College chooses the President.</p>"
         },
@@ -229,8 +293,18 @@
             "Amendments require approval by three-fourths of the states.",
             "Amendments required approval by every state."
           ],
-          "bins": ["Articles of Confederation", "U.S. Constitution"],
-          "answer": [0, 1, 0, 1, 1, 0],
+          "bins": [
+            "Articles of Confederation",
+            "U.S. Constitution"
+          ],
+          "answer": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
           "explain": "<p><strong>Articles of Confederation:</strong> Congress could only request money from the states; each state had one vote in a single-house Congress; amendments needed the approval of every state (Article XIII). <strong>U.S. Constitution:</strong> Article II creates the presidency; Article III creates the Supreme Court and allows Congress to set up lower federal courts; Article V allows amendments to be ratified by three-fourths of the states. A common mistake is mixing up the two amendment rules: unanimous approval belonged to the Articles, three-fourths belongs to the Constitution.</p>"
         },
         {
@@ -290,13 +364,13 @@
           "stim": "s5",
           "prompt": "<p>Which policy toward foreign nations does Washington recommend in the excerpt?</p>",
           "options": [
-            "Form permanent military alliances to protect American trade",
-            "Cut off all trade with other nations to remain fully independent",
+            "Form permanent military alliances with European powers to protect American interests",
+            "Cut off all dealings with other nations to remain fully independent",
             "Join whichever European nation is winning a war",
-            "Trade with other nations while avoiding permanent political alliances"
+            "Treat all nations fairly and peacefully while staying out of Europe's quarrels"
           ],
           "answer": 3,
-          "explain": "<p>Washington advises \"extending our commercial relations\" (trade) while having \"as little political connection as possible\" and steering \"clear of permanent alliances.\" He wants more trade, not less, so cutting off trade is wrong, and he specifically warns against permanent alliances.</p>"
+          "explain": "<p>Washington tells Americans to \"observe good faith and justice towards all nations\" and \"cultivate peace and harmony with all.\" He also argues that Europe's \"frequent controversies\" are \"essentially foreign to our concerns\" and asks why the United States should \"entangle our peace and prosperity\" in European rivalries. Tying the nation to European powers through permanent alliances or by joining a winning side in a war is exactly the entanglement he warns against. Cutting off all dealings is also wrong, because he wants peace and harmony with every nation, not isolation from them.</p>"
         },
         {
           "id": "q12",
@@ -321,7 +395,9 @@
           "difficulty": 2,
           "stim": "s6",
           "prompt": "<p>Based on the information given, how many states had to ratify the Nineteenth Amendment for it to become part of the Constitution in 1920?</p>",
-          "answer": ["36"],
+          "answer": [
+            "36"
+          ],
           "value": 36,
           "tol": 0.001,
           "suffix": "states",
@@ -350,7 +426,12 @@
           "difficulty": 2,
           "stim": "s7",
           "prompt": "<p>In which election was the gap between women's turnout and men's turnout the smallest?</p>",
-          "options": ["2008", "2012", "2016", "2020"],
+          "options": [
+            "2008",
+            "2012",
+            "2016",
+            "2020"
+          ],
           "noShuffle": true,
           "answer": 3,
           "explain": "<p>Subtract men's turnout from women's turnout for each year:<br>2008: 65.7 &minus; 61.5 = 4.2 points<br>2012: 63.7 &minus; 59.8 = 3.9 points<br>2016: 63.3 &minus; 59.3 = 4.0 points<br>2020: 68.4 &minus; 65.0 = 3.4 points<br>The smallest gap, 3.4 points, was in <strong>2020</strong>. Choosing 2020 just because turnout was highest that year is not enough—you must compare the differences.</p>"
@@ -386,8 +467,20 @@
             "A person found not guilty of a crime cannot be tried again for the same crime.",
             "A citizen publishes an online article criticizing the governor."
           ],
-          "bins": ["First Amendment", "Fourth Amendment", "Fifth Amendment", "Sixth Amendment"],
-          "answer": [0, 1, 2, 3, 2, 0],
+          "bins": [
+            "First Amendment",
+            "Fourth Amendment",
+            "Fifth Amendment",
+            "Sixth Amendment"
+          ],
+          "answer": [
+            0,
+            1,
+            2,
+            3,
+            2,
+            0
+          ],
           "explain": "<p><strong>First:</strong> a peaceful rally is assembly and petition; criticizing the governor is free speech and press. <strong>Fourth:</strong> a warrant based on probable cause protects against unreasonable searches. <strong>Fifth:</strong> refusing to testify against oneself is protection against self-incrimination, and not being tried twice is protection against double jeopardy. <strong>Sixth:</strong> the accused has the right to the help of a lawyer. Students often place double jeopardy under the Sixth Amendment because it concerns trials, but it is a Fifth Amendment protection.</p>"
         },
         {
@@ -438,8 +531,20 @@
             "Wyoming Territory gives women the right to vote.",
             "A woman suffrage amendment is introduced in Congress for the first time."
           ],
-          "bins": ["1st", "2nd", "3rd", "4th", "5th"],
-          "answer": [3, 0, 4, 1, 2],
+          "bins": [
+            "1st",
+            "2nd",
+            "3rd",
+            "4th",
+            "5th"
+          ],
+          "answer": [
+            3,
+            0,
+            4,
+            1,
+            2
+          ],
           "explain": "<p>1st: Seneca Falls Convention (1848). 2nd: Wyoming Territory grants women the vote (1869). 3rd: a suffrage amendment is first introduced in Congress (1878). 4th: Congress passes the Nineteenth Amendment (1919). 5th: the amendment is ratified (1920). Remember that Congress must pass (propose) an amendment before the states can ratify it.</p>"
         },
         {
@@ -529,7 +634,12 @@
           "difficulty": 1,
           "stim": "s12",
           "prompt": "<p>Between which two consecutive years did the CPI rise by the smallest amount?</p>",
-          "options": ["2018 to 2019", "2019 to 2020", "2020 to 2021", "2021 to 2022"],
+          "options": [
+            "2018 to 2019",
+            "2019 to 2020",
+            "2020 to 2021",
+            "2021 to 2022"
+          ],
           "noShuffle": true,
           "answer": 1,
           "explain": "<p>Find each change:<br>2018 to 2019: 255.7 &minus; 251.1 = 4.6<br>2019 to 2020: 258.8 &minus; 255.7 = 3.1<br>2020 to 2021: 271.0 &minus; 258.8 = 12.2<br>2021 to 2022: 292.7 &minus; 271.0 = 21.7<br>The smallest rise, 3.1 points, was from <strong>2019 to 2020</strong>. Note that the CPI rose in every year shown—prices rose slowly in 2020, but they did not fall.</p>"
@@ -541,7 +651,10 @@
           "difficulty": 3,
           "stim": "s12",
           "prompt": "<p>The inflation rate for a year is the percent change in the CPI from the year before. What was the inflation rate from 2021 to 2022? Round to the nearest tenth of a percent.</p>",
-          "answer": ["8.0", "8"],
+          "answer": [
+            "8.0",
+            "8"
+          ],
           "value": 8.0,
           "tol": 0.1,
           "suffix": "%",
@@ -577,7 +690,10 @@
             "A worker whose wages rise faster than prices",
             "A borrower who repays a fixed-rate car loan"
           ],
-          "answer": [0, 2],
+          "answer": [
+            0,
+            2
+          ],
           "explain": "<p>The reading says people on fixed incomes, such as retirees with pensions that do not change, \"can afford less and less,\" and savers are hurt when money held as cash \"loses value.\" Borrowers repaying fixed-rate loans (the homeowner and the car buyer) may benefit because they repay with dollars worth less than the ones they borrowed. A worker whose pay rises faster than prices gains purchasing power, so that worker is not hurt.</p>"
         },
         {
@@ -588,9 +704,30 @@
           "stim": "s13",
           "prompt": "<p>Complete the statement.</p><p>In one year, Dana's hourly pay rose from $20.00 to $20.80, an increase of 4%. During the same year, prices rose by about 8%. Dana's nominal wage {{0}}, but her real wage {{1}}. As a result, Dana's pay can {{2}}.</p>",
           "blanks": [
-            {"options": ["rose", "fell", "stayed the same"], "answer": 0},
-            {"options": ["rose", "fell", "stayed the same"], "answer": 1},
-            {"options": ["buy more goods and services than before", "buy fewer goods and services than before", "buy exactly the same amount as before"], "answer": 1}
+            {
+              "options": [
+                "rose",
+                "fell",
+                "stayed the same"
+              ],
+              "answer": 0
+            },
+            {
+              "options": [
+                "rose",
+                "fell",
+                "stayed the same"
+              ],
+              "answer": 1
+            },
+            {
+              "options": [
+                "buy more goods and services than before",
+                "buy fewer goods and services than before",
+                "buy exactly the same amount as before"
+              ],
+              "answer": 1
+            }
           ],
           "explain": "<p>The <strong>nominal wage</strong> is the dollar amount: $20.00 to $20.80, so it <strong>rose</strong>. The <strong>real wage</strong> measures what the pay can buy. Pay rose 4% while prices rose 8%, so pay grew more slowly than prices and the real wage <strong>fell</strong>. Measured in last year's prices, $20.80 &divide; 1.08 &asymp; $19.26, which is less than the $20.00 she earned before. Dana's pay therefore buys <strong>fewer goods and services than before</strong>, even though her paycheck is larger.</p>"
         },
@@ -601,7 +738,12 @@
           "difficulty": 1,
           "stim": "s14",
           "prompt": "<p>Which city most likely has a Mediterranean climate?</p>",
-          "options": ["City A", "City B", "City C", "City D"],
+          "options": [
+            "City A",
+            "City B",
+            "City C",
+            "City D"
+          ],
           "noShuffle": true,
           "answer": 1,
           "explain": "<p>A Mediterranean climate has mild, rainy winters and warm, dry summers. City B's precipitation falls mostly from November to March, with almost none in June–August, and its temperatures are mild (56°F in January, 74°F in July). City A is hot and rainy all year (tropical wet), City C has cold, snowy winters (humid continental), and City D gets only 5 inches a year (desert).</p>"
@@ -629,7 +771,12 @@
           "difficulty": 2,
           "stim": "s15",
           "prompt": "<p>Earth rotates 360° in about 24 hours. Because of this, an ideal one-hour time zone covers about how many degrees of longitude?</p>",
-          "options": ["10°", "15°", "24°", "30°"],
+          "options": [
+            "10°",
+            "15°",
+            "24°",
+            "30°"
+          ],
           "noShuffle": true,
           "answer": 1,
           "explain": "<p>360° &divide; 24 hours = <strong>15°</strong> per hour. So each one-hour time zone is ideally about 15° of longitude wide (actual boundaries bend to follow state and national borders). Choosing 24° confuses the number of hours with the number of degrees.</p>"
@@ -641,7 +788,12 @@
           "difficulty": 2,
           "stim": "s15",
           "prompt": "<p>A flight leaves Atlanta at 8:00 a.m. local time and lands in Denver 3 hours 30 minutes later. Both cities are on daylight saving time. What is the local time in Denver when the flight lands? Write the time in the form h:mm.</p>",
-          "answer": ["9:30", "09:30", "9:30am", "9:30a.m."],
+          "answer": [
+            "9:30",
+            "09:30",
+            "9:30am",
+            "9:30a.m."
+          ],
           "suffix": "a.m. Denver time",
           "explain": "<p>Step 1: Find the landing time in Atlanta's time: 8:00 a.m. + 3 h 30 min = 11:30 a.m. Eastern Time.<br>Step 2: Convert to Mountain Time. Eastern is 5 hours behind UTC and Mountain is 7 hours behind, so Mountain Time is 2 hours earlier than Eastern Time (both cities shift by the same hour for daylight saving time).<br>11:30 a.m. &minus; 2 hours = <strong>9:30 a.m.</strong> in Denver.<br>A common error is adding the 2 hours instead of subtracting (1:30 p.m.); clocks are earlier as you travel west.</p>"
         },
@@ -652,7 +804,12 @@
           "difficulty": 3,
           "stim": "s15",
           "prompt": "<p>It is January, so the whole country is on standard time. A company in Chicago wants to call a client in Honolulu when it is 9:00 a.m. in Honolulu. What time will it be in Chicago when the call is made?</p>",
-          "options": ["5:00 a.m.", "11:00 a.m.", "1:00 p.m.", "3:00 p.m."],
+          "options": [
+            "5:00 a.m.",
+            "11:00 a.m.",
+            "1:00 p.m.",
+            "3:00 p.m."
+          ],
           "noShuffle": true,
           "answer": 2,
           "explain": "<p>Honolulu is 10 hours behind UTC and Chicago is 6 hours behind UTC, so Chicago is 10 &minus; 6 = 4 hours ahead of Honolulu.<br>9:00 a.m. + 4 hours = <strong>1:00 p.m.</strong> in Chicago.<br>5:00 a.m. results from subtracting the 4 hours instead of adding them; Chicago is east of Honolulu, so its clocks are later.</p>"
