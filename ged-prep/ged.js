@@ -176,6 +176,11 @@ function planeSVG(f, opts){
 }
 
 /* ---------- item rendering (shared by practice, exams, review) ---------- */
+function ddOrder(it,i){var o=it.blanks[i].options,idx=o.map(function(_,j){return j});
+  if (it.noShuffle) return idx;
+  var nums=o.map(function(x){return parseFloat(txt(x).replace(/[$,%]/g,'').replace(/[\u2212]/g,'-'))});
+  if (nums.every(function(n){return !isNaN(n)})&&o.every(function(x){return /^[\s$\u2212\-]*[\d.,]+\s*[%a-z]*$/i.test(txt(x))})) return idx.sort(function(a,b){return nums[a]-nums[b]});
+  return shuffled(o.length,'dd:'+it.id+':'+i);}
 function optOrder(it){return (it.type==='mc'||it.type==='multi')&&!it.noShuffle?shuffled(it.options.length,'ged:'+it.id):it.options.map(function(_,i){return i})}
 function renderItem(it, val, opts){
   // returns HTML; opts.name unique, opts.review (show right/wrong), opts.num
@@ -184,7 +189,7 @@ function renderItem(it, val, opts){
   if (it.type==='dropdown'){
     prompt=prompt.replace(/\{\{(\d+)\}\}/g,function(_,i){i=+i;var b=it.blanks[i]||{options:[]};var cur=val&&val[i]!=null?val[i]:'';
       var cls=''; if(opts.review){cls=(val&&val[i]===b.answer)?' style="border-color:#1E7A46"':' style="border-color:#DB2F30"'}
-      return '<select class="dd" data-b="'+i+'"'+cls+(opts.review?' disabled':'')+' aria-label="Choose an answer"><option value="">Select…</option>'+b.options.map(function(o,j){return '<option value="'+j+'"'+(String(cur)===String(j)?' selected':'')+'>'+esc(txt(o))+'</option>'}).join('')+'</select>'+(opts.review&&!(val&&val[i]===b.answer)?' <span class="tag" style="color:#1E7A46">'+esc(txt(b.options[b.answer]))+'</span>':'')});
+      return '<select class="dd" data-b="'+i+'"'+cls+(opts.review?' disabled':'')+' aria-label="Choose an answer"><option value="">Select…</option>'+ddOrder(it,i).map(function(j){var o=b.options[j];return '<option value="'+j+'"'+(String(cur)===String(j)?' selected':'')+'>'+esc(txt(o))+'</option>'}).join('')+'</select>'+(opts.review&&!(val&&val[i]===b.answer)?' <span class="tag" style="color:#1E7A46">'+esc(txt(b.options[b.answer]))+'</span>':'')});
   }
   h+='<div class="prompt">'+prompt+'</div>'+figureHTML(it.figure);
   if (it.type==='mc'||it.type==='multi'){

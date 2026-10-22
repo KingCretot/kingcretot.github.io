@@ -7,7 +7,7 @@
   {
    "id": "s1",
    "title": "Comparing Light Bulbs",
-   "html": "<p>A family is choosing light bulbs for their home. The table compares three bulbs that give off the same amount of light. Brightness is measured in lumens. Any electrical energy a bulb does not give off as visible light is given off as heat.</p><table><thead><tr><th>Bulb type</th><th>Power (watts)</th><th>Brightness (lumens)</th><th>Rated life (hours)</th><th>Share of electrical energy given off as visible light</th></tr></thead><tbody><tr><td>Incandescent</td><td>60</td><td>800</td><td>1,000</td><td>about 10%</td></tr><tr><td>Compact fluorescent (CFL)</td><td>14</td><td>800</td><td>8,000</td><td>about 20%</td></tr><tr><td>Light-emitting diode (LED)</td><td>9</td><td>800</td><td>25,000</td><td>about 40%</td></tr></tbody></table>"
+   "html": "<p>A family is choosing light bulbs for their home. The table compares three bulbs that give off the same amount of light. Brightness is measured in lumens. Any electrical energy a bulb does not give off as visible light is given off as heat. The shares in the last column are rounded estimates.</p><table><thead><tr><th>Bulb type</th><th>Power (watts)</th><th>Brightness (lumens)</th><th>Rated life (hours)</th><th>Share of electrical energy given off as visible light</th></tr></thead><tbody><tr><td>Incandescent</td><td>60</td><td>800</td><td>1,000</td><td>about 10%</td></tr><tr><td>Compact fluorescent (CFL)</td><td>14</td><td>800</td><td>8,000</td><td>about 20%</td></tr><tr><td>Light-emitting diode (LED)</td><td>9</td><td>800</td><td>25,000</td><td>about 30%</td></tr></tbody></table>"
   },
   {
    "id": "s2",
@@ -99,7 +99,7 @@
       "The LED bulb lasts 25 times as long as the CFL."
      ],
      "answer": 0,
-     "explain": "<p>All three bulbs give 800 lumens, so they are equally bright. The LED uses 9 W and the incandescent uses 60 W: 9 &divide; 60 = 0.15, which is less than 1/6 (about 0.167). So <strong>the LED gives the same brightness using less than one-sixth of the power</strong>.</p><p>The incandescent bulb is not brighter; it only uses more power. The CFL turns about 20% of its energy into light, so about 80% becomes heat, more than the LED's 60%. The LED lasts 25,000 &divide; 8,000 &asymp; 3 times as long as the CFL; it lasts 25 times as long as the <em>incandescent</em> bulb.</p>"
+     "explain": "<p>All three bulbs give 800 lumens, so they are equally bright. The LED uses 9 W and the incandescent uses 60 W: 9 &divide; 60 = 0.15, which is less than 1/6 (about 0.167). So <strong>the LED gives the same brightness using less than one-sixth of the power</strong>.</p><p>The incandescent bulb is not brighter; it only uses more power. The CFL turns about 20% of its energy into light, so about 80% becomes heat, more than the LED's roughly 70%. The LED lasts 25,000 &divide; 8,000 &asymp; 3 times as long as the CFL; it lasts 25 times as long as the <em>incandescent</em> bulb.</p>"
     },
     {
      "id": "q3",
@@ -428,7 +428,8 @@
       {
        "options": [
         "series",
-        "parallel"
+        "parallel",
+        "separate branches"
        ],
        "answer": 0
       },
@@ -629,7 +630,7 @@
       "Gravel settles out, while sand and silt keep moving."
      ],
      "answer": 3,
-     "explain": "<p>At 60 cm/s, the river can carry particles that need 60 cm/s or less: silt (1), sand (10), and gravel (50). Pebbles need 150 cm/s, so the river was <em>not</em> carrying pebbles in the first place.</p><p>At 20 cm/s, gravel (needs 50) can no longer be carried and settles out. Sand (needs 10) and silt (needs 1) can still be carried. So <strong>gravel settles out, while sand and silt keep moving</strong>.</p><p>The first choice includes pebbles, which this river could not carry at 60 cm/s. Water at 20 cm/s is still fast enough to move sand and silt, so not all sediment settles out.</p>"
+     "explain": "<p>At 60 cm/s, the river can carry particles that need 60 cm/s or less: silt (1), sand (10), and gravel (50). Pebbles need 150 cm/s, so the river was <em>not</em> carrying pebbles in the first place.</p><p>At 20 cm/s, gravel (needs 50) can no longer be carried and settles out. Sand (needs 10) and silt (needs 1) can still be carried. So <strong>gravel settles out, while sand and silt keep moving</strong>.</p><p>The choice that says pebbles and gravel settle out is wrong because this river could not carry pebbles at 60 cm/s. Water at 20 cm/s is still fast enough to move sand and silt, so not all sediment settles out.</p>"
     },
     {
      "id": "q28",
