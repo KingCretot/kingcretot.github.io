@@ -389,7 +389,7 @@
       "85t + 40s"
      ],
      "answer": 3,
-     "explain": "<p>Each tree costs $85, so t trees cost 85t. Each stump costs $40, so s stumps cost 40s.</p><p>Total = <strong>85t + 40s</strong>.</p><p>Check: 3 trees and 2 stumps cost 85(3) + 40(2) = 255 + 80 = $335.</p><p>85s + 40t switches the prices. 125(t + s) charges $125 for every tree and every stump, which is only correct when a job is counted as one tree plus one stump.</p>"
+     "explain": "<p>Each tree costs $85, so t trees cost 85t. Each stump costs $40, so s stumps cost 40s.</p><p>Total = <strong>85t + 40s</strong>.</p><p>Check: 3 trees and 2 stumps cost 85(3) + 40(2) = 255 + 80 = $335.</p><p>85s + 40t switches the prices. 125(t + s) charges $125 for every tree and every stump, which overcharges: for 3 trees and 2 stumps it gives 125(5) = $625 instead of $335.</p>"
     },
     {
      "id": "m25",
@@ -651,7 +651,7 @@
       0,
       1
      ],
-     "explain": "<p>Distribute: 4(2x &minus; 3) = 8x &minus; 12 and &minus;2(x &minus; 5) = &minus;2x + 10.</p><p>Combine like terms: 8x &minus; 2x = 6x and &minus;12 + 10 = &minus;2. The expression equals <strong>6x &minus; 2</strong>.</p><p>Factor out 2: 6x &minus; 2 = <strong>2(3x &minus; 1)</strong>.</p><p>6x &minus; 22 comes from distributing &minus;2 to x only and writing &minus;10 instead of +10. 2(3x + 1) = 6x + 2, which has the wrong sign on the constant.</p>"
+     "explain": "<p>Distribute: 4(2x &minus; 3) = 8x &minus; 12 and &minus;2(x &minus; 5) = &minus;2x + 10.</p><p>Combine like terms: 8x &minus; 2x = 6x and &minus;12 + 10 = &minus;2. The expression equals <strong>6x &minus; 2</strong>.</p><p>Factor out 2: 6x &minus; 2 = <strong>2(3x &minus; 1)</strong>.</p><p>6x &minus; 22 comes from a sign error: writing &minus;2(x &minus; 5) as &minus;2x &minus; 10 instead of &minus;2x + 10. 10x &minus; 22 makes the same sign error and also adds 2x instead of subtracting it. 2(3x + 1) = 6x + 2, which has the wrong sign on the constant.</p>"
     },
     {
      "id": "m37",
@@ -765,12 +765,12 @@
      "prompt": "<p>Two companies rent out a stump grinder. Company A charges according to the equation C = 45h + 60, where C is the total cost in dollars for h hours. Company B's charges are shown in the table.</p><table><thead><tr><th>Hours (h)</th><th>1</th><th>3</th><th>5</th></tr></thead><tbody><tr><td>Cost at Company B ($)</td><td>95</td><td>205</td><td>315</td></tr></tbody></table><p>Both companies charge at a constant hourly rate plus a fixed fee. For which rental times is Company A less expensive than Company B?</p>",
      "options": [
       "For rentals shorter than 2 hours",
-      "For rentals longer than 10 hours",
+      "For all rental times",
       "For rentals longer than 2 hours",
       "For no rental times"
      ],
      "answer": 2,
-     "explain": "<p>Find Company B's equation. Rate: (205 &minus; 95) &divide; (3 &minus; 1) = 110 &divide; 2 = $55 per hour. Fee: 95 &minus; 55 = $40. So B: C = 55h + 40.</p><p>Company A is less expensive when 45h + 60 &lt; 55h + 40.</p><p>Subtract 45h: 60 &lt; 10h + 40. Subtract 40: 20 &lt; 10h. Divide by 10: h &gt; 2.</p><p>Company A is cheaper <strong>for rentals longer than 2 hours</strong>.</p><p>Check: at 2 hours both cost $150. At 4 hours, A costs 45(4) + 60 = $240 and B costs 55(4) + 40 = $260.</p><p>Choosing \"shorter than 2 hours\" reverses the inequality. Company A has the higher fee but the lower hourly rate, so it becomes cheaper only for longer rentals.</p>"
+     "explain": "<p>Find Company B's equation. Rate: (205 &minus; 95) &divide; (3 &minus; 1) = 110 &divide; 2 = $55 per hour. Fee: 95 &minus; 55 = $40. So B: C = 55h + 40.</p><p>Company A is less expensive when 45h + 60 &lt; 55h + 40.</p><p>Subtract 45h: 60 &lt; 10h + 40. Subtract 40: 20 &lt; 10h. Divide by 10: h &gt; 2.</p><p>Company A is cheaper <strong>for rentals longer than 2 hours</strong>.</p><p>Check: at 2 hours both cost $150. At 4 hours, A costs 45(4) + 60 = $240 and B costs 55(4) + 40 = $260.</p><p>Choosing \"shorter than 2 hours\" reverses the inequality. Company A has the higher fee but the lower hourly rate, so it becomes cheaper only for longer rentals; it is not cheaper for all rental times (at 1 hour, A costs $105 and B costs $95).</p>"
     },
     {
      "id": "m45",
