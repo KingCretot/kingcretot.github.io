@@ -266,7 +266,7 @@
      2
     ],
     "hint": "Order the temperatures to find the median and mode. Add the rainfall column.",
-    "explain": "<p><strong>Median and mode:</strong> In order, the highs are 74, 78, 79, 82, 82, 85, 87. The middle (4th) value is 82, so the median is 82 &deg;F. The value 82 appears twice, so the mode is 82 &deg;F. They are equal, so the first statement is <strong>supported</strong>.</p><p><strong>Total rainfall:</strong> 0.00 + 0.20 + 0.00 + 1.20 + 0.40 + 0.00 + 0.00 = <strong>1.80 inches</strong>. Supported.</p><p>The others are not supported. The warmest day (Sunday, 87 &deg;F) had no rain; Thursday was rainiest. It rained on only 3 of 7 days, which is less than half. The mean (81 &deg;F) is <em>less</em> than the median (82 &deg;F). The temperature fell on Thursday and Friday, so it did not rise every day.</p>"
+    "explain": "<p><strong>Median and mode:</strong> In order, the highs are 74, 78, 79, 82, 82, 85, 87. The middle (4th) value is 82, so the median is 82 &deg;F. The value 82 appears twice, so the mode is 82 &deg;F. They are equal, so the statement that the median equals the mode is <strong>supported</strong>.</p><p><strong>Total rainfall:</strong> 0.00 + 0.20 + 0.00 + 1.20 + 0.40 + 0.00 + 0.00 = <strong>1.80 inches</strong>. Supported.</p><p>The others are not supported. The warmest day (Sunday, 87 &deg;F) had no rain; Thursday was rainiest. It rained on only 3 of 7 days, which is less than half. The mean (81 &deg;F) is <em>less</em> than the median (82 &deg;F). The temperature fell on Thursday and Friday, so it did not rise every day.</p>"
    },
    {
     "id": "p5",
@@ -423,8 +423,8 @@
      "Fish grow faster in warm water than in cold water."
     ],
     "answer": 0,
-    "hint": "Check each statement against the numbers. For the second choice, calculate each 10-degree change.",
-    "explain": "<p>Every time the temperature goes up, dissolved oxygen goes down: 14.6 &rarr; 11.3 &rarr; 9.1 &rarr; 7.6 mg/L. So <strong>dissolved oxygen decreases as temperature increases</strong> over the range tested.</p><p>The decreases are <em>not</em> equal: 14.6 &minus; 11.3 = 3.3; 11.3 &minus; 9.1 = 2.2; 9.1 &minus; 7.6 = 1.5 mg/L. The drops get smaller, so the line curves rather than falling by the same amount.</p><p>No data were collected at 40 &deg;C, and the shrinking drops suggest the value would not reach 0, so that claim goes beyond the data. Fish growth was never measured, so the last choice is not supported.</p>"
+    "hint": "Check each statement against the numbers. For the statement about equal decreases, calculate each 10-degree change.",
+    "explain": "<p>Every time the temperature goes up, dissolved oxygen goes down: 14.6 &rarr; 11.3 &rarr; 9.1 &rarr; 7.6 mg/L. So <strong>dissolved oxygen decreases as temperature increases</strong> over the range tested.</p><p>The decreases are <em>not</em> equal: 14.6 &minus; 11.3 = 3.3; 11.3 &minus; 9.1 = 2.2; 9.1 &minus; 7.6 = 1.5 mg/L. The drops get smaller, so the line curves rather than falling by the same amount.</p><p>No data were collected at 40 &deg;C, and the shrinking drops suggest the value would not reach 0, so that claim goes beyond the data. Fish growth was never measured, so the statement about fish growing faster in warm water is not supported.</p>"
    }
   ]
  }

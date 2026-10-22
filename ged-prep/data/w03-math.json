@@ -72,7 +72,7 @@
 "type": "mc",
 "skill": "Order of operations with exponents",
 "difficulty": 2,
-"prompt": "<p>What is the value of the expression below?</p><p>3 + 2 &times; 4<sup>2</sup></p>",
+"prompt": "<p>Evaluate 3 + 2 &times; 4<sup>2</sup> using the order of operations.</p>",
 "options": ["35", "80", "67", "19"],
 "answer": 0,
 "hint": "Exponents come before multiplication, and multiplication comes before addition.",
@@ -146,7 +146,7 @@
 "options": ["4<sup>&minus;2</sup>", "2<sup>&minus;4</sup>", "(&minus;4)<sup>2</sup>", "&minus;4<sup>2</sup>", "16<sup>0</sup>", "8<sup>&minus;2</sup>"],
 "answer": [0, 1],
 "hint": "Evaluate each one. A negative exponent gives a reciprocal; a zero exponent gives 1.",
-"explain": "<p>Evaluate each expression:</p><ul><li>4<sup>&minus;2</sup> = 1/4<sup>2</sup> = 1/16 <strong>Correct</strong></li><li>2<sup>&minus;4</sup> = 1/2<sup>4</sup> = 1/16 <strong>Correct</strong></li><li>(&minus;4)<sup>2</sup> = (&minus;4)(&minus;4) = 16</li><li>&minus;4<sup>2</sup> = &minus;(4 &times; 4) = &minus;16</li><li>16<sup>0</sup> = 1</li><li>8<sup>&minus;2</sup> = 1/8<sup>2</sup> = 1/64</li></ul><p>The two expressions equal to 1/16 are <strong>4<sup>&minus;2</sup></strong> and <strong>2<sup>&minus;4</sup></strong>.</p><p>&minus;4<sup>2</sup> is the most tempting wrong choice: it is negative, but a negative exponent never makes a number negative.</p>"
+"explain": "<p>Evaluate each expression:</p><ul><li>4<sup>&minus;2</sup> = 1/4<sup>2</sup> = 1/16 <strong>Correct</strong></li><li>2<sup>&minus;4</sup> = 1/2<sup>4</sup> = 1/16 <strong>Correct</strong></li><li>(&minus;4)<sup>2</sup> = (&minus;4)(&minus;4) = 16</li><li>&minus;4<sup>2</sup> = &minus;(4 &times; 4) = &minus;16</li><li>16<sup>0</sup> = 1</li><li>8<sup>&minus;2</sup> = 1/8<sup>2</sup> = 1/64</li></ul><p>The two expressions equal to 1/16 are <strong>4<sup>&minus;2</sup></strong> and <strong>2<sup>&minus;4</sup></strong>.</p><p>&minus;4<sup>2</sup> and (&minus;4)<sup>2</sup> are tempting because they use the digits 4 and 2, but neither has a negative exponent, so neither produces a reciprocal: they equal &minus;16 and 16, not 1/16. Remember that a negative exponent means a reciprocal, and a negative sign on the base is a different thing.</p>"
 },
 {
 "id": "w3m-11",
@@ -164,7 +164,7 @@
 "type": "fill",
 "skill": "Order of operations with exponents and roots",
 "difficulty": 3,
-"prompt": "<p>What is the value of the expression below?</p><p>5<sup>2</sup> &minus; 2(3 &minus; 7)<sup>2</sup> &divide; 8 + &#8731;(&minus;64)</p>",
+"prompt": "<p>Simplify the expression completely. Enter your answer as a single integer.</p><p>5<sup>2</sup> &minus; 2(3 &minus; 7)<sup>2</sup> &divide; 8 + &#8731;(&minus;64)</p>",
 "answer": ["17"],
 "value": 17,
 "tol": 0.001,
