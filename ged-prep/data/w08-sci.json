@@ -79,9 +79,9 @@
    {
     "kind": "teach",
     "title": "Big Idea 2: Acceleration",
-    "board": "<div class=\"box\"><p><strong>a = (final speed &minus; starting speed) &divide; time</strong></p></div><p>Unit: <strong>m/s<sup>2</sup></strong> (\"meters per second, every second\").</p><table><tr><th>Speeding up</th><th>Slowing down</th><th>Turning</th></tr><tr><td>positive a</td><td>negative a</td><td>direction changes</td></tr></table><p>All three are acceleration, because velocity changes.</p>",
+    "board": "<div class=\"box\"><p><strong>a = (final velocity &minus; starting velocity) &divide; time</strong></p></div><p>Unit: <strong>m/s<sup>2</sup></strong> (\"meters per second, every second\").</p><p>Signs assume the object moves forward (forward = positive):</p><table><tr><th>Speeding up</th><th>Slowing down</th><th>Turning</th></tr><tr><td>positive a</td><td>negative a</td><td>a &ne; 0 even at steady speed</td></tr></table><p>All three are acceleration, because velocity changes.</p>",
     "notes": {
-     "say": "Acceleration measures how fast the velocity changes. Take the change in speed, final minus starting, and divide by the time it took. If a car goes from 0 to 20 meters per second in 5 seconds, its speed climbs 4 meters per second every second, so its acceleration is 4 m/s squared. Slowing down gives a negative number, and turning at a steady speed is also acceleration, because the direction part of velocity changes.",
+     "say": "Acceleration measures how fast the velocity changes. Take the change in speed, final minus starting, and divide by the time it took. If a car goes from 0 to 20 meters per second in 5 seconds, its speed climbs 4 meters per second every second, so its acceleration is 4 m/s squared. For something moving forward, slowing down gives a negative number, and turning at a steady speed is also acceleration, because the direction part of velocity changes.",
      "ask": [
       "A car moves at a steady 25 m/s on a straight road. What is its acceleration? (expected answer: 0; the speed is not changing)"
      ],
@@ -96,7 +96,7 @@
      "Formula: a = (final &minus; starting) &divide; time.",
      "Plug in: a = (4 m/s &minus; 12 m/s) &divide; 4 s.",
      "Subtract, then divide: &minus;8 &divide; 4 = <strong>&minus;2 m/s<sup>2</sup></strong>.",
-     "Meaning: the negative sign tells us she is <strong>slowing down</strong>, losing 2 m/s of speed each second (12 &rarr; 10 &rarr; 8 &rarr; 6 &rarr; 4)."
+     "Meaning: she is still moving forward, so the negative sign tells us she is <strong>slowing down</strong>, losing 2 m/s of speed each second (12 &rarr; 10 &rarr; 8 &rarr; 6 &rarr; 4)."
     ],
     "notes": {
      "say": "Same formula, but now the final speed is smaller than the starting speed, so the change is negative. A negative acceleration in a straight line means slowing down. I like to check by counting: lose 2 every second for 4 seconds, and 12 drops to 4. It works.",
@@ -300,7 +300,7 @@
    {
     "kind": "teach",
     "title": "Big Idea 6: Work and Power",
-    "board": "<div class=\"box\"><p><strong>Work: W = F &times; d</strong> &nbsp; joules (J)<br><strong>Power: P = W &divide; t</strong> &nbsp; watts (W)</p></div><p>Work happens only when a force <strong>moves</strong> an object <strong>in the direction of the force</strong>.</p><table><tr><th>Work done</th><th>No work done</th></tr><tr><td>Lifting a box onto a shelf</td><td>Holding a box still</td></tr><tr><td>Pushing a cart across a lot</td><td>Pushing a wall that does not move</td></tr></table>",
+    "board": "<div class=\"box\"><p><strong>Work: W = F &times; d</strong> &nbsp; joules (J)<br><strong>Power: P = W &divide; t</strong> &nbsp; watts (W)</p></div><p>d = the distance the object moves <strong>in the direction of the force</strong>. No movement in that direction = no work.</p><table><tr><th>Work done</th><th>No work done</th></tr><tr><td>Lifting a box onto a shelf</td><td>Holding a box still</td></tr><tr><td>Pushing a cart across a lot</td><td>Pushing a wall that does not move</td></tr></table>",
     "notes": {
      "say": "In everyday talk, holding a heavy box for a minute is hard work. In physics it is zero work, because the box does not move. Work is force times the distance the object moves in the direction of the force, and the unit is the joule. Power is how fast you do the work: the same job done in half the time takes twice the power. Watch the letters: W stands for work in the formula, but W is also the symbol for watts.",
      "ask": [
@@ -329,7 +329,7 @@
    {
     "kind": "teach",
     "title": "Big Idea 7: Simple Machines",
-    "board": "<p>Six simple machines: <strong>lever, wheel and axle, pulley, inclined plane (ramp), wedge, screw</strong>.</p><div class=\"box\"><p>A machine does <strong>not</strong> reduce work. It trades <strong>less force</strong> for <strong>more distance</strong>.</p><p><strong>MA = output force &divide; input force</strong></p></div><ul><li>Ramp: MA = length &divide; height</li><li>Lever: MA = effort arm &divide; load arm</li><li>Fixed pulley: MA = 1 (changes direction); movable pulley: MA = 2</li></ul>",
+    "board": "<p>Six simple machines: <strong>lever, wheel and axle, pulley, inclined plane (ramp), wedge, screw</strong>.</p><div class=\"box\"><p>A machine does <strong>not</strong> reduce work. It trades <strong>less force</strong> for <strong>more distance</strong>.</p><p><strong>MA = output force &divide; input force</strong></p></div><ul><li>Ramp (ideal): MA = length &divide; height</li><li>Lever (ideal): MA = effort arm &divide; load arm</li><li>Fixed pulley: MA = 1 (changes direction); movable pulley: MA = 2</li></ul>",
     "notes": {
      "say": "A simple machine is a trade. You push with less force, but you push over a longer distance, so force times distance, the work, stays the same in an ideal machine. Real machines have friction, so you actually do a bit more work, never less. Mechanical advantage tells you how many times the machine multiplies your force. A ramp four times as long as it is high lets you push with one-fourth of the weight.",
      "ask": [
@@ -344,8 +344,8 @@
     "board": "<p>A <strong>900-N</strong> piano must be raised <strong>1.5 m</strong> onto a stage using a <strong>6-m</strong> ramp. Ignoring friction, what force is needed along the ramp? What is the ramp's mechanical advantage?</p>",
     "figure": {
      "type": "svg",
-     "alt": "A ramp drawn as a right triangle. The sloped side is labeled ramp length 6 m. The vertical side is labeled height 1.5 m. An arrow along the slope is labeled push 225 N.",
-     "svg": "<svg viewBox='0 0 420 190' xmlns='http://www.w3.org/2000/svg'><polygon points='20,160 320,160 320,85' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><polyline points='308,160 308,148 320,148' fill='none' stroke='#0A1F3D'/><text x='70' y='92' font-size='14' fill='#0A1F3D'>ramp length = 6 m</text><text x='328' y='128' font-size='14' fill='#0A1F3D'>height = 1.5 m</text><line x1='120' y1='145' x2='220' y2='120' stroke='#0A1F3D' stroke-width='3'/><polygon points='220,120 208,118 211,128' fill='#0A1F3D' stroke='#0A1F3D'/><text x='150' y='152' font-size='14' fill='#0A1F3D'>push 225 N</text><text x='120' y='182' font-size='14' fill='#0A1F3D'>piano weight = 900 N</text></svg>"
+     "alt": "A ramp drawn as a right triangle. The sloped side is labeled ramp length 6 m. The vertical side is labeled height 1.5 m. An arrow along the slope is labeled push = ?. A note reads: load, piano, weight 900 N.",
+     "svg": "<svg viewBox='0 0 420 190' xmlns='http://www.w3.org/2000/svg'><polygon points='20,160 320,160 320,85' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><polyline points='308,160 308,148 320,148' fill='none' stroke='#0A1F3D'/><text x='70' y='92' font-size='14' fill='#0A1F3D'>ramp length = 6 m</text><text x='328' y='128' font-size='14' fill='#0A1F3D'>height = 1.5 m</text><line x1='120' y1='145' x2='220' y2='120' stroke='#0A1F3D' stroke-width='3'/><polygon points='220,120 208,118 211,128' fill='#0A1F3D' stroke='#0A1F3D'/><text x='150' y='152' font-size='14' fill='#0A1F3D'>push = ?</text><text x='20' y='30' font-size='14' fill='#0A1F3D'>load: piano, weight = 900 N</text></svg>"
     },
     "steps": [
      "Work to lift straight up: W = 900 N &times; 1.5 m = <strong>1,350 J</strong>.",
@@ -367,7 +367,7 @@
     "figure": {
      "type": "svg",
      "alt": "A lever: a straight bar resting on a triangular fulcrum. A 600-N rock sits on the short end, 1 m from the fulcrum. The effort pushes down on the long end, 3 m from the fulcrum.",
-     "svg": "<svg viewBox='0 0 380 190' xmlns='http://www.w3.org/2000/svg'><line x1='30' y1='100' x2='330' y2='100' stroke='#0A1F3D' stroke-width='5'/><polygon points='93,130 117,130 105,103' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><rect x='30' y='62' width='44' height='36' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='22' y='52' font-size='14' fill='#0A1F3D'>rock 600 N</text><line x1='330' y1='40' x2='330' y2='94' stroke='#0A1F3D' stroke-width='3'/><polygon points='330,98 324,86 336,86' fill='#0A1F3D' stroke='#0A1F3D'/><text x='290' y='30' font-size='14' fill='#0A1F3D'>effort</text><line x1='30' y1='160' x2='105' y2='160' stroke='#0A1F3D'/><line x1='30' y1='153' x2='30' y2='167' stroke='#0A1F3D'/><line x1='105' y1='153' x2='105' y2='167' stroke='#0A1F3D'/><line x1='330' y1='153' x2='330' y2='167' stroke='#0A1F3D'/><text x='30' y='180' font-size='14' fill='#0A1F3D'>load arm 1 m</text><line x1='105' y1='160' x2='330' y2='160' stroke='#0A1F3D'/><text x='180' y='180' font-size='14' fill='#0A1F3D'>effort arm 3 m</text><text x='122' y='128' font-size='14' fill='#0A1F3D'>fulcrum</text></svg>"
+     "svg": "<svg viewBox='0 0 390 190' xmlns='http://www.w3.org/2000/svg'><line x1='30' y1='100' x2='352' y2='100' stroke='#0A1F3D' stroke-width='5'/><polygon points='115,130 139,130 127,103' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><rect x='30' y='62' width='44' height='36' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='22' y='52' font-size='14' fill='#0A1F3D'>rock 600 N</text><line x1='352' y1='40' x2='352' y2='94' stroke='#0A1F3D' stroke-width='3'/><polygon points='352,98 346,86 358,86' fill='#0A1F3D' stroke='#0A1F3D'/><text x='312' y='30' font-size='14' fill='#0A1F3D'>effort</text><line x1='52' y1='160' x2='127' y2='160' stroke='#0A1F3D'/><line x1='52' y1='153' x2='52' y2='167' stroke='#0A1F3D'/><line x1='127' y1='153' x2='127' y2='167' stroke='#0A1F3D'/><line x1='352' y1='153' x2='352' y2='167' stroke='#0A1F3D'/><text x='30' y='182' font-size='14' fill='#0A1F3D'>load arm 1 m</text><line x1='127' y1='160' x2='352' y2='160' stroke='#0A1F3D'/><text x='195' y='182' font-size='14' fill='#0A1F3D'>effort arm 3 m</text><text x='144' y='128' font-size='14' fill='#0A1F3D'>fulcrum</text></svg>"
     },
     "steps": [
      "1. MA = effort arm &divide; load arm = 3 m &divide; 1 m = <strong>3</strong>. Effort = 600 N &divide; 3 = <strong>200 N</strong>.",
@@ -454,7 +454,6 @@
     "board": "<p>The graph shows a runner's speed during a short race.</p><p><strong>Which statement best describes the runner's motion from 4 s to 8 s?</strong></p><p>A. The runner is stopped, because the line is flat.<br>B. The runner moves at a constant speed of 8 m/s.<br>C. The runner speeds up by 8 m/s every second.<br>D. The runner is slowing down to finish the race.</p>",
     "figure": {
      "type": "line",
-     "title": "Runner's Speed",
      "xLabel": "Time (s)",
      "yLabel": "Speed (m/s)",
      "labels": [
@@ -653,7 +652,7 @@
    },
    {
     "title": "Acceleration",
-    "html": "<p><strong>Acceleration</strong> is how quickly velocity changes:</p><div class=\"box\"><p>acceleration = (final speed &minus; starting speed) &divide; time</p></div><p>The unit is <strong>m/s<sup>2</sup></strong>, read \"meters per second squared\" or \"meters per second, every second.\" An acceleration of 3 m/s<sup>2</sup> means the speed grows by 3 m/s each second.</p><ul><li><strong>Speeding up:</strong> positive acceleration.</li><li><strong>Slowing down:</strong> negative acceleration (sometimes called deceleration).</li><li><strong>Changing direction:</strong> also acceleration, even at a steady speed.</li><li><strong>Constant velocity:</strong> zero acceleration.</li></ul><p>Always subtract <strong>final minus starting</strong>, and divide by the length of time the change took.</p>",
+    "html": "<p><strong>Acceleration</strong> is how quickly velocity changes:</p><div class=\"box\"><p>acceleration = (final speed &minus; starting speed) &divide; time</p></div><p>(This form works for an object moving in a straight line in one direction, which is what GED questions use.)</p><p>The unit is <strong>m/s<sup>2</sup></strong>, read \"meters per second squared\" or \"meters per second, every second.\" An acceleration of 3 m/s<sup>2</sup> means the speed grows by 3 m/s each second.</p><ul><li><strong>Speeding up:</strong> positive acceleration.</li><li><strong>Slowing down:</strong> negative acceleration, which points opposite the motion (sometimes called deceleration).</li><li><strong>Changing direction:</strong> also acceleration, even at a steady speed.</li><li><strong>Constant velocity:</strong> zero acceleration.</li></ul><p>Always subtract <strong>final minus starting</strong>, and divide by the length of time the change took.</p>",
     "example": {
      "prompt": "<p>A car at a red light starts from rest. When the light turns green, it reaches 18 m/s in 6 s. What is its acceleration?</p>",
      "steps": [
@@ -764,10 +763,9 @@
    },
    {
     "title": "Speed-time graphs",
-    "html": "<p>A <strong>speed-time graph</strong> puts speed on the y-axis. The same shapes mean <em>different</em> things here:</p><ul><li><strong>Flat line:</strong> the speed is not changing, so the object moves at a <strong>constant speed</strong>. (Only a flat line <em>at 0</em> means stopped.)</li><li><strong>Sloping up:</strong> <strong>speeding up</strong>.</li><li><strong>Sloping down:</strong> <strong>slowing down</strong>.</li></ul><p>The slope of a speed-time graph is the <strong>acceleration</strong>. Always read the y-axis label before you decide what a flat line means.</p><p>The graph shows an elevator moving between floors.</p>",
+    "html": "<p>A <strong>speed-time graph</strong> puts speed on the y-axis. The same shapes mean <em>different</em> things here:</p><ul><li><strong>Flat line:</strong> the speed is not changing, so the object moves at a <strong>constant speed</strong>. (Only a flat line <em>at 0</em> means stopped.)</li><li><strong>Sloping up:</strong> <strong>speeding up</strong>.</li><li><strong>Sloping down:</strong> <strong>slowing down</strong>.</li></ul><p>The slope of a speed-time graph is the <strong>acceleration</strong>. Always read the y-axis label before you decide what a flat line means.</p><p>The graph below shows the speed of an elevator moving between floors.</p>",
     "figure": {
      "type": "line",
-     "title": "Elevator Speed",
      "xLabel": "Time (s)",
      "yLabel": "Speed (m/s)",
      "labels": [
@@ -891,7 +889,7 @@
        "answer": [
         "30"
        ],
-       "why": "You subtracted only one mover's force (140 &minus; 110) and left out friction. Add the two pushes that point the same way, then subtract friction."
+       "why": "You treated the two movers as pushing against each other (140 &minus; 110) and left out friction. Both movers push to the right, so add them, then subtract friction: 250 &minus; 170."
       }
      ],
      "hint": "Add the forces that point the same way. Then subtract the force that points the other way.",
@@ -1035,7 +1033,7 @@
    },
    {
     "title": "Work",
-    "html": "<p>In physics, <strong>work</strong> is done when a force moves an object <strong>in the direction of the force</strong>:</p><div class=\"box\"><p>work = force &times; distance &nbsp;&nbsp; (W = F &times; d)</p></div><p>Work is measured in <strong>joules (J)</strong>. 1 J = 1 N &times; 1 m.</p><p>No movement means no work. Holding a heavy bag still, or pushing on a wall that does not move, does <strong>zero work</strong> on the object, even if you get tired. Carrying a bag across a flat room at a steady height also does no work on the bag by your upward holding force, because the bag does not move up.</p><p>When you lift something, the force you need equals its weight, and the distance is the height.</p>",
+    "html": "<p>In physics, <strong>work</strong> is done when a force moves an object <strong>in the direction of the force</strong>:</p><div class=\"box\"><p>work = force &times; distance &nbsp;&nbsp; (W = F &times; d)</p></div><p>Work is measured in <strong>joules (J)</strong>. 1 J = 1 N &times; 1 m.</p><p>No movement means no work. Holding a heavy bag still, or pushing on a wall that does not move, does <strong>zero work</strong> on the object, even if you get tired. Carrying a bag across a flat room at a steady height also does no work on the bag by your upward holding force, because the bag does not move up.</p><p>When you lift something at a steady speed, your force equals its weight, and the distance is the height.</p>",
     "example": {
      "prompt": "<p>A worker lifts a 250-N bag of cement 1.2 m onto a truck. How much work does she do?</p>",
      "steps": [
@@ -1283,7 +1281,7 @@
    },
    {
     "title": "Summary",
-    "html": "<div class=\"box\"><ul><li><strong>Speed</strong> = distance &divide; time. <strong>Velocity</strong> = speed + direction. Convert units first (min &divide; 60 = h).</li><li><strong>Acceleration</strong> = (final &minus; starting speed) &divide; time, in m/s<sup>2</sup>. Negative = slowing down.</li><li><strong>Graphs:</strong> read the y-axis. Distance-time: flat = stopped, slope = speed. Speed-time: flat = constant speed, slope = acceleration.</li><li><strong>Net force:</strong> same direction add, opposite subtract. Zero net force = balanced = no change in motion.</li><li><strong>Newton's laws:</strong> 1st inertia; 2nd F = ma (net force); 3rd equal and opposite forces on two different objects.</li><li><strong>Weight</strong> = m &times; g (g &asymp; 9.8 m/s<sup>2</sup>), in newtons.</li><li><strong>Work</strong> W = F &times; d (J), only if the object moves. <strong>Power</strong> P = W &divide; t (W).</li><li><strong>Machines</strong> trade less force for more distance; work stays the same. MA = output &divide; input force; ramp = length &divide; height; lever = effort arm &divide; load arm.</li><li><strong>Momentum</strong> p = m &times; v; total before = total after.</li></ul></div><p><strong>Routine for every physics calculation:</strong> formula &rarr; numbers with units &rarr; convert &rarr; calculate &rarr; check the unit and size.</p><p>Next, go to Practice and start with Set A.</p>"
+    "html": "<div class=\"box\"><ul><li><strong>Speed</strong> = distance &divide; time. <strong>Velocity</strong> = speed + direction. Convert units first (min &divide; 60 = h).</li><li><strong>Acceleration</strong> = (final &minus; starting speed) &divide; time, in m/s<sup>2</sup>. Negative (for forward motion) = slowing down.</li><li><strong>Graphs:</strong> read the y-axis. Distance-time: flat = stopped, slope = speed. Speed-time: flat = constant speed, slope = acceleration.</li><li><strong>Net force:</strong> same direction add, opposite subtract. Zero net force = balanced = no change in motion.</li><li><strong>Newton's laws:</strong> 1st inertia; 2nd F = ma (net force); 3rd equal and opposite forces on two different objects.</li><li><strong>Weight</strong> = m &times; g (g &asymp; 9.8 m/s<sup>2</sup>), in newtons.</li><li><strong>Work</strong> W = F &times; d (J), with d measured in the direction of the force; no movement, no work. <strong>Power</strong> P = W &divide; t (W).</li><li><strong>Machines</strong> trade less force for more distance; work stays the same. MA = output &divide; input force; ramp = length &divide; height; lever = effort arm &divide; load arm.</li><li><strong>Momentum</strong> p = m &times; v; total before = total after.</li></ul></div><p><strong>Routine for every physics calculation:</strong> formula &rarr; numbers with units &rarr; convert &rarr; calculate &rarr; check the unit and size.</p><p>Next, go to Practice and start with Set A.</p>"
    }
   ]
  },
@@ -1686,7 +1684,7 @@
        "",
        "8 m/s<sup>2</sup> comes from using 80 N, the sum of the forces. Use the net force, 20 N: 20 &divide; 10 = 2.",
        "You divided mass by force (10 &divide; 20). Acceleration is force divided by mass: a = F &divide; m = 20 &divide; 10.",
-       "You multiplied force by mass (20 &times; 10). That would be the force formula; for acceleration, divide: a = F &divide; m."
+       "You multiplied the force by the mass (20 &times; 10). F = ma rearranges to a = F &divide; m, so divide: 20 &divide; 10."
       ]
      }
     ],
@@ -1769,22 +1767,22 @@
     "type": "mc",
     "skill": "Simple machines and mechanical advantage",
     "difficulty": 3,
-    "prompt": "<p>A mover needs to raise a crate that weighs 600 N onto a platform 1.0 m high. Instead of lifting it straight up, he pushes it up a ramp that is 4.0 m long. Assuming there is no friction, the work done pushing the crate up the ramp equals the work needed to lift it straight up. What force must the mover apply along the ramp?</p>",
+    "prompt": "<p>A mover needs to raise a crate that weighs 600 N onto a platform 1.2 m high. Instead of lifting it straight up, he pushes it up a ramp that is 4.8 m long. Assuming there is no friction, the work done pushing the crate up the ramp equals the work needed to lift it straight up. What force must the mover apply along the ramp?</p>",
     "options": [
      "150 N",
      "600 N",
-     "2,400 N",
-     "300 N"
+     "2,880 N",
+     "720 N"
     ],
     "answer": 0,
     "why": [
      "",
-     "600 N is the force to lift the crate straight up. The ramp spreads the same work over 4.0 m, so the force is smaller.",
-     "You multiplied the weight by the ramp length (600 &times; 4.0). A ramp <em>reduces</em> the force: divide the work by the length.",
-     "300 N assumes the ramp halves the force, like a movable pulley. This ramp's MA is length &divide; height = 4.0 &divide; 1.0 = 4."
+     "600 N is the force to lift the crate straight up. The ramp spreads the same work over 4.8 m, so the force is smaller.",
+     "You multiplied the weight by the ramp length (600 &times; 4.8). A ramp <em>reduces</em> the force: divide the work by the length.",
+     "720 is the work in joules (600 &times; 1.2), not the force. You still need to spread that work over the 4.8-m ramp: 720 &divide; 4.8."
     ],
-    "hint": "Work to lift straight up = 600 N &times; 1.0 m. The same work is done over 4.0 m along the ramp.",
-    "explain": "<p>Work to lift straight up: W = F &times; d = 600 N &times; 1.0 m = 600 J.</p><p>The same 600 J is done along the 4.0-m ramp: F &times; 4.0 m = 600 J, so F = 600 &divide; 4.0 = <strong>150 N</strong>.</p><p>The ramp's mechanical advantage is 600 N &divide; 150 N = 4 (also 4.0 m &divide; 1.0 m = 4). 600 N ignores the ramp's advantage. 2,400 N multiplies instead of divides; a ramp <em>reduces</em> the force needed, at the cost of a longer distance.</p>"
+    "hint": "Work to lift straight up = 600 N &times; 1.2 m. The same work is done over 4.8 m along the ramp.",
+    "explain": "<p>Work to lift straight up: W = F &times; d = 600 N &times; 1.2 m = 720 J.</p><p>The same 720 J is done along the 4.8-m ramp: F &times; 4.8 m = 720 J, so F = 720 &divide; 4.8 = <strong>150 N</strong>.</p><p>Check with MA: 4.8 m &divide; 1.2 m = 4, and 600 N &divide; 4 = 150 N. Stopping at 720 gives the work, not the force. 600 N ignores the ramp's advantage, and 2,880 N multiplies instead of divides; a ramp <em>reduces</em> the force needed, at the cost of a longer distance.</p>"
    },
    {
     "id": "PA13",
@@ -2058,7 +2056,7 @@
      "When a car turns sharply, a phone on the dashboard slides toward the outside of the turn.",
      "A loaded wheelbarrow needs a bigger push than an empty one to speed up at the same rate.",
      "A harder throw gives the same baseball a greater acceleration.",
-     "As water sprays forward from a fire hose, the hose pushes backward on the firefighter.",
+     "A fire hose pushes water forward, and the water pushes the hose backward.",
      "A walker pushes backward on the ground, and the ground pushes the walker forward."
     ],
     "bins": [
@@ -2363,7 +2361,6 @@
     "html": "<p>A subway train leaves a station on a straight section of track. The graph shows the train's speed every 10 seconds during its first minute of travel.</p>",
     "figure": {
      "type": "line",
-     "title": "Subway Train Speed",
      "xLabel": "Time (s)",
      "yLabel": "Speed (m/s)",
      "labels": [
@@ -2958,7 +2955,7 @@
   },
   {
    "term": "Momentum",
-   "def": "Mass in motion; p = m &times; v, in kg&middot;m/s. Total momentum is conserved in a collision.",
+   "def": "Mass in motion; p = m &times; v, in kg&middot;m/s. With no outside force, total momentum is conserved in a collision.",
    "example": "A 0.5-kg ball moving at 8 m/s has a momentum of 4 kg&middot;m/s."
   },
   {

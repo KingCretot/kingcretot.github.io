@@ -131,7 +131,7 @@ function figureHTML(f, opts){
 function sanitizeSVG(s){return String(s).replace(/<(script|foreignObject|image|a)\b[\s\S]*?<\/\1>/gi,'').replace(/\son\w+=("[^"]*"|'[^']*')/gi,'')}
 var PALETTE=['#0A1F3D','#C9A84C','#0047BA','#DB2F30','#1E7A46'];
 function chartSVG(f){
-  var W=560,H=320,L=60,R=20,T=f.title?34:14,B=f.xLabel?62:44;
+  var multi=f.series.length>1, W=560,H=320+(multi?22:0),L=60,R=20,T=(f.title?34:14)+(multi?24:0),B=f.xLabel?62:44;
   var vals=[];f.series.forEach(function(s){vals=vals.concat(s.values)});
   var max=Math.max.apply(null,vals.concat([0])),min=Math.min.apply(null,vals.concat([0]));
   var step=niceStep((max-min)/5||1); var top=Math.ceil(max/step)*step, bot=Math.floor(min/step)*step; if(top===bot)top=bot+step;
@@ -151,7 +151,7 @@ function chartSVG(f){
   }
   if (f.xLabel) s+='<text x="'+(L+pw/2)+'" y="'+(H-12)+'" text-anchor="middle" fill="#0A1F3D" font-weight="bold">'+esc(f.xLabel)+'</text>';
   if (f.yLabel) s+='<text transform="translate(14,'+(T+ph/2)+') rotate(-90)" text-anchor="middle" fill="#0A1F3D" font-weight="bold">'+esc(f.yLabel)+'</text>';
-  if (f.series.length>1){var lx=L+6;f.series.forEach(function(se,j){s+='<rect x="'+lx+'" y="'+(T+2)+'" width="12" height="12" fill="'+PALETTE[j%5]+'"/><text x="'+(lx+16)+'" y="'+(T+12)+'" fill="#333">'+esc(se.name)+'</text>';lx+=26+String(se.name).length*7})}
+  if (multi){var lx=L+6,ly=T-22;f.series.forEach(function(se,j){s+='<rect x="'+lx+'" y="'+ly+'" width="12" height="12" fill="'+PALETTE[j%5]+'"/><text x="'+(lx+16)+'" y="'+(ly+11)+'" fill="#333">'+esc(se.name)+'</text>';lx+=26+String(se.name).length*7})}
   return s+'</svg>';
 }
 function pieSVG(f){
