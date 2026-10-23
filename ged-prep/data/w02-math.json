@@ -176,7 +176,7 @@
      "ask": [
       "What does 1 inch represent on this map? (expected answer: 24 miles)"
      ],
-     "watch": "If a student gets 1.6 or 0.16, they set it up as 0.5/12 = x/3.75 (inches over miles, then miles over inches) or divided the wrong way. Point to the labels."
+     "watch": "If a student gets about 0.16, they set it up as 0.5/12 = x/3.75 (inches over miles on the left, miles over inches on the right). An answer of 1,440 or more means a number was multiplied instead of divided. Point to the labels and ask whether 3.75 inches should be more or less than 12 miles."
     }
    },
    {
@@ -196,7 +196,7 @@
       "In number 3, what is the unit rate? (expected answer: 28 miles per gallon)"
      ],
      "answer": "(1) 5 &nbsp; (2) 2 1/2 cups &nbsp; (3) 280 miles &nbsp; (4) 14 yards",
-     "watch": "Number 2: 5.5 cups means the student added 4 servings and 4 cups (additive thinking). Number 4: 126 means they multiplied 42 &times; 3 instead of dividing; ask whether there should be more yards or fewer yards than feet."
+     "watch": "Number 2: 5.5 cups means the student saw the servings go up by 4 and added 4 cups (additive thinking). Number 4: 126 means they multiplied 42 &times; 3 instead of dividing; ask whether there should be more yards or fewer yards than feet."
     }
    },
    {
@@ -228,7 +228,7 @@
       "Write 6% as a decimal. (expected answer: 0.06)",
       "What is 10% of 70? What is 5% of 70? (expected answer: 7; 3.5)"
      ],
-     "watch": "6% written as 0.6 is the most expensive mistake on this page; it makes every answer ten times too big. Insist on two places: 6% = 06. = 0.06."
+     "watch": "6% written as 0.6 is the most expensive mistake on this page; it makes every answer ten times too big. Insist on two places: the point starts after the 6 and moves two places left, so 6% = 0.06."
     }
    },
    {
@@ -2183,7 +2183,7 @@
     "answer": 0,
     "why": [
      "",
-     "$4.20 &divide; 12 = $0.35 per ounce, one cent more than the 16-ounce bottle's $0.34. Compute every unit price before choosing.",
+     "You may have estimated instead of computing; the 12-ounce and 16-ounce bottles are close. $4.20 &divide; 12 = $0.35 per ounce, one cent more than the 16-ounce bottle's $0.34.",
      "You may have picked the largest bottle. $7.20 &divide; 20 = $0.36 per ounce, which is more than $0.34.",
      "You may have picked the lowest shelf price. $2.96 &divide; 8 = $0.37 per ounce, the highest unit price of the four."
     ],
@@ -2434,11 +2434,11 @@
     "answer": 0,
     "why": [
      "",
-     "You may have picked the largest weekly pay. $680 &divide; 40 = $17.00 per hour, the lowest rate of the four.",
-     "$741 &divide; 39 = $19.00 per hour, which is 50 cents less than $19.50. More total pay does not mean a higher hourly rate.",
+     "You may have picked the job with the most hours. $680 &divide; 40 = $17.00 per hour, the lowest rate of the four.",
+     "You may have picked the largest weekly pay. $741 &divide; 39 = $19.00 per hour, which is 50 cents less than $19.50. More total pay does not mean a higher hourly rate.",
      "$399 &divide; 21 = $19.00 per hour. You may have assumed the fewest hours means the highest rate; compute each one."
     ],
-    "explain": "<p>Pay per hour = pay &divide; hours:</p><ul><li>$546 &divide; 28 = $19.50</li><li>$680 &divide; 40 = $17.00</li><li>$741 &divide; 39 = $19.00</li><li>$399 &divide; 21 = $19.00</li></ul><p>The highest hourly rate is <strong>$546 for 28 hours</strong> ($19.50 per hour). The $680 job pays the most per week but the least per hour.</p>"
+    "explain": "<p>Pay per hour = pay &divide; hours:</p><ul><li>$546 &divide; 28 = $19.50</li><li>$680 &divide; 40 = $17.00</li><li>$741 &divide; 39 = $19.00</li><li>$399 &divide; 21 = $19.00</li></ul><p>The highest hourly rate is <strong>$546 for 28 hours</strong> ($19.50 per hour). The $741 job pays the most per week and the $680 job has the most hours, but neither pays the most per hour; the $680 job actually pays the least per hour.</p>"
    },
    {
     "id": "XB3",
