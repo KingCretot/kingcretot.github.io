@@ -199,7 +199,7 @@
       "Which choice did you get, and what was your first line? (expected answer: C, 3x<sup>2</sup>; first line (3x<sup>2</sup>)<sup>3</sup> = 27x<sup>6</sup>)"
      ],
      "answer": "C (3x<sup>2</sup>). (3x<sup>2</sup>)<sup>3</sup> = 3<sup>3</sup>x<sup>6</sup> = 27x<sup>6</sup>; 27x<sup>6</sup> &divide; 9x<sup>4</sup> = 3x<sup>2</sup>. Plug-in check with x = 2: (3 &middot; 4)<sup>3</sup> &divide; (9 &middot; 16) = 1,728 &divide; 144 = 12, and 3 &middot; 2<sup>2</sup> = 12.",
-     "watch": "If the student picked A, B, or D, read the matching elimination step and have them find the exact line where their work left the correct path. Most adults pick A: they cube the variable part but only square, or double, the 3."
+     "watch": "If the student picked A, B, or D, read the matching elimination step and have them find the exact line where their work left the correct path. A is the most common trap: the student cubes the variable part but squares, or doubles, the 3 instead of cubing it."
     }
    },
    {
@@ -1374,7 +1374,7 @@
      }
     ],
     "hint": "A positive exponent of 4 means move the decimal point 4 places to the right.",
-    "explain": "<p>10<sup>4</sup> = 10,000, so 5.2 &times; 10<sup>4</sup> = 5.2 &times; 10,000.</p><p>Move the decimal point in 5.2 four places to the right, filling empty places with zeros:</p><p>5.2 &rarr; 52. &rarr; 520. &rarr; 5,200. &rarr; 52,000.</p><p>The population is <strong>52,000</strong> people.</p><p>A common mistake is to write 5.20000 or 520,000 by adding four zeros after the 2 instead of moving the decimal point four places.</p>"
+    "explain": "<p>10<sup>4</sup> = 10,000, so 5.2 &times; 10<sup>4</sup> = 5.2 &times; 10,000.</p><p>Move the decimal point in 5.2 four places to the right, filling empty places with zeros:</p><p>5.2 &rarr; 52. &rarr; 520. &rarr; 5,200. &rarr; 52,000.</p><p>The population is <strong>52,000</strong> people.</p><p>A common mistake is to write 520,000 by adding four zeros after 52 instead of moving the decimal point four places.</p>"
    },
    {
     "id": "PA04",
@@ -1467,7 +1467,7 @@
      "You mixed up both rules: you added the coefficients and multiplied the exponents. Multiply the coefficients (6) and add the exponents (7)."
     ],
     "hint": "Multiply the numbers in front. For the same base, add the exponents.",
-    "explain": "<p>Multiply the coefficients: 3 &times; 2 = 6.</p><p>Multiply the powers of x. The bases are the same, so add the exponents: x<sup>4</sup> &middot; x<sup>3</sup> = x<sup>4+3</sup> = x<sup>7</sup>.</p><p>The product is <strong>6x<sup>7</sup></strong>.</p><p>Check with x = 1: 3(1) &middot; 2(1) = 6, and 6(1)<sup>7</sup> = 6. Check with x = 2: 3(16) &middot; 2(8) = 48 &times; 16 = 768, and 6(2<sup>7</sup>) = 6 &times; 128 = 768.</p><p>The choice 6x<sup>12</sup> comes from multiplying the exponents instead of adding them. The choices with 5 come from adding the coefficients instead of multiplying.</p>"
+    "explain": "<p>Multiply the coefficients: 3 &times; 2 = 6.</p><p>Multiply the powers of x. The bases are the same, so add the exponents: x<sup>4</sup> &middot; x<sup>3</sup> = x<sup>4+3</sup> = x<sup>7</sup>.</p><p>The product is <strong>6x<sup>7</sup></strong>.</p><p>Check with x = 2 (not x = 1, because every power of 1 is 1): 3(16) &middot; 2(8) = 48 &times; 16 = 768, and 6(2<sup>7</sup>) = 6 &times; 128 = 768.</p><p>The choice 6x<sup>12</sup> comes from multiplying the exponents instead of adding them. The choices with 5 come from adding the coefficients instead of multiplying.</p>"
    },
    {
     "id": "PA07",
@@ -1567,7 +1567,7 @@
     "skill": "Comparing scientific notation",
     "difficulty": 2,
     "set": "A",
-    "prompt": "<p>The approximate widths of four cells are listed below, in meters. Drag each cell into its position so the cells are in order from <strong>smallest</strong> (1st) to <strong>largest</strong> (4th).</p>",
+    "prompt": "<p>The approximate sizes (length or diameter) of four cells are listed below, in meters. Drag each cell into its position so the cells are in order from <strong>smallest</strong> (1st) to <strong>largest</strong> (4th).</p>",
     "choices": [
      "Red blood cell: 8 × 10⁻⁶ m",
      "Human egg cell: 1.2 × 10⁻⁴ m",
@@ -1664,7 +1664,7 @@
      "You multiplied the widths (6 &times; 1.2 = 7.2 and &minus;5 + &minus;7 = &minus;12). Comparing how many times wider means divide."
     ],
     "hint": "&ldquo;How many times wider&rdquo; means divide the hair width by the virus width. Watch the signs when you subtract the exponents.",
-    "explain": "<p>Times wider = hair &divide; virus = (6 &times; 10<sup>&minus;5</sup>) &divide; (1.2 &times; 10<sup>&minus;7</sup>).</p><p>Front numbers: 6 &divide; 1.2 = 5.</p><p>Exponents: &minus;5 &minus; (&minus;7) = &minus;5 + 7 = 2.</p><p>The result is <strong>5 &times; 10<sup>2</sup></strong>, so the hair is about 500 times wider.</p><p>The tempting wrong answer, 5 &times; 10<sup>&minus;12</sup>, comes from subtracting &minus;7 as if it were +7. Subtracting a negative means adding.</p>"
+    "explain": "<p>Times wider = hair &divide; virus = (6 &times; 10<sup>&minus;5</sup>) &divide; (1.2 &times; 10<sup>&minus;7</sup>).</p><p>Front numbers: 6 &divide; 1.2 = 5.</p><p>Exponents: &minus;5 &minus; (&minus;7) = &minus;5 + 7 = 2.</p><p>The result is <strong>5 &times; 10<sup>2</sup></strong>, so the hair is about 500 times wider.</p><p>The tempting wrong answer, 5 &times; 10<sup>&minus;12</sup>, comes from adding the exponents (&minus;5 + &minus;7 = &minus;12), which is the same as subtracting 7 instead of &minus;7. Dividing subtracts the exponents, and subtracting a negative means adding.</p>"
    },
    {
     "id": "PA13",
@@ -2081,22 +2081,22 @@
     "skill": "Simplifying radicals",
     "difficulty": 2,
     "set": "B",
-    "prompt": "<p>Which expression is equal to &radic;72?</p>",
+    "prompt": "<p>Which expression is &radic;72 in simplest form?</p>",
     "options": [
      "6&radic;2",
      "36&radic;2",
      "9&radic;8",
-     "2&radic;6"
+     "2&radic;18"
     ],
     "answer": 0,
     "why": [
      "",
      "You pulled 36 out of the root without taking its square root. &radic;36 = 6. Check: (36&radic;2)<sup>2</sup> = 2,592, not 72.",
      "You split 72 as 9 &times; 8 and pulled out 9 without taking its root. &radic;9 = 3, and &radic;8 can still be simplified. Check: (9&radic;8)<sup>2</sup> = 648, not 72.",
-     "You may have simplified 72 &divide; 3 = 24 = 4 &times; 6 instead of 72. Check by squaring: (2&radic;6)<sup>2</sup> = 4 &times; 6 = 24, not 72."
+     "You used the perfect square 4: &radic;72 = 2&radic;18. That has the right value but is not finished, because 18 still has the perfect-square factor 9. Use the largest perfect square, 36."
     ],
     "hint": "Find the largest perfect square that divides 72.",
-    "explain": "<p>Look for the largest perfect square that is a factor of 72. The perfect squares 4, 9, and 36 all divide 72; the largest is 36.</p><p>72 = 36 &times; 2</p><p>&radic;72 = &radic;36 &times; &radic;2 = <strong>6&radic;2</strong></p><p>Check: (6&radic;2)<sup>2</sup> = 36 &times; 2 = 72.</p><p>The choice 36&radic;2 moves 36 outside without taking its square root; (36&radic;2)<sup>2</sup> = 2,592. The choice 9&radic;8 makes the same mistake with 9; (9&radic;8)<sup>2</sup> = 648. The choice 2&radic;6 squares to only 24.</p>"
+    "explain": "<p>Look for the largest perfect square that is a factor of 72. The perfect squares 4, 9, and 36 all divide 72; the largest is 36.</p><p>72 = 36 &times; 2</p><p>&radic;72 = &radic;36 &times; &radic;2 = <strong>6&radic;2</strong></p><p>Check: (6&radic;2)<sup>2</sup> = 36 &times; 2 = 72.</p><p>The choice 36&radic;2 moves 36 outside without taking its square root; (36&radic;2)<sup>2</sup> = 2,592. The choice 9&radic;8 makes the same mistake with 9; (9&radic;8)<sup>2</sup> = 648. The choice 2&radic;18 has the right value but is not in simplest form, because &radic;18 = 3&radic;2 can still be simplified.</p>"
    },
    {
     "id": "PB11",
@@ -2227,38 +2227,39 @@
     "skill": "Square roots in context",
     "difficulty": 3,
     "set": "B",
-    "prompt": "<p>Rosa is fencing a square vegetable garden that has an area of 75 square meters. The fence goes around the entire garden.</p><p>To the nearest tenth of a meter, how many meters of fencing does she need? You may use a calculator.</p>",
+    "prompt": "<p>After a crash on dry pavement, investigators can estimate a car&rsquo;s speed from its skid marks with the formula s = &radic;(24d), where s is the speed in miles per hour and d is the length of the skid marks in feet.</p><p>The skid marks are 90 feet long. To the nearest tenth, about how fast was the car going, in miles per hour? You may use a calculator.</p>",
     "answer": [
-     "34.6",
-     "34.64"
+     "46.5",
+     "46.48"
     ],
-    "value": 34.6,
+    "value": 46.5,
     "tol": 0.05,
-    "suffix": "meters",
+    "suffix": "miles per hour",
     "mistakes": [
      {
       "answer": [
-       "8.7",
-       "8.66"
+       "2160",
+       "2,160"
       ],
-      "why": "That is the length of one side (&radic;75 &asymp; 8.66 meters). The fence goes around all four sides: 4 &times; 8.66 &asymp; 34.6 meters."
+      "why": "You found 24 &times; 90 = 2,160 but did not take the square root. The formula is s = &radic;(24d), so the last step is &radic;2,160."
      },
      {
       "answer": [
-       "18.75",
-       "18.8"
+       "440.9",
+       "440.91"
       ],
-      "why": "You divided the area by 4. The area of a square is side &times; side, so the side is &radic;75, not 75 &divide; 4."
+      "why": "You took the square root of 24 only and then multiplied by 90. The root bar covers 24d, so multiply first: 24 &times; 90 = 2,160, then take the root."
      },
      {
       "answer": [
-       "300"
+       "10.7",
+       "10.68"
       ],
-      "why": "You multiplied the area by 4. Find the side length first with a square root: &radic;75 &asymp; 8.66 meters, then multiply by 4."
+      "why": "You added 24 + 90 = 114 under the root. 24d means 24 times d: 24 &times; 90 = 2,160."
      }
     ],
-    "hint": "Area of a square = side<sup>2</sup>. Find the side with a square root, then find the perimeter.",
-    "explain": "<p>The area of a square is side &times; side, so side = &radic;75.</p><p>Estimate first: 8<sup>2</sup> = 64 and 9<sup>2</sup> = 81, so the side is between 8 and 9 meters. A calculator gives &radic;75 &asymp; 8.660 meters.</p><p>Perimeter = 4 &times; side = 4 &times; 8.660 &asymp; 34.641, which rounds to <strong>34.6 meters</strong>.</p><p>The tempting wrong answer, 8.7, stops after finding one side. The fence goes around all four sides.</p>"
+    "hint": "The root bar groups 24d. Multiply under the root first, then take the square root, then round.",
+    "explain": "<p>Substitute d = 90: s = &radic;(24 &times; 90).</p><p>Grouping first (the root bar groups): 24 &times; 90 = 2,160, so s = &radic;2,160.</p><p>Estimate: 46<sup>2</sup> = 2,116 and 47<sup>2</sup> = 2,209, so s is between 46 and 47. A calculator gives &radic;2,160 &asymp; 46.476.</p><p>Rounded to the nearest tenth, the car was going about <strong>46.5 miles per hour</strong>.</p><p>The tempting wrong answer, 2,160, stops before taking the square root. Another common slip is taking the root of 24 alone (&radic;24 &times; 90 &asymp; 440.9), which ignores that the root bar covers the whole product.</p>"
    }
   ]
  },
@@ -2445,7 +2446,7 @@
     "skill": "Writing scientific notation",
     "difficulty": 2,
     "set": "A",
-    "prompt": "<p>A dust particle is about 0.000403 meter wide. In scientific notation, this is 4.03 &times; 10<sup>n</sup> meter.</p><p>What is the value of n?</p>",
+    "prompt": "<p>A grain of sand is about 0.000403 meter wide. In scientific notation, this is 4.03 &times; 10<sup>n</sup> meter.</p><p>What is the value of n?</p>",
     "answer": [
      "-4"
     ],
@@ -2480,7 +2481,7 @@
     "skill": "Scientific notation operations",
     "difficulty": 3,
     "set": "A",
-    "prompt": "<p>A sheet of printer paper is about 1 &times; 10<sup>&minus;4</sup> meter thick. A warehouse stacks 5 &times; 10<sup>5</sup> sheets in one tall pile.</p><p>About how tall is the pile?</p>",
+    "prompt": "<p>A sheet of printer paper is about 1 &times; 10<sup>&minus;4</sup> meter thick. Suppose 5 &times; 10<sup>5</sup> sheets were stacked in one pile.</p><p>About how tall would the pile be?</p>",
     "options": [
      "5 &times; 10<sup>1</sup> meters",
      "5 &times; 10<sup>&minus;1</sup> meters",
@@ -2735,22 +2736,22 @@
     "skill": "Scientific notation operations",
     "difficulty": 3,
     "set": "B",
-    "prompt": "<p>A national government spends about $1.8 &times; 10<sup>11</sup> per year on highways. The country has about 6 &times; 10<sup>7</sup> residents.</p><p>About how much highway spending is that per resident?</p>",
+    "prompt": "<p>A national government spends about $1.8 &times; 10<sup>10</sup> per year on highways. The country has about 6 &times; 10<sup>7</sup> residents.</p><p>About how much highway spending is that per resident?</p>",
     "options": [
+     "$3 &times; 10<sup>2</sup>",
      "$3 &times; 10<sup>3</sup>",
-     "$3 &times; 10<sup>4</sup>",
-     "$3.3 &times; 10<sup>&minus;4</sup>",
-     "$1.08 &times; 10<sup>19</sup>"
+     "$3.3 &times; 10<sup>&minus;3</sup>",
+     "$1.08 &times; 10<sup>18</sup>"
     ],
     "answer": 0,
     "why": [
      "",
-     "You changed 0.3 to 3 without adjusting the exponent. Making the front number 10 times bigger means making the exponent 1 smaller: 0.3 &times; 10<sup>4</sup> = 3 &times; 10<sup>3</sup>.",
+     "You changed 0.3 to 3 without adjusting the exponent. Making the front number 10 times bigger means making the exponent 1 smaller: 0.3 &times; 10<sup>3</sup> = 3 &times; 10<sup>2</sup>.",
      "You divided residents by dollars. &ldquo;Per resident&rdquo; means dollars &divide; residents, so the spending goes on top.",
      "You multiplied the two numbers. &ldquo;Per resident&rdquo; means divide the spending by the number of residents."
     ],
     "hint": "&ldquo;Per resident&rdquo; means divide the total by the number of residents. Then make the front number between 1 and 10.",
-    "explain": "<p>Per resident = (1.8 &times; 10<sup>11</sup>) &divide; (6 &times; 10<sup>7</sup>).</p><p>Front numbers: 1.8 &divide; 6 = 0.3. Exponents: 11 &minus; 7 = 4. So far: 0.3 &times; 10<sup>4</sup>.</p><p>Adjust: 0.3 &times; 10<sup>4</sup> = 3 &times; 10<sup>3</sup>, so about <strong>$3 &times; 10<sup>3</sup></strong>, or $3,000 per resident.</p><p>The tempting wrong answer, $3 &times; 10<sup>4</sup>, skips the adjustment of the exponent.</p>"
+    "explain": "<p>Per resident = (1.8 &times; 10<sup>10</sup>) &divide; (6 &times; 10<sup>7</sup>).</p><p>Front numbers: 1.8 &divide; 6 = 0.3. Exponents: 10 &minus; 7 = 3. So far: 0.3 &times; 10<sup>3</sup>.</p><p>Adjust: 0.3 &times; 10<sup>3</sup> = 3 &times; 10<sup>2</sup>, so about <strong>$3 &times; 10<sup>2</sup></strong>, or $300 per resident.</p><p>Check: 18,000,000,000 &divide; 60,000,000 = 300. The tempting wrong answer, $3 &times; 10<sup>3</sup>, skips the adjustment of the exponent.</p>"
    },
    {
     "id": "XB8",
