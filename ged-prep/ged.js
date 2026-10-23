@@ -292,7 +292,8 @@ function exprEval(src,v,xv){
   var out=expr(); if(i<s.length) throw 0; return out;
 }
 function exprTerms(src){var s=String(src).replace(/\s+/g,'').replace(/[\u2212\u2013]/g,'-'),d=0,n=1;for(var i=0;i<s.length;i++){var c=s[i];if(c==='(')d++;else if(c===')')d--;else if((c==='+'||c==='-')&&d===0&&i>0&&!/[+\-*\/^(]/.test(s[i-1]))n++}return n}
-function exprMatch(a,b,v){return exprEq(a,b,v)&&exprTerms(a)===exprTerms(b)&&(/\(/.test(String(a))===/\(/.test(String(b)))}
+function exprGroups(x){return /\([^()]*[^(\s+\-\u2212][\s]*[+\-\u2212]/.test(String(x))}
+function exprMatch(a,b,v){return exprEq(a,b,v)&&exprTerms(a)===exprTerms(b)&&exprGroups(a)===exprGroups(b)}
 function exprEq(a,b,v){try{return [-2.5,-1.3,0.7,1.9,3.2].every(function(x){var p=exprEval(a,v,x),q=exprEval(b,v,x);return isFinite(p)&&Math.abs(p-q)<1e-7*Math.max(1,Math.abs(q))})}catch(e){return false}}
 function answered(it,val){if(val==null||val==='')return false;if(it.type==='drag'||it.type==='dropdown')return Array.isArray(val)&&val.every(function(x){return x!=null});if(it.type==='multi')return Array.isArray(val)&&val.length===it.answer.length;return true}
 function ansText(it,val){
