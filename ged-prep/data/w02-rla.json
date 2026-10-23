@@ -244,7 +244,7 @@
    {
     "kind": "example",
     "title": "Name the trap",
-    "board": "<p>“The Westfield library added Saturday hours in March. Since then, the number of visitors on weekends has doubled, and the most crowded room is the one with public computers. A librarian said many visitors use the computers to apply for jobs.”</p><p><strong>What can be inferred?</strong> Name the trap in each wrong choice.</p><p>A. Many weekend visitors come to the library to use its computers.<br>B. Every Westfield resident now visits on Saturdays.<br>C. Libraries are a good place to read quietly.<br>D. The Saturday hours have attracted few visitors.</p>",
+    "board": "<p>“The Westfield library added Saturday hours in March. Since then, the number of visitors on weekends has doubled, and the most crowded room is the one with public computers. A librarian said many visitors use the computers to apply for jobs.”</p><p><strong>What can be inferred?</strong> Name the trap in each wrong choice.</p><p>A. Many visitors come to the library to use its computers.<br>B. Every Westfield resident now visits on Saturdays.<br>C. Libraries are a good place to read quietly.<br>D. The Saturday hours have attracted few visitors.</p>",
     "steps": [
      "B: <em>every</em> resident? Visits doubled; that is not everyone. <strong>Overreach.</strong>",
      "C: may be true in life, but the paragraph is about computers and jobs. <strong>Outside knowledge.</strong>",
@@ -312,7 +312,7 @@
     ],
     "notes": {
      "say": "<p>Three minutes on the timer. Ask the student to name which kind of character clue (says, does, thinks, others react) each inference comes from.</p>",
-     "answer": "<p>1. Ana was anxious about making the team, then relieved when her name was called. 2. The email held good news she is proud of; we cannot know exactly what the news was.</p>",
+     "answer": "<p>1. Ana was anxious about making the team, then relieved when the coach finished the list and she knew she had made it. 2. The email held good news she is proud of; we cannot know exactly what the news was.</p>",
      "watch": "<p>On problem 1, a student may say “Ana's name was last.” The text does not say that; it says she relaxed when the coach reached the last name. Accept “she made the team” and keep the inference at that level.</p>"
     }
    },
@@ -779,9 +779,9 @@
      "type": "dropdown",
      "skill": "Inference traps",
      "difficulty": 2,
-     "prompt": "<p>“In the two years since Oak Avenue got protected bike lanes, crashes on the street fell by 40 percent. Some shop owners worried about losing parking, but sales on the avenue have held steady.”</p><p>Question: What can be inferred about the bike lanes on Oak Avenue? Name the trap in each wrong answer.</p><p>“The bike lanes have made Oak Avenue the safest street in the city.” {{0}}</p><p>“The bike lanes have hurt sales at Oak Avenue shops.” {{1}}</p><p>“Biking to work is the healthiest way to commute.” {{2}}</p>",
+     "prompt": "<p>“In the two years since Oak Avenue got protected bike lanes, crashes on the street fell by 40 percent. Some shop owners worried about losing parking, but sales on the avenue have held steady.”</p><p>Question: What can be inferred about the bike lanes on Oak Avenue? Name the trap in each wrong answer.</p><p>“The bike lanes are the only reason crashes on Oak Avenue went down.” {{0}}</p><p>“The bike lanes have hurt sales at Oak Avenue shops.” {{1}}</p><p>“Biking to work is the healthiest way to commute.” {{2}}</p>",
      "hint": "Compare each choice with the text: Does it go too far, say the opposite, or bring in something the text never mentions?",
-     "explain": "<p><strong>Choice 1 is overreach:</strong> a 40 percent drop on one street does not show it is the safest street in the city; the text never compares it with other streets. <strong>Choice 2 is contradicted:</strong> the text says sales held steady. <strong>Choice 3 is outside knowledge:</strong> it may be true, but the paragraph says nothing about health.</p>",
+     "explain": "<p><strong>Choice 1 is overreach:</strong> the text links the lanes to a 40 percent drop in crashes, but it never says the lanes were the <em>only</em> reason. The extreme word “only” stretches a true clue too far. <strong>Choice 2 is contradicted:</strong> the text says sales held steady. <strong>Choice 3 is outside knowledge:</strong> it may be true, but the paragraph says nothing about health.</p>",
      "blanks": [
       {
        "options": [
@@ -793,9 +793,9 @@
        "answer": 0,
        "why": [
         "",
-        "This starts from a real fact in the text, the drop in crashes, and stretches it. Stretching a true clue too far is overreach, not outside knowledge.",
-        "The text never compares Oak Avenue with other streets, so it does not say the opposite. It simply does not go this far.",
-        "This is not a detail the text states. The text gives a 40 percent drop on one street; it says nothing about the rest of the city."
+        "This starts from a real clue in the text, the drop in crashes after the lanes went in, and stretches it with the extreme word “only.” Stretching a true clue too far is overreach; outside knowledge brings in facts the text never mentions.",
+        "The text never names any other cause, so it does not say the opposite. It simply does not go as far as “the only reason.”",
+        "This is not a detail the text states. The text says crashes fell after the lanes went in; it never says the lanes were the only cause."
        ]
       },
       {
@@ -1401,7 +1401,7 @@
       "why": [
        "",
        "This is contradicted. She is holding the store keys and has been told she opens on Saturdays.",
-       "This is distorted. The words had “stopped sounding like words,” but she does not need the speech because the job is already hers.",
+       "This misreads the story. The words had “stopped sounding like words,” but she does not need the speech because the job is already hers.",
        "This is not supported. Nothing suggests Delia knew about the speech or told Mr. Haddad anything about it."
       ]
      },
@@ -1603,7 +1603,7 @@
      "",
      "This is contradicted. Paragraph 1 says her tools would have cost more than $400, which is why she borrowed instead.",
      "This is not supported. The passage never describes what tools other towns have.",
-     "This is distorted. She says the tools are the easy part, not that the whole project is easy; the next lines name a harder part."
+     "This stretches her words too far. She says the tools are the easy part, not that the whole project is easy; the next lines name a harder part."
     ]
    },
    {
@@ -1767,7 +1767,7 @@
       "why": [
        "",
        "This is not supported. The company is <em>renting</em> the church lot for Monday; nothing says it had used it before or was asked to stop.",
-       "This is distorted. About 70 is the gap between 210 employees and 140 spaces, not a number of new hires.",
+       "This misreads the numbers. About 70 is the gap between 210 employees and 140 spaces, not a number of new hires.",
        "This is not supported. The four new lights are an improvement in the repaved lot; the notice never says old lights failed."
       ]
      },
@@ -2024,7 +2024,7 @@
     "why": [
      "",
      "",
-     "This is distorted. The $14,000 was money the fines <em>brought in</em>; ending them meant losing that income, not saving it.",
+     "This misreads the numbers. The $14,000 was money the fines <em>brought in</em>; ending them meant losing that income, not saving it.",
      "This is overreach. About 1,100 of about 2,300 blocked residents came back, which is fewer than half.",
      "This is outside knowledge. The passage is about one library and never discusses libraries across the country."
     ]
@@ -2098,7 +2098,7 @@
     "set": "A",
     "stim": "xs2",
     "prompt": "<p>Based on paragraph 1, how does Mina most likely feel when she sees her father in the audience?</p>",
-    "explain": "<p>Mina looks down “after” she finds her father and does not look up for the whole song. The clue about why comes in paragraph 2: “Next time you could change first.” His orange vest and dusty boots embarrassed her. The proud choice is the main trap, since he did come straight from work, but her actions show embarrassment, not pride.</p>",
+    "explain": "<p>Mina looks down right after she finds her father and does not look up for the whole song. The clue about why comes in paragraph 2: “Next time you could change first.” His orange vest and dusty boots embarrassed her. The proud choice is the main trap, since he did come straight from work, but her actions show embarrassment, not pride.</p>",
     "options": [
      "embarrassed by the way he is dressed",
      "angry that he arrived late to the show",
@@ -2367,8 +2367,8 @@
     "difficulty": 3,
     "set": "B",
     "stim": "xs4",
-    "prompt": "<p>Decide how each statement relates to the story.</p><p>“Ray drove the 6:10 bus for twenty-two years.” This is {{0}}.</p><p>“Mrs. Albee baked the cookies that morning.” This is {{1}}.</p><p>“Mrs. Albee is Ray's neighbor.” This is {{2}}.</p>",
-    "explain": "<p><strong>Blank 1:</strong> the first sentence says it in so many words, so it is stated. <strong>Blank 2:</strong> the story never says when she baked, but cookies “still warm” at the end of the morning route point to that morning: a reasonable inference. <strong>Blank 3:</strong> nothing tells where Ray lives, so it is not supported.</p>",
+    "prompt": "<p>Decide how each statement relates to the story.</p><p>“Ray drove the 6:10 bus for twenty-two years.” This is {{0}}.</p><p>“The cookies had been baked earlier that morning.” This is {{1}}.</p><p>“Mrs. Albee is Ray's neighbor.” This is {{2}}.</p>",
+    "explain": "<p><strong>Blank 1:</strong> the first sentence says it in so many words, so it is stated. <strong>Blank 2:</strong> the story never says when the cookies were baked, but cookies “still warm” at the end of the morning route point to that morning: a reasonable inference. <strong>Blank 3:</strong> nothing tells where Ray lives, so it is not supported.</p>",
     "blanks": [
      {
       "options": [
@@ -2391,7 +2391,7 @@
       ],
       "answer": 1,
       "why": [
-       "The story never says when she baked them. You figure it out from a clue.",
+       "The story never says when the cookies were baked. You figure it out from a clue.",
        "",
        "A clue does support this: the cookies are “still warm” when Ray opens the bag."
       ]
