@@ -390,3 +390,8 @@ footer b{color:var(--gold)}
   .lhint{order:3;flex-basis:100%}
 }
 @media print{.dots,.dfoot,.keytoc,.lnav{display:none}.kitem{border-color:#ccc}}
+
+/* compact masthead on inner pages */
+body.inner .mast{padding-top:12px}
+body.inner .mast h1{font-size:20px;margin:8px 0 10px}
+body.inner .mast .sub{display:none}

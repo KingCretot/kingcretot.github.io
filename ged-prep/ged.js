@@ -65,6 +65,7 @@ function route(){
   if (stopRunner){stopRunner();stopRunner=null}
   closeCalc(); document.body.classList.remove('testing');
   var h=(location.hash||'#home').slice(1).split('/');
+  document.body.classList.toggle('inner',!(h[0]==='home'||h[0]===''||h[0]==='intro'));
   window.scrollTo(0,0);
   if (h[0]==='home'||h[0]===''){renderNav('home');return renderHome()}
   if (h[0]==='intro'){renderNav('intro');app.innerHTML=$('#tpl-intro').innerHTML;return}
@@ -233,7 +234,7 @@ function bindItem(root, it, getVal, setVal){
       var chip=e.target.closest('.chip'), bin=e.target.closest('.bin,.chips');
       if (chip&&root.contains(chip)){
         var ci=+chip.dataset.c; var v=(getVal()||it.choices.map(function(){return null})).slice();
-        if (v[ci]!=null&&chip.closest('.bin')){v[ci]=null;setVal(v);picked=null;rerender();return}
+        if (v[ci]!=null&&chip.closest('.bin')){ if(picked!=null&&picked!==ci){v[picked]=+chip.closest('.bin').dataset.bin;picked=null;setVal(v);rerender();return} v[ci]=null;setVal(v);picked=null;rerender();return}
         picked=ci;$$('.chip',root).forEach(function(c){c.classList.toggle('picked',+c.dataset.c===ci)});$$('.bin',root).forEach(function(b){b.classList.add('ready')});return;
       }
       if (bin&&picked!=null&&bin.classList.contains('bin')){var v2=(getVal()||it.choices.map(function(){return null})).slice();v2[picked]=+bin.dataset.bin;picked=null;setVal(v2);rerender()}
@@ -246,7 +247,7 @@ function bindItem(root, it, getVal, setVal){
   }
 }
 /* ---------- scoring ---------- */
-function normFill(s){return String(s==null?'':s).toLowerCase().replace(/[\u2212\u2013]/g,'-').replace(/\s+/g,'').replace(/[$,]/g,'').replace(/(dollars?|units?|feet|ft|inches|in|cm|meters|m|percent|%|degrees|°)$/,'')}
+function normFill(s){return String(s==null?'':s).toLowerCase().replace(/[\u2212\u2013]/g,'-').trim().replace(/(\d)\s+(\d+\/\d+)/g,'$1_$2').replace(/\s+/g,'').replace(/[$,]/g,'').replace(/(dollars?|units?|feet|ft|inches|in|cm|meters|m|percent|%|degrees|°)$/,'')}
 function parseNum(raw){var mm=String(raw).trim().replace(/[\u2212\u2013]/g,'-').match(/^(-?)(\d+)\s+(\d+)\/(\d+)$/);if(mm){var v0=+mm[2]+mm[3]/mm[4];return mm[1]?-v0:v0}var s=normFill(raw);if(/^-?\d+\/\d+$/.test(s)){var p=s.split('/');return p[0]/p[1]}if(/^-?\d+\s*\d+\/\d+$/.test(s))return NaN;var v=Number(s.replace('−','-'));return s===''?NaN:v}
 function scoreItem(it,val){
   if (val==null||val==='') return false;
