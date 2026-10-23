@@ -276,7 +276,7 @@ function scoreItem(it,val){
 }
 /* algebraic expression equivalence for fill items with "expr" (e.g., "5x-7") */
 function exprEval(src,v,xv){
-  var s=String(src).toLowerCase().replace(/\s+/g,'').replace(/[−–]/g,'-').replace(/×|\*/g,'*').replace(/÷/g,'/').replace(/²/g,'^2').replace(/³/g,'^3'),i=0;
+  var s=String(src).toLowerCase().replace(/\s+/g,'').replace(/^[a-z]=/,function(m){return m[0]===v?m:''}).replace(/\u00bd/g,'(1/2)').replace(/\u00bc/g,'(1/4)').replace(/\u00be/g,'(3/4)').replace(/[−–]/g,'-').replace(/×|\*/g,'*').replace(/÷/g,'/').replace(/²/g,'^2').replace(/³/g,'^3'),i=0;
   if (!s||/[^0-9a-z.+\-*/^()]/.test(s)) throw 0;
   var letters=s.replace(/[^a-z]/g,''); if (letters&&letters.split('').some(function(c){return c!==v})) throw 0;
   function peek(){return s[i]}
@@ -292,7 +292,8 @@ function exprEval(src,v,xv){
 }
 function exprTerms(src){var s=String(src).replace(/\s+/g,'').replace(/[\u2212\u2013]/g,'-'),d=0,n=1;for(var i=0;i<s.length;i++){var c=s[i];if(c==='(')d++;else if(c===')')d--;else if((c==='+'||c==='-')&&d===0&&i>0&&!/[+\-*\/^(]/.test(s[i-1]))n++}return n}
 function exprGroups(x){return /\([^()]*[^(\s+\-\u2212][\s]*[+\-\u2212]/.test(String(x))}
-function exprMatch(a,b,v){return exprEq(a,b,v)&&exprTerms(a)===exprTerms(b)&&exprGroups(a)===exprGroups(b)}
+function exprNorm(x,v){return String(x).toLowerCase().replace(/\s+/g,'').replace(/^[a-z]=/,function(m){return m[0]===v?m:''}).replace(/\u00bd/g,'(1/2)').replace(/\u00bc/g,'(1/4)').replace(/\u00be/g,'(3/4)')}
+function exprMatch(a,b,v){a=exprNorm(a,v);b=exprNorm(b,v);return exprEq(a,b,v)&&exprTerms(a)===exprTerms(b)&&exprGroups(a.replace(/\((\d+\/\d+)\)/g,'$1'))===exprGroups(b.replace(/\((\d+\/\d+)\)/g,'$1'))}
 function exprEq(a,b,v){try{return [-2.5,-1.3,0.7,1.9,3.2].every(function(x){var p=exprEval(a,v,x),q=exprEval(b,v,x);return isFinite(p)&&Math.abs(p-q)<1e-7*Math.max(1,Math.abs(q))})}catch(e){return false}}
 function answered(it,val){if(val==null||val==='')return false;if(it.type==='drag'||it.type==='dropdown')return Array.isArray(val)&&val.every(function(x){return x!=null});if(it.type==='multi')return Array.isArray(val)&&val.length===it.answer.length;return true}
 function ansText(it,val){
