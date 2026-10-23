@@ -42,7 +42,7 @@ function load(name){
   return fetch('data/'+name+'.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(d){cache[name]=d;return d});
 }
 function pad(n){return (n<10?'0':'')+n}
-function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function esc(s){return String(s==null?'':s).replace(/<\/?(em|strong|i|b|sub|sup)>/gi,'').replace(/&(?!(?:[a-z]+|#\d+);)|[<>"]/gi,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function txt(html){var d=document.createElement('div');d.innerHTML=String(html||'').replace(/<br\s*\/?>/g,' ').replace(/<\/(p|li|tr|h3|h4|div)>/g,' $& ');return d.textContent.replace(/\s+/g,' ').trim()}
 function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
 function shuffled(n,seed){var a=[];for(var i=0;i<n;i++)a.push(i);var x=hash(seed)||1;for(var j=n-1;j>0;j--){x^=x<<13;x>>>=0;x^=x>>17;x^=x<<5;x>>>=0;var k=x%(j+1);var t=a[j];a[j]=a[k];a[k]=t}return a}
