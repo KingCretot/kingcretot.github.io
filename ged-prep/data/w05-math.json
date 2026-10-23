@@ -198,7 +198,7 @@
     "board": "<ul><li><strong>Radius (r):</strong> center to edge</li><li><strong>Diameter (d):</strong> all the way across through the center; d = 2r, r = d &divide; 2</li><li><strong>Circumference</strong> (distance around): C = &pi;d = 2&pi;r</li><li><strong>Area:</strong> A = &pi;r<sup>2</sup>; square the <strong>radius</strong> first</li><li><strong>&pi; &asymp; 3.14</strong>. The question says &ldquo;use 3.14&rdquo; or &ldquo;use the &pi; key&rdquo; and how to round. Do exactly that.</li></ul>",
     "figure": {
      "type": "svg",
-     "svg": "<svg viewBox='0 0 300 185' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='75' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='100' r='3' fill='none' stroke='#0A1F3D' stroke-width='2'/><line x1='75' y1='100' x2='225' y2='100' stroke='#0A1F3D' stroke-width='1.5'/><text x='112.5' y='92' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter d</text><line x1='150' y1='100' x2='195.0' y2='160.0' stroke='#0A1F3D' stroke-width='1.5'/><text x='183.8' y='130.0' font-size='14' fill='#0A1F3D' text-anchor='start'>radius r</text></svg>",
+     "svg": "<svg viewBox='0 0 300 185' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='75' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='100' r='3' fill='none' stroke='#0A1F3D' stroke-width='2'/><line x1='75' y1='100' x2='225' y2='100' stroke='#0A1F3D' stroke-width='1.5'/><text x='112.5' y='92' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter d</text><line x1='150' y1='100' x2='195.0' y2='160.0' stroke='#0A1F3D' stroke-width='1.5'/><text x='168.5' y='146.5' font-size='14' fill='#0A1F3D' text-anchor='end'>radius r</text></svg>",
      "alt": "A circle with its center marked. A diameter crosses the whole circle through the center; a radius runs from the center to the edge."
     },
     "notes": {
@@ -477,12 +477,12 @@
       [
        1,
        2,
-       "P"
+       "(1, 2)"
       ],
       [
        7,
        10,
-       "Q"
+       "(7, 10)"
       ],
       [
        7,
@@ -902,7 +902,7 @@
     "html": "<p>The <strong>radius</strong> (r) goes from the center of a circle to its edge. The <strong>diameter</strong> (d) goes all the way across through the center, so d = 2r and r = d &divide; 2.</p><p>The distance around a circle is its <strong>circumference</strong>. For every circle, the circumference divided by the diameter is the same number, <strong>&pi;</strong> (pi), about 3.14.</p><div class=\"box\"><p><strong>C = &pi;d</strong> or <strong>C = 2&pi;r</strong> (the same thing, because 2r = d)</p></div><p>Circumference is a length, so its units are plain units: inches, feet, meters.</p>",
     "figure": {
      "type": "svg",
-     "svg": "<svg viewBox='0 0 300 185' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='75' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='100' r='3' fill='none' stroke='#0A1F3D' stroke-width='2'/><line x1='75' y1='100' x2='225' y2='100' stroke='#0A1F3D' stroke-width='1.5'/><text x='112.5' y='92' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter d</text><line x1='150' y1='100' x2='195.0' y2='160.0' stroke='#0A1F3D' stroke-width='1.5'/><text x='183.8' y='130.0' font-size='14' fill='#0A1F3D' text-anchor='start'>radius r</text></svg>",
+     "svg": "<svg viewBox='0 0 300 185' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='75' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='100' r='3' fill='none' stroke='#0A1F3D' stroke-width='2'/><line x1='75' y1='100' x2='225' y2='100' stroke='#0A1F3D' stroke-width='1.5'/><text x='112.5' y='92' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter d</text><line x1='150' y1='100' x2='195.0' y2='160.0' stroke='#0A1F3D' stroke-width='1.5'/><text x='168.5' y='146.5' font-size='14' fill='#0A1F3D' text-anchor='end'>radius r</text></svg>",
      "alt": "A circle with its center marked. A diameter crosses the whole circle through the center; a radius runs from the center to the edge."
     },
     "example": {
@@ -1422,12 +1422,12 @@
        [
         1,
         2,
-        "P"
+        "(1, 2)"
        ],
        [
         7,
         10,
-        "Q"
+        "(7, 10)"
        ],
        [
         7,
@@ -2056,7 +2056,7 @@
      }
     ],
     "hint": "Ribbon goes around the edge. Add all four sides.",
-    "explain": "<p>Ribbon goes around, so find the perimeter.</p><p>P = 2(24) + 2(18) = 48 + 36 = <strong>84 inches</strong></p><p>432 is the area of the frame, which answers a different question.</p>"
+    "explain": "<p>Ribbon goes around, so find the perimeter.</p><p>P = 2(24) + 2(18) = 48 + 36 = <strong>84 inches</strong></p><p>432 is the area of the frame, which solves a different problem.</p>"
    },
    {
     "id": "PB02",
