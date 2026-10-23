@@ -134,7 +134,7 @@ function chartSVG(f){
   var multi=f.series.length>1, W=560,H=320+(multi?22:0),L=60,R=20,T=(f.title?34:14)+(multi?24:0),B=f.xLabel?62:44;
   var vals=[];f.series.forEach(function(s){vals=vals.concat(s.values)});
   var max=Math.max.apply(null,vals.concat([0])),min=Math.min.apply(null,vals.concat([0]));
-  var step=niceStep((max-min)/5||1); var top=Math.ceil(max/step)*step, bot=Math.floor(min/step)*step; if(top===bot)top=bot+step; var labeled=(f.type==='bar'&&f.series.length===1)||(f.type==='line'&&((f.series.length===1&&f.pointLabels!==false)||f.pointLabels===true)); if(labeled&&max>top-step*0.2)top+=step;
+  var step=niceStep((max-min)/5||1); var top=Math.ceil(max/step)*step, bot=Math.floor(min/step)*step; if(top===bot)top=bot+step; var labeled=(f.type==='bar'&&(f.series.length===1||f.pointLabels===true))||(f.type==='line'&&((f.series.length===1&&f.pointLabels!==false)||f.pointLabels===true)); if(labeled&&max>top-step*0.2)top+=step;
   var pw=W-L-R, ph=H-T-B, n=f.labels.length;
   function y(v){return T+ph-(v-bot)/(top-bot)*ph}
   var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="'+NS+'" font-family="Arial" font-size="13" role="img" aria-label="'+esc(f.title||'chart')+'">';
@@ -145,7 +145,7 @@ function chartSVG(f){
   f.labels.forEach(function(lb,i){var cx=L+bw*i+bw/2; s+='<text x="'+cx+'" y="'+(T+ph+18)+'" text-anchor="middle" fill="#333">'+esc(lb)+'</text>'});
   if (f.type==='bar'){
     var k=f.series.length, gw=bw*0.72, w1=gw/k;
-    f.series.forEach(function(se,j){se.values.forEach(function(v,i){var x=L+bw*i+(bw-gw)/2+w1*j, y0=y(Math.max(bot,0)), y1=y(v); s+='<rect x="'+x+'" y="'+Math.min(y0,y1)+'" width="'+(w1-2)+'" height="'+Math.abs(y0-y1)+'" fill="'+PALETTE[j%5]+'"/>'; if(k===1) s+='<text x="'+(x+w1/2-1)+'" y="'+(Math.min(y0,y1)-4)+'" text-anchor="middle" font-size="12" fill="#0A1F3D">'+fmt(v)+'</text>'})});
+    f.series.forEach(function(se,j){se.values.forEach(function(v,i){var x=L+bw*i+(bw-gw)/2+w1*j, y0=y(Math.max(bot,0)), y1=y(v); s+='<rect x="'+x+'" y="'+Math.min(y0,y1)+'" width="'+(w1-2)+'" height="'+Math.abs(y0-y1)+'" fill="'+PALETTE[j%5]+'"/>'; if(k===1||f.pointLabels===true) s+='<text x="'+(x+w1/2-1)+'" y="'+(Math.min(y0,y1)-4)+'" text-anchor="middle" font-size="12" fill="#0A1F3D">'+fmt(v)+'</text>'})});
   } else {
     f.series.forEach(function(se,j){var pts=se.values.map(function(v,i){return (L+bw*i+bw/2)+','+y(v)}).join(' ');s+='<polyline points="'+pts+'" fill="none" stroke="'+PALETTE[j%5]+'" stroke-width="2.5"/>';se.values.forEach(function(v,i){s+='<circle cx="'+(L+bw*i+bw/2)+'" cy="'+y(v)+'" r="3.5" fill="'+PALETTE[j%5]+'"/>';if((f.series.length===1&&f.pointLabels!==false)||f.pointLabels===true)s+='<text x="'+(L+bw*i+bw/2)+'" y="'+(y(v)-8)+'" text-anchor="middle" font-size="12" fill="#0A1F3D">'+fmt(v)+'</text>'})});
   }

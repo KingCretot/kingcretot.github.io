@@ -43,7 +43,7 @@
       "On number 5, which x-value causes the problem? (expected answer: x = 1 is paired with two different y-values)"
      ],
      "answer": "(1) (11 &minus; 2)/(4 &minus; 1) = 9/3 = 3 &nbsp; (2) 7, the point (0, 7) &nbsp; (3) (&minus;2)<sup>2</sup> &minus; 3(&minus;2) = 4 + 6 = 10 &nbsp; (4) y = 4x &minus; 3 &nbsp; (5) No; the input 1 has two outputs, 2 and 7.",
-     "watch": "Number 3 is the warm-up that matters most for today. If the student gets 2, they wrote (&minus;2)<sup>2</sup> as &minus;4 (&minus;4 + 6 = 2). If they get &minus;2 or &minus;10, the sign on &minus;3(&minus;2) was lost as well. Fix it now: put the negative number in parentheses, (&minus;2)<sup>2</sup> = 4. That same habit prevents sign errors in the quadratic formula later."
+     "watch": "Number 3 is the warm-up that matters most for today. If the student gets 2, they wrote (&minus;2)<sup>2</sup> as &minus;4 (&minus;4 + 6 = 2). If they get &minus;2, they wrote &minus;3(&minus;2) as &minus;6 (4 &minus; 6 = &minus;2); &minus;10 means both slips happened (&minus;4 &minus; 6). Fix it now: put the negative number in parentheses, (&minus;2)<sup>2</sup> = 4. That same habit prevents sign errors in the quadratic formula later."
     }
    },
    {
@@ -657,10 +657,11 @@
      "type": "fill",
      "skill": "Standard form",
      "difficulty": 1,
-     "prompt": "<p>Write x(x + 3) = 10 in standard form, ax<sup>2</sup> + bx + c = 0. Type the expression that goes on the left side of \"= 0\".</p><p>Type x&#94;2 for x squared, like this: x&#94;2 + 5x &minus; 2.</p>",
+     "prompt": "<p>Write x(x + 3) = 10 in standard form, ax<sup>2</sup> + bx + c = 0, by multiplying out and moving every term to the <strong>left</strong> side. Type the expression that goes on the left side of &ldquo;= 0&rdquo;.</p><p>Type x&#94;2 for x squared, like this: x&#94;2 + 5x &minus; 2.</p>",
      "answer": [
       "x^2+3x-10",
-      "3x+x^2-10"
+      "3x+x^2-10",
+      "-10+3x+x^2"
      ],
      "expr": "x^2+3x-10",
      "mistakes": [
@@ -680,7 +681,19 @@
        "answer": [
         "x^2-7"
        ],
-       "why": "You multiplied only the first term by x, getting x<sup>2</sup> + 3. Distribute x to both terms: x(x + 3) = x<sup>2</sup> + 3x. Then subtract 10."
+       "why": "You multiplied only the first term by x, so x(x + 3) became x<sup>2</sup> + 3, and subtracting 10 gave x<sup>2</sup> &minus; 7. Distribute x to both terms: x(x + 3) = x<sup>2</sup> + 3x. Then subtract 10."
+      },
+      {
+       "answer": [
+        "x(x+3)-10"
+       ],
+       "why": "Your expression is equivalent, but it is not in standard form yet. Standard form is fully multiplied out into the three terms ax<sup>2</sup> + bx + c: x(x + 3) &minus; 10 = x<sup>2</sup> + 3x &minus; 10."
+      },
+      {
+       "answer": [
+        "-x^2-3x+10"
+       ],
+       "why": "You moved the terms to the right side instead of the left (0 = 10 &minus; x<sup>2</sup> &minus; 3x). That equation is true, but this question asks you to move every term to the left side: x<sup>2</sup> + 3x &minus; 10."
       }
      ],
      "hint": "Multiply out x(x + 3) first. Then subtract 10 from both sides so the right side is 0.",
@@ -1476,7 +1489,7 @@
      "answer": 0,
      "why": [
       "",
-      "The quadratic formula is printed on the formula sheet, along with the standard form ax<sup>2</sup> + bx + c = 0. The vertex formula is not.",
+      "The quadratic formula is printed on the formula sheet, along with the standard form of a quadratic, y = ax<sup>2</sup> + bx + c. The vertex formula is not.",
       "The Pythagorean theorem, a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>, is printed on the formula sheet. The vertex formula is not.",
       "The slope formula, along with slope-intercept and point-slope form, is printed on the formula sheet. The vertex formula is not."
      ],
@@ -1961,7 +1974,7 @@
     "answer": 0,
     "why": [
      "",
-     "You set the factor 3x equal to 3. Set it equal to 0: 3x = 0 gives x = 0.",
+     "You read the 3 in the factor 3x as a solution. Set that factor equal to 0 instead: 3x = 0 gives x = 0.",
      "You ignored the factor 3x. It is a factor too, and 3x = 0 gives a second solution, x = 0.",
      "You made a sign slip on the second factor. x &minus; 5 = 0 gives x = +5."
     ],
@@ -2176,16 +2189,16 @@
    {
     "id": "PB09",
     "type": "multi",
-    "skill": "Probability (review)",
+    "skill": "Measures of center and spread (review)",
     "difficulty": 2,
     "set": "B",
-    "prompt": "<p>A bag holds 5 red marbles, 3 blue marbles, and 2 green marbles. One marble is drawn at random.</p><p>Which statements are true? Select <strong>two</strong> answers.</p>",
+    "prompt": "<p>A part-time employee recorded the hours she worked in each of six weeks:</p><p>22, 25, 25, 30, 31, 35</p><p>Which statements about the data are true? Select <strong>two</strong> answers.</p>",
     "options": [
-     "The probability of red is 1/2.",
-     "The probability of not blue is 7/10.",
-     "The probability of green is 1/4.",
-     "The probability of blue is 3/7.",
-     "The probability of red or green is 1/2."
+     "The mode is 25.",
+     "The range is 13.",
+     "The median is 25.",
+     "The mean is 33.6.",
+     "The mean is 25."
     ],
     "answer": [
      0,
@@ -2194,12 +2207,12 @@
     "why": [
      "",
      "",
-     "You compared green with the other marbles (2 to 8). Probability compares favorable outcomes with all 10 marbles: 2/10 = 1/5.",
-     "You compared blue with the non-blue marbles (3 to 7). Divide by the total of 10: 3/10.",
-     "You counted only the red marbles. Red or green includes 5 + 2 = 7 marbles, so the probability is 7/10."
+     "You used only the third value. With six values, the median is the average of the two middle values, the 3rd and 4th: (25 + 30) &divide; 2 = 27.5.",
+     "You divided the sum, 168, by 5 instead of 6. There are six weeks of data, so the mean is 168 &divide; 6 = 28.",
+     "25 is the mode, the value that appears most often. The mean is the sum divided by the count: 168 &divide; 6 = 28."
     ],
-    "hint": "Probability = favorable outcomes &divide; total outcomes. There are 10 marbles in all.",
-    "explain": "<p>Total marbles: 5 + 3 + 2 = 10.</p><p><strong>Red:</strong> 5/10 = 1/2. True.</p><p><strong>Not blue:</strong> 10 &minus; 3 = 7, so 7/10. True.</p><p><strong>Green:</strong> 2/10 = 1/5, not 1/4.</p><p><strong>Blue:</strong> 3/10, not 3/7.</p><p><strong>Red or green:</strong> 7/10, not 1/2.</p><p>The true statements are <strong>the probability of red is 1/2</strong> and <strong>the probability of not blue is 7/10</strong>. The false ones divide by the wrong total.</p>"
+    "hint": "Mode = most frequent value; range = greatest &minus; least. With an even number of values, the median is the average of the two middle values.",
+    "explain": "<p><strong>Mode:</strong> 25 appears twice and every other value once, so the mode is 25. True.</p><p><strong>Range:</strong> 35 &minus; 22 = 13. True.</p><p><strong>Median:</strong> the two middle values are 25 and 30, so the median is (25 + 30) &divide; 2 = 27.5, not 25.</p><p><strong>Mean:</strong> 22 + 25 + 25 + 30 + 31 + 35 = 168, and 168 &divide; 6 = 28. A mean of 33.6 comes from dividing by 5; a mean of 25 confuses the mean with the mode.</p><p>The true statements are <strong>the mode is 25</strong> and <strong>the range is 13</strong>.</p>"
    },
    {
     "id": "PB10",
