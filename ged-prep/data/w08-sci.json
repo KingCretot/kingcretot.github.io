@@ -454,6 +454,7 @@
     "board": "<p>The graph shows a runner's speed during a short race.</p><p><strong>Which statement best describes the runner's motion from 4 s to 8 s?</strong></p><p>A. The runner is stopped, because the line is flat.<br>B. The runner moves at a constant speed of 8 m/s.<br>C. The runner speeds up by 8 m/s every second.<br>D. The runner is slowing down to finish the race.</p>",
     "figure": {
      "type": "line",
+     "title": "Runner's Speed",
      "xLabel": "Time (s)",
      "yLabel": "Speed (m/s)",
      "labels": [
@@ -476,7 +477,8 @@
         4
        ]
       }
-     ]
+     ],
+     "pointLabels": false
     },
     "steps": [
      "<strong>A is out.</strong> Flat means stopped only on a <em>distance</em>-time graph. This y-axis is speed, and the speed is 8 m/s, not 0.",
@@ -766,6 +768,7 @@
     "html": "<p>A <strong>speed-time graph</strong> puts speed on the y-axis. The same shapes mean <em>different</em> things here:</p><ul><li><strong>Flat line:</strong> the speed is not changing, so the object moves at a <strong>constant speed</strong>. (Only a flat line <em>at 0</em> means stopped.)</li><li><strong>Sloping up:</strong> <strong>speeding up</strong>.</li><li><strong>Sloping down:</strong> <strong>slowing down</strong>.</li></ul><p>The slope of a speed-time graph is the <strong>acceleration</strong>. Always read the y-axis label before you decide what a flat line means.</p><p>The graph below shows the speed of an elevator moving between floors.</p>",
     "figure": {
      "type": "line",
+     "title": "Elevator Speed",
      "xLabel": "Time (s)",
      "yLabel": "Speed (m/s)",
      "labels": [
@@ -790,7 +793,8 @@
         0
        ]
       }
-     ]
+     ],
+     "pointLabels": false
     },
     "check": {
      "id": "L06",
@@ -2361,6 +2365,7 @@
     "html": "<p>A subway train leaves a station on a straight section of track. The graph shows the train's speed every 10 seconds during its first minute of travel.</p>",
     "figure": {
      "type": "line",
+     "title": "Subway Train Speed",
      "xLabel": "Time (s)",
      "yLabel": "Speed (m/s)",
      "labels": [
@@ -2385,7 +2390,8 @@
         15
        ]
       }
-     ]
+     ],
+     "pointLabels": false
     }
    },
    {

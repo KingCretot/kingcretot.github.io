@@ -467,16 +467,16 @@
      "explain": "<p>The prompt asks which position is <em>best supported</em>. “I believe the city should build the ballpark” responds to a different question: what the student wants. The reason, “baseball brings people together,” comes from the student, not from either passage. The most tempting wrong answer says to stay neutral, but the essay must pick a side; it just has to pick it based on the evidence.</p>",
      "options": [
       "It argues the student's own view of the issue instead of judging which author better supports a position.",
-      "It agrees with the author who supports the proposal, and GED scorers expect writers to side against new proposals.",
+      "It takes a side, but a GED response should stay neutral and avoid choosing either author's position.",
       "It is too short, because a GED opening sentence must list at least four separate reasons from the passages.",
-      "It takes a side, but a GED response should stay neutral and avoid choosing either author's position."
+      "It agrees with the author who supports the proposal, and GED scorers expect writers to side against new proposals."
      ],
      "answer": 0,
      "why": [
       "",
-      "Scorers do not prefer either side. Either position can earn full credit if the essay proves it is better supported. The real problem is that the sentence gives the student's opinion of baseball.",
+      "The response must choose a side; the prompt asks which position is best supported. What it must avoid is choosing based on personal opinion.",
       "There is no rule about the number of reasons in an opening sentence. The problem is what kind of reason it gives: a personal belief, not evidence from the passages.",
-      "The response must choose a side; the prompt asks which position is best supported. What it must avoid is choosing based on personal opinion."
+      "Scorers do not prefer either side. Either position can earn full credit if the essay proves it is better supported. The real problem is that the sentence gives the student's opinion of baseball."
      ]
     }
    },
@@ -492,12 +492,12 @@
      "hint": "Ask: is this about my reasoning (Trait 1), the shape and tone of my essay (Trait 2), or my sentences (Trait 3)?",
      "explain": "<p><strong>Trait 1</strong> is about the argument: a clear position and evidence from both passages with an explanation. <strong>Trait 2</strong> is about structure and style: introduction, body, conclusion, and a formal tone. <strong>Trait 3</strong> is about sentence-level correctness: grammar, spelling, punctuation, and complete sentences.</p>",
      "choices": [
-      "Takes a clear position on which argument is better supported",
-      "Uses specific evidence from both passages and explains why it is strong or weak",
-      "Organizes the essay into an introduction, body paragraphs, and a conclusion",
-      "Keeps a formal, serious tone from start to finish",
+      "Writes clear sentences with no run-ons or fragments",
       "Uses correct grammar, spelling, capitalization, and punctuation",
-      "Writes clear sentences with no run-ons or fragments"
+      "Keeps a formal, serious tone from start to finish",
+      "Organizes the essay into an introduction, body paragraphs, and a conclusion",
+      "Takes a clear position on which argument is better supported",
+      "Uses specific evidence from both passages and explains why it is strong or weak"
      ],
      "bins": [
       "Trait 1: argument and evidence",
@@ -505,12 +505,12 @@
       "Trait 3: clarity and conventions"
      ],
      "answer": [
-      0,
-      0,
-      1,
-      1,
       2,
-      2
+      2,
+      1,
+      1,
+      0,
+      0
      ],
      "why": "The most common mistake is putting “explains why evidence is strong or weak” under Trait 2 because it sounds like developing ideas. Judging the evidence is the heart of the argument, so it belongs to Trait 1. Students also put “formal tone” under Trait 3; tone is part of Trait 2."
     }
@@ -616,27 +616,27 @@
      "blanks": [
       {
        "options": [
-        "a slippery slope",
+        "a hasty generalization",
         "a bandwagon appeal",
+        "a slippery slope"
+       ],
+       "answer": 2,
+       "why": [
+        "A hasty generalization draws a rule from too few examples. This statement predicts that one step will lead to an extreme result, which is a slippery slope.",
+        "A bandwagon appeal points to how many people support something. This statement predicts a chain of events with no proof that one step leads to the next.",
+        ""
+       ]
+      },
+      {
+       "options": [
+        "a bandwagon appeal",
+        "a slippery slope",
         "a hasty generalization"
        ],
        "answer": 0,
        "why": [
         "",
-        "A bandwagon appeal points to how many people support something. This statement predicts a chain of events with no proof that one step leads to the next.",
-        "A hasty generalization draws a rule from too few examples. This statement predicts that one step will lead to an extreme result, which is a slippery slope."
-       ]
-      },
-      {
-       "options": [
-        "a slippery slope",
-        "a bandwagon appeal",
-        "a hasty generalization"
-       ],
-       "answer": 1,
-       "why": [
         "A slippery slope predicts a chain of worse and worse events. This statement uses popularity (“every parent I know”) as proof.",
-        "",
         "It is based on a small group, but the reasoning is “many people support it, so it is right.” That is a bandwagon appeal."
        ]
       },
@@ -668,17 +668,17 @@
      "hint": "Look at the end of paragraph 1, where Bell tells the council what to do.",
      "explain": "<p>Bell states his claim at the end of paragraph 1: the Pelicans will move into a new downtown ballpark “if the city provides $48 million to build it. The city council should say yes.” The rest of the passage gives his reasons. The owners-pay choice is tempting if you mix up the passages: that idea comes from Osei.</p>",
      "options": [
-      "The city should pay $48 million to build a downtown ballpark for the Pelicans.",
-      "The Pelicans' owners should pay to build a new ballpark on the Front Street land.",
+      "Port Delaney should study Harlan City's stadium before choosing a ballpark site.",
       "The city should turn the old rail yard on Front Street into a shopping district.",
-      "Port Delaney should study Harlan City's stadium before choosing a ballpark site."
+      "The Pelicans' owners should pay to build a new ballpark on the Front Street land.",
+      "The city should pay $48 million to build a downtown ballpark for the Pelicans."
      ],
-     "answer": 0,
+     "answer": 3,
      "why": [
-      "",
-      "Bell wants the <em>city</em> to provide the $48 million. Owners paying most of the cost is Osei's middle path in Passage B, not Bell's claim.",
+      "Bell uses Harlan City as an example of success. He never asks for a study; he says “If it worked for Harlan City, it will work for us.”",
       "The rail yard is where the ballpark would go. Bell never proposes a shopping district; he predicts shops near the park would be busy.",
-      "Bell uses Harlan City as an example of success. He never asks for a study; he says “If it worked for Harlan City, it will work for us.”"
+      "Bell wants the <em>city</em> to provide the $48 million. Owners paying most of the cost is Osei's middle path in Passage B, not Bell's claim.",
+      ""
      ]
     }
    },
@@ -725,17 +725,17 @@
      "hint": "Who is the source, how many cases does it cover, and are there any numbers?",
      "explain": "<p>The Harlan City evidence fails the <strong>Sufficient</strong> test: it is one relative's description of one city. It also fails <strong>Specific</strong>, since it has no numbers, and it never shows that the stadium <em>caused</em> the change. Turning one example into a rule (“If it worked for Harlan City, it will work for us”) is a hasty generalization. The team-paid-study choice is tempting, but it describes Bell's paragraph 2 evidence, not paragraph 3.</p>",
      "options": [
-      "It is one relative's impression of one city, so it cannot show a pattern or prove the stadium caused the change.",
-      "It describes a stadium that opened in 2015, which is too long ago to tell us anything about Port Delaney.",
       "It gives exact counts of new restaurants and apartments, but Bell does not say where the counts came from.",
-      "It comes from a study the Pelicans paid for, so the team had a reason to exaggerate the stadium's success."
+      "It is one relative's impression of one city, so it cannot show a pattern or prove the stadium caused the change.",
+      "It comes from a study the Pelicans paid for, so the team had a reason to exaggerate the stadium's success.",
+      "It describes a stadium that opened in 2015, which is too long ago to tell us anything about Port Delaney."
      ],
-     "answer": 0,
+     "answer": 1,
      "why": [
-      "",
-      "The date is not the problem; a 2015 stadium could give useful evidence. The problem is that the evidence is one person's impression of one city.",
       "Bell gives no counts at all. His brother-in-law only says downtown is “packed.” Check the passage before accepting a detail.",
-      "That is the problem with Bell's job numbers in paragraph 2. The Harlan City evidence comes from his brother-in-law, not from a study."
+      "",
+      "That is the problem with Bell's job numbers in paragraph 2. The Harlan City evidence comes from his brother-in-law, not from a study.",
+      "The date is not the problem; a 2015 stadium could give useful evidence. The problem is that the evidence is one person's impression of one city."
      ]
     }
    },
@@ -760,22 +760,22 @@
      "hint": "Look for reasons that use the five evidence questions, not reasons about length, position, or title.",
      "explain": "<p>Osei's key evidence passes the <strong>Source</strong> test (independent economists, not the team), and she passes the <strong>Fair</strong> test by admitting the cost of losing the team and proposing a middle path. The “more numbers” choice is tempting, but quantity is not quality: Bell's numbers are specific too, and they still fail the Source test.</p>",
      "options": [
-      "Her research comes from independent economists, while Bell's job numbers come from a study the team paid for.",
       "She answers the other side by admitting fans would be disappointed and offering a middle path.",
       "Her passage uses more numbers than Bell's, and the side with more numbers always wins.",
       "She argues against spending the money, and arguments against a proposal are usually stronger.",
-      "She is a professor, so readers can accept what she says without testing her evidence."
+      "She is a professor, so readers can accept what she says without testing her evidence.",
+      "Her research comes from independent economists, while Bell's job numbers come from a study the team paid for."
      ],
      "answer": [
       0,
-      1
+      4
      ],
      "why": [
       "",
-      "",
       "Counting numbers is not enough; what matters is whether the numbers are reliable. Bell has numbers too (1,200 jobs, $30 million), but they come from a biased source.",
       "Neither side wins because of its position. In this week's turf practice, the side arguing “yes” is better supported. Judge the evidence.",
-      "Credentials help, but you still test the evidence. Osei wins because her evidence passes the five questions, not because of her title alone."
+      "Credentials help, but you still test the evidence. Osei wins because her evidence passes the five questions, not because of her title alone.",
+      ""
      ]
     }
    },
@@ -800,16 +800,16 @@
      "hint": "Check each choice for the three jobs: a side, evidence-based reasons, and both authors.",
      "explain": "<p>The correct thesis names the side (Osei), gives evidence-based reasons (independent research, cost figures), and mentions both authors (“while Bell relies on…”). The professor choice is the most tempting because it chooses Osei, but its reason is a credential and a stereotype, not her evidence.</p>",
      "options": [
+      "I think Port Delaney should not build the ballpark, because spending $48 million of taxpayer money on a baseball team is a waste when the city has other needs.",
       "Osei's argument is better supported because she uses independent research and clear cost figures, while Bell relies on a team-paid study and a relative's story.",
       "The ballpark debate matters to everyone in Port Delaney, and both Bell and Osei raise thoughtful points that the city council should weigh carefully before it votes.",
-      "I think Port Delaney should not build the ballpark, because spending $48 million of taxpayer money on a baseball team is a waste when the city has other needs.",
       "Osei's argument is better supported because she is a professor with an advanced degree, and professors usually know more about money than business owners like Bell do."
      ],
-     "answer": 0,
+     "answer": 1,
      "why": [
+      "This is the student's own opinion about the ballpark. It never says which author is better supported or mentions either one.",
       "",
       "This takes no position. Fairness belongs in the body of the essay, but the thesis must name the better-supported side.",
-      "This is the student's own opinion about the ballpark. It never says which author is better supported or mentions either one.",
       "This picks the right side for the wrong reason. A job title is not evidence from the passage, and the claim about business owners is a generalization."
      ]
     }
@@ -848,11 +848,11 @@
      "hint": "Claim = what the author wants. Key evidence = facts offered as proof. Flaws = names for weak reasoning.",
      "explain": "<p><strong>Claim:</strong> what Bell wants, the city paying $48 million. <strong>Key evidence:</strong> the team-paid study and the lease, the facts Bell offers as proof. <strong>Flaws or appeals:</strong> the bandwagon line and the hasty generalization about Harlan City, which name what is wrong with his reasoning.</p>",
      "choices": [
-      "The city should pay $48 million for a downtown ballpark.",
+      "Hasty generalization: one city's story treated as proof",
+      "Bandwagon: “Everyone I talk to downtown is excited”",
       "Team-paid study: 1,200 jobs and $30 million a year (para. 2)",
       "Lease ends in two years; owners may consider other cities (para. 4)",
-      "Bandwagon: “Everyone I talk to downtown is excited”",
-      "Hasty generalization: one city's story treated as proof"
+      "The city should pay $48 million for a downtown ballpark."
      ],
      "bins": [
       "Claim",
@@ -860,11 +860,11 @@
       "Flaws or appeals"
      ],
      "answer": [
-      0,
-      1,
-      1,
       2,
-      2
+      2,
+      1,
+      1,
+      0
      ],
      "why": "The most common mistake is putting the lease note under Flaws because it is an appeal to pride in the passage. The lease ending is a real, checkable fact, Bell's best evidence, so it goes under Key evidence."
     }
@@ -883,15 +883,15 @@
      "options": [
       "Introduction with thesis; Bell's weak evidence; Osei's strong evidence; Bell's best point and Osei's answer; conclusion",
       "Introduction; a summary of Bell's passage; a summary of Osei's passage; a conclusion giving the student's own view on stadiums",
-      "Introduction; three paragraphs on Osei's evidence; conclusion. Bell's passage can be skipped because it is the weaker one",
-      "Begin the body paragraphs right away without an introduction, then write the thesis last once the essay's direction is clear"
+      "Begin the body paragraphs right away without an introduction, then write the thesis last once the essay's direction is clear",
+      "Introduction; three paragraphs on Osei's evidence; conclusion. Bell's passage can be skipped because it is the weaker one"
      ],
      "answer": 0,
      "why": [
       "",
       "Summaries retell the passages instead of judging them, and ending with the student's own view leaves the task. Each body paragraph needs a judgment.",
-      "The prompt requires evidence from both articles. The weaker passage's flaws are half of your proof.",
-      "The thesis is already written and should end the introduction. Writing it last risks an essay that wanders."
+      "The thesis is already written and should end the introduction. Writing it last risks an essay that wanders.",
+      "The prompt requires evidence from both articles. The weaker passage's flaws are half of your proof."
      ]
     }
    },
@@ -947,17 +947,17 @@
      "hint": "Look at the final sentence of paragraph 1. Which of the thesis jobs does it do?",
      "explain": "<p>The last sentence is the thesis: “Osei's position is better supported, because she relies on independent research and specific cost figures, while Bell depends on a study paid for by the team, one secondhand story, and appeals to pride.” It names the side, gives reasons, and previews the body paragraphs. The tempting “who wrote each passage” choice describes sentences 2 and 3, not the last one.</p>",
      "options": [
-      "It states which position is better supported and previews the reasons the body paragraphs will develop.",
       "It tells readers who wrote each passage and what each author's job is so they can judge the sources.",
-      "It gives the writer's personal opinion about whether Port Delaney really needs a new ballpark.",
-      "It admits that Bell makes one fair point before the essay turns to the evidence for Osei's side."
+      "It states which position is better supported and previews the reasons the body paragraphs will develop.",
+      "It admits that Bell makes one fair point before the essay turns to the evidence for Osei's side.",
+      "It gives the writer's personal opinion about whether Port Delaney really needs a new ballpark."
      ],
-     "answer": 0,
+     "answer": 1,
      "why": [
-      "",
       "That is the job of the second and third sentences, which introduce Bell and Osei with their roles.",
-      "The last sentence judges the two arguments; it never says whether the city needs a ballpark.",
-      "The fair point about Bell (the lease) comes in paragraph 4. The last sentence of paragraph 1 is the thesis."
+      "",
+      "The fair point about Bell (the lease) comes in paragraph 4. The last sentence of paragraph 1 is the thesis.",
+      "The last sentence judges the two arguments; it never says whether the city needs a ballpark."
      ]
     }
    },
@@ -983,16 +983,16 @@
      "explain": "<p>Paragraph 4 is a counterargument paragraph. It admits Bell's strongest point (the lease ends and the owners may move), then shows that Osei answers it with a middle path. A judge who deals with the other side's best point is more convincing than one who ignores it. The equal-space choice is tempting, but there is no such rule; the paragraph is there to strengthen the verdict.</p>",
      "options": [
       "Showing the other side's best point and how Osei answers it makes the essay's verdict more convincing.",
-      "The writer has changed her mind by paragraph 4 and now thinks Bell's argument is the better supported one.",
       "The GED requires every essay to give exactly equal space to both passages, so the paragraph balances the essay.",
-      "It brings in a new fact about the lease from outside the passages, which shows the scorer some outside knowledge."
+      "It brings in a new fact about the lease from outside the passages, which shows the scorer some outside knowledge.",
+      "The writer has changed her mind by paragraph 4 and now thinks Bell's argument is the better supported one."
      ],
      "answer": 0,
      "why": [
       "",
-      "The paragraph ends by saying Osei's argument “is more credible,” and the conclusion still names Osei. The verdict has not changed.",
       "There is no equal-space rule. The essay must use evidence from both passages, but the amount depends on what the evidence shows.",
-      "The lease fact comes from Bell's paragraph 4, not from outside the passages. The essay should rely on the passages, not outside knowledge."
+      "The lease fact comes from Bell's paragraph 4, not from outside the passages. The essay should rely on the passages, not outside knowledge.",
+      "The paragraph ends by saying Osei's argument “is more credible,” and the conclusion still names Osei. The verdict has not changed."
      ]
     }
    },
@@ -1048,15 +1048,15 @@
     "explain": "<p>Step 1: Find where the author states her position. In paragraph 1 she writes, &ldquo;I urge the council to approve it. Turf would give our young people far more time to play, and it would save water and money.&rdquo; Paragraph 7 repeats this: &ldquo;The council should vote yes.&rdquo;</p><p>Step 2: The “convert two Corbin Park fields” choice includes both the position (convert two fields) and her reasons (more playing time, water and money savings).</p><p>The &ldquo;safer than grass in every season&rdquo; choice is a distortion: Whitfield admits turf gets hotter (paragraph 6) and never says it is safer or that every park should change. Building new fields elsewhere and watering less are never proposed.</p>",
     "options": [
      "Millbrook should convert two Corbin Park fields to turf, which would allow more playing time and save water and money.",
-     "Artificial turf is safer than grass in every season, so every park in Millbrook should replace its grass fields with turf.",
      "Millbrook should build new grass fields in another park so that the Corbin Park fields can rest after heavy rain.",
+     "Artificial turf is safer than grass in every season, so every park in Millbrook should replace its grass fields with turf.",
      "The city should water the Corbin Park fields less often in summer so that it can save money during dry seasons."
     ],
     "answer": 0,
     "why": [
      "",
-     "This distorts the passage. Whitfield admits turf gets hotter than grass (paragraph 6), and she proposes changing only the two main Corbin Park fields, not every park.",
      "Whitfield never proposes building fields somewhere else. Her plan is to convert the existing Corbin Park fields to turf.",
+     "This distorts the passage. Whitfield admits turf gets hotter than grass (paragraph 6), and she proposes changing only the two main Corbin Park fields, not every park.",
      "Whitfield mentions water use as a reason for turf, which needs no watering. She never proposes watering the grass less."
     ]
    },
@@ -1071,17 +1071,17 @@
     "hint": "What does Pruitt ask the council to do in paragraph 1, and what does he say in his last sentence?",
     "explain": "<p>Step 1: In paragraph 1 Pruitt says he is &ldquo;asking the city council to vote no on the plan.&rdquo; Step 2: In paragraph 7 he ends, &ldquo;Keep it green.&rdquo; So his position is to reject the plan and keep grass.</p><p>He never asks for more studies, a compromise with one turf field, or shade structures. (Shade structures come from Whitfield&rsquo;s passage, paragraph 6.) He suggests the money could go to schools, not to shade.</p>",
     "options": [
-     "The city council should reject the turf plan and keep natural grass at Corbin Park.",
-     "The city should delay the turf plan until scientists finish more studies of its safety.",
+     "The city should spend the turf money on shade structures beside the grass fields.",
      "The city should install turf on one field and keep natural grass on the other one.",
-     "The city should spend the turf money on shade structures beside the grass fields."
+     "The city council should reject the turf plan and keep natural grass at Corbin Park.",
+     "The city should delay the turf plan until scientists finish more studies of its safety."
     ],
-    "answer": 0,
+    "answer": 2,
     "why": [
-     "",
-     "Pruitt never asks for more studies. He asks the council to “vote no” and ends with “Keep it green.”",
+     "Shade structures come from Whitfield's passage (paragraph 6). Pruitt suggests the money could go to schools instead.",
      "Pruitt does not offer a compromise. He wants both fields kept as grass.",
-     "Shade structures come from Whitfield's passage (paragraph 6). Pruitt suggests the money could go to schools instead."
+     "",
+     "Pruitt never asks for more studies. He asks the council to “vote no” and ends with “Keep it green.”"
     ]
    },
    {
@@ -1117,15 +1117,15 @@
     "options": [
      "It comes from an identified source and reports specific measurements that readers could check.",
      "It appeals more strongly to readers' feelings about the safety of young children on hot days.",
-     "It is about Corbin Park itself, while the coach's statement is about a team in a different town.",
-     "It uses more words and more detail, and longer pieces of evidence are more convincing to readers."
+     "It uses more words and more detail, and longer pieces of evidence are more convincing to readers.",
+     "It is about Corbin Park itself, while the coach's statement is about a team in a different town."
     ],
     "answer": 0,
     "why": [
      "",
      "Appealing to feelings does not make evidence stronger. The measurement is stronger because of who took it and how specific it is.",
-     "Check the passage: the news crew measured a field at Lakeview High School, not Corbin Park.",
-     "Length is not a test of evidence. The coach's statement is weak because it is secondhand and unnamed, not because it is short."
+     "Length is not a test of evidence. The coach's statement is weak because it is secondhand and unnamed, not because it is short.",
+     "Check the passage: the news crew measured a field at Lakeview High School, not Corbin Park."
     ]
    },
    {
@@ -1139,22 +1139,22 @@
     "hint": "Look for a prediction that jumps from one step to a disaster, and a conclusion based on a single example.",
     "explain": "<p><strong>Correct:</strong> The parking-lot prediction (paragraph 6) is a <strong>slippery slope</strong>: Pruitt claims one step will lead to a much worse result but gives no evidence. Using his son&rsquo;s single burn to predict harm to &ldquo;hundreds of kids every week&rdquo; (paragraph 2) is a <strong>hasty generalization</strong>.</p><p><strong>Not faulty:</strong> The news crew measurement is specific evidence. Admitting the fields close after rain is a concession, which is fair reasoning. The claim that turf can be hotter is supported by the measurement, and Whitfield agrees with it in paragraph 6.</p>",
     "options": [
-     "He predicts that installing turf will lead to paving the rest of the park for parking lots, without evidence that this is planned.",
      "He uses one injury to his son in one game to predict what will happen to hundreds of children every week.",
+     "He states that turf can be hotter than grass on summer afternoons.",
+     "He predicts that installing turf will lead to paving the rest of the park for parking lots, without evidence that this is planned.",
      "He cites a specific temperature measurement taken by a local news crew.",
-     "He admits that the grass fields sometimes close after a big rain.",
-     "He states that turf can be hotter than grass on summer afternoons."
+     "He admits that the grass fields sometimes close after a big rain."
     ],
     "answer": [
      0,
-     1
+     2
     ],
     "why": [
      "",
+     "This claim is supported by the news crew's measurement, and Whitfield agrees in paragraph 6. It is not a flaw.",
      "",
      "This is specific evidence from an identified source, not faulty reasoning. It is one of Pruitt's stronger points.",
-     "Admitting the fields close after rain is a concession, which is fair reasoning. It makes his argument more honest, not less.",
-     "This claim is supported by the news crew's measurement, and Whitfield agrees in paragraph 6. It is not a flaw."
+     "Admitting the fields close after rain is a concession, which is fair reasoning. It makes his argument more honest, not less."
     ]
    },
    {
@@ -1168,17 +1168,17 @@
     "hint": "Reread paragraph 6. Does she deny the problem or accept it?",
     "explain": "<p>Step 1: In paragraph 6, Whitfield writes, &ldquo;Turf also gets hotter than grass in direct summer sun.&rdquo; She accepts the concern. Step 2: She lists three steps: light-colored infill, shade structures, and temperature checks, with play pausing at 120 degrees.</p><p>She never dismisses the heat, never attacks studies, and never says the fields will close all summer. Acknowledging a problem and offering a solution makes an argument more credible.</p>",
     "options": [
-     "She admits that turf gets hotter than grass and lists steps the city will take to limit the risk.",
      "She argues that the heat is not a real problem because children are used to playing in summer weather.",
-     "She claims that the studies showing turf is hotter were paid for by companies that sell grass seed.",
-     "She says the turf fields will be closed for the entire summer season so that the heat will not matter."
+     "She says the turf fields will be closed for the entire summer season so that the heat will not matter.",
+     "She admits that turf gets hotter than grass and lists steps the city will take to limit the risk.",
+     "She claims that the studies showing turf is hotter were paid for by companies that sell grass seed."
     ],
-    "answer": 0,
+    "answer": 2,
     "why": [
-     "",
      "Whitfield does not dismiss the heat. She writes, “Turf also gets hotter than grass in direct summer sun,” and then offers solutions.",
-     "Whitfield never mentions who paid for any studies. Attacking a source is not how she handles this concern.",
-     "She says play will pause only if the surface reaches 120 degrees. She never says the fields will close for the summer."
+     "She says play will pause only if the surface reaches 120 degrees. She never says the fields will close for the summer.",
+     "",
+     "Whitfield never mentions who paid for any studies. Attacking a source is not how she handles this concern."
     ]
    },
    {
@@ -1191,12 +1191,12 @@
     "hint": "Ask of each statement: Is there a named source or a number someone could check? Or is it a feeling, a rumor, or a prediction with no proof?",
     "explain": "<p><strong>Specific, checkable evidence:</strong> The 46 closure days and the $58,000 cost come from the parks department&rsquo;s own records and include exact figures. The 152-degree and 95-degree readings come from an identified news crew at a named school. Notice that strong evidence can appear in either passage.</p><p><strong>Unsupported claim or emotional appeal:</strong> &ldquo;I have read online&rdquo; names no source and gives no facts. The grandfather sentence appeals to tradition and feelings, not evidence. The paving prediction is a slippery slope with no proof that such a plan exists.</p>",
     "choices": [
-     "Last year, the two main fields at Corbin Park were closed on 46 days. (Passage A)",
-     "Mowing, fertilizing, lining, and reseeding the two fields cost the city $58,000. (Passage A)",
      "A local news crew measured a turf field at 152 degrees while nearby grass measured 95 degrees. (Passage B)",
+     "Last year, the two main fields at Corbin Park were closed on 46 days. (Passage A)",
      "I have read online that turf is full of toxic chemicals. (Passage B)",
-     "My grandfather played on this grass, and so should my grandchildren. (Passage B)",
-     "Once the city puts down plastic fields, the next step will be paving the rest of the park. (Passage B)"
+     "Once the city puts down plastic fields, the next step will be paving the rest of the park. (Passage B)",
+     "Mowing, fertilizing, lining, and reseeding the two fields cost the city $58,000. (Passage A)",
+     "My grandfather played on this grass, and so should my grandchildren. (Passage B)"
     ],
     "bins": [
      "Specific, checkable evidence",
@@ -1205,9 +1205,9 @@
     "answer": [
      0,
      0,
+     1,
+     1,
      0,
-     1,
-     1,
      1
     ],
     "why": "The most common mistake is putting the 152-degree news crew reading under “Unsupported” because it comes from Pruitt, the weaker passage. Strong evidence can appear in either passage: this reading has an identified source and exact numbers."
@@ -1226,44 +1226,44 @@
      {
       "options": [
        "an unnamed coach, reported secondhand",
-       "a named expert who studied many teams",
+       "a measurement taken by a local news crew",
        "an official record from the parks department",
-       "a measurement taken by a local news crew"
+       "a named expert who studied many teams"
       ],
       "answer": 0,
       "why": [
        "",
-       "The coach is never named and is not described as an expert. Pruitt only says he is “a coach I know.”",
+       "The news crew appears in paragraph 3 and measured temperature, not injuries.",
        "Official records come from Whitfield's department in Passage A. This claim comes from a conversation Pruitt reports.",
-       "The news crew appears in paragraph 3 and measured temperature, not injuries."
+       "The coach is never named and is not described as an expert. Pruitt only says he is “a coach I know.”"
       ]
      },
      {
       "options": [
        "gives no numbers, dates, or records a reader could check",
-       "includes exact injury counts from a league report",
+       "is confirmed by Whitfield in Passage A",
        "cites a published study of turf injuries",
-       "is confirmed by Whitfield in Passage A"
+       "includes exact injury counts from a league report"
       ],
       "answer": 0,
       "why": [
        "",
-       "“Doubled” is the only figure, and it comes with no counts, dates, or report. Nothing here can be checked.",
+       "Whitfield never mentions injuries. She discusses heat, cost, water, and playing time.",
        "No study is named or cited. The claim rests on what one coach said.",
-       "Whitfield never mentions injuries. She discusses heat, cost, water, and playing time."
+       "“Doubled” is the only figure, and it comes with no counts, dates, or report. Nothing here can be checked."
       ]
      },
      {
       "options": [
        "weak",
-       "strong",
-       "the strongest evidence in either passage"
+       "the strongest evidence in either passage",
+       "strong"
       ],
       "answer": 0,
       "why": [
        "",
-       "An unnamed, secondhand claim with nothing to check fails the Source and Specific questions, so it cannot be strong.",
-       "The strongest evidence in the pair comes from named, checkable sources, such as Whitfield's department records or the news crew's readings."
+       "The strongest evidence in the pair comes from named, checkable sources, such as Whitfield's department records or the news crew's readings.",
+       "An unnamed, secondhand claim with nothing to check fails the Source and Specific questions, so it cannot be strong."
       ]
      }
     ]
@@ -1278,17 +1278,17 @@
     "hint": "A strong thesis names the better-supported side, gives reasons based on the evidence, and mentions both authors.",
     "explain": "<p>Step 1: The thesis must answer the prompt: which position is better supported. Step 2: It should give reasons drawn from the evidence. Step 3: It should refer to both passages.</p><p>The “city records” thesis does all three. The &ldquo;I have played on it&rdquo; choice is personal opinion and uses no evidence from the passages. The &ldquo;both make good points&rdquo; choice takes no position. The “cares more” choice picks a side but supports it with an assumption about who &ldquo;cares more,&rdquo; which is not evidence and is not stated in either passage.</p>",
     "options": [
+     "Pruitt's argument is better supported because he is a volunteer coach who works with children every week and clearly cares more about them than Whitfield does.",
      "Whitfield's argument is better supported because she uses city records on closures, costs, and water and answers the heat concern, while Pruitt relies on one story and fears.",
-     "I think artificial turf is better than grass because I have played on it many times myself and it never gets muddy or torn up after a big storm.",
      "Both Whitfield and Pruitt make good points about Corbin Park, and the city council will face a hard decision when it finally votes on the turf plan.",
-     "Pruitt's argument is better supported because he is a volunteer coach who works with children every week and clearly cares more about them than Whitfield does."
+     "I think artificial turf is better than grass because I have played on it many times myself and it never gets muddy or torn up after a big storm."
     ],
-    "answer": 0,
+    "answer": 1,
     "why": [
+     "This picks a side, but its reason is an assumption about who “cares more,” which is not evidence and is not stated in either passage.",
      "",
-     "This is personal opinion based on the writer's own experience. It never mentions either passage or says which author is better supported.",
      "This takes no position. Fairness belongs in the body of the essay, but the thesis must choose a side.",
-     "This picks a side, but its reason is an assumption about who “cares more,” which is not evidence and is not stated in either passage."
+     "This is personal opinion based on the writer's own experience. It never mentions either passage or says which author is better supported."
     ]
    },
    {
@@ -1305,61 +1305,61 @@
      {
       "options": [
        "For example",
-       "However",
+       "Otherwise",
        "In contrast",
-       "Otherwise"
+       "However"
       ],
       "answer": 0,
       "why": [
        "",
-       "“However” signals a contrast, but the sentence gives an example of the official records named in sentence 2.",
+       "“Otherwise” signals an alternative or a consequence. Nothing here is an alternative; it is an example.",
        "“In contrast” signals an opposite idea. The sentence continues the same idea with an example.",
-       "“Otherwise” signals an alternative or a consequence. Nothing here is an alternative; it is an example."
+       "“However” signals a contrast, but the sentence gives an example of the official records named in sentence 2."
       ]
      },
      {
       "options": [
-       "is",
-       "are",
+       "has been",
        "was",
-       "has been"
+       "is",
+       "are"
       ],
-      "answer": 1,
+      "answer": 3,
       "why": [
-       "“Is” is singular. The subject is “figures,” which is plural; “costs” is inside the phrase “on water use and maintenance costs.”",
-       "",
+       "“Has been” is singular. The plural subject “figures” needs a plural verb.",
        "“Was” is singular and past tense. The subject “figures” is plural, and the paragraph is in present tense.",
-       "“Has been” is singular. The plural subject “figures” needs a plural verb."
+       "“Is” is singular. The subject is “figures,” which is plural; “costs” is inside the phrase “on water use and maintenance costs.”",
+       ""
       ]
      },
      {
       "options": [
        "is kinda sketchy",
-       "is less convincing",
+       "is no good at all",
        "totally fails",
-       "is no good at all"
+       "is less convincing"
       ],
-      "answer": 1,
+      "answer": 3,
       "why": [
        "“Kinda sketchy” is slang. An essay needs a formal tone, which is part of Trait 2.",
-       "",
+       "“Is no good at all” is informal and vague. It does not say how the claim falls short.",
        "“Totally fails” is casual and exaggerated. A formal, precise phrase is better.",
-       "“Is no good at all” is informal and vague. It does not say how the claim falls short."
+       ""
       ]
      },
      {
       "options": [
-       "then",
        "than",
+       "as",
        "that",
-       "as"
+       "then"
       ],
-      "answer": 1,
+      "answer": 0,
       "why": [
-       "“Then” is about time (first this, then that). Comparisons use “than.”",
        "",
+       "“As” is used in “as weak as.” After “weaker,” the comparison needs “than.”",
        "“That” does not complete a comparison. “Weaker that Whitfield's” is not standard English.",
-       "“As” is used in “as weak as.” After “weaker,” the comparison needs “than.”"
+       "“Then” is about time (first this, then that). Comparisons use “than.”"
       ]
      }
     ]
@@ -1376,58 +1376,58 @@
     "blanks": [
      {
       "options": [
-       "Whitfield",
        "Pruitt",
-       "The city council"
+       "The city council",
+       "Whitfield"
       ],
-      "answer": 0,
+      "answer": 2,
       "why": [
-       "",
        "Pruitt's letter rests mostly on one story, an unnamed coach, an online rumor, and a slippery slope. His side is the weaker one.",
-       "The city council did not write either passage. The thesis must name one of the two authors."
+       "The city council did not write either passage. The thesis must name one of the two authors.",
+       ""
       ]
      },
      {
       "options": [
-       "uses department records on closures, water, and costs and admits turf's drawbacks",
-       "has worked for the city longer than Pruitt has coached",
        "proves that turf is safer than grass in every season",
+       "has worked for the city longer than Pruitt has coached",
+       "uses department records on closures, water, and costs and admits turf's drawbacks",
        "shares a moving story about children who were turned away"
       ],
-      "answer": 0,
+      "answer": 2,
       "why": [
-       "",
-       "Neither passage says how long Whitfield has worked for the city. Even if it did, years on the job are not evidence about turf.",
        "This distorts the passage. Whitfield admits turf gets hotter than grass in summer; she never claims it is safer in every season.",
+       "Neither passage says how long Whitfield has worked for the city. Even if it did, years on the job are not evidence about turf.",
+       "",
        "Whitfield reports a number (210 children turned away), not a moving story. Praising her for emotion misses why her evidence is strong."
       ]
      },
      {
       "options": [
-       "Pruitt",
+       "the news crew",
        "Whitfield",
-       "the news crew"
+       "Pruitt"
       ],
-      "answer": 0,
+      "answer": 2,
       "why": [
-       "",
+       "The news crew is a source Pruitt cites, not an author. Its reading is actually one of Pruitt's stronger pieces of evidence.",
        "Whitfield is already the subject of the sentence. The “while” part must name the other author.",
-       "The news crew is a source Pruitt cites, not an author. Its reading is actually one of Pruitt's stronger pieces of evidence."
+       ""
       ]
      },
      {
       "options": [
+       "data on how many children were turned away",
        "one personal story, an unnamed source, and fears about the future",
        "official measurements and a careful look at both sides",
-       "a clear plan to replace the turf every ten years",
-       "data on how many children were turned away"
+       "a clear plan to replace the turf every ten years"
       ],
-      "answer": 0,
+      "answer": 1,
       "why": [
+       "The 210 children turned away is Whitfield's evidence, from her paragraph 3.",
        "",
        "This describes a strong argument. Pruitt mostly relies on his son's burn, “a coach I know,” “I have read online,” and a slippery slope.",
-       "The ten-year replacement plan is in Whitfield's passage, not Pruitt's.",
-       "The 210 children turned away is Whitfield's evidence, from her paragraph 3."
+       "The ten-year replacement plan is in Whitfield's passage, not Pruitt's."
       ]
      }
     ]
@@ -1443,16 +1443,16 @@
     "hint": "Find a statement by Pruitt about something Whitfield discusses directly with specific facts. Then check whether her facts contradict him.",
     "explain": "<p>Step 1: In paragraph 5, Pruitt says supporters &ldquo;leave out the replacement costs&rdquo; and that the city will pay &ldquo;millions every few years.&rdquo; Step 2: In her paragraph 5, Whitfield does discuss replacement: the surface lasts &ldquo;about ten years&rdquo; and costs &ldquo;about $450,000 per field.&rdquo; For two fields, that is 2 &times; $450,000 = $900,000 about every ten years, not millions every few years. Step 3: So Whitfield&rsquo;s facts directly contradict both parts of Pruitt&rsquo;s claim.</p><p>The 152-degree choice misreads Whitfield: 120 degrees is the temperature at which play will <em>pause</em>, not a limit on how hot turf can get. She agrees turf gets hot. Pruitt&rsquo;s coaching experience and his description of the park are not contradicted by anything in Passage A.</p>",
     "options": [
-     "Pruitt's claim that the city will pay “millions every few years” to replace turf, since Whitfield gives the replacement cost and says the surface lasts about ten years",
-     "Pruitt's report that a news crew measured a turf field at 152 degrees on a July afternoon, since Whitfield says that turf never gets hotter than 120 degrees",
      "Pruitt's statement that he has coached youth soccer at Corbin Park for six years, since Whitfield says that the leagues turned away 210 children this fall",
+     "Pruitt's report that a news crew measured a turf field at 152 degrees on a July afternoon, since Whitfield says that turf never gets hotter than 120 degrees",
+     "Pruitt's claim that the city will pay “millions every few years” to replace turf, since Whitfield gives the replacement cost and says the surface lasts about ten years",
      "Pruitt's description of Corbin Park as “the heart of Millbrook,” since Whitfield says that the park's two main fields were closed on 46 days last year"
     ],
-    "answer": 0,
+    "answer": 2,
     "why": [
-     "",
-     "This misreads Whitfield. 120 degrees is the temperature at which play will <em>pause</em>, not a limit on how hot turf gets. She agrees turf gets hot.",
      "Nothing in Whitfield's passage contradicts Pruitt's coaching experience. The 210 children is about field space, not about Pruitt.",
+     "This misreads Whitfield. 120 degrees is the temperature at which play will <em>pause</em>, not a limit on how hot turf gets. She agrees turf gets hot.",
+     "",
      "A field closing on some days does not contradict calling the park the heart of the town. That phrase is an opinion, not a fact Whitfield disputes."
     ]
    },
@@ -1467,16 +1467,16 @@
     "explain": "<p>Step 1: Check Trait 3. The sentences are clear and correctly written, so Trait 3 is not the main problem. Step 2: Check Trait 2. The paragraph uses transitions (&ldquo;Furthermore,&rdquo; &ldquo;In addition,&rdquo; &ldquo;For these reasons&rdquo;) and has a clear order. Step 3: Check Trait 1. The paragraph never mentions either author or any evidence from the passages. It argues what the writer thinks the city should do, supported by the writer&rsquo;s own high school experience. The task is to decide which <em>passage</em> is better supported, using evidence from both.</p><p>So Trait 1 needs the most improvement. A clear position with reasons is not enough when the reasons do not come from the texts.</p>",
     "options": [
      "Trait 1, because it argues the writer's own opinion from personal experience instead of judging the two passages",
-     "Trait 3, because it contains many errors in grammar, spelling, and punctuation that make its sentences hard to follow",
+     "None of the traits, because it states a clear position on turf and gives three separate reasons to support that position",
      "Trait 2, because it has no transitions to connect its ideas and no clear order from its first sentence to its last",
-     "None of the traits, because it states a clear position on turf and gives three separate reasons to support that position"
+     "Trait 3, because it contains many errors in grammar, spelling, and punctuation that make its sentences hard to follow"
     ],
     "answer": 0,
     "why": [
      "",
-     "Reread the paragraph: its sentences are clear and correctly written. Trait 3 is not the main problem.",
+     "A clear position with reasons is not enough when the reasons come from the writer's life instead of the passages. The task is to judge which passage is better supported.",
      "The paragraph does use transitions (“Furthermore,” “In addition,” “For these reasons”) and follows a clear order.",
-     "A clear position with reasons is not enough when the reasons come from the writer's life instead of the passages. The task is to judge which passage is better supported."
+     "Reread the paragraph: its sentences are clear and correctly written. Trait 3 is not the main problem."
     ]
    },
    {
@@ -1513,17 +1513,17 @@
     "hint": "The plan should match the thesis, use both passages, and judge the evidence rather than summarize it.",
     "explain": "<p>The plan must match the thesis (Whitfield is better supported) and use both passages. The correct plan gives one paragraph to the weaknesses of Pruitt's evidence (his son's single burn, the online claim), one to the strengths of Whitfield's records (46 closure days, 1,100 vs. 3,000 hours, 1.3 million gallons), and one to fairness: Pruitt's best point, the 152-degree reading, and Whitfield's answer (light infill, shade, temperature checks). The summary plan is the most tempting because it uses both passages, but summarizing is not evaluating.</p>",
     "options": [
-     "Body 1: flaws in Pruitt's evidence, such as the single burn and the online claim; Body 2: Whitfield's records; Body 3: Pruitt's heat point and her answer",
+     "Body 1: Pruitt's points about heat and injuries; Body 2: his point about tradition and his grandfather; Body 3: why the city should keep Corbin Park green",
      "Body 1: a summary of Whitfield's passage; Body 2: a summary of Pruitt's letter; Body 3: the student's own experience of playing on turf fields in high school",
      "Body 1, Body 2, and Body 3: Whitfield's figures on closures, playing hours, and water, leaving out Pruitt's letter because it is the weaker of the two passages",
-     "Body 1: Pruitt's points about heat and injuries; Body 2: his point about tradition and his grandfather; Body 3: why the city should keep Corbin Park green"
+     "Body 1: flaws in Pruitt's evidence, such as the single burn and the online claim; Body 2: Whitfield's records; Body 3: Pruitt's heat point and her answer"
     ],
-    "answer": 0,
+    "answer": 3,
     "why": [
-     "",
+     "This plan argues for Pruitt's side, which does not match the student's thesis that Whitfield is better supported.",
      "Summaries retell the passages without judging them, and personal experience is not evidence from the texts. This plan would score low on Trait 1.",
      "The prompt requires evidence from both passages. Pruitt's weak evidence is half of the proof that Whitfield is better supported.",
-     "This plan argues for Pruitt's side, which does not match the student's thesis that Whitfield is better supported."
+     ""
     ]
    },
    {
@@ -1537,16 +1537,16 @@
     "hint": "Look at the end of paragraph 1 and at paragraph 6, where Dorsey tells the board what to do.",
     "explain": "<p>Step 1: Find the claim. Paragraph 1 ends: “I urge the school board to approve this schedule for next fall,” and paragraph 6 repeats, “Vote yes on the four-day week.” Step 2: His main reasons are money (paragraph 2) and teachers (paragraph 3). The correct choice gives both the position and the reasons. The child care choice is tempting because child care comes up, but Dorsey dismisses the issue rather than proposing a solution.</p>",
     "options": [
-     "Halden County should switch its schools to a four-day week next fall to save money and attract teachers.",
      "Halden County should hire a consultant from Flexweek to study whether a four-day week would suit its schools.",
      "Halden County should keep five school days but make each one shorter so that students can get more rest.",
+     "Halden County should switch its schools to a four-day week next fall to save money and attract teachers.",
      "Halden County should offer free child care on Fridays so that parents can support a four-day school week."
     ],
-    "answer": 0,
+    "answer": 2,
     "why": [
-     "",
      "Dorsey cites a Flexweek consultant as evidence; he never asks the board to hire one for a study.",
      "Dorsey wants <em>longer</em> days Monday through Thursday and no school on Friday, not five shorter days.",
+     "",
      "Dorsey mentions child care only to wave off parents' worries (“families have always found a way”). He never proposes free child care."
     ]
    },
@@ -1561,17 +1561,17 @@
     "hint": "Reread paragraph 6. Does she say “never,” “now,” or something in between?",
     "explain": "<p>Paragraph 6 states her position: “Instead of changing every school next fall, the board should run a two-year pilot at three schools… and publish the results before making a final decision.” The “reject for good” choice is the most tempting because she raises concerns, but she explicitly says the plan “is not a disaster.”</p>",
     "options": [
-     "The board should not switch every school next fall but should test the schedule in a pilot first.",
-     "The board should reject the four-day week for good, because it has failed in every district that tried it.",
      "The board should adopt the four-day week next fall, because it helps districts keep their teachers.",
-     "The board should cut teacher salaries, since salaries are the largest cost in any school district."
+     "The board should not switch every school next fall but should test the schedule in a pilot first.",
+     "The board should cut teacher salaries, since salaries are the largest cost in any school district.",
+     "The board should reject the four-day week for good, because it has failed in every district that tried it."
     ],
-    "answer": 0,
+    "answer": 1,
     "why": [
-     "",
-     "This overstates her view. She writes that a four-day week “is not a disaster” and suggests a pilot, not a permanent ban.",
      "She admits the hiring benefit in paragraph 3, but her conclusion is to test the schedule first, not to adopt it everywhere next fall.",
-     "She mentions salaries to explain why savings are small. She never proposes cutting them."
+     "",
+     "She mentions salaries to explain why savings are small. She never proposes cutting them.",
+     "This overstates her view. She writes that a four-day week “is not a disaster” and suggests a pilot, not a permanent ban."
     ]
    },
    {
@@ -1604,16 +1604,16 @@
     "hint": "Ask two of the evidence questions: Who is the source, and what do they gain? What exactly was measured?",
     "explain": "<p>Step 1: The consultant works for Flexweek, “a company that sells four-day scheduling software,” so the source gains if districts switch. “Up to 20 percent” is a best case, not an average. Step 2: The state office has nothing to sell and reviewed 120 real budgets, reporting an average of 1.8 percent. Step 3: An independent, specific, measured source beats a biased estimate. The Halden County choice is tempting, but the review studied other districts; Lindqvist only applies its average to Halden.</p>",
     "options": [
-     "It comes from a public agency with nothing to sell and reports an average from 120 actual budgets.",
      "It reports a larger savings figure, and larger savings make a stronger case for the four-day week.",
      "It is about Halden County's own budget, while the consultant's estimate is about other districts.",
+     "It comes from a public agency with nothing to sell and reports an average from 120 actual budgets.",
      "It appeals more to readers' feelings about tight budgets and about the teachers who are hard to find."
     ],
-    "answer": 0,
+    "answer": 2,
     "why": [
-     "",
      "Check the numbers: the review found 1.8 percent, much smaller than the consultant's “up to 20 percent.” The review is stronger because of its source and method, not its size.",
      "The review studied 120 other four-day districts, not Halden County. Lindqvist only applies its average to Halden's budget.",
+     "",
      "Strong evidence persuades with facts, not feelings. The review is stronger because of who did it and what it measured."
     ]
    },
@@ -1628,22 +1628,22 @@
     "hint": "Look for a prediction that jumps to disaster and a conclusion drawn from one person's experience.",
     "explain": "<p><strong>Correct:</strong> The prediction that the district will fall behind “until no family wants to live here” (paragraph 5) is a <strong>slippery slope</strong>: an extreme chain of events with no evidence. Using one cousin's experience to predict that teachers “will be lining up” (paragraph 3) is a <strong>hasty generalization</strong>.</p><p><strong>Not faulty:</strong> fewer buses and lower utility costs is reasonable, and Passage B confirms savings come from those areas. Describing the plan and stating the claim are not reasoning errors.</p>",
     "options": [
-     "He predicts that keeping five days will make the district fall behind until no family wants to live there, without evidence.",
      "He uses his cousin's experience in one district to predict that teachers will line up to work in Halden County.",
-     "He explains that one less school day would mean fewer bus runs and lower heating and cooling costs.",
      "He describes the plan as longer school days Monday through Thursday with no classes on Fridays.",
-     "He asks the school board to approve the four-day schedule so that it can begin next fall."
+     "He predicts that keeping five days will make the district fall behind until no family wants to live there, without evidence.",
+     "He asks the school board to approve the four-day schedule so that it can begin next fall.",
+     "He explains that one less school day would mean fewer bus runs and lower heating and cooling costs."
     ],
     "answer": [
      0,
-     1
+     2
     ],
     "why": [
      "",
-     "",
-     "This is sound reasoning, and Lindqvist agrees: the savings come “mostly on buses and utilities.” His mistake is the size of the savings, not this logic.",
      "This simply describes the plan. A description is not an argument, so it cannot be faulty reasoning.",
-     "This is Dorsey's claim, what he wants the board to do. A claim is not a flaw in reasoning."
+     "",
+     "This is Dorsey's claim, what he wants the board to do. A claim is not a flaw in reasoning.",
+     "This is sound reasoning, and Lindqvist agrees: the savings come “mostly on buses and utilities.” His mistake is the size of the savings, not this logic."
     ]
    },
    {
@@ -1658,16 +1658,16 @@
     "explain": "<p>In paragraph 3, Lindqvist accepts the point: 64 percent of teachers said the schedule made them more likely to stay, and “That is a genuine benefit.” Then she adds a limit: “4 in 10 of those districts reported unfilled teaching positions three years after switching.” Granting a point and then showing its limits with data is a fair way to handle the other side. The software-company choice mixes up the passages.</p>",
     "options": [
      "She grants that the survey shows a real benefit, then notes that many districts still had unfilled jobs.",
-     "She rejects the idea, arguing that teachers dislike longer school days and will quit in large numbers.",
      "She claims the teacher survey was paid for by a company that sells four-day scheduling software.",
-     "She says teacher hiring does not matter, because salaries are already the largest cost in a district."
+     "She says teacher hiring does not matter, because salaries are already the largest cost in a district.",
+     "She rejects the idea, arguing that teachers dislike longer school days and will quit in large numbers."
     ],
     "answer": 0,
     "why": [
      "",
-     "Lindqvist does not reject the idea. She calls the hiring effect “more promising” and “a genuine benefit.”",
      "That describes Dorsey's consultant, who works for Flexweek. The teacher survey came from the state Office of School Finance.",
-     "Salaries come up in paragraph 2 to explain why savings are small. She never says hiring does not matter."
+     "Salaries come up in paragraph 2 to explain why savings are small. She never says hiring does not matter.",
+     "Lindqvist does not reject the idea. She calls the hiring effect “more promising” and “a genuine benefit.”"
     ]
    },
    {
@@ -1680,11 +1680,11 @@
     "hint": "Ask of each statement: Is there a named source or a number someone could check? Or is it a feeling, a sweeping claim, or a prediction with no proof?",
     "explain": "<p><strong>Specific, checkable evidence:</strong> the 1.8 percent review and the 64 percent survey come from a named state office and give exact figures; the Pine Hollow figure comes from a district survey with an exact percentage.</p><p><strong>Unsupported claim or emotional appeal:</strong> “Teachers love the idea” is a sweeping claim with no source. “Everybody knows” is a bandwagon appeal. “Until no family wants to live here” is a slippery slope with no proof.</p>",
     "choices": [
-     "The state Office of School Finance found that 120 four-day districts saved an average of 1.8 percent. (Passage B)",
      "64 percent of teachers in four-day districts said the schedule made them more likely to stay. (Passage B)",
      "In Pine Hollow, 38 percent of families with children under 12 paid for Friday child care. (Passage B)",
      "Teachers love the idea of a three-day weekend. (Passage A)",
      "Everybody knows that well-rested students learn more. (Passage A)",
+     "The state Office of School Finance found that 120 four-day districts saved an average of 1.8 percent. (Passage B)",
      "Our district will fall further behind every year until no family wants to live here. (Passage A)"
     ],
     "bins": [
@@ -1694,9 +1694,9 @@
     "answer": [
      0,
      0,
+     1,
+     1,
      0,
-     1,
-     1,
      1
     ],
     "why": "The most common mistake is putting “Teachers love the idea of a three-day weekend” under evidence because Passage B's survey seems to agree. As Dorsey writes it, the sentence has no source and no numbers; it is a sweeping claim about all teachers."
@@ -1714,44 +1714,44 @@
     "blanks": [
      {
       "options": [
-       "works for a company that profits if districts switch",
-       "is an independent agency with nothing to gain",
+       "is a research team that compared 80 districts",
        "is a teacher who works in a four-day district",
-       "is a research team that compared 80 districts"
+       "is an independent agency with nothing to gain",
+       "works for a company that profits if districts switch"
       ],
-      "answer": 0,
+      "answer": 3,
       "why": [
-       "",
-       "That describes the state Office of School Finance in Passage B. This consultant works for a company that sells four-day scheduling software.",
+       "That is Lindqvist's research team in Passage B. The 20 percent figure comes from a Flexweek consultant.",
        "That is Dorsey's cousin in paragraph 3, not the source of the 20 percent figure.",
-       "That is Lindqvist's research team in Passage B. The 20 percent figure comes from a Flexweek consultant."
+       "That describes the state Office of School Finance in Passage B. This consultant works for a company that sells four-day scheduling software.",
+       ""
       ]
      },
      {
       "options": [
-       "is a best-case estimate, not an average of actual savings",
        "is the average savings found in 120 real budgets",
-       "is confirmed by Lindqvist's research team",
-       "is the amount Halden County saved during a pilot"
+       "is a best-case estimate, not an average of actual savings",
+       "is the amount Halden County saved during a pilot",
+       "is confirmed by Lindqvist's research team"
       ],
-      "answer": 0,
+      "answer": 1,
       "why": [
-       "",
        "The average from 120 real budgets is Passage B's 1.8 percent. “Up to” means the most a district might save.",
-       "Lindqvist's figures contradict it: the average savings were 1.8 percent, not 20 percent.",
-       "Halden County has not run a pilot. Lindqvist recommends one in paragraph 6."
+       "",
+       "Halden County has not run a pilot. Lindqvist recommends one in paragraph 6.",
+       "Lindqvist's figures contradict it: the average savings were 1.8 percent, not 20 percent."
       ]
      },
      {
       "options": [
-       "weaker",
        "stronger",
+       "weaker",
        "equally strong"
       ],
-      "answer": 0,
+      "answer": 1,
       "why": [
-       "",
        "A best-case estimate from a source that profits is weaker than an average from 120 real budgets reported by an independent agency.",
+       "",
        "The two are not equal: one source has something to sell and gives a best case, while the other measured real results."
       ]
      }
@@ -1768,16 +1768,16 @@
     "explain": "<p>A strong thesis names the better-supported side, gives evidence-based reasons, and mentions both authors. The correct thesis does all three: Lindqvist (side), state data and a study of 80 districts (reasons), and “while Dorsey relies on…” (both authors). The school-board choice is the most tempting because it picks a side with a reason, but the reason is a job title, not evidence.</p>",
     "options": [
      "Lindqvist's argument is better supported because she relies on state data and a study of 80 districts, while Dorsey relies on a seller's estimate and a relative's story.",
-     "I think a four-day school week is a great idea, because I would love to have every Friday off to rest, catch up on errands, and spend more time with my family.",
+     "Dorsey's argument is better supported because he serves on the school board himself and understands the needs of Halden County better than a professor ever could.",
      "Dorsey and Lindqvist both make strong points about the four-day week, and the Halden County school board will have a very difficult choice to make this year.",
-     "Dorsey's argument is better supported because he serves on the school board himself and understands the needs of Halden County better than a professor ever could."
+     "I think a four-day school week is a great idea, because I would love to have every Friday off to rest, catch up on errands, and spend more time with my family."
     ],
     "answer": 0,
     "why": [
      "",
-     "This is personal opinion about Fridays off. It never says which author is better supported or uses either passage.",
+     "This picks a side because of Dorsey's job, not his evidence. Being on the board does not make a seller's estimate or a cousin's story reliable.",
      "This takes no position. The thesis must name the better-supported side; fairness can come later in the essay.",
-     "This picks a side because of Dorsey's job, not his evidence. Being on the board does not make a seller's estimate or a cousin's story reliable."
+     "This is personal opinion about Fridays off. It never says which author is better supported or uses either passage."
     ]
    },
    {
@@ -1795,29 +1795,29 @@
       "options": [
        "For example",
        "However",
-       "Otherwise",
-       "In contrast"
+       "In contrast",
+       "Otherwise"
       ],
       "answer": 0,
       "why": [
        "",
        "“However” signals a contrast, but sentence 2 gives an example of the state data named in sentence 1.",
-       "“Otherwise” signals an alternative or a consequence. Sentence 2 is an example, not an alternative.",
-       "“In contrast” signals an opposite idea. Sentence 2 continues the same idea with an example."
+       "“In contrast” signals an opposite idea. Sentence 2 continues the same idea with an example.",
+       "“Otherwise” signals an alternative or a consequence. Sentence 2 is an example, not an alternative."
       ]
      },
      {
       "options": [
        "shows",
-       "show",
        "was showing",
+       "show",
        "has shown"
       ],
-      "answer": 1,
+      "answer": 2,
       "why": [
        "“Shows” is singular. The subject is “results,” which is plural; “study” is inside the phrase “of her team's study.”",
-       "",
        "“Was showing” is singular and past tense. The plural subject “results” needs “show,” and the paragraph is in present tense.",
+       "",
        "“Has shown” is singular. The plural subject “results” would need “have shown.”"
       ]
      },
@@ -1838,17 +1838,17 @@
      },
      {
       "options": [
+       "effected",
        "effect",
        "affect",
-       "affects",
-       "effected"
+       "affects"
       ],
-      "answer": 0,
+      "answer": 1,
       "why": [
+       "“Effected” is a verb meaning “brought about.” The sentence needs the noun “effect.”",
        "",
        "“Affect” is usually a verb (to influence). After “the plan's,” the sentence needs a noun, a result: “effect.”",
-       "“Affects” is a verb. The blank follows the possessive “the plan's,” so it needs a noun.",
-       "“Effected” is a verb meaning “brought about.” The sentence needs the noun “effect.”"
+       "“Affects” is a verb. The blank follows the possessive “the plan's,” so it needs a noun."
       ]
      }
     ]
@@ -1865,29 +1865,29 @@
     "blanks": [
      {
       "options": [
+       "Flexweek",
        "Lindqvist",
-       "Dorsey",
-       "Flexweek"
+       "Dorsey"
       ],
-      "answer": 0,
+      "answer": 1,
       "why": [
+       "Flexweek is a company mentioned in Passage A, not an author. The thesis must name one of the two authors.",
        "",
-       "Dorsey's evidence is a seller's estimate, a cousin's story, and predictions with no proof. His side is the weaker one.",
-       "Flexweek is a company mentioned in Passage A, not an author. The thesis must name one of the two authors."
+       "Dorsey's evidence is a seller's estimate, a cousin's story, and predictions with no proof. His side is the weaker one."
       ]
      },
      {
       "options": [
-       "uses state budget data and a study of 80 districts and admits where the plan helps",
        "has a doctorate and teaches at a large state university",
        "proves that the four-day week has failed everywhere",
+       "uses state budget data and a study of 80 districts and admits where the plan helps",
        "describes the stress parents feel about Friday child care"
       ],
-      "answer": 0,
+      "answer": 2,
       "why": [
-       "",
        "A title is not evidence. Her argument is strong because of what her data show, not because of her degree.",
        "This distorts the passage. She says the four-day week “is not a disaster” and admits a hiring benefit.",
+       "",
        "Lindqvist reports a survey figure (38 percent paid for child care), not parents' feelings. Calling it an emotional appeal misses why it is strong."
       ]
      },
@@ -1906,16 +1906,16 @@
      },
      {
       "options": [
-       "a seller's estimate, one relative's story, and warnings with no proof",
        "a review of 120 district budgets",
        "a careful pilot program with published results",
+       "a seller's estimate, one relative's story, and warnings with no proof",
        "teacher survey data gathered by the state"
       ],
-      "answer": 0,
+      "answer": 2,
       "why": [
-       "",
        "The review of 120 budgets is Lindqvist's evidence, not Dorsey's.",
        "The pilot program is Lindqvist's recommendation in paragraph 6. Dorsey wants to switch every school next fall.",
+       "",
        "The state teacher survey appears in Lindqvist's paragraph 3, not in Dorsey's passage."
       ]
      }
@@ -1932,17 +1932,17 @@
     "hint": "Find a claim by Dorsey that Lindqvist discusses with specific facts. Then check whether her facts contradict it.",
     "explain": "<p>Step 1: Dorsey says the change “would save a fortune” and cites “up to 20 percent.” Step 2: Lindqvist reports that 120 four-day districts saved an average of 1.8 percent, because salaries, the largest cost, “do not shrink.” For Halden's $62 million budget, 1.8 percent is about $1.1 million (62,000,000 × 0.018 = 1,116,000), while 20 percent would be $12.4 million. Step 3: Her data directly contradict his claim. The teacher choice is tempting, but her survey supports the idea that teachers like the schedule; what her data challenge is his claim that it would <em>solve</em> the shortage.</p>",
     "options": [
-     "Dorsey's claim that the change would “save a fortune,” since Lindqvist reports average savings of 1.8 percent because salaries do not shrink",
-     "Dorsey's claim that students could use Fridays for doctor visits, since Lindqvist reports that many Pine Hollow families paid for Friday child care",
      "Dorsey's statement that teachers like the idea of a three-day weekend, since Lindqvist reports that 64 percent of teachers were more likely to stay",
-     "Dorsey's description of longer school days Monday through Thursday, since Lindqvist says the board should run a two-year pilot at three schools"
+     "Dorsey's description of longer school days Monday through Thursday, since Lindqvist says the board should run a two-year pilot at three schools",
+     "Dorsey's claim that students could use Fridays for doctor visits, since Lindqvist reports that many Pine Hollow families paid for Friday child care",
+     "Dorsey's claim that the change would “save a fortune,” since Lindqvist reports average savings of 1.8 percent because salaries do not shrink"
     ],
-    "answer": 0,
+    "answer": 3,
     "why": [
-     "",
-     "Paying for child care does not contradict students using Fridays for appointments. Both can be true, so this does not show Dorsey is wrong.",
      "Lindqvist's survey actually supports this idea rather than contradicting it. Use evidence that shows the claim is inaccurate.",
-     "Lindqvist does not dispute how the schedule works. Recommending a pilot is about timing, not about the length of school days."
+     "Lindqvist does not dispute how the schedule works. Recommending a pilot is about timing, not about the length of school days.",
+     "Paying for child care does not contradict students using Fridays for appointments. Both can be true, so this does not show Dorsey is wrong.",
+     ""
     ]
    },
    {
@@ -1955,16 +1955,16 @@
     "hint": "First check whether the paragraph uses the passages. Then read each sentence for grammar and punctuation.",
     "explain": "<p>Step 1: Check Trait 1. The paragraph takes a position (Lindqvist is better supported), uses evidence from both passages, and even explains why the cousin's story is weak. Step 2: Check Trait 3. It has many errors: “Lindqvist argument” (missing ’s), “more better then” (double comparison and then/than), “she use” (agreement), a fragment starting with “like,” “its” for “it's,” “alot,” “Dorsey just say,” and the double negative “dont prove nothing.” These errors make the sentences hard to read, so Trait 3 needs the most work. The “None” choice is tempting because the reasoning is good, but the errors interfere with clarity.</p>",
     "options": [
-     "Trait 3, because errors in grammar, punctuation, and word choice make the sentences hard to read",
      "Trait 1, because it never uses evidence from either passage and never names either of the two authors",
      "Trait 2, because it argues the writer's own personal opinion about whether four-day weeks are a good idea",
+     "Trait 3, because errors in grammar, punctuation, and word choice make the sentences hard to read",
      "None of the traits, because it takes a clear position and supports it with evidence from both passages"
     ],
-    "answer": 0,
+    "answer": 2,
     "why": [
-     "",
      "Reread the paragraph: it names both authors and uses evidence from each (the 1.8 percent figure, the cousin). Its ideas are sound; its sentences are not.",
      "The paragraph does not argue a personal opinion. It judges the authors' evidence, which is what the task asks.",
+     "",
      "The ideas are on target, but errors such as “more better then,” “she use,” a fragment beginning with “like,” and “dont prove nothing” would cost points."
     ]
    },
@@ -1981,15 +1981,15 @@
     "options": [
      "It makes her more credible, because she admits a point in the plan's favor and then shows its limits with data.",
      "It weakens her argument, because it shows that she secretly favors switching every school to four days next fall.",
-     "It shows that she agrees with Dorsey that a four-day week would solve the district's teacher shortage for good.",
-     "It has no effect on her argument, because teacher hiring has nothing to do with her position on the school plan."
+     "It has no effect on her argument, because teacher hiring has nothing to do with her position on the school plan.",
+     "It shows that she agrees with Dorsey that a four-day week would solve the district's teacher shortage for good."
     ],
     "answer": 0,
     "why": [
      "",
      "Her conclusion still recommends a pilot instead of switching every school. Admitting one benefit is not the same as changing sides.",
-     "She says the opposite: 4 in 10 districts still had unfilled positions, so “the schedule did not end their shortages.”",
-     "Hiring is one of Dorsey's two main reasons, so how she handles it matters directly to the debate."
+     "Hiring is one of Dorsey's two main reasons, so how she handles it matters directly to the debate.",
+     "She says the opposite: 4 in 10 districts still had unfilled positions, so “the schedule did not end their shortages.”"
     ]
    },
    {
@@ -2004,15 +2004,15 @@
     "options": [
      "Body 1: flaws in Dorsey's evidence, such as the seller's estimate and the cousin; Body 2: Lindqvist's state data and study; Body 3: Dorsey's hiring point and her answer",
      "Body 1: a summary of Dorsey's passage; Body 2: a summary of Lindqvist's passage; Body 3: the student's own memories of how tired students were on Fridays",
-     "Body 1, Body 2, and Body 3: Lindqvist's figures on savings, hiring, and math scores, leaving out Dorsey's passage because it is the weaker of the two passages",
-     "Body 1: Dorsey's points about savings and buses; Body 2: his point about well-rested students; Body 3: why Halden County should be bold and vote yes next fall"
+     "Body 1: Dorsey's points about savings and buses; Body 2: his point about well-rested students; Body 3: why Halden County should be bold and vote yes next fall",
+     "Body 1, Body 2, and Body 3: Lindqvist's figures on savings, hiring, and math scores, leaving out Dorsey's passage because it is the weaker of the two passages"
     ],
     "answer": 0,
     "why": [
      "",
      "Summaries retell the passages without judging them, and memories are not evidence from the texts. This plan would score low on Trait 1.",
-     "The prompt requires evidence from both passages. Dorsey's weak evidence is half of the proof that Lindqvist is better supported.",
-     "This plan argues for Dorsey's side, which does not match the student's thesis that Lindqvist is better supported."
+     "This plan argues for Dorsey's side, which does not match the student's thesis that Lindqvist is better supported.",
+     "The prompt requires evidence from both passages. Dorsey's weak evidence is half of the proof that Lindqvist is better supported."
     ]
    }
   ]
@@ -2041,17 +2041,17 @@
     "prompt": "<p>Which statement best expresses Ruiz's claim and her main reasons?</p>",
     "explain": "<p>Ruiz states her claim at the end of paragraph 1: “The city council should end overdue fines.” Her reasons follow: fines block 4,300 card holders (paragraph 1), bring in only $38,000, less than 1 percent of the budget (paragraph 2), and do not speed returns (94 percent vs. 93 percent, paragraph 3). The lost-books choice is tempting because lost items come up, but Ruiz's plan keeps charging for them.</p>",
     "options": [
+     "The city should extend the no-fine trial to every branch for another year before it makes any final decision.",
      "The city should end overdue fines, because they block many borrowers, raise little money, and do not speed returns.",
-     "The city should raise overdue fines, because $38,000 a year is too little to cover the cost of collecting them.",
      "The library should stop charging for lost books, because many borrowers simply forget to return their items.",
-     "The city should extend the no-fine trial to every branch for another year before it makes any final decision."
+     "The city should raise overdue fines, because $38,000 a year is too little to cover the cost of collecting them."
     ],
-    "answer": 0,
+    "answer": 1,
     "why": [
+     "Ruiz asks the council to end fines now. Questioning the length of the trial is Harmon's point, not a proposal from Ruiz.",
      "",
-     "Ruiz uses the $38,000 figure to show fines are not worth keeping. She never proposes raising them.",
      "This reverses her plan. Under her plan, items more than 30 days overdue would be billed as lost.",
-     "Ruiz asks the council to end fines now. Questioning the length of the trial is Harmon's point, not a proposal from Ruiz."
+     "Ruiz uses the $38,000 figure to show fines are not worth keeping. She never proposes raising them."
     ]
    },
    {
@@ -2082,17 +2082,17 @@
     "prompt": "<p>Which point in Harmon's passage is the most reasonable?</p>",
     "explain": "<p>A fair reader admits when the weaker side makes a good point. Harmon's question about the trial is reasonable: six months at two branches is a limited sample, and a strong essay could acknowledge it. His other points fail the five questions: the allowance story is one case (Sufficient), “everyone I know” is a bandwagon appeal (Source), and the empty-shelves prediction is a slippery slope that Ruiz's 30-day rule answers.</p>",
     "options": [
-     "The trial lasted only six months at two branches, which is a limited test of a citywide change.",
-     "Paying his own fines as a boy taught him responsibility, so all of today's children need fines too.",
+     "Ending fines will lead the library to stop charging for lost books, and then the shelves will be empty.",
      "Everyone he knows who uses the library thinks that the library's overdue fines are completely fair.",
-     "Ending fines will lead the library to stop charging for lost books, and then the shelves will be empty."
+     "Paying his own fines as a boy taught him responsibility, so all of today's children need fines too.",
+     "The trial lasted only six months at two branches, which is a limited test of a citywide change."
     ],
-    "answer": 0,
+    "answer": 3,
     "why": [
-     "",
-     "This is a hasty generalization: one man's childhood experience is turned into a rule for all children.",
+     "This is a slippery slope, and Ruiz's plan contradicts it: items more than 30 days overdue would still be billed as lost.",
      "This is a bandwagon appeal from an unnamed group. What his friends think does not prove fines work.",
-     "This is a slippery slope, and Ruiz's plan contradicts it: items more than 30 days overdue would still be billed as lost."
+     "This is a hasty generalization: one man's childhood experience is turned into a rule for all children.",
+     ""
     ]
    },
    {
@@ -2105,22 +2105,22 @@
     "prompt": "<p>Which <strong>two</strong> statements identify faulty reasoning in Harmon's passage? Select <strong>two</strong> answers.</p>",
     "explain": "<p><strong>Bandwagon:</strong> “Everyone I know who uses the library thinks the fines are fair” uses popularity among an unnamed group as proof. <strong>Slippery slope:</strong> “Soon the library will stop charging for lost books too, and our shelves will be empty” predicts a chain of events with no evidence, and Ruiz's plan to bill long-overdue items as lost contradicts it. Questioning the trial's length is the most reasonable point in his passage, so it is not faulty.</p>",
     "options": [
+     "He states his position that ending library fines sends the wrong message.",
+     "He notes that the fines brought in $38,000, the same figure that Ruiz reports.",
      "He treats the fact that everyone he knows thinks the fines are fair as proof that fines should stay.",
      "He predicts that ending fines will lead to free lost books and empty shelves, without any evidence.",
-     "He questions whether a six-month trial at two branches is long enough to prove anything.",
-     "He notes that the fines brought in $38,000, the same figure that Ruiz reports.",
-     "He states his position that ending library fines sends the wrong message."
+     "He questions whether a six-month trial at two branches is long enough to prove anything."
     ],
     "answer": [
-     0,
-     1
+     2,
+     3
     ],
     "why": [
-     "",
-     "",
-     "This is a reasonable question about the evidence, not faulty reasoning. A limited trial is a fair concern.",
+     "This is Harmon's claim. Stating a position is not a reasoning error.",
      "Citing an accurate figure is not a flaw. Both authors agree on the $38,000; they disagree about whether it matters.",
-     "This is Harmon's claim. Stating a position is not a reasoning error."
+     "",
+     "",
+     "This is a reasonable question about the evidence, not faulty reasoning. A limited trial is a fair concern."
     ]
    },
    {
@@ -2133,17 +2133,17 @@
     "prompt": "<p>Which argument is better supported, and why?</p>",
     "explain": "<p>Ruiz's evidence passes the five questions: it comes from library records (Source), uses exact figures (Specific), measures the outcomes she claims (Relevant), and she answers the main worry about books never coming back (Fair). Harmon relies on an anecdote, a bandwagon appeal, and a slippery slope. The “longer passage” choice is the most tempting because it names Ruiz, but a GED response must give evidence-based reasons, not length.</p>",
     "options": [
-     "Ruiz's, because her figures come from library records and she answers the worry that books will not come back.",
      "Harmon's, because he points out that the $38,000 the fines bring in is real money the library would lose.",
-     "Ruiz's, because her passage is longer than Harmon's passage and includes many more numbers than his does.",
-     "Harmon's, because he is an elected council member who speaks for the residents who use the library."
+     "Ruiz's, because her figures come from library records and she answers the worry that books will not come back.",
+     "Harmon's, because he is an elected council member who speaks for the residents who use the library.",
+     "Ruiz's, because her passage is longer than Harmon's passage and includes many more numbers than his does."
     ],
-    "answer": 0,
+    "answer": 1,
     "why": [
-     "",
      "Harmon uses Ruiz's own figure, but he never answers her point that it is less than 1 percent of the budget and takes about 600 staff hours to collect.",
-     "This names the right side for the wrong reason. Length and the number of figures do not decide support; reliable sources and fair handling of the other side do.",
-     "An elected title is not evidence. Harmon's claims rest on a childhood story, a bandwagon appeal, and a slippery slope."
+     "",
+     "An elected title is not evidence. Harmon's claims rest on a childhood story, a bandwagon appeal, and a slippery slope.",
+     "This names the right side for the wrong reason. Length and the number of figures do not decide support; reliable sources and fair handling of the other side do."
     ]
    },
    {
@@ -2158,58 +2158,58 @@
     "blanks": [
      {
       "options": [
-       "Ruiz",
        "Harmon",
+       "Ruiz",
        "The city council"
       ],
-      "answer": 0,
+      "answer": 1,
       "why": [
-       "",
        "Harmon's passage rests on a childhood story, a bandwagon appeal, and a slippery slope. His side is the weaker one.",
+       "",
        "The city council did not write either passage. The thesis must name one of the authors."
       ]
      },
      {
       "options": [
        "uses library records on blocked borrowers, fine revenue, and return rates",
-       "has run the library longer than Harmon has served on the council",
        "proves that no borrower will ever keep a library book",
-       "describes how unfair fines feel to struggling families"
+       "describes how unfair fines feel to struggling families",
+       "has run the library longer than Harmon has served on the council"
       ],
       "answer": 0,
       "why": [
        "",
-       "Neither passage says how long Ruiz has been director. Time on the job is not evidence about fines.",
        "This distorts the passage. Ruiz plans for long-overdue items by billing them as lost; she never claims no one will keep a book.",
-       "Ruiz reports numbers, not feelings. Praising her for emotion misses why her evidence is strong."
+       "Ruiz reports numbers, not feelings. Praising her for emotion misses why her evidence is strong.",
+       "Neither passage says how long Ruiz has been director. Time on the job is not evidence about fines."
       ]
      },
      {
       "options": [
-       "Harmon",
        "Ruiz",
+       "Harmon",
        "the library staff"
       ],
-      "answer": 0,
+      "answer": 1,
       "why": [
-       "",
        "Ruiz is already the subject. The “while” part must name the other author.",
+       "",
        "The library staff did not write a passage. Name the other author."
       ]
      },
      {
       "options": [
-       "a childhood story, a bandwagon appeal, and a slippery slope",
-       "return rates measured during a six-month trial",
+       "the library's records on blocked card holders",
        "a plan to bill long-overdue items as lost",
-       "the library's records on blocked card holders"
+       "return rates measured during a six-month trial",
+       "a childhood story, a bandwagon appeal, and a slippery slope"
       ],
-      "answer": 0,
+      "answer": 3,
       "why": [
-       "",
-       "The trial return rates are Ruiz's evidence, not Harmon's.",
+       "The 4,300 blocked card holders come from Ruiz's paragraph 1.",
        "The 30-day lost-item plan is Ruiz's answer to the worry about missing books.",
-       "The 4,300 blocked card holders come from Ruiz's paragraph 1."
+       "The trial return rates are Ruiz's evidence, not Harmon's.",
+       ""
       ]
      }
     ]
@@ -2223,17 +2223,17 @@
     "prompt": "<p>Read this body paragraph from a student's response to the library passages.</p><div class=\"box\"><p>Ruiz is the director of the library. She says that 4,300 card holders were blocked last year and that fines brought in $38,000. She also describes a six-month trial at two branches. Harmon is a member of the city council. He says he paid fines as a boy and that everyone he knows thinks the fines are fair. He also worries that the shelves will be empty.</p></div><p>Which rubric trait does this paragraph most need to improve, and why?</p>",
     "explain": "<p>The paragraph is a summary. It reports what each author says, accurately and in order, but it never makes a judgment: it does not say Ruiz's records are reliable, that Harmon's “everyone I know” is a bandwagon appeal, or which side is better supported. Evaluating evidence is the core of Trait 1. The “None” choice is the most tempting because the paragraph uses details from both passages, but details without judgment earn little.</p>",
     "options": [
-     "Trait 1, because it retells both passages but never judges whose evidence is stronger or explains why",
-     "Trait 3, because its sentences contain many errors in grammar and punctuation that confuse the reader",
      "Trait 2, because it jumps between the two passages in a random order with no logical plan at all",
-     "None of the traits, because it uses specific details from both passages, which is what the task asks"
+     "None of the traits, because it uses specific details from both passages, which is what the task asks",
+     "Trait 1, because it retells both passages but never judges whose evidence is stronger or explains why",
+     "Trait 3, because its sentences contain many errors in grammar and punctuation that confuse the reader"
     ],
-    "answer": 0,
+    "answer": 2,
     "why": [
-     "",
-     "Reread the sentences: they are clear and correctly written. Trait 3 is not the main problem.",
      "The paragraph is orderly: it covers Ruiz first, then Harmon. Its problem is what it leaves out, not its order.",
-     "Using details is not enough. The task asks which argument is better supported, and this paragraph never answers that or says why any evidence is strong or weak."
+     "Using details is not enough. The task asks which argument is better supported, and this paragraph never answers that or says why any evidence is strong or weak.",
+     "",
+     "Reread the sentences: they are clear and correctly written. Trait 3 is not the main problem."
     ]
    },
    {
@@ -2246,11 +2246,11 @@
     "prompt": "<p>A student's thesis says Ruiz's argument is better supported. Drag each planning note into the body paragraph where it belongs.</p>",
     "explain": "<p><strong>Body 1</strong> tests the weaker side: the bandwagon appeal and the slippery slope. <strong>Body 2</strong> shows the stronger side's evidence: the return rates and the small fine revenue. <strong>Body 3</strong> treats the other side fairly: the worry about books never coming back and how Ruiz's plan answers it.</p>",
     "choices": [
-     "“Everyone I know who uses the library thinks the fines are fair” is a bandwagon appeal.",
-     "Harmon's prediction that the shelves will be empty is a slippery slope.",
-     "Returns within two weeks: 94 percent without fines vs. 93 percent with them.",
      "Fines brought in $38,000, less than 1 percent of the library's budget.",
-     "The worry that people will keep books forever, and Ruiz's plan to bill items over 30 days late as lost."
+     "“Everyone I know who uses the library thinks the fines are fair” is a bandwagon appeal.",
+     "The worry that people will keep books forever, and Ruiz's plan to bill items over 30 days late as lost.",
+     "Harmon's prediction that the shelves will be empty is a slippery slope.",
+     "Returns within two weeks: 94 percent without fines vs. 93 percent with them."
     ],
     "bins": [
      "Body 1: weaknesses of Harmon's evidence",
@@ -2258,11 +2258,11 @@
      "Body 3: the other side's concern and Ruiz's answer"
     ],
     "answer": [
-     0,
-     0,
      1,
-     1,
-     2
+     0,
+     2,
+     0,
+     1
     ],
     "why": "The most common mistake is putting the 30-day lost-item note in Body 2 because it comes from Ruiz. It is her answer to an objection, so it belongs in the fairness paragraph with the concern it answers."
    },
@@ -2276,16 +2276,16 @@
     "prompt": "<p>Which statement best expresses Natarajan's claim and her main reasons?</p>",
     "explain": "<p>Natarajan's claim is in paragraph 1: “The council should keep the meters.” Her reasons: spaces are already scarce (88 percent full at noon, paragraph 2), and meter money pays for sidewalk repair and the weekend shuttle (paragraph 3). The remove-the-meters choice is tempting because she agrees shoppers find meters frustrating, but that is a concession, not her position.</p>",
     "options": [
+     "The city should build a new parking garage, because 88 percent of downtown spaces are full at noon on weekdays.",
      "The city should keep the meters, because spaces are already scarce and meter money pays for downtown needs.",
      "The city should remove the meters, because shoppers find them frustrating and stores downtown are closing.",
-     "The city should build a new parking garage, because 88 percent of downtown spaces are full at noon on weekdays.",
      "The city should charge downtown employees for all-day parking, because they take the best spaces from shoppers."
     ],
-    "answer": 0,
+    "answer": 1,
     "why": [
+     "Natarajan uses the 88 percent figure to show parking is scarce. She never proposes a garage.",
      "",
      "This is Brennan's position. Natarajan admits some shoppers find meters frustrating, but she argues to keep them.",
-     "Natarajan uses the 88 percent figure to show parking is scarce. She never proposes a garage.",
      "She mentions employees taking spaces to explain what happens when parking is free. She does not propose a new charge for employees."
     ]
    },
@@ -2317,17 +2317,17 @@
     "prompt": "<p>Which point in Brennan's passage is the most reasonable?</p>",
     "explain": "<p>A fair reader admits when the weaker side has a point. Brennan says shoppers are tired of feeding meters, and Natarajan herself agrees: “Store owners are right that some shoppers find the meters frustrating.” His other points fail the five questions: the Dunmore story is one secondhand case (Sufficient), “pocket change” is contradicted by $410,000 (Specific), and “every store downtown will be empty” is a slippery slope.</p>",
     "options": [
-     "Shoppers are tired of feeding the parking meters downtown.",
-     "If removing meters worked in Dunmore, it will work in Ashby too.",
      "The parking meters bring in nothing but pocket change for the city.",
-     "If the city keeps the meters, soon every store downtown will be empty."
+     "If the city keeps the meters, soon every store downtown will be empty.",
+     "If removing meters worked in Dunmore, it will work in Ashby too.",
+     "Shoppers are tired of feeding the parking meters downtown."
     ],
-    "answer": 0,
+    "answer": 3,
     "why": [
-     "",
-     "This is a hasty generalization: one friend's report about one bakery in one town becomes a rule for Ashby.",
      "Natarajan reports that the meters brought in $410,000 last year, which is not pocket change. This claim is unsupported and contradicted.",
-     "This is a slippery slope: a prediction of total collapse with no evidence."
+     "This is a slippery slope: a prediction of total collapse with no evidence.",
+     "This is a hasty generalization: one friend's report about one bakery in one town becomes a rule for Ashby.",
+     ""
     ]
    },
    {
@@ -2340,22 +2340,22 @@
     "prompt": "<p>Which <strong>two</strong> statements identify faulty reasoning in Brennan's passage? Select <strong>two</strong> answers.</p>",
     "explain": "<p><strong>Hasty generalization:</strong> “If it worked in Dunmore, it will work here” turns one friend's report about one bakery into a rule. <strong>Slippery slope:</strong> “soon every store downtown will be empty” predicts collapse with no evidence. Stating his claim, describing the plan, and noting that mall parking is free are not reasoning errors.</p>",
     "options": [
-     "He uses one friend's report about a bakery in Dunmore to predict what will happen in Ashby.",
      "He predicts that keeping the meters will leave every store downtown empty, without evidence.",
-     "He states what he wants: removing the meters and offering free two-hour parking.",
      "He notes that parking at the mall is free, unlike parking downtown.",
-     "He explains that the free parking he wants would be limited to two hours."
+     "He explains that the free parking he wants would be limited to two hours.",
+     "He uses one friend's report about a bakery in Dunmore to predict what will happen in Ashby.",
+     "He states what he wants: removing the meters and offering free two-hour parking."
     ],
     "answer": [
      0,
-     1
+     3
     ],
     "why": [
      "",
-     "",
-     "This is Brennan's claim. Stating a position is not a reasoning error.",
      "This is an accurate fact about the mall. Stating it is not faulty reasoning.",
-     "This describes his proposal. A description is not a flaw in reasoning."
+     "This describes his proposal. A description is not a flaw in reasoning.",
+     "",
+     "This is Brennan's claim. Stating a position is not a reasoning error."
     ]
    },
    {
@@ -2369,16 +2369,16 @@
     "explain": "<p>Natarajan's evidence passes the five questions: a city count of 88 percent full (Source, Specific), $410,000 in meter money with named uses (Specific, Relevant), and a fair answer to shoppers' frustration with pay-by-phone and 15 free minutes (Fair). Brennan relies on a friend's story, unexplained store closings, and a slippery slope. The “longer passage” choice is the most tempting because it names Natarajan, but the reason is length, not evidence.</p>",
     "options": [
      "Natarajan's, because her figures come from city counts and budgets and she answers shoppers' complaints.",
-     "Brennan's, because he runs a store downtown and hears directly from his customers about the meters.",
      "Natarajan's, because her passage is longer than Brennan's passage and includes many more numbers than his.",
-     "Brennan's, because he reports that three stores on his block closed last year after shoppers went elsewhere."
+     "Brennan's, because he reports that three stores on his block closed last year after shoppers went elsewhere.",
+     "Brennan's, because he runs a store downtown and hears directly from his customers about the meters."
     ],
     "answer": 0,
     "why": [
      "",
-     "Hearing from customers gives him some insight, but his evidence is still secondhand and unmeasured. Natarajan's city count is far more reliable.",
      "This names the right side for the wrong reason. Length and the number of figures do not decide support; reliable sources and fair handling of the other side do.",
-     "Brennan reports the closings but never shows the meters caused them. A fact without a proven cause does not support his claim."
+     "Brennan reports the closings but never shows the meters caused them. A fact without a proven cause does not support his claim.",
+     "Hearing from customers gives him some insight, but his evidence is still secondhand and unmeasured. Natarajan's city count is far more reliable."
     ]
    },
    {
@@ -2393,58 +2393,58 @@
     "blanks": [
      {
       "options": [
-       "Natarajan",
+       "The city of Dunmore",
        "Brennan",
-       "The city of Dunmore"
+       "Natarajan"
       ],
-      "answer": 0,
+      "answer": 2,
       "why": [
-       "",
+       "Dunmore is a town Brennan mentions, not an author. The thesis must name one of the authors.",
        "Brennan's passage rests on a friend's story, unexplained closings, and a slippery slope. His side is the weaker one.",
-       "Dunmore is a town Brennan mentions, not an author. The thesis must name one of the authors."
+       ""
       ]
      },
      {
       "options": [
        "uses a city parking count and budget figures and answers shoppers' complaints",
-       "works for the city and must know more than a store owner",
        "proves that free parking has failed in every downtown",
+       "works for the city and must know more than a store owner",
        "describes how frustrated shoppers feel at the meters"
       ],
       "answer": 0,
       "why": [
        "",
-       "A job title is not evidence. Her argument is strong because of her data, not her employer.",
        "This distorts the passage. She cites studies of other downtowns, but she never claims free parking failed everywhere.",
+       "A job title is not evidence. Her argument is strong because of her data, not her employer.",
        "Natarajan admits shoppers are frustrated, but that is a concession, not the evidence that makes her case strong."
       ]
      },
      {
       "options": [
-       "Brennan",
+       "the city of Dunmore",
        "Natarajan",
-       "the city of Dunmore"
+       "Brennan"
       ],
-      "answer": 0,
+      "answer": 2,
       "why": [
-       "",
+       "Dunmore is not an author. Name the other writer.",
        "Natarajan is already the subject. The “while” part must name the other author.",
-       "Dunmore is not an author. Name the other writer."
+       ""
       ]
      },
      {
       "options": [
+       "meter revenue figures from last year",
        "a friend's story, unexplained store closings, and predictions with no proof",
-       "a count of full parking spaces at noon",
        "a plan to add pay-by-phone parking",
-       "meter revenue figures from last year"
+       "a count of full parking spaces at noon"
       ],
-      "answer": 0,
+      "answer": 1,
       "why": [
+       "The $410,000 in meter revenue comes from Natarajan's paragraph 3.",
        "",
-       "The 88 percent count is Natarajan's evidence, not Brennan's.",
        "Pay-by-phone is Natarajan's answer to shoppers' complaints.",
-       "The $410,000 in meter revenue comes from Natarajan's paragraph 3."
+       "The 88 percent count is Natarajan's evidence, not Brennan's."
       ]
      }
     ]
@@ -2458,17 +2458,17 @@
     "prompt": "<p>A student's whole response to the parking passages is one long block of text with no introduction, no conclusion, and no paragraph breaks. It states in the middle that Natarajan is better supported and jumps back and forth between the two authors from sentence to sentence. The sentences are correct, and the student quotes and explains evidence from both passages.</p><p>Which rubric trait does this response most need to improve, and why?</p>",
     "explain": "<p>The response has the right thinking (Trait 1) and correct sentences (Trait 3), but it has no organization: no introduction with a thesis, no body paragraphs with one job each, no conclusion, and an order that jumps between authors. That is <strong>Trait 2</strong>, development and organizational structure. The “None” choice is tempting because the reasoning is good, but each trait is scored on its own.</p>",
     "options": [
-     "Trait 2, because it has no clear structure: no introduction, body paragraphs, or conclusion, and no logical order",
+     "None of the traits, because a correct position with explained evidence earns full credit on every trait",
      "Trait 1, because it never chooses a side and never uses any evidence from either of the two passages",
      "Trait 3, because a response with no paragraph breaks must contain many errors in grammar and punctuation",
-     "None of the traits, because a correct position with explained evidence earns full credit on every trait"
+     "Trait 2, because it has no clear structure: no introduction, body paragraphs, or conclusion, and no logical order"
     ],
-    "answer": 0,
+    "answer": 3,
     "why": [
-     "",
+     "Each trait is scored separately. Strong reasoning cannot make up for a missing structure.",
      "The description says the response picks Natarajan and quotes and explains evidence from both passages. Trait 1 is its strength.",
      "The description says the sentences are correct. Paragraph breaks are about organization (Trait 2), not grammar.",
-     "Each trait is scored separately. Strong reasoning cannot make up for a missing structure."
+     ""
     ]
    },
    {
@@ -2481,11 +2481,11 @@
     "prompt": "<p>A student's thesis says Natarajan's argument is better supported. Drag each planning note into the body paragraph where it belongs.</p>",
     "explain": "<p><strong>Body 1</strong> tests the weaker side: the Dunmore story (hasty generalization) and the empty-stores prediction (slippery slope). <strong>Body 2</strong> shows the stronger side's evidence: the 88 percent count and the $410,000 and its uses. <strong>Body 3</strong> treats the other side fairly: shoppers' frustration and Natarajan's plan for pay-by-phone and 15 free minutes.</p>",
     "choices": [
+     "Shoppers find the meters frustrating, and the city plans pay-by-phone and 15 free minutes.",
+     "Meter money ($410,000) pays for sidewalk repair and the weekend shuttle.",
      "The Dunmore bakery story is one friend's report about one town.",
      "“Soon every store downtown will be empty” is a slippery slope.",
-     "88 percent of downtown spaces were full at noon on weekdays.",
-     "Meter money ($410,000) pays for sidewalk repair and the weekend shuttle.",
-     "Shoppers find the meters frustrating, and the city plans pay-by-phone and 15 free minutes."
+     "88 percent of downtown spaces were full at noon on weekdays."
     ],
     "bins": [
      "Body 1: weaknesses of Brennan's evidence",
@@ -2493,11 +2493,11 @@
      "Body 3: the other side's concern and Natarajan's answer"
     ],
     "answer": [
+     2,
+     1,
      0,
      0,
-     1,
-     1,
-     2
+     1
     ],
     "why": "The most common mistake is putting the pay-by-phone note in Body 2 because it comes from Natarajan. It is her answer to shoppers' frustration, so it belongs in the fairness paragraph with the concern it answers."
    }

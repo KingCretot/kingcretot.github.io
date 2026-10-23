@@ -134,7 +134,7 @@ function chartSVG(f){
   var multi=f.series.length>1, W=560,H=320+(multi?22:0),L=60,R=20,T=(f.title?34:14)+(multi?24:0),B=f.xLabel?62:44;
   var vals=[];f.series.forEach(function(s){vals=vals.concat(s.values)});
   var max=Math.max.apply(null,vals.concat([0])),min=Math.min.apply(null,vals.concat([0]));
-  var step=niceStep((max-min)/5||1); var top=Math.ceil(max/step)*step, bot=Math.floor(min/step)*step; if(top===bot)top=bot+step;
+  var step=niceStep((max-min)/5||1); var top=Math.ceil(max/step)*step, bot=Math.floor(min/step)*step; if(top===bot)top=bot+step; var labeled=(f.type==='bar'&&f.series.length===1)||(f.type==='line'&&((f.series.length===1&&f.pointLabels!==false)||f.pointLabels===true)); if(labeled&&max>top-step*0.2)top+=step;
   var pw=W-L-R, ph=H-T-B, n=f.labels.length;
   function y(v){return T+ph-(v-bot)/(top-bot)*ph}
   var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="'+NS+'" font-family="Arial" font-size="13" role="img" aria-label="'+esc(f.title||'chart')+'">';
