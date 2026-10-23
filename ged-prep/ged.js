@@ -208,7 +208,8 @@ function renderItem(it, val, opts){
     if (opts.review&&!scoreItem(it,val)) h+='<p class="tag" style="display:inline-block;color:#1E7A46">Correct answer: '+esc(it.answer[0])+'</p>';
   } else if (it.type==='drag'){
     var place=val||it.choices.map(function(){return null});
-    h+='<div class="drag"><div class="chips" data-bin="-1" aria-label="Items to place">'+it.choices.map(function(c,i){return place[i]==null?'<span class="chip" data-c="'+i+'" tabindex="0">'+c+'</span>':''}).join('')+'</div><div class="bins">'+it.bins.map(function(b,bi){
+    var dord=it.noShuffle?it.choices.map(function(_,i){return i}):shuffled(it.choices.length,'drag:'+it.id);
+    h+='<div class="drag"><div class="chips" data-bin="-1" aria-label="Items to place">'+dord.map(function(i){var c=it.choices[i];return place[i]==null?'<span class="chip" data-c="'+i+'" tabindex="0">'+c+'</span>':''}).join('')+'</div><div class="bins">'+it.bins.map(function(b,bi){
       return '<div class="bin" data-bin="'+bi+'" tabindex="0"><h5>'+b+'</h5>'+it.choices.map(function(c,i){if(place[i]!==bi)return '';var mark='';if(opts.review)mark=it.answer[i]===bi?' style="border-color:#1E7A46;background:#ECF6F0"':' style="border-color:#DB2F30;background:#FDEEEE"';return '<span class="chip" data-c="'+i+'" tabindex="0"'+mark+'>'+c+'</span>'}).join('')+'</div>'}).join('')+'</div>'+(opts.review?'<p class="plane-hint">Correct placement: '+it.choices.map(function(c,i){return esc(txt(c))+' → '+esc(txt(it.bins[it.answer[i]]))}).join('; ')+'</p>':'<p class="plane-hint">Tap an item, then tap the box where it belongs. Tap a placed item to send it back.</p>')+'</div>';
   } else if (it.type==='hotspot'){
     if (it.plane){
