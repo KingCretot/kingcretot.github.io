@@ -198,7 +198,7 @@
     "board": "<ul><li><strong>Radius (r):</strong> center to edge</li><li><strong>Diameter (d):</strong> all the way across through the center; d = 2r, r = d &divide; 2</li><li><strong>Circumference</strong> (distance around): C = &pi;d = 2&pi;r</li><li><strong>Area:</strong> A = &pi;r<sup>2</sup>; square the <strong>radius</strong> first</li><li><strong>&pi; &asymp; 3.14</strong>. The question says &ldquo;use 3.14&rdquo; or &ldquo;use the &pi; key&rdquo; and how to round. Do exactly that.</li></ul>",
     "figure": {
      "type": "svg",
-     "svg": "<svg viewBox='0 0 300 185' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='75' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='100' r='3' fill='none' stroke='#0A1F3D' stroke-width='2'/><line x1='75' y1='100' x2='225' y2='100' stroke='#0A1F3D' stroke-width='1.5'/><text x='112.5' y='92' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter d</text><line x1='150' y1='100' x2='195.0' y2='160.0' stroke='#0A1F3D' stroke-width='1.5'/><text x='168.5' y='146.5' font-size='14' fill='#0A1F3D' text-anchor='end'>radius r</text></svg>",
+     "svg": "<svg viewBox='0 0 300 185' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='75' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='100' r='3' fill='none' stroke='#0A1F3D' stroke-width='2'/><line x1='75' y1='100' x2='225' y2='100' stroke='#0A1F3D' stroke-width='1.5'/><text x='116' y='92' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter d</text><line x1='150' y1='100' x2='195.0' y2='160.0' stroke='#0A1F3D' stroke-width='1.5'/><text x='168.5' y='146.5' font-size='14' fill='#0A1F3D' text-anchor='end'>radius r</text></svg>",
      "alt": "A circle with its center marked. A diameter crosses the whole circle through the center; a radius runs from the center to the edge."
     },
     "notes": {
@@ -902,7 +902,7 @@
     "html": "<p>The <strong>radius</strong> (r) goes from the center of a circle to its edge. The <strong>diameter</strong> (d) goes all the way across through the center, so d = 2r and r = d &divide; 2.</p><p>The distance around a circle is its <strong>circumference</strong>. For every circle, the circumference divided by the diameter is the same number, <strong>&pi;</strong> (pi), about 3.14.</p><div class=\"box\"><p><strong>C = &pi;d</strong> or <strong>C = 2&pi;r</strong> (the same thing, because 2r = d)</p></div><p>Circumference is a length, so its units are plain units: inches, feet, meters.</p>",
     "figure": {
      "type": "svg",
-     "svg": "<svg viewBox='0 0 300 185' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='75' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='100' r='3' fill='none' stroke='#0A1F3D' stroke-width='2'/><line x1='75' y1='100' x2='225' y2='100' stroke='#0A1F3D' stroke-width='1.5'/><text x='112.5' y='92' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter d</text><line x1='150' y1='100' x2='195.0' y2='160.0' stroke='#0A1F3D' stroke-width='1.5'/><text x='168.5' y='146.5' font-size='14' fill='#0A1F3D' text-anchor='end'>radius r</text></svg>",
+     "svg": "<svg viewBox='0 0 300 185' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='75' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='100' r='3' fill='none' stroke='#0A1F3D' stroke-width='2'/><line x1='75' y1='100' x2='225' y2='100' stroke='#0A1F3D' stroke-width='1.5'/><text x='116' y='92' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter d</text><line x1='150' y1='100' x2='195.0' y2='160.0' stroke='#0A1F3D' stroke-width='1.5'/><text x='168.5' y='146.5' font-size='14' fill='#0A1F3D' text-anchor='end'>radius r</text></svg>",
      "alt": "A circle with its center marked. A diameter crosses the whole circle through the center; a radius runs from the center to the edge."
     },
     "example": {
@@ -1096,7 +1096,7 @@
      "prompt": "A sign is a rectangle 10 in wide and 8 in tall with a triangle on top. The triangle's base is the 10-in top edge and its height is 5 in. Find the area.",
      "figure": {
       "type": "svg",
-      "svg": "<svg viewBox='0 0 300 195' xmlns='http://www.w3.org/2000/svg'><polygon points='92.3,72.7 150.0,15 207.7,72.7 207.7,165.0 92.3,165.0' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='92.3' y1='72.7' x2='207.7' y2='72.7' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><line x1='150.0' y1='15' x2='150.0' y2='72.7' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><text x='150.0' y='185.0' font-size='14' fill='#0A1F3D' text-anchor='middle'>10 in</text><text x='213.7' y='123.8' font-size='14' fill='#0A1F3D' text-anchor='start'>8 in</text><text x='156.0' y='51.8' font-size='14' fill='#0A1F3D' text-anchor='start'>5 in</text></svg>",
+      "svg": "<svg viewBox='0 0 300 195' xmlns='http://www.w3.org/2000/svg'><polygon points='92.3,72.7 150.0,15 207.7,72.7 207.7,165.0 92.3,165.0' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='92.3' y1='72.7' x2='207.7' y2='72.7' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><line x1='150.0' y1='15' x2='150.0' y2='72.7' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><text x='150.0' y='185.0' font-size='14' fill='#0A1F3D' text-anchor='middle'>10 in</text><text x='213.7' y='123.8' font-size='14' fill='#0A1F3D' text-anchor='start'>8 in</text><text x='144.0' y='66.0' font-size='14' fill='#0A1F3D' text-anchor='end'>5 in</text></svg>",
       "alt": "A sign made of a rectangle 10 inches wide and 8 inches tall with a triangle on top; the triangle has a dashed height of 5 inches."
      },
      "steps": [
@@ -2087,35 +2087,35 @@
     "skill": "Circumference",
     "difficulty": 1,
     "set": "B",
-    "prompt": "<p>A bicycle wheel has a diameter of 26 inches. When the wheel makes one full turn, the bike moves forward a distance equal to the wheel's circumference. Using 3.14 for &pi;, how far does the bike move in one full turn?</p>",
+    "prompt": "<p>A bicycle wheel has a diameter of 28 inches. When the wheel makes one full turn, the bike moves forward a distance equal to the wheel's circumference. Using 3.14 for &pi;, how far does the bike move in one full turn?</p>",
     "answer": [
-     "81.64"
+     "87.92"
     ],
-    "value": 81.64,
+    "value": 87.92,
     "tol": 0.005,
     "suffix": "inches",
     "mistakes": [
      {
       "answer": [
-       "163.28"
+       "175.84"
       ],
-      "why": "You used 2&pi; with the diameter (2 &times; 3.14 &times; 26). The 2&pi;r form needs the radius. With the diameter, C = &pi;d = 3.14 &times; 26 = 81.64."
+      "why": "You used 2&pi; with the diameter (2 &times; 3.14 &times; 28). The 2&pi;r form needs the radius. With the diameter, C = &pi;d = 3.14 &times; 28 = 87.92."
      },
      {
       "answer": [
-       "40.82"
+       "43.96"
       ],
-      "why": "You multiplied 3.14 by the radius, 13. C = &pi;d uses the whole diameter: 3.14 &times; 26 = 81.64."
+      "why": "You multiplied 3.14 by the radius, 14. C = &pi;d uses the whole diameter: 3.14 &times; 28 = 87.92."
      },
      {
       "answer": [
-       "530.66"
+       "615.44"
       ],
-      "why": "That is 3.14 &times; 13<sup>2</sup>, the area of the wheel. The distance around is the circumference: 3.14 &times; 26 = 81.64."
+      "why": "That is 3.14 &times; 14<sup>2</sup>, the area of the wheel. The distance around is the circumference: 3.14 &times; 28 = 87.92."
      }
     ],
     "hint": "You are given the diameter. Use C = &pi;d.",
-    "explain": "<p>C = &pi;d = 3.14 &times; 26 = <strong>81.64 inches</strong></p><p>If you used C = 2&pi;r, the radius is 13: 2 &times; 3.14 &times; 13 = 81.64, the same answer.</p><p>163.28 doubles the diameter, a mix-up between the two forms of the formula.</p>"
+    "explain": "<p>C = &pi;d = 3.14 &times; 28 = <strong>87.92 inches</strong></p><p>If you used C = 2&pi;r, the radius is 14: 2 &times; 3.14 &times; 14 = 87.92, the same answer.</p><p>175.84 doubles the diameter, a mix-up between the two forms of the formula.</p>"
    },
    {
     "id": "PB04",
@@ -2328,7 +2328,7 @@
      "",
      "",
      "5<sup>2</sup> + 11<sup>2</sup> = 25 + 121 = 146, but 12<sup>2</sup> = 144. Close is not enough; the two values must be equal.",
-     "8<sup>2</sup> + 10<sup>2</sup> = 64 + 100 = 164, but 12<sup>2</sup> = 144. Even numbers do not make a triple; 8 and 10 come from 6-8-10, which is a different triangle.",
+     "8<sup>2</sup> + 10<sup>2</sup> = 64 + 100 = 164, but 12<sup>2</sup> = 144. The sides 8 and 10 come from the 6-8-10 triple, but here they are the two shorter sides, and 164 &ne; 144.",
      "4<sup>2</sup> + 7<sup>2</sup> = 16 + 49 = 65, but 9<sup>2</sup> = 81. The squares do not match, so it is not a right triangle."
     ],
     "hint": "Square the two shorter sides and add. Compare the sum with the square of the longest side.",
@@ -2619,7 +2619,7 @@
     "why": [
      "",
      "You counted both 8-meter sides. The side where the half-circle attaches is inside the garden, so only one 8-meter side is on the edge: 12 + 12 + 8 + 12.56 = 44.56.",
-     "You used a whole circle (3.14 &times; 8 = 25.12). Only half of the circle is on the edge: 12.56. Also leave out the joined side: 12 + 12 + 8 + 12.56 = 44.56.",
+     "You used a whole circle (3.14 &times; 8 = 25.12) for the curved edge. Only half of the circle is on the edge: &frac12; &times; 3.14 &times; 8 = 12.56, so 12 + 12 + 8 + 12.56 = 44.56.",
      "That is the area of the garden (96 + 25.12 = 121.12 square meters). Edging is a length around the outside, so add the outside edges."
     ],
     "hint": "Trace the outside edge. The curved part is half of a circle with a diameter of 8 m.",
@@ -2634,7 +2634,7 @@
     "prompt": "<p>The figure shows the end wall of a shed: a rectangle 14 feet wide and 10 feet tall with a triangle on top. The peak of the triangle is 6 feet above the top of the rectangle.</p><p>What is the total area of the end wall in square feet?</p>",
     "figure": {
      "type": "svg",
-     "svg": "<svg viewBox='0 0 300 195' xmlns='http://www.w3.org/2000/svg'><polygon points='84.4,71.2 150.0,15 215.6,71.2 215.6,165.0 84.4,165.0' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='84.4' y1='71.2' x2='215.6' y2='71.2' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><line x1='150.0' y1='15' x2='150.0' y2='71.2' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><text x='150.0' y='185.0' font-size='14' fill='#0A1F3D' text-anchor='middle'>14 ft</text><text x='221.6' y='123.1' font-size='14' fill='#0A1F3D' text-anchor='start'>10 ft</text><text x='156.0' y='51.1' font-size='14' fill='#0A1F3D' text-anchor='start'>6 ft</text></svg>",
+     "svg": "<svg viewBox='0 0 300 195' xmlns='http://www.w3.org/2000/svg'><polygon points='84.4,71.2 150.0,15 215.6,71.2 215.6,165.0 84.4,165.0' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='84.4' y1='71.2' x2='215.6' y2='71.2' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><line x1='150.0' y1='15' x2='150.0' y2='71.2' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><text x='150.0' y='185.0' font-size='14' fill='#0A1F3D' text-anchor='middle'>14 ft</text><text x='221.6' y='123.1' font-size='14' fill='#0A1F3D' text-anchor='start'>10 ft</text><text x='144.0' y='62.0' font-size='14' fill='#0A1F3D' text-anchor='end'>6 ft</text></svg>",
      "alt": "The end wall of a shed: a rectangle 14 ft wide and 10 ft tall with a triangle on top. A dashed line marks the bottom of the triangle, and a dashed height of 6 ft runs from the peak down to it."
     },
     "answer": [
