@@ -138,7 +138,7 @@
      "4. Sort by temperature: 14 (10.2), 16 (9.6), 18 (8.9), 20 (8.1). <strong>As temperature increases, dissolved oxygen decreases.</strong>"
     ],
     "notes": {
-     "say": "This is real field data of the kind the GED loves. Walk me through each one; tell me the step before you tell me the number. For question 4, we have to sort the sites by temperature first, because the table lists them A, B, C, D, not from coldest to warmest. And remember: four sites show a pattern, not proof of cause.",
+     "say": "This is exactly the kind of field data the GED loves. Walk me through each one; tell me the step before you tell me the number. For question 4, we have to sort the sites by temperature first, because the table lists them A, B, C, D, not from coldest to warmest. And remember: four sites show a pattern, not proof of cause.",
      "ask": [
       "What is the first step for the median? (expected answer: put the oxygen values in order)",
       "Does this table prove warm water causes low oxygen? (expected answer: no; it shows a pattern at four sites, not cause and effect)"
@@ -254,10 +254,10 @@
    {
     "kind": "wedo",
     "title": "We Do: Rates and Units",
-    "board": "<ol><li>At 6:00 a.m. the air was 52 &deg;F. At 12:00 noon it was 70 &deg;F. What was the average rate of warming?</li><li>A sample has a volume of 2.4 L. How many milliliters is that?</li><li>A tortoise walks 0.3 km in 2 hours. What is its speed in meters per minute?</li></ol>",
+    "board": "<ol><li>At 6:00 a.m. the air was 52 &deg;F. At 12:00 noon it was 70 &deg;F. What was the average rate of warming?</li><li>A soil sample has a mass of 0.45 kg. How many grams is that?</li><li>A tortoise walks 0.3 km in 2 hours. What is its speed in meters per minute?</li></ol>",
     "steps": [
      "1. Change: 70 &minus; 52 = 18 &deg;F; time: 12 &minus; 6 = 6 h. 18 &divide; 6 = <strong>3 &deg;F per hour</strong>.",
-     "2. Big to small, multiply: 2.4 &times; 1,000 = <strong>2,400 mL</strong>.",
+     "2. Big to small, multiply: 0.45 &times; 1,000 = <strong>450 g</strong>.",
      "3. 0.3 km &times; 1,000 = 300 m. 2 h &times; 60 = 120 min. 300 &divide; 120 = <strong>2.5 m per minute</strong>."
     ],
     "notes": {
@@ -265,7 +265,7 @@
      "ask": [
       "In number 3, what do we divide by what? (expected answer: meters divided by minutes, because the rate is meters per minute)"
      ],
-     "answer": "<p>1. 3 &deg;F per hour. 2. 2,400 mL. 3. 2.5 m per minute.</p>",
+     "answer": "<p>1. 3 &deg;F per hour. 2. 450 g. 3. 2.5 m per minute.</p>",
      "watch": "<p>On number 3, students may divide 0.3 by 2 and stop (0.15 km per hour). Remind them to read what unit the question asks for.</p>"
     }
    },
@@ -318,16 +318,16 @@
    {
     "kind": "youdo",
     "title": "Your Turn: Probability",
-    "board": "<p>Volunteers counted 40 birds: 14 sparrows, 10 robins, 16 other birds.</p><ol><li>What is the probability that a counted bird was a robin?</li><li>What is the probability it was not a robin?</li><li>The next survey will count 200 birds. About how many robins are expected?</li><li>A forecast gives a 15% chance of frost. What is the chance of no frost?</li></ol>",
+    "board": "<p>Volunteers counted 40 birds: 14 sparrows, 10 robins, 16 other birds.</p><ol><li>What is the probability that a counted bird was a robin?</li><li>What is the probability it was not a robin?</li><li>The next survey will count 200 birds. About how many robins are expected?</li><li>A forecast gives a 30% chance of thunderstorms. What is the chance of no thunderstorms?</li></ol>",
     "steps": [
      "1. 10 &divide; 40 = <strong>1/4 = 0.25 = 25%</strong>.",
      "2. 1 &minus; 0.25 = <strong>0.75, or 75%</strong>.",
      "3. 0.25 &times; 200 = <strong>about 50 robins</strong>.",
-     "4. 100% &minus; 15% = <strong>85%</strong>."
+     "4. 100% &minus; 30% = <strong>70%</strong>."
     ],
     "notes": {
      "say": "Your turn again; you have three minutes. Give me each answer as a percent. On number 3, tell me why we say 'about.'",
-     "answer": "<p>1. 25%. 2. 75%. 3. About 50 robins (expected, not guaranteed). 4. 85%.</p>",
+     "answer": "<p>1. 25%. 2. 75%. 3. About 50 robins (expected, not guaranteed). 4. 70%.</p>",
      "watch": "<p>On number 1, some students divide 10 by 30 (robins versus all the other birds). The total, 40, goes on the bottom.</p>"
     }
    },
@@ -701,8 +701,8 @@
      "difficulty": 2,
      "prompt": "<p>A data set is 12, 14, 13, 15, and 46. How does the value 46 affect the mean and the median?</p>",
      "options": [
-      "It raises the mean to 20, but the median stays at 14.",
-      "It raises the median to 20, but the mean stays at 14.",
+      "It pulls the mean up to 20, but the median is only 14.",
+      "It pulls the median up to 20, but the mean is only 14.",
       "It raises both the mean and the median to about 20.",
       "It has no effect on the mean, because one value is too few to matter."
      ],
@@ -850,7 +850,7 @@
      "type": "mc",
      "skill": "Converting rates",
      "difficulty": 2,
-     "prompt": "<p>A garden snail crawls at about 6 cm per minute. What is that speed in meters per hour?</p>",
+     "prompt": "<p>In a lab test, a snail crawled at 6 cm per minute. What is that speed in meters per hour?</p>",
      "options": [
       "3.6 meters per hour",
       "360 meters per hour",
@@ -1031,7 +1031,7 @@
      "why": [
       "",
       "",
-      "No data were collected above 30 &deg;C. This prediction goes far past the measured range.",
+      "No data were collected above 30 &deg;C. The statement turns a guess far outside the measured range into a certain prediction (&ldquo;will chirp&rdquo;), and the pattern may not continue.",
       "Only temperature was tested. The data cannot show that nothing else matters, and &ldquo;only&rdquo; is a warning sign.",
       "The table shows chirp rates, not the reason crickets chirp. Mating was never measured."
      ],
@@ -2341,7 +2341,7 @@
      "",
      "16 cm is the <em>sun</em> plant&rsquo;s height at week 3. Use the key or the row label to read the shade plant.",
      "8 cm is the shade plant&rsquo;s height at week 2. You read one column too early.",
-     "6 cm is the difference between the plants at week 3 (16 &minus; 10). The question asks for the shade plant&rsquo;s height."
+     "6 cm is the difference between the plants at week 3 (16 &minus; 10), and it is also the shade plant&rsquo;s height at week 1. Read the shade row at the week 3 column."
     ],
     "explain": "<p>Find the shade plant (row or line), then week 3: <strong>10 cm</strong>. The sun plant was 16 cm at week 3; that value is in the other row.</p>"
    },
@@ -2590,7 +2590,7 @@
      "",
      "33 &deg;C is the <em>black</em> can at 15 minutes. Use the key or row label to read the white can.",
      "24 &deg;C is the white can at 10 minutes. You read one column too early.",
-     "7 &deg;C is the difference between the cans at 15 minutes (33 &minus; 26). The question asks for the white can&rsquo;s temperature."
+     "7 &deg;C is the difference between the cans at 15 minutes (33 &minus; 26). The question asks for the white can&rsquo;s temperature, so read the white row at the 15-minute column."
     ],
     "explain": "<p>Find the white can (row or line), then 15 minutes: <strong>26 &deg;C</strong>. The 33 &deg;C in the same column belongs to the black can.</p>"
    },
@@ -2847,12 +2847,12 @@
   {
    "term": "Key (legend)",
    "def": "The part of a graph that shows which bar, line, or color stands for which data set.",
-   "example": "A key showing dark bars for bees and light bars for butterflies."
+   "example": "A key showing which bar color stands for bees and which stands for butterflies."
   },
   {
    "term": "Trend",
    "def": "The overall direction of data: increasing, decreasing, or staying about the same.",
-   "example": "Heart rate decreases steadily after exercise stops."
+   "example": "Heart rate decreases in the minutes after exercise stops."
   },
   {
    "term": "Mean",
@@ -2900,5 +2900,5 @@
    "example": "With a 0.36 chance per trap, about 0.36 &times; 200 = 72 of 200 traps catch a mouse."
   }
  ],
- "notes": "<h3>Study Notes: Working with Data</h3>\n<div class=\"twocol\">\n<div>\n<h4>Read First: T-A-U-K</h4>\n<p><strong>T</strong>itle &bull; <strong>A</strong>xes / headings &bull; <strong>U</strong>nits &bull; <strong>K</strong>ey</p>\n<p>Bar graph = compare categories. Line graph = change over time. Steeper line = faster change. IV on x-axis, DV on y-axis.</p>\n<h4>Center and Spread</h4>\n<ul>\n<li><strong>Mean</strong> = sum &divide; number of values</li>\n<li><strong>Median</strong> = middle of ordered data (even count: average the two middle values)</li>\n<li><strong>Mode</strong> = most frequent (can be none or more than one)</li>\n<li><strong>Range</strong> = greatest &minus; least (spread, not center)</li>\n</ul>\n<p><strong>Outlier:</strong> pulls the mean; median barely moves. With an outlier, the median is usually the better \"typical\" value.</p>\n</div>\n<div>\n<h4>Rates</h4>\n<p>Rate = change in amount &divide; change in time<br>\"per\" means divide. Keep units: cm/day, bpm, mg/L.</p>\n<h4>Probability</h4>\n<p>P = favorable &divide; total (0 to 1)<br>P(not) = 1 &minus; P<br>Expected = P &times; number of tries<br>1/4 = 0.25 = 25%</p>\n<p><strong>Two groups of different sizes:</strong> find each group&rsquo;s rate (divide by its own total), then divide the rates for &ldquo;how many times as likely.&rdquo;</p>\n<h4>Temperature</h4>\n<p>&deg;F = (&deg;C &times; 9/5) + 32</p>\n</div>\n</div>\n<table>\n<thead><tr><th>Length</th><th>Volume</th><th>Mass</th><th>Time</th></tr></thead>\n<tbody><tr><td>1 cm = 10 mm; 1 m = 100 cm; 1 km = 1,000 m</td><td>1 L = 1,000 mL</td><td>1 kg = 1,000 g; 1 g = 1,000 mg</td><td>1 min = 60 s; 1 h = 60 min; 1 day = 24 h</td></tr></tbody>\n</table>\n<p><strong>Big unit to small unit: multiply. Small unit to big unit: divide.</strong> Convert a rate one unit at a time (10.5 cm/week &divide; 7 = 1.5 cm/day = 15 mm/day).</p>\n<p><strong>Example data: 58, 62, 68, 70, 74, 88 (bpm).</strong> Mean = 420 &divide; 6 = 70. Median = (68 + 70) &divide; 2 = 69. Mode = none. Range = 88 &minus; 58 = 30.</p>\n<p><strong>Watch out:</strong> order data before finding the median &bull; read the right row and units &bull; total goes on the bottom of a probability &bull; expected values are estimates &bull; do not extend a trend far past the data.</p>\n"
+ "notes": "<h3>Study Notes: Working with Data</h3>\n<div class=\"twocol\">\n<div>\n<h4>Read First: T-A-U-K</h4>\n<p><strong>T</strong>itle &bull; <strong>A</strong>xes / headings &bull; <strong>U</strong>nits &bull; <strong>K</strong>ey</p>\n<p>Bar graph = compare categories. Line graph = change over time. Steeper line = faster change. IV on x-axis, DV on y-axis.</p>\n<h4>Center and Spread</h4>\n<ul>\n<li><strong>Mean</strong> = sum &divide; number of values</li>\n<li><strong>Median</strong> = middle of ordered data (even count: average the two middle values)</li>\n<li><strong>Mode</strong> = most frequent (can be none or more than one)</li>\n<li><strong>Range</strong> = greatest &minus; least (spread, not center)</li>\n</ul>\n<p><strong>Outlier:</strong> pulls the mean; median barely moves. With an outlier, the median is usually the better &ldquo;typical&rdquo; value.</p>\n</div>\n<div>\n<h4>Rates</h4>\n<p>Rate = change in amount &divide; change in time<br>&ldquo;Per&rdquo; means divide. Keep units: cm/day, bpm, mg/L.</p>\n<h4>Probability</h4>\n<p>P = favorable &divide; total (0 to 1)<br>P(not) = 1 &minus; P<br>Expected = P &times; number of tries<br>1/4 = 0.25 = 25%</p>\n<p><strong>Two groups of different sizes:</strong> find each group&rsquo;s rate (divide by its own total), then divide the rates for &ldquo;how many times as likely.&rdquo;</p>\n<h4>Temperature</h4>\n<p>&deg;F = (&deg;C &times; 9/5) + 32</p>\n</div>\n</div>\n<table>\n<thead><tr><th>Length</th><th>Volume</th><th>Mass</th><th>Time</th></tr></thead>\n<tbody><tr><td>1 cm = 10 mm; 1 m = 100 cm; 1 km = 1,000 m</td><td>1 L = 1,000 mL</td><td>1 kg = 1,000 g; 1 g = 1,000 mg</td><td>1 min = 60 s; 1 h = 60 min; 1 day = 24 h</td></tr></tbody>\n</table>\n<p><strong>Big unit to small unit: multiply. Small unit to big unit: divide.</strong> Convert a rate one unit at a time (10.5 cm/week &divide; 7 = 1.5 cm/day = 15 mm/day).</p>\n<p><strong>Example data: 58, 62, 68, 70, 74, 88 (bpm).</strong> Mean = 420 &divide; 6 = 70. Median = (68 + 70) &divide; 2 = 69. Mode = none. Range = 88 &minus; 58 = 30.</p>\n<p><strong>Watch out:</strong> order data before finding the median &bull; read the right row and units &bull; total goes on the bottom of a probability &bull; expected values are estimates &bull; do not extend a trend far past the data.</p>\n"
 }

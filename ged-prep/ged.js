@@ -405,7 +405,7 @@ function deckView(w,s){
       var sl=S[pos.i], st=sl.steps||[], more=pos.r<st.length;
       sset('kce_ged_deck_'+k,pos); sset('kce_ged_deckbc',{k:k,i:pos.i,r:pos.r,t:Date.now()});
       var h='<div class="xbar"><div class="in"><div class="tt">Week '+w+' · '+SUBJ[s].short+' · Teaching Lesson<small>'+esc(d.title)+' · Slide '+(pos.i+1)+' of '+S.length+'</small></div>'+toolBtns(s)+'<button type="button" id="dnotes">'+(notesOn?'Hide notes':'Instructor notes')+'</button><button type="button" id="dwin">Notes window</button><button type="button" id="dfull">Full screen</button><a class="xlink" href="#week-'+w+'/'+s+'">Exit</a></div></div>';
-      h+='<div class="deckwrap"><div class="slide k-'+sl.kind+'"><div class="skind">'+KIND[sl.kind]+'</div><h2>'+esc(sl.title)+'</h2><div class="board content">'+sl.board+'</div>'+(st.length?'<div class="dsteps">'+st.slice(0,pos.r).map(function(x,j){return '<div class="dstep"><span class="sn">'+(j+1)+'</span><div class="content">'+x+'</div></div>'}).join('')+'</div>':'')+'</div>';
+      h+='<div class="deckwrap"><div class="slide k-'+sl.kind+'"><div class="skind">'+KIND[sl.kind]+'</div><h2>'+esc(sl.title)+'</h2><div class="board content">'+sl.board+'</div>'+figureHTML(sl.figure)+(st.length?'<div class="dsteps">'+st.slice(0,pos.r).map(function(x,j){return '<div class="dstep"><span class="sn">'+(j+1)+'</span><div class="content">'+x+'</div></div>'}).join('')+'</div>':'')+'</div>';
       h+='<div class="dfoot"><button class="btn ghost" id="dprev" type="button"'+(pos.i===0&&pos.r===0?' disabled':'')+'>← Back</button><div class="dots">'+S.map(function(x,j){return '<button type="button" data-j="'+j+'" class="'+(j===pos.i?'on':'')+'" aria-label="Slide '+(j+1)+'"></button>'}).join('')+'</div><button class="btn'+(more?' gold':'')+'" id="dnext" type="button"'+(!more&&pos.i===S.length-1?' disabled':'')+'>'+(more?'Reveal step '+(pos.r+1)+' of '+st.length:'Next slide →')+'</button></div>';
       if (notesOn) h+='<div class="dnotes">'+notesHTML(sl)+'</div>';
       h+='</div>';
@@ -465,8 +465,8 @@ function learnView(w,s){
     function draw(){
       var sc=Sc[st.i], last=st.i===Sc.length-1, ck=sc.check, done=!ck||(st.res[ck.id]&&st.res[ck.id].done);
       var h='<div class="lhead card"><div class="lrow"><span class="eyebrow">Student Lesson · Week '+w+' '+SUBJ[s].short+'</span><span class="lcount">Screen '+(st.i+1)+' of '+Sc.length+'</span>'+toolBtns(s)+'</div><div class="pbar"><i style="width:'+Math.round((st.i+1)/Sc.length*100)+'%"></i></div></div>';
-      h+='<div class="card lscreen"><h2>'+esc(sc.title)+'</h2><div class="content">'+sc.html+'</div>';
-      if (sc.example){h+='<div class="lex"><div class="lexh">Worked example</div><div class="content">'+sc.example.prompt+'</div><div class="lexsteps"></div><button class="btn ghost small" type="button" id="exnext">Show the first step</button></div>'}
+      h+='<div class="card lscreen"><h2>'+esc(sc.title)+'</h2><div class="content">'+sc.html+'</div>'+figureHTML(sc.figure);
+      if (sc.example){h+='<div class="lex"><div class="lexh">Worked example</div><div class="content">'+sc.example.prompt+'</div>'+figureHTML(sc.example.figure)+'<div class="lexsteps"></div><button class="btn ghost small" type="button" id="exnext">Show the first step</button></div>'}
       if (ck){h+='<div class="q lcheck"><div class="qh"><span class="qn">Check your understanding</span><span class="tag">'+esc(ck.skill||'')+'</span></div><div id="ckbox"></div></div>'}
       h+='</div><div class="lnav"><button class="btn ghost" id="lprev" type="button"'+(st.i===0?' disabled':'')+'>← Back</button><span class="lhint" id="lhint">'+(done?'':'Answer the check to continue.')+'</span><button class="btn'+(last?' gold':'')+'" id="lnext" type="button"'+(done?'':' disabled')+'>'+(last?'Finish and go to Practice →':'Next →')+'</button></div>';
       app.innerHTML=h; window.scrollTo(0,0); wireToolBtns(s);

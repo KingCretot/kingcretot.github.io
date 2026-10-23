@@ -48,7 +48,7 @@
    {
     "kind": "teach",
     "title": "Big Idea 1: The Cell Theory",
-    "board": "<div class=\"box\"><ol><li>All living things are made of one or more <strong>cells</strong>.</li><li>The cell is the <strong>basic unit</strong> of structure and function in living things.</li><li>All cells come from <strong>cells that already exist</strong>.</li></ol></div><p>Built over 200 years: Hooke named cells (1665); Schleiden (plants) and Schwann (animals) showed all living things are made of cells; Virchow added that cells come from cells.</p><p>It does <strong>not</strong> say every cell has a nucleus.</p>",
+    "board": "<div class=\"box\"><ol><li>All living things are made of one or more <strong>cells</strong>.</li><li>The cell is the <strong>basic unit</strong> of structure and function in living things.</li><li>All cells come from <strong>cells that already exist</strong>.</li></ol></div><p>Built over nearly 200 years: Hooke named cells (1665); Schleiden (plants) and Schwann (animals) showed all living things are made of cells; Virchow added that cells come from cells.</p><p>It does <strong>not</strong> say every cell has a nucleus.</p>",
     "notes": {
      "say": "A cell is the smallest unit that can carry out all the processes of life: taking in materials, using energy, growing, and reproducing. The cell theory sums up what scientists learned once microscopes let them see cells. Learn the three statements as three short ideas: made of cells, cells are the unit, cells come from cells. The third one matters most on test questions, because it rules out cells forming from nonliving material.",
      "ask": [
@@ -599,7 +599,7 @@
    },
    {
     "title": "Identify any cell: nucleus first",
-    "html": "<p>Use the same two-step routine for every mystery cell.</p><div class=\"box\"><p><strong>Step 1: Is there a nucleus?</strong> No &rarr; prokaryote (bacterium). Yes &rarr; eukaryote; go to Step 2.</p><p><strong>Step 2: Is there a cell wall, chloroplasts, or a large central vacuole?</strong> Yes &rarr; plant. None of them &rarr; animal.</p></div><p>The order matters. Bacteria have cell walls, so if you look at the wall first, a bacterium can look like a plant. Also, not every plant cell is green: cells in roots and onion bulbs get no light and usually have no chloroplasts, but they still have a wall and a large vacuole.</p>",
+    "html": "<p>Use the same two-step routine for every mystery cell.</p><div class=\"box\"><p><strong>Step 1: Is there a nucleus?</strong> No &rarr; prokaryote (bacterium). Yes &rarr; eukaryote; go to Step 2.</p><p><strong>Step 2: Is there a cell wall, chloroplasts, or a large central vacuole?</strong> Yes &rarr; plant. None of them &rarr; animal.</p></div><p>The order matters. Bacteria have cell walls, so if you look at the wall first, a bacterium can look like a plant. Also, not every plant cell is green: cells in roots and onion bulbs get no light and usually have no chloroplasts, but they still have a wall and a large vacuole. (Fungal cells also have walls, but GED questions on this skill usually ask you to choose among plant, animal, and bacterial cells.)</p>",
     "example": {
      "prompt": "<p>A cell from an onion bulb has a nucleus, a cell wall, and a large central vacuole, but no chloroplasts. Classify it.</p>",
      "steps": [
@@ -1897,21 +1897,21 @@
     "type": "mc",
     "skill": "Cell theory",
     "difficulty": 2,
-    "prompt": "<p>Which observation gives the most direct support for the idea that all cells come from cells that already exist?</p>",
+    "prompt": "<p>A student boils pond water for 20 minutes and pours it into two sterile flasks. Flask 1 is sealed at once. Flask 2 is left open to the air. After a week, Flask 2 is cloudy with millions of bacteria, and Flask 1 is still clear.</p><p>Which explanation fits <strong>both</strong> the results and the cell theory?</p>",
     "options": [
-     "One onion root cell is seen splitting into two cells.",
-     "A slice of onion root is seen to contain many cells.",
-     "An onion root cell is seen taking in water from soil.",
-     "An onion skin cell is seen to have a stiff cell wall."
+     "Bacteria carried in on dust from the air reached only Flask 2 and divided many times.",
+     "A few bacteria survived the boiling and then multiplied in Flask 2 but not in Flask 1.",
+     "Oxygen from the air turned nutrients in the water of Flask 2 into new living bacterial cells.",
+     "Flask 1 stayed clear because bacteria are unable to divide in water that has been boiled."
     ],
     "answer": 0,
     "why": [
      "",
-     "This supports the first part of the cell theory, that living things are made of cells. It does not show where new cells come from.",
-     "This shows a cell carrying out a function. It does not show a new cell being made.",
-     "This describes a cell's structure. It says nothing about where new cells come from."
+     "Both flasks held the same boiled water. If bacteria had survived the boiling, Flask 1 would have turned cloudy too, but it stayed clear.",
+     "This says living cells formed from nonliving material. The cell theory says all cells come from cells that already exist.",
+     "Flask 2 held the same boiled water, and bacteria multiplied in it. Boiled water does not stop bacteria from dividing; Flask 1 simply had no bacteria to start with."
     ],
-    "explain": "<p>Watching one cell divide into two shows a new cell coming from an existing cell, which is the third part of the cell theory. Seeing many cells in a root supports the first part (living things are made of cells), which is true but is about a different question.</p>"
+    "explain": "<p>The cell theory says <strong>all cells come from cells that already exist</strong>, so the bacteria in Flask 2 must have come from living bacteria. The only difference between the flasks was exposure to the air, so the bacteria came in from the air (on dust) and then divided again and again. The tempting answer is that bacteria survived the boiling, but then the sealed flask, which held the same water, would have turned cloudy too. The idea that oxygen turned nutrients into cells contradicts the cell theory.</p>"
    },
    {
     "id": "XA2",
@@ -2146,21 +2146,21 @@
     "type": "mc",
     "skill": "Organelle function",
     "difficulty": 2,
-    "prompt": "<p>A poison stops the mitochondria from working in a person's muscle cells. Which job will the muscle cells most directly be unable to do?</p>",
+    "prompt": "<p>In a classic experiment, scientists remove the nucleus from a single-celled amoeba. The cell keeps moving for a few days, but it cannot make the new proteins it needs or divide, and then it dies. Which statement best explains this result?</p>",
     "options": [
-     "Release energy from glucose as ATP",
-     "Make glucose using energy from light",
-     "Build proteins from instructions in DNA",
-     "Control what enters and leaves the cell"
+     "The nucleus holds the DNA that directs protein building and cell division.",
+     "The nucleus is where the cell releases energy from glucose to power its movement.",
+     "The nucleus builds all of the cell's proteins by itself, without the ribosomes.",
+     "The nucleus controls which materials enter and leave through the cell's surface."
     ],
     "answer": 0,
     "why": [
      "",
-     "Making glucose from light is photosynthesis, which happens in chloroplasts. Human cells have no chloroplasts.",
-     "Ribosomes build proteins. Mitochondria do not.",
-     "The cell membrane controls what enters and leaves the cell, not the mitochondria."
+     "Releasing energy from glucose is the job of the mitochondria. The amoeba kept moving for days without its nucleus, so its energy supply was not what failed.",
+     "Ribosomes build proteins. The nucleus holds the DNA instructions the ribosomes follow, so without it, new proteins cannot be made.",
+     "The cell membrane controls what enters and leaves the cell. The nucleus sits inside the cell and holds the DNA."
     ],
-    "explain": "<p>Mitochondria carry out cellular respiration: they <strong>release energy from glucose</strong> and store it in ATP. Without working mitochondria, muscle cells cannot get the ATP they need to contract. This is how some poisons, such as cyanide, kill so quickly.</p>"
+    "explain": "<p>The <strong>nucleus holds the DNA</strong>, the instructions that direct which proteins are made and when the cell divides. Without it, the amoeba's other organelles keep working for a while (its mitochondria still power movement), but it cannot make new proteins or divide, so it eventually dies. The tempting energy answer is ruled out because the cell kept moving; releasing energy is the mitochondria's job.</p>"
    },
    {
     "id": "XB3",
@@ -2224,21 +2224,21 @@
     "type": "mc",
     "skill": "Reading equations",
     "difficulty": 2,
-    "prompt": "<p>C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub> &rarr; 6CO<sub>2</sub> + 6H<sub>2</sub>O + energy (ATP)</p><p>According to the equation, which substances does a cell release during cellular respiration, along with energy?</p>",
+    "prompt": "<p>C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub> &rarr; 6CO<sub>2</sub> + 6H<sub>2</sub>O + energy (ATP)</p><p>A student says, \"In cellular respiration, a cell takes in carbon dioxide and gives off oxygen.\" Based on the equation, what is wrong with the student's statement?</p>",
     "options": [
-     "Carbon dioxide and water",
-     "Glucose and oxygen",
-     "Oxygen and water",
-     "Glucose and carbon dioxide"
+     "It swaps the gases: oxygen is a reactant used up, and carbon dioxide is a product.",
+     "Nothing is wrong, because carbon dioxide is shown on the left side as a reactant.",
+     "It should say glucose is released along with oxygen as a product of respiration.",
+     "The gases are right, but respiration happens only in plant cells, not animal cells."
     ],
     "answer": 0,
     "why": [
      "",
-     "Glucose and oxygen are on the left side of the arrow. They are used up, not released.",
-     "Water is released, but oxygen is used up. You mixed a product with a reactant.",
-     "Carbon dioxide is released, but glucose is the fuel that is used up."
+     "Carbon dioxide is on the right side of the arrow, so it is a product. Glucose and oxygen are the reactants on the left.",
+     "Glucose is on the left side of the arrow. It is a reactant that is used up, not a product that is released.",
+     "The gases are reversed, and respiration happens in nearly all living things, plants and animals alike. Taking in carbon dioxide and giving off oxygen describes photosynthesis."
     ],
-    "explain": "<p>Substances released are the <strong>products</strong>, on the right of the arrow: 6CO<sub>2</sub> + 6H<sub>2</sub>O, so <strong>carbon dioxide and water</strong>, along with energy stored as ATP. Glucose and oxygen are the reactants on the left.</p>"
+    "explain": "<p>Reactants (taken in) are on the left: glucose and <strong>oxygen</strong>. Products (given off) are on the right: <strong>carbon dioxide</strong>, water, and energy. The student swapped the two gases, which describes photosynthesis instead. Glucose is a reactant, not a product, and both plant and animal cells carry out respiration.</p>"
    },
    {
     "id": "XB5",
@@ -2285,19 +2285,19 @@
     "stim": "xs2",
     "prompt": "<p>Which conclusion is best supported by the data?</p>",
     "options": [
-     "The crickets used oxygen faster as the temperature rose from 10 &deg;C to 30 &deg;C.",
-     "The crickets stop carrying out cellular respiration at temperatures below 10 &deg;C.",
-     "The crickets gave off more oxygen into the chamber at higher temperatures.",
-     "Every kind of animal uses more oxygen when the air around it is warmer."
+     "Raising the temperature from 10 &deg;C to 20 &deg;C doubled the crickets' rate of oxygen use.",
+     "Raising the temperature from 20 &deg;C to 30 &deg;C doubled the crickets' rate of oxygen use.",
+     "Part of the oxygen used at 30 &deg;C was taken up by the chamber and sensor themselves.",
+     "The crickets used the most oxygen at 30 &deg;C because their photosynthesis sped up."
     ],
     "answer": 0,
     "why": [
      "",
-     "No temperature below 10 &deg;C was tested, and at 10 &deg;C the crickets still used 0.8 mL. The data cannot show respiration stopping.",
-     "The sensor measured oxygen used up, not given off. Animals use oxygen in respiration; they do not release it.",
-     "Only crickets were tested. Animals that keep a steady body temperature, such as people, may respond differently."
+     "The mean rose from 1.6 mL to 2.6 mL. Double 1.6 is 3.2, so oxygen use rose by about 60%, not 100%.",
+     "The empty chamber at 30 &deg;C used 0.0 mL in every trial, so the equipment took up no oxygen on its own.",
+     "Crickets are animals with no chloroplasts, and photosynthesis gives off oxygen rather than using it. Oxygen use measures cellular respiration."
     ],
-    "explain": "<p>Mean oxygen used: 0.8 mL at 10 &deg;C, 1.6 mL at 20 &deg;C, and 2.6 mL at 30 &deg;C. Oxygen is a reactant of cellular respiration, so the crickets <strong>respired faster as temperature rose</strong> across the tested range. The empty chamber used 0.0 mL, so the change came from the crickets. Claims about other temperatures or every kind of animal go beyond the data.</p>"
+    "explain": "<p>Mean oxygen used: 10 &deg;C = 0.8 mL, 20 &deg;C = 1.6 mL, 30 &deg;C = 2.6 mL (2.5 + 2.4 + 2.9 = 7.8; 7.8 &divide; 3 = 2.6). From 10 &deg;C to 20 &deg;C: 1.6 &divide; 0.8 = 2, so the rate <strong>doubled</strong>. From 20 &deg;C to 30 &deg;C: 2.6 &divide; 1.6 &asymp; 1.6, so it did not double. The empty chamber used 0.0 mL, so all the oxygen use came from the crickets' cellular respiration.</p>"
    },
    {
     "id": "XB7",
@@ -2305,21 +2305,21 @@
     "type": "mc",
     "skill": "Energy flow",
     "difficulty": 3,
-    "prompt": "<p>A cow eats grass and later uses that food energy to walk. Which sequence correctly traces the energy?</p>",
+    "prompt": "<p>A cow eats grass and uses the glucose from it to walk. Which statement correctly describes what happens to the glucose's carbon atoms and to its energy?</p>",
     "options": [
-     "Sunlight &rarr; glucose made in grass chloroplasts &rarr; ATP made in the cow's mitochondria &rarr; movement and heat",
-     "Sunlight &rarr; ATP made in grass mitochondria &rarr; glucose made in the cow's chloroplasts &rarr; movement and heat",
-     "Sunlight &rarr; glucose made in grass chloroplasts &rarr; movement and heat &rarr; ATP made in the cow's mitochondria",
-     "Sunlight &rarr; oxygen made in grass chloroplasts &rarr; energy stored in the cow's nucleus &rarr; movement and heat"
+     "Its carbon atoms return to the air in CO<sub>2</sub> for plants to reuse, but its energy leaves as heat.",
+     "Its energy returns to the grass as sunlight, but its carbon atoms are destroyed in the cow's mitochondria.",
+     "Its carbon atoms and its energy both return to the grass, where photosynthesis uses both of them again.",
+     "Its carbon atoms and its energy are both destroyed once the cow's cells turn the glucose into ATP."
     ],
     "answer": 0,
     "why": [
      "",
-     "Cows have no chloroplasts, and it is chloroplasts, not mitochondria, that capture sunlight. The two organelles are swapped.",
-     "Movement is powered by ATP, so ATP must come before movement, not after it.",
-     "Oxygen does not carry the food energy; glucose does. And the nucleus holds DNA; it does not store energy for movement."
+     "Energy does not flow back to the grass as sunlight; it leaves as heat. Atoms are never destroyed; respiration releases the carbon in CO<sub>2</sub>.",
+     "Matter cycles, but energy does not. The energy is used for work and lost as heat, so plants need new sunlight every day.",
+     "Neither matter nor energy is destroyed. The carbon leaves in CO<sub>2</sub>, and the energy moves into ATP, then into movement and heat."
     ],
-    "explain": "<p>The grass's chloroplasts capture <strong>sunlight</strong> and store it in <strong>glucose</strong>. The cow eats the grass, and its mitochondria release that energy into <strong>ATP</strong>, which powers <strong>movement</strong>, with some lost as <strong>heat</strong>.</p>"
+    "explain": "<p>In the cow's mitochondria, respiration breaks glucose down: the <strong>carbon atoms leave in CO<sub>2</sub></strong>, which grass can take in again for photosynthesis, so <strong>matter cycles</strong>. The <strong>energy</strong> moves into ATP, powers walking, and ends up as <strong>heat</strong> that cannot be reused, so energy flows one way. The tempting wrong answer has both cycling back to the grass, but energy does not cycle.</p>"
    },
    {
     "id": "XB8",
@@ -2328,13 +2328,14 @@
     "skill": "Experiment design",
     "difficulty": 3,
     "stim": "xs2",
-    "prompt": "<p>Which <strong>two</strong> factors did the student keep the same so that temperature was the only thing that changed? Select <strong>two</strong> answers.</p>",
+    "prompt": "<p>Which <strong>two</strong> statements correctly describe the design of the cricket experiment? Select <strong>two</strong> answers.</p>",
     "options": [
-     "The number of crickets in each trial",
-     "The length of time oxygen use was measured",
-     "The temperature of the chamber",
-     "The volume of oxygen the crickets used",
-     "Whether crickets match their surroundings"
+     "The independent variable is the temperature of the chamber.",
+     "The empty chamber is a control showing the equipment used no oxygen.",
+     "The dependent variable is the number of crickets in each trial.",
+     "The 15-minute adjustment period is the independent variable.",
+     "The empty chamber is a second independent variable in the test.",
+     "The size of the crickets is the dependent variable being measured."
     ],
     "answer": [
      0,
@@ -2343,11 +2344,12 @@
     "why": [
      "",
      "",
-     "Temperature is what the student changed on purpose. It is the independent variable.",
-     "Oxygen used is what she measured. It is the dependent variable and was expected to change.",
-     "This is background about crickets. It is not something the student set up or held constant."
+     "The number of crickets was kept at 10 in every trial, so it is a controlled variable. The dependent variable is the oxygen used.",
+     "Every group got the same 15 minutes to adjust, so it is a controlled variable, not something the student changed on purpose.",
+     "The empty chamber is a baseline for comparison (a control), not a variable the student changed.",
+     "Cricket size was kept the same in every trial, so it is a controlled variable. The student measured oxygen used."
     ],
-    "explain": "<p>The student used <strong>10 crickets</strong> of the same size in every trial and measured oxygen use for the <strong>same 10 minutes</strong> each time; these are controlled variables. Temperature was the independent variable, and oxygen used was the dependent variable.</p>"
+    "explain": "<p>The student changed <strong>temperature</strong> on purpose (independent variable) and measured the oxygen used (dependent variable). The empty chamber at 30 &deg;C is a <strong>control</strong>: it used 0.0 mL, showing the chamber and sensor did not account for any oxygen use. The number of crickets, their size, the 15-minute adjustment, and the 10-minute measuring time were all held constant (controlled variables).</p>"
    }
   ]
  },
