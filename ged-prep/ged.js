@@ -52,6 +52,9 @@ var LET='ABCDEF';
 /* ---------- nav ---------- */
 function renderNav(active){
   var p=prog(), h='<div class="wrap">';
+  if (active==='home'){$('#cnav').innerHTML='';$('#cnav').style.display='none';return}
+  $('#cnav').style.display='';
+  h+='<a href="#home" class="home">← All Weeks</a>';
   h+='<a href="#intro" class="'+(active==='intro'?'on':'')+'">Start Here</a>';
   h+='<a href="#diagnostic" class="'+(active==='diagnostic'?'on':'')+'">Diagnostic'+(p.diagnostic?' <span class="ck">✓</span>':'')+'</a>';
   for (var w=1;w<=10;w++){
@@ -66,19 +69,43 @@ var stopRunner=null;
 function route(){
   if (stopRunner){stopRunner();stopRunner=null}
   closeCalc(); document.body.classList.remove('testing');
-  var h=(location.hash||'#intro').slice(1).split('/');
+  var h=(location.hash||'#home').slice(1).split('/');
   window.scrollTo(0,0);
-  if (h[0]==='intro'||h[0]===''){renderNav('intro');app.innerHTML=$('#tpl-intro').innerHTML;return}
+  if (h[0]==='home'||h[0]===''){renderNav('home');return renderHome()}
+  if (h[0]==='intro'){renderNav('intro');app.innerHTML=$('#tpl-intro').innerHTML;return}
   if (h[0]==='diagnostic'){renderNav('diagnostic');return h[1]==='take'?runTest('diagnostic'):diagHub()}
   var m=h[0].match(/^week-(\d+)$/);
-  if (m){var w=+m[1]; if(w<1||w>10){location.hash='#intro';return}
+  if (m){var w=+m[1]; if(w<1||w>10){location.hash='#home';return}
     renderNav('week-'+w);
     if (h[1]==='exam') return h[2]&&SUBJ[h[2]]?runTest('exam'+pad(w)+'-'+h[2],w):examHub(w);
     return weekView(w, SUBJ[h[1]]?h[1]:'math', h[2]||'student');
   }
-  location.hash='#intro';
+  location.hash='#home';
 }
 window.addEventListener('hashchange',route);
+
+
+/* ---------- course home: one page, one card per week ---------- */
+function renderHome(){
+  var p=prog(), sent=0, h='';
+  for (var w=1;w<=10;w++) ORDER.forEach(function(s){ if(p['exam'+pad(w)+'-'+s]) sent++ });
+  h+='<div class="hstrip"><div><b>10 weeks</b> · all four GED subjects every week</div><div><b>40 timed tests</b> · '+sent+' sent</div><div><b>Your pace</b> · work in order, any days you choose</div></div>';
+  h+='<section class="hblock"><div class="fl"></div><h2>Start here</h2><p>Read how the GED works, then take the Diagnostic before Week 1.</p></section><div class="hgrid">';
+  h+='<article class="hcard"><div class="wk">Step 1</div><h3>The GED and This Course</h3><p class="hsub">The four tests, how they are timed and scored, question types, the calculator and test-day tips.</p><div class="tags"><span class="tag t-lesson">Read first</span></div><div class="links"><a class="hbtn" href="#intro">Open Start Here</a></div></article>';
+  var d=p.diagnostic;
+  h+='<article class="hcard milestone"><div class="wk">Step 2</div><h3>Diagnostic</h3><p class="hsub">50 questions across all four subjects plus a short writing sample. Not timed. Your answers go to your instructor.</p><div class="tags"><span class="tag t-diag">Diagnostic</span></div>'+(d?'<div class="hdone">✓ Sent '+esc(d.when)+'</div>':'')+'<div class="links"><a class="hbtn" href="#diagnostic">'+(d?'Open the Diagnostic':'Start the Diagnostic')+'</a></div></article></div>';
+  h+='<section class="hblock"><div class="fl"></div><h2>Your 10 weeks</h2><p>Each week has its own card: four subject lessons and a timed Practice GED.</p></section><div class="wgrid">';
+  for (var w2=1;w2<=10;w2++){ (function(w){
+    var t=MAP[w], n=ORDER.filter(function(s){return p['exam'+pad(w)+'-'+s]}).length;
+    h+='<article class="wcard"><div class="whead"><div class="wk">Week '+w+' of 10</div><h3>Week '+w+'</h3></div><ul class="wsubs">';
+    ORDER.forEach(function(s){
+      h+='<li><a href="#week-'+w+'/'+s+'/student"><span class="ws">'+SUBJ[s].short+'</span><span class="wt">'+esc(t[s])+'</span><span class="wgo">'+(p['exam'+pad(w)+'-'+s]?'<i class="ok">✓</i>':'')+'Open →</span></a></li>';
+    });
+    h+='</ul><a class="wexam" href="#week-'+w+'/exam"><span><b>Week '+w+' Practice GED</b><small>Four timed tests · '+(n?n+' of 4 sent':'Math, Language Arts, Social Studies, Science')+'</small></span><span class="wgo">Open →</span></a></article>';
+  })(w2) }
+  h+='</div>';
+  app.innerHTML=h;
+}
 
 /* ---------- week view ---------- */
 function weekView(w, subj, tab){
@@ -563,7 +590,7 @@ function showResults(D, R, key, week, reviewOnly, payload){
   var h='<div class="card res"><div class="eyebrow">'+(isDiag?'Diagnostic':'Week '+week+' Practice GED')+' · Results</div><h2>'+esc(D.title)+'</h2><div class="big">'+R.right+' / '+R.total+' &nbsp;·&nbsp; '+R.pct+'%</div><p><strong>'+esc(R.band)+'.</strong> Time used: '+esc(R.used)+(R.timedOut?' · Time ran out, so the test submitted automatically.':'')+'</p><p style="color:#5B6475;font-size:14px">The estimate compares your percent correct with what is usually needed to pass. Official GED scores (100–200) are calculated differently.</p>'+(reviewOnly?'':'<div id="sendmsg" class="sendmsg"></div>')+
     (D.parts.some(function(P){return P.essay})?'<p>Your essay ('+((R.essay||'').trim().match(/\S+/g)||[]).length+' words) was sent to your instructor for scoring with the official GED essay rubric.</p>':'')+
     '<table class="skilltbl"><thead><tr><th>Skill</th><th>Correct</th><th style="width:30%"></th></tr></thead><tbody>'+Object.keys(skills).map(function(k){var s=skills[k];return '<tr><td>'+esc(k)+'</td><td>'+s[0]+' / '+s[1]+'</td><td><div class="meter"><i style="width:'+Math.round(s[0]/s[1]*100)+'%"></i></div></td></tr>'}).join('')+'</tbody></table>'+
-    '<p><a class="btn ghost" href="'+(isDiag?'#week-1':'#week-'+week+'/exam')+'">'+(isDiag?'Go to Week 1 →':'Back to this week\'s Practice GED')+'</a> <button class="btn" type="button" id="showrev">Review every question</button></p></div><div id="rev" class="review"></div>';
+    '<p><a class="btn ghost" href="'+(isDiag?'#home':'#week-'+week+'/exam')+'">'+(isDiag?'Back to all weeks →':'Back to this week\'s Practice GED')+'</a> <button class="btn" type="button" id="showrev">Review every question</button></p></div><div id="rev" class="review"></div>';
   app.innerHTML=h; window.scrollTo(0,0);
   if (payload) send(payload,$('#sendmsg'),key);
   $('#showrev').onclick=function(){

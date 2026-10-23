@@ -250,3 +250,48 @@ footer b{color:var(--gold)}
   .notesprint{break-before:page}
   .objectives{break-inside:avoid}
 }
+
+/* course home (matches SAT Prep layout) */
+.hstrip{display:flex;flex-wrap:wrap;gap:8px 26px;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:14px;color:#4A5666;margin:0 0 6px}
+.hstrip b{color:var(--navy)}
+.hblock{margin:34px 0 14px}
+.hblock .fl{height:3px;width:60px;background:var(--gold);border-radius:2px;margin-bottom:12px}
+.hblock h2{font-size:26px;margin:0 0 4px}.hblock p{margin:0;color:var(--muted)}
+.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.hcard{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px;transition:.15s}
+.hcard:hover{border-color:var(--gold);box-shadow:0 6px 22px rgba(10,31,61,.08)}
+.hcard .wk{font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#8A6D16}
+.hcard h3{font-size:20px;margin:5px 0 8px}
+.hcard .hsub{font-size:14px;color:#4A5666;margin:0 0 10px}
+.hcard .tags{margin-bottom:12px}
+.tag{display:inline-block;font-size:10px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+.t-diag{background:#F0ECF8;color:#5B3FA0}.t-lesson{background:#EEF3FE;color:#0047BA}.t-exam{background:var(--gold);color:var(--navy)}
+.hdone{font-size:12px;font-weight:bold;letter-spacing:.5px;color:#1E7A3C;margin:0 0 10px}
+.hcard .links{margin-top:auto}
+.hbtn{display:block;text-align:center;text-decoration:none;font-weight:bold;font-size:15px;padding:12px 14px;border-radius:10px;background:var(--navy);color:#fff}
+.hbtn:hover{background:#13294B}
+.hcard.milestone{background:var(--navy);border-color:var(--navy)}
+.hcard.milestone h3{color:#fff}.hcard.milestone .hsub{color:#C7D2E0}.hcard.milestone .wk{color:var(--gold)}
+.hcard.milestone .hdone{color:#9FE0B9}
+.hcard.milestone .hbtn{background:var(--gold);color:var(--navy)}.hcard.milestone .hbtn:hover{background:#DCBF6C}
+.cnav a.home{background:#fff}
+@media (max-width:640px){.hgrid{grid-template-columns:1fr}}
+
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:18px}
+.wcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:.15s}
+.wcard:hover{border-color:var(--gold);box-shadow:0 6px 22px rgba(10,31,61,.08)}
+.whead{padding:18px 20px 8px}.whead .wk{font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#8A6D16}
+.whead h3{font-size:24px;margin:3px 0 0}
+.wsubs{list-style:none;margin:0;padding:0 8px 8px}
+.wsubs li a{display:grid;grid-template-columns:118px 1fr auto;gap:10px;align-items:center;padding:11px 12px;border-radius:10px;text-decoration:none;color:var(--ink);border-top:1px solid var(--line)}
+.wsubs li:first-child a{border-top:0}
+.wsubs li a:hover{background:var(--soft)}
+.ws{font-size:11px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:var(--blue)}
+.wt{font-family:var(--head);font-weight:bold;color:var(--navy);font-size:16px;line-height:1.3}
+.wgo{font-size:13.5px;font-weight:bold;color:var(--navy);white-space:nowrap}
+.wgo .ok{color:var(--green);font-style:normal;margin-right:6px}
+.wexam{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--navy);color:#fff;text-decoration:none;padding:15px 20px}
+.wexam:hover{background:#13294B}
+.wexam b{display:block;font-family:var(--head);font-size:17px;color:#fff}.wexam small{display:block;font-size:12.5px;color:#C7D2E0;margin-top:2px}
+.wexam .wgo{color:var(--gold)}
+@media (max-width:520px){.wgrid{grid-template-columns:1fr}.wsubs li a{grid-template-columns:1fr auto;gap:2px 10px}.ws{grid-column:1/-1}}
