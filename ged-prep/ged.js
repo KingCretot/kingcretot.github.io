@@ -187,9 +187,9 @@ function planeSVG(f, opts){
   (f.lines||[]).forEach(function(l,i){if(!l.label)return;var xx=f.xmax-1,yy=l.m*xx+l.b; if(yy>f.ymax-1){xx=(f.ymax-1-l.b)/l.m;yy=f.ymax-1} if(yy<f.ymin+1){xx=(f.ymin+1-l.b)/l.m;yy=f.ymin+1} s+='<text x="'+(X(xx)-4)+'" y="'+(Y(yy)-6)+'" text-anchor="end" font-size="13" font-weight="bold" fill="'+PALETTE[(i+2)%5]+'">'+esc(l.label)+'</text>'});
   (f.points||[]).forEach(function(p){s+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="4.5" fill="#DB2F30"/>'+(p[2]?'<text x="'+(X(p[0])+7)+'" y="'+(Y(p[1])-7)+'" font-size="13" font-weight="bold" fill="#0A1F3D">'+esc(p[2])+'</text>':'')});
   if (opts.clickable){ for (x=f.xmin;x<=f.xmax;x++) for (y=f.ymin;y<=f.ymax;y++) s+='<circle class="hp" data-x="'+x+'" data-y="'+y+'" cx="'+X(x)+'" cy="'+Y(y)+'" r="'+Math.max(6,cell*0.32)+'" fill="transparent" style="cursor:pointer"/>';
-    if (opts.sel) s+='<circle cx="'+X(opts.sel[0])+'" cy="'+Y(opts.sel[1])+'" r="7" fill="#0047BA" stroke="#fff" stroke-width="2" pointer-events="none"/>';
-    if (opts.right) s+='<circle cx="'+X(opts.right[0])+'" cy="'+Y(opts.right[1])+'" r="9" fill="none" stroke="#1E7A46" stroke-width="3" pointer-events="none"/>';
   }
+  if (opts.sel) s+='<circle cx="'+X(opts.sel[0])+'" cy="'+Y(opts.sel[1])+'" r="7" fill="#0047BA" stroke="#fff" stroke-width="2" pointer-events="none"/>';
+  if (opts.right) s+='<circle cx="'+X(opts.right[0])+'" cy="'+Y(opts.right[1])+'" r="9" fill="none" stroke="#1E7A46" stroke-width="3" pointer-events="none"/>';
   return s+'</svg>';
 }
 
@@ -209,7 +209,7 @@ function renderItem(it, val, opts){
       var cls=''; if(opts.review){cls=(val&&val[i]===b.answer)?' style="border-color:#1E7A46"':' style="border-color:#DB2F30"'}
       return '<select class="dd" data-b="'+i+'"'+cls+(opts.review?' disabled':'')+' aria-label="Choose an answer"><option value="">Select…</option>'+ddOrder(it,i).map(function(j){var o=b.options[j];return '<option value="'+j+'"'+(String(cur)===String(j)?' selected':'')+'>'+esc(txt(o))+'</option>'}).join('')+'</select>'+(opts.review&&!(val&&val[i]===b.answer)?' <span class="tag" style="color:#1E7A46">'+esc(txt(b.options[b.answer]))+'</span>':'')});
   }
-  h+='<div class="prompt">'+prompt+'</div>'+figureHTML(it.figure);
+  h+='<div class="prompt">'+prompt+'</div>'+(it.type==='hotspot'&&it.plane&&it.figure&&it.figure.type==='plane'?'':figureHTML(it.figure));
   if (it.type==='mc'||it.type==='multi'){
     ord=optOrder(it); var multi=it.type==='multi';
     h+='<div class="opts">'+ord.map(function(oi,pos){
@@ -227,7 +227,6 @@ function renderItem(it, val, opts){
   } else if (it.type==='hotspot'){
     if (it.plane){
       var f=Object.assign({},it.figure&&it.figure.type==='plane'?it.figure:{},it.plane);
-      h=h.replace(figureHTML(it.figure),'');
       h+='<div class="figure hot">'+planeSVG(f,{clickable:!opts.review,sel:val,right:opts.review?it.answer:null})+'</div><p class="plane-hint">'+(opts.review?'Green ring = correct point.':'Click a point on the grid. Selected: <strong class="selpt">'+(val?'('+val[0]+', '+val[1]+')':'none')+'</strong>')+'</p>';
     } else {
       h+='<div class="spans stim">'+it.spans.map(function(s,i){var cls='s'+(val===i?' sel':''); if(opts.review){if(i===it.answer)cls+=' right';else if(val===i)cls+=' wrong'} return '<span class="'+cls+'" data-i="'+i+'" tabindex="0">'+s+'</span>'}).join(' ')+'</div><p class="plane-hint">'+(opts.review?'Green = correct sentence.':'Click the sentence that answers the question.')+'</p>';

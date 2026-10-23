@@ -46,10 +46,10 @@
    {
     "kind": "teach",
     "title": "Big Idea 1: States of Matter and Phase Changes",
-    "board": "<table><tr><th>State</th><th>Shape</th><th>Volume</th><th>Particles</th></tr><tr><td>Solid</td><td>Fixed</td><td>Fixed</td><td>Packed tight, vibrate in place</td></tr><tr><td>Liquid</td><td>Takes container's</td><td>Fixed</td><td>Close, slide past each other</td></tr><tr><td>Gas</td><td>Fills container</td><td>Fills container</td><td>Far apart, fast</td></tr></table><p><strong>Add heat:</strong> melt, evaporate/boil, sublime (solid &rarr; gas). <strong>Remove heat:</strong> freeze, condense.</p><p>During a phase change, temperature stays <strong>flat</strong>.</p>",
+    "board": "<table><tr><th>State</th><th>Shape</th><th>Volume</th><th>Particles</th></tr><tr><td>Solid</td><td>Fixed</td><td>Fixed</td><td>Packed tight, vibrate in place</td></tr><tr><td>Liquid</td><td>Takes container's</td><td>Fixed</td><td>Close, slide past each other</td></tr><tr><td>Gas</td><td>Fills container</td><td>Fills container</td><td>Far apart, fast</td></tr></table><p><strong>Add heat:</strong> melt, evaporate/boil, sublimate (solid &rarr; gas). <strong>Remove heat:</strong> freeze, condense.</p><p>During a phase change, temperature stays <strong>flat</strong>.</p>",
     "figure": {
      "type": "line",
-     "title": "Heating Curve of Water (steady heat)",
+     "title": "Heating Curve of Water (steady heat, simplified)",
      "xLabel": "Time (minutes)",
      "yLabel": "Temperature (°C)",
      "labels": [
@@ -87,7 +87,7 @@
      ]
     },
     "notes": {
-     "say": "Matter is anything that has mass and takes up space, and all of it is made of particles that never stop moving. What makes something a solid, liquid, or gas is how fast its particles move and how close together they are. Adding heat speeds the particles up until they break free into the next state; removing heat does the reverse. Look at the graph: while ice melts and while water boils, the line goes flat. The heat is being used to pull particles apart, not to make them move faster, so the temperature does not rise until the change is finished.",
+     "say": "Matter is anything that has mass and takes up space, and all of it is made of particles that never stop moving. What makes something a solid, liquid, or gas is how fast its particles move and how close together they are. Adding heat speeds the particles up until they break free into the next state; removing heat does the reverse. Look at the graph: while ice melts and while water boils, the line goes flat. The heat is being used to pull particles apart, not to make them move faster, so the temperature does not rise until the change is finished. The times on this graph are simplified; in real life, boiling away the water takes several times longer than melting the ice.",
      "ask": [
       "Why does a gas fill its whole container? (expected answer: its particles are far apart and move fast in all directions until they hit the walls)",
       "Dry ice turns straight into a gas. What is that called? (expected answer: sublimation)"
@@ -101,7 +101,7 @@
     "board": "<p>Use the heating curve of water.</p><ol><li>At what temperature does the ice melt?</li><li>How many minutes does the boiling last?</li><li>What state is the water in from 6 to 14 minutes?</li><li>Why is the line flat from 14 to 20 minutes?</li></ol>",
     "figure": {
      "type": "line",
-     "title": "Heating Curve of Water (steady heat)",
+     "title": "Heating Curve of Water (steady heat, simplified)",
      "xLabel": "Time (minutes)",
      "yLabel": "Temperature (°C)",
      "labels": [
@@ -159,7 +159,7 @@
     "figure": {
      "type": "svg",
      "alt": "Model of a lithium-7 atom: a nucleus in the center labeled 3 p and 4 n (3 protons and 4 neutrons), surrounded by two circular electron paths. Two electrons sit on the inner path and one electron sits on the outer path.",
-     "svg": "<svg viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='85' fill='none' stroke='#0A1F3D' stroke-width='1.5'/><circle cx='150' cy='100' r='55' fill='none' stroke='#0A1F3D' stroke-width='1.5'/><circle cx='150' cy='100' r='28' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='138' y='97' font-size='14' fill='#0A1F3D'>3 p</text><text x='138' y='114' font-size='14' fill='#0A1F3D'>4 n</text><circle cx='95' cy='100' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='205' cy='100' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='15' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='162' y='20' font-size='14' fill='#0A1F3D'>electron (&#8722;)</text><line x1='178' y1='100' x2='240' y2='160' stroke='#0A1F3D' stroke-width='1'/><text x='215' y='178' font-size='14' fill='#0A1F3D'>nucleus</text><text x='5' y='190' font-size='14' fill='#0A1F3D'>Lithium-7</text></svg>"
+     "svg": "<svg viewBox='0 -14 300 214' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='85' fill='none' stroke='#0A1F3D' stroke-width='1.5'/><circle cx='150' cy='100' r='55' fill='none' stroke='#0A1F3D' stroke-width='1.5'/><circle cx='150' cy='100' r='28' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='138' y='97' font-size='14' fill='#0A1F3D'>3 p</text><text x='138' y='114' font-size='14' fill='#0A1F3D'>4 n</text><circle cx='95' cy='100' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='205' cy='100' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='15' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='162' y='4' font-size='14' fill='#0A1F3D'>electron (&#8722;)</text><line x1='178' y1='100' x2='240' y2='160' stroke='#0A1F3D' stroke-width='1'/><text x='215' y='178' font-size='14' fill='#0A1F3D'>nucleus</text><text x='5' y='190' font-size='14' fill='#0A1F3D'>Lithium-7</text></svg>"
     },
     "notes": {
      "say": "Every element is built from atoms, and every atom has the same three parts. Protons and neutrons sit in the tiny center called the nucleus; electrons move around it. The number of protons is the atom's ID card: change it and you have a different element. That is the atomic number. Add the neutrons and you get the mass number, because electrons are so light they barely count. In the picture, lithium-7 has 3 protons and 4 neutrons, so its mass number is 7, and as a neutral atom it has 3 electrons.",
@@ -345,7 +345,7 @@
     ],
     "notes": {
      "say": "Four minutes, on your own. Problems 3 and 4 are mirror images: in one the mass goes down and in the other it goes up, but the explanation is the same. Ask yourself what gas left or what gas joined from the air.",
-     "answer": "<p>1. 2Mg + O<sub>2</sub> &rarr; 2MgO. 2. N<sub>2</sub> + 3H<sub>2</sub> &rarr; 2NH<sub>3</sub>. 3. No; gaseous products escaped the open room's scale. 4. Oxygen from the air combined with the iron; total mass is still conserved.</p>",
+     "answer": "<p>1. 2Mg + O<sub>2</sub> &rarr; 2MgO. 2. N<sub>2</sub> + 3H<sub>2</sub> &rarr; 2NH<sub>3</sub>. 3. No; the gaseous products escaped into the open room, so the scale did not weigh them. 4. Oxygen from the air combined with the iron; total mass is still conserved.</p>",
      "watch": "<p>For problem 4, some students say mass was created. Ask: \"Was the oxygen on the scale at the start?\" Conservation of mass holds only when you count everything that reacts.</p>"
     }
    },
@@ -441,7 +441,7 @@
     "notes": {
      "say": "A solution is an even mixture, like sugar in tea. Concentration tells you how much solute is packed into the solution, and the most common unit on the GED is grams per liter, so always convert milliliters to liters first. Solubility is the limit: the most that can dissolve at a certain temperature. On this graph you can see that potassium nitrate's limit climbs steeply as the water warms, while sodium chloride barely changes. Gases are the opposite of most solids, which is why a warm soda goes flat.",
      "ask": [
-      "How much potassium nitrate can dissolve in 100 g of water at 40 &deg;C? (expected answer: 64 g)",
+      "How much potassium nitrate can dissolve in 100 g of water at 40 &deg;C? (expected answer: about 64 g; go up from 40 &deg;C to the potassium nitrate line, then across)",
       "You add water to a cup of salt water. What happens to the amount of salt? To the concentration? (expected answer: the salt stays the same; the concentration goes down)"
      ],
      "watch": "<p>Forgetting to convert mL to L is the top error: 24 g in 400 mL is 24 &divide; 0.400 = 60 g/L, not 0.06 g/L.</p>"
@@ -515,7 +515,7 @@
     "board": "<table><tr><th>pH</th><th>0&ndash;6.9</th><th>7</th><th>7.1&ndash;14</th></tr><tr><td>Type</td><td>Acid (sour)</td><td>Neutral</td><td>Base (bitter, slippery)</td></tr></table><div class=\"box\"><p><strong>Each 1 pH unit = 10 times.</strong><br>2 units = 100&times; &nbsp; 3 units = 1,000&times;</p></div><p>Lower pH = more acidic. Acid + base &rarr; <strong>neutralize</strong> (pH moves toward 7).</p>",
     "figure": {
      "type": "bar",
-     "title": "pH of Common Substances",
+     "title": "Approximate pH of Common Substances",
      "xLabel": "Substance",
      "yLabel": "pH",
      "labels": [
@@ -746,10 +746,10 @@
    },
    {
     "title": "Phase changes and heating curves",
-    "html": "<p>Adding heat makes particles move faster. When they move fast enough, the substance changes state:</p><ul><li><strong>Melting</strong>: solid &rarr; liquid. <strong>Freezing</strong> is the reverse.</li><li><strong>Evaporation</strong> or <strong>boiling</strong>: liquid &rarr; gas. <strong>Condensation</strong> is the reverse.</li><li><strong>Sublimation</strong>: solid &rarr; gas directly (dry ice).</li></ul><p>A <strong>heating curve</strong> shows temperature over time as heat is added at a steady rate. The rising parts show one state warming up. The <strong>flat parts</strong> show a phase change: the heat is used to pull particles apart, so the temperature does not rise until the change is complete. The lower flat part is melting; the higher flat part is boiling.</p>",
+    "html": "<p>Adding heat makes particles move faster. When they move fast enough, the substance changes state:</p><ul><li><strong>Melting</strong>: solid &rarr; liquid. <strong>Freezing</strong> is the reverse.</li><li><strong>Evaporation</strong> or <strong>boiling</strong>: liquid &rarr; gas. <strong>Condensation</strong> is the reverse.</li><li><strong>Sublimation</strong>: solid &rarr; gas directly (dry ice).</li></ul><p>A <strong>heating curve</strong> shows temperature over time as heat is added at a steady rate. The rising parts show one state warming up. The <strong>flat parts</strong> show a phase change: the heat is used to pull particles apart, so the temperature does not rise until the change is complete. The lower flat part is melting; the higher flat part is boiling.</p><p>The graph on this screen uses simplified times. In a real heating curve of water, boiling takes several times longer than melting, because pulling liquid particles apart into a gas takes much more energy.</p>",
     "figure": {
      "type": "line",
-     "title": "Heating Curve of Water (steady heat)",
+     "title": "Heating Curve of Water (steady heat, simplified)",
      "xLabel": "Time (minutes)",
      "yLabel": "Temperature (°C)",
      "labels": [
@@ -837,7 +837,7 @@
     "figure": {
      "type": "svg",
      "alt": "Model of a lithium-7 atom: a nucleus in the center labeled 3 p and 4 n (3 protons and 4 neutrons), surrounded by two circular electron paths. Two electrons sit on the inner path and one electron sits on the outer path.",
-     "svg": "<svg viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='85' fill='none' stroke='#0A1F3D' stroke-width='1.5'/><circle cx='150' cy='100' r='55' fill='none' stroke='#0A1F3D' stroke-width='1.5'/><circle cx='150' cy='100' r='28' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='138' y='97' font-size='14' fill='#0A1F3D'>3 p</text><text x='138' y='114' font-size='14' fill='#0A1F3D'>4 n</text><circle cx='95' cy='100' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='205' cy='100' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='15' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='162' y='20' font-size='14' fill='#0A1F3D'>electron (&#8722;)</text><line x1='178' y1='100' x2='240' y2='160' stroke='#0A1F3D' stroke-width='1'/><text x='215' y='178' font-size='14' fill='#0A1F3D'>nucleus</text><text x='5' y='190' font-size='14' fill='#0A1F3D'>Lithium-7</text></svg>"
+     "svg": "<svg viewBox='0 -14 300 214' xmlns='http://www.w3.org/2000/svg'><circle cx='150' cy='100' r='85' fill='none' stroke='#0A1F3D' stroke-width='1.5'/><circle cx='150' cy='100' r='55' fill='none' stroke='#0A1F3D' stroke-width='1.5'/><circle cx='150' cy='100' r='28' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='138' y='97' font-size='14' fill='#0A1F3D'>3 p</text><text x='138' y='114' font-size='14' fill='#0A1F3D'>4 n</text><circle cx='95' cy='100' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='205' cy='100' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><circle cx='150' cy='15' r='7' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='162' y='4' font-size='14' fill='#0A1F3D'>electron (&#8722;)</text><line x1='178' y1='100' x2='240' y2='160' stroke='#0A1F3D' stroke-width='1'/><text x='215' y='178' font-size='14' fill='#0A1F3D'>nucleus</text><text x='5' y='190' font-size='14' fill='#0A1F3D'>Lithium-7</text></svg>"
     },
     "example": {
      "prompt": "<p>Chlorine has atomic number 17. A chlorine atom has mass number 35. Find its protons, neutrons, and electrons if it is neutral.</p>",
@@ -1131,7 +1131,7 @@
      "why": [
       "",
       "Matter is not destroyed in a chemical reaction. The 4 g still exists; it left as carbon dioxide and water vapor.",
-      "Melting is a physical change and does not change mass. The mass loss comes from gases leaving the open room's scale.",
+      "Melting is a physical change and does not change mass. The mass loss comes from gases escaping into the open room, where the scale cannot weigh them.",
       "The scale reading went down because matter left, not because of air pushing on it. Look for a gas product and an open container."
      ],
      "hint": "Burning wax makes carbon dioxide and water vapor. Where do gases go in an open room?",
@@ -1332,7 +1332,7 @@
      "type": "fill",
      "skill": "Solubility and crystallization",
      "difficulty": 3,
-     "prompt": "<p>Use the graph. A student dissolves 60 g of potassium nitrate in 100 g of water at 40 &deg;C. She then cools the solution to 20 &deg;C. How many grams of potassium nitrate come out as crystals?</p>",
+     "prompt": "<p>Use the graph: potassium nitrate's limit is about 64 g per 100 g of water at 40 &deg;C and about 32 g at 20 &deg;C. A student dissolves 60 g of potassium nitrate in 100 g of water at 40 &deg;C. She then cools the solution to 20 &deg;C. How many grams of potassium nitrate come out as crystals?</p>",
      "answer": [
       "28"
      ],
@@ -1362,7 +1362,7 @@
     "html": "<p>The <strong>pH scale</strong> runs from 0 to 14 and measures how acidic or basic a solution is.</p><table><thead><tr><th>pH</th><th>Type</th><th>Everyday examples</th></tr></thead><tbody><tr><td>Below 7</td><td>Acid (sour)</td><td>Lemon juice 2, vinegar 3, tomato juice 4</td></tr><tr><td>7</td><td>Neutral</td><td>Pure water</td></tr><tr><td>Above 7</td><td>Base (bitter, slippery)</td><td>Baking soda 9, ammonia 11</td></tr></tbody></table><p>The <strong>lower</strong> the pH, the <strong>more acidic</strong>. The higher the pH, the more basic. A pH close to 7 is only weakly acidic or weakly basic; it is not neutral unless it is 7.</p><p>When an acid and a base are mixed, they <strong>neutralize</strong> each other and the pH moves toward 7. That is why an antacid (a base) eases stomach acid.</p>",
     "figure": {
      "type": "bar",
-     "title": "pH of Common Substances",
+     "title": "Approximate pH of Common Substances",
      "xLabel": "Substance",
      "yLabel": "pH",
      "labels": [
@@ -1525,7 +1525,7 @@
    {
     "id": "ps2",
     "title": "Heating an Unknown Solid",
-    "html": "<p>A student placed 50 g of a white, crystalline solid, Substance X, in a test tube with a thermometer. She heated the tube in a hot-oil bath that supplied heat at a steady rate and recorded the temperature every 2 minutes. She watched the sample the whole time: it began to turn to liquid at 6 minutes and was completely liquid at 12 minutes.</p><table><thead><tr><th>Time (min)</th><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td><td>12</td><td>14</td><td>16</td><td>18</td></tr></thead><tbody><tr><th>Temperature (&deg;C)</th><td>20</td><td>40</td><td>60</td><td>80</td><td>80</td><td>80</td><td>80</td><td>100</td><td>120</td><td>140</td></tr></tbody></table>",
+    "html": "<p>A student placed 50 g of a white, crystalline solid, Substance X, in a test tube with a thermometer. She heated the tube in a hot-oil bath that supplied heat at a steady rate and recorded the temperature every 2 minutes. She watched the sample the whole time: it began to turn to liquid at 6 minutes and was completely liquid at 12 minutes.</p><table><thead><tr><th>Time (min)</th><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td><td>12</td><td>14</td><td>16</td><td>18</td></tr></thead><tbody><tr><th>Temperature (&deg;C)</th><td>20</td><td>40</td><td>60</td><td>80</td><td>80</td><td>80</td><td>80</td><td>100</td><td>120</td><td>140</td></tr></tbody></table><p><em>The data are simplified for this exercise.</em></p>",
     "figure": {
      "type": "line",
      "title": "Heating Curve of Substance X",
@@ -1570,7 +1570,7 @@
    {
     "id": "ps4",
     "title": "Testing Conservation of Mass",
-    "html": "<p>When baking soda (sodium bicarbonate) is mixed with vinegar (acetic acid), the mixture fizzes. The reaction is:</p>\n<p>NaHCO<sub>3</sub> + CH<sub>3</sub>COOH &rarr; CH<sub>3</sub>COONa + H<sub>2</sub>O + CO<sub>2</sub></p>\n<p>A student ran this reaction two ways.</p>\n<p><strong>Trial 1 (open):</strong> She placed a flask of vinegar and a small cup of baking soda together on a balance and recorded the total mass. She poured the baking soda into the flask, left the flask open, waited until the fizzing stopped, and placed the flask and empty cup back on the balance.</p>\n<p><strong>Trial 2 (sealed):</strong> She put vinegar in a plastic bottle and lowered a small tube of baking soda inside without letting them touch. She screwed the cap on tightly and recorded the total mass. Then she tipped the bottle so the substances mixed, waited until the fizzing stopped, and recorded the mass again without opening the bottle.</p>\n<table><thead><tr><th>Trial</th><th>Total mass before (g)</th><th>Total mass after (g)</th></tr></thead>\n<tbody>\n<tr><td>1 (open)</td><td>182.40</td><td>181.30</td></tr>\n<tr><td>2 (sealed)</td><td>183.10</td><td>183.10</td></tr>\n</tbody></table>"
+    "html": "<p>When baking soda (sodium bicarbonate) is mixed with vinegar (acetic acid), the mixture fizzes. The reaction is:</p>\n<p>NaHCO<sub>3</sub> + CH<sub>3</sub>COOH &rarr; CH<sub>3</sub>COONa + H<sub>2</sub>O + CO<sub>2</sub></p>\n<p>A student ran this reaction two ways.</p>\n<p><strong>Trial 1 (open):</strong> She placed a flask of vinegar and a small cup of baking soda together on a balance and recorded the total mass. She poured the baking soda into the flask, left the flask open, waited until the fizzing stopped, and placed the flask and empty cup back on the balance.</p>\n<p><strong>Trial 2 (sealed):</strong> She put vinegar in a plastic bottle and lowered a small tube of baking soda inside without letting them touch. She screwed the cap on tightly and recorded the total mass. Then she tipped the bottle so the substances mixed, waited until the fizzing stopped, and recorded the mass again without opening the bottle.</p>\n<table><thead><tr><th>Trial</th><th>Total mass before (g)</th><th>Total mass after (g)</th></tr></thead>\n<tbody>\n<tr><td>1 (open)</td><td>182.40</td><td>181.30</td></tr>\n<tr><td>2 (sealed)</td><td>183.10</td><td>183.10</td></tr>\n</tbody></table><p><em>The data are simplified for this exercise.</em></p>"
    },
    {
     "id": "ps5",
@@ -1630,7 +1630,7 @@
    {
     "id": "ps7",
     "title": "Cooling a Melted Wax",
-    "html": "<p>A student melted a sample of stearic acid, a waxy substance used in candles and soaps, and heated the liquid to 90 &deg;C. She then let the test tube cool in room-temperature air and recorded the temperature every 2 minutes. Solid wax first appeared at 6 minutes, and the sample was completely solid at 12 minutes.</p><table><thead><tr><th>Time (min)</th><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td><td>12</td><td>14</td><td>16</td><td>18</td></tr></thead><tbody><tr><th>Temperature (&deg;C)</th><td>90</td><td>80</td><td>72</td><td>69</td><td>69</td><td>69</td><td>69</td><td>60</td><td>50</td><td>42</td></tr></tbody></table>",
+    "html": "<p>A student melted a sample of stearic acid, a waxy substance used in candles and soaps, and heated the liquid to 90 &deg;C. She then let the test tube cool in room-temperature air and recorded the temperature every 2 minutes. Solid wax first appeared at 6 minutes, and the sample was completely solid at 12 minutes.</p><table><thead><tr><th>Time (min)</th><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td><td>12</td><td>14</td><td>16</td><td>18</td></tr></thead><tbody><tr><th>Temperature (&deg;C)</th><td>90</td><td>80</td><td>72</td><td>69</td><td>69</td><td>69</td><td>69</td><td>60</td><td>50</td><td>42</td></tr></tbody></table><p><em>The readings are rounded and simplified for this exercise.</em></p>",
     "figure": {
      "type": "line",
      "title": "Cooling Curve of Stearic Acid",
@@ -2586,7 +2586,7 @@
    {
     "id": "xs1",
     "title": "Fizzing Tablets",
-    "html": "<p>When an antacid tablet is dropped into water, it fizzes as it gives off carbon dioxide gas. A student tested what happens to the total mass.</p><p><strong>Setup A (open):</strong> She placed a cup of water and a tablet side by side on a balance and recorded the total mass. She dropped the tablet into the open cup, waited until the fizzing stopped, and recorded the mass again.</p><p><strong>Setup B (closed):</strong> She put the same amount of water in a bottle, placed an identical tablet inside a balloon, and stretched the balloon over the bottle's mouth. She recorded the total mass. Then she lifted the balloon so the tablet dropped into the water. The balloon inflated as the tablet fizzed. When the fizzing stopped, she recorded the mass again without removing the balloon.</p><table><thead><tr><th>Setup</th><th>Total mass before (g)</th><th>Total mass after (g)</th></tr></thead><tbody><tr><td>A (open)</td><td>105.20</td><td>104.65</td></tr><tr><td>B (closed)</td><td>120.30</td><td>120.30</td></tr></tbody></table>"
+    "html": "<p>When an antacid tablet is dropped into water, it fizzes as it gives off carbon dioxide gas. A student tested what happens to the total mass.</p><p><strong>Setup A (open):</strong> She placed a cup of water and a tablet side by side on a balance and recorded the total mass. She dropped the tablet into the open cup, waited until the fizzing stopped, and recorded the mass again.</p><p><strong>Setup B (closed):</strong> She put the same amount of water in a bottle, placed an identical tablet inside a balloon, and stretched the balloon over the bottle's mouth. She recorded the total mass. Then she lifted the balloon so the tablet dropped into the water. The balloon inflated as the tablet fizzed. When the fizzing stopped, she recorded the mass again without removing the balloon.</p><table><thead><tr><th>Setup</th><th>Total mass before (g)</th><th>Total mass after (g)</th></tr></thead><tbody><tr><td>A (open)</td><td>105.20</td><td>104.65</td></tr><tr><td>B (closed)</td><td>120.30</td><td>120.30</td></tr></tbody></table><p><em>The data are simplified for this exercise.</em></p>"
    },
    {
     "id": "xs2",
@@ -3197,5 +3197,5 @@
    "example": "Vinegar has a pH of about 3, so it is an acid."
   }
  ],
- "notes": "<h3>Study Notes: Chemistry</h3>\n<div class=\"twocol\">\n<div>\n<h4>States of Matter</h4>\n<p>Solid: fixed shape and volume. Liquid: fixed volume. Gas: neither.<br>Add heat: melt, evaporate/boil, sublimate. Remove heat: freeze, condense.<br>Temperature stays flat during a phase change (the flat parts of a heating curve: lower = melting/freezing, higher = boiling/condensing).</p>\n<h4>The Atom</h4>\n<p>Atomic number = protons<br>Mass number = protons + neutrons<br>Neutrons = mass # &minus; atomic #<br>Neutral atom: electrons = protons<br>Isotopes: same protons, different neutrons. Ion: gained or lost electrons.</p>\n<p>Periodic table: columns = groups (similar properties); rows = periods. Metals left, nonmetals right, noble gases far right (Group 18).</p>\n<h4>Element / Compound / Mixture</h4>\n<p>Element: one kind of atom (Fe, O<sub>2</sub>).<br>Compound: bonded, fixed ratio (H<sub>2</sub>O, NaCl).<br>Mixture: not bonded, separable (salt water, air).</p>\n</div>\n<div>\n<h4>Changes</h4>\n<p>Physical: same substance (melt, cut, dissolve).<br>Chemical: new substance. Clues: gas, color change, heat/light, new solid.</p>\n<h4>Balancing Equations</h4>\n<ol>\n<li>Count atoms on each side.</li>\n<li>Change coefficients only, never subscripts.</li>\n<li>Coefficient &times; subscript = atoms (3H<sub>2</sub>O: 6 H, 3 O).</li>\n<li>Recount; use smallest whole numbers.</li>\n</ol>\n<p>Conservation of mass: mass of reactants = mass of products. Open container + gas made = mass seems to drop.</p>\n<h4>Formulas</h4>\n<p>Density = mass &divide; volume (water = 1.00 g/mL)<br>Displacement volume = final &minus; starting level<br>Concentration (g/L) = g solute &divide; L solution (mL &divide; 1,000 = L)<br>Diluting: same grams of solute &divide; new total volume</p>\n</div>\n</div>\n<table>\n<thead><tr><th>pH</th><th>0&ndash;6</th><th>7</th><th>8&ndash;14</th></tr></thead>\n<tbody>\n<tr><td>Type</td><td>Acid (sour; blue litmus turns red)</td><td>Neutral (pure water)</td><td>Base (bitter, slippery; red litmus turns blue)</td></tr>\n<tr><td>Examples</td><td>Lemon juice 2, vinegar 3</td><td>Water 7</td><td>Baking soda 9, ammonia 11</td></tr>\n</tbody>\n</table>\n<p><strong>pH rule:</strong> 1 unit = 10 times; 2 units = 100 times; 3 units = 1,000 times. <strong>Solubility:</strong> most solids dissolve more in warm water; gases dissolve more in cold. Cooling a solution below its limit makes crystals: amount out = amount dissolved &minus; new limit.</p>"
+ "notes": "<h3>Study Notes: Chemistry</h3>\n<div class=\"twocol\">\n<div>\n<h4>States of Matter</h4>\n<p>Solid: fixed shape and volume. Liquid: fixed volume. Gas: neither.<br>Add heat: melt, evaporate/boil, sublimate (solid &rarr; gas). Remove heat: freeze, condense.<br>Temperature stays flat during a phase change (the flat parts of a heating curve: lower = melting/freezing, higher = boiling/condensing).</p>\n<h4>The Atom</h4>\n<p>Atomic number = protons<br>Mass number = protons + neutrons<br>Neutrons = mass # &minus; atomic #<br>Neutral atom: electrons = protons<br>Isotopes: same protons, different neutrons. Ion: gained or lost electrons.</p>\n<p>Periodic table: columns = groups (similar properties); rows = periods. Metals left, nonmetals right, noble gases far right (Group 18).</p>\n<h4>Element / Compound / Mixture</h4>\n<p>Element: one kind of atom (Fe, O<sub>2</sub>).<br>Compound: bonded, fixed ratio (H<sub>2</sub>O, NaCl).<br>Mixture: not bonded, separable (salt water, air).</p>\n</div>\n<div>\n<h4>Changes</h4>\n<p>Physical: same substance (melt, cut, dissolve).<br>Chemical: new substance. Clues: gas, color change, heat/light, new solid.</p>\n<h4>Balancing Equations</h4>\n<ol>\n<li>Count atoms on each side.</li>\n<li>Change coefficients only, never subscripts.</li>\n<li>Coefficient &times; subscript = atoms (3H<sub>2</sub>O: 6 H, 3 O).</li>\n<li>Recount; use smallest whole numbers.</li>\n</ol>\n<p>Conservation of mass: mass of reactants = mass of products. Open container + gas made = mass seems to drop. Open container + gas from the air joins = mass seems to rise. Sealed container = mass stays the same.</p>\n<h4>Formulas</h4>\n<p>Density = mass &divide; volume (water = 1.00 g/mL)<br>Displacement volume = final &minus; starting level<br>Concentration (g/L) = g solute &divide; L solution (mL &divide; 1,000 = L)<br>Diluting: same grams of solute &divide; new total volume</p>\n</div>\n</div>\n<table>\n<thead><tr><th>pH</th><th>Below 7</th><th>7</th><th>Above 7</th></tr></thead>\n<tbody>\n<tr><td>Type</td><td>Acid (sour; blue litmus turns red)</td><td>Neutral (pure water)</td><td>Base (bitter, slippery; red litmus turns blue)</td></tr>\n<tr><td>Examples</td><td>Lemon juice 2, vinegar 3</td><td>Water 7</td><td>Baking soda 9, ammonia 11</td></tr>\n</tbody>\n</table>\n<p><strong>pH rule:</strong> 1 unit = 10 times; 2 units = 100 times; 3 units = 1,000 times. <strong>Solubility:</strong> most solids dissolve more in warm water; gases dissolve more in cold. When a solution is cooled and holds more solute than the new, lower limit, the extra comes out as crystals: amount out = amount dissolved &minus; new limit.</p>"
 }
