@@ -2456,32 +2456,32 @@
     "stim": "xs1",
     "prompt": "<p>What was the average growth rate of the <strong>sun</strong> plant from week 1 to week 5, in centimeters per week? Enter a number.</p>",
     "answer": [
-     "3.5"
+     "4.5"
     ],
-    "value": 3.5,
+    "value": 4.5,
     "tol": 0.001,
     "suffix": "cm per week",
     "mistakes": [
      {
       "answer": [
-       "14"
+       "18"
       ],
-      "why": "14 cm is the total growth from week 1 to week 5 (21 &minus; 7). Divide by the 4 weeks that passed."
+      "why": "18 cm is the total growth from week 1 to week 5 (25 &minus; 7). Divide by the 4 weeks that passed."
      },
      {
       "answer": [
-       "5.25"
+       "6.25"
       ],
-      "why": "You divided the week 5 height (21 cm) by 4. Divide the <em>change</em> in height, 21 &minus; 7 = 14 cm, by 4."
+      "why": "You divided the week 5 height (25 cm) by 4. Divide the <em>change</em> in height, 25 &minus; 7 = 18 cm, by 4."
      },
      {
       "answer": [
-       "2.8"
+       "3.6"
       ],
-      "why": "You divided 14 by 5. From week 1 to week 5 is 5 &minus; 1 = 4 weeks, not 5."
+      "why": "You divided 18 by 5. From week 1 to week 5 is 5 &minus; 1 = 4 weeks, not 5."
      }
     ],
-    "explain": "<p>Week 1: 7 cm. Week 5: 21 cm. Change: 21 &minus; 7 = 14 cm. Time: 5 &minus; 1 = 4 weeks.</p><p>Rate: 14 &divide; 4 = <strong>3.5 cm per week</strong>.</p>"
+    "explain": "<p>Week 1: 7 cm. Week 5: 25 cm. Change: 25 &minus; 7 = 18 cm. Time: 5 &minus; 1 = 4 weeks.</p><p>Rate: 18 &divide; 4 = <strong>4.5 cm per week</strong>.</p>"
    },
    {
     "id": "XA6",
