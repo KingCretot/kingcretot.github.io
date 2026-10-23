@@ -100,45 +100,45 @@
     "figure": {
      "type": "line",
      "title": "Movie Tickets per Week at a Small Theater",
-     "xLabel": "Ticket price",
-     "yLabel": "Tickets per week",
+     "xLabel": "Quantity (tickets per week)",
+     "yLabel": "Price per ticket (dollars)",
      "labels": [
-      "$6",
-      "$8",
-      "$10",
-      "$12",
-      "$14"
+      "100",
+      "150",
+      "200",
+      "250",
+      "300"
      ],
      "series": [
       {
-       "name": "Quantity demanded",
+       "name": "Supply",
        "values": [
-        300,
-        250,
-        200,
-        150,
-        100
+        6,
+        8,
+        10,
+        12,
+        14
        ]
       },
       {
-       "name": "Quantity supplied",
+       "name": "Demand",
        "values": [
-        100,
-        150,
-        200,
-        250,
-        300
+        14,
+        12,
+        10,
+        8,
+        6
        ]
       }
      ]
     },
     "notes": {
-     "say": "<p>Demand is how much buyers are willing and able to buy at each price; supply is how much sellers are willing and able to offer. Buyers and sellers react to price in opposite directions, which is why the two lines cross. Where they cross, the amount people want equals the amount offered: that is the equilibrium price, and markets tend to move toward it. If the price is set too low, buyers are left short: a shortage. If it is set too high, extra sits unsold: a surplus. On this graph the price is on the horizontal axis. Economists usually put price on the vertical axis, so always read the labels first.</p>",
+     "say": "<p>Demand is how much buyers are willing and able to buy at each price; supply is how much sellers are willing and able to offer. Buyers and sellers react to price in opposite directions, which is why the two lines cross. Where they cross, the amount people want equals the amount offered: that is the equilibrium price, and markets tend to move toward it. If the price is set too low, buyers are left short: a shortage. If it is set too high, extra sits unsold: a surplus. On every supply and demand graph, price goes on the vertical axis and quantity on the horizontal axis. That is why the demand line slopes down and the supply line slopes up. To check a price, start at that price on the vertical axis, go straight across to each line, and read the quantity below it.</p>",
      "ask": [
-      "On the graph, at what price do the lines cross? (Expected: $10)",
-      "At $14, which is bigger, quantity demanded or quantity supplied? (Expected: quantity supplied, 300 compared with 100)"
+      "On the graph, at what price and quantity do the lines cross? (Expected: $10 and 200 tickets)",
+      "At $14, which is bigger, quantity demanded or quantity supplied? (Expected: quantity supplied. Going across from $14, the demand line is at 100 tickets and the supply line is at 300.)"
      ],
-     "watch": "<p>Students mix up shortage and surplus. Use the word itself: a <em>shortage</em> means buyers come up <em>short</em>. A <em>surplus</em> means extra is left over on the shelf.</p>"
+     "watch": "<p>Students mix up shortage and surplus. Use the word itself: a <em>shortage</em> means buyers come up <em>short</em>. A <em>surplus</em> means extra is left over on the shelf.</p><p>If the student reads a price off the bottom axis, point to the labels: price is up the side, quantity is along the bottom.</p>"
     }
    },
    {
@@ -164,7 +164,7 @@
     "title": "What Shifts Demand or Supply?",
     "board": "<div class=\"twocol\"><div><p><strong>Demand shifters (buyers)</strong></p><ul><li>Income</li><li>Tastes and trends</li><li>Price of a <em>substitute</em> (tea for coffee)</li><li>Price of a <em>complement</em> (printers and ink)</li><li>Expectations about the future</li></ul></div><div><p><strong>Supply shifters (sellers)</strong></p><ul><li>Cost of materials or labor</li><li>Technology</li><li>Weather and disasters</li><li>Taxes on producers</li><li>Number of sellers</li></ul></div></div><p>Demand up or supply down &rarr; <strong>price up</strong>. Demand down or supply up &rarr; <strong>price down</strong>.</p><p><strong>Price ceiling</strong> (legal maximum) below equilibrium &rarr; shortage. <strong>Price floor</strong> (legal minimum) above equilibrium &rarr; surplus.</p>",
     "notes": {
-     "say": "<p>A change in a product's own price just moves along the curve. Everything else on this board shifts the whole curve. The key question is always: does this event change what <em>buyers</em> want, or what <em>sellers</em> can offer? Substitutes are goods used instead of each other; complements are goods used together. Governments sometimes set price controls. A price ceiling is a legal maximum, such as rent control; a price floor is a legal minimum, such as a minimum wage. Supporters point to fairness and affordability, and critics point to shortages or surpluses. The GED asks what the data show, not which side is right.</p>",
+     "say": "<p>A change in a product's own price just moves along the curve. Everything else on this board shifts the whole curve. The key question is always: does this event change what <em>buyers</em> want, or what <em>sellers</em> can offer? Substitutes are goods used instead of each other; complements are goods used together. Governments sometimes set price controls. A price ceiling is a legal maximum, such as rent control; a price floor is a legal minimum, such as a minimum wage. People disagree about both. Supporters of rent control say it protects tenants from sudden rent jumps; critics say it leads landlords to offer fewer apartments. Supporters of a minimum wage say it raises pay for low-wage workers and helps families cover basic costs; critics say a wage set well above equilibrium can lead employers to hire fewer workers or cut hours. Studies disagree about how large that effect is. The GED asks you to identify each side and its evidence, not to decide which side is right.</p>",
      "ask": [
       "Coffee prices rise. What happens to demand for tea? (Expected: it increases, because tea is a substitute)",
       "A city sets the maximum rent at $900 when the equilibrium rent is $1,200. What results? (Expected: a shortage of apartments)"
@@ -610,7 +610,7 @@
    },
    {
     "title": "The Laws of Demand and Supply",
-    "html": "<p><strong>Demand</strong> is how much of a product buyers are willing and able to buy at each price. <strong>Supply</strong> is how much sellers are willing and able to offer at each price.</p><div class=\"twocol\"><div><p><strong>Law of demand</strong><br>Price goes up &rarr; buyers buy <strong>less</strong>.<br>Price goes down &rarr; buyers buy <strong>more</strong>.</p></div><div><p><strong>Law of supply</strong><br>Price goes up &rarr; sellers offer <strong>more</strong>.<br>Price goes down &rarr; sellers offer <strong>less</strong>.</p></div></div><p>Why? A higher price makes buyers look for substitutes or go without, while it makes selling more profitable, so sellers want to produce more. Buyers and sellers react to price in <strong>opposite</strong> directions. That is why, on a graph, the demand line and the supply line slope opposite ways and cross.</p>",
+    "html": "<p><strong>Demand</strong> is how much of a product buyers are willing and able to buy at each price. <strong>Supply</strong> is how much sellers are willing and able to offer at each price.</p><div class=\"twocol\"><div><p><strong>Law of demand</strong><br>Price goes up &rarr; buyers buy <strong>less</strong>.<br>Price goes down &rarr; buyers buy <strong>more</strong>.</p></div><div><p><strong>Law of supply</strong><br>Price goes up &rarr; sellers offer <strong>more</strong>.<br>Price goes down &rarr; sellers offer <strong>less</strong>.</p></div></div><p>Why? A higher price makes buyers look for substitutes or go without, while it makes selling more profitable, so sellers want to produce more. Buyers and sellers react to price in <strong>opposite</strong> directions. That is why, on a graph with price on the vertical axis and quantity on the horizontal axis, the demand line slopes <strong>down</strong>, the supply line slopes <strong>up</strong>, and the two lines cross.</p>",
     "check": {
      "id": "L04",
      "type": "mc",
@@ -636,38 +636,38 @@
    },
    {
     "title": "Equilibrium, Shortage, and Surplus",
-    "html": "<p>The <strong>equilibrium price</strong> is the price where the quantity demanded equals the quantity supplied. On a graph, it is where the two lines cross. Markets tend to move toward this price.</p><table><thead><tr><th>Ticket price</th><th>$6</th><th>$8</th><th>$10</th><th>$12</th><th>$14</th></tr></thead><tbody><tr><td>Quantity demanded</td><td>300</td><td>250</td><td>200</td><td>150</td><td>100</td></tr><tr><td>Quantity supplied</td><td>100</td><td>150</td><td>200</td><td>250</td><td>300</td></tr></tbody></table><div class=\"box\"><p>Demanded = supplied &rarr; <strong>equilibrium</strong><br>Demanded &gt; supplied (price too low) &rarr; <strong>shortage</strong><br>Supplied &gt; demanded (price too high) &rarr; <strong>surplus</strong><br>Size = larger number &minus; smaller number</p></div><p>On this graph, price is on the horizontal axis. Many graphs put price on the vertical axis, so read the labels first.</p>",
+    "html": "<p>The <strong>equilibrium price</strong> is the price where the quantity demanded equals the quantity supplied. On a graph, it is where the two lines cross. Markets tend to move toward this price.</p><table><thead><tr><th>Ticket price</th><th>$6</th><th>$8</th><th>$10</th><th>$12</th><th>$14</th></tr></thead><tbody><tr><td>Quantity demanded</td><td>300</td><td>250</td><td>200</td><td>150</td><td>100</td></tr><tr><td>Quantity supplied</td><td>100</td><td>150</td><td>200</td><td>250</td><td>300</td></tr></tbody></table><div class=\"box\"><p>Demanded = supplied &rarr; <strong>equilibrium</strong><br>Demanded &gt; supplied (price too low) &rarr; <strong>shortage</strong><br>Supplied &gt; demanded (price too high) &rarr; <strong>surplus</strong><br>Size = larger number &minus; smaller number</p></div><p>On a supply and demand graph, <strong>price</strong> is on the vertical axis and <strong>quantity</strong> is on the horizontal axis. To check a price, go straight across from it to each line and read the quantity below. At $14, the demand line is at 100 tickets and the supply line is at 300.</p>",
     "figure": {
      "type": "line",
      "title": "Movie Tickets per Week at a Small Theater",
-     "xLabel": "Ticket price",
-     "yLabel": "Tickets per week",
+     "xLabel": "Quantity (tickets per week)",
+     "yLabel": "Price per ticket (dollars)",
      "labels": [
-      "$6",
-      "$8",
-      "$10",
-      "$12",
-      "$14"
+      "100",
+      "150",
+      "200",
+      "250",
+      "300"
      ],
      "series": [
       {
-       "name": "Quantity demanded",
+       "name": "Supply",
        "values": [
-        300,
-        250,
-        200,
-        150,
-        100
+        6,
+        8,
+        10,
+        12,
+        14
        ]
       },
       {
-       "name": "Quantity supplied",
+       "name": "Demand",
        "values": [
-        100,
-        150,
-        200,
-        250,
-        300
+        14,
+        12,
+        10,
+        8,
+        6
        ]
       }
      ]
@@ -774,7 +774,7 @@
    },
    {
     "title": "Price Ceilings and Price Floors",
-    "html": "<p>Sometimes the government sets a price by law instead of letting the market decide.</p><table><thead><tr><th></th><th>Price ceiling</th><th>Price floor</th></tr></thead><tbody><tr><td>What it is</td><td>A legal <strong>maximum</strong> price</td><td>A legal <strong>minimum</strong> price</td></tr><tr><td>Example</td><td>Rent control</td><td>Minimum wage</td></tr><tr><td>When it matters</td><td>Set <strong>below</strong> equilibrium</td><td>Set <strong>above</strong> equilibrium</td></tr><tr><td>Likely result</td><td><strong>Shortage</strong> (buyers want more than is offered)</td><td><strong>Surplus</strong> (more is offered than buyers want)</td></tr></tbody></table><p>Memory hook: a ceiling holds the price <em>down</em>, like a ceiling over your head; a floor holds it <em>up</em>.</p><p>People disagree about these policies. Supporters point to fairness and affordability; critics point to shortages or surpluses. GED questions ask what the data show, not which side is right.</p>",
+    "html": "<p>Sometimes the government sets a price by law instead of letting the market decide.</p><table><thead><tr><th></th><th>Price ceiling</th><th>Price floor</th></tr></thead><tbody><tr><td>What it is</td><td>A legal <strong>maximum</strong> price</td><td>A legal <strong>minimum</strong> price</td></tr><tr><td>Example</td><td>Rent control</td><td>Minimum wage</td></tr><tr><td>When it matters</td><td>Set <strong>below</strong> equilibrium</td><td>Set <strong>above</strong> equilibrium</td></tr><tr><td>Likely result</td><td><strong>Shortage</strong> (buyers want more than is offered)</td><td><strong>Surplus</strong> (more is offered than buyers want)</td></tr></tbody></table><p>Memory hook: a ceiling holds the price <em>down</em>, like a ceiling over your head; a floor holds it <em>up</em>.</p><p>People disagree about these policies. Take the minimum wage. Supporters say it raises pay for low-wage workers and helps families cover basic costs. Critics say a wage set well above equilibrium can lead employers to hire fewer workers or cut hours, leaving more people looking for work than there are jobs. Economists' studies disagree about how large that effect is in practice. GED questions ask you to identify each side's argument and evidence, not to decide which side is right.</p>",
     "check": {
      "id": "L08",
      "type": "dropdown",
@@ -1174,37 +1174,40 @@
     "figure": {
      "type": "line",
      "title": "Kayak Rentals at Pine Lake",
-     "xLabel": "Price per rental",
-     "yLabel": "Rentals per day",
+     "xLabel": "Quantity (rentals per day)",
+     "yLabel": "Price per rental (dollars)",
      "labels": [
-      "$10",
-      "$15",
-      "$20",
-      "$25",
-      "$30",
-      "$35"
+      "15",
+      "30",
+      "45",
+      "60",
+      "75",
+      "90",
+      "105"
      ],
      "series": [
       {
-       "name": "Quantity demanded",
+       "name": "Supply",
        "values": [
-        90,
-        75,
-        60,
-        45,
+        5,
+        10,
+        15,
+        20,
+        25,
         30,
-        15
+        35
        ]
       },
       {
-       "name": "Quantity supplied",
+       "name": "Demand",
        "values": [
+        35,
         30,
-        45,
-        60,
-        75,
-        90,
-        105
+        25,
+        20,
+        15,
+        10,
+        5
        ]
       }
      ]
@@ -1268,38 +1271,38 @@
    {
     "id": "ps7",
     "title": "Milk Sales in Dale County",
-    "html": "<p>The table and graph show how many gallons of milk shoppers in Dale County want to buy each week (quantity demanded) and how many gallons dairies and stores are willing to offer (quantity supplied) at different prices. The data are hypothetical.</p><table><thead><tr><th>Price per gallon</th><th>Quantity demanded (gallons per week)</th><th>Quantity supplied (gallons per week)</th></tr></thead><tbody><tr><td>$3.00</td><td>9,400</td><td>3,800</td></tr><tr><td>$3.50</td><td>8,200</td><td>5,400</td></tr><tr><td>$4.00</td><td>7,000</td><td>7,000</td></tr><tr><td>$4.50</td><td>5,800</td><td>8,600</td></tr><tr><td>$5.00</td><td>4,600</td><td>10,200</td></tr></tbody></table>",
+    "html": "<p>The table and graph show how many gallons of milk shoppers in Dale County want to buy each week (quantity demanded) and how many gallons dairies and stores are willing to offer (quantity supplied) at different prices. The data are hypothetical.</p><table><thead><tr><th>Price per gallon</th><th>Quantity demanded (gallons per week)</th><th>Quantity supplied (gallons per week)</th></tr></thead><tbody><tr><td>$3.00</td><td>10,200</td><td>3,800</td></tr><tr><td>$3.50</td><td>8,600</td><td>5,400</td></tr><tr><td>$4.00</td><td>7,000</td><td>7,000</td></tr><tr><td>$4.50</td><td>5,400</td><td>8,600</td></tr><tr><td>$5.00</td><td>3,800</td><td>10,200</td></tr></tbody></table>",
     "figure": {
      "type": "line",
      "title": "Milk Sales in Dale County",
-     "xLabel": "Price per gallon",
-     "yLabel": "Gallons per week",
+     "xLabel": "Quantity (gallons per week)",
+     "yLabel": "Price per gallon (dollars)",
      "labels": [
-      "$3.00",
-      "$3.50",
-      "$4.00",
-      "$4.50",
-      "$5.00"
+      "3,800",
+      "5,400",
+      "7,000",
+      "8,600",
+      "10,200"
      ],
      "series": [
       {
-       "name": "Quantity demanded",
+       "name": "Supply",
        "values": [
-        9400,
-        8200,
-        7000,
-        5800,
-        4600
+        3,
+        3.5,
+        4,
+        4.5,
+        5
        ]
       },
       {
-       "name": "Quantity supplied",
+       "name": "Demand",
        "values": [
-        3800,
-        5400,
-        7000,
-        8600,
-        10200
+        5,
+        4.5,
+        4,
+        3.5,
+        3
        ]
       }
      ]
@@ -1853,10 +1856,10 @@
     ],
     "answer": 1,
     "why": [
-     "At $3.50, 8,200 gallons are demanded but only 5,400 are supplied. The numbers do not match; that row shows a shortage.",
+     "At $3.50, 8,600 gallons are demanded but only 5,400 are supplied. The numbers do not match; that row shows a shortage.",
      "",
-     "At $4.50, 8,600 gallons are supplied but only 5,800 are demanded. That row shows a surplus.",
-     "At $5.00, 10,200 are supplied and 4,600 demanded, a large surplus. Equilibrium is where the two quantities are equal."
+     "At $4.50, 8,600 gallons are supplied but only 5,400 are demanded. That row shows a surplus.",
+     "At $5.00, 10,200 are supplied and 3,800 demanded, a large surplus. Equilibrium is where the two quantities are equal."
     ],
     "hint": "Look for the row where the two quantity columns show the same number.",
     "explain": "<p>At $4.00, quantity demanded is 7,000 gallons and quantity supplied is 7,000 gallons. Because they are equal, <strong>$4.00</strong> is the equilibrium price. On the graph, it is where the two lines cross. Prices below $4.00 give shortages, and prices above it give surpluses.</p>"
@@ -1870,30 +1873,30 @@
     "stim": "ps7",
     "prompt": "<p>If milk were priced at $3.50 a gallon, how many more gallons per week would shoppers want than sellers would offer?</p>",
     "answer": [
-     "2800",
-     "2,800"
+     "3200",
+     "3,200"
     ],
-    "value": 2800,
+    "value": 3200,
     "tol": 0.001,
     "suffix": "gallons per week",
     "mistakes": [
      {
       "answer": [
-       "5600",
-       "5,600"
+       "6400",
+       "6,400"
       ],
-      "why": "That is the gap at $3.00 (9,400 &minus; 3,800). Use the $3.50 row: 8,200 &minus; 5,400."
+      "why": "That is the gap at $3.00 (10,200 &minus; 3,800). Use the $3.50 row: 8,600 &minus; 5,400."
      },
      {
       "answer": [
-       "13600",
-       "13,600"
+       "14000",
+       "14,000"
       ],
-      "why": "You added the two quantities (8,200 + 5,400). The size of a shortage is the difference between them."
+      "why": "You added the two quantities (8,600 + 5,400). The size of a shortage is the difference between them."
      }
     ],
     "hint": "Find the $3.50 row. Subtract quantity supplied from quantity demanded.",
-    "explain": "<p>At $3.50:<br>Quantity demanded = 8,200<br>Quantity supplied = 5,400<br>Shortage = 8,200 &minus; 5,400 = <strong>2,800 gallons per week</strong>.</p><p>A common error is reading the $3.00 row, which gives 5,600.</p>"
+    "explain": "<p>At $3.50:<br>Quantity demanded = 8,600<br>Quantity supplied = 5,400<br>Shortage = 8,600 &minus; 5,400 = <strong>3,200 gallons per week</strong>.</p><p>A common error is reading the $3.00 row, which gives 6,400.</p>"
    },
    {
     "id": "PB04",
@@ -2179,20 +2182,20 @@
     "stim": "ps7",
     "prompt": "<p>Suppose a new law sets a minimum price of $5.00 per gallon of milk in Dale County. Based on the table, what would most likely result?</p>",
     "options": [
-     "A surplus of 5,600 gallons per week",
-     "A shortage of 5,600 gallons per week",
-     "A surplus of 2,800 gallons per week",
+     "A surplus of 6,400 gallons per week",
+     "A shortage of 6,400 gallons per week",
+     "A surplus of 3,200 gallons per week",
      "10,200 gallons sold per week, the amount sellers offer"
     ],
     "answer": 0,
     "why": [
      "",
-     "A legal minimum above equilibrium holds the price too high. At $5.00, supplied (10,200) is bigger than demanded (4,600), so it is a surplus, not a shortage.",
-     "That is the gap at $4.50 (8,600 &minus; 5,800). The minimum price is $5.00, so use the $5.00 row.",
-     "Sellers would offer 10,200 gallons, but shoppers would buy only 4,600. You cannot sell more than buyers want, so the extra goes unsold."
+     "A legal minimum above equilibrium holds the price too high. At $5.00, supplied (10,200) is bigger than demanded (3,800), so it is a surplus, not a shortage.",
+     "That is the gap at $4.50 (8,600 &minus; 5,400). The minimum price is $5.00, so use the $5.00 row.",
+     "Sellers would offer 10,200 gallons, but shoppers would buy only 3,800. You cannot sell more than buyers want, so the extra goes unsold."
     ],
     "hint": "A legal minimum price is a price floor. Find the $5.00 row and compare the two quantities.",
-    "explain": "<p>A legal minimum price is a <strong>price floor</strong>. Here it is above the equilibrium price of $4.00, so the price stays at $5.00.</p><p>At $5.00:<br>Quantity supplied = 10,200<br>Quantity demanded = 4,600<br>Supplied is greater, so there is a <strong>surplus</strong>: 10,200 &minus; 4,600 = <strong>5,600 gallons per week</strong>.</p><p>Only 4,600 gallons would actually be sold, because shoppers want only that many at $5.00.</p>"
+    "explain": "<p>A legal minimum price is a <strong>price floor</strong>. Here it is above the equilibrium price of $4.00, so the price stays at $5.00.</p><p>At $5.00:<br>Quantity supplied = 10,200<br>Quantity demanded = 3,800<br>Supplied is greater, so there is a <strong>surplus</strong>: 10,200 &minus; 3,800 = <strong>6,400 gallons per week</strong>.</p><p>Only 3,800 gallons would actually be sold, because shoppers want only that many at $5.00.</p>"
    },
    {
     "id": "PB14",
@@ -2862,5 +2865,5 @@
    "example": "News reports say the Federal Reserve held interest rates steady this month."
   }
  ],
- "notes": "<h3>Week 7 Study Sheet: Economics</h3>\n<div class=\"box\"><p><strong>Scarcity:</strong> unlimited wants, limited resources, so every choice is a trade-off. <strong>Opportunity cost:</strong> the <em>next best</em> alternative given up (not the total of all options; \"free\" still has a cost). <strong>Factors of production:</strong> land (natural resources), labor (work), capital (tools, machines, buildings), entrepreneurship (risk-taking).</p></div>\n<div class=\"twocol\">\n<div>\n<h4>Supply and Demand</h4>\n<ul>\n<li><strong>Law of demand:</strong> price up &rarr; quantity demanded down</li>\n<li><strong>Law of supply:</strong> price up &rarr; quantity supplied up</li>\n<li><strong>Equilibrium:</strong> demanded = supplied (lines cross)</li>\n<li><strong>Shortage:</strong> demanded &gt; supplied (price too low)</li>\n<li><strong>Surplus:</strong> supplied &gt; demanded (price too high)</li>\n<li><strong>Size:</strong> larger quantity &minus; smaller quantity</li>\n<li><strong>Price ceiling</strong> (legal max, e.g., rent control) below equilibrium &rarr; shortage</li>\n<li><strong>Price floor</strong> (legal min, e.g., minimum wage) above equilibrium &rarr; surplus</li>\n</ul>\n</div>\n<div>\n<h4>What Shifts the Curves</h4>\n<ul>\n<li><strong>Demand (buyers):</strong> income, tastes, price of substitutes (used instead) and complements (used together), expectations</li>\n<li><strong>Supply (sellers):</strong> input costs, technology, weather, taxes on producers, number of sellers</li>\n<li>Demand up or supply down &rarr; price up</li>\n<li>Demand down or supply up &rarr; price down</li>\n<li><strong>Routine:</strong> buyers or sellers? up or down? price?</li>\n</ul>\n</div>\n</div>\n<div class=\"twocol\">\n<div>\n<h4>Economic Systems and Competition</h4>\n<ul>\n<li><strong>Market:</strong> buyers and sellers decide (Adam Smith, \"invisible hand,\" 1776)</li>\n<li><strong>Command:</strong> government decides and sets prices</li>\n<li><strong>Mixed:</strong> mostly markets plus government rules and services (United States)</li>\n<li><strong>Competition</strong> &rarr; lower prices, better quality. <strong>Oligopoly:</strong> a few sellers. <strong>Monopoly:</strong> one seller</li>\n<li><strong>Sherman Antitrust Act</strong> (1890): bans price fixing and unfair monopoly tactics; being the only seller is not illegal by itself</li>\n</ul>\n</div>\n<div>\n<h4>Money and Banking</h4>\n<ul>\n<li>Money: medium of exchange, unit of account, store of value (replaces barter)</li>\n<li>Banks lend out much of their deposits and charge borrowers more interest than they pay savers</li>\n<li><strong>FDIC</strong> (1933): insures up to $250,000 per depositor, per insured bank, per ownership category</li>\n<li><strong>Federal Reserve</strong> (1913): central bank for banks and the government; monetary policy; goals of maximum employment and stable prices (about 2% inflation)</li>\n</ul>\n</div>\n</div>\n<table>\n<thead><tr><th></th><th>Fiscal policy</th><th>Monetary policy</th></tr></thead>\n<tbody>\n<tr><td>Who</td><td>Congress and the President</td><td>Federal Reserve</td></tr>\n<tr><td>Tools</td><td>Taxes, spending</td><td>Interest rates, money supply</td></tr>\n<tr><td>Boost a weak economy</td><td>Cut taxes / spend more</td><td>Lower rates</td></tr>\n<tr><td>Fight inflation</td><td>Raise taxes / spend less</td><td>Raise rates</td></tr>\n</tbody>\n</table>\n<h4>Measuring the Economy</h4>\n<ul>\n<li><strong>GDP:</strong> value of all final goods and services produced in a country; <strong>real GDP</strong> is adjusted for inflation</li>\n<li><strong>Recession:</strong> real GDP falls and unemployment rises (rule of thumb: two quarters of falling GDP)</li>\n<li><strong>Inflation:</strong> general rise in prices (CPI); if pay rises more slowly than prices, purchasing power falls</li>\n<li><strong>Percent change</strong> = (new &minus; old) &divide; old &times; 100. Always divide by the starting value.</li>\n</ul>\n<div class=\"tip\"><p><strong>GED tip:</strong> Read the title, labels, and units first. For events, ask \"buyers or sellers?\" For policy, ask \"who acted, with what tool?\" Answer from the data, and treat policy debates as \"what does each side say?\" not \"which side is right?\"</p></div>"
+ "notes": "<h3>Week 7 Study Sheet: Economics</h3>\n<div class=\"box\"><p><strong>Scarcity:</strong> unlimited wants, limited resources, so every choice is a trade-off. <strong>Opportunity cost:</strong> the <em>next best</em> alternative given up (not the total of all options; \"free\" still has a cost). <strong>Factors of production:</strong> land (natural resources), labor (work), capital (tools, machines, buildings), entrepreneurship (risk-taking).</p></div>\n<div class=\"twocol\">\n<div>\n<h4>Supply and Demand</h4>\n<ul>\n<li><strong>Law of demand:</strong> price up &rarr; quantity demanded down</li>\n<li><strong>Law of supply:</strong> price up &rarr; quantity supplied up</li>\n<li><strong>Graph:</strong> price on the vertical axis, quantity on the horizontal axis; demand slopes down, supply slopes up</li>\n<li><strong>Equilibrium:</strong> demanded = supplied (lines cross)</li>\n<li><strong>Shortage:</strong> demanded &gt; supplied (price too low)</li>\n<li><strong>Surplus:</strong> supplied &gt; demanded (price too high)</li>\n<li><strong>Size:</strong> larger quantity &minus; smaller quantity</li>\n<li><strong>Price ceiling</strong> (legal max, e.g., rent control) below equilibrium &rarr; shortage</li>\n<li><strong>Price floor</strong> (legal min, e.g., minimum wage) above equilibrium &rarr; surplus</li>\n</ul>\n</div>\n<div>\n<h4>What Shifts the Curves</h4>\n<ul>\n<li><strong>Demand (buyers):</strong> income, tastes, price of substitutes (used instead) and complements (used together), expectations</li>\n<li><strong>Supply (sellers):</strong> input costs, technology, weather, taxes on producers, number of sellers</li>\n<li>Demand up or supply down &rarr; price up</li>\n<li>Demand down or supply up &rarr; price down</li>\n<li><strong>Routine:</strong> buyers or sellers? up or down? price?</li>\n</ul>\n</div>\n</div>\n<div class=\"twocol\">\n<div>\n<h4>Economic Systems and Competition</h4>\n<ul>\n<li><strong>Market:</strong> buyers and sellers decide (Adam Smith, \"invisible hand,\" 1776)</li>\n<li><strong>Command:</strong> government decides and sets prices</li>\n<li><strong>Mixed:</strong> mostly markets plus government rules and services (United States)</li>\n<li><strong>Competition</strong> &rarr; lower prices, better quality. <strong>Oligopoly:</strong> a few sellers. <strong>Monopoly:</strong> one seller</li>\n<li><strong>Sherman Antitrust Act</strong> (1890): bans price fixing and unfair monopoly tactics; being the only seller is not illegal by itself</li>\n</ul>\n</div>\n<div>\n<h4>Money and Banking</h4>\n<ul>\n<li>Money: medium of exchange, unit of account, store of value (replaces barter)</li>\n<li>Banks lend out much of their deposits and charge borrowers more interest than they pay savers</li>\n<li><strong>FDIC</strong> (1933): insures up to $250,000 per depositor, per insured bank, per ownership category</li>\n<li><strong>Federal Reserve</strong> (1913): central bank for banks and the government; monetary policy; goals of maximum employment and stable prices (about 2% inflation)</li>\n</ul>\n</div>\n</div>\n<table>\n<thead><tr><th></th><th>Fiscal policy</th><th>Monetary policy</th></tr></thead>\n<tbody>\n<tr><td>Who</td><td>Congress and the President</td><td>Federal Reserve</td></tr>\n<tr><td>Tools</td><td>Taxes, spending</td><td>Interest rates, money supply</td></tr>\n<tr><td>Boost a weak economy</td><td>Cut taxes / spend more</td><td>Lower rates</td></tr>\n<tr><td>Fight inflation</td><td>Raise taxes / spend less</td><td>Raise rates</td></tr>\n</tbody>\n</table>\n<h4>Measuring the Economy</h4>\n<ul>\n<li><strong>GDP:</strong> value of all final goods and services produced in a country; <strong>real GDP</strong> is adjusted for inflation</li>\n<li><strong>Recession:</strong> real GDP falls and unemployment rises (rule of thumb: two quarters of falling GDP)</li>\n<li><strong>Inflation:</strong> general rise in prices (CPI); if pay rises more slowly than prices, purchasing power falls</li>\n<li><strong>Percent change</strong> = (new &minus; old) &divide; old &times; 100. Always divide by the starting value.</li>\n</ul>\n<div class=\"tip\"><p><strong>GED tip:</strong> Read the title, labels, and units first. For events, ask \"buyers or sellers?\" For policy, ask \"who acted, with what tool?\" Answer from the data, and treat policy debates as \"what does each side say?\" not \"which side is right?\"</p></div>"
 }
