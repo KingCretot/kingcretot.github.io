@@ -1594,56 +1594,50 @@
    },
    {
     "id": "PA06",
-    "type": "dropdown",
-    "skill": "Reading the formula sheet",
+    "type": "fill",
+    "skill": "Surface area of a cylinder",
     "difficulty": 2,
     "set": "A",
-    "prompt": "<p>Choose the word or expression that correctly completes each statement about the formula sheet.</p><p>In the cone volume formula V = (1/3)&pi;r<sup>2</sup>h, the letter h stands for the {{0}} of the cone.</p><p>In the pyramid surface-area formula SA = &frac12;ps + B, the letter s stands for the {{1}}.</p><p>For a cylinder, the base is a circle, so the area of the base, B, is equal to {{2}}.</p>",
-    "blanks": [
+    "prompt": "<p>A closed water tank is shaped like a cylinder with a diameter of 6 feet and a height of 8 feet, as shown. The whole outside of the tank, including the top and the bottom, will be painted. How many square feet will be painted? Use 3.14 for &pi;.</p>",
+    "figure": {
+     "type": "svg",
+     "svg": "<svg viewBox='0 -12 310 242' xmlns='http://www.w3.org/2000/svg'><path d='M 80 50 L 80 200 A 70 18 0 0 0 220 200 L 220 50' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><ellipse cx='150' cy='50' rx='70' ry='18' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><path d='M 80 200 A 70 18 0 0 1 220 200' fill='none' stroke='#0A1F3D' stroke-dasharray='5,4'/><line x1='245' y1='50' x2='245' y2='200' stroke='#0A1F3D'/><line x1='239' y1='50' x2='251' y2='50' stroke='#0A1F3D'/><line x1='239' y1='200' x2='251' y2='200' stroke='#0A1F3D'/><text x='255' y='130' font-size='14' fill='#0A1F3D' text-anchor='start'>8 ft</text><line x1='80' y1='50' x2='220' y2='50' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><circle cx='80' cy='50' r='3' fill='#0A1F3D'/><circle cx='220' cy='50' r='3' fill='#0A1F3D'/><circle cx='150' cy='50' r='2' fill='#0A1F3D'/><text x='150' y='18' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter = 6 ft</text></svg>",
+     "alt": "A cylinder standing upright. A dashed line goes all the way across the top circle, through its center, from edge to edge (the diameter); it is labeled \"diameter = 6 ft.\" A measurement line beside the cylinder, from top to bottom, is labeled 8 ft."
+    },
+    "answer": [
+     "207.24"
+    ],
+    "value": 207.24,
+    "tol": 0.005,
+    "suffix": "square feet",
+    "mistakes": [
      {
-      "options": [
-       "height",
-       "slant height",
-       "diameter"
+      "answer": [
+       "527.52"
       ],
-      "answer": 0,
-      "why": [
-       "",
-       "The slant height runs down the outside of the cone and appears only in the surface-area formula. Volume uses the straight-up height.",
-       "The diameter is not in this formula; the radius r is. The letter h is the height from the base to the tip."
-      ]
+      "why": "You used the diameter, 6, as the radius. Halve it first: r = 3. Then 2&pi;rh = 150.72 and 2&pi;r<sup>2</sup> = 56.52."
      },
      {
-      "options": [
-       "slant height",
-       "side length of the base",
-       "surface area"
+      "answer": [
+       "178.98"
       ],
-      "answer": 0,
-      "why": [
-       "",
-       "It is easy to read s as \"side,\" but the side length of the base is used to find p. The letter s is the slant height down the middle of a triangle face.",
-       "SA is the surface area, the whole left side of the formula. The letter s is one measurement inside it: the slant height."
-      ]
+      "why": "You added only one circle (28.26). A closed tank has a top and a bottom: 2&pi;r<sup>2</sup> = 2 &times; 3.14 &times; 9 = 56.52, so SA = 150.72 + 56.52 = 207.24."
      },
      {
-      "options": [
-       "&pi;r<sup>2</sup>",
-       "2&pi;r",
-       "&pi;d",
-       "2&pi;rh"
+      "answer": [
+       "226.08"
       ],
-      "answer": 0,
-      "why": [
-       "",
-       "2&pi;r is the circumference, a length around the circle. B is an area, and the area of a circle is &pi;r<sup>2</sup>.",
-       "&pi;d is also the circumference (&pi; times the diameter), a length. B is the area of the circle: &pi;r<sup>2</sup>.",
-       "2&pi;rh is the area of the curved side of the cylinder (the label), not the base. The base is a circle with area &pi;r<sup>2</sup>."
-      ]
+      "why": "That is the volume, &pi;r<sup>2</sup>h = 3.14 &times; 9 &times; 8, which is how much the tank holds. Paint covers the outside, so use SA = 2&pi;rh + 2&pi;r<sup>2</sup>."
+     },
+     {
+      "answer": [
+       "150.72"
+      ],
+      "why": "That is only the curved side (2&pi;rh). The top and bottom are painted too: add 2&pi;r<sup>2</sup> = 56.52."
      }
     ],
-    "hint": "Volume formulas use the straight-up height. B always means an area, and the area of a circle is on the formula sheet.",
-    "explain": "<p><strong>First blank:</strong> Volume formulas use the <strong>height</strong>, the straight-up distance from the base to the tip. The slant height is used only for surface area.</p><p><strong>Second blank:</strong> In SA = &frac12;ps + B, s is the <strong>slant height</strong>, the distance from the tip down the middle of a side face to the edge of the base. It is easy to think s means &ldquo;side,&rdquo; but the side length of the base is used to find p.</p><p><strong>Third blank:</strong> B is the area of the base. A cylinder's base is a circle, and the area of a circle is <strong>&pi;r<sup>2</sup></strong>. That is why the cylinder volume formula V = &pi;r<sup>2</sup>h is the same as V = Bh. The expressions 2&pi;r and &pi;d are the circumference (a length), and 2&pi;rh is the area of the curved side.</p>"
+    "hint": "Find r first. Then use SA = 2&pi;rh + 2&pi;r<sup>2</sup> from the formula sheet: the curved side plus the two circles.",
+    "explain": "<p>Formula sheet: SA = 2&pi;rh + 2&pi;r<sup>2</sup></p><p>r = 6 &divide; 2 = 3 ft; h = 8 ft</p><p>Curved side: 2&pi;rh = 2 &times; 3.14 &times; 3 &times; 8 = 150.72 ft<sup>2</sup></p><p>Top and bottom: 2&pi;r<sup>2</sup> = 2 &times; 3.14 &times; 9 = 56.52 ft<sup>2</sup></p><p>SA = 150.72 + 56.52 = <strong>207.24 ft<sup>2</sup></strong></p><p>The most tempting wrong answer is 527.52, which comes from using the diameter, 6, as the radius. 178.98 counts only one end, and 226.08 is the volume, not the paint.</p>"
    },
    {
     "id": "PA07",
@@ -2093,54 +2087,52 @@
    },
    {
     "id": "PB06",
-    "type": "dropdown",
-    "skill": "Reading the formula sheet",
+    "type": "fill",
+    "skill": "Surface area of a cylinder",
     "difficulty": 2,
     "set": "B",
-    "prompt": "<p>Choose the word or expression that correctly completes each statement about the formula sheet.</p><p>In SA = ph + 2B for a rectangular prism, p is the {{0}} of the base.</p><p>The 2B in that formula counts the {{1}} of the prism.</p><p>In the sphere formula V = (4/3)&pi;r<sup>3</sup>, r<sup>3</sup> means {{2}}.</p>",
-    "blanks": [
+    "prompt": "<p>A food company makes a closed metal can with a diameter of 10 centimeters and a height of 12 centimeters, as shown. How many square centimeters of metal are needed for the side, the top, and the bottom of the can? Use 3.14 for &pi;.</p>",
+    "figure": {
+     "type": "svg",
+     "svg": "<svg viewBox='0 -12 310 242' xmlns='http://www.w3.org/2000/svg'><path d='M 80 50 L 80 200 A 70 18 0 0 0 220 200 L 220 50' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><ellipse cx='150' cy='50' rx='70' ry='18' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><path d='M 80 200 A 70 18 0 0 1 220 200' fill='none' stroke='#0A1F3D' stroke-dasharray='5,4'/><line x1='245' y1='50' x2='245' y2='200' stroke='#0A1F3D'/><line x1='239' y1='50' x2='251' y2='50' stroke='#0A1F3D'/><line x1='239' y1='200' x2='251' y2='200' stroke='#0A1F3D'/><text x='255' y='130' font-size='14' fill='#0A1F3D' text-anchor='start'>12 cm</text><line x1='80' y1='50' x2='220' y2='50' stroke='#0A1F3D' stroke-width='1.5' stroke-dasharray='5,4'/><circle cx='80' cy='50' r='3' fill='#0A1F3D'/><circle cx='220' cy='50' r='3' fill='#0A1F3D'/><circle cx='150' cy='50' r='2' fill='#0A1F3D'/><text x='150' y='18' font-size='14' fill='#0A1F3D' text-anchor='middle'>diameter = 10 cm</text></svg>",
+     "alt": "A cylinder standing upright. A dashed line goes all the way across the top circle, through its center, from edge to edge (the diameter); it is labeled \"diameter = 10 cm.\" A measurement line beside the cylinder, from top to bottom, is labeled 12 cm."
+    },
+    "answer": [
+     "533.8",
+     "533.80"
+    ],
+    "value": 533.8,
+    "tol": 0.005,
+    "suffix": "square centimeters",
+    "mistakes": [
      {
-      "options": [
-       "perimeter",
-       "area",
-       "height"
+      "answer": [
+       "1381.6",
+       "1,381.6"
       ],
-      "answer": 0,
-      "why": [
-       "",
-       "The area of the base is B. The letter p is a length: the distance around the base.",
-       "The height is h, the other letter in ph. The letter p is the perimeter of the base."
-      ]
+      "why": "You used the diameter, 10, as the radius. Halve it first: r = 5. Then 2&pi;rh = 376.8 and 2&pi;r<sup>2</sup> = 157."
      },
      {
-      "options": [
-       "top and bottom faces",
-       "four side faces",
-       "two longest edges"
+      "answer": [
+       "455.3"
       ],
-      "answer": 0,
-      "why": [
-       "",
-       "The four side faces are the ph part: the perimeter times the height. 2B adds the two bases.",
-       "Edges are lengths, and every part of a surface-area formula is an area. 2B is the area of the top plus the area of the bottom."
-      ]
+      "why": "You added only one circle (78.5). The can has a top and a bottom: 2&pi;r<sup>2</sup> = 2 &times; 3.14 &times; 25 = 157, so SA = 376.8 + 157 = 533.8."
      },
      {
-      "options": [
-       "r &times; r &times; r",
-       "3 &times; r",
-       "r + r + r"
+      "answer": [
+       "942"
       ],
-      "answer": 0,
-      "why": [
-       "",
-       "3 &times; r is a common slip. The small 3 is an exponent: multiply r by itself three times. For r = 4, r<sup>3</sup> = 64, not 12.",
-       "r + r + r = 3r, which is not the same as r<sup>3</sup>. An exponent means repeated multiplication: r &times; r &times; r."
-      ]
+      "why": "That is the volume, &pi;r<sup>2</sup>h = 3.14 &times; 25 &times; 12, which is how much the can holds. The metal covers the outside, so use SA = 2&pi;rh + 2&pi;r<sup>2</sup>."
+     },
+     {
+      "answer": [
+       "376.8"
+      ],
+      "why": "That is only the curved side (2&pi;rh). The top and bottom need metal too: add 2&pi;r<sup>2</sup> = 157."
      }
     ],
-    "hint": "B is always an area and p is always a length. An exponent means repeated multiplication.",
-    "explain": "<p><strong>First blank:</strong> p is the <strong>perimeter</strong> of the base, the distance around it.</p><p><strong>Second blank:</strong> a prism has two matching bases, so 2B counts the <strong>top and bottom faces</strong>. The ph part covers the four sides.</p><p><strong>Third blank:</strong> r<sup>3</sup> means <strong>r &times; r &times; r</strong>. For a radius of 4, r<sup>3</sup> = 64. Reading it as 3 &times; r is the most common mistake.</p>"
+    "hint": "Find r first. Then use SA = 2&pi;rh + 2&pi;r<sup>2</sup> from the formula sheet: the curved side plus the two circles.",
+    "explain": "<p>Formula sheet: SA = 2&pi;rh + 2&pi;r<sup>2</sup></p><p>r = 10 &divide; 2 = 5 cm; h = 12 cm</p><p>Curved side: 2&pi;rh = 2 &times; 3.14 &times; 5 &times; 12 = 376.8 cm<sup>2</sup></p><p>Top and bottom: 2&pi;r<sup>2</sup> = 2 &times; 3.14 &times; 25 = 157 cm<sup>2</sup></p><p>SA = 376.8 + 157 = <strong>533.8 cm<sup>2</sup></strong></p><p>The most tempting wrong answer is 1,381.6, which comes from using the diameter, 10, as the radius. 455.3 counts only one end, and 942 is the volume, not the metal.</p>"
    },
    {
     "id": "PB07",
@@ -2612,43 +2604,43 @@
    {
     "id": "XA5",
     "type": "fill",
-    "skill": "Volume of a sphere",
+    "skill": "Finding a missing dimension",
     "difficulty": 2,
     "set": "A",
-    "prompt": "<p>A spherical propane tank has a diameter of 10 feet. What is its volume? Use 3.14 for &pi;, and round to the nearest tenth.</p>",
+    "prompt": "<p>A cylindrical grain bin has a radius of 6 feet and holds 1,130.4 cubic feet of grain when full, as shown. How tall is the bin? Use 3.14 for &pi;.</p>",
+    "figure": {
+     "type": "svg",
+     "svg": "<svg viewBox='0 0 310 230' xmlns='http://www.w3.org/2000/svg'><path d='M 80 50 L 80 200 A 70 22 0 0 0 220 200 L 220 50' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><ellipse cx='150' cy='50' rx='70' ry='22' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><path d='M 80 200 A 70 22 0 0 1 220 200' fill='none' stroke='#0A1F3D' stroke-dasharray='5,4'/><line x1='245' y1='50' x2='245' y2='200' stroke='#0A1F3D'/><line x1='239' y1='50' x2='251' y2='50' stroke='#0A1F3D'/><line x1='239' y1='200' x2='251' y2='200' stroke='#0A1F3D'/><text x='255' y='130' font-size='14' fill='#0A1F3D' text-anchor='start'>h = ?</text><line x1='150' y1='50' x2='220' y2='50' stroke='#0A1F3D' stroke-dasharray='5,4'/><circle cx='150' cy='50' r='3' fill='#0A1F3D'/><text x='185' y='46' font-size='14' fill='#0A1F3D' text-anchor='middle'>6 ft</text></svg>",
+     "alt": "A cylinder standing upright. A dashed radius from the center of the top circle to its edge is labeled 6 ft. A measurement line beside the cylinder, from top to bottom, is labeled h = ?."
+    },
     "answer": [
-     "523.3",
-     "523.33",
-     "523.6"
+     "10"
     ],
-    "value": 523.45,
-    "tol": 0.16,
-    "suffix": "cubic feet",
+    "value": 10,
+    "tol": 0.001,
+    "suffix": "feet",
     "mistakes": [
      {
       "answer": [
-       "4186.7",
-       "4,186.7",
-       "4186.67"
+       "360"
       ],
-      "why": "You used the diameter, 10, as the radius. Halve it: r = 5 and r<sup>3</sup> = 125."
+      "why": "You divided by 3.14 only (1,130.4 &divide; 3.14). The formula also has r<sup>2</sup> = 36: divide by 3.14 &times; 36 = 113.04."
      },
      {
       "answer": [
-       "314"
+       "60"
       ],
-      "why": "That is the surface area (4 &times; 3.14 &times; 25). Volume uses (4/3)&pi;r<sup>3</sup>."
+      "why": "You used r instead of r<sup>2</sup> (1,130.4 &divide; 18.84). Square the radius: 6<sup>2</sup> = 36, and 1,130.4 &divide; 113.04 = 10."
      },
      {
       "answer": [
-       "1570",
-       "1,570"
+       "30"
       ],
-      "why": "You forgot to divide by 3: 4 &times; 3.14 &times; 125 = 1,570. Divide by 3: about 523.3."
+      "why": "You used the cone formula, which has a 1/3. A cylinder has no 1/3: 1,130.4 = 113.04h, so h = 10."
      }
     ],
-    "hint": "Halve the diameter. Then use V = (4/3)&pi;r<sup>3</sup>.",
-    "explain": "<p>r = 10 &divide; 2 = 5 ft, and r<sup>3</sup> = 125</p><p>V = (4/3) &times; 3.14 &times; 125 = 1,570 &divide; 3 &asymp; 523.33</p><p>Rounded: <strong>523.3 ft<sup>3</sup></strong> (with the &pi; key, 523.6)</p><p>Using 10 as the radius gives about 4,186.7, eight times too big.</p>"
+    "hint": "Write V = &pi;r<sup>2</sup>h, put in the volume and the radius, then divide.",
+    "explain": "<p>V = &pi;r<sup>2</sup>h</p><p>1,130.4 = 3.14 &times; 6<sup>2</sup> &times; h = 3.14 &times; 36 &times; h = 113.04h</p><p>h = 1,130.4 &divide; 113.04 = <strong>10 feet</strong></p><p>Check: 3.14 &times; 36 &times; 10 = 1,130.4. If you got 360, you divided by &pi; but forgot r<sup>2</sup>.</p>"
    },
    {
     "id": "XA6",
@@ -2914,49 +2906,43 @@
    {
     "id": "XB5",
     "type": "fill",
-    "skill": "Volume of a hemisphere",
+    "skill": "Finding a missing dimension",
     "difficulty": 2,
     "set": "B",
-    "prompt": "<p>A dome tent is shaped like a hemisphere (half of a sphere) with a diameter of 8 feet, as shown. How many cubic feet of air are inside the tent? Use 3.14 for &pi;, and round to the nearest tenth.</p>",
+    "prompt": "<p>A cylindrical coffee canister has a radius of 4 inches and holds 376.8 cubic inches, as shown. How tall is the canister? Use 3.14 for &pi;.</p>",
     "figure": {
      "type": "svg",
-     "svg": "<svg viewBox='0 0 300 210' xmlns='http://www.w3.org/2000/svg'><path d='M 60 170 A 90 90 0 0 1 240 170' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><ellipse cx='150' cy='170' rx='90' ry='20' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='60' y1='170' x2='240' y2='170' stroke='#0A1F3D' stroke-dasharray='5,4'/><text x='150' y='163' font-size='14' fill='#0A1F3D' text-anchor='middle'>8 ft</text></svg>",
-     "alt": "A hemisphere (half of a sphere) resting on its flat circular face, like a dome. A dashed line across the flat circle through its center (the diameter) is labeled 8 ft."
+     "svg": "<svg viewBox='0 0 310 230' xmlns='http://www.w3.org/2000/svg'><path d='M 80 50 L 80 200 A 70 22 0 0 0 220 200 L 220 50' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><ellipse cx='150' cy='50' rx='70' ry='22' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><path d='M 80 200 A 70 22 0 0 1 220 200' fill='none' stroke='#0A1F3D' stroke-dasharray='5,4'/><line x1='245' y1='50' x2='245' y2='200' stroke='#0A1F3D'/><line x1='239' y1='50' x2='251' y2='50' stroke='#0A1F3D'/><line x1='239' y1='200' x2='251' y2='200' stroke='#0A1F3D'/><text x='255' y='130' font-size='14' fill='#0A1F3D' text-anchor='start'>h = ?</text><line x1='150' y1='50' x2='220' y2='50' stroke='#0A1F3D' stroke-dasharray='5,4'/><circle cx='150' cy='50' r='3' fill='#0A1F3D'/><text x='185' y='46' font-size='14' fill='#0A1F3D' text-anchor='middle'>4 in</text></svg>",
+     "alt": "A cylinder standing upright. A dashed radius from the center of the top circle to its edge is labeled 4 in. A measurement line beside the cylinder, from top to bottom, is labeled h = ?."
     },
     "answer": [
-     "134",
-     "134.0",
-     "133.97"
+     "7.5"
     ],
-    "value": 134.0,
-    "tol": 0.06,
-    "suffix": "cubic feet",
+    "value": 7.5,
+    "tol": 0.001,
+    "suffix": "inches",
     "mistakes": [
      {
       "answer": [
-       "267.9",
-       "267.95",
-       "268"
+       "120"
       ],
-      "why": "That is the volume of a whole sphere. The tent is a hemisphere, so take half: about 134.0."
+      "why": "You divided by 3.14 only (376.8 &divide; 3.14). The formula also has r<sup>2</sup> = 16: divide by 3.14 &times; 16 = 50.24."
      },
      {
       "answer": [
-       "1071.8",
-       "1,071.8"
+       "30"
       ],
-      "why": "You used the diameter, 8, as the radius. Halve it: r = 4, and r<sup>3</sup> = 64."
+      "why": "You used r instead of r<sup>2</sup> (376.8 &divide; 12.56). Square the radius: 4<sup>2</sup> = 16, and 376.8 &divide; 50.24 = 7.5."
      },
      {
       "answer": [
-       "401.9",
-       "401.92"
+       "22.5"
       ],
-      "why": "You forgot to divide by 3: &frac12; &times; 4 &times; 3.14 &times; 64 = 401.92. The sphere formula has (4/3)."
+      "why": "You used the cone formula, which has a 1/3. A cylinder has no 1/3: 376.8 = 50.24h, so h = 7.5."
      }
     ],
-    "hint": "Find r. Find the volume of the whole sphere, then take half.",
-    "explain": "<p>r = 8 &divide; 2 = 4 ft, and r<sup>3</sup> = 64</p><p>Whole sphere: (4/3) &times; 3.14 &times; 64 &asymp; 267.95 ft<sup>3</sup></p><p>Hemisphere: 267.95 &divide; 2 &asymp; 133.97, about <strong>134.0 ft<sup>3</sup></strong></p><p>Forgetting to take half gives about 267.9.</p>"
+    "hint": "Write V = &pi;r<sup>2</sup>h, put in the volume and the radius, then divide.",
+    "explain": "<p>V = &pi;r<sup>2</sup>h</p><p>376.8 = 3.14 &times; 4<sup>2</sup> &times; h = 3.14 &times; 16 &times; h = 50.24h</p><p>h = 376.8 &divide; 50.24 = <strong>7.5 inches</strong></p><p>Check: 3.14 &times; 16 &times; 7.5 = 376.8. If you got 120, you divided by &pi; but forgot r<sup>2</sup>.</p>"
    },
    {
     "id": "XB6",
