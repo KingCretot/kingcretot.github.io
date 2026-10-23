@@ -323,7 +323,7 @@ function stimHTML(st){if(!st)return '';return '<div class="stim">'+(st.title?'<h
 
 /* ---------- lessons (v2): subject page, teaching deck, student lesson, practice, exit check, study sheet, answer key ---------- */
 var STEPS=[
- ['teach','Teaching Lesson','The live lesson your instructor teaches on Zoom, one slide at a time.','Live lesson'],
+ ['teach','Teaching Lesson','The live lesson your instructor teaches with you, online or in person, one slide at a time.','Live lesson'],
  ['learn','Student Lesson','Step by step, one screen at a time, with a check on every new skill.','Self-paced'],
  ['practice','Practice','30 GED-style questions in two sets of 15. Three tries per question, with the reason behind every wrong answer.','Practice'],
  ['exit','Exit Check','8 GED-style questions that close out the topic. Pass with 6 of 8.','Mastery check'],
@@ -420,7 +420,7 @@ function subjHub(w,s){
   }).catch(function(){lessonMissing(w,s)});
 }
 
-/* ---------- teaching deck (presented by the instructor on Zoom) ---------- */
+/* ---------- teaching deck (presented by the instructor, online or in person) ---------- */
 function deckPos(k){return sget('kce_ged_deck_'+k,{i:0,r:0})}
 function deckView(w,s){
   var k=lkey(w,s);
