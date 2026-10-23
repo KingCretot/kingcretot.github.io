@@ -5,201 +5,1224 @@
 "minutes": 115,
 "stimuli": [],
 "parts": [
-{"name": "Part 1", "calculator": false, "items": [
-{"id": "m01", "type": "mc", "skill": "Order of operations with integers", "difficulty": 2,
- "prompt": "<p>Simplify this numerical expression using the order of operations.</p><p>10 &minus; 3(1 &minus; 5)<sup>2</sup> &divide; 8</p>",
- "options": ["14", "4", "&minus;8", "16"], "answer": 1,
- "explain": "<p>Work inside the parentheses first: 1 &minus; 5 = &minus;4.</p><p>Exponent: (&minus;4)<sup>2</sup> = 16.</p><p>Multiply and divide from left to right: 3 &times; 16 = 48, then 48 &divide; 8 = 6.</p><p>Subtract: 10 &minus; 6 = <strong>4</strong>.</p><p>The answer 14 comes from subtracting first: (10 &minus; 3) &times; 16 &divide; 8 = 14. The answer 16 comes from treating (&minus;4)<sup>2</sup> as &minus;16. The answer &minus;8 comes from multiplying 3 by &minus;4 before squaring: (&minus;12)<sup>2</sup> &divide; 8 = 18, and 10 &minus; 18 = &minus;8.</p>"},
-{"id": "m02", "type": "fill", "skill": "Adding mixed numbers", "difficulty": 1,
- "prompt": "<p>Rosa works part time at a bakery. Her time card shows that she worked 3&frac12; hours on Saturday and 2&frac34; hours on Sunday. How many hours did she work in all over the two days?</p><p>Write your answer as a fraction or a decimal.</p>",
- "answer": ["25/4", "6.25"], "value": 6.25, "tol": 0.001, "suffix": "hours",
- "explain": "<p>Add the whole numbers: 3 + 2 = 5.</p><p>Add the fractions using a common denominator of 4: &frac12; + &frac34; = 2/4 + 3/4 = 5/4 = 1&frac14;.</p><p>Total: 5 + 1&frac14; = 6&frac14; hours = 25/4 = <strong>6.25 hours</strong>.</p><p>A common error is to add the tops and the bottoms of the fractions: 1/2 + 3/4 &ne; 4/6. Fractions must have a common denominator before they are added.</p>"},
-{"id": "m03", "type": "mc", "skill": "Power of a product", "difficulty": 2,
- "prompt": "<p>Which expression is equivalent to (3x<sup>2</sup>y)<sup>3</sup>?</p>",
- "options": ["9x<sup>6</sup>y<sup>3</sup>", "27x<sup>5</sup>y<sup>3</sup>", "27x<sup>6</sup>y<sup>3</sup>", "3x<sup>6</sup>y<sup>3</sup>"], "answer": 2,
- "explain": "<p>Raise every factor inside the parentheses to the third power.</p><p>3<sup>3</sup> = 27</p><p>(x<sup>2</sup>)<sup>3</sup> = x<sup>2 &times; 3</sup> = x<sup>6</sup> (multiply exponents for a power of a power)</p><p>y<sup>3</sup> = y<sup>3</sup></p><p>Result: <strong>27x<sup>6</sup>y<sup>3</sup></strong>.</p><p>9x<sup>6</sup>y<sup>3</sup> multiplies 3 by 3 instead of cubing it. 27x<sup>5</sup>y<sup>3</sup> adds the exponents 2 and 3 instead of multiplying them. 3x<sup>6</sup>y<sup>3</sup> forgets to cube the 3.</p>"},
-{"id": "m04", "type": "mc", "skill": "Solving equations with fractions", "difficulty": 2,
- "prompt": "<p>What value of x makes the equation true?</p><p>(2x + 1) / 3 = x &minus; 4</p>",
- "options": ["5", "&minus;13", "&minus;5", "13"], "answer": 3,
- "explain": "<p>Multiply both sides by 3 to clear the fraction: 2x + 1 = 3(x &minus; 4).</p><p>Distribute: 2x + 1 = 3x &minus; 12.</p><p>Subtract 2x from both sides: 1 = x &minus; 12.</p><p>Add 12 to both sides: x = <strong>13</strong>.</p><p>Check: (2(13) + 1) / 3 = 27 / 3 = 9, and 13 &minus; 4 = 9.</p><p>The answer 5 comes from multiplying only the x by 3 and writing 2x + 1 = 3x &minus; 4. Every term on that side must be multiplied by 3.</p>"},
-{"id": "m05", "type": "mc", "skill": "Adding square roots", "difficulty": 3,
- "prompt": "<p>Which expression is equivalent to &radic;50 + &radic;18?</p>",
- "options": ["8&radic;2", "&radic;68", "15&radic;2", "34"], "answer": 0,
- "explain": "<p>Simplify each root by finding a perfect-square factor.</p><p>&radic;50 = &radic;25 &times; &radic;2 = 5&radic;2</p><p>&radic;18 = &radic;9 &times; &radic;2 = 3&radic;2</p><p>Now the terms are like terms: 5&radic;2 + 3&radic;2 = <strong>8&radic;2</strong>.</p><p>&radic;68 adds the numbers under the roots, but &radic;a + &radic;b is not equal to &radic;(a + b). 15&radic;2 multiplies 5 and 3 instead of adding them.</p>"}
-]},
-{"name": "Part 2", "calculator": true, "items": [
-{"id": "m06", "type": "mc", "skill": "Percent markup", "difficulty": 1,
- "prompt": "<p>A home goods store buys a table lamp from a wholesaler for $36.00. The store marks up the price by 45% to set the retail price. What is the retail price of the lamp?</p>",
- "options": ["$16.20", "$52.20", "$65.45", "$81.00"], "answer": 1,
- "explain": "<p>Markup: 45% of $36.00 = 0.45 &times; 36 = $16.20.</p><p>Retail price: 36.00 + 16.20 = <strong>$52.20</strong>.</p><p>You can also multiply by 1.45 in one step: 36 &times; 1.45 = 52.20.</p><p>$16.20 is only the amount of the markup. $81.00 adds 45 dollars instead of 45 percent.</p>"},
-{"id": "m07", "type": "fill", "skill": "Payroll with overtime", "difficulty": 2,
- "prompt": "<p>A warehouse worker earns $18.40 per hour for the first 40 hours she works in a week. For every hour over 40, she earns overtime pay of 1.5 times her regular hourly rate. Last week she worked 46 hours. What was her gross pay for the week, in dollars?</p>",
- "answer": ["901.60", "901.6"], "value": 901.6, "tol": 0.001, "suffix": "dollars",
- "explain": "<p>Regular pay: 40 &times; $18.40 = $736.00.</p><p>Overtime rate: 1.5 &times; $18.40 = $27.60 per hour.</p><p>Overtime hours: 46 &minus; 40 = 6.</p><p>Overtime pay: 6 &times; $27.60 = $165.60.</p><p>Gross pay: 736.00 + 165.60 = <strong>$901.60</strong>.</p><p>A common error is to pay all 46 hours at the regular rate (46 &times; 18.40 = $846.40) or all 46 hours at the overtime rate. Only the hours over 40 earn 1.5 times the rate.</p>"},
-{"id": "m08", "type": "mc", "skill": "Percents in payroll deductions", "difficulty": 2,
- "prompt": "<p>Marcus has a gross pay of $1,400 for one pay period. His employer withholds the following amounts, each as a percent of his gross pay.</p><table><thead><tr><th>Deduction</th><th>Percent of gross pay</th></tr></thead><tbody><tr><td>Federal income tax</td><td>12%</td></tr><tr><td>Social Security</td><td>6.2%</td></tr><tr><td>Medicare</td><td>1.45%</td></tr></tbody></table><p>What is Marcus's net pay (the amount left after these deductions)?</p>",
- "options": ["$275.10", "$1,232.00", "$1,124.90", "$1,380.35"], "answer": 2,
- "explain": "<p>Find each deduction:</p><p>Federal income tax: 0.12 &times; 1,400 = $168.00</p><p>Social Security: 0.062 &times; 1,400 = $86.80</p><p>Medicare: 0.0145 &times; 1,400 = $20.30</p><p>Total deductions: 168.00 + 86.80 + 20.30 = $275.10</p><p>Net pay: 1,400 &minus; 275.10 = <strong>$1,124.90</strong>.</p><p>$275.10 is the total amount withheld, not the pay that is left. $1,232.00 subtracts only the federal income tax. $1,380.35 subtracts 19.65 dollars instead of 19.65 percent.</p>"},
-{"id": "m09", "type": "mc", "skill": "Percent change from a graph", "difficulty": 2,
- "prompt": "<p>The graph shows the revenue of a small sporting goods store for each quarter of one year. By about what percent did revenue increase from the third quarter (Q3) to the fourth quarter (Q4)?</p>",
- "figure": {"type": "bar", "title": "Quarterly Revenue", "xLabel": "Quarter", "yLabel": "Revenue (dollars)", "labels": ["Q1", "Q2", "Q3", "Q4"], "series": [{"name": "Revenue", "values": [48000, 52000, 45000, 60000]}]},
- "options": ["25%", "15%", "133.3%", "33.3%"], "answer": 3,
- "explain": "<p>Read the graph: Q3 revenue = $45,000; Q4 revenue = $60,000.</p><p>Amount of change: 60,000 &minus; 45,000 = $15,000.</p><p>Percent change = change &divide; original = 15,000 &divide; 45,000 &asymp; 0.333 = <strong>33.3%</strong>.</p><p>25% divides by the new value (15,000 &divide; 60,000). Percent change always divides by the original, earlier value. 133.3% is the Q4 revenue as a percent of Q3 revenue, not the increase.</p>"},
-{"id": "m10", "type": "dropdown", "skill": "Median and range", "difficulty": 2,
- "prompt": "<p>The table shows the number of phones sold by each salesperson at a cell phone store in one week.</p><table><thead><tr><th>Salesperson</th><th>Ana</th><th>Ben</th><th>Cara</th><th>Dev</th><th>Eli</th><th>Fay</th></tr></thead><tbody><tr><td>Phones sold</td><td>14</td><td>22</td><td>9</td><td>31</td><td>18</td><td>22</td></tr></tbody></table><p>The median number of phones sold is {{0}}.</p><p>The range of the number of phones sold is {{1}}.</p>",
- "blanks": [{"options": ["18", "19.3", "20", "22"], "answer": 2}, {"options": ["9", "13", "22", "31"], "answer": 2}],
- "explain": "<p>Put the values in order: 9, 14, 18, 22, 22, 31.</p><p>There are six values, so the median is the mean of the 3rd and 4th values: (18 + 22) &divide; 2 = 40 &divide; 2 = <strong>20</strong>.</p><p>Range = greatest &minus; least = 31 &minus; 9 = <strong>22</strong>.</p><p>19.3 is the mean (116 &divide; 6 &asymp; 19.3), not the median. 22 is also the mode, which is a different measure. 18 is the 3rd value alone; with an even number of values you must average the two middle values.</p>"},
-{"id": "m11", "type": "fill", "skill": "Mean", "difficulty": 2,
- "prompt": "<p>The manager of a shoe store wants the store's average (mean) daily sales for a 5-day week to be exactly $2,400. Sales for the first four days were $2,150, $2,620, $2,280, and $2,390. How much must the store sell on the fifth day, in dollars, to reach the goal?</p>",
- "answer": ["2560", "2,560"], "value": 2560, "tol": 0.001, "suffix": "dollars",
- "explain": "<p>For a mean of $2,400 over 5 days, total sales must be 2,400 &times; 5 = $12,000.</p><p>Sum of the first four days: 2,150 + 2,620 + 2,280 + 2,390 = $9,440.</p><p>Fifth-day sales needed: 12,000 &minus; 9,440 = <strong>$2,560</strong>.</p><p>Check: (9,440 + 2,560) &divide; 5 = 12,000 &divide; 5 = 2,400.</p>"},
-{"id": "m12", "type": "mc", "skill": "Writing expressions", "difficulty": 1,
- "prompt": "<p>A furniture salesperson earns a base pay of $480 per week plus a commission of 6% of her total weekly sales. Which expression gives her weekly pay, in dollars, when her total sales are s dollars?</p>",
- "options": ["480 + 0.06s", "0.06(480 + s)", "480s + 0.06", "480 + 6s"], "answer": 0,
- "explain": "<p>The $480 base pay is the same every week, so it is a constant.</p><p>The commission is 6% of sales, and 6% = 0.06, so the commission is 0.06s.</p><p>Weekly pay = <strong>480 + 0.06s</strong>.</p><p>Check with $5,000 in sales: 480 + 0.06(5,000) = 480 + 300 = $780.</p><p>480 + 6s uses 6 instead of 0.06; that would pay $6 for every dollar of sales. 0.06(480 + s) takes 6% of the base pay too.</p>"},
-{"id": "m13", "type": "mc", "skill": "Probability", "difficulty": 1,
- "prompt": "<p>A store places 40 scratch-off coupons in a jar. Six coupons give 30% off, 10 coupons give 20% off, and the rest give 10% off. A customer draws one coupon at random. What is the probability that the coupon gives <strong>at least</strong> 20% off?</p>",
- "options": ["3/20", "1/4", "2/5", "3/5"], "answer": 2,
- "explain": "<p>\"At least 20% off\" means 20% off or 30% off.</p><p>Favorable coupons: 6 + 10 = 16.</p><p>Total coupons: 40.</p><p>P(at least 20% off) = 16/40 = <strong>2/5</strong>.</p><p>3/20 = 6/40 counts only the 30% coupons. 1/4 = 10/40 counts only the 20% coupons. 3/5 = 24/40 is the probability of getting only 10% off.</p>"},
-{"id": "m14", "type": "fill", "skill": "Linear equation word problem", "difficulty": 2,
- "prompt": "<p>A restaurant server earns $9.50 per hour plus tips. Last week her total earnings were $672, and $425 of that amount was tips. How many hours did she work last week?</p>",
- "answer": ["26"], "value": 26, "tol": 0.001, "suffix": "hours",
- "explain": "<p>Let h be the number of hours worked.</p><p>9.50h + 425 = 672</p><p>9.50h = 672 &minus; 425 = 247</p><p>h = 247 &divide; 9.50 = <strong>26 hours</strong></p><p>Check: 9.50 &times; 26 = 247, and 247 + 425 = $672.</p><p>A common error is to divide the total earnings by the hourly rate (672 &divide; 9.50 &asymp; 70.7) without first taking out the tips.</p>"},
-{"id": "m15", "type": "mc", "skill": "Counting principle", "difficulty": 2,
- "prompt": "<p>A retail chain gives each employee an ID code made of one letter (A through Z) followed by three digits (0 through 9). No digit may be used more than once in the same code. How many different ID codes are possible?</p>",
- "options": ["26,000", "18,720", "53", "720"], "answer": 1,
- "explain": "<p>Use the fundamental counting principle: multiply the number of choices for each position.</p><p>Letter: 26 choices.</p><p>First digit: 10 choices. Second digit: 9 choices (one digit is used). Third digit: 8 choices.</p><p>26 &times; 10 &times; 9 &times; 8 = <strong>18,720</strong>.</p><p>26,000 = 26 &times; 10 &times; 10 &times; 10 allows digits to repeat, which the rule does not allow. 720 counts only the digit part. 53 adds the choices instead of multiplying them.</p>"},
-{"id": "m16", "type": "mc", "skill": "Inequality word problem", "difficulty": 2,
- "prompt": "<p>A craft vendor pays $1,800 in fixed costs for a three-day trade show. She makes a profit of $35 on each item she sells. What is the <strong>least</strong> number of items she must sell so that her profit after paying the fixed costs is at least $5,000?</p>",
- "options": ["92", "143", "194", "195"], "answer": 3,
- "explain": "<p>Let n be the number of items sold. Profit after costs is 35n &minus; 1,800, and it must be at least $5,000:</p><p>35n &minus; 1,800 &ge; 5,000</p><p>35n &ge; 6,800</p><p>n &ge; 6,800 &divide; 35 &asymp; 194.29</p><p>She cannot sell part of an item, so she must sell at least <strong>195</strong> items. Check: 35(194) &minus; 1,800 = $4,990, which is short; 35(195) &minus; 1,800 = $5,025, which meets the goal.</p><p>194 rounds down, which leaves her $10 short. 143 ignores the fixed costs (5,000 &divide; 35). 92 subtracts the costs instead of adding them (3,200 &divide; 35).</p>"},
-{"id": "m17", "type": "mc", "skill": "Scientific notation", "difficulty": 2,
- "prompt": "<p>A company had annual revenue of 2.4 &times; 10<sup>9</sup> dollars. The company has 8 &times; 10<sup>4</sup> employees. What was the revenue per employee, in dollars?</p>",
- "options": ["3 &times; 10<sup>4</sup>", "3 &times; 10<sup>5</sup>", "3 &times; 10<sup>13</sup>", "1.92 &times; 10<sup>14</sup>"], "answer": 0,
- "explain": "<p>Divide the revenue by the number of employees:</p><p>(2.4 &times; 10<sup>9</sup>) &divide; (8 &times; 10<sup>4</sup>) = (2.4 &divide; 8) &times; 10<sup>9 &minus; 4</sup> = 0.3 &times; 10<sup>5</sup></p><p>Rewrite in scientific notation: 0.3 &times; 10<sup>5</sup> = <strong>3 &times; 10<sup>4</sup></strong> dollars, or $30,000 per employee.</p><p>3 &times; 10<sup>5</sup> forgets to lower the exponent by 1 when 0.3 is changed to 3. 3 &times; 10<sup>13</sup> adds the exponents instead of subtracting them. 1.92 &times; 10<sup>14</sup> multiplies instead of dividing.</p>"},
-{"id": "m18", "type": "mc", "skill": "Systems of equations word problem", "difficulty": 3,
- "prompt": "<p>A clothing store sold 85 shirts in one day. T-shirts sell for $12 each and polo shirts sell for $22 each. Shirt sales for the day totaled $1,370. How many polo shirts did the store sell?</p>",
- "options": ["35", "50", "62", "40"], "answer": 0,
- "explain": "<p>Let t = number of T-shirts and p = number of polo shirts.</p><p>t + p = 85</p><p>12t + 22p = 1,370</p><p>From the first equation, t = 85 &minus; p. Substitute:</p><p>12(85 &minus; p) + 22p = 1,370</p><p>1,020 &minus; 12p + 22p = 1,370</p><p>10p = 350</p><p>p = <strong>35</strong> polo shirts (and t = 50 T-shirts).</p><p>Check: 12(50) + 22(35) = 600 + 770 = $1,370.</p><p>50 is the number of T-shirts. 62 comes from 1,370 &divide; 22, which assumes every shirt sold was a polo shirt.</p>"},
-{"id": "m19", "type": "mc", "skill": "Ratios", "difficulty": 2,
- "prompt": "<p>Three partners share the profits of their business in the ratio 2 : 3 : 5. Last year the business earned a profit of $84,000. How much did the partner with the middle share (3 parts) receive?</p>",
- "options": ["$16,800", "$28,000", "$25,200", "$42,000"], "answer": 2,
- "explain": "<p>Total parts: 2 + 3 + 5 = 10.</p><p>Value of one part: 84,000 &divide; 10 = $8,400.</p><p>Middle share: 3 &times; 8,400 = <strong>$25,200</strong>.</p><p>Check: 2(8,400) + 3(8,400) + 5(8,400) = 16,800 + 25,200 + 42,000 = $84,000.</p><p>$28,000 splits the profit equally among the three partners (84,000 &divide; 3), which ignores the ratio. $16,800 and $42,000 are the other two partners' shares.</p>"},
-{"id": "m20", "type": "mc", "skill": "Solving systems by elimination", "difficulty": 2,
- "prompt": "<p>What is the solution to the system of equations below?</p><p>3x + 2y = 16<br>5x &minus; 2y = 0</p>",
- "options": ["(5, 2)", "(2, &minus;5)", "(&minus;2, 11)", "(2, 5)"], "answer": 3,
- "explain": "<p>The y-terms are opposites, so add the equations to eliminate y:</p><p>(3x + 5x) + (2y &minus; 2y) = 16 + 0</p><p>8x = 16, so x = 2.</p><p>Substitute into the first equation: 3(2) + 2y = 16, so 6 + 2y = 16, 2y = 10, and y = 5.</p><p>The solution is <strong>(2, 5)</strong>. Check in the second equation: 5(2) &minus; 2(5) = 10 &minus; 10 = 0.</p><p>(5, 2) reverses the coordinates: 3(5) + 2(2) = 19, not 16. (&minus;2, 11) works in the first equation but not the second: 5(&minus;2) &minus; 2(11) = &minus;32.</p>"},
-{"id": "m21", "type": "mc", "skill": "Percent: commission", "difficulty": 2,
- "prompt": "<p>A car salesperson earns a monthly base salary of $2,200. She also earns a 4% commission, but only on the part of her monthly sales that is <strong>over</strong> $10,000. This month her sales totaled $38,500. What are her total earnings for the month?</p>",
- "options": ["$3,740", "$1,140", "$3,340", "$2,600"], "answer": 2,
- "explain": "<p>Sales over $10,000: 38,500 &minus; 10,000 = $28,500.</p><p>Commission: 0.04 &times; 28,500 = $1,140.</p><p>Total earnings: 2,200 + 1,140 = <strong>$3,340</strong>.</p><p>$3,740 takes 4% of all $38,500 in sales (0.04 &times; 38,500 = $1,540), but the first $10,000 earns no commission. $1,140 is the commission only, without the base salary.</p>"},
-{"id": "m22", "type": "mc", "skill": "Writing a linear equation from two points", "difficulty": 3,
- "prompt": "<p>A print shop charges a one-time setup fee plus a fixed price for each custom T-shirt. An order of 20 shirts costs $190, and an order of 50 shirts costs $400. Which equation gives the cost C, in dollars, of an order of n shirts?</p>",
- "options": ["C = 9.5n", "C = 8n + 30", "C = 7n + 190", "C = 7n + 50"], "answer": 3,
- "explain": "<p>The price per shirt is the slope (rate of change):</p><p>m = (400 &minus; 190) / (50 &minus; 20) = 210 / 30 = 7 dollars per shirt.</p><p>Use one order to find the setup fee b: 190 = 7(20) + b, so 190 = 140 + b and b = 50.</p><p>Equation: <strong>C = 7n + 50</strong>.</p><p>Check: 7(50) + 50 = 350 + 50 = $400.</p><p>C = 9.5n fits the 20-shirt order (190 &divide; 20) but gives 9.5(50) = $475 for 50 shirts. C = 8n + 30 also fits 20 shirts but gives $430 for 50 shirts. An equation must fit both orders.</p>"},
-{"id": "m23", "type": "fill", "skill": "Percent: finding the original amount", "difficulty": 2,
- "prompt": "<p>A customer paid a total of $85.20 for a pair of boots. This total includes a 6.5% sales tax on the price of the boots. What was the price of the boots before tax, in dollars?</p>",
- "answer": ["80", "80.00"], "value": 80, "tol": 0.001, "suffix": "dollars",
- "explain": "<p>The total is the price plus 6.5% of the price, which is 106.5% of the price: 1.065p = 85.20.</p><p>p = 85.20 &divide; 1.065 = <strong>$80.00</strong>.</p><p>Check: tax = 0.065 &times; 80 = $5.20, and 80 + 5.20 = $85.20.</p><p>A common error is to take 6.5% of $85.20 and subtract it: 85.20 &minus; 5.54 = $79.66. The tax was figured on the price before tax, not on the total.</p>"},
-{"id": "m24", "type": "hotspot", "skill": "Break-even point on a graph", "difficulty": 2,
- "prompt": "<p>A small bakery models its weekly costs with C = 2x + 4 and its weekly revenue with R = 4x, where x is the number of loaves sold (in hundreds) and C and R are in hundreds of dollars. Both lines are graphed on the coordinate plane. The break-even point is where cost equals revenue. Click the break-even point.</p>",
- "figure": {"type": "plane", "xmin": 0, "xmax": 8, "ymin": 0, "ymax": 16, "lines": [{"m": 2, "b": 4, "label": "C = 2x + 4"}, {"m": 4, "b": 0, "label": "R = 4x"}]},
- "plane": {"xmin": 0, "xmax": 8, "ymin": 0, "ymax": 16}, "answer": [2, 8],
- "explain": "<p>The break-even point is where the two lines intersect. Set cost equal to revenue:</p><p>2x + 4 = 4x</p><p>4 = 2x, so x = 2</p><p>R = 4(2) = 8, and C = 2(2) + 4 = 8.</p><p>The break-even point is <strong>(2, 8)</strong>: selling 200 loaves brings in $800, which exactly covers $800 in costs.</p><p>The point (0, 4) is only the starting cost (the y-intercept of the cost line); revenue there is 0, so it is not the break-even point.</p>"},
-{"id": "m25", "type": "mc", "skill": "Successive discounts", "difficulty": 2,
- "prompt": "<p>A winter coat is priced at $120. During a sale, the store takes 30% off the price. At the register, a customer uses a coupon for an additional 10% off the sale price. What does the customer pay for the coat before tax?</p>",
- "options": ["$72.00", "$75.60", "$84.00", "$108.00"], "answer": 1,
- "explain": "<p>First discount: 30% off $120 leaves 70% of the price: 0.70 &times; 120 = $84.00.</p><p>Second discount: 10% off $84.00 leaves 90% of $84.00: 0.90 &times; 84 = <strong>$75.60</strong>.</p><p>$72.00 adds the discounts to get 40% off the original price. That is wrong because the second 10% is taken from the lower sale price, not from $120. $84.00 applies only the first discount.</p>"},
-{"id": "m26", "type": "dropdown", "skill": "Interpreting linear functions", "difficulty": 2,
- "prompt": "<p>A catering company uses the equation C = 18g + 250 to find the charge C, in dollars, for an event with g guests.</p><p>In this equation, the number 18 represents {{0}}.</p><p>The number 250 represents {{1}}.</p><p>The charge for an event with 120 guests is {{2}}.</p>",
- "blanks": [{"options": ["the charge per guest", "a one-time fee charged for every event", "the total charge for the event", "the number of guests"], "answer": 0}, {"options": ["the charge per guest", "a one-time fee charged for every event", "the total charge for the event", "the number of guests"], "answer": 1}, {"options": ["$2,160", "$2,410", "$32,160", "$388"], "answer": 1}],
- "explain": "<p>In C = 18g + 250, the number 18 is multiplied by the number of guests, so it is the rate: <strong>the charge per guest</strong> ($18 for each guest).</p><p>The number 250 is added no matter how many guests come, so it is <strong>a one-time fee charged for every event</strong>.</p><p>For 120 guests: C = 18(120) + 250 = 2,160 + 250 = <strong>$2,410</strong>.</p><p>$2,160 leaves out the $250 fee. $32,160 adds 18 and 250 before multiplying by 120, which breaks the order of operations.</p>"},
-{"id": "m27", "type": "mc", "skill": "Area of a circle", "difficulty": 2,
- "prompt": "<p>A store orders a circular vinyl floor decal with its logo. The decal has a radius of 2.5 feet. The printing company charges $4.00 per square foot of decal. To the nearest cent, how much will the decal cost?</p>",
- "options": ["$62.83", "$31.42", "$314.16", "$78.54"], "answer": 3,
- "explain": "<p>Area of a circle: A = &pi;r<sup>2</sup>.</p><p>A = &pi;(2.5)<sup>2</sup> = 6.25&pi; &asymp; 19.635 square feet.</p><p>Cost: 19.635 &times; 4.00 &asymp; <strong>$78.54</strong>. (Exactly, 6.25&pi; &times; 4 = 25&pi; &asymp; 78.54.)</p><p>$62.83 uses the circumference, 2&pi;r = 5&pi;, instead of the area. $314.16 uses the diameter, 5 feet, as the radius. $31.42 multiplies the radius by &pi; and by 4 without squaring it.</p>"},
-{"id": "m28", "type": "fill", "skill": "Pythagorean theorem", "difficulty": 2,
- "prompt": "<p>A rectangular storefront sign is 48 inches wide and 20 inches tall. A sign maker attaches a straight support bar from one corner of the sign to the opposite corner. How long is the support bar, in inches?</p>",
- "figure": {"type": "svg", "svg": "<svg viewBox='0 0 300 160' xmlns='http://www.w3.org/2000/svg'><rect x='20' y='30' width='230' height='100' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='20' y1='130' x2='250' y2='30' stroke='#0A1F3D' stroke-width='2'/><text x='118' y='150' font-size='14' fill='#0A1F3D'>48 in</text><text x='256' y='85' font-size='14' fill='#0A1F3D'>20 in</text><text x='140' y='72' font-size='14' fill='#0A1F3D'>?</text></svg>", "alt": "A rectangle 48 inches wide and 20 inches tall. A diagonal line runs from the lower left corner to the upper right corner. The length of the diagonal is unknown."},
- "answer": ["52"], "value": 52, "tol": 0.001, "suffix": "inches",
- "explain": "<p>The width, the height, and the diagonal form a right triangle. The diagonal is the hypotenuse.</p><p>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></p><p>48<sup>2</sup> + 20<sup>2</sup> = c<sup>2</sup></p><p>2,304 + 400 = 2,704</p><p>c = &radic;2,704 = <strong>52 inches</strong></p><p>A common error is to add the sides (48 + 20 = 68). The diagonal of a rectangle is always shorter than the sum of the width and the height.</p>"},
-{"id": "m29", "type": "mc", "skill": "Slope from two points", "difficulty": 1,
- "prompt": "<p>A line passes through the points (&minus;3, 8) and (5, &minus;4). What is the slope of the line?</p>",
- "options": ["&minus;2/3", "&minus;3/2", "3/2", "2"], "answer": 1,
- "explain": "<p>Slope m = (y<sub>2</sub> &minus; y<sub>1</sub>) / (x<sub>2</sub> &minus; x<sub>1</sub>).</p><p>m = (&minus;4 &minus; 8) / (5 &minus; (&minus;3)) = &minus;12 / 8 = <strong>&minus;3/2</strong>.</p><p>&minus;2/3 puts the change in x on top (8 / &minus;12). Slope is rise over run: the change in y goes on top. 3/2 drops the negative sign; the line falls from left to right, so its slope must be negative. 2 comes from ignoring the negative signs: (8 &minus; 4) / (5 &minus; 3).</p>"},
-{"id": "m30", "type": "mc", "skill": "Volume of a cone", "difficulty": 3,
- "prompt": "<p>A gift shop sells candles shaped like cones. Each candle has a radius of 4 centimeters and a height of 9 centimeters. To the nearest tenth of a cubic centimeter, how much wax is in one candle? Use the formula sheet if needed.</p>",
- "options": ["37.7", "150.8", "452.4", "603.2"], "answer": 1,
- "explain": "<p>Volume of a cone: V = (1/3)&pi;r<sup>2</sup>h.</p><p>V = (1/3)&pi;(4)<sup>2</sup>(9) = (1/3)&pi;(16)(9) = (1/3)(144&pi;) = 48&pi;</p><p>48 &times; &pi; &asymp; <strong>150.8 cubic centimeters</strong>.</p><p>452.4 is 144&pi;, the volume of a cylinder with the same radius and height; it leaves out the 1/3. 603.2 uses the diameter, 8, as the radius. 37.7 forgets to square the radius.</p>"},
-{"id": "m31", "type": "fill", "skill": "Surface area of a rectangular prism", "difficulty": 2,
- "prompt": "<p>An online store ships orders in closed cardboard boxes shaped like rectangular prisms. Each box is 18 inches long, 12 inches wide, and 10 inches tall. How many square inches of cardboard cover the outside of one box? (Ignore any overlap of flaps.) Use the formula sheet if needed.</p>",
- "answer": ["1032", "1,032"], "value": 1032, "tol": 0.001, "suffix": "square inches",
- "explain": "<p>Surface area of a rectangular prism: SA = 2lw + 2lh + 2wh.</p><p>2lw = 2(18)(12) = 432</p><p>2lh = 2(18)(10) = 360</p><p>2wh = 2(12)(10) = 240</p><p>SA = 432 + 360 + 240 = <strong>1,032 square inches</strong>.</p><p>2,160 is the volume (18 &times; 12 &times; 10) in cubic inches, not the surface area. 516 counts each pair of faces only once.</p>"},
-{"id": "m32", "type": "hotspot", "skill": "Evaluating a function from its graph", "difficulty": 1,
- "prompt": "<p>The graph of the function f(x) = &minus;(1/2)x + 4 is shown. Click the point on the graph of f that has an x-coordinate of &minus;4.</p>",
- "figure": {"type": "plane", "xmin": -8, "xmax": 8, "ymin": -8, "ymax": 8, "lines": [{"m": -0.5, "b": 4, "label": "f(x) = −(1/2)x + 4"}]},
- "plane": {"xmin": -8, "xmax": 8, "ymin": -8, "ymax": 8}, "answer": [-4, 6],
- "explain": "<p>Substitute x = &minus;4:</p><p>f(&minus;4) = &minus;(1/2)(&minus;4) + 4 = 2 + 4 = 6</p><p>The point is <strong>(&minus;4, 6)</strong>.</p><p>A sign error gives &minus;2 + 4 = 2, the point (&minus;4, 2), which is not on the line. Remember that a negative times a negative is positive.</p>"},
-{"id": "m33", "type": "mc", "skill": "Two-way tables and probability", "difficulty": 3,
- "prompt": "<p>A coffee shop recorded how 200 customers paid, sorted by age group.</p><table><thead><tr><th>Age group</th><th>Card</th><th>Cash</th><th>Mobile</th><th>Total</th></tr></thead><tbody><tr><td>Under 30</td><td>36</td><td>12</td><td>52</td><td>100</td></tr><tr><td>30 and older</td><td>54</td><td>30</td><td>16</td><td>100</td></tr><tr><td>Total</td><td>90</td><td>42</td><td>68</td><td>200</td></tr></tbody></table><p>One customer who paid by <strong>card</strong> is chosen at random. What is the probability that this customer is 30 or older?</p>",
- "options": ["27/100", "9/20", "3/5", "27/50"], "answer": 2,
- "explain": "<p>The customer is chosen only from those who paid by card, so the total is the Card column: 90 customers.</p><p>Of those, 54 are 30 or older.</p><p>P = 54/90 = <strong>3/5</strong>.</p><p>27/100 = 54/200 divides by all 200 customers instead of only the card users. 27/50 = 54/100 divides by the number of customers 30 and older. 9/20 = 90/200 is the probability that any customer paid by card.</p>"},
-{"id": "m34", "type": "mc", "skill": "Evaluating a quadratic function", "difficulty": 2,
- "prompt": "<p>A small business models its weekly profit P, in dollars, with the function P(x) = &minus;2x<sup>2</sup> + 120x &minus; 800, where x is the price of its product in dollars. What is P(20)?</p>",
- "options": ["1,600", "3,200", "4,000", "800"], "answer": 3,
- "explain": "<p>Substitute 20 for x:</p><p>P(20) = &minus;2(20)<sup>2</sup> + 120(20) &minus; 800</p><p>(20)<sup>2</sup> = 400, so &minus;2(400) = &minus;800</p><p>120(20) = 2,400</p><p>P(20) = &minus;800 + 2,400 &minus; 800 = <strong>800</strong></p><p>3,200 comes from squaring &minus;2 &times; 20 together: (&minus;40)<sup>2</sup> = 1,600, then 1,600 + 2,400 &minus; 800. The exponent applies only to x. 1,600 leaves out the &minus;800 at the end.</p>"},
-{"id": "m35", "type": "mc", "skill": "Factoring trinomials", "difficulty": 3,
- "prompt": "<p>Which expression is equivalent to 2x<sup>2</sup> &minus; 7x &minus; 15?</p>",
- "options": ["(2x &minus; 3)(x + 5)", "(2x + 5)(x &minus; 3)", "(2x + 3)(x &minus; 5)", "(2x &minus; 5)(x + 3)"], "answer": 2,
- "explain": "<p>Check each choice by multiplying. For (2x + 3)(x &minus; 5):</p><p>2x &times; x = 2x<sup>2</sup></p><p>2x &times; (&minus;5) = &minus;10x</p><p>3 &times; x = 3x</p><p>3 &times; (&minus;5) = &minus;15</p><p>2x<sup>2</sup> &minus; 10x + 3x &minus; 15 = 2x<sup>2</sup> &minus; 7x &minus; 15. So the answer is <strong>(2x + 3)(x &minus; 5)</strong>.</p><p>The others have the right first and last terms but the wrong middle term: (2x &minus; 3)(x + 5) gives +7x, (2x + 5)(x &minus; 3) gives &minus;x, and (2x &minus; 5)(x + 3) gives +x.</p>"},
-{"id": "m36", "type": "multi", "skill": "Solving quadratics by factoring", "difficulty": 2,
- "prompt": "<p>What are the solutions of the equation x<sup>2</sup> &minus; 5x &minus; 14 = 0? Select <strong>two</strong> answers.</p>",
- "options": ["7", "&minus;7", "2", "&minus;2", "14", "5"], "answer": [0, 3],
- "explain": "<p>Factor: find two numbers that multiply to &minus;14 and add to &minus;5. They are &minus;7 and 2.</p><p>(x &minus; 7)(x + 2) = 0</p><p>x &minus; 7 = 0 gives x = 7; x + 2 = 0 gives x = &minus;2.</p><p>The solutions are <strong>7 and &minus;2</strong>.</p><p>Check: 7<sup>2</sup> &minus; 5(7) &minus; 14 = 49 &minus; 35 &minus; 14 = 0, and (&minus;2)<sup>2</sup> &minus; 5(&minus;2) &minus; 14 = 4 + 10 &minus; 14 = 0.</p><p>Choosing &minus;7 and 2 takes the numbers from the factors without changing their signs.</p>"},
-{"id": "m37", "type": "fill", "skill": "Quadratic formula", "difficulty": 3,
- "prompt": "<p>The equation 3x<sup>2</sup> + 2x &minus; 7 = 0 has one positive solution and one negative solution. What is the <strong>positive</strong> solution, rounded to the nearest hundredth? Use the formula sheet if needed.</p>",
- "answer": ["1.23"], "value": 1.23, "tol": 0.005,
- "explain": "<p>Quadratic formula: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 3, b = 2, c = &minus;7.</p><p>b<sup>2</sup> &minus; 4ac = 2<sup>2</sup> &minus; 4(3)(&minus;7) = 4 + 84 = 88</p><p>&radic;88 &asymp; 9.381</p><p>Positive solution: x = (&minus;2 + 9.381) / 6 = 7.381 / 6 &asymp; <strong>1.23</strong></p><p>(The negative solution is (&minus;2 &minus; 9.381) / 6 &asymp; &minus;1.90.)</p><p>A common error is to drop the negative sign on c, treating 4(3)(&minus;7) as 84 and getting 4 &minus; 84 = &minus;80. Because 4(3)(&minus;7) = &minus;84, subtracting it adds 84: 4 &minus; (&minus;84) = 88.</p>"},
-{"id": "m38", "type": "mc", "skill": "Weighted mean", "difficulty": 3,
- "prompt": "<p>A grocery store has 25 hourly employees. The table shows their hourly pay rates.</p><table><thead><tr><th>Hourly rate</th><th>Number of employees</th></tr></thead><tbody><tr><td>$15.00</td><td>12</td></tr><tr><td>$20.00</td><td>8</td></tr><tr><td>$28.00</td><td>5</td></tr></tbody></table><p>What is the mean hourly pay rate of these 25 employees?</p>",
- "options": ["$19.20", "$21.00", "$20.00", "$16.00"], "answer": 0,
- "explain": "<p>Multiply each rate by the number of employees who earn it, then add:</p><p>12 &times; 15 = 180</p><p>8 &times; 20 = 160</p><p>5 &times; 28 = 140</p><p>Total: 180 + 160 + 140 = 480</p><p>Mean: 480 &divide; 25 = <strong>$19.20</strong> per hour.</p><p>$21.00 is the mean of the three rates (15 + 20 + 28) &divide; 3. It ignores the fact that more employees earn $15 than $28. $20.00 is the median rate in the list of three rates, not the mean for all 25 employees.</p>"},
-{"id": "m39", "type": "mc", "skill": "Multiplying polynomials", "difficulty": 2,
- "prompt": "<p>Which expression is equivalent to (x &minus; 4)(x<sup>2</sup> + 3x &minus; 2)?</p>",
- "options": ["x<sup>3</sup> &minus; x<sup>2</sup> &minus; 10x + 8", "x<sup>3</sup> + 7x<sup>2</sup> &minus; 14x + 8", "x<sup>3</sup> &minus; x<sup>2</sup> &minus; 14x + 8", "x<sup>3</sup> + 3x<sup>2</sup> &minus; 2x + 8"], "answer": 2,
- "explain": "<p>Multiply each term of (x &minus; 4) by each term of the trinomial.</p><p>x(x<sup>2</sup> + 3x &minus; 2) = x<sup>3</sup> + 3x<sup>2</sup> &minus; 2x</p><p>&minus;4(x<sup>2</sup> + 3x &minus; 2) = &minus;4x<sup>2</sup> &minus; 12x + 8</p><p>Combine like terms:</p><p>3x<sup>2</sup> &minus; 4x<sup>2</sup> = &minus;x<sup>2</sup></p><p>&minus;2x &minus; 12x = &minus;14x</p><p>Result: <strong>x<sup>3</sup> &minus; x<sup>2</sup> &minus; 14x + 8</strong>.</p><p>x<sup>3</sup> &minus; x<sup>2</sup> &minus; 10x + 8 comes from multiplying &minus;4 &times; 3x incorrectly as &minus;8x, so &minus;2x &minus; 8x = &minus;10x. x<sup>3</sup> + 7x<sup>2</sup> &minus; 14x + 8 adds 3x<sup>2</sup> and 4x<sup>2</sup> instead of subtracting. x<sup>3</sup> + 3x<sup>2</sup> &minus; 2x + 8 multiplies the &minus;4 by only the last term.</p>"},
-{"id": "m40", "type": "drag", "skill": "Equivalent expressions", "difficulty": 2,
- "prompt": "<p>Drag each expression into the correct category to show whether it is equivalent to 6x &minus; 12.</p>",
- "choices": ["6(x &minus; 2)", "2(3x &minus; 6)", "6x &minus; 4", "&minus;3(4 &minus; 2x)", "3(2x + 4) &minus; 24", "6(x &minus; 4)"],
- "bins": ["Equivalent to 6x &minus; 12", "Not equivalent to 6x &minus; 12"],
- "answer": [0, 0, 1, 0, 0, 1],
- "explain": "<p>Distribute and simplify each expression:</p><p>6(x &minus; 2) = 6x &minus; 12 (equivalent)</p><p>2(3x &minus; 6) = 6x &minus; 12 (equivalent)</p><p>&minus;3(4 &minus; 2x) = &minus;12 + 6x = 6x &minus; 12 (equivalent)</p><p>3(2x + 4) &minus; 24 = 6x + 12 &minus; 24 = 6x &minus; 12 (equivalent)</p><p>6x &minus; 4 has a constant of &minus;4, not &minus;12 (<strong>not equivalent</strong>).</p><p>6(x &minus; 4) = 6x &minus; 24 (<strong>not equivalent</strong>).</p><p>With &minus;3(4 &minus; 2x), remember that &minus;3 &times; (&minus;2x) = +6x.</p>"},
-{"id": "m41", "type": "mc", "skill": "Adding rational expressions", "difficulty": 3,
- "prompt": "<p>Which expression is equivalent to the sum below for all values of x where it is defined?</p><p>3/x + 2/(x + 1)</p>",
- "options": ["5/(2x + 1)", "(5x + 3)/(x<sup>2</sup> + x)", "(5x + 3)/(2x + 1)", "5/(x<sup>2</sup> + x)"], "answer": 1,
- "explain": "<p>The common denominator is x(x + 1) = x<sup>2</sup> + x.</p><p>Rewrite each fraction: 3/x = 3(x + 1) / [x(x + 1)] and 2/(x + 1) = 2x / [x(x + 1)].</p><p>Add the numerators: 3(x + 1) + 2x = 3x + 3 + 2x = 5x + 3.</p><p>Sum: <strong>(5x + 3)/(x<sup>2</sup> + x)</strong>.</p><p>Check with x = 1: 3/1 + 2/2 = 4, and (5 + 3)/(1 + 1) = 8/2 = 4.</p><p>5/(2x + 1) adds the numerators and the denominators separately, which is never allowed with fractions. Check with x = 1: 5/3 &ne; 4.</p>"},
-{"id": "m42", "type": "dropdown", "skill": "Inequality word problem", "difficulty": 2,
- "prompt": "<p>A part-time cashier earns $14.50 per hour. He wants to earn at least $435 in one week. Let h be the number of hours he works that week.</p><p>The inequality that represents this situation is 14.50h {{0}} 435.</p><p>The least number of hours he can work and still reach his goal is {{1}}.</p>",
- "blanks": [{"options": ["&lt;", "&le;", "&gt;", "&ge;"], "answer": 3}, {"options": ["29", "30", "31", "35"], "answer": 1}],
- "explain": "<p>\"At least $435\" means his pay can equal $435 or be more, so the symbol is <strong>&ge;</strong>: 14.50h &ge; 435.</p><p>Solve: h &ge; 435 &divide; 14.50 = 30.</p><p>The least number of hours is <strong>30</strong>. Check: 14.50 &times; 30 = $435, which meets the goal. At 29 hours he would earn only $420.50.</p><p>Choosing &gt; would leave out earning exactly $435, which \"at least\" allows.</p>"},
-{"id": "m43", "type": "drag", "skill": "Identifying functions", "difficulty": 3,
- "prompt": "<p>Drag each relation into the correct category.</p>",
- "choices": ["{(1, 4), (2, 5), (3, 4)}", "{(2, 1), (2, 3), (4, 5)}", "y = x<sup>2</sup> &minus; 1", "x = 5", "y = &minus;3x + 2", "x = y<sup>2</sup>"],
- "bins": ["Function", "Not a function"],
- "answer": [0, 1, 0, 1, 0, 1],
- "explain": "<p>A relation is a function when each input x has exactly one output y.</p><p><strong>Functions:</strong> {(1, 4), (2, 5), (3, 4)} (the repeated output 4 is allowed, because the inputs 1 and 3 are different); y = x<sup>2</sup> &minus; 1 (each x gives one y); y = &minus;3x + 2 (each x gives one y).</p><p><strong>Not functions:</strong> {(2, 1), (2, 3), (4, 5)} (the input 2 has two outputs); x = 5 (a vertical line: the input 5 is paired with every y); x = y<sup>2</sup> (the input 4 is paired with both y = 2 and y = &minus;2).</p>"},
-{"id": "m44", "type": "mc", "skill": "Solving literal equations", "difficulty": 3,
- "prompt": "<p>A store sets the selling price S of an item using the formula S = C(1 + m), where C is the store's cost and m is the markup rate written as a decimal. Which equation correctly solves this formula for m?</p>",
- "options": ["m = S &minus; C &minus; 1", "m = (S &minus; 1)/C", "m = S/(C + 1)", "m = (S &minus; C)/C"], "answer": 3,
- "explain": "<p>Divide both sides by C: S/C = 1 + m.</p><p>Subtract 1 from both sides: m = S/C &minus; 1.</p><p>Write with a common denominator: S/C &minus; C/C = <strong>(S &minus; C)/C</strong>.</p><p>Check with C = $40 and S = $50: m = (50 &minus; 40)/40 = 10/40 = 0.25, a 25% markup, and 40(1 + 0.25) = 50.</p><p>m = S &minus; C &minus; 1 subtracts C instead of dividing by it. m = (S &minus; 1)/C subtracts 1 before dividing by C, which undoes the steps in the wrong order.</p>"},
-{"id": "m45", "type": "mc", "skill": "Area from a perimeter equation", "difficulty": 2,
- "prompt": "<p>A rectangular banner for a store's grand opening is 3 times as long as it is wide. The perimeter of the banner is 96 inches. What is the area of the banner, in square inches?</p>",
- "options": ["432", "576", "1,728", "48"], "answer": 0,
- "explain": "<p>Let w be the width. Then the length is 3w.</p><p>Perimeter: 2(3w) + 2w = 96</p><p>6w + 2w = 96, so 8w = 96 and w = 12 inches.</p><p>Length: 3 &times; 12 = 36 inches.</p><p>Area: 36 &times; 12 = <strong>432 square inches</strong>.</p><p>576 treats the banner as a square with side 96 &divide; 4 = 24. 1,728 uses 24 as the width and 72 as the length, which gives a perimeter of 192, not 96. 48 is the sum of the length and width, not the area.</p>"},
-{"id": "m46", "type": "mc", "skill": "Comparing linear functions", "difficulty": 3,
- "prompt": "<p>Two stores track their total sales, in dollars, w weeks after opening a new product line.</p><p>Store A: S = 250w + 1,800</p><p>Store B:</p><table><thead><tr><th>Week (w)</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead><tbody><tr><td>Total sales (S)</td><td>2,400</td><td>2,600</td><td>2,800</td><td>3,000</td></tr></tbody></table><p>Which statement is true?</p>",
- "options": ["Store B has the greater weekly rate of increase, and Store A has the greater starting amount.", "Store A has the greater weekly rate of increase and the greater starting amount.", "Store A has the greater weekly rate of increase, and Store B has the greater starting amount.", "Store B has the greater weekly rate of increase and the greater starting amount."], "answer": 2,
- "explain": "<p>Store A: in S = 250w + 1,800, the rate of increase is $250 per week, and the starting amount (w = 0) is $1,800.</p><p>Store B: sales rise by $200 each week (2,400 to 2,600 to 2,800 to 3,000), and the starting amount is $2,400.</p><p>Compare: 250 &gt; 200, so Store A grows faster. 2,400 &gt; 1,800, so Store B starts higher.</p><p>The true statement is <strong>Store A has the greater weekly rate of increase, and Store B has the greater starting amount</strong>.</p><p>(The two stores have equal sales when 250w + 1,800 = 200w + 2,400, so 50w = 600 and w = 12 weeks.)</p>"}
-]}
+{
+"name": "Part 1",
+"calculator": false,
+"items": [
+{
+"id": "m01",
+"type": "mc",
+"skill": "Order of operations with integers",
+"difficulty": 2,
+"prompt": "<p>Simplify this numerical expression using the order of operations.</p><p>10 &minus; 3(1 &minus; 5)<sup>2</sup> &divide; 8</p>",
+"options": [
+"14",
+"4",
+"&minus;8",
+"16"
+],
+"answer": 1,
+"explain": "<p>Work inside the parentheses first: 1 &minus; 5 = &minus;4.</p><p>Exponent: (&minus;4)<sup>2</sup> = 16.</p><p>Multiply and divide from left to right: 3 &times; 16 = 48, then 48 &divide; 8 = 6.</p><p>Subtract: 10 &minus; 6 = <strong>4</strong>.</p><p>The answer 14 comes from subtracting first: (10 &minus; 3) &times; 16 &divide; 8 = 14. The answer 16 comes from treating (&minus;4)<sup>2</sup> as &minus;16. The answer &minus;8 comes from multiplying 3 by &minus;4 before squaring: (&minus;12)<sup>2</sup> &divide; 8 = 18, and 10 &minus; 18 = &minus;8.</p>",
+"why": [
+"You subtracted first: (10 &minus; 3) &times; 16 &divide; 8 = 14. Subtraction comes last; do the exponent, then 3 &times; 16 &divide; 8 = 6, then 10 &minus; 6.",
+"",
+"You multiplied 3 by &minus;4 before squaring, getting (&minus;12)<sup>2</sup> = 144 and 144 &divide; 8 = 18. The exponent is applied first: (&minus;4)<sup>2</sup> = 16, then 3 &times; 16 = 48.",
+"You treated (&minus;4)<sup>2</sup> as &minus;16, so 10 &minus; (&minus;6) = 16. A negative number squared is positive: (&minus;4)<sup>2</sup> = 16."
+]
+},
+{
+"id": "m02",
+"type": "fill",
+"skill": "Adding mixed numbers",
+"difficulty": 1,
+"prompt": "<p>Rosa works part time at a bakery. Her time card shows that she worked 3&frac12; hours on Saturday and 2&frac34; hours on Sunday. How many hours did she work in all over the two days?</p><p>Write your answer as a fraction or a decimal.</p>",
+"answer": [
+"25/4",
+"6.25"
+],
+"value": 6.25,
+"tol": 0.001,
+"suffix": "hours",
+"explain": "<p>Add the whole numbers: 3 + 2 = 5.</p><p>Add the fractions using a common denominator of 4: &frac12; + &frac34; = 2/4 + 3/4 = 5/4 = 1&frac14;.</p><p>Total: 5 + 1&frac14; = 6&frac14; hours = 25/4 = <strong>6.25 hours</strong>.</p><p>A common error is to add the tops and the bottoms of the fractions: 1/2 + 3/4 &ne; 4/6. Fractions must have a common denominator before they are added.</p>",
+"mistakes": [
+{
+"answer": [
+"34/6",
+"17/3",
+"5.67"
+],
+"why": "You added the tops and the bottoms of the fractions (1/2 + 3/4 = 4/6). Fractions need a common denominator first: 2/4 + 3/4 = 5/4, so the total is 5 + 1&frac14; = 6.25 hours."
+},
+{
+"answer": [
+"0.75",
+"3/4"
+],
+"why": "You subtracted the two days. &quot;In all&quot; means add: 3.5 + 2.75 = 6.25 hours."
+}
+]
+},
+{
+"id": "m03",
+"type": "mc",
+"skill": "Power of a product",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to (3x<sup>2</sup>y)<sup>3</sup>?</p>",
+"options": [
+"9x<sup>6</sup>y<sup>3</sup>",
+"27x<sup>5</sup>y<sup>3</sup>",
+"27x<sup>6</sup>y<sup>3</sup>",
+"3x<sup>6</sup>y<sup>3</sup>"
+],
+"answer": 2,
+"explain": "<p>Raise every factor inside the parentheses to the third power.</p><p>3<sup>3</sup> = 27</p><p>(x<sup>2</sup>)<sup>3</sup> = x<sup>2 &times; 3</sup> = x<sup>6</sup> (multiply exponents for a power of a power)</p><p>y<sup>3</sup> = y<sup>3</sup></p><p>Result: <strong>27x<sup>6</sup>y<sup>3</sup></strong>.</p><p>9x<sup>6</sup>y<sup>3</sup> multiplies 3 by 3 instead of cubing it. 27x<sup>5</sup>y<sup>3</sup> adds the exponents 2 and 3 instead of multiplying them. 3x<sup>6</sup>y<sup>3</sup> forgets to cube the 3.</p>",
+"why": [
+"You multiplied the 3 by the exponent 3 (3 &times; 3 = 9) instead of cubing it. 3<sup>3</sup> = 3 &times; 3 &times; 3 = 27.",
+"You added the exponents 2 + 3 = 5. For a power of a power, multiply them: (x<sup>2</sup>)<sup>3</sup> = x<sup>6</sup>.",
+"",
+"You raised the variables to the third power but forgot the coefficient. Every factor inside the parentheses is cubed, so 3 becomes 27."
+]
+},
+{
+"id": "m04",
+"type": "mc",
+"skill": "Solving equations with fractions",
+"difficulty": 2,
+"prompt": "<p>What value of x makes the equation true?</p><p>(2x + 1) / 3 = x &minus; 4</p>",
+"options": [
+"5",
+"&minus;13",
+"&minus;5",
+"13"
+],
+"answer": 3,
+"explain": "<p>Multiply both sides by 3 to clear the fraction: 2x + 1 = 3(x &minus; 4).</p><p>Distribute: 2x + 1 = 3x &minus; 12.</p><p>Subtract 2x from both sides: 1 = x &minus; 12.</p><p>Add 12 to both sides: x = <strong>13</strong>.</p><p>Check: (2(13) + 1) / 3 = 27 / 3 = 9, and 13 &minus; 4 = 9.</p><p>The answer 5 comes from multiplying only the x by 3 and writing 2x + 1 = 3x &minus; 4. Every term on that side must be multiplied by 3.</p>",
+"why": [
+"You multiplied only the x by 3 and wrote 2x + 1 = 3x &minus; 4. The 3 must multiply every term: 3(x &minus; 4) = 3x &minus; 12.",
+"You reached &minus;x = &minus;13 and stopped. Divide both sides by &minus;1 to get x = 13 (check: 27/3 = 9 and 13 &minus; 4 = 9).",
+"You made two errors: you multiplied only the x by 3 (2x + 1 = 3x &minus; 4) and then stopped at &minus;x = &minus;5 without dividing by &minus;1. Distribute fully: 2x + 1 = 3x &minus; 12, so x = 13.",
+""
+]
+},
+{
+"id": "m05",
+"type": "mc",
+"skill": "Adding square roots",
+"difficulty": 3,
+"prompt": "<p>Which expression is equivalent to &radic;50 + &radic;18?</p>",
+"options": [
+"8&radic;2",
+"&radic;68",
+"15&radic;2",
+"34"
+],
+"answer": 0,
+"explain": "<p>Simplify each root by finding a perfect-square factor.</p><p>&radic;50 = &radic;25 &times; &radic;2 = 5&radic;2</p><p>&radic;18 = &radic;9 &times; &radic;2 = 3&radic;2</p><p>Now the terms are like terms: 5&radic;2 + 3&radic;2 = <strong>8&radic;2</strong>.</p><p>&radic;68 adds the numbers under the roots, but &radic;a + &radic;b is not equal to &radic;(a + b). 15&radic;2 multiplies 5 and 3 instead of adding them.</p>",
+"why": [
+"",
+"You added the numbers under the roots. &radic;a + &radic;b does not equal &radic;(a + b); simplify each root first: 5&radic;2 + 3&radic;2.",
+"You multiplied the coefficients 5 and 3. Like radicals are added like like terms: 5&radic;2 + 3&radic;2 = 8&radic;2.",
+"You added 50 + 18 = 68 and halved it, treating a square root like dividing by 2. Simplify each root with a perfect-square factor instead: &radic;50 = 5&radic;2 and &radic;18 = 3&radic;2."
+]
+}
+]
+},
+{
+"name": "Part 2",
+"calculator": true,
+"items": [
+{
+"id": "m06",
+"type": "mc",
+"skill": "Percent markup",
+"difficulty": 1,
+"prompt": "<p>A home goods store buys a table lamp from a wholesaler for $36.00. The store marks up the price by 45% to set the retail price. What is the retail price of the lamp?</p>",
+"options": [
+"$16.20",
+"$52.20",
+"$65.45",
+"$81.00"
+],
+"answer": 1,
+"explain": "<p>Markup: 45% of $36.00 = 0.45 &times; 36 = $16.20.</p><p>Retail price: 36.00 + 16.20 = <strong>$52.20</strong>.</p><p>You can also multiply by 1.45 in one step: 36 &times; 1.45 = 52.20.</p><p>$16.20 is only the amount of the markup. $81.00 adds 45 dollars instead of 45 percent.</p>",
+"why": [
+"$16.20 is only the markup (45% of $36). Add it to the cost: 36 + 16.20 = $52.20.",
+"",
+"You divided 36 by 0.55, as if the cost were 55% of the price. A 45% markup means the price is 145% of the cost: 36 &times; 1.45 = $52.20.",
+"You added 45 dollars instead of 45 percent. 45% of $36 is 0.45 &times; 36 = $16.20."
+]
+},
+{
+"id": "m07",
+"type": "fill",
+"skill": "Payroll with overtime",
+"difficulty": 2,
+"prompt": "<p>A warehouse worker earns $18.40 per hour for the first 40 hours she works in a week. For every hour over 40, she earns overtime pay of 1.5 times her regular hourly rate. Last week she worked 46 hours. What was her gross pay for the week, in dollars?</p>",
+"answer": [
+"901.60",
+"901.6"
+],
+"value": 901.6,
+"tol": 0.001,
+"suffix": "dollars",
+"explain": "<p>Regular pay: 40 &times; $18.40 = $736.00.</p><p>Overtime rate: 1.5 &times; $18.40 = $27.60 per hour.</p><p>Overtime hours: 46 &minus; 40 = 6.</p><p>Overtime pay: 6 &times; $27.60 = $165.60.</p><p>Gross pay: 736.00 + 165.60 = <strong>$901.60</strong>.</p><p>A common error is to pay all 46 hours at the regular rate (46 &times; 18.40 = $846.40) or all 46 hours at the overtime rate. Only the hours over 40 earn 1.5 times the rate.</p>",
+"mistakes": [
+{
+"answer": [
+"846.40",
+"846.4"
+],
+"why": "You paid all 46 hours at the regular rate. The 6 hours over 40 earn 1.5 &times; $18.40 = $27.60 each: 736 + 165.60 = $901.60."
+},
+{
+"answer": [
+"1269.60",
+"1269.6"
+],
+"why": "You paid all 46 hours at the overtime rate. Only the hours over 40 earn time and a half; the first 40 hours earn $18.40."
+},
+{
+"answer": [
+"165.60",
+"165.6"
+],
+"why": "That is only the overtime pay. Add the regular pay for the first 40 hours: 736.00 + 165.60 = $901.60."
+}
+]
+},
+{
+"id": "m08",
+"type": "mc",
+"skill": "Percents in payroll deductions",
+"difficulty": 2,
+"prompt": "<p>Marcus has a gross pay of $1,400 for one pay period. His employer withholds the following amounts, each as a percent of his gross pay.</p><table><thead><tr><th>Deduction</th><th>Percent of gross pay</th></tr></thead><tbody><tr><td>Federal income tax</td><td>12%</td></tr><tr><td>Social Security</td><td>6.2%</td></tr><tr><td>Medicare</td><td>1.45%</td></tr></tbody></table><p>What is Marcus's net pay (the amount left after these deductions)?</p>",
+"options": [
+"$275.10",
+"$1,232.00",
+"$1,124.90",
+"$1,380.35"
+],
+"answer": 2,
+"explain": "<p>Find each deduction:</p><p>Federal income tax: 0.12 &times; 1,400 = $168.00</p><p>Social Security: 0.062 &times; 1,400 = $86.80</p><p>Medicare: 0.0145 &times; 1,400 = $20.30</p><p>Total deductions: 168.00 + 86.80 + 20.30 = $275.10</p><p>Net pay: 1,400 &minus; 275.10 = <strong>$1,124.90</strong>.</p><p>$275.10 is the total amount withheld, not the pay that is left. $1,232.00 subtracts only the federal income tax. $1,380.35 subtracts 19.65 dollars instead of 19.65 percent.</p>",
+"why": [
+"$275.10 is the total withheld, not the pay left. Subtract it from gross pay: 1,400 &minus; 275.10 = $1,124.90.",
+"You subtracted only the 12% federal tax. Social Security and Medicare must also come out.",
+"",
+"You subtracted $19.65 instead of 19.65%. Convert each percent to dollars first: 0.1965 &times; 1,400 = $275.10."
+]
+},
+{
+"id": "m09",
+"type": "mc",
+"skill": "Percent change from a graph",
+"difficulty": 2,
+"prompt": "<p>The graph shows the revenue of a small sporting goods store for each quarter of one year. By about what percent did revenue increase from the third quarter (Q3) to the fourth quarter (Q4)?</p>",
+"figure": {
+"type": "bar",
+"title": "Quarterly Revenue",
+"xLabel": "Quarter",
+"yLabel": "Revenue (dollars)",
+"labels": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+],
+"series": [
+{
+"name": "Revenue",
+"values": [
+48000,
+52000,
+45000,
+60000
+]
+}
+]
+},
+"options": [
+"25%",
+"15%",
+"133.3%",
+"33.3%"
+],
+"answer": 3,
+"explain": "<p>Read the graph: Q3 revenue = $45,000; Q4 revenue = $60,000.</p><p>Amount of change: 60,000 &minus; 45,000 = $15,000.</p><p>Percent change = change &divide; original = 15,000 &divide; 45,000 &asymp; 0.333 = <strong>33.3%</strong>.</p><p>25% divides by the new value (15,000 &divide; 60,000). Percent change always divides by the original, earlier value. 133.3% is the Q4 revenue as a percent of Q3 revenue, not the increase.</p>",
+"why": [
+"You divided the $15,000 increase by the new value, $60,000. Percent change divides by the original (earlier) value: 15,000 &divide; 45,000.",
+"You used the dollar change in thousands (15) as if it were the percent. Divide the change by the original: 15,000 &divide; 45,000 &asymp; 33.3%.",
+"133.3% is Q4 as a percent of Q3 (60,000 &divide; 45,000). The increase is that minus 100%, or 33.3%.",
+""
+]
+},
+{
+"id": "m10",
+"type": "dropdown",
+"skill": "Median and range",
+"difficulty": 2,
+"prompt": "<p>The table shows the number of phones sold by each salesperson at a cell phone store in one week.</p><table><thead><tr><th>Salesperson</th><th>Ana</th><th>Ben</th><th>Cara</th><th>Dev</th><th>Eli</th><th>Fay</th></tr></thead><tbody><tr><td>Phones sold</td><td>14</td><td>22</td><td>9</td><td>31</td><td>18</td><td>22</td></tr></tbody></table><p>The median number of phones sold is {{0}}.</p><p>The range of the number of phones sold is {{1}}.</p>",
+"blanks": [
+{
+"options": [
+"18",
+"19.3",
+"20",
+"22"
+],
+"answer": 2,
+"why": [
+"18 is only the 3rd value. With six values, average the 3rd and 4th: (18 + 22) &divide; 2 = 20.",
+"19.3 is the mean (116 &divide; 6), not the median. The median is the middle of the ordered list.",
+"",
+"22 is the mode (it appears twice). The median is the average of the two middle values, 18 and 22."
+]
+},
+{
+"options": [
+"9",
+"13",
+"22",
+"31"
+],
+"answer": 2,
+"why": [
+"9 is the least value, not the range. Range = greatest &minus; least = 31 &minus; 9.",
+"You subtracted the least value from 22 instead of from the greatest value, 31.",
+"",
+"31 is the greatest value. Subtract the least value: 31 &minus; 9 = 22."
+]
+}
+],
+"explain": "<p>Put the values in order: 9, 14, 18, 22, 22, 31.</p><p>There are six values, so the median is the mean of the 3rd and 4th values: (18 + 22) &divide; 2 = 40 &divide; 2 = <strong>20</strong>.</p><p>Range = greatest &minus; least = 31 &minus; 9 = <strong>22</strong>.</p><p>19.3 is the mean (116 &divide; 6 &asymp; 19.3), not the median. 22 is also the mode, which is a different measure. 18 is the 3rd value alone; with an even number of values you must average the two middle values.</p>"
+},
+{
+"id": "m11",
+"type": "fill",
+"skill": "Mean",
+"difficulty": 2,
+"prompt": "<p>The manager of a shoe store wants the store's average (mean) daily sales for a 5-day week to be exactly $2,400. Sales for the first four days were $2,150, $2,620, $2,280, and $2,390. How much must the store sell on the fifth day, in dollars, to reach the goal?</p>",
+"answer": [
+"2560",
+"2,560"
+],
+"value": 2560,
+"tol": 0.001,
+"suffix": "dollars",
+"explain": "<p>For a mean of $2,400 over 5 days, total sales must be 2,400 &times; 5 = $12,000.</p><p>Sum of the first four days: 2,150 + 2,620 + 2,280 + 2,390 = $9,440.</p><p>Fifth-day sales needed: 12,000 &minus; 9,440 = <strong>$2,560</strong>.</p><p>Check: (9,440 + 2,560) &divide; 5 = 12,000 &divide; 5 = 2,400.</p>",
+"mistakes": [
+{
+"answer": [
+"2400",
+"2,400"
+],
+"why": "$2,400 is the goal for the mean, not the needed sale. The total for 5 days must be 2,400 &times; 5 = $12,000, and 12,000 &minus; 9,440 = $2,560."
+},
+{
+"answer": [
+"12000",
+"12,000"
+],
+"why": "$12,000 is the total needed for all five days. Subtract the first four days' sales, $9,440, to get the fifth day."
+}
+]
+},
+{
+"id": "m12",
+"type": "mc",
+"skill": "Writing expressions",
+"difficulty": 1,
+"prompt": "<p>A furniture salesperson earns a base pay of $480 per week plus a commission of 6% of her total weekly sales. Which expression gives her weekly pay, in dollars, when her total sales are s dollars?</p>",
+"options": [
+"480 + 0.06s",
+"0.06(480 + s)",
+"480s + 0.06",
+"480 + 6s"
+],
+"answer": 0,
+"explain": "<p>The $480 base pay is the same every week, so it is a constant.</p><p>The commission is 6% of sales, and 6% = 0.06, so the commission is 0.06s.</p><p>Weekly pay = <strong>480 + 0.06s</strong>.</p><p>Check with $5,000 in sales: 480 + 0.06(5,000) = 480 + 300 = $780.</p><p>480 + 6s uses 6 instead of 0.06; that would pay $6 for every dollar of sales. 0.06(480 + s) takes 6% of the base pay too.</p>",
+"why": [
+"",
+"This takes 6% of the base pay too. The $480 is paid in full; only sales earn 6%: 480 + 0.06s.",
+"This multiplies the base pay by sales and adds 0.06. The base pay is a constant that is added, and 0.06 multiplies the sales.",
+"This uses 6 instead of 0.06, paying $6 for every dollar sold. Write 6% as the decimal 0.06."
+]
+},
+{
+"id": "m13",
+"type": "mc",
+"skill": "Probability",
+"difficulty": 1,
+"prompt": "<p>A store places 40 scratch-off coupons in a jar. Six coupons give 30% off, 10 coupons give 20% off, and the rest give 10% off. A customer draws one coupon at random. What is the probability that the coupon gives <strong>at least</strong> 20% off?</p>",
+"options": [
+"3/20",
+"1/4",
+"2/5",
+"3/5"
+],
+"answer": 2,
+"explain": "<p>\"At least 20% off\" means 20% off or 30% off.</p><p>Favorable coupons: 6 + 10 = 16.</p><p>Total coupons: 40.</p><p>P(at least 20% off) = 16/40 = <strong>2/5</strong>.</p><p>3/20 = 6/40 counts only the 30% coupons. 1/4 = 10/40 counts only the 20% coupons. 3/5 = 24/40 is the probability of getting only 10% off.</p>",
+"why": [
+"3/20 = 6/40 counts only the 30%-off coupons. &quot;At least 20% off&quot; also includes the 10 coupons for 20% off.",
+"1/4 = 10/40 counts only the 20%-off coupons. Add the 6 coupons for 30% off: 16/40.",
+"",
+"3/5 = 24/40 is the chance of getting only 10% off, the opposite event."
+]
+},
+{
+"id": "m14",
+"type": "fill",
+"skill": "Linear equation word problem",
+"difficulty": 2,
+"prompt": "<p>A restaurant server earns $9.50 per hour plus tips. Last week her total earnings were $672, and $425 of that amount was tips. How many hours did she work last week?</p>",
+"answer": [
+"26"
+],
+"value": 26,
+"tol": 0.001,
+"suffix": "hours",
+"explain": "<p>Let h be the number of hours worked.</p><p>9.50h + 425 = 672</p><p>9.50h = 672 &minus; 425 = 247</p><p>h = 247 &divide; 9.50 = <strong>26 hours</strong></p><p>Check: 9.50 &times; 26 = 247, and 247 + 425 = $672.</p><p>A common error is to divide the total earnings by the hourly rate (672 &divide; 9.50 &asymp; 70.7) without first taking out the tips.</p>",
+"mistakes": [
+{
+"answer": [
+"70.7",
+"70.74",
+"71"
+],
+"why": "You divided all of her earnings by the hourly rate. Take out the tips first: 672 &minus; 425 = 247, and 247 &divide; 9.50 = 26."
+},
+{
+"answer": [
+"44.7",
+"44.74",
+"45"
+],
+"why": "You divided the tips by the hourly rate. Tips are not hourly pay; divide the wages, 672 &minus; 425 = 247, by 9.50."
+}
+]
+},
+{
+"id": "m15",
+"type": "mc",
+"skill": "Counting principle",
+"difficulty": 2,
+"prompt": "<p>A retail chain gives each employee an ID code made of one letter (A through Z) followed by three digits (0 through 9). No digit may be used more than once in the same code. How many different ID codes are possible?</p>",
+"options": [
+"26,000",
+"18,720",
+"53",
+"720"
+],
+"answer": 1,
+"explain": "<p>Use the fundamental counting principle: multiply the number of choices for each position.</p><p>Letter: 26 choices.</p><p>First digit: 10 choices. Second digit: 9 choices (one digit is used). Third digit: 8 choices.</p><p>26 &times; 10 &times; 9 &times; 8 = <strong>18,720</strong>.</p><p>26,000 = 26 &times; 10 &times; 10 &times; 10 allows digits to repeat, which the rule does not allow. 720 counts only the digit part. 53 adds the choices instead of multiplying them.</p>",
+"why": [
+"26 &times; 10 &times; 10 &times; 10 lets digits repeat. With no repeats, the choices drop: 10, then 9, then 8.",
+"",
+"You added the choices (26 + 10 + 9 + 8). For a sequence of choices, multiply them.",
+"720 counts only the three digits (10 &times; 9 &times; 8). Multiply by the 26 letter choices too."
+]
+},
+{
+"id": "m16",
+"type": "mc",
+"skill": "Inequality word problem",
+"difficulty": 2,
+"prompt": "<p>A craft vendor pays $1,800 in fixed costs for a three-day trade show. She makes a profit of $35 on each item she sells. What is the <strong>least</strong> number of items she must sell so that her profit after paying the fixed costs is at least $5,000?</p>",
+"options": [
+"92",
+"143",
+"194",
+"195"
+],
+"answer": 3,
+"explain": "<p>Let n be the number of items sold. Profit after costs is 35n &minus; 1,800, and it must be at least $5,000:</p><p>35n &minus; 1,800 &ge; 5,000</p><p>35n &ge; 6,800</p><p>n &ge; 6,800 &divide; 35 &asymp; 194.29</p><p>She cannot sell part of an item, so she must sell at least <strong>195</strong> items. Check: 35(194) &minus; 1,800 = $4,990, which is short; 35(195) &minus; 1,800 = $5,025, which meets the goal.</p><p>194 rounds down, which leaves her $10 short. 143 ignores the fixed costs (5,000 &divide; 35). 92 subtracts the costs instead of adding them (3,200 &divide; 35).</p>",
+"why": [
+"You subtracted the fixed costs instead of adding them: 3,200 &divide; 35 &asymp; 92. Profit after costs is 35n &minus; 1,800 &ge; 5,000, so 35n &ge; 6,800.",
+"You ignored the fixed costs: 5,000 &divide; 35 &asymp; 143. The $1,800 must also be covered, so she needs 6,800 &divide; 35.",
+"You rounded 194.29 down. At 194 items she makes only $4,990; she must round up to 195 to reach at least $5,000.",
+""
+]
+},
+{
+"id": "m17",
+"type": "mc",
+"skill": "Scientific notation",
+"difficulty": 2,
+"prompt": "<p>A company had annual revenue of 2.4 &times; 10<sup>9</sup> dollars. The company has 8 &times; 10<sup>4</sup> employees. What was the revenue per employee, in dollars?</p>",
+"options": [
+"3 &times; 10<sup>4</sup>",
+"3 &times; 10<sup>5</sup>",
+"3 &times; 10<sup>13</sup>",
+"1.92 &times; 10<sup>14</sup>"
+],
+"answer": 0,
+"explain": "<p>Divide the revenue by the number of employees:</p><p>(2.4 &times; 10<sup>9</sup>) &divide; (8 &times; 10<sup>4</sup>) = (2.4 &divide; 8) &times; 10<sup>9 &minus; 4</sup> = 0.3 &times; 10<sup>5</sup></p><p>Rewrite in scientific notation: 0.3 &times; 10<sup>5</sup> = <strong>3 &times; 10<sup>4</sup></strong> dollars, or $30,000 per employee.</p><p>3 &times; 10<sup>5</sup> forgets to lower the exponent by 1 when 0.3 is changed to 3. 3 &times; 10<sup>13</sup> adds the exponents instead of subtracting them. 1.92 &times; 10<sup>14</sup> multiplies instead of dividing.</p>",
+"why": [
+"",
+"You divided correctly to get 0.3 &times; 10<sup>5</sup> but did not lower the exponent when changing 0.3 to 3. 0.3 &times; 10<sup>5</sup> = 3 &times; 10<sup>4</sup>.",
+"You added the exponents (9 + 4). When dividing powers of 10, subtract the exponents: 10<sup>9 &minus; 4</sup>.",
+"You multiplied instead of dividing. Revenue per employee means revenue &divide; employees."
+]
+},
+{
+"id": "m18",
+"type": "mc",
+"skill": "Systems of equations word problem",
+"difficulty": 3,
+"prompt": "<p>A clothing store sold 85 shirts in one day. T-shirts sell for $12 each and polo shirts sell for $22 each. Shirt sales for the day totaled $1,370. How many polo shirts did the store sell?</p>",
+"options": [
+"35",
+"50",
+"62",
+"40"
+],
+"answer": 0,
+"explain": "<p>Let t = number of T-shirts and p = number of polo shirts.</p><p>t + p = 85</p><p>12t + 22p = 1,370</p><p>From the first equation, t = 85 &minus; p. Substitute:</p><p>12(85 &minus; p) + 22p = 1,370</p><p>1,020 &minus; 12p + 22p = 1,370</p><p>10p = 350</p><p>p = <strong>35</strong> polo shirts (and t = 50 T-shirts).</p><p>Check: 12(50) + 22(35) = 600 + 770 = $1,370.</p><p>50 is the number of T-shirts. 62 comes from 1,370 &divide; 22, which assumes every shirt sold was a polo shirt.</p>",
+"why": [
+"",
+"50 is the number of T-shirts. Solve the system for p, the polo shirts: 10p = 350, so p = 35.",
+"You divided $1,370 by $22, as if every shirt were a polo. Use both equations: t + p = 85 and 12t + 22p = 1,370.",
+"You divided $1,370 by $34 (12 + 22). Adding the two prices does not account for how many of each were sold; set up a system."
+]
+},
+{
+"id": "m19",
+"type": "mc",
+"skill": "Ratios",
+"difficulty": 2,
+"prompt": "<p>Three partners share the profits of their business in the ratio 2 : 3 : 5. Last year the business earned a profit of $84,000. How much did the partner with the middle share (3 parts) receive?</p>",
+"options": [
+"$16,800",
+"$28,000",
+"$25,200",
+"$42,000"
+],
+"answer": 2,
+"explain": "<p>Total parts: 2 + 3 + 5 = 10.</p><p>Value of one part: 84,000 &divide; 10 = $8,400.</p><p>Middle share: 3 &times; 8,400 = <strong>$25,200</strong>.</p><p>Check: 2(8,400) + 3(8,400) + 5(8,400) = 16,800 + 25,200 + 42,000 = $84,000.</p><p>$28,000 splits the profit equally among the three partners (84,000 &divide; 3), which ignores the ratio. $16,800 and $42,000 are the other two partners' shares.</p>",
+"why": [
+"$16,800 is the share for 2 parts. The middle share is 3 parts: 3 &times; 8,400.",
+"You split the profit equally (84,000 &divide; 3). The ratio 2 : 3 : 5 means 10 parts of $8,400 each.",
+"",
+"$42,000 is the share for 5 parts. The middle partner has 3 parts: 3 &times; 8,400 = $25,200."
+]
+},
+{
+"id": "m20",
+"type": "mc",
+"skill": "Solving systems by elimination",
+"difficulty": 2,
+"prompt": "<p>What is the solution to the system of equations below?</p><p>3x + 2y = 16<br>5x &minus; 2y = 0</p>",
+"options": [
+"(5, 2)",
+"(2, &minus;5)",
+"(&minus;2, 11)",
+"(2, 5)"
+],
+"answer": 3,
+"explain": "<p>The y-terms are opposites, so add the equations to eliminate y:</p><p>(3x + 5x) + (2y &minus; 2y) = 16 + 0</p><p>8x = 16, so x = 2.</p><p>Substitute into the first equation: 3(2) + 2y = 16, so 6 + 2y = 16, 2y = 10, and y = 5.</p><p>The solution is <strong>(2, 5)</strong>. Check in the second equation: 5(2) &minus; 2(5) = 10 &minus; 10 = 0.</p><p>(5, 2) reverses the coordinates: 3(5) + 2(2) = 19, not 16. (&minus;2, 11) works in the first equation but not the second: 5(&minus;2) &minus; 2(11) = &minus;32.</p>",
+"why": [
+"You reversed the coordinates. x = 2 and y = 5, so the point is (2, 5); check: 3(5) + 2(2) = 19, not 16.",
+"You made a sign error on y. From 6 + 2y = 16, 2y = 10 and y = +5.",
+"(&minus;2, 11) works in the first equation only: 5(&minus;2) &minus; 2(11) = &minus;32, not 0. A solution must satisfy both equations.",
+""
+]
+},
+{
+"id": "m21",
+"type": "mc",
+"skill": "Percent: commission",
+"difficulty": 2,
+"prompt": "<p>A car salesperson earns a monthly base salary of $2,200. She also earns a 4% commission, but only on the part of her monthly sales that is <strong>over</strong> $10,000. This month her sales totaled $38,500. What are her total earnings for the month?</p>",
+"options": [
+"$3,740",
+"$1,140",
+"$3,340",
+"$2,600"
+],
+"answer": 2,
+"explain": "<p>Sales over $10,000: 38,500 &minus; 10,000 = $28,500.</p><p>Commission: 0.04 &times; 28,500 = $1,140.</p><p>Total earnings: 2,200 + 1,140 = <strong>$3,340</strong>.</p><p>$3,740 takes 4% of all $38,500 in sales (0.04 &times; 38,500 = $1,540), but the first $10,000 earns no commission. $1,140 is the commission only, without the base salary.</p>",
+"why": [
+"You took 4% of all $38,500. Commission is paid only on sales over $10,000: 0.04 &times; 28,500 = $1,140.",
+"$1,140 is only the commission. Add the $2,200 base salary.",
+"",
+"You paid commission on the first $10,000 (0.04 &times; 10,000 = $400). Commission is on the part over $10,000, which is $28,500."
+]
+},
+{
+"id": "m22",
+"type": "mc",
+"skill": "Writing a linear equation from two points",
+"difficulty": 3,
+"prompt": "<p>A print shop charges a one-time setup fee plus a fixed price for each custom T-shirt. An order of 20 shirts costs $190, and an order of 50 shirts costs $400. Which equation gives the cost C, in dollars, of an order of n shirts?</p>",
+"options": [
+"C = 9.5n",
+"C = 8n + 30",
+"C = 7n + 190",
+"C = 7n + 50"
+],
+"answer": 3,
+"explain": "<p>The price per shirt is the slope (rate of change):</p><p>m = (400 &minus; 190) / (50 &minus; 20) = 210 / 30 = 7 dollars per shirt.</p><p>Use one order to find the setup fee b: 190 = 7(20) + b, so 190 = 140 + b and b = 50.</p><p>Equation: <strong>C = 7n + 50</strong>.</p><p>Check: 7(50) + 50 = 350 + 50 = $400.</p><p>C = 9.5n fits the 20-shirt order (190 &divide; 20) but gives 9.5(50) = $475 for 50 shirts. C = 8n + 30 also fits 20 shirts but gives $430 for 50 shirts. An equation must fit both orders.</p>",
+"why": [
+"You divided 190 by 20 and left out the setup fee. That gives $475 for 50 shirts, not $400; an equation must fit both orders.",
+"This fits the 20-shirt order but gives $430 for 50 shirts. Find the slope from both orders: (400 &minus; 190) &divide; (50 &minus; 20) = 7.",
+"You used the 20-shirt cost, $190, as the setup fee. Find the fee by solving 190 = 7(20) + b, so b = 50.",
+""
+]
+},
+{
+"id": "m23",
+"type": "fill",
+"skill": "Percent: finding the original amount",
+"difficulty": 2,
+"prompt": "<p>A customer paid a total of $85.20 for a pair of boots. This total includes a 6.5% sales tax on the price of the boots. What was the price of the boots before tax, in dollars?</p>",
+"answer": [
+"80",
+"80.00"
+],
+"value": 80,
+"tol": 0.001,
+"suffix": "dollars",
+"explain": "<p>The total is the price plus 6.5% of the price, which is 106.5% of the price: 1.065p = 85.20.</p><p>p = 85.20 &divide; 1.065 = <strong>$80.00</strong>.</p><p>Check: tax = 0.065 &times; 80 = $5.20, and 80 + 5.20 = $85.20.</p><p>A common error is to take 6.5% of $85.20 and subtract it: 85.20 &minus; 5.54 = $79.66. The tax was figured on the price before tax, not on the total.</p>",
+"mistakes": [
+{
+"answer": [
+"79.66"
+],
+"why": "You took 6.5% of the total and subtracted it. Tax was figured on the pre-tax price, so the total is 106.5% of the price: 85.20 &divide; 1.065 = $80."
+},
+{
+"answer": [
+"90.74",
+"90.738"
+],
+"why": "You added 6.5% to the total. The $85.20 already includes tax; divide by 1.065 to remove it."
+}
+]
+},
+{
+"id": "m24",
+"type": "hotspot",
+"skill": "Break-even point on a graph",
+"difficulty": 2,
+"prompt": "<p>A small bakery models its weekly costs with C = 2x + 4 and its weekly revenue with R = 4x, where x is the number of loaves sold (in hundreds) and C and R are in hundreds of dollars. Both lines are graphed on the coordinate plane. The break-even point is where cost equals revenue. Click the break-even point.</p>",
+"figure": {
+"type": "plane",
+"xmin": 0,
+"xmax": 8,
+"ymin": 0,
+"ymax": 16,
+"lines": [
+{
+"m": 2,
+"b": 4,
+"label": "C = 2x + 4"
+},
+{
+"m": 4,
+"b": 0,
+"label": "R = 4x"
+}
+]
+},
+"plane": {
+"xmin": 0,
+"xmax": 8,
+"ymin": 0,
+"ymax": 16
+},
+"answer": [
+2,
+8
+],
+"explain": "<p>The break-even point is where the two lines intersect. Set cost equal to revenue:</p><p>2x + 4 = 4x</p><p>4 = 2x, so x = 2</p><p>R = 4(2) = 8, and C = 2(2) + 4 = 8.</p><p>The break-even point is <strong>(2, 8)</strong>: selling 200 loaves brings in $800, which exactly covers $800 in costs.</p><p>The point (0, 4) is only the starting cost (the y-intercept of the cost line); revenue there is 0, so it is not the break-even point.</p>",
+"why": "The most common wrong click is (0, 4), the y-intercept of the cost line, where revenue is 0. Break-even is where the two lines cross: 2x + 4 = 4x gives x = 2 and y = 8, so click (2, 8)."
+},
+{
+"id": "m25",
+"type": "mc",
+"skill": "Successive discounts",
+"difficulty": 2,
+"prompt": "<p>A winter coat is priced at $120. During a sale, the store takes 30% off the price. At the register, a customer uses a coupon for an additional 10% off the sale price. What does the customer pay for the coat before tax?</p>",
+"options": [
+"$72.00",
+"$75.60",
+"$84.00",
+"$108.00"
+],
+"answer": 1,
+"explain": "<p>First discount: 30% off $120 leaves 70% of the price: 0.70 &times; 120 = $84.00.</p><p>Second discount: 10% off $84.00 leaves 90% of $84.00: 0.90 &times; 84 = <strong>$75.60</strong>.</p><p>$72.00 adds the discounts to get 40% off the original price. That is wrong because the second 10% is taken from the lower sale price, not from $120. $84.00 applies only the first discount.</p>",
+"why": [
+"You added the discounts to get 40% off $120. The 10% is taken off the sale price, $84, not the original price.",
+"",
+"$84.00 applies only the 30% discount. Take another 10% off: 0.90 &times; 84 = $75.60.",
+"$108.00 applies only the 10% coupon to $120. Take 30% off first ($84), then 10% off that."
+]
+},
+{
+"id": "m26",
+"type": "dropdown",
+"skill": "Interpreting linear functions",
+"difficulty": 2,
+"prompt": "<p>A catering company uses the equation C = 18g + 250 to find the charge C, in dollars, for an event with g guests.</p><p>In this equation, the number 18 represents {{0}}.</p><p>The number 250 represents {{1}}.</p><p>The charge for an event with 120 guests is {{2}}.</p>",
+"blanks": [
+{
+"options": [
+"the charge per guest",
+"a one-time fee charged for every event",
+"the total charge for the event",
+"the number of guests"
+],
+"answer": 0,
+"why": [
+"",
+"A one-time fee is added once, not multiplied by g. The 18 is multiplied by the number of guests, so it is a per-guest rate.",
+"The total charge is C, the whole left side. 18 is only the rate per guest.",
+"The number of guests is g. 18 is the number multiplied by g."
+]
+},
+{
+"options": [
+"the charge per guest",
+"a one-time fee charged for every event",
+"the total charge for the event",
+"the number of guests"
+],
+"answer": 1,
+"why": [
+"250 is not multiplied by g, so it is not a per-guest charge. It is added once to every event.",
+"",
+"The total charge is C. 250 is just one part of it, the fixed fee.",
+"The number of guests is the variable g, not 250."
+]
+},
+{
+"options": [
+"$2,160",
+"$2,410",
+"$32,160",
+"$388"
+],
+"answer": 1,
+"why": [
+"$2,160 is only 18 &times; 120. Add the $250 fee: $2,410.",
+"",
+"You added 18 + 250 before multiplying by 120. Multiply first: 18(120) = 2,160, then add 250.",
+"You added 18 + 120 + 250. The 18 is multiplied by 120, not added to it."
+]
+}
+],
+"explain": "<p>In C = 18g + 250, the number 18 is multiplied by the number of guests, so it is the rate: <strong>the charge per guest</strong> ($18 for each guest).</p><p>The number 250 is added no matter how many guests come, so it is <strong>a one-time fee charged for every event</strong>.</p><p>For 120 guests: C = 18(120) + 250 = 2,160 + 250 = <strong>$2,410</strong>.</p><p>$2,160 leaves out the $250 fee. $32,160 adds 18 and 250 before multiplying by 120, which breaks the order of operations.</p>"
+},
+{
+"id": "m27",
+"type": "mc",
+"skill": "Area of a circle",
+"difficulty": 2,
+"prompt": "<p>A store orders a circular vinyl floor decal with its logo. The decal has a radius of 2.5 feet. The printing company charges $4.00 per square foot of decal. To the nearest cent, how much will the decal cost?</p>",
+"options": [
+"$62.83",
+"$31.42",
+"$314.16",
+"$78.54"
+],
+"answer": 3,
+"explain": "<p>Area of a circle: A = &pi;r<sup>2</sup>.</p><p>A = &pi;(2.5)<sup>2</sup> = 6.25&pi; &asymp; 19.635 square feet.</p><p>Cost: 19.635 &times; 4.00 &asymp; <strong>$78.54</strong>. (Exactly, 6.25&pi; &times; 4 = 25&pi; &asymp; 78.54.)</p><p>$62.83 uses the circumference, 2&pi;r = 5&pi;, instead of the area. $314.16 uses the diameter, 5 feet, as the radius. $31.42 multiplies the radius by &pi; and by 4 without squaring it.</p>",
+"why": [
+"You used the circumference, 2&pi;r = 5&pi;, instead of the area. Cost per square foot needs the area, &pi;r<sup>2</sup>.",
+"You multiplied &pi; by the radius without squaring it (&pi; &times; 2.5 &times; 4). Area is &pi;r<sup>2</sup> = 6.25&pi;.",
+"You used the diameter, 5 feet, as the radius. With r = 2.5, A = 6.25&pi; &asymp; 19.635 square feet.",
+""
+]
+},
+{
+"id": "m28",
+"type": "fill",
+"skill": "Pythagorean theorem",
+"difficulty": 2,
+"prompt": "<p>A rectangular storefront sign is 48 inches wide and 20 inches tall. A sign maker attaches a straight support bar from one corner of the sign to the opposite corner. How long is the support bar, in inches?</p>",
+"figure": {
+"type": "svg",
+"svg": "<svg viewBox='0 0 300 160' xmlns='http://www.w3.org/2000/svg'><rect x='20' y='30' width='230' height='100' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='20' y1='130' x2='250' y2='30' stroke='#0A1F3D' stroke-width='2'/><text x='118' y='150' font-size='14' fill='#0A1F3D'>48 in</text><text x='256' y='85' font-size='14' fill='#0A1F3D'>20 in</text><text x='140' y='72' font-size='14' fill='#0A1F3D'>?</text></svg>",
+"alt": "A rectangle 48 inches wide and 20 inches tall. A diagonal line runs from the lower left corner to the upper right corner. The length of the diagonal is unknown."
+},
+"answer": [
+"52"
+],
+"value": 52,
+"tol": 0.001,
+"suffix": "inches",
+"explain": "<p>The width, the height, and the diagonal form a right triangle. The diagonal is the hypotenuse.</p><p>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></p><p>48<sup>2</sup> + 20<sup>2</sup> = c<sup>2</sup></p><p>2,304 + 400 = 2,704</p><p>c = &radic;2,704 = <strong>52 inches</strong></p><p>A common error is to add the sides (48 + 20 = 68). The diagonal of a rectangle is always shorter than the sum of the width and the height.</p>",
+"mistakes": [
+{
+"answer": [
+"68"
+],
+"why": "You added the width and height. The diagonal is the hypotenuse of a right triangle: &radic;(48<sup>2</sup> + 20<sup>2</sup>) = &radic;2,704 = 52."
+},
+{
+"answer": [
+"2704",
+"2,704"
+],
+"why": "2,704 is c<sup>2</sup>. Take the square root to find c: &radic;2,704 = 52 inches."
+},
+{
+"answer": [
+"28"
+],
+"why": "You subtracted the sides. Use the Pythagorean theorem: 48<sup>2</sup> + 20<sup>2</sup> = c<sup>2</sup>."
+}
+]
+},
+{
+"id": "m29",
+"type": "mc",
+"skill": "Slope from two points",
+"difficulty": 1,
+"prompt": "<p>A line passes through the points (&minus;3, 8) and (5, &minus;4). What is the slope of the line?</p>",
+"options": [
+"&minus;2/3",
+"&minus;3/2",
+"3/2",
+"2"
+],
+"answer": 1,
+"explain": "<p>Slope m = (y<sub>2</sub> &minus; y<sub>1</sub>) / (x<sub>2</sub> &minus; x<sub>1</sub>).</p><p>m = (&minus;4 &minus; 8) / (5 &minus; (&minus;3)) = &minus;12 / 8 = <strong>&minus;3/2</strong>.</p><p>&minus;2/3 puts the change in x on top (8 / &minus;12). Slope is rise over run: the change in y goes on top. 3/2 drops the negative sign; the line falls from left to right, so its slope must be negative. 2 comes from ignoring the negative signs: (8 &minus; 4) / (5 &minus; 3).</p>",
+"why": [
+"You put the change in x on top (8 / &minus;12). Slope is rise over run: change in y over change in x.",
+"",
+"You dropped the negative sign. The line falls from left to right, so its slope is negative: &minus;12 / 8.",
+"You ignored the negative signs and computed (8 &minus; 4) / (5 &minus; 3). Subtracting a negative adds: 5 &minus; (&minus;3) = 8 and &minus;4 &minus; 8 = &minus;12."
+]
+},
+{
+"id": "m30",
+"type": "mc",
+"skill": "Volume of a cone",
+"difficulty": 3,
+"prompt": "<p>A gift shop sells candles shaped like cones. Each candle has a radius of 4 centimeters and a height of 9 centimeters. To the nearest tenth of a cubic centimeter, how much wax is in one candle? Use the formula sheet if needed.</p>",
+"options": [
+"37.7",
+"150.8",
+"452.4",
+"603.2"
+],
+"answer": 1,
+"explain": "<p>Volume of a cone: V = (1/3)&pi;r<sup>2</sup>h.</p><p>V = (1/3)&pi;(4)<sup>2</sup>(9) = (1/3)&pi;(16)(9) = (1/3)(144&pi;) = 48&pi;</p><p>48 &times; &pi; &asymp; <strong>150.8 cubic centimeters</strong>.</p><p>452.4 is 144&pi;, the volume of a cylinder with the same radius and height; it leaves out the 1/3. 603.2 uses the diameter, 8, as the radius. 37.7 forgets to square the radius.</p>",
+"why": [
+"You forgot to square the radius: (1/3)&pi;(4)(9) = 12&pi; &asymp; 37.7. Use r<sup>2</sup> = 16.",
+"",
+"452.4 is 144&pi;, the volume of a cylinder. A cone has 1/3 of that volume.",
+"You used the diameter, 8, as the radius. With r = 4, V = 48&pi; &asymp; 150.8."
+]
+},
+{
+"id": "m31",
+"type": "fill",
+"skill": "Surface area of a rectangular prism",
+"difficulty": 2,
+"prompt": "<p>An online store ships orders in closed cardboard boxes shaped like rectangular prisms. Each box is 18 inches long, 12 inches wide, and 10 inches tall. How many square inches of cardboard cover the outside of one box? (Ignore any overlap of flaps.) Use the formula sheet if needed.</p>",
+"answer": [
+"1032",
+"1,032"
+],
+"value": 1032,
+"tol": 0.001,
+"suffix": "square inches",
+"explain": "<p>Surface area of a rectangular prism: SA = 2lw + 2lh + 2wh.</p><p>2lw = 2(18)(12) = 432</p><p>2lh = 2(18)(10) = 360</p><p>2wh = 2(12)(10) = 240</p><p>SA = 432 + 360 + 240 = <strong>1,032 square inches</strong>.</p><p>2,160 is the volume (18 &times; 12 &times; 10) in cubic inches, not the surface area. 516 counts each pair of faces only once.</p>",
+"mistakes": [
+{
+"answer": [
+"2160",
+"2,160"
+],
+"why": "2,160 is the volume (18 &times; 12 &times; 10). Cardboard covering the outside is surface area: 2lw + 2lh + 2wh."
+},
+{
+"answer": [
+"516"
+],
+"why": "You counted each pair of faces only once. A box has six faces: two of each size, so double: 2(258) = 1,032."
+}
+]
+},
+{
+"id": "m32",
+"type": "hotspot",
+"skill": "Evaluating a function from its graph",
+"difficulty": 1,
+"prompt": "<p>The graph of the function f(x) = &minus;(1/2)x + 4 is shown. Click the point on the graph of f that has an x-coordinate of &minus;4.</p>",
+"figure": {
+"type": "plane",
+"xmin": -8,
+"xmax": 8,
+"ymin": -8,
+"ymax": 8,
+"lines": [
+{
+"m": -0.5,
+"b": 4,
+"label": "f(x) = −(1/2)x + 4"
+}
+]
+},
+"plane": {
+"xmin": -8,
+"xmax": 8,
+"ymin": -8,
+"ymax": 8
+},
+"answer": [
+-4,
+6
+],
+"explain": "<p>Substitute x = &minus;4:</p><p>f(&minus;4) = &minus;(1/2)(&minus;4) + 4 = 2 + 4 = 6</p><p>The point is <strong>(&minus;4, 6)</strong>.</p><p>A sign error gives &minus;2 + 4 = 2, the point (&minus;4, 2), which is not on the line. Remember that a negative times a negative is positive.</p>",
+"why": "The most common wrong click is (&minus;4, 2), from computing &minus;(1/2)(&minus;4) as &minus;2. A negative times a negative is positive: f(&minus;4) = 2 + 4 = 6, so click (&minus;4, 6)."
+},
+{
+"id": "m33",
+"type": "mc",
+"skill": "Two-way tables and probability",
+"difficulty": 3,
+"prompt": "<p>A coffee shop recorded how 200 customers paid, sorted by age group.</p><table><thead><tr><th>Age group</th><th>Card</th><th>Cash</th><th>Mobile</th><th>Total</th></tr></thead><tbody><tr><td>Under 30</td><td>36</td><td>12</td><td>52</td><td>100</td></tr><tr><td>30 and older</td><td>54</td><td>30</td><td>16</td><td>100</td></tr><tr><td>Total</td><td>90</td><td>42</td><td>68</td><td>200</td></tr></tbody></table><p>One customer who paid by <strong>card</strong> is chosen at random. What is the probability that this customer is 30 or older?</p>",
+"options": [
+"27/100",
+"9/20",
+"3/5",
+"27/50"
+],
+"answer": 2,
+"explain": "<p>The customer is chosen only from those who paid by card, so the total is the Card column: 90 customers.</p><p>Of those, 54 are 30 or older.</p><p>P = 54/90 = <strong>3/5</strong>.</p><p>27/100 = 54/200 divides by all 200 customers instead of only the card users. 27/50 = 54/100 divides by the number of customers 30 and older. 9/20 = 90/200 is the probability that any customer paid by card.</p>",
+"why": [
+"You divided 54 by all 200 customers. The customer is chosen only from card users, so divide by 90.",
+"9/20 = 90/200 is the chance that any customer paid by card. The question already assumes card; find the share of card users who are 30 or older.",
+"",
+"You divided 54 by 100, the number of customers 30 and older. The group being chosen from is the 90 card users."
+]
+},
+{
+"id": "m34",
+"type": "mc",
+"skill": "Evaluating a quadratic function",
+"difficulty": 2,
+"prompt": "<p>A small business models its weekly profit P, in dollars, with the function P(x) = &minus;2x<sup>2</sup> + 120x &minus; 800, where x is the price of its product in dollars. What is P(20)?</p>",
+"options": [
+"1,600",
+"3,200",
+"4,000",
+"800"
+],
+"answer": 3,
+"explain": "<p>Substitute 20 for x:</p><p>P(20) = &minus;2(20)<sup>2</sup> + 120(20) &minus; 800</p><p>(20)<sup>2</sup> = 400, so &minus;2(400) = &minus;800</p><p>120(20) = 2,400</p><p>P(20) = &minus;800 + 2,400 &minus; 800 = <strong>800</strong></p><p>3,200 comes from squaring &minus;2 &times; 20 together: (&minus;40)<sup>2</sup> = 1,600, then 1,600 + 2,400 &minus; 800. The exponent applies only to x. 1,600 leaves out the &minus;800 at the end.</p>",
+"why": [
+"You left out the &minus;800 at the end: &minus;800 + 2,400 = 1,600. Subtract 800 once more to get 800.",
+"You squared &minus;2 &times; 20 together: (&minus;40)<sup>2</sup> = 1,600. The exponent applies only to x: &minus;2(400) = &minus;800.",
+"You dropped the negative signs, using +800 for &minus;2(20)<sup>2</sup> and adding the last 800. Keep the signs: &minus;800 + 2,400 &minus; 800 = 800.",
+""
+]
+},
+{
+"id": "m35",
+"type": "mc",
+"skill": "Factoring trinomials",
+"difficulty": 3,
+"prompt": "<p>Which expression is equivalent to 2x<sup>2</sup> &minus; 7x &minus; 15?</p>",
+"options": [
+"(2x &minus; 3)(x + 5)",
+"(2x + 5)(x &minus; 3)",
+"(2x + 3)(x &minus; 5)",
+"(2x &minus; 5)(x + 3)"
+],
+"answer": 2,
+"explain": "<p>Check each choice by multiplying. For (2x + 3)(x &minus; 5):</p><p>2x &times; x = 2x<sup>2</sup></p><p>2x &times; (&minus;5) = &minus;10x</p><p>3 &times; x = 3x</p><p>3 &times; (&minus;5) = &minus;15</p><p>2x<sup>2</sup> &minus; 10x + 3x &minus; 15 = 2x<sup>2</sup> &minus; 7x &minus; 15. So the answer is <strong>(2x + 3)(x &minus; 5)</strong>.</p><p>The others have the right first and last terms but the wrong middle term: (2x &minus; 3)(x + 5) gives +7x, (2x + 5)(x &minus; 3) gives &minus;x, and (2x &minus; 5)(x + 3) gives +x.</p>",
+"why": [
+"The first and last terms are right, but the middle term is &minus;3x + 10x = +7x, not &minus;7x.",
+"The middle term is 2x(&minus;3) + 5x = &minus;x, not &minus;7x. Always multiply out to check the middle term.",
+"",
+"The middle term is 6x &minus; 5x = +x, not &minus;7x. The factors must give &minus;10x + 3x = &minus;7x."
+]
+},
+{
+"id": "m36",
+"type": "multi",
+"skill": "Solving quadratics by factoring",
+"difficulty": 2,
+"prompt": "<p>What are the solutions of the equation x<sup>2</sup> &minus; 5x &minus; 14 = 0? Select <strong>two</strong> answers.</p>",
+"options": [
+"7",
+"&minus;7",
+"2",
+"&minus;2",
+"14",
+"5"
+],
+"answer": [
+0,
+3
+],
+"explain": "<p>Factor: find two numbers that multiply to &minus;14 and add to &minus;5. They are &minus;7 and 2.</p><p>(x &minus; 7)(x + 2) = 0</p><p>x &minus; 7 = 0 gives x = 7; x + 2 = 0 gives x = &minus;2.</p><p>The solutions are <strong>7 and &minus;2</strong>.</p><p>Check: 7<sup>2</sup> &minus; 5(7) &minus; 14 = 49 &minus; 35 &minus; 14 = 0, and (&minus;2)<sup>2</sup> &minus; 5(&minus;2) &minus; 14 = 4 + 10 &minus; 14 = 0.</p><p>Choosing &minus;7 and 2 takes the numbers from the factors without changing their signs.</p>",
+"why": [
+"",
+"You took the numbers from the factors (x &minus; 7)(x + 2) without changing the signs. Set each factor equal to 0: x = 7 and x = &minus;2.",
+"You took the 2 from the factor (x + 2) without changing its sign. x + 2 = 0 gives x = &minus;2.",
+"",
+"14 is the constant term, not a solution: 14<sup>2</sup> &minus; 5(14) &minus; 14 = 112, not 0.",
+"5 is the middle coefficient, not a solution: 25 &minus; 25 &minus; 14 = &minus;14, not 0."
+]
+},
+{
+"id": "m37",
+"type": "fill",
+"skill": "Quadratic formula",
+"difficulty": 3,
+"prompt": "<p>The equation 3x<sup>2</sup> + 2x &minus; 7 = 0 has one positive solution and one negative solution. What is the <strong>positive</strong> solution, rounded to the nearest hundredth? Use the formula sheet if needed.</p>",
+"answer": [
+"1.23"
+],
+"value": 1.23,
+"tol": 0.005,
+"explain": "<p>Quadratic formula: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 3, b = 2, c = &minus;7.</p><p>b<sup>2</sup> &minus; 4ac = 2<sup>2</sup> &minus; 4(3)(&minus;7) = 4 + 84 = 88</p><p>&radic;88 &asymp; 9.381</p><p>Positive solution: x = (&minus;2 + 9.381) / 6 = 7.381 / 6 &asymp; <strong>1.23</strong></p><p>(The negative solution is (&minus;2 &minus; 9.381) / 6 &asymp; &minus;1.90.)</p><p>A common error is to drop the negative sign on c, treating 4(3)(&minus;7) as 84 and getting 4 &minus; 84 = &minus;80. Because 4(3)(&minus;7) = &minus;84, subtracting it adds 84: 4 &minus; (&minus;84) = 88.</p>",
+"mistakes": [
+{
+"answer": [
+"-1.9",
+"-1.90",
+"&minus;1.90"
+],
+"why": "That is the negative solution, (&minus;2 &minus; &radic;88) / 6. The question asks for the positive one: (&minus;2 + &radic;88) / 6 &asymp; 1.23."
+},
+{
+"answer": [
+"3.69"
+],
+"why": "You divided by 2 instead of 2a. The denominator is 2(3) = 6: 7.381 &divide; 6 &asymp; 1.23."
+}
+]
+},
+{
+"id": "m38",
+"type": "mc",
+"skill": "Weighted mean",
+"difficulty": 3,
+"prompt": "<p>A grocery store has 25 hourly employees. The table shows their hourly pay rates.</p><table><thead><tr><th>Hourly rate</th><th>Number of employees</th></tr></thead><tbody><tr><td>$15.00</td><td>12</td></tr><tr><td>$20.00</td><td>8</td></tr><tr><td>$28.00</td><td>5</td></tr></tbody></table><p>What is the mean hourly pay rate of these 25 employees?</p>",
+"options": [
+"$19.20",
+"$21.00",
+"$20.00",
+"$16.00"
+],
+"answer": 0,
+"explain": "<p>Multiply each rate by the number of employees who earn it, then add:</p><p>12 &times; 15 = 180</p><p>8 &times; 20 = 160</p><p>5 &times; 28 = 140</p><p>Total: 180 + 160 + 140 = 480</p><p>Mean: 480 &divide; 25 = <strong>$19.20</strong> per hour.</p><p>$21.00 is the mean of the three rates (15 + 20 + 28) &divide; 3. It ignores the fact that more employees earn $15 than $28. $20.00 is the median rate in the list of three rates, not the mean for all 25 employees.</p>",
+"why": [
+"",
+"$21.00 averages the three rates without weighting them. Twelve workers earn $15 and only five earn $28, so multiply each rate by its count: 480 &divide; 25.",
+"$20.00 is the middle of the three listed rates. The mean of all 25 employees uses the total pay, 480, divided by 25.",
+"You divided the weighted total, $480, by 30 instead of by the 25 employees. 480 &divide; 25 = $19.20."
+]
+},
+{
+"id": "m39",
+"type": "mc",
+"skill": "Multiplying polynomials",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to (x &minus; 4)(x<sup>2</sup> + 3x &minus; 2)?</p>",
+"options": [
+"x<sup>3</sup> &minus; x<sup>2</sup> &minus; 10x + 8",
+"x<sup>3</sup> + 7x<sup>2</sup> &minus; 14x + 8",
+"x<sup>3</sup> &minus; x<sup>2</sup> &minus; 14x + 8",
+"x<sup>3</sup> + 3x<sup>2</sup> &minus; 2x + 8"
+],
+"answer": 2,
+"explain": "<p>Multiply each term of (x &minus; 4) by each term of the trinomial.</p><p>x(x<sup>2</sup> + 3x &minus; 2) = x<sup>3</sup> + 3x<sup>2</sup> &minus; 2x</p><p>&minus;4(x<sup>2</sup> + 3x &minus; 2) = &minus;4x<sup>2</sup> &minus; 12x + 8</p><p>Combine like terms:</p><p>3x<sup>2</sup> &minus; 4x<sup>2</sup> = &minus;x<sup>2</sup></p><p>&minus;2x &minus; 12x = &minus;14x</p><p>Result: <strong>x<sup>3</sup> &minus; x<sup>2</sup> &minus; 14x + 8</strong>.</p><p>x<sup>3</sup> &minus; x<sup>2</sup> &minus; 10x + 8 comes from multiplying &minus;4 &times; 3x incorrectly as &minus;8x, so &minus;2x &minus; 8x = &minus;10x. x<sup>3</sup> + 7x<sup>2</sup> &minus; 14x + 8 adds 3x<sup>2</sup> and 4x<sup>2</sup> instead of subtracting. x<sup>3</sup> + 3x<sup>2</sup> &minus; 2x + 8 multiplies the &minus;4 by only the last term.</p>",
+"why": [
+"You multiplied &minus;4 &times; 3x as &minus;8x. It is &minus;12x, so &minus;2x &minus; 12x = &minus;14x.",
+"You added 3x<sup>2</sup> and 4x<sup>2</sup>. The term is &minus;4x<sup>2</sup>, so 3x<sup>2</sup> &minus; 4x<sup>2</sup> = &minus;x<sup>2</sup>.",
+"",
+"You multiplied &minus;4 by only the last term. Distribute &minus;4 to every term: &minus;4x<sup>2</sup> &minus; 12x + 8."
+]
+},
+{
+"id": "m40",
+"type": "drag",
+"skill": "Equivalent expressions",
+"difficulty": 2,
+"prompt": "<p>Drag each expression into the correct category to show whether it is equivalent to 6x &minus; 12.</p>",
+"choices": [
+"6(x &minus; 2)",
+"2(3x &minus; 6)",
+"6x &minus; 4",
+"&minus;3(4 &minus; 2x)",
+"3(2x + 4) &minus; 24",
+"6(x &minus; 4)"
+],
+"bins": [
+"Equivalent to 6x &minus; 12",
+"Not equivalent to 6x &minus; 12"
+],
+"answer": [
+0,
+0,
+1,
+0,
+0,
+1
+],
+"explain": "<p>Distribute and simplify each expression:</p><p>6(x &minus; 2) = 6x &minus; 12 (equivalent)</p><p>2(3x &minus; 6) = 6x &minus; 12 (equivalent)</p><p>&minus;3(4 &minus; 2x) = &minus;12 + 6x = 6x &minus; 12 (equivalent)</p><p>3(2x + 4) &minus; 24 = 6x + 12 &minus; 24 = 6x &minus; 12 (equivalent)</p><p>6x &minus; 4 has a constant of &minus;4, not &minus;12 (<strong>not equivalent</strong>).</p><p>6(x &minus; 4) = 6x &minus; 24 (<strong>not equivalent</strong>).</p><p>With &minus;3(4 &minus; 2x), remember that &minus;3 &times; (&minus;2x) = +6x.</p>",
+"why": "The most common error is putting &minus;3(4 &minus; 2x) or 3(2x + 4) &minus; 24 in Not equivalent. Distribute fully: &minus;3 &times; (&minus;2x) = +6x gives 6x &minus; 12, and 6x + 12 &minus; 24 = 6x &minus; 12, so both belong in Equivalent."
+},
+{
+"id": "m41",
+"type": "mc",
+"skill": "Adding rational expressions",
+"difficulty": 3,
+"prompt": "<p>Which expression is equivalent to the sum below for all values of x where it is defined?</p><p>3/x + 2/(x + 1)</p>",
+"options": [
+"5/(2x + 1)",
+"(5x + 3)/(x<sup>2</sup> + x)",
+"(5x + 3)/(2x + 1)",
+"5/(x<sup>2</sup> + x)"
+],
+"answer": 1,
+"explain": "<p>The common denominator is x(x + 1) = x<sup>2</sup> + x.</p><p>Rewrite each fraction: 3/x = 3(x + 1) / [x(x + 1)] and 2/(x + 1) = 2x / [x(x + 1)].</p><p>Add the numerators: 3(x + 1) + 2x = 3x + 3 + 2x = 5x + 3.</p><p>Sum: <strong>(5x + 3)/(x<sup>2</sup> + x)</strong>.</p><p>Check with x = 1: 3/1 + 2/2 = 4, and (5 + 3)/(1 + 1) = 8/2 = 4.</p><p>5/(2x + 1) adds the numerators and the denominators separately, which is never allowed with fractions. Check with x = 1: 5/3 &ne; 4.</p>",
+"why": [
+"You added the numerators and the denominators separately. Fractions need a common denominator, x(x + 1), first.",
+"",
+"You found the right numerator but added the denominators. The common denominator is the product x(x + 1) = x<sup>2</sup> + x.",
+"You used the right denominator but just added 3 + 2 on top. Each numerator must be rewritten: 3(x + 1) + 2x = 5x + 3."
+]
+},
+{
+"id": "m42",
+"type": "dropdown",
+"skill": "Inequality word problem",
+"difficulty": 2,
+"prompt": "<p>A part-time cashier earns $14.50 per hour. He wants to earn at least $435 in one week. Let h be the number of hours he works that week.</p><p>The inequality that represents this situation is 14.50h {{0}} 435.</p><p>The least number of hours he can work and still reach his goal is {{1}}.</p>",
+"blanks": [
+{
+"options": [
+"&lt;",
+"&le;",
+"&gt;",
+"&ge;"
+],
+"answer": 3,
+"why": [
+"&lt; means less than $435, the opposite of his goal. &quot;At least&quot; means $435 or more: &ge;.",
+"&le; means at most $435. &quot;At least&quot; means greater than or equal to: &ge;.",
+"&gt; leaves out earning exactly $435, which &quot;at least&quot; allows. Use &ge;.",
+""
+]
+},
+{
+"options": [
+"29",
+"30",
+"31",
+"35"
+],
+"answer": 1,
+"why": [
+"29 hours earns only 14.50 &times; 29 = $420.50, short of $435.",
+"",
+"31 hours meets the goal, but it is not the least. 30 hours earns exactly $435.",
+"35 hours is more than needed. 435 &divide; 14.50 = 30."
+]
+}
+],
+"explain": "<p>\"At least $435\" means his pay can equal $435 or be more, so the symbol is <strong>&ge;</strong>: 14.50h &ge; 435.</p><p>Solve: h &ge; 435 &divide; 14.50 = 30.</p><p>The least number of hours is <strong>30</strong>. Check: 14.50 &times; 30 = $435, which meets the goal. At 29 hours he would earn only $420.50.</p><p>Choosing &gt; would leave out earning exactly $435, which \"at least\" allows.</p>"
+},
+{
+"id": "m43",
+"type": "drag",
+"skill": "Identifying functions",
+"difficulty": 3,
+"prompt": "<p>Drag each relation into the correct category.</p>",
+"choices": [
+"{(1, 4), (2, 5), (3, 4)}",
+"{(2, 1), (2, 3), (4, 5)}",
+"y = x<sup>2</sup> &minus; 1",
+"x = 5",
+"y = &minus;3x + 2",
+"x = y<sup>2</sup>"
+],
+"bins": [
+"Function",
+"Not a function"
+],
+"answer": [
+0,
+1,
+0,
+1,
+0,
+1
+],
+"explain": "<p>A relation is a function when each input x has exactly one output y.</p><p><strong>Functions:</strong> {(1, 4), (2, 5), (3, 4)} (the repeated output 4 is allowed, because the inputs 1 and 3 are different); y = x<sup>2</sup> &minus; 1 (each x gives one y); y = &minus;3x + 2 (each x gives one y).</p><p><strong>Not functions:</strong> {(2, 1), (2, 3), (4, 5)} (the input 2 has two outputs); x = 5 (a vertical line: the input 5 is paired with every y); x = y<sup>2</sup> (the input 4 is paired with both y = 2 and y = &minus;2).</p>",
+"why": "The most common error is putting {(1, 4), (2, 5), (3, 4)} in Not a function because the output 4 repeats. Only a repeated input with different outputs breaks a function, so it is a function, while {(2, 1), (2, 3), (4, 5)} is not."
+},
+{
+"id": "m44",
+"type": "mc",
+"skill": "Solving literal equations",
+"difficulty": 3,
+"prompt": "<p>A store sets the selling price S of an item using the formula S = C(1 + m), where C is the store's cost and m is the markup rate written as a decimal. Which equation correctly solves this formula for m?</p>",
+"options": [
+"m = S &minus; C &minus; 1",
+"m = (S &minus; 1)/C",
+"m = S/(C + 1)",
+"m = (S &minus; C)/C"
+],
+"answer": 3,
+"explain": "<p>Divide both sides by C: S/C = 1 + m.</p><p>Subtract 1 from both sides: m = S/C &minus; 1.</p><p>Write with a common denominator: S/C &minus; C/C = <strong>(S &minus; C)/C</strong>.</p><p>Check with C = $40 and S = $50: m = (50 &minus; 40)/40 = 10/40 = 0.25, a 25% markup, and 40(1 + 0.25) = 50.</p><p>m = S &minus; C &minus; 1 subtracts C instead of dividing by it. m = (S &minus; 1)/C subtracts 1 before dividing by C, which undoes the steps in the wrong order.</p>",
+"why": [
+"You subtracted C instead of dividing by it. First divide both sides by C: S/C = 1 + m.",
+"You subtracted 1 before dividing by C. C multiplies the whole (1 + m), so divide by C first, then subtract 1.",
+"You distributed incorrectly, treating C(1 + m) as m(C + 1). Divide by C and subtract 1: m = (S &minus; C)/C.",
+""
+]
+},
+{
+"id": "m45",
+"type": "mc",
+"skill": "Area from a perimeter equation",
+"difficulty": 2,
+"prompt": "<p>A rectangular banner for a store's grand opening is 3 times as long as it is wide. The perimeter of the banner is 96 inches. What is the area of the banner, in square inches?</p>",
+"options": [
+"432",
+"576",
+"1,728",
+"48"
+],
+"answer": 0,
+"explain": "<p>Let w be the width. Then the length is 3w.</p><p>Perimeter: 2(3w) + 2w = 96</p><p>6w + 2w = 96, so 8w = 96 and w = 12 inches.</p><p>Length: 3 &times; 12 = 36 inches.</p><p>Area: 36 &times; 12 = <strong>432 square inches</strong>.</p><p>576 treats the banner as a square with side 96 &divide; 4 = 24. 1,728 uses 24 as the width and 72 as the length, which gives a perimeter of 192, not 96. 48 is the sum of the length and width, not the area.</p>",
+"why": [
+"",
+"You treated the banner as a square with side 96 &divide; 4 = 24. The length is 3 times the width: 8w = 96, so w = 12 and l = 36.",
+"You used 24 and 72, which make a perimeter of 192. Use 2(3w) + 2w = 96 to get w = 12.",
+"48 is the length plus the width (36 + 12), half the perimeter. Area is length &times; width."
+]
+},
+{
+"id": "m46",
+"type": "mc",
+"skill": "Comparing linear functions",
+"difficulty": 3,
+"prompt": "<p>Two stores track their total sales, in dollars, w weeks after opening a new product line.</p><p>Store A: S = 250w + 1,800</p><p>Store B:</p><table><thead><tr><th>Week (w)</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead><tbody><tr><td>Total sales (S)</td><td>2,400</td><td>2,600</td><td>2,800</td><td>3,000</td></tr></tbody></table><p>Which statement is true?</p>",
+"options": [
+"Store B has the greater weekly rate of increase, and Store A has the greater starting amount.",
+"Store A has the greater weekly rate of increase and the greater starting amount.",
+"Store A has the greater weekly rate of increase, and Store B has the greater starting amount.",
+"Store B has the greater weekly rate of increase and the greater starting amount."
+],
+"answer": 2,
+"explain": "<p>Store A: in S = 250w + 1,800, the rate of increase is $250 per week, and the starting amount (w = 0) is $1,800.</p><p>Store B: sales rise by $200 each week (2,400 to 2,600 to 2,800 to 3,000), and the starting amount is $2,400.</p><p>Compare: 250 &gt; 200, so Store A grows faster. 2,400 &gt; 1,800, so Store B starts higher.</p><p>The true statement is <strong>Store A has the greater weekly rate of increase, and Store B has the greater starting amount</strong>.</p><p>(The two stores have equal sales when 250w + 1,800 = 200w + 2,400, so 50w = 600 and w = 12 weeks.)</p>",
+"why": [
+"Store B grows $200 a week, which is less than Store A's $250. The rates are backward in this choice.",
+"Store A starts at $1,800, but Store B starts at $2,400 (the value at w = 0). Store B has the greater starting amount.",
+"",
+"Store B's rate is $200 per week, less than $250. Only its starting amount is greater."
+]
+}
+]
+}
 ]
 }

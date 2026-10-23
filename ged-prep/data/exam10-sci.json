@@ -1,762 +1,1052 @@
 {
- "form": 10,
- "subject": "sci",
- "title": "Practice GED Form 10 — Science",
- "minutes": 90,
- "stimuli": [
-  {
-   "id": "s1",
-   "title": "Pitch of a Vibrating String",
-   "html": "<p>A music student used a single guitar string stretched across a wooden board. A movable bridge let her change the length of the part of the string that could vibrate. She hung the same 5-kilogram mass from the end of the string in every trial so that the tension never changed. For each length, she plucked the string and used a phone app to measure the frequency of the note, in hertz (Hz). Frequency is the number of vibrations per second; a higher frequency is heard as a higher pitch.</p><table><thead><tr><th>Vibrating length (cm)</th><th>Frequency (Hz)</th></tr></thead><tbody><tr><td>60</td><td>220</td></tr><tr><td>45</td><td>293</td></tr><tr><td>30</td><td>440</td></tr><tr><td>20</td><td>660</td></tr></tbody></table><p>Frequencies are rounded to the nearest whole number.</p>"
-  },
-  {
-   "id": "s2",
-   "title": "How Fast Does Sound Travel?",
-   "html": "<p>Sound is a wave of vibrations that passes from particle to particle through a material, called a medium. The table lists the approximate speed of sound in several media at about 20 &deg;C.</p><table><thead><tr><th>Medium</th><th>State</th><th>Approximate speed of sound (m/s)</th></tr></thead><tbody><tr><td>Air</td><td>Gas</td><td>343</td></tr><tr><td>Helium</td><td>Gas</td><td>1,007</td></tr><tr><td>Fresh water</td><td>Liquid</td><td>1,481</td></tr><tr><td>Steel</td><td>Solid</td><td>5,960</td></tr></tbody></table><p>Helium gas is much less dense than air.</p>"
-  },
-  {
-   "id": "s3",
-   "title": "Earplugs and Musicians' Hearing",
-   "html": "<p>Researchers followed three groups of adults for five years. All three groups had the same average age (about 35) and normal hearing at the start.</p><ul><li><strong>Group 1:</strong> 40 orchestra musicians who wore musicians' earplugs at every rehearsal and performance</li><li><strong>Group 2:</strong> 40 orchestra musicians who did not wear earplugs</li><li><strong>Group 3:</strong> 40 adults who were not musicians and did not work in noisy jobs</li></ul><p>At the start and end of the study, each person took a hearing test. The table shows the average change in the quietest sound each group could hear at a pitch of 4,000 Hz. A <em>larger</em> number means a <em>greater loss</em> of hearing.</p><table><thead><tr><th>Group</th><th>Average hearing loss after 5 years (dB)</th></tr></thead><tbody><tr><td>1 (musicians, earplugs)</td><td>3</td></tr><tr><td>2 (musicians, no earplugs)</td><td>11</td></tr><tr><td>3 (non-musicians)</td><td>2</td></tr></tbody></table><p>(Hypothetical data)</p>"
-  },
-  {
-   "id": "s4",
-   "title": "Singing Over the Noise",
-   "html": "<p>Male songbirds sing to attract mates and to warn rivals away from their territories. Biologists recorded songs of one songbird species in a large city and in a quiet forest 40 kilometers away. City birds sang with a lowest note that averaged about 600 hertz higher than the lowest note of forest birds. Traffic noise is loudest at low pitches, below about 2,000 hertz. When the researchers played recorded traffic noise near forest birds, many of those same birds raised the pitch of their songs within minutes. The city and forest birds belong to the same species and can interbreed.</p><p>(Description of a hypothetical study)</p>"
-  },
-  {
-   "id": "s5",
-   "title": "Spring Is Arriving Earlier",
-   "html": "<p>In a northern woodland, a small songbird called a warbler feeds its chicks mostly on caterpillars. Caterpillars are most plentiful for only a short time each spring, when young oak leaves first open. Warmer springs make the leaves, and the caterpillars, appear earlier. Warbler chicks need the most food about 10 days after they hatch.</p><p>Biologists recorded two dates each year, given as the day of the year (day 1 = January 1, day 121 = May 1).</p><table><thead><tr><th>Year</th><th>Peak caterpillar abundance (day of year)</th><th>Average warbler hatching date (day of year)</th></tr></thead><tbody><tr><td>1990</td><td>145</td><td>147</td></tr><tr><td>2000</td><td>140</td><td>146</td></tr><tr><td>2010</td><td>134</td><td>144</td></tr><tr><td>2020</td><td>128</td><td>143</td></tr></tbody></table><p>(Hypothetical data)</p>",
-   "figure": {
-    "type": "line",
-    "title": "Timing of Caterpillars and Warbler Chicks",
-    "xLabel": "Year",
-    "yLabel": "Day of year",
-    "labels": [
-     "1990",
-     "2000",
-     "2010",
-     "2020"
-    ],
-    "series": [
-     {
-      "name": "Peak caterpillars",
-      "values": [
-       145,
-       140,
-       134,
-       128
-      ]
-     },
-     {
-      "name": "Warbler hatching",
-      "values": [
-       147,
-       146,
-       144,
-       143
-      ]
-     }
-    ]
-   }
-  },
-  {
-   "id": "s6",
-   "title": "An Inherited Form of Hearing Loss",
-   "html": "<p>Inside the inner ear, thousands of tiny hair cells turn sound vibrations into nerve signals. In one inherited form of hearing loss, the hair cells do not work properly from birth. The allele for typical hearing (<strong>H</strong>) is dominant, and the allele that causes this hearing loss (<strong>h</strong>) is recessive.</p><p>Two parents both have typical hearing, but each carries one hearing-loss allele (genotype <strong>Hh</strong>). The Punnett square below sets up their cross.</p><table><thead><tr><th></th><th>H</th><th>h</th></tr></thead><tbody><tr><th>H</th><td>?</td><td>?</td></tr><tr><th>h</th><td>?</td><td>?</td></tr></tbody></table>"
-  },
-  {
-   "id": "s7",
-   "title": "Seashells in More Acidic Water",
-   "html": "<p>Ocean water absorbs carbon dioxide from the air. The CO<sub>2</sub> reacts with water to form carbonic acid, which lowers the pH of the ocean. The average pH of the surface ocean has dropped from about 8.2 to about 8.1 since the 1700s. Many sea animals build shells from calcium carbonate.</p><p>A student placed a 5.00-gram piece of clean seashell in each of four jars of salt water. The jars were identical except for the pH of the water, which the student adjusted at the start and held steady throughout. After 7 days, she dried each shell piece and measured its mass.</p><table><thead><tr><th>pH of water</th><th>Starting mass (g)</th><th>Mass after 7 days (g)</th></tr></thead><tbody><tr><td>8.2</td><td>5.00</td><td>4.98</td></tr><tr><td>7.8</td><td>5.00</td><td>4.91</td></tr><tr><td>7.4</td><td>5.00</td><td>4.80</td></tr><tr><td>7.0</td><td>5.00</td><td>4.62</td></tr></tbody></table>"
-  },
-  {
-   "id": "s8",
-   "title": "Water Temperature and Mosquito Development",
-   "html": "<p>Mosquitoes lay eggs in standing water, and the young live in the water until they become flying adults. Some kinds of mosquitoes carry the pathogens that cause diseases such as dengue fever. A lab group placed 200 mosquito eggs in each of five tanks. Every tank held the same volume of water and received the same amount of food each day. Only the water temperature was different. The group recorded how long the mosquitoes took to become adults and what percent of the eggs survived to adulthood.</p><table><thead><tr><th>Water temperature (&deg;C)</th><th>Days from egg to adult</th><th>Survival to adulthood (%)</th></tr></thead><tbody><tr><td>18</td><td>20</td><td>70</td></tr><tr><td>22</td><td>14</td><td>80</td></tr><tr><td>26</td><td>10</td><td>85</td></tr><tr><td>30</td><td>8</td><td>75</td></tr><tr><td>34</td><td>7</td><td>20</td></tr></tbody></table><p>(Hypothetical data)</p>"
-  },
-  {
-   "id": "s9",
-   "title": "Climate Clues Locked in Ice",
-   "html": "<p>Snow that falls on Antarctica slowly packs down into ice, trapping tiny bubbles of air. By drilling long cylinders of ice, called ice cores, scientists can measure the carbon dioxide (CO<sub>2</sub>) in air that is thousands of years old. Other measurements in the same ice show how the local temperature compared with the average of the last 1,000 years. The graph and table show approximate values from Antarctic ice cores. CO<sub>2</sub> is measured in parts per million (ppm).</p><table><thead><tr><th>Thousands of years ago</th><th>CO<sub>2</sub> (ppm)</th><th>Temperature compared with last 1,000 years (&deg;C)</th></tr></thead><tbody><tr><td>160</td><td>195</td><td>&minus;9</td></tr><tr><td>128</td><td>285</td><td>+2</td></tr><tr><td>100</td><td>230</td><td>&minus;5</td></tr><tr><td>60</td><td>210</td><td>&minus;7</td></tr><tr><td>20</td><td>185</td><td>&minus;9</td></tr><tr><td>10</td><td>260</td><td>&minus;1</td></tr><tr><td>1 (about the year 1000)</td><td>280</td><td>0</td></tr></tbody></table><p>Direct measurements of the air show that CO<sub>2</sub> reached about 420 ppm in the early 2020s.</p>",
-   "figure": {
-    "type": "line",
-    "title": "Antarctic Ice-Core Record (approximate)",
-    "xLabel": "Thousands of years ago",
-    "yLabel": "CO2 (ppm)",
-    "labels": [
-     "160",
-     "128",
-     "100",
-     "60",
-     "20",
-     "10",
-     "1"
-    ],
-    "series": [
-     {
-      "name": "CO2 (ppm)",
-      "values": [
-       195,
-       285,
-       230,
-       210,
-       185,
-       260,
-       280
-      ]
-     }
-    ]
-   }
-  },
-  {
-   "id": "s10",
-   "title": "Light Surfaces, Dark Surfaces",
-   "html": "<p>Albedo is the fraction of incoming sunlight that a surface reflects. An albedo of 0.85 means a surface reflects 85% of the sunlight that hits it and absorbs the rest. The table lists approximate albedos of some of Earth's surfaces.</p><table><thead><tr><th>Surface</th><th>Approximate albedo</th></tr></thead><tbody><tr><td>Fresh snow</td><td>0.85</td></tr><tr><td>Sea ice</td><td>0.60</td></tr><tr><td>Desert sand</td><td>0.40</td></tr><tr><td>Forest</td><td>0.15</td></tr><tr><td>Open ocean</td><td>0.06</td></tr></tbody></table><p>A class modeled the Arctic Ocean with two identical trays of water at 21.0 &deg;C placed under the same lamp. In Tray A, a sheet of white foam floated on the water to model sea ice. Tray B had no cover, and its dark bottom modeled open ocean. After 30 minutes, the water in Tray A was 22.5 &deg;C and the water in Tray B was 26.0 &deg;C.</p>"
-  },
-  {
-   "id": "s11",
-   "title": "Which Melting Ice Raises Sea Level?",
-   "html": "<p>A student set up two identical clear containers and placed 100 grams of ice in each.</p><ul><li><strong>Container A:</strong> The ice sat on top of a large rock that stuck up out of the water, like a glacier resting on land.</li><li><strong>Container B:</strong> The ice floated in the water, like sea ice.</li></ul><p>Right after the ice was added, the water in both containers reached the 500-milliliter (mL) mark. After all the ice melted, the water level in Container A was at 600 mL, and the water level in Container B was still at 500 mL.</p><p>Tide gauges are instruments that measure the height of the sea at a harbor. One harbor's tide gauge recorded an average sea-level rise of 3.6 millimeters (mm) per year over recent decades.</p>"
-  },
-  {
-   "id": "s12",
-   "title": "How Loud Is Too Loud?",
-   "html": "<p>Sound level is measured in decibels (dB). A sound engineer measured the sound level at different distances from the main speakers at an outdoor concert. Sound spreads out as it travels, so the level drops as the distance from the speakers increases.</p><table><thead><tr><th>Distance from speakers (m)</th><th>Sound level (dB)</th></tr></thead><tbody><tr><td>5</td><td>112</td></tr><tr><td>10</td><td>106</td></tr><tr><td>20</td><td>100</td></tr><tr><td>40</td><td>94</td></tr><tr><td>80</td><td>88</td></tr></tbody></table><p>Hearing-safety guidelines give a recommended maximum daily exposure time for each sound level. Louder sounds can damage the hair cells of the inner ear in less time.</p><table><thead><tr><th>Sound level (dB)</th><th>Recommended maximum exposure per day</th></tr></thead><tbody><tr><td>85</td><td>8 hours</td></tr><tr><td>88</td><td>4 hours</td></tr><tr><td>91</td><td>2 hours</td></tr><tr><td>94</td><td>1 hour</td></tr><tr><td>97</td><td>30 minutes</td></tr><tr><td>100</td><td>15 minutes</td></tr><tr><td>103</td><td>7.5 minutes</td></tr></tbody></table><p>(Measurements are approximate.)</p>"
-  }
- ],
- "parts": [
-  {
-   "name": "Science",
-   "items": [
-    {
-     "id": "q1",
-     "type": "mc",
-     "skill": "Identifying variables",
-     "difficulty": 1,
-     "stim": "s1",
-     "prompt": "<p>In this investigation, what is the <strong>independent</strong> variable?</p>",
-     "options": [
-      "The frequency of the note",
-      "The vibrating length of the string",
-      "The mass hanging from the string",
-      "The phone app used to measure frequency"
-     ],
-     "answer": 1,
-     "explain": "<p>The independent variable is the factor the experimenter changes on purpose. The student moved the bridge to set the vibrating length to 60, 45, 30, and 20 cm, so the <strong>vibrating length</strong> is the independent variable.</p><p>The frequency is the <em>dependent</em> variable, the result she measured. The hanging mass was kept the same in every trial, so it is a controlled variable.</p>"
-    },
-    {
-     "id": "q2",
-     "type": "fill",
-     "skill": "Predicting from a pattern in data",
-     "difficulty": 3,
-     "stim": "s1",
-     "prompt": "<p>Based on the pattern in the data, what frequency would the string produce if its vibrating length were set to <strong>40 cm</strong>? Enter a whole number.</p>",
-     "answer": [
-      "330"
-     ],
-     "value": 330,
-     "tol": 0.5,
-     "suffix": "Hz",
-     "explain": "<p>Look for the pattern: frequency &times; length stays about the same.</p><p>60 &times; 220 = 13,200<br>30 &times; 440 = 13,200<br>20 &times; 660 = 13,200<br>(45 &times; 293 &asymp; 13,200)</p><p>Frequency and length are <strong>inversely proportional</strong>: halving the length doubles the frequency. So at 40 cm:</p><p>13,200 &divide; 40 = <strong>330 Hz</strong></p><p>Do not simply average the frequencies at 45 cm and 30 cm, and do not assume the frequency drops as the string gets shorter; shorter strings vibrate faster and give higher notes.</p>"
-    },
-    {
-     "id": "q3",
-     "type": "fill",
-     "skill": "Calculating time from speed",
-     "difficulty": 2,
-     "stim": "s2",
-     "prompt": "<p>A railroad worker strikes a steel rail with a hammer. A second worker stands beside the same rail 1,192 meters away. How many seconds does the sound take to reach the second worker <strong>through the steel rail</strong>? Enter your answer as a decimal.</p>",
-     "answer": [
-      "0.2",
-      ".2",
-      "0.20"
-     ],
-     "value": 0.2,
-     "tol": 0.001,
-     "suffix": "seconds",
-     "explain": "<p>Time = distance &divide; speed.</p><p>The speed of sound in steel is 5,960 m/s.<br>1,192 m &divide; 5,960 m/s = <strong>0.2 s</strong></p><p>Using the speed in air instead gives 1,192 &divide; 343 &asymp; 3.5 s, which is how long the sound traveling through the air would take. The sound through the rail arrives more than 3 seconds earlier.</p>"
-    },
-    {
-     "id": "q4",
-     "type": "multi",
-     "skill": "Interpreting data in a table",
-     "difficulty": 2,
-     "stim": "s2",
-     "prompt": "<p>Which statements are supported by the information in the table and passage?</p><p>Select <strong>two</strong> answers.</p>",
-     "options": [
-      "Sound travels more than four times as fast in fresh water as in air.",
-      "Sound travels faster in denser gases.",
-      "Of the media listed, sound travels fastest through the solid.",
-      "Sound travels at the same speed in every gas.",
-      "Sound cannot travel through solids."
-     ],
-     "answer": [
-      0,
-      2
-     ],
-     "explain": "<p><strong>Fresh water:</strong> 1,481 &divide; 343 &asymp; 4.3, so sound moves more than four times as fast in water as in air.</p><p><strong>Solid:</strong> Steel, the only solid, has the highest speed (5,960 m/s).</p><p>The other statements are not supported. Helium is <em>less</em> dense than air, yet sound moves faster in helium (1,007 m/s) than in air (343 m/s), so &ldquo;faster in denser gases&rdquo; is contradicted. The two gases have different speeds. Steel is a solid, and sound travels through it very well.</p>"
-    },
-    {
-     "id": "q5",
-     "type": "mc",
-     "skill": "Wave equation",
-     "difficulty": 2,
-     "prompt": "<p>A tuning fork vibrates at 440 Hz. Sound travels through the air in the room at 343 m/s. Using <strong>wave speed = frequency &times; wavelength</strong>, what is the approximate wavelength of the sound wave?</p>",
-     "options": [
-      "0.78 m",
-      "1.28 m",
-      "97 m",
-      "150,920 m"
-     ],
-     "answer": 0,
-     "explain": "<p>Rearrange the equation to solve for wavelength:</p><p>wavelength = wave speed &divide; frequency<br>= 343 m/s &divide; 440 Hz<br>&asymp; <strong>0.78 m</strong></p><p>Dividing the other way (440 &divide; 343 &asymp; 1.28) flips the equation. Multiplying (343 &times; 440 = 150,920) uses the wrong operation, and 97 comes from subtracting.</p>",
-     "noShuffle": true
-    },
-    {
-     "id": "q6",
-     "type": "mc",
-     "skill": "Applying data from two tables",
-     "difficulty": 3,
-     "stim": "s12",
-     "prompt": "<p>A fan stands 20 m from the main speakers for an entire 2-hour concert. Based on the data, which statement is accurate?</p>",
-     "options": [
-      "The fan is safe, because 2 hours is the recommended limit at this distance.",
-      "The fan is safe, because the sound level 20 m away is below 85 dB.",
-      "The fan's exposure is about 8 times longer than the recommended maximum for that sound level.",
-      "The fan's exposure is about 2 times longer than the recommended maximum for that sound level."
-     ],
-     "answer": 2,
-     "explain": "<p>Step 1: At 20 m the sound level is <strong>100 dB</strong> (first table).</p><p>Step 2: The recommended maximum at 100 dB is <strong>15 minutes</strong> (second table).</p><p>Step 3: 2 hours = 120 minutes, and 120 &divide; 15 = <strong>8</strong>. The fan's exposure is 8 times the recommended limit.</p><p>The 2-hour limit belongs to 91 dB, not 100 dB. Notice the pattern in the guideline: each 3-dB increase cuts the safe time in half, so a small increase in decibels is a big increase in risk.</p>"
-    },
-    {
-     "id": "q7",
-     "type": "drag",
-     "skill": "Comparing sound and light waves",
-     "difficulty": 2,
-     "prompt": "<p>Sort each property into the type of wave it describes.</p>",
-     "choices": [
-      "Needs a medium such as air or water to travel",
-      "Can travel through the vacuum of space",
-      "Moves about 343 m/s in room-temperature air",
-      "Moves about 300,000 km/s in a vacuum",
-      "Is a longitudinal wave made of compressions in a material",
-      "Is a transverse electromagnetic wave"
-     ],
-     "bins": [
-      "Sound waves",
-      "Light waves"
-     ],
-     "answer": [
-      0,
-      1,
-      0,
-      1,
-      0,
-      1
-     ],
-     "explain": "<p><strong>Sound waves</strong> are mechanical, longitudinal waves: particles of a medium are pushed together (compressions) and spread apart. Without a medium there is nothing to vibrate, so sound cannot cross empty space. In air at room temperature, sound moves about 343 m/s.</p><p><strong>Light waves</strong> are transverse electromagnetic waves. They need no medium, which is why sunlight crosses space to reach Earth, and they travel about 300,000 km/s in a vacuum.</p><p>This is why, during a storm, you see lightning before you hear thunder.</p>"
-    },
-    {
-     "id": "q8",
-     "type": "mc",
-     "skill": "Experimental design: comparison groups",
-     "difficulty": 2,
-     "stim": "s3",
-     "prompt": "<p>Why did the researchers include Group 3, the adults who were not musicians?</p>",
-     "options": [
-      "To show how much hearing loss is normal from aging alone over five years",
-      "To test whether earplugs work for people who are not musicians",
-      "To increase the number of musicians in the study",
-      "To measure which instruments are the loudest"
-     ],
-     "answer": 0,
-     "explain": "<p>Everyone's hearing changes a little with age. Group 3 had the same average age but no musical or noisy-job exposure, so it shows the <strong>baseline</strong> amount of hearing loss expected over five years (2 dB). Researchers can then see how much <em>extra</em> loss the musicians had.</p><p>Group 3 did not wear earplugs and were not musicians, so they could not test earplugs or instruments.</p>"
-    },
-    {
-     "id": "q9",
-     "type": "mc",
-     "skill": "Drawing conclusions from data",
-     "difficulty": 2,
-     "stim": "s3",
-     "prompt": "<p>Which conclusion is best supported by the data?</p>",
-     "options": [
-      "Earplugs restored hearing that musicians had already lost.",
-      "Musicians who did not wear earplugs lost the least hearing of the three groups.",
-      "Playing music causes no hearing loss if a musician practices fewer than five years.",
-      "Musicians who wore earplugs lost much less hearing than musicians who did not, and about as much as non-musicians."
-     ],
-     "answer": 3,
-     "explain": "<p>Group 1 (earplugs) lost 3 dB, Group 2 (no earplugs) lost 11 dB, and Group 3 (non-musicians) lost 2 dB. The earplug group lost <strong>8 dB less</strong> than the musicians without earplugs and only 1 dB more than the non-musicians.</p><p>Every group <em>lost</em> some hearing, so nothing shows that hearing was restored. Group 2 lost the <em>most</em>, not the least. The study lasted five years for everyone and did not compare different amounts of practice time.</p>"
-    },
-    {
-     "id": "q10",
-     "type": "dropdown",
-     "skill": "Body systems: hearing",
-     "difficulty": 2,
-     "stim": "s3",
-     "prompt": "<p>Complete the description of how a person hears music.</p><p>Sound waves make the eardrum vibrate, and tiny bones pass the vibrations to the inner ear. There, hair cells change the vibrations into {{0}}. These signals travel along the auditory nerve to the {{1}}, which interprets them as sound. Because hearing depends on these cells and nerves, the ear is part of the {{2}} system.</p>",
-     "blanks": [
-      {
-       "options": [
-        "electrical nerve signals",
-        "light waves",
-        "chemical hormones",
-        "blood pressure changes"
-       ],
-       "answer": 0
-      },
-      {
-       "options": [
-        "heart",
-        "spinal cord only",
-        "brain",
-        "lungs"
-       ],
-       "answer": 2
-      },
-      {
-       "options": [
-        "digestive",
-        "nervous",
-        "circulatory",
-        "endocrine"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Hair cells in the inner ear act as sensors. They convert the mechanical vibrations of sound into <strong>electrical nerve signals</strong> (impulses). The auditory nerve carries these impulses to the <strong>brain</strong>, which interprets them as sound.</p><p>Sensing and interpreting information is the job of the <strong>nervous</strong> system. Hormones are chemical messengers of the endocrine system, which works more slowly and is not how sound signals are sent. Loud noise can damage hair cells, and in humans they do not grow back, which is why the musicians in the study lost hearing.</p>"
-    },
-    {
-     "id": "q11",
-     "type": "mc",
-     "skill": "Forming a hypothesis",
-     "difficulty": 2,
-     "stim": "s4",
-     "prompt": "<p>Which hypothesis best explains why city birds sing higher-pitched songs?</p>",
-     "options": [
-      "City birds are a separate species that cannot breed with forest birds.",
-      "Higher-pitched songs are less drowned out by low-pitched traffic noise, so mates and rivals can hear them.",
-      "Birds sing higher in cities because city air carries sound more slowly.",
-      "Forest birds sing lower because there are fewer birds in forests."
-     ],
-     "answer": 1,
-     "explain": "<p>The passage says traffic noise is loudest at low pitches. A song that starts higher avoids the pitches where the noise is loudest, so other birds can still hear it. Because songs are used to attract mates and warn rivals, being heard matters for survival and reproduction. This makes the best testable hypothesis.</p><p>The passage states that the birds are the same species and can interbreed, so the idea that city birds are a separate species is contradicted. Nothing in the passage supports the claims about air or bird numbers.</p>"
-    },
-    {
-     "id": "q12",
-     "type": "hotspot",
-     "skill": "Identifying supporting evidence",
-     "difficulty": 3,
-     "stim": "s4",
-     "prompt": "<p>A student claims that the higher songs are a behavior individual birds can change, rather than only an inherited trait that changed over many generations through natural selection. Click the sentence from the passage that gives the <strong>strongest</strong> evidence for this claim.</p>",
-     "spans": [
-      "Biologists recorded songs of one songbird species in a large city and in a quiet forest 40 kilometers away.",
-      "City birds sang with a lowest note that averaged about 600 hertz higher than the lowest note of forest birds.",
-      "Traffic noise is loudest at low pitches, below about 2,000 hertz.",
-      "When the researchers played recorded traffic noise near forest birds, many of those same birds raised the pitch of their songs within minutes.",
-      "The city and forest birds belong to the same species and can interbreed."
-     ],
-     "answer": 3,
-     "explain": "<p>A change that happens <strong>within minutes in the same individual birds</strong> cannot be the result of natural selection, which works over generations as individuals with helpful inherited traits survive and reproduce more. The playback experiment shows individual birds adjusting their songs in response to noise, which directly supports the claim.</p><p>The 600-hertz difference shows <em>that</em> city songs are higher but not <em>how</em> the difference arose; it could fit either explanation. The other sentences describe the setting, not evidence about how the change happens.</p>"
-    },
-    {
-     "id": "q13",
-     "type": "mc",
-     "skill": "Newton's second law (net force)",
-     "difficulty": 3,
-     "prompt": "<p>A stagehand pushes a 60-kilogram equipment case across a stage with a force of 150 newtons. Friction between the case and the floor exerts a force of 30 newtons in the opposite direction. Using <strong>F = ma</strong>, what is the acceleration of the case?</p>",
-     "options": [
-      "0.5 m/s<sup>2</sup>",
-      "2 m/s<sup>2</sup>",
-      "2.5 m/s<sup>2</sup>",
-      "3 m/s<sup>2</sup>"
-     ],
-     "answer": 1,
-     "explain": "<p>Step 1: Find the <strong>net force</strong>. The forces act in opposite directions, so subtract:<br>150 N &minus; 30 N = 120 N</p><p>Step 2: Solve F = ma for a:<br>a = F &divide; m = 120 N &divide; 60 kg = <strong>2 m/s<sup>2</sup></strong></p><p>Using only the 150-N push gives 150 &divide; 60 = 2.5 m/s<sup>2</sup>, which ignores friction. Adding the forces gives 180 &divide; 60 = 3 m/s<sup>2</sup>, but friction works against the push, not with it.</p>",
-     "noShuffle": true
-    },
-    {
-     "id": "q14",
-     "type": "mc",
-     "skill": "Ohm's law",
-     "difficulty": 2,
-     "prompt": "<p>An amplifier applies 16 volts across a speaker that has a resistance of 8 ohms. Using <strong>V = IR</strong> (voltage = current &times; resistance), how much current flows through the speaker?</p>",
-     "options": [
-      "0.5 amperes",
-      "2 amperes",
-      "24 amperes",
-      "128 amperes"
-     ],
-     "answer": 1,
-     "explain": "<p>Solve Ohm's law for current: I = V &divide; R.</p><p>I = 16 V &divide; 8 &Omega; = <strong>2 amperes</strong></p><p>Dividing resistance by voltage (8 &divide; 16 = 0.5) flips the formula. Multiplying (16 &times; 8 = 128) or adding (16 + 8 = 24) uses the wrong operation.</p>",
-     "noShuffle": true
-    },
-    {
-     "id": "q15",
-     "type": "mc",
-     "skill": "Energy transformations",
-     "difficulty": 1,
-     "prompt": "<p>When an electric guitar is played through an amplifier, the speaker's cone moves back and forth and produces sound. Which energy change happens <strong>in the speaker</strong>?</p>",
-     "options": [
-      "Sound energy is changed into electrical energy.",
-      "Chemical energy is changed into thermal energy.",
-      "Electrical energy is changed into mechanical (motion) energy and then sound energy.",
-      "Light energy is changed into electrical energy."
-     ],
-     "answer": 2,
-     "explain": "<p>A speaker receives an <strong>electrical</strong> signal from the amplifier. A magnet and coil turn that electrical energy into the <strong>motion</strong> of the cone, and the moving cone pushes on the air to create <strong>sound</strong> waves.</p><p>Sound changing into electrical energy is what a <em>microphone</em> does, the reverse of a speaker. Light to electrical energy describes a solar cell.</p>"
-    },
-    {
-     "id": "q16",
-     "type": "mc",
-     "skill": "Reading a line graph",
-     "difficulty": 2,
-     "stim": "s5",
-     "prompt": "<p>How did the number of days between peak caterpillar abundance and the average warbler hatching date change from 1990 to 2020?</p>",
-     "options": [
-      "It decreased from 15 days to 2 days.",
-      "It stayed the same at about 2 days.",
-      "It increased from 2 days to 15 days.",
-      "It increased from 2 days to 25 days."
-     ],
-     "answer": 2,
-     "explain": "<p>Subtract the caterpillar date from the hatching date:</p><p>1990: 147 &minus; 145 = 2 days<br>2020: 143 &minus; 128 = <strong>15 days</strong></p><p>The caterpillar peak moved 17 days earlier (145 to 128), but hatching moved only 4 days earlier (147 to 143), so the gap <strong>grew from 2 to 15 days</strong>.</p><p>The 25-day figure is the gap between the caterpillar peak and the chicks' time of greatest need (143 + 10 = 153, and 153 &minus; 128 = 25), not the hatching date the question asks about.</p>"
-    },
-    {
-     "id": "q17",
-     "type": "mc",
-     "skill": "Ecosystem interactions",
-     "difficulty": 3,
-     "stim": "s5",
-     "prompt": "<p>Based on the passage and data, which outcome is <strong>most likely</strong> if this trend continues?</p>",
-     "options": [
-      "Oak trees stop producing leaves, because caterpillars appear too early.",
-      "More warbler chicks survive, because caterpillars appear earlier each year.",
-      "Caterpillar numbers drop sharply, because warblers eat more of them.",
-      "Fewer warbler chicks survive, because the caterpillar peak is over before the chicks need the most food."
-     ],
-     "answer": 3,
-     "explain": "<p>Chicks need the most food about 10 days after hatching. In 2020 that was about day 153, which is <strong>25 days after</strong> the caterpillar peak (day 128). When food is scarce at the time chicks need it most, fewer chicks are likely to survive. This kind of timing problem in a food chain is called a mismatch.</p><p>Earlier caterpillars help only if the birds' timing shifts too, and hatching has barely moved. With the mismatch, warblers catch fewer caterpillars at the peak, not more. Nothing in the passage suggests oaks stop making leaves; warmer springs make leaves open <em>earlier</em>.</p>"
-    },
-    {
-     "id": "q18",
-     "type": "fill",
-     "skill": "Punnett square probability",
-     "difficulty": 2,
-     "stim": "s6",
-     "prompt": "<p>Complete the Punnett square. What is the percent chance that a child of these two parents will have this form of hearing loss? Enter a number only.</p>",
-     "answer": [
-      "25",
-      "25%"
-     ],
-     "value": 25,
-     "tol": 0.001,
-     "suffix": "%",
-     "explain": "<p>The four boxes of the Punnett square are <strong>HH</strong>, <strong>Hh</strong>, <strong>Hh</strong>, and <strong>hh</strong>.</p><p>Only a child with two recessive alleles (hh) has the hearing loss. That is 1 of 4 boxes:</p><p>1 &divide; 4 = 0.25 = <strong>25%</strong></p><p>Answering 50% counts the two Hh boxes, but those children are carriers with typical hearing, because H is dominant.</p>"
-    },
-    {
-     "id": "q19",
-     "type": "mc",
-     "skill": "Genotypes and phenotypes",
-     "difficulty": 3,
-     "stim": "s6",
-     "prompt": "<p>One child of these parents has typical hearing. Which description of that child's possible genotypes is correct?</p>",
-     "options": [
-      "The child must be homozygous dominant (two typical-hearing alleles).",
-      "The child must be heterozygous (one typical-hearing allele and one hearing-loss allele).",
-      "The child could be homozygous recessive (two hearing-loss alleles) or heterozygous.",
-      "The child could be homozygous dominant or heterozygous, and is twice as likely to be heterozygous."
-     ],
-     "answer": 3,
-     "explain": "<p>Children with typical hearing come from the three boxes HH, Hh, and Hh. So the child could be <strong>homozygous dominant (HH)</strong> or <strong>heterozygous (Hh)</strong>. Of those three equally likely boxes, two are Hh, so heterozygous is <strong>twice as likely</strong> (a 2-in-3 chance versus 1-in-3).</p><p>A homozygous recessive child (hh) would have the hearing loss, so that choice is ruled out. Neither &ldquo;must be&rdquo; statement is correct, because both HH and Hh produce typical hearing.</p>"
-    },
-    {
-     "id": "q20",
-     "type": "dropdown",
-     "skill": "Balancing chemical equations",
-     "difficulty": 2,
-     "prompt": "<p>Natural gas is mostly methane (CH<sub>4</sub>). Burning it releases energy and carbon dioxide, a greenhouse gas. Choose the coefficients that balance the equation.</p><p>CH<sub>4</sub> + {{0}} O<sub>2</sub> &rarr; CO<sub>2</sub> + {{1}} H<sub>2</sub>O</p>",
-     "blanks": [
-      {
-       "options": [
-        "1",
-        "2",
-        "3",
-        "4"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "1",
-        "2",
-        "3",
-        "4"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Balance one element at a time.</p><p><strong>Carbon:</strong> 1 C on the left (CH<sub>4</sub>) and 1 C on the right (CO<sub>2</sub>). Balanced.</p><p><strong>Hydrogen:</strong> 4 H on the left. Each H<sub>2</sub>O has 2 H, so you need <strong>2</strong> H<sub>2</sub>O.</p><p><strong>Oxygen:</strong> The right side now has 2 O (in CO<sub>2</sub>) + 2 O (in 2 H<sub>2</sub>O) = 4 O. Each O<sub>2</sub> has 2 O, so you need <strong>2</strong> O<sub>2</sub>.</p><p>Balanced equation: CH<sub>4</sub> + 2 O<sub>2</sub> &rarr; CO<sub>2</sub> + 2 H<sub>2</sub>O. Check: 1 C, 4 H, 4 O on each side.</p>"
-    },
-    {
-     "id": "q21",
-     "type": "fill",
-     "skill": "Conservation of mass",
-     "difficulty": 2,
-     "prompt": "<p>In a closed container, 16 grams of methane burns completely with 64 grams of oxygen. The reaction produces 44 grams of carbon dioxide and some water. How many grams of water are produced?</p>",
-     "answer": [
-      "36"
-     ],
-     "value": 36,
-     "tol": 0.001,
-     "suffix": "grams",
-     "explain": "<p>By the <strong>law of conservation of mass</strong>, the total mass of the reactants equals the total mass of the products.</p><p>Mass of reactants: 16 g + 64 g = 80 g<br>Mass of water = 80 g &minus; 44 g = <strong>36 g</strong></p><p>Subtracting 44 from only the 64 grams of oxygen (to get 20 g) leaves out the mass of the methane.</p>"
-    },
-    {
-     "id": "q22",
-     "type": "mc",
-     "skill": "Acids, bases, and pH",
-     "difficulty": 2,
-     "stim": "s7",
-     "prompt": "<p>Which conclusion is best supported by the student's results?</p>",
-     "options": [
-      "Shells lost more mass as the water became more acidic.",
-      "Shells gained mass as the pH of the water decreased.",
-      "The pH of the water had no effect on the shells.",
-      "Shells lost the most mass in the most basic water."
-     ],
-     "answer": 0,
-     "explain": "<p>Lower pH means more acidic. As the pH dropped from 8.2 to 7.0, the mass lost increased: 0.02 g, 0.09 g, 0.20 g, and 0.38 g. So <strong>shells lost more mass in more acidic water</strong>.</p><p>No shell gained mass; every final mass is below 5.00 g. The most basic water (pH 8.2, the highest pH) caused the <em>least</em> loss, not the most.</p>"
-    },
-    {
-     "id": "q23",
-     "type": "mc",
-     "skill": "Heat transfer",
-     "difficulty": 1,
-     "prompt": "<p>On a summer afternoon, sunlight heats a blacktop parking lot. Air touching the hot pavement warms, becomes less dense, and rises, while cooler air moves in to take its place. What is this rising and sinking movement of air called?</p>",
-     "options": [
-      "Conduction",
-      "Radiation",
-      "Evaporation",
-      "Convection"
-     ],
-     "answer": 3,
-     "explain": "<p><strong>Convection</strong> is heat transfer by the movement of a fluid (a liquid or gas): warm, less-dense air rises and cooler, denser air sinks to replace it, forming a current.</p><p>Conduction is transfer by direct contact, such as the pavement warming the thin layer of air touching it. Radiation is transfer by electromagnetic waves, such as sunlight reaching the pavement. Evaporation is a change of state, not the movement of the air.</p>"
-    },
-    {
-     "id": "q24",
-     "type": "drag",
-     "skill": "Carbon cycle",
-     "difficulty": 2,
-     "prompt": "<p>Carbon dioxide (CO<sub>2</sub>) moves into and out of the atmosphere through many processes. Sort each process by its effect on the amount of CO<sub>2</sub> in the air.</p>",
-     "choices": [
-      "Burning gasoline in a car engine",
-      "Photosynthesis by forest trees",
-      "Cellular respiration in animals",
-      "Decomposers breaking down fallen leaves",
-      "Algae growing in the ocean",
-      "Burning coal in a power plant"
-     ],
-     "bins": [
-      "Adds CO2 to the air",
-      "Removes CO2 from the air"
-     ],
-     "answer": [
-      0,
-      1,
-      0,
-      0,
-      1,
-      0
-     ],
-     "explain": "<p><strong>Removes CO<sub>2</sub>:</strong> Photosynthesis uses carbon dioxide and water to make glucose. Both forest trees and ocean algae carry out photosynthesis.</p><p><strong>Adds CO<sub>2</sub>:</strong> Cellular respiration in animals and in decomposers breaks down food and releases carbon dioxide. Burning fossil fuels such as gasoline and coal releases carbon that was stored underground for millions of years.</p><p>A common mistake is thinking only living things affect the carbon cycle, or that decomposers remove carbon. Decomposers return carbon from dead matter to the air through respiration.</p>"
-    },
-    {
-     "id": "q25",
-     "type": "dropdown",
-     "skill": "Cellular respiration",
-     "difficulty": 2,
-     "prompt": "<p>A singer's breathing muscles need a steady supply of energy during a long performance. Complete the statements about how muscle cells get that energy.</p><p>Muscle cells release energy from glucose through cellular respiration, which takes place mainly in the {{0}}. In this process, glucose reacts with {{1}}, and the products are water and {{2}}, which the singer breathes out.</p>",
-     "blanks": [
-      {
-       "options": [
-        "chloroplasts",
-        "nucleus",
-        "mitochondria",
-        "cell wall"
-       ],
-       "answer": 2
-      },
-      {
-       "options": [
-        "oxygen",
-        "carbon dioxide",
-        "nitrogen",
-        "sunlight"
-       ],
-       "answer": 0
-      },
-      {
-       "options": [
-        "oxygen",
-        "glucose",
-        "carbon dioxide",
-        "starch"
-       ],
-       "answer": 2
-      }
-     ],
-     "explain": "<p>Cellular respiration: glucose + oxygen &rarr; carbon dioxide + water + energy (ATP).</p><p>Most of this process takes place in the <strong>mitochondria</strong>. Glucose reacts with <strong>oxygen</strong> that the singer breathes in, and the waste <strong>carbon dioxide</strong> is carried by the blood to the lungs and exhaled.</p><p>Chloroplasts carry out photosynthesis and are found in plant cells, not human muscle cells. Animal cells have no cell wall. Carbon dioxide is a product of respiration, not a reactant.</p>"
-    },
-    {
-     "id": "q26",
-     "type": "mc",
-     "skill": "Homeostasis",
-     "difficulty": 2,
-     "prompt": "<p>During a heat wave, a person's body temperature begins to rise. Which response helps return body temperature to normal?</p>",
-     "options": [
-      "Shivering, which makes muscles produce more heat",
-      "Blood vessels near the skin narrowing so less blood reaches the skin",
-      "Sweating, because evaporating sweat carries heat away from the skin",
-      "Goose bumps, which trap a layer of warm air near the skin"
-     ],
-     "answer": 2,
-     "explain": "<p>Keeping a stable internal temperature is part of <strong>homeostasis</strong>. When the body overheats, sweat glands release sweat, and as the sweat <strong>evaporates</strong> it absorbs heat from the skin, cooling the body. Blood vessels near the skin also widen to release more heat. This is a negative feedback loop: the response reverses the change.</p><p>Shivering, narrowing blood vessels, and goose bumps all <em>conserve or produce</em> heat. They are responses to being too cold and would make overheating worse.</p>"
-    },
-    {
-     "id": "q27",
-     "type": "mc",
-     "skill": "Interpreting data in a table",
-     "difficulty": 2,
-     "stim": "s8",
-     "prompt": "<p>Each tank started with 200 eggs. Which water temperature produced the <strong>greatest number</strong> of adult mosquitoes?</p>",
-     "options": [
-      "22 &deg;C",
-      "26 &deg;C",
-      "30 &deg;C",
-      "34 &deg;C"
-     ],
-     "answer": 1,
-     "explain": "<p>Number of adults = 200 eggs &times; survival percent.</p><p>22 &deg;C: 200 &times; 0.80 = 160<br>26 &deg;C: 200 &times; 0.85 = <strong>170</strong><br>30 &deg;C: 200 &times; 0.75 = 150<br>34 &deg;C: 200 &times; 0.20 = 40<br>(18 &deg;C: 200 &times; 0.70 = 140)</p><p>The most adults came from the <strong>26 &deg;C</strong> tank. Mosquitoes developed fastest at 34 &deg;C (7 days), but so few survived that this tank produced the fewest adults. Speed of development and number of survivors are different measurements.</p>",
-     "noShuffle": true
-    },
-    {
-     "id": "q28",
-     "type": "multi",
-     "skill": "Evaluating conclusions",
-     "difficulty": 3,
-     "stim": "s8",
-     "prompt": "<p>Which statements are supported by the data?</p><p>Select <strong>two</strong> answers.</p>",
-     "options": [
-      "Between 18 &deg;C and 30 &deg;C, warmer water shortened the time from egg to adult.",
-      "Warmer water always increased the percent of mosquitoes that survived.",
-      "Survival dropped sharply when the water reached 34 &deg;C.",
-      "At 18 &deg;C, no mosquitoes survived to adulthood.",
-      "The mosquitoes received more food in the warmer tanks."
-     ],
-     "answer": [
-      0,
-      2
-     ],
-     "explain": "<p><strong>Supported:</strong> From 18 &deg;C to 30 &deg;C, development time fell from 20 to 14 to 10 to 8 days. Survival fell from 75% at 30 &deg;C to only 20% at 34 &deg;C, a sharp drop.</p><p><strong>Not supported:</strong> Survival rose only up to 26 &deg;C and then fell, so warmer water did not <em>always</em> help. At 18 &deg;C, 70% survived. The passage says every tank received the same amount of food, so food was a controlled variable.</p><p>These results suggest why warming in cooler regions could let some mosquitoes produce more generations each season, while extreme heat can limit them.</p>"
-    },
-    {
-     "id": "q29",
-     "type": "mc",
-     "skill": "Correlation in data",
-     "difficulty": 2,
-     "stim": "s9",
-     "prompt": "<p>Which statement best describes the relationship shown in the ice-core data?</p>",
-     "options": [
-      "CO<sub>2</sub> levels and temperature tended to rise and fall together.",
-      "CO<sub>2</sub> levels were highest when temperatures were lowest.",
-      "Temperature stayed about the same while CO<sub>2</sub> levels changed.",
-      "CO<sub>2</sub> levels rose steadily for the entire 160,000 years."
-     ],
-     "answer": 0,
-     "explain": "<p>When CO<sub>2</sub> was low (185&ndash;195 ppm at 160 and 20 thousand years ago), temperatures were about 9 &deg;C colder. When CO<sub>2</sub> was high (285 ppm at 128 thousand years ago, 280 ppm about 1,000 years ago), temperatures were near or above the modern average. The two measures <strong>rose and fell together</strong>, a positive correlation.</p><p>CO<sub>2</sub> did not rise steadily; it dropped after 128 thousand years ago and rose again later. Temperature changed by as much as 11 &deg;C, so it did not stay the same.</p>"
-    },
-    {
-     "id": "q30",
-     "type": "mc",
-     "skill": "Comparing data to a record",
-     "difficulty": 3,
-     "stim": "s9",
-     "prompt": "<p>How does the CO<sub>2</sub> level of the early 2020s compare with the ice-core record?</p>",
-     "options": [
-      "It is about the same as the warmest period in the record, 128,000 years ago.",
-      "It is lower than the levels during the coldest periods in the record.",
-      "It is about 140 ppm higher than the level of about 1,000 years ago and higher than any value in the record.",
-      "It is about 140 ppm lower than the level of about 1,000 years ago."
-     ],
-     "answer": 2,
-     "explain": "<p>The early-2020s level is about 420 ppm. About 1,000 years ago it was 280 ppm:</p><p>420 &minus; 280 = <strong>140 ppm higher</strong></p><p>The highest value in the ice-core table is 285 ppm, so 420 ppm is well above every value in the record. It is not close to the 285 ppm of the warm period 128,000 years ago, and it is far above the cold-period values of 185&ndash;195 ppm.</p>"
-    },
-    {
-     "id": "q31",
-     "type": "mc",
-     "skill": "Feedback in Earth's systems",
-     "difficulty": 3,
-     "stim": "s10",
-     "prompt": "<p>Based on the passage, why can the melting of Arctic sea ice cause even more warming?</p>",
-     "options": [
-      "Melting sea ice raises sea level, which reflects more sunlight back to space.",
-      "Open ocean has a lower albedo than sea ice, so it absorbs more sunlight, which warms the water and melts more ice.",
-      "Sea ice has a lower albedo than open ocean, so removing it reduces the sunlight absorbed.",
-      "The foam in Tray A produced heat, which shows that ice warms the water below it."
-     ],
-     "answer": 1,
-     "explain": "<p>Sea ice reflects about 60% of sunlight (albedo 0.60), while open ocean reflects only about 6% (albedo 0.06) and <strong>absorbs about 94%</strong>. In the model, the uncovered tray warmed 5.0 &deg;C (21.0 to 26.0) while the covered tray warmed only 1.5 &deg;C (21.0 to 22.5).</p><p>When ice melts, more dark water is exposed, more sunlight is absorbed, the water warms, and still more ice melts. A change that strengthens itself like this is a <strong>positive feedback</strong>.</p><p>Sea ice has the <em>higher</em> albedo, not the lower. The foam did not produce heat; it reflected light, which is why Tray A stayed cooler.</p>"
-    },
-    {
-     "id": "q32",
-     "type": "mc",
-     "skill": "Interpreting a model",
-     "difficulty": 2,
-     "stim": "s11",
-     "prompt": "<p>Based on the student's model, melting of which ice would most directly raise global sea level?</p>",
-     "options": [
-      "Floating sea ice in the Arctic Ocean",
-      "Ice cubes floating in a glass of water",
-      "Icebergs that have already broken off and are floating at sea",
-      "The thick ice sheet resting on the land of Greenland"
-     ],
-     "answer": 3,
-     "explain": "<p>In Container A, ice resting on land (the rock) added its water to the container when it melted, raising the level from 500 mL to 600 mL. In Container B, floating ice was already pushing aside its own weight of water, so melting did not change the level.</p><p>So ice that sits on land, like the <strong>Greenland ice sheet</strong>, raises sea level when its meltwater flows into the ocean. Arctic sea ice, floating icebergs, and floating ice cubes are all floating ice, like Container B.</p>"
-    },
-    {
-     "id": "q33",
-     "type": "fill",
-     "skill": "Calculating with rates",
-     "difficulty": 1,
-     "stim": "s11",
-     "prompt": "<p>If sea level at the harbor keeps rising at the average rate recorded by its tide gauge, by how many millimeters will it rise over the next 25 years?</p>",
-     "answer": [
-      "90"
-     ],
-     "value": 90,
-     "tol": 0.001,
-     "suffix": "mm",
-     "explain": "<p>Total change = rate &times; time.</p><p>3.6 mm per year &times; 25 years = <strong>90 mm</strong></p><p>That is 9 centimeters, about the width of a deck of playing cards. Dividing (25 &divide; 3.6) does not give a distance.</p>"
-    },
-    {
-     "id": "q34",
-     "type": "mc",
-     "skill": "The Sun as an energy source",
-     "difficulty": 1,
-     "prompt": "<p>Sunlight provides almost all of the energy that drives Earth's weather and climate. What process produces this energy in the Sun's core?</p>",
-     "options": [
-      "Nuclear fusion of hydrogen into helium",
-      "Burning of coal and other fuels",
-      "Nuclear fission of uranium into lighter elements",
-      "Reflection of light from the other planets"
-     ],
-     "answer": 0,
-     "explain": "<p>In the Sun's core, extreme temperature and pressure force hydrogen nuclei together to form helium. This <strong>nuclear fusion</strong> releases enormous amounts of energy, which travels to Earth as electromagnetic radiation, including visible light.</p><p>The Sun is not burning; burning is a chemical reaction that needs oxygen. Fission splits heavy atoms and is used in nuclear power plants on Earth, not in the Sun. Planets reflect sunlight; they are not the source of it.</p>"
-    }
-   ]
-  }
- ]
+"form": 10,
+"subject": "sci",
+"title": "Practice GED Form 10 — Science",
+"minutes": 90,
+"stimuli": [
+{
+"id": "s1",
+"title": "Pitch of a Vibrating String",
+"html": "<p>A music student used a single guitar string stretched across a wooden board. A movable bridge let her change the length of the part of the string that could vibrate. She hung the same 5-kilogram mass from the end of the string in every trial so that the tension never changed. For each length, she plucked the string and used a phone app to measure the frequency of the note, in hertz (Hz). Frequency is the number of vibrations per second; a higher frequency is heard as a higher pitch.</p><table><thead><tr><th>Vibrating length (cm)</th><th>Frequency (Hz)</th></tr></thead><tbody><tr><td>60</td><td>220</td></tr><tr><td>45</td><td>293</td></tr><tr><td>30</td><td>440</td></tr><tr><td>20</td><td>660</td></tr></tbody></table><p>Frequencies are rounded to the nearest whole number.</p>"
+},
+{
+"id": "s2",
+"title": "How Fast Does Sound Travel?",
+"html": "<p>Sound is a wave of vibrations that passes from particle to particle through a material, called a medium. The table lists the approximate speed of sound in several media at about 20 &deg;C.</p><table><thead><tr><th>Medium</th><th>State</th><th>Approximate speed of sound (m/s)</th></tr></thead><tbody><tr><td>Air</td><td>Gas</td><td>343</td></tr><tr><td>Helium</td><td>Gas</td><td>1,007</td></tr><tr><td>Fresh water</td><td>Liquid</td><td>1,481</td></tr><tr><td>Steel</td><td>Solid</td><td>5,960</td></tr></tbody></table><p>Helium gas is much less dense than air.</p>"
+},
+{
+"id": "s3",
+"title": "Earplugs and Musicians' Hearing",
+"html": "<p>Researchers followed three groups of adults for five years. All three groups had the same average age (about 35) and normal hearing at the start.</p><ul><li><strong>Group 1:</strong> 40 orchestra musicians who wore musicians' earplugs at every rehearsal and performance</li><li><strong>Group 2:</strong> 40 orchestra musicians who did not wear earplugs</li><li><strong>Group 3:</strong> 40 adults who were not musicians and did not work in noisy jobs</li></ul><p>At the start and end of the study, each person took a hearing test. The table shows the average change in the quietest sound each group could hear at a pitch of 4,000 Hz. A <em>larger</em> number means a <em>greater loss</em> of hearing.</p><table><thead><tr><th>Group</th><th>Average hearing loss after 5 years (dB)</th></tr></thead><tbody><tr><td>1 (musicians, earplugs)</td><td>3</td></tr><tr><td>2 (musicians, no earplugs)</td><td>11</td></tr><tr><td>3 (non-musicians)</td><td>2</td></tr></tbody></table><p>(Hypothetical data)</p>"
+},
+{
+"id": "s4",
+"title": "Singing Over the Noise",
+"html": "<p>Male songbirds sing to attract mates and to warn rivals away from their territories. Biologists recorded songs of one songbird species in a large city and in a quiet forest 40 kilometers away. City birds sang with a lowest note that averaged about 600 hertz higher than the lowest note of forest birds. Traffic noise is loudest at low pitches, below about 2,000 hertz. When the researchers played recorded traffic noise near forest birds, many of those same birds raised the pitch of their songs within minutes. The city and forest birds belong to the same species and can interbreed.</p><p>(Description of a hypothetical study)</p>"
+},
+{
+"id": "s5",
+"title": "Spring Is Arriving Earlier",
+"html": "<p>In a northern woodland, a small songbird called a warbler feeds its chicks mostly on caterpillars. Caterpillars are most plentiful for only a short time each spring, when young oak leaves first open. Warmer springs make the leaves, and the caterpillars, appear earlier. Warbler chicks need the most food about 10 days after they hatch.</p><p>Biologists recorded two dates each year, given as the day of the year (day 1 = January 1, day 121 = May 1).</p><table><thead><tr><th>Year</th><th>Peak caterpillar abundance (day of year)</th><th>Average warbler hatching date (day of year)</th></tr></thead><tbody><tr><td>1990</td><td>145</td><td>147</td></tr><tr><td>2000</td><td>140</td><td>146</td></tr><tr><td>2010</td><td>134</td><td>144</td></tr><tr><td>2020</td><td>128</td><td>143</td></tr></tbody></table><p>(Hypothetical data)</p>",
+"figure": {
+"type": "line",
+"title": "Timing of Caterpillars and Warbler Chicks",
+"xLabel": "Year",
+"yLabel": "Day of year",
+"labels": [
+"1990",
+"2000",
+"2010",
+"2020"
+],
+"series": [
+{
+"name": "Peak caterpillars",
+"values": [
+145,
+140,
+134,
+128
+]
+},
+{
+"name": "Warbler hatching",
+"values": [
+147,
+146,
+144,
+143
+]
+}
+]
+}
+},
+{
+"id": "s6",
+"title": "An Inherited Form of Hearing Loss",
+"html": "<p>Inside the inner ear, thousands of tiny hair cells turn sound vibrations into nerve signals. In one inherited form of hearing loss, the hair cells do not work properly from birth. The allele for typical hearing (<strong>H</strong>) is dominant, and the allele that causes this hearing loss (<strong>h</strong>) is recessive.</p><p>Two parents both have typical hearing, but each carries one hearing-loss allele (genotype <strong>Hh</strong>). The Punnett square below sets up their cross.</p><table><thead><tr><th></th><th>H</th><th>h</th></tr></thead><tbody><tr><th>H</th><td>?</td><td>?</td></tr><tr><th>h</th><td>?</td><td>?</td></tr></tbody></table>"
+},
+{
+"id": "s7",
+"title": "Seashells in More Acidic Water",
+"html": "<p>Ocean water absorbs carbon dioxide from the air. The CO<sub>2</sub> reacts with water to form carbonic acid, which lowers the pH of the ocean. The average pH of the surface ocean has dropped from about 8.2 to about 8.1 since the 1700s. Many sea animals build shells from calcium carbonate.</p><p>A student placed a 5.00-gram piece of clean seashell in each of four jars of salt water. The jars were identical except for the pH of the water, which the student adjusted at the start and held steady throughout. After 7 days, she dried each shell piece and measured its mass.</p><table><thead><tr><th>pH of water</th><th>Starting mass (g)</th><th>Mass after 7 days (g)</th></tr></thead><tbody><tr><td>8.2</td><td>5.00</td><td>4.98</td></tr><tr><td>7.8</td><td>5.00</td><td>4.91</td></tr><tr><td>7.4</td><td>5.00</td><td>4.80</td></tr><tr><td>7.0</td><td>5.00</td><td>4.62</td></tr></tbody></table>"
+},
+{
+"id": "s8",
+"title": "Water Temperature and Mosquito Development",
+"html": "<p>Mosquitoes lay eggs in standing water, and the young live in the water until they become flying adults. Some kinds of mosquitoes carry the pathogens that cause diseases such as dengue fever. A lab group placed 200 mosquito eggs in each of five tanks. Every tank held the same volume of water and received the same amount of food each day. Only the water temperature was different. The group recorded how long the mosquitoes took to become adults and what percent of the eggs survived to adulthood.</p><table><thead><tr><th>Water temperature (&deg;C)</th><th>Days from egg to adult</th><th>Survival to adulthood (%)</th></tr></thead><tbody><tr><td>18</td><td>20</td><td>70</td></tr><tr><td>22</td><td>14</td><td>80</td></tr><tr><td>26</td><td>10</td><td>85</td></tr><tr><td>30</td><td>8</td><td>75</td></tr><tr><td>34</td><td>7</td><td>20</td></tr></tbody></table><p>(Hypothetical data)</p>"
+},
+{
+"id": "s9",
+"title": "Climate Clues Locked in Ice",
+"html": "<p>Snow that falls on Antarctica slowly packs down into ice, trapping tiny bubbles of air. By drilling long cylinders of ice, called ice cores, scientists can measure the carbon dioxide (CO<sub>2</sub>) in air that is thousands of years old. Other measurements in the same ice show how the local temperature compared with the average of the last 1,000 years. The graph and table show approximate values from Antarctic ice cores. CO<sub>2</sub> is measured in parts per million (ppm).</p><table><thead><tr><th>Thousands of years ago</th><th>CO<sub>2</sub> (ppm)</th><th>Temperature compared with last 1,000 years (&deg;C)</th></tr></thead><tbody><tr><td>160</td><td>195</td><td>&minus;9</td></tr><tr><td>128</td><td>285</td><td>+2</td></tr><tr><td>100</td><td>230</td><td>&minus;5</td></tr><tr><td>60</td><td>210</td><td>&minus;7</td></tr><tr><td>20</td><td>185</td><td>&minus;9</td></tr><tr><td>10</td><td>260</td><td>&minus;1</td></tr><tr><td>1 (about the year 1000)</td><td>280</td><td>0</td></tr></tbody></table><p>Direct measurements of the air show that CO<sub>2</sub> reached about 420 ppm in the early 2020s.</p>",
+"figure": {
+"type": "line",
+"title": "Antarctic Ice-Core Record (approximate)",
+"xLabel": "Thousands of years ago",
+"yLabel": "CO2 (ppm)",
+"labels": [
+"160",
+"128",
+"100",
+"60",
+"20",
+"10",
+"1"
+],
+"series": [
+{
+"name": "CO2 (ppm)",
+"values": [
+195,
+285,
+230,
+210,
+185,
+260,
+280
+]
+}
+]
+}
+},
+{
+"id": "s10",
+"title": "Light Surfaces, Dark Surfaces",
+"html": "<p>Albedo is the fraction of incoming sunlight that a surface reflects. An albedo of 0.85 means a surface reflects 85% of the sunlight that hits it and absorbs the rest. The table lists approximate albedos of some of Earth's surfaces.</p><table><thead><tr><th>Surface</th><th>Approximate albedo</th></tr></thead><tbody><tr><td>Fresh snow</td><td>0.85</td></tr><tr><td>Sea ice</td><td>0.60</td></tr><tr><td>Desert sand</td><td>0.40</td></tr><tr><td>Forest</td><td>0.15</td></tr><tr><td>Open ocean</td><td>0.06</td></tr></tbody></table><p>A class modeled the Arctic Ocean with two identical trays of water at 21.0 &deg;C placed under the same lamp. In Tray A, a sheet of white foam floated on the water to model sea ice. Tray B had no cover, and its dark bottom modeled open ocean. After 30 minutes, the water in Tray A was 22.5 &deg;C and the water in Tray B was 26.0 &deg;C.</p>"
+},
+{
+"id": "s11",
+"title": "Which Melting Ice Raises Sea Level?",
+"html": "<p>A student set up two identical clear containers and placed 100 grams of ice in each.</p><ul><li><strong>Container A:</strong> The ice sat on top of a large rock that stuck up out of the water, like a glacier resting on land.</li><li><strong>Container B:</strong> The ice floated in the water, like sea ice.</li></ul><p>Right after the ice was added, the water in both containers reached the 500-milliliter (mL) mark. After all the ice melted, the water level in Container A was at 600 mL, and the water level in Container B was still at 500 mL.</p><p>Tide gauges are instruments that measure the height of the sea at a harbor. One harbor's tide gauge recorded an average sea-level rise of 3.6 millimeters (mm) per year over recent decades.</p>"
+},
+{
+"id": "s12",
+"title": "How Loud Is Too Loud?",
+"html": "<p>Sound level is measured in decibels (dB). A sound engineer measured the sound level at different distances from the main speakers at an outdoor concert. Sound spreads out as it travels, so the level drops as the distance from the speakers increases.</p><table><thead><tr><th>Distance from speakers (m)</th><th>Sound level (dB)</th></tr></thead><tbody><tr><td>5</td><td>112</td></tr><tr><td>10</td><td>106</td></tr><tr><td>20</td><td>100</td></tr><tr><td>40</td><td>94</td></tr><tr><td>80</td><td>88</td></tr></tbody></table><p>Hearing-safety guidelines give a recommended maximum daily exposure time for each sound level. Louder sounds can damage the hair cells of the inner ear in less time.</p><table><thead><tr><th>Sound level (dB)</th><th>Recommended maximum exposure per day</th></tr></thead><tbody><tr><td>85</td><td>8 hours</td></tr><tr><td>88</td><td>4 hours</td></tr><tr><td>91</td><td>2 hours</td></tr><tr><td>94</td><td>1 hour</td></tr><tr><td>97</td><td>30 minutes</td></tr><tr><td>100</td><td>15 minutes</td></tr><tr><td>103</td><td>7.5 minutes</td></tr></tbody></table><p>(Measurements are approximate.)</p>"
+}
+],
+"parts": [
+{
+"name": "Science",
+"items": [
+{
+"id": "q1",
+"type": "mc",
+"skill": "Identifying variables",
+"difficulty": 1,
+"stim": "s1",
+"prompt": "<p>In this investigation, what is the <strong>independent</strong> variable?</p>",
+"options": [
+"The frequency of the note",
+"The vibrating length of the string",
+"The mass hanging from the string",
+"The phone app used to measure frequency"
+],
+"answer": 1,
+"explain": "<p>The independent variable is the factor the experimenter changes on purpose. The student moved the bridge to set the vibrating length to 60, 45, 30, and 20 cm, so the <strong>vibrating length</strong> is the independent variable.</p><p>The frequency is the <em>dependent</em> variable, the result she measured. The hanging mass was kept the same in every trial, so it is a controlled variable.</p>",
+"why": [
+"The frequency is what she measured (the dependent variable). She changed the vibrating length on purpose.",
+"",
+"The same 5-kg mass hung in every trial, so the mass was controlled, not changed.",
+"The phone app is a measuring tool that stayed the same in every trial; it is not a variable she changed."
+]
+},
+{
+"id": "q2",
+"type": "fill",
+"skill": "Predicting from a pattern in data",
+"difficulty": 3,
+"stim": "s1",
+"prompt": "<p>Based on the pattern in the data, what frequency would the string produce if its vibrating length were set to <strong>40 cm</strong>? Enter a whole number.</p>",
+"answer": [
+"330"
+],
+"value": 330,
+"tol": 0.5,
+"suffix": "Hz",
+"explain": "<p>Look for the pattern: frequency &times; length stays about the same.</p><p>60 &times; 220 = 13,200<br>30 &times; 440 = 13,200<br>20 &times; 660 = 13,200<br>(45 &times; 293 &asymp; 13,200)</p><p>Frequency and length are <strong>inversely proportional</strong>: halving the length doubles the frequency. So at 40 cm:</p><p>13,200 &divide; 40 = <strong>330 Hz</strong></p><p>Do not simply average the frequencies at 45 cm and 30 cm, and do not assume the frequency drops as the string gets shorter; shorter strings vibrate faster and give higher notes.</p>",
+"mistakes": [
+{
+"answer": [
+"367",
+"366.5",
+"366"
+],
+"why": "You averaged the frequencies at 45 cm and 30 cm. The data show frequency &times; length stays about 13,200, so the relationship is inverse, not linear: 13,200 &divide; 40 = 330 Hz."
+},
+{
+"answer": [
+"147",
+"146.7",
+"146.67"
+],
+"why": "You assumed frequency drops as the string gets shorter (40/60 &times; 220). Shorter strings vibrate faster: frequency &times; length = 13,200, so 13,200 &divide; 40 = 330 Hz."
+}
+]
+},
+{
+"id": "q3",
+"type": "fill",
+"skill": "Calculating time from speed",
+"difficulty": 2,
+"stim": "s2",
+"prompt": "<p>A railroad worker strikes a steel rail with a hammer. A second worker stands beside the same rail 1,192 meters away. How many seconds does the sound take to reach the second worker <strong>through the steel rail</strong>? Enter your answer as a decimal.</p>",
+"answer": [
+"0.2",
+".2",
+"0.20"
+],
+"value": 0.2,
+"tol": 0.001,
+"suffix": "seconds",
+"explain": "<p>Time = distance &divide; speed.</p><p>The speed of sound in steel is 5,960 m/s.<br>1,192 m &divide; 5,960 m/s = <strong>0.2 s</strong></p><p>Using the speed in air instead gives 1,192 &divide; 343 &asymp; 3.5 s, which is how long the sound traveling through the air would take. The sound through the rail arrives more than 3 seconds earlier.</p>",
+"mistakes": [
+{
+"answer": [
+"3.5",
+"3.48",
+"3.475"
+],
+"why": "You used the speed of sound in air (343 m/s). The sound travels through the steel rail: 1,192 &divide; 5,960 = 0.2 s."
+},
+{
+"answer": [
+"5"
+],
+"why": "You divided speed by distance (5,960 &divide; 1,192). Time = distance &divide; speed: 1,192 &divide; 5,960 = 0.2 s."
+}
+]
+},
+{
+"id": "q4",
+"type": "multi",
+"skill": "Interpreting data in a table",
+"difficulty": 2,
+"stim": "s2",
+"prompt": "<p>Which statements are supported by the information in the table and passage?</p><p>Select <strong>two</strong> answers.</p>",
+"options": [
+"Sound travels more than four times as fast in fresh water as in air.",
+"Sound travels faster in denser gases.",
+"Of the media listed, sound travels fastest through the solid.",
+"Sound travels at the same speed in every gas.",
+"Sound cannot travel through solids."
+],
+"answer": [
+0,
+2
+],
+"explain": "<p><strong>Fresh water:</strong> 1,481 &divide; 343 &asymp; 4.3, so sound moves more than four times as fast in water as in air.</p><p><strong>Solid:</strong> Steel, the only solid, has the highest speed (5,960 m/s).</p><p>The other statements are not supported. Helium is <em>less</em> dense than air, yet sound moves faster in helium (1,007 m/s) than in air (343 m/s), so &ldquo;faster in denser gases&rdquo; is contradicted. The two gases have different speeds. Steel is a solid, and sound travels through it very well.</p>",
+"why": [
+"",
+"Helium is less dense than air, yet sound travels faster in helium (1,007 m/s) than in air (343 m/s), which contradicts this statement.",
+"",
+"The two gases have different speeds: 343 m/s in air and 1,007 m/s in helium.",
+"Steel is a solid, and sound travels through it fastest of all (5,960 m/s)."
+]
+},
+{
+"id": "q5",
+"type": "mc",
+"skill": "Wave equation",
+"difficulty": 2,
+"prompt": "<p>A tuning fork vibrates at 440 Hz. Sound travels through the air in the room at 343 m/s. Using <strong>wave speed = frequency &times; wavelength</strong>, what is the approximate wavelength of the sound wave?</p>",
+"options": [
+"0.78 m",
+"1.28 m",
+"97 m",
+"150,920 m"
+],
+"answer": 0,
+"explain": "<p>Rearrange the equation to solve for wavelength:</p><p>wavelength = wave speed &divide; frequency<br>= 343 m/s &divide; 440 Hz<br>&asymp; <strong>0.78 m</strong></p><p>Dividing the other way (440 &divide; 343 &asymp; 1.28) flips the equation. Multiplying (343 &times; 440 = 150,920) uses the wrong operation, and 97 comes from subtracting.</p>",
+"noShuffle": true,
+"why": [
+"",
+"You divided frequency by speed (440 &divide; 343). Wavelength = speed &divide; frequency: 343 &divide; 440 &asymp; 0.78 m.",
+"You subtracted (440 &minus; 343). Rearrange speed = frequency &times; wavelength: wavelength = 343 &divide; 440 &asymp; 0.78 m.",
+"You multiplied speed by frequency. To find wavelength, divide: 343 &divide; 440 &asymp; 0.78 m."
+]
+},
+{
+"id": "q6",
+"type": "mc",
+"skill": "Applying data from two tables",
+"difficulty": 3,
+"stim": "s12",
+"prompt": "<p>A fan stands 20 m from the main speakers for an entire 2-hour concert. Based on the data, which statement is accurate?</p>",
+"options": [
+"The fan is safe, because 2 hours is the recommended limit at this distance.",
+"The fan is safe, because the sound level 20 m away is below 85 dB.",
+"The fan's exposure is about 8 times longer than the recommended maximum for that sound level.",
+"The fan's exposure is about 2 times longer than the recommended maximum for that sound level."
+],
+"answer": 2,
+"explain": "<p>Step 1: At 20 m the sound level is <strong>100 dB</strong> (first table).</p><p>Step 2: The recommended maximum at 100 dB is <strong>15 minutes</strong> (second table).</p><p>Step 3: 2 hours = 120 minutes, and 120 &divide; 15 = <strong>8</strong>. The fan's exposure is 8 times the recommended limit.</p><p>The 2-hour limit belongs to 91 dB, not 100 dB. Notice the pattern in the guideline: each 3-dB increase cuts the safe time in half, so a small increase in decibels is a big increase in risk.</p>",
+"why": [
+"The 2-hour limit belongs to 91 dB. At 20 m the level is 100 dB, where the limit is only 15 minutes.",
+"At 20 m the level is 100 dB, well above 85 dB.",
+"",
+"You may have used the 1-hour limit for 94 dB. At 20 m the level is 100 dB, with a 15-minute limit: 120 &divide; 15 = 8 times."
+]
+},
+{
+"id": "q7",
+"type": "drag",
+"skill": "Comparing sound and light waves",
+"difficulty": 2,
+"prompt": "<p>Sort each property into the type of wave it describes.</p>",
+"choices": [
+"Needs a medium such as air or water to travel",
+"Can travel through the vacuum of space",
+"Moves about 343 m/s in room-temperature air",
+"Moves about 300,000 km/s in a vacuum",
+"Is a longitudinal wave made of compressions in a material",
+"Is a transverse electromagnetic wave"
+],
+"bins": [
+"Sound waves",
+"Light waves"
+],
+"answer": [
+0,
+1,
+0,
+1,
+0,
+1
+],
+"explain": "<p><strong>Sound waves</strong> are mechanical, longitudinal waves: particles of a medium are pushed together (compressions) and spread apart. Without a medium there is nothing to vibrate, so sound cannot cross empty space. In air at room temperature, sound moves about 343 m/s.</p><p><strong>Light waves</strong> are transverse electromagnetic waves. They need no medium, which is why sunlight crosses space to reach Earth, and they travel about 300,000 km/s in a vacuum.</p><p>This is why, during a storm, you see lightning before you hear thunder.</p>",
+"why": "The most common error is sorting &quot;Needs a medium&quot; or &quot;longitudinal wave&quot; under light. Light is an electromagnetic wave that crosses empty space; sound is a longitudinal wave that needs particles of a medium to vibrate."
+},
+{
+"id": "q8",
+"type": "mc",
+"skill": "Experimental design: comparison groups",
+"difficulty": 2,
+"stim": "s3",
+"prompt": "<p>Why did the researchers include Group 3, the adults who were not musicians?</p>",
+"options": [
+"To show how much hearing loss is normal from aging alone over five years",
+"To test whether earplugs work for people who are not musicians",
+"To increase the number of musicians in the study",
+"To measure which instruments are the loudest"
+],
+"answer": 0,
+"explain": "<p>Everyone's hearing changes a little with age. Group 3 had the same average age but no musical or noisy-job exposure, so it shows the <strong>baseline</strong> amount of hearing loss expected over five years (2 dB). Researchers can then see how much <em>extra</em> loss the musicians had.</p><p>Group 3 did not wear earplugs and were not musicians, so they could not test earplugs or instruments.</p>",
+"why": [
+"",
+"Group 3 did not wear earplugs, so it cannot test whether earplugs work for non-musicians.",
+"Group 3 members were not musicians, so they add no musicians to the study.",
+"Group 3 played no instruments, and the study did not compare instruments."
+]
+},
+{
+"id": "q9",
+"type": "mc",
+"skill": "Drawing conclusions from data",
+"difficulty": 2,
+"stim": "s3",
+"prompt": "<p>Which conclusion is best supported by the data?</p>",
+"options": [
+"Earplugs restored hearing that musicians had already lost.",
+"Musicians who did not wear earplugs lost the least hearing of the three groups.",
+"Playing music causes no hearing loss if a musician practices fewer than five years.",
+"Musicians who wore earplugs lost much less hearing than musicians who did not, and about as much as non-musicians."
+],
+"answer": 3,
+"explain": "<p>Group 1 (earplugs) lost 3 dB, Group 2 (no earplugs) lost 11 dB, and Group 3 (non-musicians) lost 2 dB. The earplug group lost <strong>8 dB less</strong> than the musicians without earplugs and only 1 dB more than the non-musicians.</p><p>Every group <em>lost</em> some hearing, so nothing shows that hearing was restored. Group 2 lost the <em>most</em>, not the least. The study lasted five years for everyone and did not compare different amounts of practice time.</p>",
+"why": [
+"Every group lost some hearing (3, 11, and 2 dB), so nothing shows earplugs restored lost hearing.",
+"Group 2 (no earplugs) lost the most hearing, 11 dB, not the least.",
+"The study lasted five years for everyone and did not compare different amounts of practice, so it cannot support this claim.",
+""
+]
+},
+{
+"id": "q10",
+"type": "dropdown",
+"skill": "Body systems: hearing",
+"difficulty": 2,
+"stim": "s3",
+"prompt": "<p>Complete the description of how a person hears music.</p><p>Sound waves make the eardrum vibrate, and tiny bones pass the vibrations to the inner ear. There, hair cells change the vibrations into {{0}}. These signals travel along the auditory nerve to the {{1}}, which interprets them as sound. Because hearing depends on these cells and nerves, the ear is part of the {{2}} system.</p>",
+"blanks": [
+{
+"options": [
+"electrical nerve signals",
+"light waves",
+"chemical hormones",
+"blood pressure changes"
+],
+"answer": 0,
+"why": [
+"",
+"Light waves are not produced in the ear. Hair cells turn vibrations into electrical nerve signals.",
+"Hormones are chemical messengers of the endocrine system and travel slowly in the blood. Hair cells send electrical nerve signals.",
+"Hair cells do not change blood pressure. They turn vibrations into electrical nerve signals."
+]
+},
+{
+"options": [
+"heart",
+"spinal cord only",
+"brain",
+"lungs"
+],
+"answer": 2,
+"why": [
+"The heart pumps blood; it does not interpret sound. The auditory nerve carries signals to the brain.",
+"The auditory nerve goes to the brain, not only the spinal cord, and the brain interprets sound.",
+"",
+"The lungs exchange gases; they do not interpret sound. The brain does."
+]
+},
+{
+"options": [
+"digestive",
+"nervous",
+"circulatory",
+"endocrine"
+],
+"answer": 1,
+"why": [
+"The digestive system breaks down food. Sensing and interpreting sound is the job of the nervous system.",
+"",
+"The circulatory system moves blood. Hearing depends on nerve cells and the brain: the nervous system.",
+"The endocrine system uses hormones and works slowly. Hearing uses nerve signals, so the ear is part of the nervous system."
+]
+}
+],
+"explain": "<p>Hair cells in the inner ear act as sensors. They convert the mechanical vibrations of sound into <strong>electrical nerve signals</strong> (impulses). The auditory nerve carries these impulses to the <strong>brain</strong>, which interprets them as sound.</p><p>Sensing and interpreting information is the job of the <strong>nervous</strong> system. Hormones are chemical messengers of the endocrine system, which works more slowly and is not how sound signals are sent. Loud noise can damage hair cells, and in humans they do not grow back, which is why the musicians in the study lost hearing.</p>"
+},
+{
+"id": "q11",
+"type": "mc",
+"skill": "Forming a hypothesis",
+"difficulty": 2,
+"stim": "s4",
+"prompt": "<p>Which hypothesis best explains why city birds sing higher-pitched songs?</p>",
+"options": [
+"City birds are a separate species that cannot breed with forest birds.",
+"Higher-pitched songs are less drowned out by low-pitched traffic noise, so mates and rivals can hear them.",
+"Birds sing higher in cities because city air carries sound more slowly.",
+"Forest birds sing lower because there are fewer birds in forests."
+],
+"answer": 1,
+"explain": "<p>The passage says traffic noise is loudest at low pitches. A song that starts higher avoids the pitches where the noise is loudest, so other birds can still hear it. Because songs are used to attract mates and warn rivals, being heard matters for survival and reproduction. This makes the best testable hypothesis.</p><p>The passage states that the birds are the same species and can interbreed, so the idea that city birds are a separate species is contradicted. Nothing in the passage supports the claims about air or bird numbers.</p>",
+"why": [
+"The passage says the city and forest birds &quot;belong to the same species and can interbreed,&quot; which contradicts this.",
+"",
+"The passage says nothing about city air carrying sound more slowly. It says traffic noise is loudest at low pitches.",
+"The passage never mentions bird numbers. The key fact is that traffic noise is loudest at low pitches."
+]
+},
+{
+"id": "q12",
+"type": "hotspot",
+"skill": "Identifying supporting evidence",
+"difficulty": 3,
+"stim": "s4",
+"prompt": "<p>A student claims that the higher songs are a behavior individual birds can change, rather than only an inherited trait that changed over many generations through natural selection. Click the sentence from the passage that gives the <strong>strongest</strong> evidence for this claim.</p>",
+"spans": [
+"Biologists recorded songs of one songbird species in a large city and in a quiet forest 40 kilometers away.",
+"City birds sang with a lowest note that averaged about 600 hertz higher than the lowest note of forest birds.",
+"Traffic noise is loudest at low pitches, below about 2,000 hertz.",
+"When the researchers played recorded traffic noise near forest birds, many of those same birds raised the pitch of their songs within minutes.",
+"The city and forest birds belong to the same species and can interbreed."
+],
+"answer": 3,
+"explain": "<p>A change that happens <strong>within minutes in the same individual birds</strong> cannot be the result of natural selection, which works over generations as individuals with helpful inherited traits survive and reproduce more. The playback experiment shows individual birds adjusting their songs in response to noise, which directly supports the claim.</p><p>The 600-hertz difference shows <em>that</em> city songs are higher but not <em>how</em> the difference arose; it could fit either explanation. The other sentences describe the setting, not evidence about how the change happens.</p>",
+"why": "The most common wrong click is the sentence about the 600-hertz difference. That shows city songs are higher but not how the difference arose; only the playback test shows the same birds changing their songs within minutes, which natural selection cannot do."
+},
+{
+"id": "q13",
+"type": "mc",
+"skill": "Newton's second law (net force)",
+"difficulty": 3,
+"prompt": "<p>A stagehand pushes a 60-kilogram equipment case across a stage with a force of 150 newtons. Friction between the case and the floor exerts a force of 30 newtons in the opposite direction. Using <strong>F = ma</strong>, what is the acceleration of the case?</p>",
+"options": [
+"0.5 m/s<sup>2</sup>",
+"2 m/s<sup>2</sup>",
+"2.5 m/s<sup>2</sup>",
+"3 m/s<sup>2</sup>"
+],
+"answer": 1,
+"explain": "<p>Step 1: Find the <strong>net force</strong>. The forces act in opposite directions, so subtract:<br>150 N &minus; 30 N = 120 N</p><p>Step 2: Solve F = ma for a:<br>a = F &divide; m = 120 N &divide; 60 kg = <strong>2 m/s<sup>2</sup></strong></p><p>Using only the 150-N push gives 150 &divide; 60 = 2.5 m/s<sup>2</sup>, which ignores friction. Adding the forces gives 180 &divide; 60 = 3 m/s<sup>2</sup>, but friction works against the push, not with it.</p>",
+"noShuffle": true,
+"why": [
+"You used only the friction force (30 &divide; 60). Use the net force, 150 &minus; 30 = 120 N: 120 &divide; 60 = 2 m/s<sup>2</sup>.",
+"",
+"You used only the 150-N push and ignored friction. Net force is 150 &minus; 30 = 120 N, so a = 2 m/s<sup>2</sup>.",
+"You added the forces (180 N). Friction acts in the opposite direction, so subtract: 120 &divide; 60 = 2 m/s<sup>2</sup>."
+]
+},
+{
+"id": "q14",
+"type": "mc",
+"skill": "Ohm's law",
+"difficulty": 2,
+"prompt": "<p>An amplifier applies 16 volts across a speaker that has a resistance of 8 ohms. Using <strong>V = IR</strong> (voltage = current &times; resistance), how much current flows through the speaker?</p>",
+"options": [
+"0.5 amperes",
+"2 amperes",
+"24 amperes",
+"128 amperes"
+],
+"answer": 1,
+"explain": "<p>Solve Ohm's law for current: I = V &divide; R.</p><p>I = 16 V &divide; 8 &Omega; = <strong>2 amperes</strong></p><p>Dividing resistance by voltage (8 &divide; 16 = 0.5) flips the formula. Multiplying (16 &times; 8 = 128) or adding (16 + 8 = 24) uses the wrong operation.</p>",
+"noShuffle": true,
+"why": [
+"You divided resistance by voltage (8 &divide; 16). Solve V = IR for I: I = V &divide; R = 16 &divide; 8 = 2 A.",
+"",
+"You added voltage and resistance. Current is voltage divided by resistance: 16 &divide; 8 = 2 A.",
+"You multiplied voltage by resistance. Current is I = V &divide; R = 16 &divide; 8 = 2 A."
+]
+},
+{
+"id": "q15",
+"type": "mc",
+"skill": "Energy transformations",
+"difficulty": 1,
+"prompt": "<p>When an electric guitar is played through an amplifier, the speaker's cone moves back and forth and produces sound. Which energy change happens <strong>in the speaker</strong>?</p>",
+"options": [
+"Sound energy is changed into electrical energy.",
+"Chemical energy is changed into thermal energy.",
+"Electrical energy is changed into mechanical (motion) energy and then sound energy.",
+"Light energy is changed into electrical energy."
+],
+"answer": 2,
+"explain": "<p>A speaker receives an <strong>electrical</strong> signal from the amplifier. A magnet and coil turn that electrical energy into the <strong>motion</strong> of the cone, and the moving cone pushes on the air to create <strong>sound</strong> waves.</p><p>Sound changing into electrical energy is what a <em>microphone</em> does, the reverse of a speaker. Light to electrical energy describes a solar cell.</p>",
+"why": [
+"Sound changing into electrical energy is what a microphone does. A speaker does the reverse: electrical energy becomes motion and sound.",
+"Nothing burns in a speaker. It receives an electrical signal and moves its cone to make sound.",
+"",
+"Light changing into electrical energy describes a solar cell. A speaker turns electrical energy into motion and sound."
+]
+},
+{
+"id": "q16",
+"type": "mc",
+"skill": "Reading a line graph",
+"difficulty": 2,
+"stim": "s5",
+"prompt": "<p>How did the number of days between peak caterpillar abundance and the average warbler hatching date change from 1990 to 2020?</p>",
+"options": [
+"It decreased from 15 days to 2 days.",
+"It stayed the same at about 2 days.",
+"It increased from 2 days to 15 days.",
+"It increased from 2 days to 25 days."
+],
+"answer": 2,
+"explain": "<p>Subtract the caterpillar date from the hatching date:</p><p>1990: 147 &minus; 145 = 2 days<br>2020: 143 &minus; 128 = <strong>15 days</strong></p><p>The caterpillar peak moved 17 days earlier (145 to 128), but hatching moved only 4 days earlier (147 to 143), so the gap <strong>grew from 2 to 15 days</strong>.</p><p>The 25-day figure is the gap between the caterpillar peak and the chicks' time of greatest need (143 + 10 = 153, and 153 &minus; 128 = 25), not the hatching date the question asks about.</p>",
+"why": [
+"You reversed the order. In 1990 the gap was 147 &minus; 145 = 2 days, and in 2020 it was 143 &minus; 128 = 15 days, so it increased.",
+"The gap did not stay the same: the caterpillar peak moved 17 days earlier while hatching moved only 4 days earlier.",
+"",
+"25 days is the gap between the caterpillar peak and the chicks' greatest need (day 153), not the hatching date. The hatching gap in 2020 is 143 &minus; 128 = 15 days."
+]
+},
+{
+"id": "q17",
+"type": "mc",
+"skill": "Ecosystem interactions",
+"difficulty": 3,
+"stim": "s5",
+"prompt": "<p>Based on the passage and data, which outcome is <strong>most likely</strong> if this trend continues?</p>",
+"options": [
+"Oak trees stop producing leaves, because caterpillars appear too early.",
+"More warbler chicks survive, because caterpillars appear earlier each year.",
+"Caterpillar numbers drop sharply, because warblers eat more of them.",
+"Fewer warbler chicks survive, because the caterpillar peak is over before the chicks need the most food."
+],
+"answer": 3,
+"explain": "<p>Chicks need the most food about 10 days after hatching. In 2020 that was about day 153, which is <strong>25 days after</strong> the caterpillar peak (day 128). When food is scarce at the time chicks need it most, fewer chicks are likely to survive. This kind of timing problem in a food chain is called a mismatch.</p><p>Earlier caterpillars help only if the birds' timing shifts too, and hatching has barely moved. With the mismatch, warblers catch fewer caterpillars at the peak, not more. Nothing in the passage suggests oaks stop making leaves; warmer springs make leaves open <em>earlier</em>.</p>",
+"why": [
+"The passage says warmer springs make oak leaves open earlier, not stop. Nothing suggests oaks stop producing leaves.",
+"Earlier caterpillars help only if hatching shifts too, but hatching has barely moved. The food peak now comes before chicks need it most.",
+"With the timing mismatch, warblers catch fewer caterpillars at the peak, not more, so warblers are not the cause of a drop.",
+""
+]
+},
+{
+"id": "q18",
+"type": "fill",
+"skill": "Punnett square probability",
+"difficulty": 2,
+"stim": "s6",
+"prompt": "<p>Complete the Punnett square. What is the percent chance that a child of these two parents will have this form of hearing loss? Enter a number only.</p>",
+"answer": [
+"25",
+"25%"
+],
+"value": 25,
+"tol": 0.001,
+"suffix": "%",
+"explain": "<p>The four boxes of the Punnett square are <strong>HH</strong>, <strong>Hh</strong>, <strong>Hh</strong>, and <strong>hh</strong>.</p><p>Only a child with two recessive alleles (hh) has the hearing loss. That is 1 of 4 boxes:</p><p>1 &divide; 4 = 0.25 = <strong>25%</strong></p><p>Answering 50% counts the two Hh boxes, but those children are carriers with typical hearing, because H is dominant.</p>",
+"mistakes": [
+{
+"answer": [
+"50",
+"50%"
+],
+"why": "50% counts the two Hh boxes. Those children are carriers with typical hearing because H is dominant; only hh (1 of 4 boxes) has the hearing loss: 25%."
+},
+{
+"answer": [
+"75",
+"75%"
+],
+"why": "75% is the chance of typical hearing (HH, Hh, Hh). The question asks about hearing loss, which needs hh: 1 of 4 = 25%."
+},
+{
+"answer": [
+"0",
+"0%"
+],
+"why": "Both parents hear typically, but each carries h. A child who gets h from both parents (hh) has the hearing loss: 1 of 4 = 25%."
+}
+]
+},
+{
+"id": "q19",
+"type": "mc",
+"skill": "Genotypes and phenotypes",
+"difficulty": 3,
+"stim": "s6",
+"prompt": "<p>One child of these parents has typical hearing. Which description of that child's possible genotypes is correct?</p>",
+"options": [
+"The child must be homozygous dominant (two typical-hearing alleles).",
+"The child must be heterozygous (one typical-hearing allele and one hearing-loss allele).",
+"The child could be homozygous recessive (two hearing-loss alleles) or heterozygous.",
+"The child could be homozygous dominant or heterozygous, and is twice as likely to be heterozygous."
+],
+"answer": 3,
+"explain": "<p>Children with typical hearing come from the three boxes HH, Hh, and Hh. So the child could be <strong>homozygous dominant (HH)</strong> or <strong>heterozygous (Hh)</strong>. Of those three equally likely boxes, two are Hh, so heterozygous is <strong>twice as likely</strong> (a 2-in-3 chance versus 1-in-3).</p><p>A homozygous recessive child (hh) would have the hearing loss, so that choice is ruled out. Neither &ldquo;must be&rdquo; statement is correct, because both HH and Hh produce typical hearing.</p>",
+"why": [
+"A child with typical hearing could also be Hh, because H is dominant. Two of the three typical-hearing boxes are Hh.",
+"A child with typical hearing could also be HH. The typical-hearing boxes are HH, Hh, and Hh.",
+"A homozygous recessive (hh) child would have the hearing loss, so this child cannot be hh.",
+""
+]
+},
+{
+"id": "q20",
+"type": "dropdown",
+"skill": "Balancing chemical equations",
+"difficulty": 2,
+"prompt": "<p>Natural gas is mostly methane (CH<sub>4</sub>). Burning it releases energy and carbon dioxide, a greenhouse gas. Choose the coefficients that balance the equation.</p><p>CH<sub>4</sub> + {{0}} O<sub>2</sub> &rarr; CO<sub>2</sub> + {{1}} H<sub>2</sub>O</p>",
+"blanks": [
+{
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": 1,
+"why": [
+"With 1 O<sub>2</sub>, the left has 2 oxygen atoms but the right has 4 (2 in CO<sub>2</sub> and 2 in 2 H<sub>2</sub>O). Use 2 O<sub>2</sub>.",
+"",
+"3 O<sub>2</sub> gives 6 oxygen atoms on the left but only 4 on the right. Use 2.",
+"4 O<sub>2</sub> gives 8 oxygen atoms on the left but only 4 on the right. Use 2."
+]
+},
+{
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": 1,
+"why": [
+"With 1 H<sub>2</sub>O, the right has 2 hydrogen atoms but CH<sub>4</sub> has 4. Use 2 H<sub>2</sub>O.",
+"",
+"3 H<sub>2</sub>O gives 6 hydrogen atoms on the right but only 4 on the left. Use 2.",
+"4 H<sub>2</sub>O gives 8 hydrogen atoms on the right but only 4 on the left. Use 2."
+]
+}
+],
+"explain": "<p>Balance one element at a time.</p><p><strong>Carbon:</strong> 1 C on the left (CH<sub>4</sub>) and 1 C on the right (CO<sub>2</sub>). Balanced.</p><p><strong>Hydrogen:</strong> 4 H on the left. Each H<sub>2</sub>O has 2 H, so you need <strong>2</strong> H<sub>2</sub>O.</p><p><strong>Oxygen:</strong> The right side now has 2 O (in CO<sub>2</sub>) + 2 O (in 2 H<sub>2</sub>O) = 4 O. Each O<sub>2</sub> has 2 O, so you need <strong>2</strong> O<sub>2</sub>.</p><p>Balanced equation: CH<sub>4</sub> + 2 O<sub>2</sub> &rarr; CO<sub>2</sub> + 2 H<sub>2</sub>O. Check: 1 C, 4 H, 4 O on each side.</p>"
+},
+{
+"id": "q21",
+"type": "fill",
+"skill": "Conservation of mass",
+"difficulty": 2,
+"prompt": "<p>In a closed container, 16 grams of methane burns completely with 64 grams of oxygen. The reaction produces 44 grams of carbon dioxide and some water. How many grams of water are produced?</p>",
+"answer": [
+"36"
+],
+"value": 36,
+"tol": 0.001,
+"suffix": "grams",
+"explain": "<p>By the <strong>law of conservation of mass</strong>, the total mass of the reactants equals the total mass of the products.</p><p>Mass of reactants: 16 g + 64 g = 80 g<br>Mass of water = 80 g &minus; 44 g = <strong>36 g</strong></p><p>Subtracting 44 from only the 64 grams of oxygen (to get 20 g) leaves out the mass of the methane.</p>",
+"mistakes": [
+{
+"answer": [
+"20"
+],
+"why": "You subtracted 44 from only the oxygen (64 &minus; 44). The reactants include the methane too: 16 + 64 = 80 g, and 80 &minus; 44 = 36 g."
+},
+{
+"answer": [
+"80"
+],
+"why": "80 g is the total mass of the products. Subtract the 44 g of carbon dioxide to find the water: 36 g."
+},
+{
+"answer": [
+"124"
+],
+"why": "You added all three masses. Mass is conserved, so the products total 80 g: 80 &minus; 44 = 36 g of water."
+}
+]
+},
+{
+"id": "q22",
+"type": "mc",
+"skill": "Acids, bases, and pH",
+"difficulty": 2,
+"stim": "s7",
+"prompt": "<p>Which conclusion is best supported by the student's results?</p>",
+"options": [
+"Shells lost more mass as the water became more acidic.",
+"Shells gained mass as the pH of the water decreased.",
+"The pH of the water had no effect on the shells.",
+"Shells lost the most mass in the most basic water."
+],
+"answer": 0,
+"explain": "<p>Lower pH means more acidic. As the pH dropped from 8.2 to 7.0, the mass lost increased: 0.02 g, 0.09 g, 0.20 g, and 0.38 g. So <strong>shells lost more mass in more acidic water</strong>.</p><p>No shell gained mass; every final mass is below 5.00 g. The most basic water (pH 8.2, the highest pH) caused the <em>least</em> loss, not the most.</p>",
+"why": [
+"",
+"No shell gained mass; every final mass is below 5.00 g.",
+"The mass lost changed with pH (0.02 g at pH 8.2 up to 0.38 g at pH 7.0), so pH did have an effect.",
+"The most basic water (pH 8.2) caused the least loss, 0.02 g, not the most."
+]
+},
+{
+"id": "q23",
+"type": "mc",
+"skill": "Heat transfer",
+"difficulty": 1,
+"prompt": "<p>On a summer afternoon, sunlight heats a blacktop parking lot. Air touching the hot pavement warms, becomes less dense, and rises, while cooler air moves in to take its place. What is this rising and sinking movement of air called?</p>",
+"options": [
+"Conduction",
+"Radiation",
+"Evaporation",
+"Convection"
+],
+"answer": 3,
+"explain": "<p><strong>Convection</strong> is heat transfer by the movement of a fluid (a liquid or gas): warm, less-dense air rises and cooler, denser air sinks to replace it, forming a current.</p><p>Conduction is transfer by direct contact, such as the pavement warming the thin layer of air touching it. Radiation is transfer by electromagnetic waves, such as sunlight reaching the pavement. Evaporation is a change of state, not the movement of the air.</p>",
+"why": [
+"Conduction is heat transfer by direct contact, like the pavement warming the air touching it. The rising and sinking air current is convection.",
+"Radiation is heat transfer by electromagnetic waves, like sunlight reaching the pavement. Moving air currents are convection.",
+"Evaporation is a liquid changing to a gas, not the movement of air. Rising warm air and sinking cool air is convection.",
+""
+]
+},
+{
+"id": "q24",
+"type": "drag",
+"skill": "Carbon cycle",
+"difficulty": 2,
+"prompt": "<p>Carbon dioxide (CO<sub>2</sub>) moves into and out of the atmosphere through many processes. Sort each process by its effect on the amount of CO<sub>2</sub> in the air.</p>",
+"choices": [
+"Burning gasoline in a car engine",
+"Photosynthesis by forest trees",
+"Cellular respiration in animals",
+"Decomposers breaking down fallen leaves",
+"Algae growing in the ocean",
+"Burning coal in a power plant"
+],
+"bins": [
+"Adds CO2 to the air",
+"Removes CO2 from the air"
+],
+"answer": [
+0,
+1,
+0,
+0,
+1,
+0
+],
+"explain": "<p><strong>Removes CO<sub>2</sub>:</strong> Photosynthesis uses carbon dioxide and water to make glucose. Both forest trees and ocean algae carry out photosynthesis.</p><p><strong>Adds CO<sub>2</sub>:</strong> Cellular respiration in animals and in decomposers breaks down food and releases carbon dioxide. Burning fossil fuels such as gasoline and coal releases carbon that was stored underground for millions of years.</p><p>A common mistake is thinking only living things affect the carbon cycle, or that decomposers remove carbon. Decomposers return carbon from dead matter to the air through respiration.</p>",
+"why": "The most common error is sorting decomposers under &quot;Removes CO<sub>2</sub>.&quot; Decomposers carry out cellular respiration, which releases CO<sub>2</sub>; only photosynthesis (trees and algae) removes it."
+},
+{
+"id": "q25",
+"type": "dropdown",
+"skill": "Cellular respiration",
+"difficulty": 2,
+"prompt": "<p>A singer's breathing muscles need a steady supply of energy during a long performance. Complete the statements about how muscle cells get that energy.</p><p>Muscle cells release energy from glucose through cellular respiration, which takes place mainly in the {{0}}. In this process, glucose reacts with {{1}}, and the products are water and {{2}}, which the singer breathes out.</p>",
+"blanks": [
+{
+"options": [
+"chloroplasts",
+"nucleus",
+"mitochondria",
+"cell wall"
+],
+"answer": 2,
+"why": [
+"Chloroplasts carry out photosynthesis in plant cells; human muscle cells do not have them. Respiration happens in the mitochondria.",
+"The nucleus holds DNA and controls the cell; it is not where glucose is broken down for energy.",
+"",
+"Animal cells have no cell wall, and a cell wall gives support, not energy. Respiration happens in the mitochondria."
+]
+},
+{
+"options": [
+"oxygen",
+"carbon dioxide",
+"nitrogen",
+"sunlight"
+],
+"answer": 0,
+"why": [
+"",
+"Carbon dioxide is a product of respiration, not a reactant. Glucose reacts with oxygen.",
+"Nitrogen is breathed in but not used in respiration. Glucose reacts with oxygen.",
+"Sunlight powers photosynthesis, not respiration. Glucose reacts with oxygen."
+]
+},
+{
+"options": [
+"oxygen",
+"glucose",
+"carbon dioxide",
+"starch"
+],
+"answer": 2,
+"why": [
+"Oxygen is a reactant that is used up, not a product breathed out. The product is carbon dioxide.",
+"Glucose is the fuel that is broken down, not a product.",
+"",
+"Starch is a stored carbohydrate, not a product of respiration. The waste gas exhaled is carbon dioxide."
+]
+}
+],
+"explain": "<p>Cellular respiration: glucose + oxygen &rarr; carbon dioxide + water + energy (ATP).</p><p>Most of this process takes place in the <strong>mitochondria</strong>. Glucose reacts with <strong>oxygen</strong> that the singer breathes in, and the waste <strong>carbon dioxide</strong> is carried by the blood to the lungs and exhaled.</p><p>Chloroplasts carry out photosynthesis and are found in plant cells, not human muscle cells. Animal cells have no cell wall. Carbon dioxide is a product of respiration, not a reactant.</p>"
+},
+{
+"id": "q26",
+"type": "mc",
+"skill": "Homeostasis",
+"difficulty": 2,
+"prompt": "<p>During a heat wave, a person's body temperature begins to rise. Which response helps return body temperature to normal?</p>",
+"options": [
+"Shivering, which makes muscles produce more heat",
+"Blood vessels near the skin narrowing so less blood reaches the skin",
+"Sweating, because evaporating sweat carries heat away from the skin",
+"Goose bumps, which trap a layer of warm air near the skin"
+],
+"answer": 2,
+"explain": "<p>Keeping a stable internal temperature is part of <strong>homeostasis</strong>. When the body overheats, sweat glands release sweat, and as the sweat <strong>evaporates</strong> it absorbs heat from the skin, cooling the body. Blood vessels near the skin also widen to release more heat. This is a negative feedback loop: the response reverses the change.</p><p>Shivering, narrowing blood vessels, and goose bumps all <em>conserve or produce</em> heat. They are responses to being too cold and would make overheating worse.</p>",
+"why": [
+"Shivering produces heat, which is a response to being too cold. It would make overheating worse.",
+"Narrowing blood vessels keeps heat inside the body, a response to cold. To cool down, vessels near the skin widen.",
+"",
+"Goose bumps trap warm air near the skin, a response to cold. They would not help cool the body."
+]
+},
+{
+"id": "q27",
+"type": "mc",
+"skill": "Interpreting data in a table",
+"difficulty": 2,
+"stim": "s8",
+"prompt": "<p>Each tank started with 200 eggs. Which water temperature produced the <strong>greatest number</strong> of adult mosquitoes?</p>",
+"options": [
+"22 &deg;C",
+"26 &deg;C",
+"30 &deg;C",
+"34 &deg;C"
+],
+"answer": 1,
+"explain": "<p>Number of adults = 200 eggs &times; survival percent.</p><p>22 &deg;C: 200 &times; 0.80 = 160<br>26 &deg;C: 200 &times; 0.85 = <strong>170</strong><br>30 &deg;C: 200 &times; 0.75 = 150<br>34 &deg;C: 200 &times; 0.20 = 40<br>(18 &deg;C: 200 &times; 0.70 = 140)</p><p>The most adults came from the <strong>26 &deg;C</strong> tank. Mosquitoes developed fastest at 34 &deg;C (7 days), but so few survived that this tank produced the fewest adults. Speed of development and number of survivors are different measurements.</p>",
+"noShuffle": true,
+"why": [
+"22 &deg;C gives 200 &times; 0.80 = 160 adults, fewer than the 170 at 26 &deg;C.",
+"",
+"30 &deg;C gives 200 &times; 0.75 = 150 adults, fewer than at 26 &deg;C.",
+"34 &deg;C had the fastest development (7 days), but only 20% survived: 200 &times; 0.20 = 40 adults, the fewest."
+]
+},
+{
+"id": "q28",
+"type": "multi",
+"skill": "Evaluating conclusions",
+"difficulty": 3,
+"stim": "s8",
+"prompt": "<p>Which statements are supported by the data?</p><p>Select <strong>two</strong> answers.</p>",
+"options": [
+"Between 18 &deg;C and 30 &deg;C, warmer water shortened the time from egg to adult.",
+"Warmer water always increased the percent of mosquitoes that survived.",
+"Survival dropped sharply when the water reached 34 &deg;C.",
+"At 18 &deg;C, no mosquitoes survived to adulthood.",
+"The mosquitoes received more food in the warmer tanks."
+],
+"answer": [
+0,
+2
+],
+"explain": "<p><strong>Supported:</strong> From 18 &deg;C to 30 &deg;C, development time fell from 20 to 14 to 10 to 8 days. Survival fell from 75% at 30 &deg;C to only 20% at 34 &deg;C, a sharp drop.</p><p><strong>Not supported:</strong> Survival rose only up to 26 &deg;C and then fell, so warmer water did not <em>always</em> help. At 18 &deg;C, 70% survived. The passage says every tank received the same amount of food, so food was a controlled variable.</p><p>These results suggest why warming in cooler regions could let some mosquitoes produce more generations each season, while extreme heat can limit them.</p>",
+"why": [
+"",
+"Survival rose only up to 26 &deg;C (85%) and then fell to 75% and 20%, so warmer water did not always help.",
+"",
+"At 18 &deg;C, 70% survived, so many mosquitoes reached adulthood.",
+"The passage says every tank received the same amount of food each day; food was controlled."
+]
+},
+{
+"id": "q29",
+"type": "mc",
+"skill": "Correlation in data",
+"difficulty": 2,
+"stim": "s9",
+"prompt": "<p>Which statement best describes the relationship shown in the ice-core data?</p>",
+"options": [
+"CO<sub>2</sub> levels and temperature tended to rise and fall together.",
+"CO<sub>2</sub> levels were highest when temperatures were lowest.",
+"Temperature stayed about the same while CO<sub>2</sub> levels changed.",
+"CO<sub>2</sub> levels rose steadily for the entire 160,000 years."
+],
+"answer": 0,
+"explain": "<p>When CO<sub>2</sub> was low (185&ndash;195 ppm at 160 and 20 thousand years ago), temperatures were about 9 &deg;C colder. When CO<sub>2</sub> was high (285 ppm at 128 thousand years ago, 280 ppm about 1,000 years ago), temperatures were near or above the modern average. The two measures <strong>rose and fell together</strong>, a positive correlation.</p><p>CO<sub>2</sub> did not rise steadily; it dropped after 128 thousand years ago and rose again later. Temperature changed by as much as 11 &deg;C, so it did not stay the same.</p>",
+"why": [
+"",
+"The opposite is true: the lowest CO<sub>2</sub> values (185&ndash;195 ppm) came with the coldest temperatures (&minus;9 &deg;C).",
+"Temperature changed by as much as 11 &deg;C (from &minus;9 to +2), so it did not stay the same.",
+"CO<sub>2</sub> did not rise steadily; it dropped from 285 ppm (128 thousand years ago) to 185 ppm (20 thousand years ago) before rising again."
+]
+},
+{
+"id": "q30",
+"type": "mc",
+"skill": "Comparing data to a record",
+"difficulty": 3,
+"stim": "s9",
+"prompt": "<p>How does the CO<sub>2</sub> level of the early 2020s compare with the ice-core record?</p>",
+"options": [
+"It is about the same as the warmest period in the record, 128,000 years ago.",
+"It is lower than the levels during the coldest periods in the record.",
+"It is about 140 ppm higher than the level of about 1,000 years ago and higher than any value in the record.",
+"It is about 140 ppm lower than the level of about 1,000 years ago."
+],
+"answer": 2,
+"explain": "<p>The early-2020s level is about 420 ppm. About 1,000 years ago it was 280 ppm:</p><p>420 &minus; 280 = <strong>140 ppm higher</strong></p><p>The highest value in the ice-core table is 285 ppm, so 420 ppm is well above every value in the record. It is not close to the 285 ppm of the warm period 128,000 years ago, and it is far above the cold-period values of 185&ndash;195 ppm.</p>",
+"why": [
+"The warmest period had 285 ppm, far below today's 420 ppm.",
+"Today's 420 ppm is far higher, not lower, than the cold-period values of 185&ndash;195 ppm.",
+"",
+"You subtracted in the wrong direction. 420 ppm is 140 ppm higher than the 280 ppm of 1,000 years ago, not lower."
+]
+},
+{
+"id": "q31",
+"type": "mc",
+"skill": "Feedback in Earth's systems",
+"difficulty": 3,
+"stim": "s10",
+"prompt": "<p>Based on the passage, why can the melting of Arctic sea ice cause even more warming?</p>",
+"options": [
+"Melting sea ice raises sea level, which reflects more sunlight back to space.",
+"Open ocean has a lower albedo than sea ice, so it absorbs more sunlight, which warms the water and melts more ice.",
+"Sea ice has a lower albedo than open ocean, so removing it reduces the sunlight absorbed.",
+"The foam in Tray A produced heat, which shows that ice warms the water below it."
+],
+"answer": 1,
+"explain": "<p>Sea ice reflects about 60% of sunlight (albedo 0.60), while open ocean reflects only about 6% (albedo 0.06) and <strong>absorbs about 94%</strong>. In the model, the uncovered tray warmed 5.0 &deg;C (21.0 to 26.0) while the covered tray warmed only 1.5 &deg;C (21.0 to 22.5).</p><p>When ice melts, more dark water is exposed, more sunlight is absorbed, the water warms, and still more ice melts. A change that strengthens itself like this is a <strong>positive feedback</strong>.</p><p>Sea ice has the <em>higher</em> albedo, not the lower. The foam did not produce heat; it reflected light, which is why Tray A stayed cooler.</p>",
+"why": [
+"The passage does not connect floating sea ice to sea level here, and higher water would not reflect more light. The key is that open ocean has a low albedo.",
+"",
+"You reversed the albedos. Sea ice has the higher albedo (0.60) and open ocean the lower (0.06), so removing ice increases the sunlight absorbed.",
+"The foam did not produce heat; it reflected light, which is why Tray A warmed only 1.5 &deg;C."
+]
+},
+{
+"id": "q32",
+"type": "mc",
+"skill": "Interpreting a model",
+"difficulty": 2,
+"stim": "s11",
+"prompt": "<p>Based on the student's model, melting of which ice would most directly raise global sea level?</p>",
+"options": [
+"Floating sea ice in the Arctic Ocean",
+"Ice cubes floating in a glass of water",
+"Icebergs that have already broken off and are floating at sea",
+"The thick ice sheet resting on the land of Greenland"
+],
+"answer": 3,
+"explain": "<p>In Container A, ice resting on land (the rock) added its water to the container when it melted, raising the level from 500 mL to 600 mL. In Container B, floating ice was already pushing aside its own weight of water, so melting did not change the level.</p><p>So ice that sits on land, like the <strong>Greenland ice sheet</strong>, raises sea level when its meltwater flows into the ocean. Arctic sea ice, floating icebergs, and floating ice cubes are all floating ice, like Container B.</p>",
+"why": [
+"Arctic sea ice floats, like the ice in Container B, whose melting left the level at 500 mL.",
+"Floating ice cubes are like Container B: melting floating ice did not change the water level.",
+"Icebergs already floating at sea are like Container B, so their melting does not raise the level.",
+""
+]
+},
+{
+"id": "q33",
+"type": "fill",
+"skill": "Calculating with rates",
+"difficulty": 1,
+"stim": "s11",
+"prompt": "<p>If sea level at the harbor keeps rising at the average rate recorded by its tide gauge, by how many millimeters will it rise over the next 25 years?</p>",
+"answer": [
+"90"
+],
+"value": 90,
+"tol": 0.001,
+"suffix": "mm",
+"explain": "<p>Total change = rate &times; time.</p><p>3.6 mm per year &times; 25 years = <strong>90 mm</strong></p><p>That is 9 centimeters, about the width of a deck of playing cards. Dividing (25 &divide; 3.6) does not give a distance.</p>",
+"mistakes": [
+{
+"answer": [
+"6.9",
+"6.94",
+"7"
+],
+"why": "You divided 25 by 3.6, which does not give a distance. Total rise = rate &times; time: 3.6 &times; 25 = 90 mm."
+},
+{
+"answer": [
+"28.6"
+],
+"why": "You added the rate and the years. Multiply the yearly rise by the number of years: 3.6 &times; 25 = 90 mm."
+},
+{
+"answer": [
+"9"
+],
+"why": "9 is the answer in centimeters. The question asks for millimeters: 3.6 &times; 25 = 90 mm."
+}
+]
+},
+{
+"id": "q34",
+"type": "mc",
+"skill": "The Sun as an energy source",
+"difficulty": 1,
+"prompt": "<p>Sunlight provides almost all of the energy that drives Earth's weather and climate. What process produces this energy in the Sun's core?</p>",
+"options": [
+"Nuclear fusion of hydrogen into helium",
+"Burning of coal and other fuels",
+"Nuclear fission of uranium into lighter elements",
+"Reflection of light from the other planets"
+],
+"answer": 0,
+"explain": "<p>In the Sun's core, extreme temperature and pressure force hydrogen nuclei together to form helium. This <strong>nuclear fusion</strong> releases enormous amounts of energy, which travels to Earth as electromagnetic radiation, including visible light.</p><p>The Sun is not burning; burning is a chemical reaction that needs oxygen. Fission splits heavy atoms and is used in nuclear power plants on Earth, not in the Sun. Planets reflect sunlight; they are not the source of it.</p>",
+"why": [
+"",
+"The Sun is not burning fuel; burning is a chemical reaction that needs oxygen. Its energy comes from nuclear fusion.",
+"Fission splits heavy atoms like uranium and is used in power plants on Earth. The Sun fuses light hydrogen nuclei into helium.",
+"Planets only reflect sunlight; they are not its source. The Sun's energy comes from fusion in its core."
+]
+}
+]
+}
+]
 }

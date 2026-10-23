@@ -1,895 +1,1293 @@
 {
- "form": 7,
- "subject": "math",
- "title": "Practice GED Form 7 — Mathematical Reasoning",
- "minutes": 115,
- "stimuli": [],
- "parts": [
-  {
-   "name": "Part 1",
-   "calculator": false,
-   "items": [
-    {
-     "id": "m01",
-     "type": "mc",
-     "skill": "Order of operations with integers",
-     "difficulty": 1,
-     "prompt": "<p>Simplify the expression 14 &minus; 2(1 &minus; 5)<sup>2</sup> &divide; 4. What is its value?</p>",
-     "options": [
-      "48",
-      "22",
-      "6",
-      "16"
-     ],
-     "answer": 2,
-     "explain": "<p>Work inside the parentheses first: 1 &minus; 5 = &minus;4.</p><p>Exponent: (&minus;4)<sup>2</sup> = 16.</p><p>Multiply and divide from left to right: 2 &times; 16 = 32, and 32 &divide; 4 = 8.</p><p>Subtract last: 14 &minus; 8 = <strong>6</strong>.</p><p>The answer 48 comes from subtracting first: (14 &minus; 2) &times; 16 &divide; 4 = 48. The answer 22 comes from treating (&minus;4)<sup>2</sup> as &minus;16; a negative number squared is positive. The answer 16 skips the exponent entirely.</p>"
-    },
-    {
-     "id": "m02",
-     "type": "fill",
-     "skill": "Dividing fractions",
-     "difficulty": 2,
-     "prompt": "<p>A bottle contains 3&frac34; fluid ounces of cough syrup. Each dose is &frac58; fluid ounce. How many doses are in the bottle?</p>",
-     "answer": [
-      "6"
-     ],
-     "value": 6,
-     "tol": 0.001,
-     "suffix": "doses",
-     "explain": "<p>Divide the amount in the bottle by the size of one dose.</p><p>Change the mixed number to an improper fraction: 3&frac34; = 15/4.</p><p>Divide by multiplying by the reciprocal: 15/4 &divide; 5/8 = 15/4 &times; 8/5 = 120/20 = <strong>6 doses</strong>.</p><p>A common error is to multiply 15/4 &times; 5/8 = 75/32, which is about 2.3. Asking \"how many doses fit\" calls for division.</p>"
-    },
-    {
-     "id": "m03",
-     "type": "mc",
-     "skill": "Power of a product",
-     "difficulty": 2,
-     "prompt": "<p>Which expression is equivalent to (3a<sup>2</sup>b)<sup>3</sup>?</p>",
-     "options": [
-      "27a<sup>6</sup>b<sup>3</sup>",
-      "9a<sup>6</sup>b<sup>3</sup>",
-      "27a<sup>5</sup>b<sup>4</sup>",
-      "3a<sup>6</sup>b<sup>3</sup>"
-     ],
-     "answer": 0,
-     "explain": "<p>Raise every factor inside the parentheses to the third power.</p><p>3<sup>3</sup> = 27</p><p>(a<sup>2</sup>)<sup>3</sup> = a<sup>2 &times; 3</sup> = a<sup>6</sup> (multiply exponents for a power of a power)</p><p>b<sup>3</sup> = b<sup>3</sup></p><p>Result: <strong>27a<sup>6</sup>b<sup>3</sup></strong>.</p><p>9a<sup>6</sup>b<sup>3</sup> multiplies 3 by 3 instead of cubing it. 27a<sup>5</sup>b<sup>4</sup> adds the exponents instead of multiplying them.</p>"
-    },
-    {
-     "id": "m04",
-     "type": "mc",
-     "skill": "Solving equations with fractions",
-     "difficulty": 2,
-     "prompt": "<p>Solve for x.</p><p>(x + 4) / 2 = 3x &minus; 8</p>",
-     "options": [
-      "2.4",
-      "6",
-      "&minus;4",
-      "4"
-     ],
-     "answer": 3,
-     "explain": "<p>Multiply both sides by 2 to clear the fraction: x + 4 = 2(3x &minus; 8) = 6x &minus; 16.</p><p>Subtract x from both sides: 4 = 5x &minus; 16.</p><p>Add 16 to both sides: 20 = 5x.</p><p>Divide by 5: x = <strong>4</strong>.</p><p>Check: (4 + 4) / 2 = 4, and 3(4) &minus; 8 = 4.</p><p>The answer 2.4 comes from multiplying only 3x by 2 and not the &minus;8: x + 4 = 6x &minus; 8. The answer 6 comes from not multiplying the right side by 2 at all.</p>"
-    },
-    {
-     "id": "m05",
-     "type": "mc",
-     "skill": "Integers and absolute value",
-     "difficulty": 2,
-     "prompt": "<p>Find the value of |&minus;12| &minus; |5 &minus; 9| + (&minus;2)<sup>3</sup>.</p>",
-     "options": [
-      "16",
-      "0",
-      "2",
-      "8"
-     ],
-     "answer": 1,
-     "explain": "<p>Evaluate each part:</p><p>|&minus;12| = 12</p><p>|5 &minus; 9| = |&minus;4| = 4</p><p>(&minus;2)<sup>3</sup> = (&minus;2)(&minus;2)(&minus;2) = &minus;8</p><p>Combine: 12 &minus; 4 + (&minus;8) = <strong>0</strong>.</p><p>The answer 16 comes from treating (&minus;2)<sup>3</sup> as +8; an odd power of a negative number is negative. The answer 2 comes from multiplying &minus;2 by 3 instead of cubing it. The answer 8 treats |5 &minus; 9| as &minus;4; an absolute value is never negative.</p>"
-    }
-   ]
-  },
-  {
-   "name": "Part 2",
-   "calculator": true,
-   "items": [
-    {
-     "id": "m06",
-     "type": "mc",
-     "skill": "Dosage by body weight",
-     "difficulty": 1,
-     "prompt": "<p>A doctor prescribes an antibiotic at 15 milligrams per kilogram of body weight per day, divided into 3 equal doses. A child weighs 22 kilograms. How many milligrams should the child receive in <strong>each</strong> dose?</p>",
-     "options": [
-      "330 mg",
-      "110 mg",
-      "990 mg",
-      "165 mg"
-     ],
-     "answer": 1,
-     "explain": "<p>Daily amount: 15 mg/kg &times; 22 kg = 330 mg per day.</p><p>Each dose: 330 &divide; 3 = <strong>110 mg</strong>.</p><p>330 mg is the total for the whole day, not one dose. 990 mg multiplies by 3 instead of dividing. 165 mg divides the daily amount into 2 doses instead of 3.</p>"
-    },
-    {
-     "id": "m07",
-     "type": "fill",
-     "skill": "Proportions with medicine concentration",
-     "difficulty": 2,
-     "prompt": "<p>A liquid antibiotic contains 250 milligrams of medicine in every 5 milliliters. A patient's dose is 400 milligrams. How many milliliters should the patient take?</p>",
-     "answer": [
-      "8"
-     ],
-     "value": 8,
-     "tol": 0.001,
-     "suffix": "mL",
-     "explain": "<p>Set up a proportion: 250 mg / 5 mL = 400 mg / x mL.</p><p>Cross-multiply: 250x = 400 &times; 5 = 2,000.</p><p>Divide: x = 2,000 &divide; 250 = <strong>8 mL</strong>.</p><p>Another way: the medicine has 250 &divide; 5 = 50 mg per mL, and 400 &divide; 50 = 8 mL.</p><p>The value 1.6 (400 &divide; 250) is the number of 5-mL portions, not the number of milliliters.</p>"
-    },
-    {
-     "id": "m08",
-     "type": "mc",
-     "skill": "Unit conversion in dosage",
-     "difficulty": 2,
-     "prompt": "<p>A medicine is given at 0.5 milligram per kilogram of body weight. A patient weighs 176 pounds. Use 1 kilogram = 2.2 pounds. What dose, in milligrams, should the patient receive?</p>",
-     "options": [
-      "88 mg",
-      "193.6 mg",
-      "80 mg",
-      "40 mg"
-     ],
-     "answer": 3,
-     "explain": "<p>Convert pounds to kilograms by dividing: 176 &divide; 2.2 = 80 kg.</p><p>Multiply by the dose rate: 80 &times; 0.5 = <strong>40 mg</strong>.</p><p>88 mg uses the weight in pounds without converting (176 &times; 0.5). 193.6 mg multiplies by 2.2 instead of dividing. 80 mg is the weight in kilograms, not the dose.</p>"
-    },
-    {
-     "id": "m09",
-     "type": "mc",
-     "skill": "Percents with nutrition labels",
-     "difficulty": 2,
-     "prompt": "<p>The recommended Daily Value for sodium is 2,300 milligrams. A can of soup contains 2 servings, and each serving has 690 milligrams of sodium. If Marcus eats the whole can, what percent of the Daily Value for sodium does he consume?</p>",
-     "options": [
-      "60%",
-      "30%",
-      "167%",
-      "40%"
-     ],
-     "answer": 0,
-     "explain": "<p>Sodium in the whole can: 2 &times; 690 = 1,380 mg.</p><p>Percent of the Daily Value: 1,380 &divide; 2,300 = 0.6 = <strong>60%</strong>.</p><p>30% is the amount in only one serving (690 &divide; 2,300). 167% comes from dividing in the wrong order (2,300 &divide; 1,380). 40% is the part of the Daily Value that is left, not the part consumed.</p>"
-    },
-    {
-     "id": "m10",
-     "type": "mc",
-     "skill": "Percent change from a graph",
-     "difficulty": 2,
-     "prompt": "<p>The graph shows the number of flu shots given at a community clinic each month. By what percent did the number of flu shots decrease from October to November?</p>",
-     "figure": {
-      "type": "bar",
-      "title": "Flu Shots Given at the Clinic",
-      "xLabel": "Month",
-      "yLabel": "Number of flu shots",
-      "labels": [
-       "Sep",
-       "Oct",
-       "Nov",
-       "Dec"
-      ],
-      "series": [
-       {
-        "name": "Flu shots",
-        "values": [
-         240,
-         420,
-         315,
-         180
-        ]
-       }
-      ]
-     },
-     "options": [
-      "33.3%",
-      "105%",
-      "25%",
-      "75%"
-     ],
-     "answer": 2,
-     "explain": "<p>Read the graph: October = 420 shots; November = 315 shots.</p><p>Amount of decrease: 420 &minus; 315 = 105.</p><p>Percent change = change &divide; original = 105 &divide; 420 = 0.25 = <strong>25%</strong>.</p><p>33.3% divides by the November value (105 &divide; 315). Percent change always divides by the original (earlier) value. 75% is November as a percent of October, not the decrease.</p>"
-    },
-    {
-     "id": "m11",
-     "type": "fill",
-     "skill": "Mean",
-     "difficulty": 2,
-     "prompt": "<p>A nurse records a patient's systolic blood pressure each morning. The readings for the first five days were 128, 134, 122, 140, and 131. What reading on the sixth day would make the mean of all six readings exactly 130?</p>",
-     "answer": [
-      "125"
-     ],
-     "value": 125,
-     "tol": 0.001,
-     "explain": "<p>For a mean of 130 over 6 readings, the total must be 130 &times; 6 = 780.</p><p>Sum of the first five readings: 128 + 134 + 122 + 140 + 131 = 655.</p><p>Needed reading: 780 &minus; 655 = <strong>125</strong>.</p><p>Check: (655 + 125) &divide; 6 = 780 &divide; 6 = 130.</p>"
-    },
-    {
-     "id": "m12",
-     "type": "mc",
-     "skill": "Median and range",
-     "difficulty": 2,
-     "prompt": "<p>A dietitian lists the calories in seven breakfast choices.</p><table><thead><tr><th>Breakfast</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr></thead><tbody><tr><td>Calories</td><td>310</td><td>250</td><td>440</td><td>180</td><td>250</td><td>390</td><td>300</td></tr></tbody></table><p>What are the median and the range of the calories?</p>",
-     "options": [
-      "Median 180; range 260",
-      "Median 250; range 260",
-      "Median 300; range 440",
-      "Median 300; range 260"
-     ],
-     "answer": 3,
-     "explain": "<p>Put the values in order: 180, 250, 250, 300, 310, 390, 440.</p><p>Median: with seven values, the median is the 4th value, <strong>300</strong>.</p><p>Range: greatest &minus; least = 440 &minus; 180 = <strong>260</strong>.</p><p>A median of 180 is the middle of the table <em>before</em> sorting. 250 is the mode. A range of 440 is just the greatest value.</p>"
-    },
-    {
-     "id": "m13",
-     "type": "mc",
-     "skill": "Two-way tables and probability",
-     "difficulty": 3,
-     "prompt": "<p>In a study of a new allergy medicine, 250 participants were given either the medicine or a placebo. The table shows how many reported that their symptoms improved.</p><table><thead><tr><th></th><th>Improved</th><th>Did not improve</th><th>Total</th></tr></thead><tbody><tr><td>Medicine</td><td>105</td><td>45</td><td>150</td></tr><tr><td>Placebo</td><td>35</td><td>65</td><td>100</td></tr><tr><td>Total</td><td>140</td><td>110</td><td>250</td></tr></tbody></table><p>One participant is chosen at random from those whose symptoms <strong>improved</strong>. What is the probability that this participant received the medicine?</p>",
-     "options": [
-      "7/10",
-      "21/50",
-      "3/4",
-      "14/25"
-     ],
-     "answer": 2,
-     "explain": "<p>The chosen person comes only from the \"Improved\" column, so the total possible outcomes are 140.</p><p>Of those 140, 105 received the medicine.</p><p>P(medicine, given improved) = 105/140 = <strong>3/4</strong>.</p><p>7/10 is 105/150, the probability that someone who received the medicine improved; that uses the wrong group as the total. 21/50 is 105/250, which uses all participants as the total.</p>"
-    },
-    {
-     "id": "m14",
-     "type": "mc",
-     "skill": "Counting principle",
-     "difficulty": 2,
-     "prompt": "<p>A hospital gives each patient a wristband code made of 2 letters followed by 3 digits. The two letters must be different, but digits may repeat. How many different codes are possible?</p>",
-     "options": [
-      "650,000",
-      "676,000",
-      "468,000",
-      "81"
-     ],
-     "answer": 0,
-     "explain": "<p>Multiply the number of choices for each position.</p><p>First letter: 26 choices. Second letter: 25 choices (it must be different).</p><p>Each digit: 10 choices.</p><p>26 &times; 25 &times; 10 &times; 10 &times; 10 = <strong>650,000</strong>.</p><p>676,000 lets the letters repeat (26 &times; 26 &times; 1,000). 468,000 does not let the digits repeat (26 &times; 25 &times; 10 &times; 9 &times; 8). 81 adds the choices instead of multiplying.</p>"
-    },
-    {
-     "id": "m15",
-     "type": "mc",
-     "skill": "Scientific notation",
-     "difficulty": 3,
-     "prompt": "<p>A human red blood cell is about 7.5 &times; 10<sup>&minus;6</sup> meter across. An adult has about 2.5 &times; 10<sup>13</sup> red blood cells. If all of these cells were lined up side by side, about how many meters long would the line be?</p>",
-     "options": [
-      "1.875 &times; 10<sup>7</sup>",
-      "1.875 &times; 10<sup>8</sup>",
-      "1.875 &times; 10<sup>19</sup>",
-      "3.3 &times; 10<sup>18</sup>"
-     ],
-     "answer": 1,
-     "explain": "<p>Multiply the width of one cell by the number of cells:</p><p>(7.5 &times; 10<sup>&minus;6</sup>)(2.5 &times; 10<sup>13</sup>) = (7.5 &times; 2.5) &times; 10<sup>&minus;6 + 13</sup> = 18.75 &times; 10<sup>7</sup></p><p>Rewrite so the first factor is between 1 and 10: 18.75 &times; 10<sup>7</sup> = <strong>1.875 &times; 10<sup>8</sup> meters</strong>.</p><p>1.875 &times; 10<sup>7</sup> forgets to raise the exponent when 18.75 becomes 1.875. 1.875 &times; 10<sup>19</sup> adds 6 + 13 and ignores the negative sign. 3.3 &times; 10<sup>18</sup> divides instead of multiplying.</p>"
-    },
-    {
-     "id": "m16",
-     "type": "mc",
-     "skill": "Circumference",
-     "difficulty": 3,
-     "prompt": "<p>A hospital wellness path is a circle with a diameter of 70 meters. A patient in a rehabilitation program must walk at least 1,000 meters. What is the least number of <strong>complete</strong> laps around the path the patient must walk?</p>",
-     "options": [
-      "4",
-      "3",
-      "5",
-      "10"
-     ],
-     "answer": 2,
-     "explain": "<p>One lap is the circumference: C = &pi;d = &pi;(70) &asymp; 219.9 meters.</p><p>Laps needed: 1,000 &divide; 219.9 &asymp; 4.55.</p><p>Four laps is only about 4 &times; 219.9 = 879.6 meters, which is not enough, so the patient needs <strong>5</strong> complete laps (about 1,099.6 meters).</p><p>4 rounds down and falls short of 1,000 meters. 3 uses 2&pi;(70) as the circumference, treating the diameter as the radius. 10 uses &pi;(35), the radius instead of the diameter.</p>"
-    },
-    {
-     "id": "m17",
-     "type": "mc",
-     "skill": "Pythagorean theorem",
-     "difficulty": 1,
-     "prompt": "<p>A rectangular hospital room is 12 feet wide and 16 feet long. A cable runs straight across the floor from one corner of the room to the opposite corner. How long is the cable?</p>",
-     "options": [
-      "28 ft",
-      "10.6 ft",
-      "14 ft",
-      "20 ft"
-     ],
-     "answer": 3,
-     "explain": "<p>The width, the length, and the diagonal form a right triangle, with the diagonal as the hypotenuse.</p><p>c<sup>2</sup> = 12<sup>2</sup> + 16<sup>2</sup> = 144 + 256 = 400</p><p>c = &radic;400 = <strong>20 ft</strong></p><p>28 ft adds the two sides (12 + 16); the diagonal is shorter than going along two walls. 10.6 ft subtracts the squares (&radic;(256 &minus; 144)); subtract only when you are finding a leg, not the hypotenuse.</p>"
-    },
-    {
-     "id": "m18",
-     "type": "mc",
-     "skill": "Volume of a cylinder",
-     "difficulty": 2,
-     "prompt": "<p>A pill bottle is shaped like a cylinder. It is 3 centimeters across (diameter) and 6 centimeters tall. What is the volume of the bottle, to the nearest tenth of a cubic centimeter?</p>",
-     "options": [
-      "169.6 cm<sup>3</sup>",
-      "42.4 cm<sup>3</sup>",
-      "56.5 cm<sup>3</sup>",
-      "28.3 cm<sup>3</sup>"
-     ],
-     "answer": 1,
-     "explain": "<p>The radius is half the diameter: r = 3 &divide; 2 = 1.5 cm.</p><p>V = &pi;r<sup>2</sup>h = &pi;(1.5)<sup>2</sup>(6) = &pi;(2.25)(6) = 13.5&pi; &asymp; <strong>42.4 cm<sup>3</sup></strong>.</p><p>169.6 cm<sup>3</sup> uses the diameter, 3, as the radius: &pi;(9)(6). 56.5 cm<sup>3</sup> is 2&pi;rh, the area of the side of the bottle, not its volume.</p>"
-    },
-    {
-     "id": "m19",
-     "type": "mc",
-     "skill": "Volume of a cone",
-     "difficulty": 2,
-     "prompt": "<p>A clinic's water cooler uses paper cups shaped like cones. Each cup has a radius of 3.5 centimeters and a height of 9 centimeters. What is the volume of one cup, to the nearest tenth of a cubic centimeter? Use the formula sheet if needed.</p>",
-     "options": [
-      "115.5 cm<sup>3</sup>",
-      "346.4 cm<sup>3</sup>",
-      "461.8 cm<sup>3</sup>",
-      "33.0 cm<sup>3</sup>"
-     ],
-     "answer": 0,
-     "explain": "<p>Volume of a cone: V = (1/3)&pi;r<sup>2</sup>h.</p><p>r<sup>2</sup> = 3.5<sup>2</sup> = 12.25</p><p>V = (1/3)&pi;(12.25)(9) = 36.75&pi; &asymp; <strong>115.5 cm<sup>3</sup></strong>.</p><p>346.4 cm<sup>3</sup> leaves out the 1/3 (that is the volume of a cylinder). 461.8 cm<sup>3</sup> uses the diameter, 7, instead of the radius. 33.0 cm<sup>3</sup> forgets to square the radius.</p>"
-    },
-    {
-     "id": "m20",
-     "type": "fill",
-     "skill": "Surface area of a cylinder",
-     "difficulty": 3,
-     "prompt": "<p>A cardboard canister of oatmeal is a closed cylinder with a radius of 6 centimeters and a height of 18 centimeters. What is the total surface area of the canister, including the top and bottom, to the nearest square centimeter? Use the formula sheet if needed.</p>",
-     "answer": [
-      "905",
-      "904.8",
-      "904.78"
-     ],
-     "value": 905,
-     "tol": 0.5,
-     "suffix": "square centimeters",
-     "explain": "<p>Surface area of a cylinder: SA = 2&pi;rh + 2&pi;r<sup>2</sup>.</p><p>Side: 2&pi;(6)(18) = 216&pi;</p><p>Top and bottom: 2&pi;(6)<sup>2</sup> = 2&pi;(36) = 72&pi;</p><p>Total: 216&pi; + 72&pi; = 288&pi; &asymp; 904.78, which rounds to <strong>905 cm<sup>2</sup></strong>.</p><p>A common error is to include only one circle (216&pi; + 36&pi; &asymp; 791.7) or only the side (216&pi; &asymp; 678.6). A closed canister has two circular ends.</p>"
-    },
-    {
-     "id": "m21",
-     "type": "mc",
-     "skill": "Ratios",
-     "difficulty": 1,
-     "prompt": "<p>A nutritionist makes a trail mix with peanuts, raisins, and sunflower seeds in the ratio 5 : 3 : 2 by weight. How many grams of raisins are in a 1,500-gram batch?</p>",
-     "options": [
-      "450 g",
-      "300 g",
-      "500 g",
-      "900 g"
-     ],
-     "answer": 0,
-     "explain": "<p>Add the parts of the ratio: 5 + 3 + 2 = 10 parts.</p><p>Each part weighs 1,500 &divide; 10 = 150 grams.</p><p>Raisins: 3 parts &times; 150 = <strong>450 g</strong>.</p><p>300 g is the weight of the sunflower seeds (2 parts). 900 g uses 3/5 of the batch, comparing raisins only to peanuts instead of to the whole mix.</p>"
-    },
-    {
-     "id": "m22",
-     "type": "fill",
-     "skill": "Simple interest",
-     "difficulty": 2,
-     "prompt": "<p>Dana owes a hospital bill of $2,400. She sets up a payment plan that charges 6% simple interest per year. She will pay off the bill, plus interest, in 18 months. How much will Dana pay in all, in dollars?</p>",
-     "answer": [
-      "2616",
-      "2,616",
-      "2616.00"
-     ],
-     "value": 2616,
-     "tol": 0.001,
-     "suffix": "dollars",
-     "explain": "<p>Simple interest: I = Prt. The time must be in years: 18 months = 18 &divide; 12 = 1.5 years.</p><p>I = 2,400 &times; 0.06 &times; 1.5 = $216.</p><p>Total paid: 2,400 + 216 = <strong>$2,616</strong>.</p><p>A common error is to use t = 18, which gives an interest of $2,592 and a total of $4,992. The rate is per year, so the time must be in years.</p>"
-    },
-    {
-     "id": "m23",
-     "type": "fill",
-     "skill": "Finding the original amount",
-     "difficulty": 3,
-     "prompt": "<p>After a 12-week fitness program, Luis lost 8% of his starting weight. He now weighs 161 pounds. What was his starting weight, in pounds?</p>",
-     "answer": [
-      "175"
-     ],
-     "value": 175,
-     "tol": 0.001,
-     "suffix": "pounds",
-     "explain": "<p>Losing 8% leaves 100% &minus; 8% = 92% of the starting weight.</p><p>0.92 &times; s = 161</p><p>s = 161 &divide; 0.92 = <strong>175 pounds</strong>.</p><p>Check: 8% of 175 = 14, and 175 &minus; 14 = 161.</p><p>A common error is to add 8% of 161 to 161, which gives about 173.9. The 8% is a percent of the <em>starting</em> weight, not the new weight.</p>"
-    },
-    {
-     "id": "m24",
-     "type": "mc",
-     "skill": "Writing expressions",
-     "difficulty": 1,
-     "prompt": "<p>An IV bag holds 1,000 milliliters of fluid. The fluid drains from the bag at a constant rate of 125 milliliters per hour. Which expression gives the number of milliliters left in the bag after h hours?</p>",
-     "options": [
-      "125h &minus; 1,000",
-      "1,000h &minus; 125",
-      "1,000 &minus; 125h",
-      "875h"
-     ],
-     "answer": 2,
-     "explain": "<p>The bag starts with 1,000 mL. Each hour, 125 mL drains out, so after h hours, 125h mL have drained.</p><p>Amount left: <strong>1,000 &minus; 125h</strong>.</p><p>Check: after 2 hours, 1,000 &minus; 125(2) = 750 mL are left.</p><p>125h &minus; 1,000 gives the amount drained minus the starting amount, which is negative at first. 875h assumes the bag loses 875 mL each hour.</p>"
-    },
-    {
-     "id": "m25",
-     "type": "fill",
-     "skill": "Linear equation word problem",
-     "difficulty": 1,
-     "prompt": "<p>A fitness center charges a one-time joining fee of $49 plus $32 per month. Rosa has paid a total of $337 so far. For how many months has she been a member?</p>",
-     "answer": [
-      "9"
-     ],
-     "value": 9,
-     "tol": 0.001,
-     "suffix": "months",
-     "explain": "<p>Let m be the number of months: 49 + 32m = 337.</p><p>Subtract 49: 32m = 288.</p><p>Divide by 32: m = <strong>9 months</strong>.</p><p>Check: 49 + 32(9) = 49 + 288 = $337.</p><p>Dividing 337 by 32 (about 10.5) forgets to take out the one-time fee first.</p>"
-    },
-    {
-     "id": "m26",
-     "type": "mc",
-     "skill": "Evaluating formulas",
-     "difficulty": 2,
-     "prompt": "<p>Body mass index (BMI) can be found with the formula BMI = 703w / h<sup>2</sup>, where w is weight in pounds and h is height in inches. What is the BMI, to the nearest tenth, of a person who weighs 180 pounds and is 5 feet 10 inches tall?</p>",
-     "options": [
-      "1,807.7",
-      "903.9",
-      "12.9",
-      "25.8"
-     ],
-     "answer": 3,
-     "explain": "<p>Convert the height to inches: 5 feet 10 inches = 5(12) + 10 = 70 inches.</p><p>Square the height: 70<sup>2</sup> = 4,900.</p><p>BMI = 703(180) / 4,900 = 126,540 / 4,900 &asymp; <strong>25.8</strong>.</p><p>1,807.7 divides by 70 without squaring it. 903.9 divides by 2 &times; 70 = 140, which doubles the height instead of squaring it.</p>"
-    },
-    {
-     "id": "m27",
-     "type": "mc",
-     "skill": "Solving literal equations",
-     "difficulty": 2,
-     "prompt": "<p>Clark's rule estimates a child's medicine dose: C = (W / 150) &times; A, where C is the child's dose, W is the child's weight in pounds, and A is the adult dose. Which equation is solved for W?</p>",
-     "options": [
-      "W = 150A / C",
-      "W = 150C / A",
-      "W = CA / 150",
-      "W = 150 &minus; C / A"
-     ],
-     "answer": 1,
-     "explain": "<p>Start with C = WA / 150.</p><p>Multiply both sides by 150: 150C = WA.</p><p>Divide both sides by A: <strong>W = 150C / A</strong>.</p><p>Check with numbers: if W = 60 and A = 500, then C = (60/150)(500) = 200. Then 150(200) / 500 = 60. Correct.</p><p>W = 150A / C switches the roles of A and C; with the numbers above it gives 375, not 60.</p>"
-    },
-    {
-     "id": "m28",
-     "type": "dropdown",
-     "skill": "Evaluating rational expressions",
-     "difficulty": 2,
-     "prompt": "<p>Young's rule estimates a child's dose of a medicine from the adult dose D and the child's age a, in years:</p><p>child's dose = (a / (a + 12)) &times; D</p><p>The adult dose of a medicine is 300 milligrams.</p><p>For a 6-year-old child, the fraction a / (a + 12) is equal to {{0}}.</p><p>The 6-year-old's dose is {{1}} milligrams.</p><p>For an 8-year-old child, the dose is {{2}} milligrams.</p>",
-     "blanks": [
-      {
-       "options": [
-        "1/2",
-        "1/3",
-        "1/6",
-        "2/3"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "50",
-        "100",
-        "150",
-        "200"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "96",
-        "120",
-        "150",
-        "200"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>For a = 6: a / (a + 12) = 6 / (6 + 12) = 6/18 = <strong>1/3</strong>.</p><p>Dose: (1/3) &times; 300 = <strong>100 mg</strong>.</p><p>For a = 8: 8 / (8 + 12) = 8/20 = 2/5, and (2/5) &times; 300 = <strong>120 mg</strong>.</p><p>Choosing 1/2 comes from computing 6/12 and forgetting to add 12 to the age in the denominator.</p>"
-    },
-    {
-     "id": "m29",
-     "type": "mc",
-     "skill": "Inequality word problem",
-     "difficulty": 2,
-     "prompt": "<p>Gloria's doctor advises her to eat no more than 2,300 milligrams of sodium per day. By dinner, she has eaten 1,450 milligrams. Each serving of her favorite crackers has 170 milligrams of sodium. What is the greatest number of servings of crackers she can eat and stay within her limit?</p>",
-     "options": [
-      "4",
-      "6",
-      "13",
-      "5"
-     ],
-     "answer": 3,
-     "explain": "<p>Let s be the number of servings: 1,450 + 170s &le; 2,300.</p><p>Subtract 1,450: 170s &le; 850.</p><p>Divide by 170: s &le; 5.</p><p>The greatest number of servings is <strong>5</strong>. Check: 1,450 + 170(5) = 1,450 + 850 = 2,300, which is exactly the limit and is allowed by \"no more than.\" Six servings would give 2,470 mg, which is too much.</p><p>13 comes from 2,300 &divide; 170, which ignores the sodium she has already eaten.</p>"
-    },
-    {
-     "id": "m30",
-     "type": "mc",
-     "skill": "Solving linear inequalities",
-     "difficulty": 2,
-     "prompt": "<p>Which inequality is equivalent to &minus;4(x &minus; 2) &le; 2x + 26?</p>",
-     "options": [
-      "x &le; &minus;3",
-      "x &ge; &minus;3",
-      "x &ge; &minus;17/3",
-      "x &ge; 3"
-     ],
-     "answer": 1,
-     "explain": "<p>Distribute: &minus;4x + 8 &le; 2x + 26.</p><p>Subtract 2x from both sides: &minus;6x + 8 &le; 26.</p><p>Subtract 8: &minus;6x &le; 18.</p><p>Divide by &minus;6 and reverse the sign: <strong>x &ge; &minus;3</strong>.</p><p>Check with x = 0: &minus;4(&minus;2) = 8, and 8 &le; 26 is true; 0 &ge; &minus;3, so it agrees.</p><p>x &le; &minus;3 forgets to reverse the inequality when dividing by a negative number. x &ge; &minus;17/3 comes from distributing as &minus;4x &minus; 8.</p>"
-    },
-    {
-     "id": "m31",
-     "type": "mc",
-     "skill": "Mixture problem with systems",
-     "difficulty": 3,
-     "prompt": "<p>A lab technician needs 300 milliliters of a 15% disinfectant solution. She will mix a 10% solution with a 25% solution. How many milliliters of the 25% solution should she use?</p>",
-     "options": [
-      "200 mL",
-      "150 mL",
-      "100 mL",
-      "180 mL"
-     ],
-     "answer": 2,
-     "explain": "<p>Let x = mL of the 10% solution and y = mL of the 25% solution.</p><p>Total volume: x + y = 300.</p><p>Amount of disinfectant: 0.10x + 0.25y = 0.15(300) = 45.</p><p>Substitute x = 300 &minus; y: 0.10(300 &minus; y) + 0.25y = 45</p><p>30 &minus; 0.10y + 0.25y = 45</p><p>0.15y = 15, so y = <strong>100 mL</strong> (and x = 200 mL).</p><p>Check: 0.10(200) + 0.25(100) = 20 + 25 = 45 mL of disinfectant in 300 mL, which is 15%.</p><p>200 mL is the amount of the 10% solution. 150 mL splits the mixture evenly, which would give a 17.5% solution.</p>"
-    },
-    {
-     "id": "m32",
-     "type": "mc",
-     "skill": "Solving systems by elimination",
-     "difficulty": 2,
-     "prompt": "<p>Solve the system. Which ordered pair makes both equations true?</p><p>4x + 3y = 6<br>2x &minus; 3y = 12</p>",
-     "options": [
-      "(3, &minus;2)",
-      "(&minus;2, 3)",
-      "(3, 2)",
-      "(0, 2)"
-     ],
-     "answer": 0,
-     "explain": "<p>Add the equations to eliminate y: (4x + 2x) + (3y &minus; 3y) = 6 + 12, so 6x = 18 and x = 3.</p><p>Substitute into the first equation: 4(3) + 3y = 6, so 3y = &minus;6 and y = &minus;2.</p><p>The solution is <strong>(3, &minus;2)</strong>. Check the second equation: 2(3) &minus; 3(&minus;2) = 6 + 6 = 12.</p><p>(0, 2) works in the first equation only: 2(0) &minus; 3(2) = &minus;6, not 12. (&minus;2, 3) reverses the coordinates.</p>"
-    },
-    {
-     "id": "m33",
-     "type": "hotspot",
-     "skill": "Solving systems by graphing",
-     "difficulty": 1,
-     "prompt": "<p>Two lines are graphed: y = &minus;(1/2)x + 1 and y = x &minus; 5. Select the point on the grid where both equations are true at the same time.</p>",
-     "figure": {
-      "type": "plane",
-      "xmin": -6,
-      "xmax": 8,
-      "ymin": -8,
-      "ymax": 6,
-      "lines": [
-       {
-        "m": -0.5,
-        "b": 1,
-        "label": "y = −(1/2)x + 1"
-       },
-       {
-        "m": 1,
-        "b": -5,
-        "label": "y = x − 5"
-       }
-      ]
-     },
-     "plane": {
-      "xmin": -6,
-      "xmax": 8,
-      "ymin": -8,
-      "ymax": 6
-     },
-     "answer": [
-      4,
-      -1
-     ],
-     "explain": "<p>Both equations are true where the lines cross. Set the expressions equal:</p><p>&minus;(1/2)x + 1 = x &minus; 5</p><p>6 = (3/2)x, so x = 4</p><p>y = 4 &minus; 5 = &minus;1</p><p>The solution is <strong>(4, &minus;1)</strong>. Check in the first equation: &minus;(1/2)(4) + 1 = &minus;2 + 1 = &minus;1.</p><p>The y-intercepts (0, 1) and (0, &minus;5) each lie on only one of the lines, so they are not solutions of the system.</p>"
-    },
-    {
-     "id": "m34",
-     "type": "hotspot",
-     "skill": "Points on a line",
-     "difficulty": 3,
-     "prompt": "<p>A line passes through point A(&minus;3, 4), shown on the coordinate plane, and has a slope of &minus;2/3. The point on this line with an x-coordinate of 6 is not shown. Click that point.</p>",
-     "figure": {
-      "type": "plane",
-      "xmin": -8,
-      "xmax": 8,
-      "ymin": -8,
-      "ymax": 8,
-      "points": [
-       [
-        -3,
-        4,
-        "A"
-       ]
-      ]
-     },
-     "plane": {
-      "xmin": -8,
-      "xmax": 8,
-      "ymin": -8,
-      "ymax": 8
-     },
-     "answer": [
-      6,
-      -2
-     ],
-     "explain": "<p>From x = &minus;3 to x = 6, the run is 6 &minus; (&minus;3) = 9.</p><p>Slope = rise / run, so rise = (&minus;2/3)(9) = &minus;6.</p><p>New y-value: 4 + (&minus;6) = &minus;2.</p><p>The point is <strong>(6, &minus;2)</strong>.</p><p>Check with the equation of the line: y &minus; 4 = (&minus;2/3)(x + 3). At x = 6: y = 4 &minus; 6 = &minus;2.</p><p>Using a positive slope would give 4 + 6 = 10, which is off the grid; the negative slope means the line falls from left to right.</p>"
-    },
-    {
-     "id": "m35",
-     "type": "mc",
-     "skill": "Slope as a rate of change",
-     "difficulty": 2,
-     "prompt": "<p>The graph shows a patient's weight, measured every 4 weeks, during a supervised weight-loss program. The weight changed at a constant rate. Which statement describes the rate of change?</p>",
-     "figure": {
-      "type": "line",
-      "title": "Patient's Weight",
-      "xLabel": "Week",
-      "yLabel": "Weight (pounds)",
-      "labels": [
-       "0",
-       "4",
-       "8",
-       "12"
-      ],
-      "series": [
-       {
-        "name": "Weight",
-        "values": [
-         220,
-         212,
-         204,
-         196
-        ]
-       }
-      ]
-     },
-     "options": [
-      "The weight decreased by 8 pounds per week.",
-      "The weight decreased by 4 pounds per week.",
-      "The weight decreased by 2 pounds per week.",
-      "The weight decreased by 0.5 pound per week."
-     ],
-     "answer": 2,
-     "explain": "<p>Use two points from the graph: (0, 220) and (12, 196).</p><p>Rate of change = change in weight / change in time = (196 &minus; 220) / (12 &minus; 0) = &minus;24 / 12 = &minus;2.</p><p>The weight <strong>decreased by 2 pounds per week</strong>.</p><p>8 pounds is the change over each 4-week interval, not per week. 0.5 pound comes from dividing the weeks by the pounds (12 &divide; 24), which flips the rate.</p>"
-    },
-    {
-     "id": "m36",
-     "type": "dropdown",
-     "skill": "Linear functions from a table",
-     "difficulty": 2,
-     "prompt": "<p>A pharmacy charges a fixed fee plus a set price per pill for a prescription. The total cost is a linear function of the number of pills.</p><table><thead><tr><th>Number of pills</th><th>30</th><th>60</th><th>90</th></tr></thead><tbody><tr><td>Total cost</td><td>$19.50</td><td>$34.50</td><td>$49.50</td></tr></tbody></table><p>The price per pill is {{0}}.</p><p>The fixed fee is {{1}}.</p><p>The total cost for 120 pills is {{2}}.</p>",
-     "blanks": [
-      {
-       "options": [
-        "$0.50",
-        "$0.65",
-        "$1.50",
-        "$15.00"
-       ],
-       "answer": 0
-      },
-      {
-       "options": [
-        "$0.50",
-        "$4.50",
-        "$15.00",
-        "$19.50"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "$60.00",
-        "$64.50",
-        "$69.00",
-        "$78.00"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Price per pill (slope): each additional 30 pills adds $15.00, so 15.00 &divide; 30 = <strong>$0.50</strong> per pill.</p><p>Fixed fee (y-intercept): 30 pills cost 30 &times; 0.50 = $15.00, and 19.50 &minus; 15.00 = <strong>$4.50</strong>.</p><p>The function is C = 0.50p + 4.50. For 120 pills: 0.50(120) + 4.50 = 60.00 + 4.50 = <strong>$64.50</strong>.</p><p>$0.65 comes from 19.50 &divide; 30, which ignores the fixed fee. $78.00 comes from 4 &times; $19.50, which counts the fixed fee four times.</p>"
-    },
-    {
-     "id": "m37",
-     "type": "mc",
-     "skill": "Writing a linear equation from two points",
-     "difficulty": 2,
-     "prompt": "<p>A line contains the points (2, &minus;1) and (6, 7). Written in slope-intercept form, what is the equation of this line?</p>",
-     "options": [
-      "y = 2x &minus; 5",
-      "y = (1/2)x &minus; 2",
-      "y = &minus;2x + 3",
-      "y = 2x + 3"
-     ],
-     "answer": 0,
-     "explain": "<p>Slope: m = (7 &minus; (&minus;1)) / (6 &minus; 2) = 8/4 = 2.</p><p>Use (2, &minus;1) to find b: &minus;1 = 2(2) + b, so &minus;1 = 4 + b and b = &minus;5.</p><p>Equation: <strong>y = 2x &minus; 5</strong>. Check (6, 7): 2(6) &minus; 5 = 7.</p><p>y = (1/2)x &minus; 2 uses run over rise for the slope. y = 2x + 3 has the right slope but does not pass through (2, &minus;1): 2(2) + 3 = 7, not &minus;1.</p>"
-    },
-    {
-     "id": "m38",
-     "type": "mc",
-     "skill": "Perpendicular lines",
-     "difficulty": 3,
-     "prompt": "<p>Which equation represents a line that is perpendicular to the line 3x &minus; 4y = 8 and passes through the point (0, 5)?</p>",
-     "options": [
-      "y = (3/4)x + 5",
-      "y = (4/3)x + 5",
-      "y = &minus;(3/4)x + 5",
-      "y = &minus;(4/3)x + 5"
-     ],
-     "answer": 3,
-     "explain": "<p>Write the given line in slope-intercept form: &minus;4y = &minus;3x + 8, so y = (3/4)x &minus; 2. Its slope is 3/4.</p><p>A perpendicular line has the negative reciprocal slope: &minus;4/3.</p><p>It passes through (0, 5), so the y-intercept is 5: <strong>y = &minus;(4/3)x + 5</strong>.</p><p>y = (3/4)x + 5 has the same slope, so it is parallel, not perpendicular. y = (4/3)x + 5 takes the reciprocal but not the opposite sign. y = &minus;(3/4)x + 5 changes the sign but does not take the reciprocal.</p>"
-    },
-    {
-     "id": "m39",
-     "type": "mc",
-     "skill": "Evaluating functions",
-     "difficulty": 2,
-     "prompt": "<p>The amount of a medicine left in a patient's body t hours after a 400-milligram dose is given by the function A(t) = 400(0.5)<sup>t/6</sup>. How many milligrams are left after 12 hours?</p>",
-     "options": [
-      "200 mg",
-      "100 mg",
-      "50 mg",
-      "2,400 mg"
-     ],
-     "answer": 1,
-     "explain": "<p>Substitute t = 12: A(12) = 400(0.5)<sup>12/6</sup> = 400(0.5)<sup>2</sup>.</p><p>(0.5)<sup>2</sup> = 0.25</p><p>400 &times; 0.25 = <strong>100 mg</strong>.</p><p>200 mg is the amount after 6 hours (one halving). 50 mg halves three times. 2,400 mg comes from 400 &times; 0.5 &times; 12, which multiplies by the exponent instead of using it as a power.</p>"
-    },
-    {
-     "id": "m40",
-     "type": "multi",
-     "skill": "Factoring a difference of squares",
-     "difficulty": 3,
-     "prompt": "<p>Which expressions are equivalent to 4x<sup>2</sup> &minus; 36? Select <strong>two</strong> answers.</p>",
-     "options": [
-      "4(x &minus; 3)(x + 3)",
-      "(2x &minus; 6)(2x + 6)",
-      "4(x &minus; 3)<sup>2</sup>",
-      "(2x &minus; 6)<sup>2</sup>",
-      "2(x &minus; 9)(x + 9)",
-      "4(x &minus; 9)(x + 9)"
-     ],
-     "answer": [
-      0,
-      1
-     ],
-     "explain": "<p>4x<sup>2</sup> &minus; 36 is a difference of squares: (2x)<sup>2</sup> &minus; 6<sup>2</sup> = <strong>(2x &minus; 6)(2x + 6)</strong>.</p><p>You can also factor out the GCF first: 4(x<sup>2</sup> &minus; 9) = <strong>4(x &minus; 3)(x + 3)</strong>.</p><p>Check: 4(x &minus; 3)(x + 3) = 4(x<sup>2</sup> &minus; 9) = 4x<sup>2</sup> &minus; 36. And (2x &minus; 6)(2x + 6) = 4x<sup>2</sup> + 12x &minus; 12x &minus; 36 = 4x<sup>2</sup> &minus; 36.</p><p>4(x &minus; 3)<sup>2</sup> = 4x<sup>2</sup> &minus; 24x + 36, which has a middle term. 4(x &minus; 9)(x + 9) = 4x<sup>2</sup> &minus; 324, because the square root of 9 is 3, not 9.</p>"
-    },
-    {
-     "id": "m41",
-     "type": "multi",
-     "skill": "Solving quadratics by factoring",
-     "difficulty": 3,
-     "prompt": "<p>Find every value of x for which 2x<sup>2</sup> &minus; 7x &minus; 15 = 0. Select <strong>two</strong> answers.</p>",
-     "options": [
-      "5",
-      "&minus;3/2",
-      "&minus;5",
-      "3/2",
-      "15",
-      "&minus;15"
-     ],
-     "answer": [
-      0,
-      1
-     ],
-     "explain": "<p>Factor: 2x<sup>2</sup> &minus; 7x &minus; 15 = (2x + 3)(x &minus; 5).</p><p>Check: (2x + 3)(x &minus; 5) = 2x<sup>2</sup> &minus; 10x + 3x &minus; 15 = 2x<sup>2</sup> &minus; 7x &minus; 15.</p><p>Set each factor equal to zero:</p><p>2x + 3 = 0, so x = <strong>&minus;3/2</strong></p><p>x &minus; 5 = 0, so x = <strong>5</strong></p><p>Choosing &minus;5 and 3/2 uses the numbers in the factors without solving; the solutions have the opposite signs.</p>"
-    },
-    {
-     "id": "m42",
-     "type": "mc",
-     "skill": "Quadratic formula in context",
-     "difficulty": 3,
-     "prompt": "<p>A rehabilitation center is planning a rectangular therapy garden. The length will be 3 meters more than the width, and the area will be 50 square meters. What will the width be, to the nearest hundredth of a meter? Use the formula sheet if needed.</p>",
-     "options": [
-      "5.73 m",
-      "8.73 m",
-      "7.07 m",
-      "11.46 m"
-     ],
-     "answer": 0,
-     "explain": "<p>Let w be the width. Then the length is w + 3, and w(w + 3) = 50.</p><p>Write in standard form: w<sup>2</sup> + 3w &minus; 50 = 0, with a = 1, b = 3, c = &minus;50.</p><p>Quadratic formula: w = (&minus;3 &plusmn; &radic;(3<sup>2</sup> &minus; 4(1)(&minus;50))) / (2 &times; 1) = (&minus;3 &plusmn; &radic;209) / 2.</p><p>&radic;209 &asymp; 14.457, so w &asymp; (&minus;3 + 14.457) / 2 &asymp; <strong>5.73 m</strong>. The negative solution is not possible for a width.</p><p>Check: 5.73 &times; 8.73 &asymp; 50.0.</p><p>8.73 m is the length. 7.07 m is &radic;50, which would be the side of a square garden. 11.46 m forgets to divide by 2a.</p>"
-    },
-    {
-     "id": "m43",
-     "type": "mc",
-     "skill": "Maximum of a quadratic function",
-     "difficulty": 3,
-     "prompt": "<p>The concentration of a medicine in a patient's blood, in milligrams per liter, t hours after a dose is modeled by C(t) = &minus;0.5t<sup>2</sup> + 6t, for 0 &le; t &le; 12. What is the maximum concentration?</p>",
-     "options": [
-      "6 mg/L",
-      "36 mg/L",
-      "72 mg/L",
-      "18 mg/L"
-     ],
-     "answer": 3,
-     "explain": "<p>The graph is a parabola that opens downward (a = &minus;0.5), so the vertex is the maximum.</p><p>Time of the maximum: t = &minus;b / (2a) = &minus;6 / (2 &times; &minus;0.5) = &minus;6 / &minus;1 = 6 hours.</p><p>C(6) = &minus;0.5(6)<sup>2</sup> + 6(6) = &minus;0.5(36) + 36 = &minus;18 + 36 = <strong>18 mg/L</strong>.</p><p>6 is the <em>time</em> of the maximum, not the concentration. 36 mg/L leaves out the &minus;0.5t<sup>2</sup> term and uses only 6t.</p>"
-    },
-    {
-     "id": "m44",
-     "type": "drag",
-     "skill": "Comparing measurements with unit conversion",
-     "difficulty": 3,
-     "prompt": "<p>Five supplements contain the amounts of vitamin C shown. Drag each amount into the correct position to order the amounts from least to greatest. (1 gram = 1,000 milligrams; 1 kilogram = 1,000 grams)</p>",
-     "choices": [
-      "0.4 g",
-      "350 mg",
-      "3/8 g",
-      "4.2 &times; 10<sup>2</sup> mg",
-      "0.00045 kg"
-     ],
-     "bins": [
-      "1st (least)",
-      "2nd",
-      "3rd",
-      "4th",
-      "5th (greatest)"
-     ],
-     "answer": [
-      2,
-      0,
-      1,
-      3,
-      4
-     ],
-     "explain": "<p>Change each amount to milligrams:</p><p>0.4 g = 0.4 &times; 1,000 = 400 mg</p><p>350 mg = 350 mg</p><p>3/8 g = 0.375 g = 375 mg</p><p>4.2 &times; 10<sup>2</sup> mg = 420 mg</p><p>0.00045 kg = 0.45 g = 450 mg</p><p>Order from least to greatest: <strong>350 mg, 3/8 g, 0.4 g, 4.2 &times; 10<sup>2</sup> mg, 0.00045 kg</strong>.</p><p>0.00045 kg looks like the smallest number, but kilograms are a much larger unit; always convert to the same unit before comparing.</p>"
-    },
-    {
-     "id": "m45",
-     "type": "drag",
-     "skill": "Multiplying polynomials",
-     "difficulty": 2,
-     "prompt": "<p>Drag each expression into the correct category: equivalent to (x + 4)(2x &minus; 3), or not equivalent.</p>",
-     "choices": [
-      "2x<sup>2</sup> + 5x &minus; 12",
-      "2x<sup>2</sup> &minus; 12",
-      "2x<sup>2</sup> + 11x &minus; 12",
-      "(2x &minus; 3)(x + 4)",
-      "2x(x + 4) &minus; 3(x + 4)",
-      "2x<sup>2</sup> + 5x + 12"
-     ],
-     "bins": [
-      "Equivalent",
-      "Not equivalent"
-     ],
-     "answer": [
-      0,
-      1,
-      1,
-      0,
-      0,
-      1
-     ],
-     "explain": "<p>Multiply: (x + 4)(2x &minus; 3) = 2x<sup>2</sup> &minus; 3x + 8x &minus; 12 = 2x<sup>2</sup> + 5x &minus; 12.</p><p><strong>Equivalent:</strong> 2x<sup>2</sup> + 5x &minus; 12; (2x &minus; 3)(x + 4) (the factors are just written in the other order); and 2x(x + 4) &minus; 3(x + 4) (this is the distributive property applied to the factor (x + 4), which simplifies to 2x<sup>2</sup> + 8x &minus; 3x &minus; 12).</p><p><strong>Not equivalent:</strong> 2x<sup>2</sup> &minus; 12 leaves out the middle terms; 2x<sup>2</sup> + 11x &minus; 12 adds 8x and 3x instead of combining 8x and &minus;3x; 2x<sup>2</sup> + 5x + 12 has the wrong sign on the constant, since 4 &times; (&minus;3) = &minus;12.</p>"
-    },
-    {
-     "id": "m46",
-     "type": "dropdown",
-     "skill": "Simplifying rational expressions",
-     "difficulty": 3,
-     "prompt": "<p>Simplify the rational expression below. Assume no denominator equals zero.</p><p>(x<sup>2</sup> &minus; 9) / (x<sup>2</sup> + 5x + 6)</p><p>The numerator factors as {{0}}.</p><p>The denominator factors as {{1}}.</p><p>The simplified expression is {{2}}.</p>",
-     "blanks": [
-      {
-       "options": [
-        "(x &minus; 3)(x + 3)",
-        "(x &minus; 3)<sup>2</sup>",
-        "(x &minus; 9)(x + 1)",
-        "(x + 3)<sup>2</sup>"
-       ],
-       "answer": 0
-      },
-      {
-       "options": [
-        "(x + 1)(x + 6)",
-        "(x + 2)(x + 3)",
-        "(x &minus; 2)(x &minus; 3)",
-        "(x + 5)(x + 1)"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "(x + 3) / (x + 2)",
-        "&minus;9 / (5x + 6)",
-        "(x &minus; 3) / (x + 2)",
-        "(x &minus; 3) / (x + 3)"
-       ],
-       "answer": 2
-      }
-     ],
-     "explain": "<p>Numerator: x<sup>2</sup> &minus; 9 is a difference of squares, <strong>(x &minus; 3)(x + 3)</strong>.</p><p>Denominator: find two numbers that multiply to 6 and add to 5: 2 and 3. So x<sup>2</sup> + 5x + 6 = <strong>(x + 2)(x + 3)</strong>.</p><p>Cancel the common factor (x + 3): [(x &minus; 3)(x + 3)] / [(x + 2)(x + 3)] = <strong>(x &minus; 3) / (x + 2)</strong>.</p><p>&minus;9 / (5x + 6) comes from canceling the x<sup>2</sup> terms. Only common <em>factors</em> can be canceled, never terms that are added or subtracted.</p>"
-    }
-   ]
-  }
- ]
+"form": 7,
+"subject": "math",
+"title": "Practice GED Form 7 — Mathematical Reasoning",
+"minutes": 115,
+"stimuli": [],
+"parts": [
+{
+"name": "Part 1",
+"calculator": false,
+"items": [
+{
+"id": "m01",
+"type": "mc",
+"skill": "Order of operations with integers",
+"difficulty": 1,
+"prompt": "<p>Simplify the expression 14 &minus; 2(1 &minus; 5)<sup>2</sup> &divide; 4. What is its value?</p>",
+"options": [
+"48",
+"22",
+"6",
+"16"
+],
+"answer": 2,
+"explain": "<p>Work inside the parentheses first: 1 &minus; 5 = &minus;4.</p><p>Exponent: (&minus;4)<sup>2</sup> = 16.</p><p>Multiply and divide from left to right: 2 &times; 16 = 32, and 32 &divide; 4 = 8.</p><p>Subtract last: 14 &minus; 8 = <strong>6</strong>.</p><p>The answer 48 comes from subtracting first: (14 &minus; 2) &times; 16 &divide; 4 = 48. The answer 22 comes from treating (&minus;4)<sup>2</sup> as &minus;16; a negative number squared is positive. The answer 16 skips the exponent entirely.</p>",
+"why": [
+"You subtracted 14 &minus; 2 first. Order of operations does multiplication and division before subtraction: 2 &times; 16 &divide; 4 = 8, then 14 &minus; 8.",
+"You treated (&minus;4)<sup>2</sup> as &minus;16. A negative number squared is positive: (&minus;4)(&minus;4) = 16.",
+"",
+"You skipped the exponent and used &minus;4 instead of (&minus;4)<sup>2</sup> = 16. Exponents come right after parentheses."
+]
+},
+{
+"id": "m02",
+"type": "fill",
+"skill": "Dividing fractions",
+"difficulty": 2,
+"prompt": "<p>A bottle contains 3&frac34; fluid ounces of cough syrup. Each dose is &frac58; fluid ounce. How many doses are in the bottle?</p>",
+"answer": [
+"6"
+],
+"value": 6,
+"tol": 0.001,
+"suffix": "doses",
+"explain": "<p>Divide the amount in the bottle by the size of one dose.</p><p>Change the mixed number to an improper fraction: 3&frac34; = 15/4.</p><p>Divide by multiplying by the reciprocal: 15/4 &divide; 5/8 = 15/4 &times; 8/5 = 120/20 = <strong>6 doses</strong>.</p><p>A common error is to multiply 15/4 &times; 5/8 = 75/32, which is about 2.3. Asking \"how many doses fit\" calls for division.</p>",
+"mistakes": [
+{
+"answer": [
+"2.3",
+"2.34",
+"75/32",
+"2.34375"
+],
+"why": "You multiplied 15/4 &times; 5/8. To find how many doses fit in the bottle, divide: 15/4 &divide; 5/8 = 15/4 &times; 8/5 = 6."
+},
+{
+"answer": [
+"1/6",
+"0.17",
+"0.167"
+],
+"why": "You divided in the wrong order (dose &divide; bottle). Divide the bottle amount by one dose: 15/4 &divide; 5/8 = 6."
+}
+]
+},
+{
+"id": "m03",
+"type": "mc",
+"skill": "Power of a product",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to (3a<sup>2</sup>b)<sup>3</sup>?</p>",
+"options": [
+"27a<sup>6</sup>b<sup>3</sup>",
+"9a<sup>6</sup>b<sup>3</sup>",
+"27a<sup>5</sup>b<sup>4</sup>",
+"3a<sup>6</sup>b<sup>3</sup>"
+],
+"answer": 0,
+"explain": "<p>Raise every factor inside the parentheses to the third power.</p><p>3<sup>3</sup> = 27</p><p>(a<sup>2</sup>)<sup>3</sup> = a<sup>2 &times; 3</sup> = a<sup>6</sup> (multiply exponents for a power of a power)</p><p>b<sup>3</sup> = b<sup>3</sup></p><p>Result: <strong>27a<sup>6</sup>b<sup>3</sup></strong>.</p><p>9a<sup>6</sup>b<sup>3</sup> multiplies 3 by 3 instead of cubing it. 27a<sup>5</sup>b<sup>4</sup> adds the exponents instead of multiplying them.</p>",
+"why": [
+"",
+"You multiplied 3 by 3 instead of cubing it. Every factor inside gets the power 3, and 3<sup>3</sup> = 27.",
+"You added the exponents (2 + 3 = 5) and gave b an extra power. For a power of a power, multiply: (a<sup>2</sup>)<sup>3</sup> = a<sup>6</sup>, and (b)<sup>3</sup> = b<sup>3</sup>.",
+"You forgot to raise the coefficient 3 to the third power. The exponent applies to every factor: 3<sup>3</sup> = 27."
+]
+},
+{
+"id": "m04",
+"type": "mc",
+"skill": "Solving equations with fractions",
+"difficulty": 2,
+"prompt": "<p>Solve for x.</p><p>(x + 4) / 2 = 3x &minus; 8</p>",
+"options": [
+"2.4",
+"6",
+"&minus;4",
+"4"
+],
+"answer": 3,
+"explain": "<p>Multiply both sides by 2 to clear the fraction: x + 4 = 2(3x &minus; 8) = 6x &minus; 16.</p><p>Subtract x from both sides: 4 = 5x &minus; 16.</p><p>Add 16 to both sides: 20 = 5x.</p><p>Divide by 5: x = <strong>4</strong>.</p><p>Check: (4 + 4) / 2 = 4, and 3(4) &minus; 8 = 4.</p><p>The answer 2.4 comes from multiplying only 3x by 2 and not the &minus;8: x + 4 = 6x &minus; 8. The answer 6 comes from not multiplying the right side by 2 at all.</p>",
+"why": [
+"You multiplied only 3x by 2 and left &minus;8 alone (x + 4 = 6x &minus; 8). Distribute the 2 to both terms: 2(3x &minus; 8) = 6x &minus; 16.",
+"You did not multiply the right side by 2 (x + 4 = 3x &minus; 8). Clearing the fraction means multiplying the whole right side by 2.",
+"You made a sign error at the last step: &minus;5x = &minus;20 gives x = 4, not &minus;4. A negative divided by a negative is positive.",
+""
+]
+},
+{
+"id": "m05",
+"type": "mc",
+"skill": "Integers and absolute value",
+"difficulty": 2,
+"prompt": "<p>Find the value of |&minus;12| &minus; |5 &minus; 9| + (&minus;2)<sup>3</sup>.</p>",
+"options": [
+"16",
+"0",
+"2",
+"8"
+],
+"answer": 1,
+"explain": "<p>Evaluate each part:</p><p>|&minus;12| = 12</p><p>|5 &minus; 9| = |&minus;4| = 4</p><p>(&minus;2)<sup>3</sup> = (&minus;2)(&minus;2)(&minus;2) = &minus;8</p><p>Combine: 12 &minus; 4 + (&minus;8) = <strong>0</strong>.</p><p>The answer 16 comes from treating (&minus;2)<sup>3</sup> as +8; an odd power of a negative number is negative. The answer 2 comes from multiplying &minus;2 by 3 instead of cubing it. The answer 8 treats |5 &minus; 9| as &minus;4; an absolute value is never negative.</p>",
+"why": [
+"You treated (&minus;2)<sup>3</sup> as +8. An odd power of a negative number stays negative: (&minus;2)(&minus;2)(&minus;2) = &minus;8.",
+"",
+"You multiplied &minus;2 by 3 (getting &minus;6) instead of cubing it. (&minus;2)<sup>3</sup> means &minus;2 used as a factor three times, which is &minus;8.",
+"You treated |5 &minus; 9| as &minus;4, so you added 4. Absolute value is never negative: |&minus;4| = 4, which is subtracted."
+]
+}
+]
+},
+{
+"name": "Part 2",
+"calculator": true,
+"items": [
+{
+"id": "m06",
+"type": "mc",
+"skill": "Dosage by body weight",
+"difficulty": 1,
+"prompt": "<p>A doctor prescribes an antibiotic at 15 milligrams per kilogram of body weight per day, divided into 3 equal doses. A child weighs 22 kilograms. How many milligrams should the child receive in <strong>each</strong> dose?</p>",
+"options": [
+"330 mg",
+"110 mg",
+"990 mg",
+"165 mg"
+],
+"answer": 1,
+"explain": "<p>Daily amount: 15 mg/kg &times; 22 kg = 330 mg per day.</p><p>Each dose: 330 &divide; 3 = <strong>110 mg</strong>.</p><p>330 mg is the total for the whole day, not one dose. 990 mg multiplies by 3 instead of dividing. 165 mg divides the daily amount into 2 doses instead of 3.</p>",
+"why": [
+"330 mg is the total for the whole day (15 &times; 22). The day's amount is split into 3 doses: 330 &divide; 3 = 110 mg.",
+"",
+"You multiplied the daily total by 3. &ldquo;Divided into 3 equal doses&rdquo; means divide: 330 &divide; 3 = 110 mg.",
+"You split the daily amount into 2 doses. The order says 3 doses: 330 &divide; 3 = 110 mg."
+]
+},
+{
+"id": "m07",
+"type": "fill",
+"skill": "Proportions with medicine concentration",
+"difficulty": 2,
+"prompt": "<p>A liquid antibiotic contains 250 milligrams of medicine in every 5 milliliters. A patient's dose is 400 milligrams. How many milliliters should the patient take?</p>",
+"answer": [
+"8"
+],
+"value": 8,
+"tol": 0.001,
+"suffix": "mL",
+"explain": "<p>Set up a proportion: 250 mg / 5 mL = 400 mg / x mL.</p><p>Cross-multiply: 250x = 400 &times; 5 = 2,000.</p><p>Divide: x = 2,000 &divide; 250 = <strong>8 mL</strong>.</p><p>Another way: the medicine has 250 &divide; 5 = 50 mg per mL, and 400 &divide; 50 = 8 mL.</p><p>The value 1.6 (400 &divide; 250) is the number of 5-mL portions, not the number of milliliters.</p>",
+"mistakes": [
+{
+"answer": [
+"1.6"
+],
+"why": "400 &divide; 250 = 1.6 is the number of 5-mL portions, not milliliters. Multiply by 5: 1.6 &times; 5 = 8 mL."
+},
+{
+"answer": [
+"2000",
+"2,000"
+],
+"why": "You cross-multiplied (400 &times; 5 = 2,000) but did not finish. Divide by 250: 2,000 &divide; 250 = 8 mL."
+},
+{
+"answer": [
+"80"
+],
+"why": "You found the mg per mL (50) and multiplied instead of dividing, or divided 400 by 5. The dose needs 400 &divide; 50 = 8 mL."
+}
+]
+},
+{
+"id": "m08",
+"type": "mc",
+"skill": "Unit conversion in dosage",
+"difficulty": 2,
+"prompt": "<p>A medicine is given at 0.5 milligram per kilogram of body weight. A patient weighs 176 pounds. Use 1 kilogram = 2.2 pounds. What dose, in milligrams, should the patient receive?</p>",
+"options": [
+"88 mg",
+"193.6 mg",
+"80 mg",
+"40 mg"
+],
+"answer": 3,
+"explain": "<p>Convert pounds to kilograms by dividing: 176 &divide; 2.2 = 80 kg.</p><p>Multiply by the dose rate: 80 &times; 0.5 = <strong>40 mg</strong>.</p><p>88 mg uses the weight in pounds without converting (176 &times; 0.5). 193.6 mg multiplies by 2.2 instead of dividing. 80 mg is the weight in kilograms, not the dose.</p>",
+"why": [
+"You used the weight in pounds (176 &times; 0.5). The dose rate is per kilogram, so first convert: 176 &divide; 2.2 = 80 kg.",
+"You multiplied by 2.2 instead of dividing. Pounds to kilograms makes the number smaller: 176 &divide; 2.2 = 80 kg, then 80 &times; 0.5 = 40 mg.",
+"80 is the weight in kilograms. You still need to multiply by the dose rate: 80 &times; 0.5 = 40 mg.",
+""
+]
+},
+{
+"id": "m09",
+"type": "mc",
+"skill": "Percents with nutrition labels",
+"difficulty": 2,
+"prompt": "<p>The recommended Daily Value for sodium is 2,300 milligrams. A can of soup contains 2 servings, and each serving has 690 milligrams of sodium. If Marcus eats the whole can, what percent of the Daily Value for sodium does he consume?</p>",
+"options": [
+"60%",
+"30%",
+"167%",
+"40%"
+],
+"answer": 0,
+"explain": "<p>Sodium in the whole can: 2 &times; 690 = 1,380 mg.</p><p>Percent of the Daily Value: 1,380 &divide; 2,300 = 0.6 = <strong>60%</strong>.</p><p>30% is the amount in only one serving (690 &divide; 2,300). 167% comes from dividing in the wrong order (2,300 &divide; 1,380). 40% is the part of the Daily Value that is left, not the part consumed.</p>",
+"why": [
+"",
+"30% is only one serving (690 &divide; 2,300). Marcus eats the whole can, 2 servings = 1,380 mg.",
+"You divided in the wrong order (2,300 &divide; 1,380). Percent of the Daily Value is the part eaten over the Daily Value: 1,380 &divide; 2,300.",
+"40% is the part of the Daily Value he has left, not the part he consumed: 1,380 &divide; 2,300 = 60%."
+]
+},
+{
+"id": "m10",
+"type": "mc",
+"skill": "Percent change from a graph",
+"difficulty": 2,
+"prompt": "<p>The graph shows the number of flu shots given at a community clinic each month. By what percent did the number of flu shots decrease from October to November?</p>",
+"figure": {
+"type": "bar",
+"title": "Flu Shots Given at the Clinic",
+"xLabel": "Month",
+"yLabel": "Number of flu shots",
+"labels": [
+"Sep",
+"Oct",
+"Nov",
+"Dec"
+],
+"series": [
+{
+"name": "Flu shots",
+"values": [
+240,
+420,
+315,
+180
+]
+}
+]
+},
+"options": [
+"33.3%",
+"105%",
+"25%",
+"75%"
+],
+"answer": 2,
+"explain": "<p>Read the graph: October = 420 shots; November = 315 shots.</p><p>Amount of decrease: 420 &minus; 315 = 105.</p><p>Percent change = change &divide; original = 105 &divide; 420 = 0.25 = <strong>25%</strong>.</p><p>33.3% divides by the November value (105 &divide; 315). Percent change always divides by the original (earlier) value. 75% is November as a percent of October, not the decrease.</p>",
+"why": [
+"You divided the decrease by the November value (105 &divide; 315). Percent change divides by the original, earlier value: 105 &divide; 420.",
+"105 is the number of shots the clinic lost, not a percent. Divide it by the starting value: 105 &divide; 420 = 25%.",
+"",
+"75% is November as a percent of October (315 &divide; 420). The question asks for the decrease: 100% &minus; 75% = 25%."
+]
+},
+{
+"id": "m11",
+"type": "fill",
+"skill": "Mean",
+"difficulty": 2,
+"prompt": "<p>A nurse records a patient's systolic blood pressure each morning. The readings for the first five days were 128, 134, 122, 140, and 131. What reading on the sixth day would make the mean of all six readings exactly 130?</p>",
+"answer": [
+"125"
+],
+"value": 125,
+"tol": 0.001,
+"explain": "<p>For a mean of 130 over 6 readings, the total must be 130 &times; 6 = 780.</p><p>Sum of the first five readings: 128 + 134 + 122 + 140 + 131 = 655.</p><p>Needed reading: 780 &minus; 655 = <strong>125</strong>.</p><p>Check: (655 + 125) &divide; 6 = 780 &divide; 6 = 130.</p>",
+"mistakes": [
+{
+"answer": [
+"131"
+],
+"why": "131 is the mean of the first five readings (655 &divide; 5). Find the total needed for six readings: 130 &times; 6 = 780, then 780 &minus; 655 = 125."
+},
+{
+"answer": [
+"130"
+],
+"why": "Adding a 130 would not bring the mean down to 130, because the first five average 131. The total must be 130 &times; 6 = 780, so the sixth reading is 780 &minus; 655 = 125."
+},
+{
+"answer": [
+"135"
+],
+"why": "Check your sum of the first five readings: 128 + 134 + 122 + 140 + 131 = 655, not 645. Then 780 &minus; 655 = 125."
+}
+]
+},
+{
+"id": "m12",
+"type": "mc",
+"skill": "Median and range",
+"difficulty": 2,
+"prompt": "<p>A dietitian lists the calories in seven breakfast choices.</p><table><thead><tr><th>Breakfast</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr></thead><tbody><tr><td>Calories</td><td>310</td><td>250</td><td>440</td><td>180</td><td>250</td><td>390</td><td>300</td></tr></tbody></table><p>What are the median and the range of the calories?</p>",
+"options": [
+"Median 180; range 260",
+"Median 250; range 260",
+"Median 300; range 440",
+"Median 300; range 260"
+],
+"answer": 3,
+"explain": "<p>Put the values in order: 180, 250, 250, 300, 310, 390, 440.</p><p>Median: with seven values, the median is the 4th value, <strong>300</strong>.</p><p>Range: greatest &minus; least = 440 &minus; 180 = <strong>260</strong>.</p><p>A median of 180 is the middle of the table <em>before</em> sorting. 250 is the mode. A range of 440 is just the greatest value.</p>",
+"why": [
+"You took the middle value of the table without sorting (180 is fourth in the list as given). Put the values in order first; the 4th value is 300.",
+"250 is the mode (it appears twice), not the median. In order, the middle (4th) value is 300.",
+"A range of 440 is just the largest value. Range is greatest minus least: 440 &minus; 180 = 260.",
+""
+]
+},
+{
+"id": "m13",
+"type": "mc",
+"skill": "Two-way tables and probability",
+"difficulty": 3,
+"prompt": "<p>In a study of a new allergy medicine, 250 participants were given either the medicine or a placebo. The table shows how many reported that their symptoms improved.</p><table><thead><tr><th></th><th>Improved</th><th>Did not improve</th><th>Total</th></tr></thead><tbody><tr><td>Medicine</td><td>105</td><td>45</td><td>150</td></tr><tr><td>Placebo</td><td>35</td><td>65</td><td>100</td></tr><tr><td>Total</td><td>140</td><td>110</td><td>250</td></tr></tbody></table><p>One participant is chosen at random from those whose symptoms <strong>improved</strong>. What is the probability that this participant received the medicine?</p>",
+"options": [
+"7/10",
+"21/50",
+"3/4",
+"14/25"
+],
+"answer": 2,
+"explain": "<p>The chosen person comes only from the \"Improved\" column, so the total possible outcomes are 140.</p><p>Of those 140, 105 received the medicine.</p><p>P(medicine, given improved) = 105/140 = <strong>3/4</strong>.</p><p>7/10 is 105/150, the probability that someone who received the medicine improved; that uses the wrong group as the total. 21/50 is 105/250, which uses all participants as the total.</p>",
+"why": [
+"7/10 is 105/150, the chance that someone who took the medicine improved. The question starts from the improved group, so the total is 140.",
+"21/50 is 105/250, which uses all participants as the total. The person is chosen only from the 140 who improved.",
+"",
+"14/25 is 140/250, the chance that a random participant improved. Restrict to the improved column: 105/140 = 3/4."
+]
+},
+{
+"id": "m14",
+"type": "mc",
+"skill": "Counting principle",
+"difficulty": 2,
+"prompt": "<p>A hospital gives each patient a wristband code made of 2 letters followed by 3 digits. The two letters must be different, but digits may repeat. How many different codes are possible?</p>",
+"options": [
+"650,000",
+"676,000",
+"468,000",
+"81"
+],
+"answer": 0,
+"explain": "<p>Multiply the number of choices for each position.</p><p>First letter: 26 choices. Second letter: 25 choices (it must be different).</p><p>Each digit: 10 choices.</p><p>26 &times; 25 &times; 10 &times; 10 &times; 10 = <strong>650,000</strong>.</p><p>676,000 lets the letters repeat (26 &times; 26 &times; 1,000). 468,000 does not let the digits repeat (26 &times; 25 &times; 10 &times; 9 &times; 8). 81 adds the choices instead of multiplying.</p>",
+"why": [
+"",
+"You let the letters repeat (26 &times; 26). The letters must be different, so the second letter has only 25 choices.",
+"You did not let the digits repeat (10 &times; 9 &times; 8). Digits may repeat, so each digit has 10 choices.",
+"You added the choices (26 + 25 + 10 + 10 + 10). For a sequence of choices, multiply: 26 &times; 25 &times; 10 &times; 10 &times; 10."
+]
+},
+{
+"id": "m15",
+"type": "mc",
+"skill": "Scientific notation",
+"difficulty": 3,
+"prompt": "<p>A human red blood cell is about 7.5 &times; 10<sup>&minus;6</sup> meter across. An adult has about 2.5 &times; 10<sup>13</sup> red blood cells. If all of these cells were lined up side by side, about how many meters long would the line be?</p>",
+"options": [
+"1.875 &times; 10<sup>7</sup>",
+"1.875 &times; 10<sup>8</sup>",
+"1.875 &times; 10<sup>19</sup>",
+"3.3 &times; 10<sup>18</sup>"
+],
+"answer": 1,
+"explain": "<p>Multiply the width of one cell by the number of cells:</p><p>(7.5 &times; 10<sup>&minus;6</sup>)(2.5 &times; 10<sup>13</sup>) = (7.5 &times; 2.5) &times; 10<sup>&minus;6 + 13</sup> = 18.75 &times; 10<sup>7</sup></p><p>Rewrite so the first factor is between 1 and 10: 18.75 &times; 10<sup>7</sup> = <strong>1.875 &times; 10<sup>8</sup> meters</strong>.</p><p>1.875 &times; 10<sup>7</sup> forgets to raise the exponent when 18.75 becomes 1.875. 1.875 &times; 10<sup>19</sup> adds 6 + 13 and ignores the negative sign. 3.3 &times; 10<sup>18</sup> divides instead of multiplying.</p>",
+"why": [
+"You got 18.75 &times; 10<sup>7</sup> and moved the decimal without raising the exponent. Making 18.75 into 1.875 adds 1 to the exponent: 10<sup>8</sup>.",
+"",
+"You added 6 + 13 and ignored the negative sign on the exponent. The exponents are &minus;6 and 13, so &minus;6 + 13 = 7.",
+"You divided the number of cells by the width. To get the total length, multiply the width of one cell by the number of cells."
+]
+},
+{
+"id": "m16",
+"type": "mc",
+"skill": "Circumference",
+"difficulty": 3,
+"prompt": "<p>A hospital wellness path is a circle with a diameter of 70 meters. A patient in a rehabilitation program must walk at least 1,000 meters. What is the least number of <strong>complete</strong> laps around the path the patient must walk?</p>",
+"options": [
+"4",
+"3",
+"5",
+"10"
+],
+"answer": 2,
+"explain": "<p>One lap is the circumference: C = &pi;d = &pi;(70) &asymp; 219.9 meters.</p><p>Laps needed: 1,000 &divide; 219.9 &asymp; 4.55.</p><p>Four laps is only about 4 &times; 219.9 = 879.6 meters, which is not enough, so the patient needs <strong>5</strong> complete laps (about 1,099.6 meters).</p><p>4 rounds down and falls short of 1,000 meters. 3 uses 2&pi;(70) as the circumference, treating the diameter as the radius. 10 uses &pi;(35), the radius instead of the diameter.</p>",
+"why": [
+"You rounded 4.55 down. Four laps is only about 880 meters, which is less than 1,000, so the patient needs a fifth lap.",
+"You used 2&pi;(70) for one lap, treating the diameter as the radius. Circumference with a diameter is &pi;d = &pi;(70) &asymp; 219.9 m.",
+"",
+"You used &pi;(35), the radius, as the length of a lap. Circumference is &pi; times the diameter: &pi;(70) &asymp; 219.9 m, so 5 laps."
+]
+},
+{
+"id": "m17",
+"type": "mc",
+"skill": "Pythagorean theorem",
+"difficulty": 1,
+"prompt": "<p>A rectangular hospital room is 12 feet wide and 16 feet long. A cable runs straight across the floor from one corner of the room to the opposite corner. How long is the cable?</p>",
+"options": [
+"28 ft",
+"10.6 ft",
+"14 ft",
+"20 ft"
+],
+"answer": 3,
+"explain": "<p>The width, the length, and the diagonal form a right triangle, with the diagonal as the hypotenuse.</p><p>c<sup>2</sup> = 12<sup>2</sup> + 16<sup>2</sup> = 144 + 256 = 400</p><p>c = &radic;400 = <strong>20 ft</strong></p><p>28 ft adds the two sides (12 + 16); the diagonal is shorter than going along two walls. 10.6 ft subtracts the squares (&radic;(256 &minus; 144)); subtract only when you are finding a leg, not the hypotenuse.</p>",
+"why": [
+"You added the two sides (12 + 16). The diagonal is the hypotenuse of a right triangle: &radic;(12<sup>2</sup> + 16<sup>2</sup>) = 20.",
+"You subtracted the squares (&radic;(256 &minus; 144)). Subtract only when finding a leg; the diagonal is the hypotenuse, so add: &radic;400 = 20.",
+"You averaged the two sides. The diagonal comes from the Pythagorean theorem: c<sup>2</sup> = 144 + 256 = 400, so c = 20.",
+""
+]
+},
+{
+"id": "m18",
+"type": "mc",
+"skill": "Volume of a cylinder",
+"difficulty": 2,
+"prompt": "<p>A pill bottle is shaped like a cylinder. It is 3 centimeters across (diameter) and 6 centimeters tall. What is the volume of the bottle, to the nearest tenth of a cubic centimeter?</p>",
+"options": [
+"169.6 cm<sup>3</sup>",
+"42.4 cm<sup>3</sup>",
+"56.5 cm<sup>3</sup>",
+"28.3 cm<sup>3</sup>"
+],
+"answer": 1,
+"explain": "<p>The radius is half the diameter: r = 3 &divide; 2 = 1.5 cm.</p><p>V = &pi;r<sup>2</sup>h = &pi;(1.5)<sup>2</sup>(6) = &pi;(2.25)(6) = 13.5&pi; &asymp; <strong>42.4 cm<sup>3</sup></strong>.</p><p>169.6 cm<sup>3</sup> uses the diameter, 3, as the radius: &pi;(9)(6). 56.5 cm<sup>3</sup> is 2&pi;rh, the area of the side of the bottle, not its volume.</p>",
+"why": [
+"You used the diameter, 3, as the radius: &pi;(3)<sup>2</sup>(6). The radius is half of 3, which is 1.5.",
+"",
+"You found 2&pi;rh, the area of the side of the bottle. Volume is &pi;r<sup>2</sup>h = &pi;(1.5)<sup>2</sup>(6).",
+"You forgot to square the radius: &pi;(1.5)(6). Volume uses r<sup>2</sup> = 2.25, so &pi;(2.25)(6) &asymp; 42.4."
+]
+},
+{
+"id": "m19",
+"type": "mc",
+"skill": "Volume of a cone",
+"difficulty": 2,
+"prompt": "<p>A clinic's water cooler uses paper cups shaped like cones. Each cup has a radius of 3.5 centimeters and a height of 9 centimeters. What is the volume of one cup, to the nearest tenth of a cubic centimeter? Use the formula sheet if needed.</p>",
+"options": [
+"115.5 cm<sup>3</sup>",
+"346.4 cm<sup>3</sup>",
+"461.8 cm<sup>3</sup>",
+"33.0 cm<sup>3</sup>"
+],
+"answer": 0,
+"explain": "<p>Volume of a cone: V = (1/3)&pi;r<sup>2</sup>h.</p><p>r<sup>2</sup> = 3.5<sup>2</sup> = 12.25</p><p>V = (1/3)&pi;(12.25)(9) = 36.75&pi; &asymp; <strong>115.5 cm<sup>3</sup></strong>.</p><p>346.4 cm<sup>3</sup> leaves out the 1/3 (that is the volume of a cylinder). 461.8 cm<sup>3</sup> uses the diameter, 7, instead of the radius. 33.0 cm<sup>3</sup> forgets to square the radius.</p>",
+"why": [
+"",
+"You left out the 1/3, so you found the volume of a cylinder. A cone holds one-third as much: (1/3)&pi;r<sup>2</sup>h.",
+"You used the diameter, 7, instead of the radius, 3.5. The cone formula uses the radius.",
+"You forgot to square the radius: (1/3)&pi;(3.5)(9). Use r<sup>2</sup> = 12.25."
+]
+},
+{
+"id": "m20",
+"type": "fill",
+"skill": "Surface area of a cylinder",
+"difficulty": 3,
+"prompt": "<p>A cardboard canister of oatmeal is a closed cylinder with a radius of 6 centimeters and a height of 18 centimeters. What is the total surface area of the canister, including the top and bottom, to the nearest square centimeter? Use the formula sheet if needed.</p>",
+"answer": [
+"905",
+"904.8",
+"904.78"
+],
+"value": 905,
+"tol": 0.5,
+"suffix": "square centimeters",
+"explain": "<p>Surface area of a cylinder: SA = 2&pi;rh + 2&pi;r<sup>2</sup>.</p><p>Side: 2&pi;(6)(18) = 216&pi;</p><p>Top and bottom: 2&pi;(6)<sup>2</sup> = 2&pi;(36) = 72&pi;</p><p>Total: 216&pi; + 72&pi; = 288&pi; &asymp; 904.78, which rounds to <strong>905 cm<sup>2</sup></strong>.</p><p>A common error is to include only one circle (216&pi; + 36&pi; &asymp; 791.7) or only the side (216&pi; &asymp; 678.6). A closed canister has two circular ends.</p>",
+"mistakes": [
+{
+"answer": [
+"792",
+"791.7",
+"791.68"
+],
+"why": "You included only one circular end (216&pi; + 36&pi;). A closed canister has a top and a bottom: 2&pi;r<sup>2</sup> = 72&pi;."
+},
+{
+"answer": [
+"679",
+"678.6",
+"678.58"
+],
+"why": "You found only the side (2&pi;rh = 216&pi;). Add both circular ends: 216&pi; + 72&pi; = 288&pi; &asymp; 905."
+},
+{
+"answer": [
+"2036",
+"2035.8",
+"2035.75"
+],
+"why": "You found the volume (&pi;r<sup>2</sup>h = 648&pi;), not the surface area. Surface area is 2&pi;rh + 2&pi;r<sup>2</sup>."
+}
+]
+},
+{
+"id": "m21",
+"type": "mc",
+"skill": "Ratios",
+"difficulty": 1,
+"prompt": "<p>A nutritionist makes a trail mix with peanuts, raisins, and sunflower seeds in the ratio 5 : 3 : 2 by weight. How many grams of raisins are in a 1,500-gram batch?</p>",
+"options": [
+"450 g",
+"300 g",
+"500 g",
+"900 g"
+],
+"answer": 0,
+"explain": "<p>Add the parts of the ratio: 5 + 3 + 2 = 10 parts.</p><p>Each part weighs 1,500 &divide; 10 = 150 grams.</p><p>Raisins: 3 parts &times; 150 = <strong>450 g</strong>.</p><p>300 g is the weight of the sunflower seeds (2 parts). 900 g uses 3/5 of the batch, comparing raisins only to peanuts instead of to the whole mix.</p>",
+"why": [
+"",
+"300 g is the sunflower seeds (2 parts). Raisins are 3 parts: 3 &times; 150 = 450 g.",
+"You split the batch evenly among the three ingredients (1,500 &divide; 3). Use the ratio: there are 10 parts in all, and raisins are 3 of them.",
+"You used 3/5 of the batch, comparing raisins only to peanuts. Raisins are 3 out of 5 + 3 + 2 = 10 parts."
+]
+},
+{
+"id": "m22",
+"type": "fill",
+"skill": "Simple interest",
+"difficulty": 2,
+"prompt": "<p>Dana owes a hospital bill of $2,400. She sets up a payment plan that charges 6% simple interest per year. She will pay off the bill, plus interest, in 18 months. How much will Dana pay in all, in dollars?</p>",
+"answer": [
+"2616",
+"2,616",
+"2616.00"
+],
+"value": 2616,
+"tol": 0.001,
+"suffix": "dollars",
+"explain": "<p>Simple interest: I = Prt. The time must be in years: 18 months = 18 &divide; 12 = 1.5 years.</p><p>I = 2,400 &times; 0.06 &times; 1.5 = $216.</p><p>Total paid: 2,400 + 216 = <strong>$2,616</strong>.</p><p>A common error is to use t = 18, which gives an interest of $2,592 and a total of $4,992. The rate is per year, so the time must be in years.</p>",
+"mistakes": [
+{
+"answer": [
+"4992",
+"4,992"
+],
+"why": "You used t = 18. The rate is per year, so the time must be in years: 18 months = 1.5 years. I = 2,400 &times; 0.06 &times; 1.5 = $216."
+},
+{
+"answer": [
+"216"
+],
+"why": "$216 is only the interest. The question asks for the total paid: 2,400 + 216 = $2,616."
+},
+{
+"answer": [
+"2544",
+"2,544"
+],
+"why": "You used one year of interest ($144). The plan lasts 18 months, which is 1.5 years: interest is $216, total $2,616."
+}
+]
+},
+{
+"id": "m23",
+"type": "fill",
+"skill": "Finding the original amount",
+"difficulty": 3,
+"prompt": "<p>After a 12-week fitness program, Luis lost 8% of his starting weight. He now weighs 161 pounds. What was his starting weight, in pounds?</p>",
+"answer": [
+"175"
+],
+"value": 175,
+"tol": 0.001,
+"suffix": "pounds",
+"explain": "<p>Losing 8% leaves 100% &minus; 8% = 92% of the starting weight.</p><p>0.92 &times; s = 161</p><p>s = 161 &divide; 0.92 = <strong>175 pounds</strong>.</p><p>Check: 8% of 175 = 14, and 175 &minus; 14 = 161.</p><p>A common error is to add 8% of 161 to 161, which gives about 173.9. The 8% is a percent of the <em>starting</em> weight, not the new weight.</p>",
+"mistakes": [
+{
+"answer": [
+"173.88",
+"173.9",
+"174"
+],
+"why": "You added 8% of 161 to 161. The 8% is a percent of the starting weight, so 161 is 92% of it: 161 &divide; 0.92 = 175."
+},
+{
+"answer": [
+"148.12",
+"148.1",
+"148"
+],
+"why": "You took 8% off 161 again. 161 is what is left after the loss, so divide: 161 &divide; 0.92 = 175."
+}
+]
+},
+{
+"id": "m24",
+"type": "mc",
+"skill": "Writing expressions",
+"difficulty": 1,
+"prompt": "<p>An IV bag holds 1,000 milliliters of fluid. The fluid drains from the bag at a constant rate of 125 milliliters per hour. Which expression gives the number of milliliters left in the bag after h hours?</p>",
+"options": [
+"125h &minus; 1,000",
+"1,000h &minus; 125",
+"1,000 &minus; 125h",
+"875h"
+],
+"answer": 2,
+"explain": "<p>The bag starts with 1,000 mL. Each hour, 125 mL drains out, so after h hours, 125h mL have drained.</p><p>Amount left: <strong>1,000 &minus; 125h</strong>.</p><p>Check: after 2 hours, 1,000 &minus; 125(2) = 750 mL are left.</p><p>125h &minus; 1,000 gives the amount drained minus the starting amount, which is negative at first. 875h assumes the bag loses 875 mL each hour.</p>",
+"why": [
+"You subtracted the starting amount from the amount drained. The bag starts full, so the amount left is the start minus what drained: 1,000 &minus; 125h.",
+"You swapped the roles of the numbers. 1,000 is a one-time starting amount; 125 is the amount per hour, so it is the one multiplied by h.",
+"",
+"875 is how much is left after 1 hour, not a rate. The bag loses 125 mL each hour: 1,000 &minus; 125h."
+]
+},
+{
+"id": "m25",
+"type": "fill",
+"skill": "Linear equation word problem",
+"difficulty": 1,
+"prompt": "<p>A fitness center charges a one-time joining fee of $49 plus $32 per month. Rosa has paid a total of $337 so far. For how many months has she been a member?</p>",
+"answer": [
+"9"
+],
+"value": 9,
+"tol": 0.001,
+"suffix": "months",
+"explain": "<p>Let m be the number of months: 49 + 32m = 337.</p><p>Subtract 49: 32m = 288.</p><p>Divide by 32: m = <strong>9 months</strong>.</p><p>Check: 49 + 32(9) = 49 + 288 = $337.</p><p>Dividing 337 by 32 (about 10.5) forgets to take out the one-time fee first.</p>",
+"mistakes": [
+{
+"answer": [
+"10.5",
+"10.53",
+"10",
+"11"
+],
+"why": "You divided 337 by 32 without taking out the $49 joining fee first. Subtract it: 337 &minus; 49 = 288, then 288 &divide; 32 = 9."
+},
+{
+"answer": [
+"12",
+"12.06"
+],
+"why": "You added the fee instead of subtracting it (337 + 49 = 386). The fee is part of the $337 already paid: 337 &minus; 49 = 288, so 9 months."
+}
+]
+},
+{
+"id": "m26",
+"type": "mc",
+"skill": "Evaluating formulas",
+"difficulty": 2,
+"prompt": "<p>Body mass index (BMI) can be found with the formula BMI = 703w / h<sup>2</sup>, where w is weight in pounds and h is height in inches. What is the BMI, to the nearest tenth, of a person who weighs 180 pounds and is 5 feet 10 inches tall?</p>",
+"options": [
+"1,807.7",
+"903.9",
+"12.9",
+"25.8"
+],
+"answer": 3,
+"explain": "<p>Convert the height to inches: 5 feet 10 inches = 5(12) + 10 = 70 inches.</p><p>Square the height: 70<sup>2</sup> = 4,900.</p><p>BMI = 703(180) / 4,900 = 126,540 / 4,900 &asymp; <strong>25.8</strong>.</p><p>1,807.7 divides by 70 without squaring it. 903.9 divides by 2 &times; 70 = 140, which doubles the height instead of squaring it.</p>",
+"why": [
+"You divided by 70 without squaring it. The formula divides by h<sup>2</sup> = 4,900.",
+"You divided by 2 &times; 70 = 140. Squaring means 70 &times; 70 = 4,900, not 70 &times; 2.",
+"You divided by 9,800, twice the squared height. h<sup>2</sup> is 70 &times; 70 = 4,900, so BMI = 126,540 &divide; 4,900 &asymp; 25.8.",
+""
+]
+},
+{
+"id": "m27",
+"type": "mc",
+"skill": "Solving literal equations",
+"difficulty": 2,
+"prompt": "<p>Clark's rule estimates a child's medicine dose: C = (W / 150) &times; A, where C is the child's dose, W is the child's weight in pounds, and A is the adult dose. Which equation is solved for W?</p>",
+"options": [
+"W = 150A / C",
+"W = 150C / A",
+"W = CA / 150",
+"W = 150 &minus; C / A"
+],
+"answer": 1,
+"explain": "<p>Start with C = WA / 150.</p><p>Multiply both sides by 150: 150C = WA.</p><p>Divide both sides by A: <strong>W = 150C / A</strong>.</p><p>Check with numbers: if W = 60 and A = 500, then C = (60/150)(500) = 200. Then 150(200) / 500 = 60. Correct.</p><p>W = 150A / C switches the roles of A and C; with the numbers above it gives 375, not 60.</p>",
+"why": [
+"You switched C and A. From 150C = WA, divide both sides by A (not C): W = 150C / A.",
+"",
+"You multiplied by A instead of dividing. To isolate W in 150C = WA, divide both sides by A.",
+"You treated the fraction as a subtraction. Undo division by multiplying both sides by 150, then divide by A: W = 150C / A."
+]
+},
+{
+"id": "m28",
+"type": "dropdown",
+"skill": "Evaluating rational expressions",
+"difficulty": 2,
+"prompt": "<p>Young's rule estimates a child's dose of a medicine from the adult dose D and the child's age a, in years:</p><p>child's dose = (a / (a + 12)) &times; D</p><p>The adult dose of a medicine is 300 milligrams.</p><p>For a 6-year-old child, the fraction a / (a + 12) is equal to {{0}}.</p><p>The 6-year-old's dose is {{1}} milligrams.</p><p>For an 8-year-old child, the dose is {{2}} milligrams.</p>",
+"blanks": [
+{
+"options": [
+"1/2",
+"1/3",
+"1/6",
+"2/3"
+],
+"answer": 1,
+"why": [
+"You computed 6/12 and forgot to add 12 to the age in the denominator: 6 + 12 = 18, so 6/18.",
+"",
+"You used 1/6 (the age written as 1 over 6). The fraction is a / (a + 12) = 6/18 = 1/3.",
+"2/3 is 12/18, the leftover part. The fraction puts the age on top: 6/18 = 1/3."
+]
+},
+{
+"options": [
+"50",
+"100",
+"150",
+"200"
+],
+"answer": 1,
+"why": [
+"50 is 300 &times; 1/6. The fraction for age 6 is 1/3, so the dose is 300 &divide; 3 = 100 mg.",
+"",
+"150 is 300 &times; 1/2, which comes from forgetting the + 12 in the denominator. Use 1/3: 100 mg.",
+"200 is 300 &times; 2/3, the leftover part. The child's dose is 1/3 of 300 = 100 mg."
+]
+},
+{
+"options": [
+"96",
+"120",
+"150",
+"200"
+],
+"answer": 1,
+"why": [
+"96 is 8 &times; 12, which multiplies the age by 12 instead of using the fraction. For age 8: 8 / (8 + 12) = 8/20 = 2/5, and 2/5 &times; 300 = 120 mg.",
+"",
+"150 is half of 300, as if the fraction were 1/2. For age 8 the fraction is 8/20 = 2/5, which is less than half: 120 mg.",
+"200 is 8/12 &times; 300, which forgets to add 12 to the age. Use 8/20 = 2/5: 120 mg."
+]
+}
+],
+"explain": "<p>For a = 6: a / (a + 12) = 6 / (6 + 12) = 6/18 = <strong>1/3</strong>.</p><p>Dose: (1/3) &times; 300 = <strong>100 mg</strong>.</p><p>For a = 8: 8 / (8 + 12) = 8/20 = 2/5, and (2/5) &times; 300 = <strong>120 mg</strong>.</p><p>Choosing 1/2 comes from computing 6/12 and forgetting to add 12 to the age in the denominator.</p>"
+},
+{
+"id": "m29",
+"type": "mc",
+"skill": "Inequality word problem",
+"difficulty": 2,
+"prompt": "<p>Gloria's doctor advises her to eat no more than 2,300 milligrams of sodium per day. By dinner, she has eaten 1,450 milligrams. Each serving of her favorite crackers has 170 milligrams of sodium. What is the greatest number of servings of crackers she can eat and stay within her limit?</p>",
+"options": [
+"4",
+"6",
+"13",
+"5"
+],
+"answer": 3,
+"explain": "<p>Let s be the number of servings: 1,450 + 170s &le; 2,300.</p><p>Subtract 1,450: 170s &le; 850.</p><p>Divide by 170: s &le; 5.</p><p>The greatest number of servings is <strong>5</strong>. Check: 1,450 + 170(5) = 1,450 + 850 = 2,300, which is exactly the limit and is allowed by \"no more than.\" Six servings would give 2,470 mg, which is too much.</p><p>13 comes from 2,300 &divide; 170, which ignores the sodium she has already eaten.</p>",
+"why": [
+"You stopped at 4, maybe treating &ldquo;no more than&rdquo; as &ldquo;less than.&rdquo; Five servings reach exactly 2,300 mg, which is allowed.",
+"Six servings give 1,450 + 1,020 = 2,470 mg, which goes over the 2,300-mg limit. Only 850 mg are left, which is 5 servings.",
+"You divided 2,300 by 170 and ignored the 1,450 mg she already ate. Only 2,300 &minus; 1,450 = 850 mg remain.",
+""
+]
+},
+{
+"id": "m30",
+"type": "mc",
+"skill": "Solving linear inequalities",
+"difficulty": 2,
+"prompt": "<p>Which inequality is equivalent to &minus;4(x &minus; 2) &le; 2x + 26?</p>",
+"options": [
+"x &le; &minus;3",
+"x &ge; &minus;3",
+"x &ge; &minus;17/3",
+"x &ge; 3"
+],
+"answer": 1,
+"explain": "<p>Distribute: &minus;4x + 8 &le; 2x + 26.</p><p>Subtract 2x from both sides: &minus;6x + 8 &le; 26.</p><p>Subtract 8: &minus;6x &le; 18.</p><p>Divide by &minus;6 and reverse the sign: <strong>x &ge; &minus;3</strong>.</p><p>Check with x = 0: &minus;4(&minus;2) = 8, and 8 &le; 26 is true; 0 &ge; &minus;3, so it agrees.</p><p>x &le; &minus;3 forgets to reverse the inequality when dividing by a negative number. x &ge; &minus;17/3 comes from distributing as &minus;4x &minus; 8.</p>",
+"why": [
+"You forgot to reverse the inequality sign when dividing both sides by &minus;6. Dividing by a negative flips &le; to &ge;.",
+"",
+"You distributed &minus;4 to get &minus;4x &minus; 8. &minus;4 times &minus;2 is +8, so the left side is &minus;4x + 8.",
+"You reversed the sign but dropped the negative: 18 &divide; (&minus;6) = &minus;3, not 3."
+]
+},
+{
+"id": "m31",
+"type": "mc",
+"skill": "Mixture problem with systems",
+"difficulty": 3,
+"prompt": "<p>A lab technician needs 300 milliliters of a 15% disinfectant solution. She will mix a 10% solution with a 25% solution. How many milliliters of the 25% solution should she use?</p>",
+"options": [
+"200 mL",
+"150 mL",
+"100 mL",
+"180 mL"
+],
+"answer": 2,
+"explain": "<p>Let x = mL of the 10% solution and y = mL of the 25% solution.</p><p>Total volume: x + y = 300.</p><p>Amount of disinfectant: 0.10x + 0.25y = 0.15(300) = 45.</p><p>Substitute x = 300 &minus; y: 0.10(300 &minus; y) + 0.25y = 45</p><p>30 &minus; 0.10y + 0.25y = 45</p><p>0.15y = 15, so y = <strong>100 mL</strong> (and x = 200 mL).</p><p>Check: 0.10(200) + 0.25(100) = 20 + 25 = 45 mL of disinfectant in 300 mL, which is 15%.</p><p>200 mL is the amount of the 10% solution. 150 mL splits the mixture evenly, which would give a 17.5% solution.</p>",
+"why": [
+"200 mL is the amount of the 10% solution. The 25% solution is the remaining 300 &minus; 200 = 100 mL.",
+"You split the mixture evenly. 150 mL of each gives a 17.5% solution, too strong; less of the 25% solution is needed.",
+"",
+"You took 15/25 of 300. Mixing problems need two equations: x + y = 300 and 0.10x + 0.25y = 45, which give y = 100."
+]
+},
+{
+"id": "m32",
+"type": "mc",
+"skill": "Solving systems by elimination",
+"difficulty": 2,
+"prompt": "<p>Solve the system. Which ordered pair makes both equations true?</p><p>4x + 3y = 6<br>2x &minus; 3y = 12</p>",
+"options": [
+"(3, &minus;2)",
+"(&minus;2, 3)",
+"(3, 2)",
+"(0, 2)"
+],
+"answer": 0,
+"explain": "<p>Add the equations to eliminate y: (4x + 2x) + (3y &minus; 3y) = 6 + 12, so 6x = 18 and x = 3.</p><p>Substitute into the first equation: 4(3) + 3y = 6, so 3y = &minus;6 and y = &minus;2.</p><p>The solution is <strong>(3, &minus;2)</strong>. Check the second equation: 2(3) &minus; 3(&minus;2) = 6 + 6 = 12.</p><p>(0, 2) works in the first equation only: 2(0) &minus; 3(2) = &minus;6, not 12. (&minus;2, 3) reverses the coordinates.</p>",
+"why": [
+"",
+"You reversed the coordinates. x = 3 and y = &minus;2, so the ordered pair is (3, &minus;2).",
+"You made a sign error: 3y = 6 &minus; 12 = &minus;6, so y = &minus;2, not 2. Check: 4(3) + 3(2) = 18, not 6.",
+"(0, 2) works in the first equation only. In the second, 2(0) &minus; 3(2) = &minus;6, not 12; a solution must satisfy both."
+]
+},
+{
+"id": "m33",
+"type": "hotspot",
+"skill": "Solving systems by graphing",
+"difficulty": 1,
+"prompt": "<p>Two lines are graphed: y = &minus;(1/2)x + 1 and y = x &minus; 5. Select the point on the grid where both equations are true at the same time.</p>",
+"figure": {
+"type": "plane",
+"xmin": -6,
+"xmax": 8,
+"ymin": -8,
+"ymax": 6,
+"lines": [
+{
+"m": -0.5,
+"b": 1,
+"label": "y = −(1/2)x + 1"
+},
+{
+"m": 1,
+"b": -5,
+"label": "y = x − 5"
+}
+]
+},
+"plane": {
+"xmin": -6,
+"xmax": 8,
+"ymin": -8,
+"ymax": 6
+},
+"answer": [
+4,
+-1
+],
+"explain": "<p>Both equations are true where the lines cross. Set the expressions equal:</p><p>&minus;(1/2)x + 1 = x &minus; 5</p><p>6 = (3/2)x, so x = 4</p><p>y = 4 &minus; 5 = &minus;1</p><p>The solution is <strong>(4, &minus;1)</strong>. Check in the first equation: &minus;(1/2)(4) + 1 = &minus;2 + 1 = &minus;1.</p><p>The y-intercepts (0, 1) and (0, &minus;5) each lie on only one of the lines, so they are not solutions of the system.</p>",
+"why": "A common wrong click is a y-intercept, (0, 1) or (0, &minus;5); each lies on only one line. The solution is where the lines cross: set &minus;(1/2)x + 1 = x &minus; 5 to get x = 4, y = &minus;1."
+},
+{
+"id": "m34",
+"type": "hotspot",
+"skill": "Points on a line",
+"difficulty": 3,
+"prompt": "<p>A line passes through point A(&minus;3, 4), shown on the coordinate plane, and has a slope of &minus;2/3. The point on this line with an x-coordinate of 6 is not shown. Click that point.</p>",
+"figure": {
+"type": "plane",
+"xmin": -8,
+"xmax": 8,
+"ymin": -8,
+"ymax": 8,
+"points": [
+[
+-3,
+4,
+"A"
+]
+]
+},
+"plane": {
+"xmin": -8,
+"xmax": 8,
+"ymin": -8,
+"ymax": 8
+},
+"answer": [
+6,
+-2
+],
+"explain": "<p>From x = &minus;3 to x = 6, the run is 6 &minus; (&minus;3) = 9.</p><p>Slope = rise / run, so rise = (&minus;2/3)(9) = &minus;6.</p><p>New y-value: 4 + (&minus;6) = &minus;2.</p><p>The point is <strong>(6, &minus;2)</strong>.</p><p>Check with the equation of the line: y &minus; 4 = (&minus;2/3)(x + 3). At x = 6: y = 4 &minus; 6 = &minus;2.</p><p>Using a positive slope would give 4 + 6 = 10, which is off the grid; the negative slope means the line falls from left to right.</p>",
+"why": "A common wrong click is (6, 10), which uses a positive slope, or a point that moves the run only part way. The run from &minus;3 to 6 is 9, so the rise is (&minus;2/3)(9) = &minus;6, and 4 &minus; 6 = &minus;2: click (6, &minus;2)."
+},
+{
+"id": "m35",
+"type": "mc",
+"skill": "Slope as a rate of change",
+"difficulty": 2,
+"prompt": "<p>The graph shows a patient's weight, measured every 4 weeks, during a supervised weight-loss program. The weight changed at a constant rate. Which statement describes the rate of change?</p>",
+"figure": {
+"type": "line",
+"title": "Patient's Weight",
+"xLabel": "Week",
+"yLabel": "Weight (pounds)",
+"labels": [
+"0",
+"4",
+"8",
+"12"
+],
+"series": [
+{
+"name": "Weight",
+"values": [
+220,
+212,
+204,
+196
+]
+}
+]
+},
+"options": [
+"The weight decreased by 8 pounds per week.",
+"The weight decreased by 4 pounds per week.",
+"The weight decreased by 2 pounds per week.",
+"The weight decreased by 0.5 pound per week."
+],
+"answer": 2,
+"explain": "<p>Use two points from the graph: (0, 220) and (12, 196).</p><p>Rate of change = change in weight / change in time = (196 &minus; 220) / (12 &minus; 0) = &minus;24 / 12 = &minus;2.</p><p>The weight <strong>decreased by 2 pounds per week</strong>.</p><p>8 pounds is the change over each 4-week interval, not per week. 0.5 pound comes from dividing the weeks by the pounds (12 &divide; 24), which flips the rate.</p>",
+"why": [
+"8 pounds is the change over each 4-week interval, not per week. Divide by 4 weeks: 8 &divide; 4 = 2.",
+"4 is the number of weeks between measurements, not a weight change. The weight drops 8 pounds every 4 weeks, which is 2 pounds per week.",
+"",
+"You divided weeks by pounds (12 &divide; 24), which flips the rate. Rate of change is change in weight over change in time: 24 &divide; 12 = 2."
+]
+},
+{
+"id": "m36",
+"type": "dropdown",
+"skill": "Linear functions from a table",
+"difficulty": 2,
+"prompt": "<p>A pharmacy charges a fixed fee plus a set price per pill for a prescription. The total cost is a linear function of the number of pills.</p><table><thead><tr><th>Number of pills</th><th>30</th><th>60</th><th>90</th></tr></thead><tbody><tr><td>Total cost</td><td>$19.50</td><td>$34.50</td><td>$49.50</td></tr></tbody></table><p>The price per pill is {{0}}.</p><p>The fixed fee is {{1}}.</p><p>The total cost for 120 pills is {{2}}.</p>",
+"blanks": [
+{
+"options": [
+"$0.50",
+"$0.65",
+"$1.50",
+"$15.00"
+],
+"answer": 0,
+"why": [
+"",
+"$0.65 is 19.50 &divide; 30, which ignores the fixed fee. Use the change in cost: each extra 30 pills adds $15.00, and 15 &divide; 30 = $0.50.",
+"You divided $15.00 by 10 instead of by 30 pills. The cost rises $15.00 for every 30 pills: $0.50 per pill.",
+"$15.00 is the increase for 30 more pills, not for one pill. Divide by 30: $0.50."
+]
+},
+{
+"options": [
+"$0.50",
+"$4.50",
+"$15.00",
+"$19.50"
+],
+"answer": 1,
+"why": [
+"$0.50 is the price per pill (the slope), not the fixed fee.",
+"",
+"$15.00 is the cost of 30 pills at $0.50 each. The fixed fee is what is left of $19.50: 19.50 &minus; 15.00 = $4.50.",
+"$19.50 is the total for 30 pills, which includes the pills. Subtract their cost: 19.50 &minus; 15.00 = $4.50."
+]
+},
+{
+"options": [
+"$60.00",
+"$64.50",
+"$69.00",
+"$78.00"
+],
+"answer": 1,
+"why": [
+"$60.00 is only the pills (120 &times; 0.50). Add the fixed fee: 60.00 + 4.50 = $64.50.",
+"",
+"$69.00 adds the costs for 90 and 30 pills, which counts the fixed fee twice. Use C = 0.50(120) + 4.50 = $64.50.",
+"$78.00 is 4 &times; $19.50, which counts the fixed fee four times. The fee is charged once: $64.50."
+]
+}
+],
+"explain": "<p>Price per pill (slope): each additional 30 pills adds $15.00, so 15.00 &divide; 30 = <strong>$0.50</strong> per pill.</p><p>Fixed fee (y-intercept): 30 pills cost 30 &times; 0.50 = $15.00, and 19.50 &minus; 15.00 = <strong>$4.50</strong>.</p><p>The function is C = 0.50p + 4.50. For 120 pills: 0.50(120) + 4.50 = 60.00 + 4.50 = <strong>$64.50</strong>.</p><p>$0.65 comes from 19.50 &divide; 30, which ignores the fixed fee. $78.00 comes from 4 &times; $19.50, which counts the fixed fee four times.</p>"
+},
+{
+"id": "m37",
+"type": "mc",
+"skill": "Writing a linear equation from two points",
+"difficulty": 2,
+"prompt": "<p>A line contains the points (2, &minus;1) and (6, 7). Written in slope-intercept form, what is the equation of this line?</p>",
+"options": [
+"y = 2x &minus; 5",
+"y = (1/2)x &minus; 2",
+"y = &minus;2x + 3",
+"y = 2x + 3"
+],
+"answer": 0,
+"explain": "<p>Slope: m = (7 &minus; (&minus;1)) / (6 &minus; 2) = 8/4 = 2.</p><p>Use (2, &minus;1) to find b: &minus;1 = 2(2) + b, so &minus;1 = 4 + b and b = &minus;5.</p><p>Equation: <strong>y = 2x &minus; 5</strong>. Check (6, 7): 2(6) &minus; 5 = 7.</p><p>y = (1/2)x &minus; 2 uses run over rise for the slope. y = 2x + 3 has the right slope but does not pass through (2, &minus;1): 2(2) + 3 = 7, not &minus;1.</p>",
+"why": [
+"",
+"You used run over rise for the slope (4/8). Slope is rise over run: (7 &minus; (&minus;1)) / (6 &minus; 2) = 8/4 = 2.",
+"You subtracted the coordinates in mismatched order, which gave &minus;2. Keep the same order on top and bottom: 8/4 = 2. The line rises, so the slope is positive.",
+"The slope 2 is right, but the y-intercept is wrong: 2(2) + 3 = 7, not &minus;1. Solve &minus;1 = 2(2) + b to get b = &minus;5."
+]
+},
+{
+"id": "m38",
+"type": "mc",
+"skill": "Perpendicular lines",
+"difficulty": 3,
+"prompt": "<p>Which equation represents a line that is perpendicular to the line 3x &minus; 4y = 8 and passes through the point (0, 5)?</p>",
+"options": [
+"y = (3/4)x + 5",
+"y = (4/3)x + 5",
+"y = &minus;(3/4)x + 5",
+"y = &minus;(4/3)x + 5"
+],
+"answer": 3,
+"explain": "<p>Write the given line in slope-intercept form: &minus;4y = &minus;3x + 8, so y = (3/4)x &minus; 2. Its slope is 3/4.</p><p>A perpendicular line has the negative reciprocal slope: &minus;4/3.</p><p>It passes through (0, 5), so the y-intercept is 5: <strong>y = &minus;(4/3)x + 5</strong>.</p><p>y = (3/4)x + 5 has the same slope, so it is parallel, not perpendicular. y = (4/3)x + 5 takes the reciprocal but not the opposite sign. y = &minus;(3/4)x + 5 changes the sign but does not take the reciprocal.</p>",
+"why": [
+"Slope 3/4 is the same as the given line, so this line is parallel, not perpendicular. A perpendicular slope is the negative reciprocal: &minus;4/3.",
+"You took the reciprocal but kept the positive sign. Perpendicular slopes have opposite signs: &minus;4/3.",
+"You changed the sign but did not flip the fraction. The negative reciprocal of 3/4 is &minus;4/3.",
+""
+]
+},
+{
+"id": "m39",
+"type": "mc",
+"skill": "Evaluating functions",
+"difficulty": 2,
+"prompt": "<p>The amount of a medicine left in a patient's body t hours after a 400-milligram dose is given by the function A(t) = 400(0.5)<sup>t/6</sup>. How many milligrams are left after 12 hours?</p>",
+"options": [
+"200 mg",
+"100 mg",
+"50 mg",
+"2,400 mg"
+],
+"answer": 1,
+"explain": "<p>Substitute t = 12: A(12) = 400(0.5)<sup>12/6</sup> = 400(0.5)<sup>2</sup>.</p><p>(0.5)<sup>2</sup> = 0.25</p><p>400 &times; 0.25 = <strong>100 mg</strong>.</p><p>200 mg is the amount after 6 hours (one halving). 50 mg halves three times. 2,400 mg comes from 400 &times; 0.5 &times; 12, which multiplies by the exponent instead of using it as a power.</p>",
+"why": [
+"200 mg is the amount after 6 hours (one halving). At 12 hours, t/6 = 2, so the amount halves twice.",
+"",
+"You halved three times, as if the half-life were 4 hours. The exponent is 12/6 = 2, so 400(0.5)<sup>2</sup> = 100.",
+"You multiplied 400 &times; 0.5 &times; 12, using the exponent as a factor. 0.5 is raised to the power 2: (0.5)<sup>2</sup> = 0.25."
+]
+},
+{
+"id": "m40",
+"type": "multi",
+"skill": "Factoring a difference of squares",
+"difficulty": 3,
+"prompt": "<p>Which expressions are equivalent to 4x<sup>2</sup> &minus; 36? Select <strong>two</strong> answers.</p>",
+"options": [
+"4(x &minus; 3)(x + 3)",
+"(2x &minus; 6)(2x + 6)",
+"4(x &minus; 3)<sup>2</sup>",
+"(2x &minus; 6)<sup>2</sup>",
+"2(x &minus; 9)(x + 9)",
+"4(x &minus; 9)(x + 9)"
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>4x<sup>2</sup> &minus; 36 is a difference of squares: (2x)<sup>2</sup> &minus; 6<sup>2</sup> = <strong>(2x &minus; 6)(2x + 6)</strong>.</p><p>You can also factor out the GCF first: 4(x<sup>2</sup> &minus; 9) = <strong>4(x &minus; 3)(x + 3)</strong>.</p><p>Check: 4(x &minus; 3)(x + 3) = 4(x<sup>2</sup> &minus; 9) = 4x<sup>2</sup> &minus; 36. And (2x &minus; 6)(2x + 6) = 4x<sup>2</sup> + 12x &minus; 12x &minus; 36 = 4x<sup>2</sup> &minus; 36.</p><p>4(x &minus; 3)<sup>2</sup> = 4x<sup>2</sup> &minus; 24x + 36, which has a middle term. 4(x &minus; 9)(x + 9) = 4x<sup>2</sup> &minus; 324, because the square root of 9 is 3, not 9.</p>",
+"why": [
+"",
+"",
+"4(x &minus; 3)<sup>2</sup> = 4x<sup>2</sup> &minus; 24x + 36. It has a middle term and a +36; a difference of squares has neither.",
+"(2x &minus; 6)<sup>2</sup> = 4x<sup>2</sup> &minus; 24x + 36. Squaring a binomial gives a middle term; the factors must have opposite signs.",
+"2(x &minus; 9)(x + 9) = 2x<sup>2</sup> &minus; 162. You factored out 2 instead of 4, and the square root of 9 is 3, not 9.",
+"4(x &minus; 9)(x + 9) = 4x<sup>2</sup> &minus; 324. After factoring out 4 you get x<sup>2</sup> &minus; 9, and &radic;9 = 3, so (x &minus; 3)(x + 3)."
+]
+},
+{
+"id": "m41",
+"type": "multi",
+"skill": "Solving quadratics by factoring",
+"difficulty": 3,
+"prompt": "<p>Find every value of x for which 2x<sup>2</sup> &minus; 7x &minus; 15 = 0. Select <strong>two</strong> answers.</p>",
+"options": [
+"5",
+"&minus;3/2",
+"&minus;5",
+"3/2",
+"15",
+"&minus;15"
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>Factor: 2x<sup>2</sup> &minus; 7x &minus; 15 = (2x + 3)(x &minus; 5).</p><p>Check: (2x + 3)(x &minus; 5) = 2x<sup>2</sup> &minus; 10x + 3x &minus; 15 = 2x<sup>2</sup> &minus; 7x &minus; 15.</p><p>Set each factor equal to zero:</p><p>2x + 3 = 0, so x = <strong>&minus;3/2</strong></p><p>x &minus; 5 = 0, so x = <strong>5</strong></p><p>Choosing &minus;5 and 3/2 uses the numbers in the factors without solving; the solutions have the opposite signs.</p>",
+"why": [
+"",
+"",
+"&minus;5 uses the number in the factor (x &minus; 5) without solving. x &minus; 5 = 0 gives x = 5.",
+"3/2 has the wrong sign. 2x + 3 = 0 gives 2x = &minus;3, so x = &minus;3/2.",
+"15 is the constant term, not a solution. Check: 2(225) &minus; 7(15) &minus; 15 = 330, not 0.",
+"&minus;15 is the constant term, not a solution. Factor to (2x + 3)(x &minus; 5) and set each factor equal to 0."
+]
+},
+{
+"id": "m42",
+"type": "mc",
+"skill": "Quadratic formula in context",
+"difficulty": 3,
+"prompt": "<p>A rehabilitation center is planning a rectangular therapy garden. The length will be 3 meters more than the width, and the area will be 50 square meters. What will the width be, to the nearest hundredth of a meter? Use the formula sheet if needed.</p>",
+"options": [
+"5.73 m",
+"8.73 m",
+"7.07 m",
+"11.46 m"
+],
+"answer": 0,
+"explain": "<p>Let w be the width. Then the length is w + 3, and w(w + 3) = 50.</p><p>Write in standard form: w<sup>2</sup> + 3w &minus; 50 = 0, with a = 1, b = 3, c = &minus;50.</p><p>Quadratic formula: w = (&minus;3 &plusmn; &radic;(3<sup>2</sup> &minus; 4(1)(&minus;50))) / (2 &times; 1) = (&minus;3 &plusmn; &radic;209) / 2.</p><p>&radic;209 &asymp; 14.457, so w &asymp; (&minus;3 + 14.457) / 2 &asymp; <strong>5.73 m</strong>. The negative solution is not possible for a width.</p><p>Check: 5.73 &times; 8.73 &asymp; 50.0.</p><p>8.73 m is the length. 7.07 m is &radic;50, which would be the side of a square garden. 11.46 m forgets to divide by 2a.</p>",
+"why": [
+"",
+"8.73 m is the length (w + 3). The question asks for the width.",
+"7.07 m is &radic;50, the side of a square with area 50. The length is 3 more than the width, so solve w(w + 3) = 50.",
+"You forgot to divide by 2a: &minus;3 + &radic;209 &asymp; 11.46. Divide by 2: about 5.73 m."
+]
+},
+{
+"id": "m43",
+"type": "mc",
+"skill": "Maximum of a quadratic function",
+"difficulty": 3,
+"prompt": "<p>The concentration of a medicine in a patient's blood, in milligrams per liter, t hours after a dose is modeled by C(t) = &minus;0.5t<sup>2</sup> + 6t, for 0 &le; t &le; 12. What is the maximum concentration?</p>",
+"options": [
+"6 mg/L",
+"36 mg/L",
+"72 mg/L",
+"18 mg/L"
+],
+"answer": 3,
+"explain": "<p>The graph is a parabola that opens downward (a = &minus;0.5), so the vertex is the maximum.</p><p>Time of the maximum: t = &minus;b / (2a) = &minus;6 / (2 &times; &minus;0.5) = &minus;6 / &minus;1 = 6 hours.</p><p>C(6) = &minus;0.5(6)<sup>2</sup> + 6(6) = &minus;0.5(36) + 36 = &minus;18 + 36 = <strong>18 mg/L</strong>.</p><p>6 is the <em>time</em> of the maximum, not the concentration. 36 mg/L leaves out the &minus;0.5t<sup>2</sup> term and uses only 6t.</p>",
+"why": [
+"6 is the time of the maximum (t = &minus;b / 2a), not the concentration. Substitute t = 6: C(6) = 18.",
+"You left out the &minus;0.5t<sup>2</sup> term and used only 6(6) = 36. C(6) = &minus;18 + 36 = 18.",
+"You used only the 6t term at the end of the interval, 6(12) = 72. The maximum is at the vertex, t = 6: C(6) = 18.",
+""
+]
+},
+{
+"id": "m44",
+"type": "drag",
+"skill": "Comparing measurements with unit conversion",
+"difficulty": 3,
+"prompt": "<p>Five supplements contain the amounts of vitamin C shown. Drag each amount into the correct position to order the amounts from least to greatest. (1 gram = 1,000 milligrams; 1 kilogram = 1,000 grams)</p>",
+"choices": [
+"0.4 g",
+"350 mg",
+"3/8 g",
+"4.2 &times; 10<sup>2</sup> mg",
+"0.00045 kg"
+],
+"bins": [
+"1st (least)",
+"2nd",
+"3rd",
+"4th",
+"5th (greatest)"
+],
+"answer": [
+2,
+0,
+1,
+3,
+4
+],
+"explain": "<p>Change each amount to milligrams:</p><p>0.4 g = 0.4 &times; 1,000 = 400 mg</p><p>350 mg = 350 mg</p><p>3/8 g = 0.375 g = 375 mg</p><p>4.2 &times; 10<sup>2</sup> mg = 420 mg</p><p>0.00045 kg = 0.45 g = 450 mg</p><p>Order from least to greatest: <strong>350 mg, 3/8 g, 0.4 g, 4.2 &times; 10<sup>2</sup> mg, 0.00045 kg</strong>.</p><p>0.00045 kg looks like the smallest number, but kilograms are a much larger unit; always convert to the same unit before comparing.</p>",
+"why": "The most common mistake is putting 0.00045 kg first because the number looks smallest. Convert everything to milligrams: 0.00045 kg = 450 mg, the greatest, and 350 mg is the least."
+},
+{
+"id": "m45",
+"type": "drag",
+"skill": "Multiplying polynomials",
+"difficulty": 2,
+"prompt": "<p>Drag each expression into the correct category: equivalent to (x + 4)(2x &minus; 3), or not equivalent.</p>",
+"choices": [
+"2x<sup>2</sup> + 5x &minus; 12",
+"2x<sup>2</sup> &minus; 12",
+"2x<sup>2</sup> + 11x &minus; 12",
+"(2x &minus; 3)(x + 4)",
+"2x(x + 4) &minus; 3(x + 4)",
+"2x<sup>2</sup> + 5x + 12"
+],
+"bins": [
+"Equivalent",
+"Not equivalent"
+],
+"answer": [
+0,
+1,
+1,
+0,
+0,
+1
+],
+"explain": "<p>Multiply: (x + 4)(2x &minus; 3) = 2x<sup>2</sup> &minus; 3x + 8x &minus; 12 = 2x<sup>2</sup> + 5x &minus; 12.</p><p><strong>Equivalent:</strong> 2x<sup>2</sup> + 5x &minus; 12; (2x &minus; 3)(x + 4) (the factors are just written in the other order); and 2x(x + 4) &minus; 3(x + 4) (this is the distributive property applied to the factor (x + 4), which simplifies to 2x<sup>2</sup> + 8x &minus; 3x &minus; 12).</p><p><strong>Not equivalent:</strong> 2x<sup>2</sup> &minus; 12 leaves out the middle terms; 2x<sup>2</sup> + 11x &minus; 12 adds 8x and 3x instead of combining 8x and &minus;3x; 2x<sup>2</sup> + 5x + 12 has the wrong sign on the constant, since 4 &times; (&minus;3) = &minus;12.</p>",
+"why": "The most common wrong placement is putting 2x<sup>2</sup> + 11x &minus; 12 in Equivalent by adding 8x and 3x. The inner product is &minus;3x, so 8x + (&minus;3x) = 5x; also, 2x(x + 4) &minus; 3(x + 4) is equivalent because it factors to (2x &minus; 3)(x + 4)."
+},
+{
+"id": "m46",
+"type": "dropdown",
+"skill": "Simplifying rational expressions",
+"difficulty": 3,
+"prompt": "<p>Simplify the rational expression below. Assume no denominator equals zero.</p><p>(x<sup>2</sup> &minus; 9) / (x<sup>2</sup> + 5x + 6)</p><p>The numerator factors as {{0}}.</p><p>The denominator factors as {{1}}.</p><p>The simplified expression is {{2}}.</p>",
+"blanks": [
+{
+"options": [
+"(x &minus; 3)(x + 3)",
+"(x &minus; 3)<sup>2</sup>",
+"(x &minus; 9)(x + 1)",
+"(x + 3)<sup>2</sup>"
+],
+"answer": 0,
+"why": [
+"",
+"(x &minus; 3)<sup>2</sup> = x<sup>2</sup> &minus; 6x + 9, which has a middle term. x<sup>2</sup> &minus; 9 is a difference of squares: (x &minus; 3)(x + 3).",
+"(x &minus; 9)(x + 1) = x<sup>2</sup> &minus; 8x &minus; 9. The square root of 9 is 3, so the factors are (x &minus; 3)(x + 3).",
+"(x + 3)<sup>2</sup> = x<sup>2</sup> + 6x + 9. A difference of squares needs one minus and one plus factor."
+]
+},
+{
+"options": [
+"(x + 1)(x + 6)",
+"(x + 2)(x + 3)",
+"(x &minus; 2)(x &minus; 3)",
+"(x + 5)(x + 1)"
+],
+"answer": 1,
+"why": [
+"(x + 1)(x + 6) multiplies to 6 but adds to 7, not 5. You need 2 and 3.",
+"",
+"(x &minus; 2)(x &minus; 3) = x<sup>2</sup> &minus; 5x + 6; the middle term is negative. Both numbers must be positive to add to +5.",
+"(x + 5)(x + 1) = x<sup>2</sup> + 6x + 5; you used the 5 from the middle term. Find two numbers that multiply to 6 and add to 5."
+]
+},
+{
+"options": [
+"(x + 3) / (x + 2)",
+"&minus;9 / (5x + 6)",
+"(x &minus; 3) / (x + 2)",
+"(x &minus; 3) / (x + 3)"
+],
+"answer": 2,
+"why": [
+"You kept the common factor and canceled (x &minus; 3). The common factor is (x + 3); canceling it leaves (x &minus; 3) / (x + 2).",
+"You canceled the x<sup>2</sup> terms. Only common factors can be canceled, never terms that are added or subtracted.",
+"",
+"You canceled (x + 2), which is not in the numerator. Only (x + 3) appears in both, leaving (x &minus; 3) / (x + 2)."
+]
+}
+],
+"explain": "<p>Numerator: x<sup>2</sup> &minus; 9 is a difference of squares, <strong>(x &minus; 3)(x + 3)</strong>.</p><p>Denominator: find two numbers that multiply to 6 and add to 5: 2 and 3. So x<sup>2</sup> + 5x + 6 = <strong>(x + 2)(x + 3)</strong>.</p><p>Cancel the common factor (x + 3): [(x &minus; 3)(x + 3)] / [(x + 2)(x + 3)] = <strong>(x &minus; 3) / (x + 2)</strong>.</p><p>&minus;9 / (5x + 6) comes from canceling the x<sup>2</sup> terms. Only common <em>factors</em> can be canceled, never terms that are added or subtracted.</p>"
+}
+]
+}
+]
 }

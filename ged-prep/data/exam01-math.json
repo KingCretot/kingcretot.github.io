@@ -22,7 +22,13 @@
 "6"
 ],
 "answer": 0,
-"explain": "<p>Follow the order of operations: parentheses, exponents, then multiplication and division from left to right, then subtraction.</p><p>(5 &minus; 2) = 3</p><p>3<sup>2</sup> = 9</p><p>4 &times; 9 = 36</p><p>36 &divide; 6 = 6</p><p>18 &minus; 6 = <strong>12</strong></p><p>The answer 21 comes from working left to right and subtracting first: (18 &minus; 4) &times; 9 &divide; 6 = 21. Subtraction must wait until the multiplication and division are done.</p>"
+"explain": "<p>Follow the order of operations: parentheses, exponents, then multiplication and division from left to right, then subtraction.</p><p>(5 &minus; 2) = 3</p><p>3<sup>2</sup> = 9</p><p>4 &times; 9 = 36</p><p>36 &divide; 6 = 6</p><p>18 &minus; 6 = <strong>12</strong></p><p>The answer 21 comes from working left to right and subtracting first: (18 &minus; 4) &times; 9 &divide; 6 = 21. Subtraction must wait until the multiplication and division are done.</p>",
+"why": [
+"",
+"You subtracted first: (18 &minus; 4) &times; 9 &divide; 6 = 21. Subtraction waits until the multiplication and division are done: 4 &times; 9 &divide; 6 = 6, then 18 &minus; 6 = 12.",
+"You subtracted 6 from 18 in the wrong direction or treated the result as 6 &minus; 18. The work is 18 &minus; (4 &times; 9 &divide; 6) = 18 &minus; 6 = 12, which is positive.",
+"6 is only the value of 4 &times; 9 &divide; 6. You stopped before the last step: subtract that 6 from 18 to get 12."
+]
 },
 {
 "id": "m02",
@@ -37,7 +43,24 @@
 "value": 1.5,
 "tol": 0.001,
 "suffix": "cups",
-"explain": "<p>Change the mixed number to an improper fraction: 2&frac14; = 9/4.</p><p>Multiply: 9/4 &times; 2/3 = 18/12.</p><p>Simplify: 18/12 = 3/2 = <strong>1.5 cups</strong> (1&frac12; cups).</p><p>A common error is to multiply only the whole number part: 2 &times; 2/3 = 4/3. The quarter cup must be included.</p>"
+"explain": "<p>Change the mixed number to an improper fraction: 2&frac14; = 9/4.</p><p>Multiply: 9/4 &times; 2/3 = 18/12.</p><p>Simplify: 18/12 = 3/2 = <strong>1.5 cups</strong> (1&frac12; cups).</p><p>A common error is to multiply only the whole number part: 2 &times; 2/3 = 4/3. The quarter cup must be included.</p>",
+"mistakes": [
+{
+"answer": [
+"4/3",
+"1.33",
+"1.333"
+],
+"why": "You multiplied only the whole number: 2 &times; 2/3 = 4/3. Include the quarter cup: 2&frac14; = 9/4, and 9/4 &times; 2/3 = 3/2."
+},
+{
+"answer": [
+"27/8",
+"3.375"
+],
+"why": "You divided by 2/3 instead of multiplying. Making 2/3 of a recipe means taking 2/3 of each amount: 9/4 &times; 2/3 = 3/2."
+}
+]
 },
 {
 "id": "m03",
@@ -52,7 +75,13 @@
 "12&radic;6"
 ],
 "answer": 0,
-"explain": "<p>Find the largest perfect square that divides 72: 72 = 36 &times; 2.</p><p>&radic;72 = &radic;36 &times; &radic;2 = <strong>6&radic;2</strong>.</p><p>Check: 6&radic;2 &asymp; 6 &times; 1.414 &asymp; 8.49, and 8.49<sup>2</sup> &asymp; 72.</p><p>36&radic;2 is wrong because the 36 must come out of the root as its square root, 6. 2&radic;6 is only &radic;24.</p>"
+"explain": "<p>Find the largest perfect square that divides 72: 72 = 36 &times; 2.</p><p>&radic;72 = &radic;36 &times; &radic;2 = <strong>6&radic;2</strong>.</p><p>Check: 6&radic;2 &asymp; 6 &times; 1.414 &asymp; 8.49, and 8.49<sup>2</sup> &asymp; 72.</p><p>36&radic;2 is wrong because the 36 must come out of the root as its square root, 6. 2&radic;6 is only &radic;24.</p>",
+"why": [
+"",
+"2&radic;6 is &radic;24, not &radic;72. Look for the largest perfect square factor of 72, which is 36: &radic;36 &times; &radic;2 = 6&radic;2.",
+"You left 36 outside the root. When the perfect square comes out of the radical, it comes out as its square root: &radic;36 = 6, so the answer is 6&radic;2.",
+"You split 72 as 12 &times; 6 and pulled out 12, but 12 is not a perfect square. Use 72 = 36 &times; 2, so &radic;72 = 6&radic;2."
+]
 },
 {
 "id": "m04",
@@ -67,7 +96,13 @@
 "3.4"
 ],
 "answer": 1,
-"explain": "<p>Distribute: 3x &minus; 12 = 2x + 5</p><p>Subtract 2x from both sides: x &minus; 12 = 5</p><p>Add 12 to both sides: x = <strong>17</strong></p><p>Check: 3(17 &minus; 4) = 3(13) = 39 and 2(17) + 5 = 39.</p><p>The answer 9 comes from distributing the 3 only to x: 3x &minus; 4 = 2x + 5 gives x = 9.</p>"
+"explain": "<p>Distribute: 3x &minus; 12 = 2x + 5</p><p>Subtract 2x from both sides: x &minus; 12 = 5</p><p>Add 12 to both sides: x = <strong>17</strong></p><p>Check: 3(17 &minus; 4) = 3(13) = 39 and 2(17) + 5 = 39.</p><p>The answer 9 comes from distributing the 3 only to x: 3x &minus; 4 = 2x + 5 gives x = 9.</p>",
+"why": [
+"You multiplied the 3 only by x and got 3x &minus; 4 = 2x + 5. The 3 must multiply both terms: 3x &minus; 12 = 2x + 5, so x = 17.",
+"",
+"You subtracted 12 instead of adding it when isolating x (x = 5 &minus; 12). From x &minus; 12 = 5, add 12 to both sides: x = 17.",
+"You combined the x-terms by adding (3x + 2x = 5x) and got 5x = 17. Subtract 2x from both sides instead: x &minus; 12 = 5, so x = 17."
+]
 },
 {
 "id": "m05",
@@ -82,7 +117,13 @@
 "23"
 ],
 "answer": 2,
-"explain": "<p>Substitute &minus;2 for every x:</p><p>f(&minus;2) = 2(&minus;2)<sup>2</sup> &minus; 3(&minus;2) + 1</p><p>(&minus;2)<sup>2</sup> = 4, so 2(4) = 8</p><p>&minus;3(&minus;2) = +6</p><p>8 + 6 + 1 = <strong>15</strong></p><p>The answer 3 comes from treating &minus;3(&minus;2) as &minus;6. The answer &minus;1 comes from squaring incorrectly and getting &minus;4.</p>"
+"explain": "<p>Substitute &minus;2 for every x:</p><p>f(&minus;2) = 2(&minus;2)<sup>2</sup> &minus; 3(&minus;2) + 1</p><p>(&minus;2)<sup>2</sup> = 4, so 2(4) = 8</p><p>&minus;3(&minus;2) = +6</p><p>8 + 6 + 1 = <strong>15</strong></p><p>The answer 3 comes from treating &minus;3(&minus;2) as &minus;6. The answer &minus;1 comes from squaring incorrectly and getting &minus;4.</p>",
+"why": [
+"You treated &minus;3(&minus;2) as &minus;6, giving 8 &minus; 6 + 1 = 3. A negative times a negative is positive: &minus;3(&minus;2) = +6, so f(&minus;2) = 8 + 6 + 1 = 15.",
+"You squared &minus;2 as &minus;4, giving 2(&minus;4) + 6 + 1 = &minus;1. (&minus;2)<sup>2</sup> = (&minus;2)(&minus;2) = 4, so the first term is 8.",
+"",
+"You squared 2x as a whole: (2 &times; &minus;2)<sup>2</sup> = 16. The exponent applies only to x, so 2(&minus;2)<sup>2</sup> = 2(4) = 8, and the total is 15."
+]
 }
 ]
 },
@@ -103,7 +144,13 @@
 "$84.80"
 ],
 "answer": 2,
-"explain": "<p>Discount: 25% of $80 = 0.25 &times; 80 = $20, so the sale price is 80 &minus; 20 = $60.00.</p><p>Tax: 6% of $60 = 0.06 &times; 60 = $3.60.</p><p>Total: 60.00 + 3.60 = <strong>$63.60</strong>.</p><p>$64.80 comes from combining the percents first (25% &minus; 6% = 19% off). That is wrong because the tax is taken on the sale price, not on the original price.</p>"
+"explain": "<p>Discount: 25% of $80 = 0.25 &times; 80 = $20, so the sale price is 80 &minus; 20 = $60.00.</p><p>Tax: 6% of $60 = 0.06 &times; 60 = $3.60.</p><p>Total: 60.00 + 3.60 = <strong>$63.60</strong>.</p><p>$64.80 comes from combining the percents first (25% &minus; 6% = 19% off). That is wrong because the tax is taken on the sale price, not on the original price.</p>",
+"why": [
+"You combined the percents first (25% off minus 6% tax = 19% off) and got 0.81 &times; 80. The tax is taken on the sale price: $60 &times; 1.06 = $63.60.",
+"$60.00 is only the sale price. You forgot the last step: add 6% tax on $60, which is $3.60, for $63.60.",
+"",
+"You added the 6% tax to the original $80 and never took the 25% discount. Take 25% off first ($60), then add tax: $63.60."
+]
 },
 {
 "id": "m07",
@@ -118,7 +165,13 @@
 "65h + 45h"
 ],
 "answer": 1,
-"explain": "<p>The $65 fee is charged once, so it is a constant. The $45 is charged for each hour, so it is multiplied by h.</p><p>Total = <strong>65 + 45h</strong>.</p><p>Check with 2 hours: 65 + 45(2) = 65 + 90 = $155.</p><p>45 + 65h switches the roles: it charges $65 per hour instead of a one-time $65 fee.</p>"
+"explain": "<p>The $65 fee is charged once, so it is a constant. The $45 is charged for each hour, so it is multiplied by h.</p><p>Total = <strong>65 + 45h</strong>.</p><p>Check with 2 hours: 65 + 45(2) = 65 + 90 = $155.</p><p>45 + 65h switches the roles: it charges $65 per hour instead of a one-time $65 fee.</p>",
+"why": [
+"You switched the roles of the two numbers. The $65 is charged once (a constant), and the $45 is charged per hour, so it multiplies h: 65 + 45h.",
+"",
+"You added 65 and 45 and multiplied the total by h, which charges the $65 fee every hour. Only the hourly rate is multiplied by h: 65 + 45h.",
+"You multiplied both amounts by h, which charges the visit fee once per hour. The $65 fee is charged only once, so it stays as a constant: 65 + 45h."
+]
 },
 {
 "id": "m08",
@@ -132,7 +185,22 @@
 "value": 408,
 "tol": 0.001,
 "suffix": "miles",
-"explain": "<p>Find the unit rate: 238 &divide; 7 = 34 miles per gallon.</p><p>Multiply by 12 gallons: 34 &times; 12 = <strong>408 miles</strong>.</p><p>You can also set up a proportion: 238/7 = m/12, so 7m = 238 &times; 12 = 2,856 and m = 408.</p>"
+"explain": "<p>Find the unit rate: 238 &divide; 7 = 34 miles per gallon.</p><p>Multiply by 12 gallons: 34 &times; 12 = <strong>408 miles</strong>.</p><p>You can also set up a proportion: 238/7 = m/12, so 7m = 238 &times; 12 = 2,856 and m = 408.</p>",
+"mistakes": [
+{
+"answer": [
+"34"
+],
+"why": "34 miles per gallon is only the unit rate. Multiply it by the 12 gallons: 34 &times; 12 = 408 miles."
+},
+{
+"answer": [
+"2856",
+"2,856"
+],
+"why": "You multiplied 238 by 12 but did not divide by 7. Cross-multiplying gives 7m = 2,856, so m = 2,856 &divide; 7 = 408."
+}
+]
 },
 {
 "id": "m09",
@@ -147,7 +215,13 @@
 "2x<sup>2</sup> &minus; x + 8"
 ],
 "answer": 3,
-"explain": "<p>Distribute the subtraction to every term in the second polynomial:</p><p>3x<sup>2</sup> &minus; 5x + 2 &minus; x<sup>2</sup> + 4x + 6</p><p>Combine like terms:</p><p>3x<sup>2</sup> &minus; x<sup>2</sup> = 2x<sup>2</sup></p><p>&minus;5x + 4x = &minus;x</p><p>2 + 6 = 8</p><p>Result: <strong>2x<sup>2</sup> &minus; x + 8</strong>.</p><p>2x<sup>2</sup> &minus; 9x &minus; 4 comes from subtracting only the first term and leaving &minus;4x and &minus;6 unchanged.</p>"
+"explain": "<p>Distribute the subtraction to every term in the second polynomial:</p><p>3x<sup>2</sup> &minus; 5x + 2 &minus; x<sup>2</sup> + 4x + 6</p><p>Combine like terms:</p><p>3x<sup>2</sup> &minus; x<sup>2</sup> = 2x<sup>2</sup></p><p>&minus;5x + 4x = &minus;x</p><p>2 + 6 = 8</p><p>Result: <strong>2x<sup>2</sup> &minus; x + 8</strong>.</p><p>2x<sup>2</sup> &minus; 9x &minus; 4 comes from subtracting only the first term and leaving &minus;4x and &minus;6 unchanged.</p>",
+"why": [
+"You subtracted only the first term of the second polynomial and kept &minus;4x and &minus;6 as written. Subtracting changes every sign: &minus;(&minus;4x) = +4x and &minus;(&minus;6) = +6.",
+"You changed the sign of &minus;4x but not of &minus;6. The subtraction applies to every term: 2 &minus; (&minus;6) = 2 + 6 = 8.",
+"You changed the sign of &minus;6 but not of &minus;4x. The subtraction applies to every term: &minus;5x &minus; (&minus;4x) = &minus;5x + 4x = &minus;x.",
+""
+]
 },
 {
 "id": "m10",
@@ -185,7 +259,13 @@
 "12%"
 ],
 "answer": 3,
-"explain": "<p>Read the graph: 2022 population = 12,500; 2024 population = 14,000.</p><p>Amount of change: 14,000 &minus; 12,500 = 1,500.</p><p>Percent change = change &divide; original = 1,500 &divide; 12,500 = 0.12 = <strong>12%</strong>.</p><p>10.7% comes from dividing by the new value (1,500 &divide; 14,000). Percent change always divides by the original (earlier) value.</p>"
+"explain": "<p>Read the graph: 2022 population = 12,500; 2024 population = 14,000.</p><p>Amount of change: 14,000 &minus; 12,500 = 1,500.</p><p>Percent change = change &divide; original = 1,500 &divide; 12,500 = 0.12 = <strong>12%</strong>.</p><p>10.7% comes from dividing by the new value (1,500 &divide; 14,000). Percent change always divides by the original (earlier) value.</p>",
+"why": [
+"You divided the change by the new value (1,500 &divide; 14,000). Percent change always divides by the original value: 1,500 &divide; 12,500 = 12%.",
+"You found the change of 1,500 and wrote it as 1.5% without dividing by the original value. Percent change = 1,500 &divide; 12,500 = 0.12 = 12%.",
+"112% is 14,000 &divide; 12,500, the new value as a percent of the old. The increase is the part above 100%: 112% &minus; 100% = 12%.",
+""
+]
 },
 {
 "id": "m11",
@@ -200,7 +280,13 @@
 "2x<sup>2</sup> &minus; 7x &minus; 15"
 ],
 "answer": 0,
-"explain": "<p>Multiply each term in the first binomial by each term in the second:</p><p>2x &times; x = 2x<sup>2</sup></p><p>2x &times; 5 = 10x</p><p>&minus;3 &times; x = &minus;3x</p><p>&minus;3 &times; 5 = &minus;15</p><p>Combine: 2x<sup>2</sup> + 10x &minus; 3x &minus; 15 = <strong>2x<sup>2</sup> + 7x &minus; 15</strong>.</p><p>2x<sup>2</sup> &minus; 15 multiplies only the first terms and the last terms and leaves out the middle terms.</p>"
+"explain": "<p>Multiply each term in the first binomial by each term in the second:</p><p>2x &times; x = 2x<sup>2</sup></p><p>2x &times; 5 = 10x</p><p>&minus;3 &times; x = &minus;3x</p><p>&minus;3 &times; 5 = &minus;15</p><p>Combine: 2x<sup>2</sup> + 10x &minus; 3x &minus; 15 = <strong>2x<sup>2</sup> + 7x &minus; 15</strong>.</p><p>2x<sup>2</sup> &minus; 15 multiplies only the first terms and the last terms and leaves out the middle terms.</p>",
+"why": [
+"",
+"You multiplied only the first terms and the last terms and left out the middle terms. Use all four products: 2x<sup>2</sup> + 10x &minus; 3x &minus; 15.",
+"You added 10x and 3x instead of combining 10x and &minus;3x. The &minus;3 makes &minus;3x, so the middle term is 10x &minus; 3x = 7x.",
+"You got the sign of the middle term backward. 2x &times; 5 = +10x and &minus;3 &times; x = &minus;3x, so the middle term is +7x."
+]
 },
 {
 "id": "m12",
@@ -215,7 +301,13 @@
 "1.28 &times; 10<sup>&minus;9</sup>"
 ],
 "answer": 1,
-"explain": "<p>Multiply the amount per milliliter by the number of milliliters:</p><p>(3.2 &times; 10<sup>5</sup>)(4 &times; 10<sup>&minus;2</sup>) = (3.2 &times; 4) &times; 10<sup>5 + (&minus;2)</sup> = 12.8 &times; 10<sup>3</sup></p><p>Rewrite in scientific notation: 12.8 &times; 10<sup>3</sup> = <strong>1.28 &times; 10<sup>4</sup></strong> (12,800 bacteria).</p><p>1.28 &times; 10<sup>3</sup> forgets to raise the exponent by 1 when 12.8 is changed to 1.28. 1.28 &times; 10<sup>&minus;9</sup> multiplies the exponents instead of adding them.</p>"
+"explain": "<p>Multiply the amount per milliliter by the number of milliliters:</p><p>(3.2 &times; 10<sup>5</sup>)(4 &times; 10<sup>&minus;2</sup>) = (3.2 &times; 4) &times; 10<sup>5 + (&minus;2)</sup> = 12.8 &times; 10<sup>3</sup></p><p>Rewrite in scientific notation: 12.8 &times; 10<sup>3</sup> = <strong>1.28 &times; 10<sup>4</sup></strong> (12,800 bacteria).</p><p>1.28 &times; 10<sup>3</sup> forgets to raise the exponent by 1 when 12.8 is changed to 1.28. 1.28 &times; 10<sup>&minus;9</sup> multiplies the exponents instead of adding them.</p>",
+"why": [
+"You changed 12.8 to 1.28 but did not raise the exponent by 1. Moving the decimal left one place means 12.8 &times; 10<sup>3</sup> = 1.28 &times; 10<sup>4</sup>.",
+"",
+"You added the front numbers (3.2 + 4 = 7.2) instead of multiplying them. Multiply 3.2 &times; 4 = 12.8, then add exponents: 12.8 &times; 10<sup>3</sup> = 1.28 &times; 10<sup>4</sup>.",
+"You multiplied the exponents (5 &times; &minus;2 = &minus;10) instead of adding them. When multiplying powers of 10, add exponents: 5 + (&minus;2) = 3."
+]
 },
 {
 "id": "m13",
@@ -228,7 +320,21 @@
 ],
 "value": 85,
 "tol": 0.001,
-"explain": "<p>For a mean of 82 on 5 tests, the total must be 82 &times; 5 = 410.</p><p>Sum of the first four scores: 78 + 85 + 92 + 70 = 325.</p><p>Needed score: 410 &minus; 325 = <strong>85</strong>.</p><p>Check: (325 + 85) &divide; 5 = 410 &divide; 5 = 82.</p>"
+"explain": "<p>For a mean of 82 on 5 tests, the total must be 82 &times; 5 = 410.</p><p>Sum of the first four scores: 78 + 85 + 92 + 70 = 325.</p><p>Needed score: 410 &minus; 325 = <strong>85</strong>.</p><p>Check: (325 + 85) &divide; 5 = 410 &divide; 5 = 82.</p>",
+"mistakes": [
+{
+"answer": [
+"81.25"
+],
+"why": "81.25 is the mean of the first four scores (325 &divide; 4). The question asks for the fifth score that makes the five-score total 82 &times; 5 = 410, so 410 &minus; 325 = 85."
+},
+{
+"answer": [
+"82"
+],
+"why": "Scoring the target mean does not raise the mean to 82, because the first four scores average 81.25. The total must reach 82 &times; 5 = 410, so the fifth score is 410 &minus; 325 = 85."
+}
+]
 },
 {
 "id": "m14",
@@ -248,7 +354,15 @@
 0,
 1
 ],
-"explain": "<p>Find two numbers that multiply to &minus;12 and add to &minus;1. The pair is &minus;4 and 3, because (&minus;4)(3) = &minus;12 and &minus;4 + 3 = &minus;1.</p><p>x<sup>2</sup> &minus; x &minus; 12 = <strong>(x &minus; 4)(x + 3)</strong>.</p><p>Check: (x &minus; 4)(x + 3) = x<sup>2</sup> + 3x &minus; 4x &minus; 12 = x<sup>2</sup> &minus; x &minus; 12.</p><p>(x + 4)(x &minus; 3) gives x<sup>2</sup> + x &minus; 12, which has the wrong sign on the middle term.</p>"
+"explain": "<p>Find two numbers that multiply to &minus;12 and add to &minus;1. The pair is &minus;4 and 3, because (&minus;4)(3) = &minus;12 and &minus;4 + 3 = &minus;1.</p><p>x<sup>2</sup> &minus; x &minus; 12 = <strong>(x &minus; 4)(x + 3)</strong>.</p><p>Check: (x &minus; 4)(x + 3) = x<sup>2</sup> + 3x &minus; 4x &minus; 12 = x<sup>2</sup> &minus; x &minus; 12.</p><p>(x + 4)(x &minus; 3) gives x<sup>2</sup> + x &minus; 12, which has the wrong sign on the middle term.</p>",
+"why": [
+"",
+"",
+"(x + 4) pairs with (x &minus; 3) and gives x<sup>2</sup> + x &minus; 12, which has the wrong sign on the middle term. You need numbers that add to &minus;1: &minus;4 and 3.",
+"(x &minus; 3) pairs with (x + 4) and gives x<sup>2</sup> + x &minus; 12. The middle term must be &minus;x, so the pair is &minus;4 and 3, giving (x &minus; 4)(x + 3).",
+"6 and &minus;2 multiply to &minus;12 but add to 4, not &minus;1. The numbers you need are &minus;4 and 3.",
+"2 and &minus;6 multiply to &minus;12 but add to &minus;4, not &minus;1. The numbers you need are &minus;4 and 3."
+]
 },
 {
 "id": "m15",
@@ -263,7 +377,13 @@
 "73&deg;F"
 ],
 "answer": 1,
-"explain": "<p>Put the values in order: 68, 68, 71, 73, 75, 80.</p><p>With six values, the median is the mean of the two middle values (the 3rd and 4th): (71 + 73) &divide; 2 = 144 &divide; 2 = <strong>72&deg;F</strong>.</p><p>72.5&deg;F is the mean (435 &divide; 6), not the median. 68&deg;F is the mode.</p>"
+"explain": "<p>Put the values in order: 68, 68, 71, 73, 75, 80.</p><p>With six values, the median is the mean of the two middle values (the 3rd and 4th): (71 + 73) &divide; 2 = 144 &divide; 2 = <strong>72&deg;F</strong>.</p><p>72.5&deg;F is the mean (435 &divide; 6), not the median. 68&deg;F is the mode.</p>",
+"why": [
+"72.5&deg;F is the mean (435 &divide; 6), not the median. The median is the middle of the ordered list: (71 + 73) &divide; 2 = 72.",
+"",
+"68&deg;F is the mode, the value that appears most often. The median is the middle of the ordered list: (71 + 73) &divide; 2 = 72.",
+"You picked one middle value without ordering the data or without averaging. With six values in order (68, 68, 71, 73, 75, 80), average the 3rd and 4th: (71 + 73) &divide; 2 = 72."
+]
 },
 {
 "id": "m16",
@@ -277,7 +397,24 @@
 "value": 5,
 "tol": 0.001,
 "suffix": "child tickets",
-"explain": "<p>Let c be the number of child tickets.</p><p>14(2) + 9c = 73</p><p>28 + 9c = 73</p><p>9c = 73 &minus; 28 = 45</p><p>c = 45 &divide; 9 = <strong>5</strong></p><p>Check: 28 + 9(5) = 28 + 45 = $73.</p>"
+"explain": "<p>Let c be the number of child tickets.</p><p>14(2) + 9c = 73</p><p>28 + 9c = 73</p><p>9c = 73 &minus; 28 = 45</p><p>c = 45 &divide; 9 = <strong>5</strong></p><p>Check: 28 + 9(5) = 28 + 45 = $73.</p>",
+"mistakes": [
+{
+"answer": [
+"8.1",
+"8.11",
+"8"
+],
+"why": "You divided the whole $73 by $9 and forgot the two adult tickets. Subtract the adult cost first: 73 &minus; 28 = 45, then 45 &divide; 9 = 5."
+},
+{
+"answer": [
+"6.56",
+"6.6"
+],
+"why": "You subtracted only one adult ticket (73 &minus; 14 = 59). Two adult tickets cost 28, so 73 &minus; 28 = 45 and 45 &divide; 9 = 5."
+}
+]
 },
 {
 "id": "m17",
@@ -292,7 +429,13 @@
 "3/5"
 ],
 "answer": 3,
-"explain": "<p>Total socks: 7 + 5 + 8 = 20.</p><p>Socks that are not gray: 7 + 5 = 12.</p><p>P(not gray) = 12/20 = <strong>3/5</strong>.</p><p>2/5 is the probability that the sock <em>is</em> gray (8/20). 2/3 compares gray to not gray (8 to 12), which is a ratio, not a probability. 7/20 counts only the black socks.</p>"
+"explain": "<p>Total socks: 7 + 5 + 8 = 20.</p><p>Socks that are not gray: 7 + 5 = 12.</p><p>P(not gray) = 12/20 = <strong>3/5</strong>.</p><p>2/5 is the probability that the sock <em>is</em> gray (8/20). 2/3 compares gray to not gray (8 to 12), which is a ratio, not a probability. 7/20 counts only the black socks.</p>",
+"why": [
+"2/5 is the probability that the sock IS gray (8/20). Not gray means black or white: 12/20 = 3/5.",
+"You compared gray to not-gray (8 to 12), which is a ratio, not a probability. A probability divides by the total, 20: 12/20 = 3/5.",
+"You counted only the black socks. Not gray includes black and white: (7 + 5)/20 = 12/20 = 3/5.",
+""
+]
 },
 {
 "id": "m18",
@@ -307,7 +450,13 @@
 "x &gt; &minus;26/3"
 ],
 "answer": 1,
-"explain": "<p>Subtract 7 from both sides: &minus;3x &gt; 12</p><p>Divide both sides by &minus;3. Dividing by a negative number reverses the inequality sign: <strong>x &lt; &minus;4</strong>.</p><p>Check with x = &minus;5: &minus;3(&minus;5) + 7 = 15 + 7 = 22, and 22 &gt; 19 is true.</p><p>x &gt; &minus;4 is the result if you forget to reverse the sign when dividing by &minus;3.</p>"
+"explain": "<p>Subtract 7 from both sides: &minus;3x &gt; 12</p><p>Divide both sides by &minus;3. Dividing by a negative number reverses the inequality sign: <strong>x &lt; &minus;4</strong>.</p><p>Check with x = &minus;5: &minus;3(&minus;5) + 7 = 15 + 7 = 22, and 22 &gt; 19 is true.</p><p>x &gt; &minus;4 is the result if you forget to reverse the sign when dividing by &minus;3.</p>",
+"why": [
+"You forgot to reverse the inequality sign when dividing by &minus;3. Dividing both sides by a negative number flips &gt; to &lt;: x &lt; &minus;4.",
+"",
+"You dropped the negative sign when dividing 12 by &minus;3. 12 &divide; (&minus;3) = &minus;4, so the result is x &lt; &minus;4.",
+"You added 7 to 19 instead of subtracting it, getting &minus;3x &gt; 26. Subtract 7 from both sides: &minus;3x &gt; 12, then divide by &minus;3 and flip the sign: x &lt; &minus;4."
+]
 },
 {
 "id": "m19",
@@ -327,7 +476,13 @@
 "32 ft"
 ],
 "answer": 1,
-"explain": "<p>The building, the ground, and the ladder form a right triangle. The ladder is the hypotenuse.</p><p>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></p><p>7<sup>2</sup> + h<sup>2</sup> = 25<sup>2</sup></p><p>49 + h<sup>2</sup> = 625</p><p>h<sup>2</sup> = 576</p><p>h = &radic;576 = <strong>24 ft</strong></p><p>26.0 ft comes from adding the squares (49 + 625 = 674, &radic;674 &asymp; 26.0). The ladder is the longest side, so you must subtract. 18 ft subtracts the lengths (25 &minus; 7) without squaring.</p>"
+"explain": "<p>The building, the ground, and the ladder form a right triangle. The ladder is the hypotenuse.</p><p>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></p><p>7<sup>2</sup> + h<sup>2</sup> = 25<sup>2</sup></p><p>49 + h<sup>2</sup> = 625</p><p>h<sup>2</sup> = 576</p><p>h = &radic;576 = <strong>24 ft</strong></p><p>26.0 ft comes from adding the squares (49 + 625 = 674, &radic;674 &asymp; 26.0). The ladder is the longest side, so you must subtract. 18 ft subtracts the lengths (25 &minus; 7) without squaring.</p>",
+"why": [
+"You subtracted the lengths (25 &minus; 7) without squaring. Use the Pythagorean theorem: h<sup>2</sup> = 25<sup>2</sup> &minus; 7<sup>2</sup> = 576, so h = 24.",
+"",
+"You added the squares (49 + 625) as if the height were the hypotenuse. The ladder is the longest side, so subtract: 625 &minus; 49 = 576, and &radic;576 = 24.",
+"You added the two lengths (25 + 7). The sides of a right triangle are related by squares: h<sup>2</sup> = 625 &minus; 49 = 576, so h = 24."
+]
 },
 {
 "id": "m20",
@@ -343,7 +498,13 @@
 "&gt;",
 "&ge;"
 ],
-"answer": 1
+"answer": 1,
+"why": [
+"&lt; leaves out spending exactly $150. &ldquo;At most&rdquo; means the total can equal $150 or be less, so use &le;.",
+"",
+"&gt; means she spends more than $150, the opposite of &ldquo;at most.&rdquo; Her total must be $150 or less: &le;.",
+"&ge; describes &ldquo;at least $150.&rdquo; &ldquo;At most&rdquo; is a ceiling, so the symbol is &le;."
+]
 },
 {
 "options": [
@@ -352,7 +513,13 @@
 "5",
 "6"
 ],
-"answer": 1
+"answer": 1,
+"why": [
+"3 pairs is not the greatest number. 42 + 27(4) = 150 exactly, and &ldquo;at most&rdquo; allows spending exactly $150, so 4 pairs works.",
+"",
+"You divided 150 by 27 (about 5.6) and forgot the $42 already spent. Subtract first: 108 &divide; 27 = 4.",
+"You rounded 150 &divide; 27 up to 6 and ignored the $42 shirt. The remaining $108 buys 108 &divide; 27 = 4 pairs."
+]
 }
 ],
 "explain": "<p>\"At most $150\" means the total can equal $150 or be less, so the symbol is <strong>&le;</strong>: 42 + 27j &le; 150.</p><p>Solve: 27j &le; 150 &minus; 42 = 108</p><p>j &le; 108 &divide; 27 = 4</p><p>The greatest whole number is <strong>4</strong>. Check: 42 + 27(4) = 42 + 108 = $150, which is allowed. Five pairs would cost 42 + 135 = $177, which is too much.</p><p>Choosing &lt; would leave out spending exactly $150, which \"at most\" allows.</p>"
@@ -370,7 +537,13 @@
 "15"
 ],
 "answer": 1,
-"explain": "<p>Use the fundamental counting principle: multiply the number of choices for each part.</p><p>4 &times; 3 &times; 5 = <strong>60</strong> different lunch specials.</p><p>12 comes from adding the choices (4 + 3 + 5). Adding counts the menu items, not the combinations.</p>"
+"explain": "<p>Use the fundamental counting principle: multiply the number of choices for each part.</p><p>4 &times; 3 &times; 5 = <strong>60</strong> different lunch specials.</p><p>12 comes from adding the choices (4 + 3 + 5). Adding counts the menu items, not the combinations.</p>",
+"why": [
+"You added the choices (4 + 3 + 5). Adding counts menu items, not combinations. Multiply: 4 &times; 3 &times; 5 = 60.",
+"",
+"You multiplied only sandwiches and drinks (4 &times; 5) and left out the 3 sides. Multiply all three: 4 &times; 3 &times; 5 = 60.",
+"You multiplied only sides and drinks (3 &times; 5) and left out the 4 sandwiches. Multiply all three: 4 &times; 3 &times; 5 = 60."
+]
 },
 {
 "id": "m22",
@@ -385,7 +558,13 @@
 "180"
 ],
 "answer": 2,
-"explain": "<p>Let a = adult tickets and s = student tickets.</p><p>a + s = 220</p><p>15a + 9s = 2,700</p><p>From the first equation, s = 220 &minus; a. Substitute:</p><p>15a + 9(220 &minus; a) = 2,700</p><p>15a + 1,980 &minus; 9a = 2,700</p><p>6a = 720</p><p>a = <strong>120</strong> adult tickets (and s = 100 student tickets).</p><p>Check: 15(120) + 9(100) = 1,800 + 900 = $2,700.</p><p>100 is the number of student tickets, not adult tickets. 180 comes from 2,700 &divide; 15, which assumes every ticket was an adult ticket.</p>"
+"explain": "<p>Let a = adult tickets and s = student tickets.</p><p>a + s = 220</p><p>15a + 9s = 2,700</p><p>From the first equation, s = 220 &minus; a. Substitute:</p><p>15a + 9(220 &minus; a) = 2,700</p><p>15a + 1,980 &minus; 9a = 2,700</p><p>6a = 720</p><p>a = <strong>120</strong> adult tickets (and s = 100 student tickets).</p><p>Check: 15(120) + 9(100) = 1,800 + 900 = $2,700.</p><p>100 is the number of student tickets, not adult tickets. 180 comes from 2,700 &divide; 15, which assumes every ticket was an adult ticket.</p>",
+"why": [
+"100 is the number of student tickets. The question asks for adult tickets: 220 &minus; 100 = 120.",
+"You split the 220 tickets evenly. The prices differ, so solve the system: 15a + 9(220 &minus; a) = 2,700 gives a = 120.",
+"",
+"You divided 2,700 by 15, which assumes every ticket was an adult ticket. Use both equations: 6a = 720, so a = 120."
+]
 },
 {
 "id": "m23",
@@ -399,7 +578,34 @@
 "value": 154,
 "tol": 0.001,
 "suffix": "square feet",
-"explain": "<p>The radius is half the diameter: r = 14 &divide; 2 = 7 feet.</p><p>A = &pi;r<sup>2</sup> = &pi;(7)<sup>2</sup> = 49&pi;</p><p>49 &times; 3.14 = 153.86, or 49 &times; &pi; &asymp; 153.94. Either way, rounded to the nearest square foot: <strong>154 square feet</strong>.</p><p>A common error is to use the diameter as the radius: &pi;(14)<sup>2</sup> &asymp; 615.8, which is four times too large.</p>"
+"explain": "<p>The radius is half the diameter: r = 14 &divide; 2 = 7 feet.</p><p>A = &pi;r<sup>2</sup> = &pi;(7)<sup>2</sup> = 49&pi;</p><p>49 &times; 3.14 = 153.86, or 49 &times; &pi; &asymp; 153.94. Either way, rounded to the nearest square foot: <strong>154 square feet</strong>.</p><p>A common error is to use the diameter as the radius: &pi;(14)<sup>2</sup> &asymp; 615.8, which is four times too large.</p>",
+"mistakes": [
+{
+"answer": [
+"615",
+"616",
+"615.44",
+"615.75"
+],
+"why": "You used the diameter, 14, as the radius. The radius is half the diameter, 7, so A = &pi;(7)<sup>2</sup> &asymp; 154."
+},
+{
+"answer": [
+"44",
+"43.96",
+"43.98"
+],
+"why": "You found the circumference (&pi; &times; 14) instead of the area. Area uses the radius squared: &pi;(7)<sup>2</sup> &asymp; 154."
+},
+{
+"answer": [
+"22",
+"21.98",
+"21.99"
+],
+"why": "You computed &pi; &times; 7 without squaring the radius. A = &pi;r<sup>2</sup> = &pi; &times; 49 &asymp; 154."
+}
+]
 },
 {
 "id": "m24",
@@ -414,7 +620,13 @@
 "(3, 5)"
 ],
 "answer": 3,
-"explain": "<p>Substitute 2x &minus; 1 for y in the second equation:</p><p>3x + (2x &minus; 1) = 14</p><p>5x &minus; 1 = 14</p><p>5x = 15, so x = 3</p><p>y = 2(3) &minus; 1 = 5</p><p>The solution is <strong>(3, 5)</strong>. Check: 3(3) + 5 = 14.</p><p>(5, 3) reverses the coordinates; it does not satisfy y = 2x &minus; 1, because 2(5) &minus; 1 = 9, not 3.</p>"
+"explain": "<p>Substitute 2x &minus; 1 for y in the second equation:</p><p>3x + (2x &minus; 1) = 14</p><p>5x &minus; 1 = 14</p><p>5x = 15, so x = 3</p><p>y = 2(3) &minus; 1 = 5</p><p>The solution is <strong>(3, 5)</strong>. Check: 3(3) + 5 = 14.</p><p>(5, 3) reverses the coordinates; it does not satisfy y = 2x &minus; 1, because 2(5) &minus; 1 = 9, not 3.</p>",
+"why": [
+"You reversed the coordinates. Check y = 2x &minus; 1 with x = 5: y = 9, not 3. The solution is x = 3, y = 5.",
+"(2, 3) works in y = 2x &minus; 1 but not in 3x + y = 14, since 6 + 3 = 9. A solution must make both equations true: (3, 5).",
+"You made a sign error on y. With x = 3, y = 2(3) &minus; 1 = +5, and 3(3) + 5 = 14 checks.",
+""
+]
 },
 {
 "id": "m25",
@@ -429,7 +641,13 @@
 "64"
 ],
 "answer": 0,
-"explain": "<p>Area of the whole patio: 20 &times; 12 = 240 square feet.</p><p>Area of the flower bed: 6 &times; 5 = 30 square feet.</p><p>Paved area: 240 &minus; 30 = <strong>210 square feet</strong>.</p><p>270 adds the flower bed instead of subtracting it. 64 is the perimeter of the patio, 2(20 + 12), not an area.</p>"
+"explain": "<p>Area of the whole patio: 20 &times; 12 = 240 square feet.</p><p>Area of the flower bed: 6 &times; 5 = 30 square feet.</p><p>Paved area: 240 &minus; 30 = <strong>210 square feet</strong>.</p><p>270 adds the flower bed instead of subtracting it. 64 is the perimeter of the patio, 2(20 + 12), not an area.</p>",
+"why": [
+"",
+"You added the flower bed area instead of subtracting it. The bed is cut out, so 240 &minus; 30 = 210.",
+"240 is the whole patio. The flower bed (6 &times; 5 = 30) is not paved, so subtract it: 240 &minus; 30 = 210.",
+"64 is the perimeter of the patio, 2(20 + 12). The question asks for area: 20 &times; 12 &minus; 6 &times; 5 = 210."
+]
 },
 {
 "id": "m26",
@@ -466,7 +684,8 @@
 2,
 3
 ],
-"explain": "<p>The solution of a system is the point where the two lines intersect. Set the expressions equal:</p><p>x + 1 = &minus;2x + 7</p><p>3x = 6, so x = 2</p><p>y = 2 + 1 = 3</p><p>The solution is <strong>(2, 3)</strong>. Check in the second equation: &minus;2(2) + 7 = 3.</p><p>The y-intercepts (0, 1) and (0, 7) are each on only one line, so they are not solutions to the system.</p>"
+"explain": "<p>The solution of a system is the point where the two lines intersect. Set the expressions equal:</p><p>x + 1 = &minus;2x + 7</p><p>3x = 6, so x = 2</p><p>y = 2 + 1 = 3</p><p>The solution is <strong>(2, 3)</strong>. Check in the second equation: &minus;2(2) + 7 = 3.</p><p>The y-intercepts (0, 1) and (0, 7) are each on only one line, so they are not solutions to the system.</p>",
+"why": "The most common wrong click is a y-intercept such as (0, 1) or (0, 7), which lies on only one line. The solution is where the lines cross: x + 1 = &minus;2x + 7 gives x = 2 and y = 3, the point (2, 3)."
 },
 {
 "id": "m27",
@@ -481,7 +700,13 @@
 "75.4"
 ],
 "answer": 0,
-"explain": "<p>Volume of a cylinder: V = &pi;r<sup>2</sup>h.</p><p>V = &pi;(3)<sup>2</sup>(8) = &pi;(9)(8) = 72&pi;</p><p>72 &times; &pi; &asymp; <strong>226.2 cubic feet</strong>.</p><p>904.8 uses the diameter (6) as the radius: &pi;(36)(8) = 288&pi;. 150.8 is 2&pi;rh, the lateral surface area, not the volume.</p>"
+"explain": "<p>Volume of a cylinder: V = &pi;r<sup>2</sup>h.</p><p>V = &pi;(3)<sup>2</sup>(8) = &pi;(9)(8) = 72&pi;</p><p>72 &times; &pi; &asymp; <strong>226.2 cubic feet</strong>.</p><p>904.8 uses the diameter (6) as the radius: &pi;(36)(8) = 288&pi;. 150.8 is 2&pi;rh, the lateral surface area, not the volume.</p>",
+"why": [
+"",
+"You used the diameter, 6, as the radius: &pi;(36)(8) = 288&pi;. The radius is 3, so V = &pi;(9)(8) = 72&pi; &asymp; 226.2.",
+"150.8 is 2&pi;rh = 48&pi;, the lateral surface area. Volume uses r squared: V = &pi;r<sup>2</sup>h = 72&pi; &asymp; 226.2.",
+"You did not square the radius: &pi;(3)(8) = 24&pi;. Volume is &pi;r<sup>2</sup>h = &pi;(9)(8) &asymp; 226.2."
+]
 },
 {
 "id": "m28",
@@ -496,7 +721,13 @@
 "1/2"
 ],
 "answer": 2,
-"explain": "<p>Slope m = (y<sub>2</sub> &minus; y<sub>1</sub>) / (x<sub>2</sub> &minus; x<sub>1</sub>).</p><p>m = (&minus;3 &minus; 5) / (1 &minus; (&minus;3)) = &minus;8 / 4 = <strong>&minus;2</strong>.</p><p>&minus;1/2 comes from dividing the change in x by the change in y (4 / &minus;8). Slope is rise over run: change in y on top.</p>"
+"explain": "<p>Slope m = (y<sub>2</sub> &minus; y<sub>1</sub>) / (x<sub>2</sub> &minus; x<sub>1</sub>).</p><p>m = (&minus;3 &minus; 5) / (1 &minus; (&minus;3)) = &minus;8 / 4 = <strong>&minus;2</strong>.</p><p>&minus;1/2 comes from dividing the change in x by the change in y (4 / &minus;8). Slope is rise over run: change in y on top.</p>",
+"why": [
+"You lost the negative sign: the change in y is &minus;3 &minus; 5 = &minus;8, not 8. Slope = &minus;8/4 = &minus;2.",
+"You divided the change in x by the change in y (4 / &minus;8). Slope is rise over run, change in y on top: &minus;8/4 = &minus;2.",
+"",
+"You put the change in x on top and also dropped the negative. Slope = (change in y)/(change in x) = &minus;8/4 = &minus;2."
+]
 },
 {
 "id": "m29",
@@ -525,7 +756,8 @@
 1,
 2
 ],
-"explain": "<p>Change each number to a decimal:</p><p>&minus;5/4 = &minus;1.25; &minus;1.2; 4/9 &asymp; 0.444; 0.45; 1/2 = 0.5</p><p>Order from least to greatest: <strong>&minus;5/4, &minus;1.2, 4/9, 0.45, 1/2</strong>.</p><p>For negative numbers, the one farther from zero is smaller, so &minus;1.25 is less than &minus;1.2. Also note 4/9 &asymp; 0.444 is slightly less than 0.45.</p>"
+"explain": "<p>Change each number to a decimal:</p><p>&minus;5/4 = &minus;1.25; &minus;1.2; 4/9 &asymp; 0.444; 0.45; 1/2 = 0.5</p><p>Order from least to greatest: <strong>&minus;5/4, &minus;1.2, 4/9, 0.45, 1/2</strong>.</p><p>For negative numbers, the one farther from zero is smaller, so &minus;1.25 is less than &minus;1.2. Also note 4/9 &asymp; 0.444 is slightly less than 0.45.</p>",
+"why": "The most common error is placing &minus;1.2 before &minus;5/4, because 1.25 looks bigger than 1.2. For negatives, the number farther from zero is smaller, so &minus;1.25 comes first; also 4/9 &asymp; 0.444 comes before 0.45."
 },
 {
 "id": "m30",
@@ -540,7 +772,13 @@
 "y = 2x &minus; 1"
 ],
 "answer": 2,
-"explain": "<p>Use point-slope form: y &minus; y<sub>1</sub> = m(x &minus; x<sub>1</sub>).</p><p>y &minus; (&minus;1) = 3(x &minus; 2)</p><p>y + 1 = 3x &minus; 6</p><p>y = <strong>3x &minus; 7</strong></p><p>Check: 3(2) &minus; 7 = &minus;1, so the point (2, &minus;1) is on the line.</p><p>y = 3x + 7 comes from a sign error when solving for b; it gives 3(2) + 7 = 13 at x = 2, not &minus;1.</p>"
+"explain": "<p>Use point-slope form: y &minus; y<sub>1</sub> = m(x &minus; x<sub>1</sub>).</p><p>y &minus; (&minus;1) = 3(x &minus; 2)</p><p>y + 1 = 3x &minus; 6</p><p>y = <strong>3x &minus; 7</strong></p><p>Check: 3(2) &minus; 7 = &minus;1, so the point (2, &minus;1) is on the line.</p><p>y = 3x + 7 comes from a sign error when solving for b; it gives 3(2) + 7 = 13 at x = 2, not &minus;1.</p>",
+"why": [
+"You made a sign error solving for b: &minus;1 = 3(2) + b gives b = &minus;7, not +7. Check: 3(2) + 7 = 13, not &minus;1.",
+"You used the point's y-coordinate, &minus;1, as the y-intercept. (2, &minus;1) is not on the y-axis; solve &minus;1 = 3(2) + b to get b = &minus;7.",
+"",
+"You used the point's x-coordinate as the slope and its y-coordinate as the intercept. The slope is given as 3, and b comes from &minus;1 = 6 + b, so b = &minus;7."
+]
 },
 {
 "id": "m31",
@@ -555,7 +793,13 @@
 "94.2"
 ],
 "answer": 3,
-"explain": "<p>Volume of a cone: V = (1/3)&pi;r<sup>2</sup>h.</p><p>V = (1/3)&pi;(3)<sup>2</sup>(10) = (1/3)&pi;(9)(10) = (1/3)(90&pi;) = 30&pi;</p><p>30 &times; &pi; &asymp; <strong>94.2 cubic centimeters</strong>.</p><p>282.7 is 90&pi;, the volume of a cylinder with the same radius and height; it leaves out the 1/3. 377.0 uses the diameter, 6, as the radius.</p>"
+"explain": "<p>Volume of a cone: V = (1/3)&pi;r<sup>2</sup>h.</p><p>V = (1/3)&pi;(3)<sup>2</sup>(10) = (1/3)&pi;(9)(10) = (1/3)(90&pi;) = 30&pi;</p><p>30 &times; &pi; &asymp; <strong>94.2 cubic centimeters</strong>.</p><p>282.7 is 90&pi;, the volume of a cylinder with the same radius and height; it leaves out the 1/3. 377.0 uses the diameter, 6, as the radius.</p>",
+"why": [
+"282.7 is 90&pi;, the volume of a cylinder with the same radius and height. A cone holds one-third of that: 30&pi; &asymp; 94.2.",
+"You did not square the radius: (1/3)&pi;(3)(10) = 10&pi;. Use r<sup>2</sup> = 9: (1/3)&pi;(9)(10) = 30&pi; &asymp; 94.2.",
+"You used the diameter, 6, as the radius: (1/3)&pi;(36)(10) = 120&pi;. The radius is 3, giving 30&pi; &asymp; 94.2.",
+""
+]
 },
 {
 "id": "m32",
@@ -571,7 +815,13 @@
 "5",
 "8"
 ],
-"answer": 1
+"answer": 1,
+"why": [
+"You flipped the rate: change in x over change in y. Rate of change is change in f(x) over change in x: 3/1 = 3.",
+"",
+"5 is f(0), the starting value (y-intercept), not the rate. Each step in x adds 3 to f(x).",
+"8 is the value f(1), not how much f changes. f goes up 3 for each 1 that x increases."
+]
 },
 {
 "options": [
@@ -580,7 +830,13 @@
 "5",
 "8"
 ],
-"answer": 2
+"answer": 2,
+"why": [
+"0 is the x-value at the y-intercept, not the y-value. The y-intercept is f(0) = 5.",
+"3 is the rate of change (slope), not the y-intercept. Read f(x) when x = 0: 5.",
+"",
+"8 is f(1). The y-intercept is the output when x = 0, which is 5."
+]
 },
 {
 "options": [
@@ -589,7 +845,13 @@
 "38",
 "53"
 ],
-"answer": 1
+"answer": 1,
+"why": [
+"You found 3 &times; 10 and forgot to add the starting value 5. f(10) = 3(10) + 5 = 35.",
+"",
+"You used f(1) = 8 as the starting value: 3(10) + 8. The starting value is f(0) = 5, so f(10) = 35.",
+"You switched the slope and intercept: 5(10) + 3. The rule is f(x) = 3x + 5, so f(10) = 35."
+]
 }
 ],
 "explain": "<p>Rate of change: each time x increases by 1, f(x) increases by 3 (5 to 8, 8 to 11, 11 to 14). The rate of change is <strong>3</strong>.</p><p>y-intercept: the value of f when x = 0 is <strong>5</strong>.</p><p>So f(x) = 3x + 5, and f(10) = 3(10) + 5 = 30 + 5 = <strong>35</strong>.</p><p>53 comes from switching the slope and intercept: 5(10) + 3.</p>"
@@ -607,7 +869,13 @@
 "16"
 ],
 "answer": 1,
-"explain": "<p>When multiplying powers with the same base, add the exponents:</p><p>4<sup>3</sup> &times; 4<sup>&minus;5</sup> = 4<sup>3 + (&minus;5)</sup> = 4<sup>&minus;2</sup></p><p>A negative exponent means a reciprocal: 4<sup>&minus;2</sup> = 1/4<sup>2</sup> = <strong>1/16</strong>.</p><p>Check: 64 &times; (1/1,024) = 64/1,024 = 1/16.</p><p>&minus;16 treats the negative exponent as a negative number. 4<sup>&minus;15</sup> multiplies the exponents instead of adding them.</p>"
+"explain": "<p>When multiplying powers with the same base, add the exponents:</p><p>4<sup>3</sup> &times; 4<sup>&minus;5</sup> = 4<sup>3 + (&minus;5)</sup> = 4<sup>&minus;2</sup></p><p>A negative exponent means a reciprocal: 4<sup>&minus;2</sup> = 1/4<sup>2</sup> = <strong>1/16</strong>.</p><p>Check: 64 &times; (1/1,024) = 64/1,024 = 1/16.</p><p>&minus;16 treats the negative exponent as a negative number. 4<sup>&minus;15</sup> multiplies the exponents instead of adding them.</p>",
+"why": [
+"You treated the negative exponent as a negative number. 4<sup>&minus;2</sup> is a reciprocal, 1/4<sup>2</sup> = 1/16, which is positive.",
+"",
+"You multiplied the exponents (3 &times; &minus;5). With the same base, multiplying powers means adding exponents: 3 + (&minus;5) = &minus;2.",
+"You dropped the negative sign of the exponent. 4<sup>&minus;2</sup> means 1/4<sup>2</sup> = 1/16, not 4<sup>2</sup> = 16."
+]
 },
 {
 "id": "m34",
@@ -622,7 +890,13 @@
 "y = 2x + 5"
 ],
 "answer": 3,
-"explain": "<p>Rewrite 4x &minus; 2y = 6 in slope-intercept form:</p><p>&minus;2y = &minus;4x + 6</p><p>y = 2x &minus; 3</p><p>The slope is 2. Parallel lines have the same slope and different y-intercepts, so <strong>y = 2x + 5</strong> is parallel.</p><p>y = 4x + 5 uses the x-coefficient from standard form as the slope, without solving for y first. y = (1/2)x + 5 uses the reciprocal of the slope.</p>"
+"explain": "<p>Rewrite 4x &minus; 2y = 6 in slope-intercept form:</p><p>&minus;2y = &minus;4x + 6</p><p>y = 2x &minus; 3</p><p>The slope is 2. Parallel lines have the same slope and different y-intercepts, so <strong>y = 2x + 5</strong> is parallel.</p><p>y = 4x + 5 uses the x-coefficient from standard form as the slope, without solving for y first. y = (1/2)x + 5 uses the reciprocal of the slope.</p>",
+"why": [
+"You made a sign error solving for y. From &minus;2y = &minus;4x + 6, dividing by &minus;2 gives y = 2x &minus; 3, so the slope is +2.",
+"You used the x-coefficient 4 from standard form as the slope without solving for y. Solving gives y = 2x &minus; 3, slope 2.",
+"You used the reciprocal of the slope. Parallel lines have the same slope, 2; reciprocals are not involved.",
+""
+]
 },
 {
 "id": "m35",
@@ -636,7 +910,27 @@
 "value": 96,
 "tol": 0.001,
 "suffix": "square inches",
-"explain": "<p>Surface area of a pyramid: SA = B + (1/2)ps, where B is the base area, p is the base perimeter, and s is the slant height.</p><p>B = 6 &times; 6 = 36</p><p>p = 4 &times; 6 = 24</p><p>(1/2)(24)(5) = 60</p><p>SA = 36 + 60 = <strong>96 square inches</strong>.</p><p>Leaving out the base gives only 60, which is the lateral area.</p>"
+"explain": "<p>Surface area of a pyramid: SA = B + (1/2)ps, where B is the base area, p is the base perimeter, and s is the slant height.</p><p>B = 6 &times; 6 = 36</p><p>p = 4 &times; 6 = 24</p><p>(1/2)(24)(5) = 60</p><p>SA = 36 + 60 = <strong>96 square inches</strong>.</p><p>Leaving out the base gives only 60, which is the lateral area.</p>",
+"mistakes": [
+{
+"answer": [
+"60"
+],
+"why": "60 is only the lateral area of the four triangular faces. A closed box also has a square base: 60 + 36 = 96."
+},
+{
+"answer": [
+"120"
+],
+"why": "You found each triangle as 6 &times; 5 = 30 and forgot the &frac12;, then left out the base. Each face is (1/2)(6)(5) = 15, four faces make 60, and the base adds 36: 96."
+},
+{
+"answer": [
+"156"
+],
+"why": "You used 6 &times; 5 for each triangle (forgetting &frac12;) and added the base. Each face is (1/2)(6)(5) = 15, so SA = 36 + 60 = 96."
+}
+]
 },
 {
 "id": "m36",
@@ -651,7 +945,13 @@
 "{(0, 0), (1, 1), (4, 2), (9, 3)}"
 ],
 "answer": 2,
-"explain": "<p>A relation is a function when each input (x-value) has exactly one output (y-value).</p><p>In {(1, 2), (2, 3), (1, 5), (4, 6)}, the input 1 is paired with both 2 and 5, so it is <strong>not a function</strong>.</p><p>The set {(1, 2), (2, 2), (3, 2), (4, 2)} is a function: different inputs may share the same output. Likewise, in {(&minus;1, 0), (0, 1), (1, 0), (2, 3)}, the repeated output 0 is allowed.</p>"
+"explain": "<p>A relation is a function when each input (x-value) has exactly one output (y-value).</p><p>In {(1, 2), (2, 3), (1, 5), (4, 6)}, the input 1 is paired with both 2 and 5, so it is <strong>not a function</strong>.</p><p>The set {(1, 2), (2, 2), (3, 2), (4, 2)} is a function: different inputs may share the same output. Likewise, in {(&minus;1, 0), (0, 1), (1, 0), (2, 3)}, the repeated output 0 is allowed.</p>",
+"why": [
+"Different inputs may share the same output. Each x here (1, 2, 3, 4) appears once, so this is a function.",
+"The repeated output 0 is allowed. Each x-value (&minus;1, 0, 1, 2) appears only once, so this is a function.",
+"",
+"Each input 0, 1, 4, 9 appears only once, so this is a function. Look for an x-value paired with two different y-values: that happens with x = 1 in {(1, 2), (2, 3), (1, 5), (4, 6)}."
+]
 },
 {
 "id": "m37",
@@ -666,7 +966,13 @@
 "9"
 ],
 "answer": 1,
-"explain": "<p>The ratio 4 : 5 has 4 + 5 = 9 parts in all.</p><p>Each part: 36 &divide; 9 = 4 students.</p><p>Girls: 5 parts &times; 4 = <strong>20</strong> girls (and 16 boys; 20 + 16 = 36).</p><p>16 is the number of boys. 45 comes from setting up 4/5 = 36/g, which treats 36 as the number of boys instead of the total.</p>"
+"explain": "<p>The ratio 4 : 5 has 4 + 5 = 9 parts in all.</p><p>Each part: 36 &divide; 9 = 4 students.</p><p>Girls: 5 parts &times; 4 = <strong>20</strong> girls (and 16 boys; 20 + 16 = 36).</p><p>16 is the number of boys. 45 comes from setting up 4/5 = 36/g, which treats 36 as the number of boys instead of the total.</p>",
+"why": [
+"16 is the number of boys (4 parts of 4). Girls are 5 parts: 5 &times; 4 = 20.",
+"",
+"You set up 4/5 = 36/g, which treats 36 as the number of boys. 36 is the total, which is 9 parts: each part is 4, so girls = 20.",
+"9 is the number of parts in the ratio (4 + 5), not the number of girls. Each part is 36 &divide; 9 = 4 students, so girls = 5 &times; 4 = 20."
+]
 },
 {
 "id": "m38",
@@ -686,7 +992,15 @@
 0,
 1
 ],
-"explain": "<p>Factor: find two numbers that multiply to &minus;24 and add to 2. They are 6 and &minus;4.</p><p>(x + 6)(x &minus; 4) = 0</p><p>x + 6 = 0 gives x = &minus;6; x &minus; 4 = 0 gives x = 4.</p><p>The solutions are <strong>&minus;6 and 4</strong>.</p><p>Check: (&minus;6)<sup>2</sup> + 2(&minus;6) &minus; 24 = 36 &minus; 12 &minus; 24 = 0, and 4<sup>2</sup> + 2(4) &minus; 24 = 16 + 8 &minus; 24 = 0.</p><p>Choosing 6 and &minus;4 takes the numbers from the factors without changing their signs.</p>"
+"explain": "<p>Factor: find two numbers that multiply to &minus;24 and add to 2. They are 6 and &minus;4.</p><p>(x + 6)(x &minus; 4) = 0</p><p>x + 6 = 0 gives x = &minus;6; x &minus; 4 = 0 gives x = 4.</p><p>The solutions are <strong>&minus;6 and 4</strong>.</p><p>Check: (&minus;6)<sup>2</sup> + 2(&minus;6) &minus; 24 = 36 &minus; 12 &minus; 24 = 0, and 4<sup>2</sup> + 2(4) &minus; 24 = 16 + 8 &minus; 24 = 0.</p><p>Choosing 6 and &minus;4 takes the numbers from the factors without changing their signs.</p>",
+"why": [
+"",
+"",
+"You took the 6 from the factor (x + 6) without changing its sign. Setting x + 6 = 0 gives x = &minus;6.",
+"You took the &minus;4 from the factor (x &minus; 4) without changing its sign. Setting x &minus; 4 = 0 gives x = 4.",
+"3 is from the pair 3 and &minus;8, which multiply to &minus;24 but add to &minus;5. You need a pair that adds to 2: 6 and &minus;4.",
+"&minus;8 is from the pair 3 and &minus;8, which add to &minus;5, not 2. The correct factoring is (x + 6)(x &minus; 4)."
+]
 },
 {
 "id": "m39",
@@ -723,7 +1037,8 @@
 6,
 6
 ],
-"explain": "<p>Find the slope: m = (4 &minus; 1) / (2 &minus; (&minus;4)) = 3/6 = 1/2.</p><p>Find the y-intercept using B(2, 4): 4 = (1/2)(2) + b, so b = 3. The line is y = (1/2)x + 3.</p><p>At x = 6: y = (1/2)(6) + 3 = 3 + 3 = 6.</p><p>The point is <strong>(6, 6)</strong>. Check with A: (1/2)(&minus;4) + 3 = 1.</p><p>Using a slope of 2 (run over rise) would give y = 4 + 2(4) = 12, which is off the grid.</p>"
+"explain": "<p>Find the slope: m = (4 &minus; 1) / (2 &minus; (&minus;4)) = 3/6 = 1/2.</p><p>Find the y-intercept using B(2, 4): 4 = (1/2)(2) + b, so b = 3. The line is y = (1/2)x + 3.</p><p>At x = 6: y = (1/2)(6) + 3 = 3 + 3 = 6.</p><p>The point is <strong>(6, 6)</strong>. Check with A: (1/2)(&minus;4) + 3 = 1.</p><p>Using a slope of 2 (run over rise) would give y = 4 + 2(4) = 12, which is off the grid.</p>",
+"why": "A common wrong click uses a slope of 2 (run over rise) or simply continues 3 units up per step from B. The slope is 3/6 = 1/2, so from B(2, 4) moving 4 right means moving 2 up: (6, 6)."
 },
 {
 "id": "m40",
@@ -738,7 +1053,13 @@
 "$5,500"
 ],
 "answer": 1,
-"explain": "<p>Simple interest: I = Prt.</p><p>I = 2,500 &times; 0.04 &times; 3 = $300</p><p>Total = principal + interest = 2,500 + 300 = <strong>$2,800</strong>.</p><p>$300 is only the interest. $2,812.16 is the result of compound interest (2,500 &times; 1.04<sup>3</sup>), which this account does not earn.</p>"
+"explain": "<p>Simple interest: I = Prt.</p><p>I = 2,500 &times; 0.04 &times; 3 = $300</p><p>Total = principal + interest = 2,500 + 300 = <strong>$2,800</strong>.</p><p>$300 is only the interest. $2,812.16 is the result of compound interest (2,500 &times; 1.04<sup>3</sup>), which this account does not earn.</p>",
+"why": [
+"$300 is only the interest earned. The total is the principal plus the interest: 2,500 + 300 = $2,800.",
+"",
+"$2,812.16 is compound interest (2,500 &times; 1.04<sup>3</sup>). Simple interest is earned only on the original $2,500: I = 2,500 &times; 0.04 &times; 3 = $300.",
+"You used 40% instead of 4% (0.4 instead of 0.04), giving $3,000 in interest. 4% as a decimal is 0.04, so I = $300 and the total is $2,800."
+]
 },
 {
 "id": "m41",
@@ -753,7 +1074,13 @@
 "(1 &plusmn; &radic;10) / 2"
 ],
 "answer": 0,
-"explain": "<p>Quadratic formula: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 2, b = &minus;4, c = &minus;3.</p><p>b<sup>2</sup> &minus; 4ac = (&minus;4)<sup>2</sup> &minus; 4(2)(&minus;3) = 16 + 24 = 40</p><p>x = (4 &plusmn; &radic;40) / 4</p><p>&radic;40 = &radic;4 &times; &radic;10 = 2&radic;10, so x = (4 &plusmn; 2&radic;10) / 4</p><p>Divide every term by 2: x = <strong>(2 &plusmn; &radic;10) / 2</strong> (about 2.58 and &minus;0.58).</p><p>2 &plusmn; &radic;10 divides by a = 2 instead of 2a = 4. (&minus;2 &plusmn; &radic;10) / 2 forgets that &minus;b = &minus;(&minus;4) = +4.</p>"
+"explain": "<p>Quadratic formula: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 2, b = &minus;4, c = &minus;3.</p><p>b<sup>2</sup> &minus; 4ac = (&minus;4)<sup>2</sup> &minus; 4(2)(&minus;3) = 16 + 24 = 40</p><p>x = (4 &plusmn; &radic;40) / 4</p><p>&radic;40 = &radic;4 &times; &radic;10 = 2&radic;10, so x = (4 &plusmn; 2&radic;10) / 4</p><p>Divide every term by 2: x = <strong>(2 &plusmn; &radic;10) / 2</strong> (about 2.58 and &minus;0.58).</p><p>2 &plusmn; &radic;10 divides by a = 2 instead of 2a = 4. (&minus;2 &plusmn; &radic;10) / 2 forgets that &minus;b = &minus;(&minus;4) = +4.</p>",
+"why": [
+"",
+"You divided by a = 2 instead of 2a = 4. The formula's denominator is 2a: (4 &plusmn; 2&radic;10)/4 = (2 &plusmn; &radic;10)/2.",
+"You forgot that &minus;b = &minus;(&minus;4) = +4. With +4 on top, the simplified result is (2 &plusmn; &radic;10)/2.",
+"You simplified unevenly: you divided the 4 by 4 but the 2&radic;10 only by 2. Divide every term of (4 &plusmn; 2&radic;10)/4 by the same 2: (2 &plusmn; &radic;10)/2."
+]
 },
 {
 "id": "m42",
@@ -767,7 +1094,28 @@
 "value": 95,
 "tol": 0.001,
 "suffix": "degrees Fahrenheit",
-"explain": "<p>Substitute C = 35:</p><p>F = (9/5)(35) + 32</p><p>(9/5)(35) = 9 &times; 7 = 63</p><p>F = 63 + 32 = <strong>95&deg;F</strong></p><p>A common error is to add 32 before multiplying: (9/5)(67) = 120.6. Multiplication comes first.</p>"
+"explain": "<p>Substitute C = 35:</p><p>F = (9/5)(35) + 32</p><p>(9/5)(35) = 9 &times; 7 = 63</p><p>F = 63 + 32 = <strong>95&deg;F</strong></p><p>A common error is to add 32 before multiplying: (9/5)(67) = 120.6. Multiplication comes first.</p>",
+"mistakes": [
+{
+"answer": [
+"120.6"
+],
+"why": "You added 32 before multiplying: (9/5)(67). Multiply first: (9/5)(35) = 63, then add 32 to get 95."
+},
+{
+"answer": [
+"63"
+],
+"why": "63 is (9/5)(35). You forgot the last step: add 32 to get 95."
+},
+{
+"answer": [
+"51.4",
+"51.44"
+],
+"why": "You used the reverse fraction, 5/9, which converts Fahrenheit to Celsius. This formula multiplies by 9/5: 63 + 32 = 95."
+}
+]
 },
 {
 "id": "m43",
@@ -795,7 +1143,8 @@
 1,
 0
 ],
-"explain": "<p>Solve the inequality: 2x &minus; 5 &ge; 3, so 2x &ge; 8 and x &ge; 4.</p><p>Solutions (x &ge; 4): <strong>4, 4.5, 10</strong>. Note that 4 is included because the symbol is &ge;: 2(4) &minus; 5 = 3, and 3 &ge; 3 is true.</p><p>Not solutions: <strong>&minus;4, 0, 3.9</strong>. For example, 2(3.9) &minus; 5 = 2.8, which is less than 3.</p>"
+"explain": "<p>Solve the inequality: 2x &minus; 5 &ge; 3, so 2x &ge; 8 and x &ge; 4.</p><p>Solutions (x &ge; 4): <strong>4, 4.5, 10</strong>. Note that 4 is included because the symbol is &ge;: 2(4) &minus; 5 = 3, and 3 &ge; 3 is true.</p><p>Not solutions: <strong>&minus;4, 0, 3.9</strong>. For example, 2(3.9) &minus; 5 = 2.8, which is less than 3.</p>",
+"why": "The most common error is putting 4 in &ldquo;Not a solution&rdquo; because it seems like the boundary is excluded. The symbol &ge; includes 4: 2(4) &minus; 5 = 3, and 3 &ge; 3 is true. Also 3.9 is less than 4, so it is not a solution."
 },
 {
 "id": "m44",
@@ -810,7 +1159,13 @@
 "(x &minus; 3) / (x + 3)"
 ],
 "answer": 1,
-"explain": "<p>Factor the numerator (difference of squares): x<sup>2</sup> &minus; 9 = (x &minus; 3)(x + 3).</p><p>Factor the denominator: x<sup>2</sup> + 5x + 6 = (x + 2)(x + 3).</p><p>Cancel the common factor (x + 3):</p><p>[(x &minus; 3)(x + 3)] / [(x + 2)(x + 3)] = <strong>(x &minus; 3) / (x + 2)</strong></p><p>&minus;9 / (5x + 6) comes from canceling the x<sup>2</sup> terms. Only common <em>factors</em> can be canceled, never terms that are added or subtracted.</p>"
+"explain": "<p>Factor the numerator (difference of squares): x<sup>2</sup> &minus; 9 = (x &minus; 3)(x + 3).</p><p>Factor the denominator: x<sup>2</sup> + 5x + 6 = (x + 2)(x + 3).</p><p>Cancel the common factor (x + 3):</p><p>[(x &minus; 3)(x + 3)] / [(x + 2)(x + 3)] = <strong>(x &minus; 3) / (x + 2)</strong></p><p>&minus;9 / (5x + 6) comes from canceling the x<sup>2</sup> terms. Only common <em>factors</em> can be canceled, never terms that are added or subtracted.</p>",
+"why": [
+"You canceled the wrong factor and kept (x + 3) on top. The common factor is (x + 3), so it is the one removed: (x &minus; 3)/(x + 2).",
+"",
+"You canceled the x<sup>2</sup> terms. Only common factors cancel, never terms that are added or subtracted. Factor first: (x &minus; 3)(x + 3)/[(x + 2)(x + 3)].",
+"You canceled (x + 2) from the bottom instead of (x + 3). The denominator factors as (x + 2)(x + 3); after canceling the shared (x + 3), (x + 2) remains."
+]
 },
 {
 "id": "m45",
@@ -840,7 +1195,13 @@
 "y-intercept",
 "x-intercept"
 ],
-"answer": 0
+"answer": 0,
+"why": [
+"",
+"A vertex is a minimum only when the parabola opens upward. Here a = &minus;1 is negative, so it opens downward and (2, 9) is the maximum.",
+"The y-intercept is where x = 0: f(0) = &minus;4 + 9 = 5, the point (0, 5). The point (2, 9) is the vertex.",
+"An x-intercept has y = 0. The point (2, 9) has y = 9, and it is the highest point, the maximum."
+]
 },
 {
 "options": [
@@ -849,7 +1210,13 @@
 "7",
 "9"
 ],
-"answer": 1
+"answer": 1,
+"why": [
+"You used the 3 from x &minus; 2 = &plusmn;3 as the answer. Add 2 back: x = 2 + 3 = 5.",
+"",
+"You subtracted 2 from 9 instead of solving (x &minus; 2)<sup>2</sup> = 9. Take the square root: x &minus; 2 = &plusmn;3, so x = 5 or &minus;1.",
+"9 is the y-coordinate of the vertex, not an intercept. Solve (x &minus; 2)<sup>2</sup> = 9: x = 5 or x = &minus;1."
+]
 },
 {
 "options": [
@@ -858,7 +1225,13 @@
 "x &lt; 9",
 "all values of x"
 ],
-"answer": 0
+"answer": 0,
+"why": [
+"",
+"x &gt; 2 is where the graph falls after the vertex. This parabola opens downward, so it rises only to the left of the vertex: x &lt; 2.",
+"You used the y-coordinate of the vertex, 9, as an x-boundary. The turning point is at x = 2, so f increases for x &lt; 2.",
+"A parabola changes direction at its vertex, so it cannot increase everywhere. It rises for x &lt; 2 and falls for x &gt; 2."
+]
 }
 ],
 "explain": "<p>The function is in vertex form, f(x) = a(x &minus; h)<sup>2</sup> + k, with a = &minus;1, h = 2, k = 9. The vertex is (2, 9). Because a is negative, the parabola opens downward, so the vertex is the <strong>maximum</strong>.</p><p>x-intercepts: set f(x) = 0.</p><p>&minus;(x &minus; 2)<sup>2</sup> + 9 = 0, so (x &minus; 2)<sup>2</sup> = 9 and x &minus; 2 = &plusmn;3.</p><p>x = 2 + 3 = <strong>5</strong> or x = 2 &minus; 3 = &minus;1.</p><p>The graph rises from the left until it reaches the vertex at x = 2, then falls. So f is increasing for <strong>x &lt; 2</strong>.</p><p>The y-intercept is f(0) = &minus;4 + 9 = 5, the point (0, 5), not (2, 9).</p>"
@@ -903,7 +1276,13 @@
 "W = 600 &minus; 120h"
 ],
 "answer": 3,
-"explain": "<p>Starting amount (when h = 0): 600 gallons. This is the y-intercept.</p><p>Rate of change: the water drops from 600 to 480 in 1 hour, a change of &minus;120 gallons per hour. Check: (0 &minus; 600) / (5 &minus; 0) = &minus;600/5 = &minus;120.</p><p>Model: <strong>W = 600 &minus; 120h</strong>.</p><p>Check: at h = 3, W = 600 &minus; 360 = 240, which matches the graph.</p><p>W = 120h + 600 has a positive slope, so the water would increase instead of drain. W = 600 &minus; 5h uses the number of hours to empty as the rate.</p>"
+"explain": "<p>Starting amount (when h = 0): 600 gallons. This is the y-intercept.</p><p>Rate of change: the water drops from 600 to 480 in 1 hour, a change of &minus;120 gallons per hour. Check: (0 &minus; 600) / (5 &minus; 0) = &minus;600/5 = &minus;120.</p><p>Model: <strong>W = 600 &minus; 120h</strong>.</p><p>Check: at h = 3, W = 600 &minus; 360 = 240, which matches the graph.</p><p>W = 120h + 600 has a positive slope, so the water would increase instead of drain. W = 600 &minus; 5h uses the number of hours to empty as the rate.</p>",
+"why": [
+"This has a positive slope, so the water would increase. Draining means the amount drops by 120 gallons each hour: W = 600 &minus; 120h.",
+"You used the 5 hours it takes to empty as the rate. The rate is the drop per hour: 600 to 480 is &minus;120 per hour.",
+"You divided h by 120 instead of multiplying. The tank loses 120 gallons every hour, so the term is &minus;120h.",
+""
+]
 }
 ]
 }

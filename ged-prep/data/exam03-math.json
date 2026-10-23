@@ -1,875 +1,1229 @@
 {
- "form": 3,
- "subject": "math",
- "title": "Practice GED Form 3 — Mathematical Reasoning",
- "minutes": 115,
- "stimuli": [],
- "parts": [
-  {
-   "name": "Part 1",
-   "calculator": false,
-   "items": [
-    {
-     "id": "m01",
-     "type": "mc",
-     "skill": "Integers and absolute value",
-     "difficulty": 1,
-     "prompt": "<p>Evaluate.</p><p>|&minus;7 + 3| &minus; (&minus;2)(&minus;5)</p>",
-     "options": [
-      "&minus;6",
-      "14",
-      "6",
-      "&minus;14"
-     ],
-     "answer": 0,
-     "explain": "<p>Work inside the absolute value bars first: &minus;7 + 3 = &minus;4, and |&minus;4| = 4.</p><p>Multiply: (&minus;2)(&minus;5) = 10 (a negative times a negative is positive).</p><p>Subtract: 4 &minus; 10 = <strong>&minus;6</strong>.</p><p>The answer 14 comes from treating (&minus;2)(&minus;5) as &minus;10, giving 4 &minus; (&minus;10) = 14. The product of two negative numbers is positive.</p>"
-    },
-    {
-     "id": "m02",
-     "type": "fill",
-     "skill": "Dividing fractions",
-     "difficulty": 2,
-     "prompt": "<p>A shuttle bus route is 4&frac12; miles long. The route is divided into equal sections that are each &frac34; mile long. How many sections are on the route?</p>",
-     "answer": [
-      "6"
-     ],
-     "value": 6,
-     "tol": 0.001,
-     "suffix": "sections",
-     "explain": "<p>Divide the total length by the length of one section: 4&frac12; &divide; &frac34;.</p><p>Change the mixed number to an improper fraction: 4&frac12; = 9/2.</p><p>Multiply by the reciprocal: 9/2 &times; 4/3 = 36/6 = <strong>6</strong> sections.</p><p>Check: 6 &times; &frac34; = 18/4 = 4&frac12; miles.</p><p>A common error is to multiply instead of divide: 9/2 &times; 3/4 = 27/8, which is less than the length of the whole route and does not make sense here.</p>"
-    },
-    {
-     "id": "m03",
-     "type": "mc",
-     "skill": "Exponent rules",
-     "difficulty": 2,
-     "prompt": "<p>Which expression is equivalent to (2x<sup>3</sup>)<sup>2</sup> &divide; (4x<sup>2</sup>) for x &ne; 0?</p>",
-     "options": [
-      "x<sup>3</sup>",
-      "x<sup>4</sup>",
-      "(1/2)x<sup>4</sup>",
-      "4x<sup>4</sup>"
-     ],
-     "answer": 1,
-     "explain": "<p>Raise each factor inside the parentheses to the second power: (2x<sup>3</sup>)<sup>2</sup> = 2<sup>2</sup> &times; x<sup>3&times;2</sup> = 4x<sup>6</sup>.</p><p>Divide: 4x<sup>6</sup> &divide; 4x<sup>2</sup> = (4 &divide; 4) &times; x<sup>6&minus;2</sup> = <strong>x<sup>4</sup></strong>.</p><p>(1/2)x<sup>4</sup> comes from forgetting to square the 2 (getting 2x<sup>6</sup>). x<sup>3</sup> comes from adding the exponents 3 + 2 instead of multiplying them when raising a power to a power.</p>"
-    },
-    {
-     "id": "m04",
-     "type": "mc",
-     "skill": "Solving linear equations",
-     "difficulty": 2,
-     "prompt": "<p>What value of x makes the equation true?</p><p>x/3 + 5 = 2x &minus; 5</p>",
-     "options": [
-      "4",
-      "2",
-      "6",
-      "10"
-     ],
-     "answer": 2,
-     "explain": "<p>Multiply every term by 3 to clear the fraction: x + 15 = 6x &minus; 15.</p><p>Subtract x from both sides: 15 = 5x &minus; 15.</p><p>Add 15 to both sides: 30 = 5x.</p><p>Divide by 5: x = <strong>6</strong>.</p><p>Check: 6/3 + 5 = 2 + 5 = 7 and 2(6) &minus; 5 = 12 &minus; 5 = 7.</p><p>The answer 4 comes from multiplying only some of the terms by 3 (for example, x + 5 = 6x &minus; 15). Every term on both sides must be multiplied.</p>"
-    },
-    {
-     "id": "m05",
-     "type": "mc",
-     "skill": "Estimating square roots",
-     "difficulty": 1,
-     "prompt": "<p>Between which two consecutive whole numbers is &radic;58?</p>",
-     "options": [
-      "6 and 7",
-      "7 and 8",
-      "8 and 9",
-      "29 and 30"
-     ],
-     "answer": 1,
-     "noShuffle": true,
-     "explain": "<p>Find the perfect squares on either side of 58: 7<sup>2</sup> = 49 and 8<sup>2</sup> = 64.</p><p>Because 49 &lt; 58 &lt; 64, &radic;49 &lt; &radic;58 &lt; &radic;64, so &radic;58 is between <strong>7 and 8</strong>.</p><p>29 and 30 come from dividing 58 by 2. Taking a square root is not the same as dividing by 2.</p>"
-    }
-   ]
-  },
-  {
-   "name": "Part 2",
-   "calculator": true,
-   "items": [
-    {
-     "id": "m06",
-     "type": "mc",
-     "skill": "Percent change",
-     "difficulty": 2,
-     "prompt": "<p>The price of regular gasoline at a station rose from $3.20 per gallon to $3.68 per gallon. What was the percent increase in the price?</p>",
-     "options": [
-      "13.0%",
-      "48%",
-      "15%",
-      "115%"
-     ],
-     "answer": 2,
-     "explain": "<p>Amount of change: 3.68 &minus; 3.20 = $0.48.</p><p>Percent change = change &divide; original = 0.48 &divide; 3.20 = 0.15 = <strong>15%</strong>.</p><p>13.0% comes from dividing by the new price (0.48 &divide; 3.68 &asymp; 0.130). Percent change always divides by the original (earlier) value. 115% is the new price as a percent of the old price, not the increase.</p>"
-    },
-    {
-     "id": "m07",
-     "type": "fill",
-     "skill": "Unit rates",
-     "difficulty": 1,
-     "prompt": "<p>A passenger train travels 351 miles in 4.5 hours. What is the train's average speed, in miles per hour?</p>",
-     "answer": [
-      "78"
-     ],
-     "value": 78,
-     "tol": 0.001,
-     "suffix": "miles per hour",
-     "explain": "<p>Average speed = distance &divide; time.</p><p>351 &divide; 4.5 = <strong>78 miles per hour</strong>.</p><p>Check: 78 &times; 4.5 = 351.</p><p>Dividing time by distance (4.5 &divide; 351 &asymp; 0.013) gives hours per mile, not miles per hour.</p>"
-    },
-    {
-     "id": "m08",
-     "type": "mc",
-     "skill": "Multi-step rate problem",
-     "difficulty": 2,
-     "prompt": "<p>Renee is planning a 540-mile road trip. Her car gets 30 miles per gallon, and gasoline costs $3.45 per gallon. How much will the gasoline for the trip cost?</p>",
-     "options": [
-      "$18.00",
-      "$62.10",
-      "$103.50",
-      "$156.52"
-     ],
-     "answer": 1,
-     "explain": "<p>Gallons needed: 540 &divide; 30 = 18 gallons.</p><p>Cost: 18 &times; $3.45 = <strong>$62.10</strong>.</p><p>$18.00 is the number of gallons, not the cost. $103.50 is 30 &times; 3.45, which multiplies the miles per gallon by the price. $156.52 is 540 &divide; 3.45, which divides miles by the price.</p>"
-    },
-    {
-     "id": "m09",
-     "type": "mc",
-     "skill": "Writing expressions",
-     "difficulty": 1,
-     "prompt": "<p>A car rental company charges $42 per day plus $0.18 for each mile driven. Which expression gives the total cost, in dollars, of renting a car for d days and driving it m miles?</p>",
-     "options": [
-      "42d + 0.18m",
-      "42 + 0.18md",
-      "0.18d + 42m",
-      "42.18(d + m)"
-     ],
-     "answer": 0,
-     "explain": "<p>The $42 is charged for each day, so it is multiplied by d: 42d.</p><p>The $0.18 is charged for each mile, so it is multiplied by m: 0.18m.</p><p>Total cost = <strong>42d + 0.18m</strong>.</p><p>Check: 3 days and 200 miles cost 42(3) + 0.18(200) = 126 + 36 = $162.</p><p>0.18d + 42m switches the rates, charging $42 per mile. 42.18(d + m) wrongly combines a daily rate and a per-mile rate into one number.</p>"
-    },
-    {
-     "id": "m10",
-     "type": "mc",
-     "skill": "Scientific notation",
-     "difficulty": 2,
-     "prompt": "<p>A highway department used about 1.2 &times; 10<sup>9</sup> pounds of asphalt last year. One dump truck carries about 4.0 &times; 10<sup>4</sup> pounds per load. About how many truckloads of asphalt were used?</p>",
-     "options": [
-      "3.3 &times; 10<sup>&minus;5</sup>",
-      "3.0 &times; 10<sup>5</sup>",
-      "4.8 &times; 10<sup>13</sup>",
-      "3.0 &times; 10<sup>4</sup>"
-     ],
-     "answer": 3,
-     "explain": "<p>Number of loads = total weight &divide; weight per load.</p><p>(1.2 &times; 10<sup>9</sup>) &divide; (4.0 &times; 10<sup>4</sup>) = (1.2 &divide; 4.0) &times; 10<sup>9&minus;4</sup> = 0.3 &times; 10<sup>5</sup></p><p>Rewrite in scientific notation: 0.3 &times; 10<sup>5</sup> = <strong>3.0 &times; 10<sup>4</sup></strong> truckloads (30,000 loads).</p><p>3.0 &times; 10<sup>5</sup> forgets to lower the exponent by 1 when 0.3 is changed to 3.0. 4.8 &times; 10<sup>13</sup> multiplies instead of dividing. 3.3 &times; 10<sup>&minus;5</sup> divides the weight per load by the total weight.</p>"
-    },
-    {
-     "id": "m11",
-     "type": "dropdown",
-     "skill": "Scale and proportions",
-     "difficulty": 2,
-     "prompt": "<p>On a road map, 1 inch represents 25 miles. Two towns are 3.4 inches apart on the map.</p><p>The actual distance between the towns is {{0}}.</p><p>A driver who travels between the towns at an average speed of 50 miles per hour will take {{1}}.</p>",
-     "blanks": [
-      {
-       "options": [
-        "7.35 miles",
-        "28.4 miles",
-        "85 miles",
-        "850 miles"
-       ],
-       "answer": 2
-      },
-      {
-       "options": [
-        "0.59 hours",
-        "1.5 hours",
-        "1.7 hours",
-        "2.1 hours"
-       ],
-       "answer": 2
-      }
-     ],
-     "explain": "<p>Set up a proportion: 1 inch / 25 miles = 3.4 inches / d miles, so d = 3.4 &times; 25 = <strong>85 miles</strong>.</p><p>Time = distance &divide; speed = 85 &divide; 50 = <strong>1.7 hours</strong> (1 hour 42 minutes).</p><p>7.35 miles comes from dividing 25 by 3.4 instead of multiplying. 0.59 hours comes from dividing speed by distance (50 &divide; 85).</p>"
-    },
-    {
-     "id": "m12",
-     "type": "mc",
-     "skill": "Mean",
-     "difficulty": 1,
-     "prompt": "<p>The table shows the number of passengers on a city bus for seven trips along the same route.</p><table><thead><tr><th>Trip</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>Passengers</td><td>32</td><td>45</td><td>28</td><td>51</td><td>45</td><td>39</td><td>47</td></tr></tbody></table><p>What is the mean number of passengers per trip?</p>",
-     "options": [
-      "41",
-      "45",
-      "23",
-      "47.8"
-     ],
-     "answer": 0,
-     "explain": "<p>Add the values: 32 + 45 + 28 + 51 + 45 + 39 + 47 = 287.</p><p>Divide by the number of trips: 287 &divide; 7 = <strong>41</strong>.</p><p>45 is both the median and the mode, not the mean. 23 is the range (51 &minus; 28). 47.8 comes from dividing by 6 instead of 7.</p>"
-    },
-    {
-     "id": "m13",
-     "type": "mc",
-     "skill": "Probability of independent events",
-     "difficulty": 2,
-     "prompt": "<p>A traveler has two flights. The probability that the first flight arrives on time is 0.85. The probability that the second flight departs on time is 0.9. The two events are independent. What is the probability that the first flight arrives on time <strong>and</strong> the second flight departs on time?</p>",
-     "options": [
-      "0.875",
-      "0.235",
-      "0.015",
-      "0.765"
-     ],
-     "answer": 3,
-     "explain": "<p>For independent events, P(A and B) = P(A) &times; P(B).</p><p>0.85 &times; 0.9 = <strong>0.765</strong>.</p><p>0.875 is the average of the two probabilities, which is not how probabilities combine. 0.235 is the probability that at least one of the two events does <em>not</em> happen (1 &minus; 0.765). 0.015 is the probability that both events fail (0.15 &times; 0.1).</p>"
-    },
-    {
-     "id": "m14",
-     "type": "fill",
-     "skill": "Pythagorean theorem",
-     "difficulty": 2,
-     "prompt": "<p>A small plane flies 120 miles due north and then 160 miles due east. How many miles is the plane from its starting point, measured in a straight line?</p>",
-     "answer": [
-      "200"
-     ],
-     "value": 200,
-     "tol": 0.001,
-     "suffix": "miles",
-     "explain": "<p>Flying north and then east makes a right angle, so the straight-line distance is the hypotenuse of a right triangle.</p><p>c<sup>2</sup> = 120<sup>2</sup> + 160<sup>2</sup> = 14,400 + 25,600 = 40,000</p><p>c = &radic;40,000 = <strong>200 miles</strong>.</p><p>Adding the legs (120 + 160 = 280) gives the distance flown, not the straight-line distance back to the start.</p>"
-    },
-    {
-     "id": "m15",
-     "type": "mc",
-     "skill": "Area of circles",
-     "difficulty": 3,
-     "prompt": "<p>A circular fountain in front of a train station has a radius of 9 feet. A walkway 3 feet wide surrounds the fountain. To the nearest square foot, what is the area of the walkway? Use the formula sheet if needed.</p>",
-     "options": [
-      "19",
-      "254",
-      "452",
-      "198"
-     ],
-     "answer": 3,
-     "explain": "<p>The walkway is the ring between two circles. The outer circle has radius 9 + 3 = 12 feet; the inner circle (the fountain) has radius 9 feet.</p><p>Outer area: &pi;(12)<sup>2</sup> = 144&pi;</p><p>Inner area: &pi;(9)<sup>2</sup> = 81&pi;</p><p>Walkway area: 144&pi; &minus; 81&pi; = 63&pi; &asymp; 197.9, which rounds to <strong>198 square feet</strong>.</p><p>452 is the area of the whole outer circle, which includes the fountain. 254 is the area of the fountain alone. 19 is the difference of the two circumferences (24&pi; &minus; 18&pi; = 6&pi;), which is a length, not an area.</p>"
-    },
-    {
-     "id": "m16",
-     "type": "mc",
-     "skill": "Solving linear equations",
-     "difficulty": 2,
-     "prompt": "<p>What value of x makes the equation true?</p><p>5(2x &minus; 3) &minus; 4x = 3(x + 7)</p>",
-     "options": [
-      "&minus;2",
-      "22/3",
-      "2",
-      "12"
-     ],
-     "answer": 3,
-     "explain": "<p>Distribute on both sides: 10x &minus; 15 &minus; 4x = 3x + 21.</p><p>Combine like terms on the left: 6x &minus; 15 = 3x + 21.</p><p>Subtract 3x from both sides: 3x &minus; 15 = 21.</p><p>Add 15 to both sides: 3x = 36, so x = <strong>12</strong>.</p><p>Check: 5(24 &minus; 3) &minus; 48 = 105 &minus; 48 = 57 and 3(12 + 7) = 57.</p><p>22/3 comes from distributing the 3 only to x on the right side (3x + 7 instead of 3x + 21).</p>"
-    },
-    {
-     "id": "m17",
-     "type": "multi",
-     "skill": "Factoring out the GCF",
-     "difficulty": 2,
-     "prompt": "<p>Which expressions are equivalent to 6x<sup>2</sup> &minus; 9x? Select <strong>two</strong> answers.</p>",
-     "options": [
-      "3x(2x &minus; 3)",
-      "3(2x<sup>2</sup> &minus; 3x)",
-      "6x(x &minus; 9)",
-      "3x(2x &minus; 9)",
-      "x(6x &minus; 3)"
-     ],
-     "answer": [
-      0,
-      1
-     ],
-     "explain": "<p>The greatest common factor of 6x<sup>2</sup> and 9x is 3x, so 6x<sup>2</sup> &minus; 9x = <strong>3x(2x &minus; 3)</strong>. Check: 3x &times; 2x = 6x<sup>2</sup> and 3x &times; (&minus;3) = &minus;9x.</p><p>Factoring out only 3 also gives an equivalent expression: <strong>3(2x<sup>2</sup> &minus; 3x)</strong> = 6x<sup>2</sup> &minus; 9x.</p><p>The others do not multiply back correctly: 6x(x &minus; 9) = 6x<sup>2</sup> &minus; 54x; 3x(2x &minus; 9) = 6x<sup>2</sup> &minus; 27x; x(6x &minus; 3) = 6x<sup>2</sup> &minus; 3x. A factored form must multiply back to the original expression.</p>"
-    },
-    {
-     "id": "m18",
-     "type": "mc",
-     "skill": "Slope as a rate of change",
-     "difficulty": 2,
-     "prompt": "<p>The graph shows the amount of gasoline left in a car's tank after the car is driven a certain number of miles. Which statement correctly gives the slope of the line and what it means?</p>",
-     "figure": {
-      "type": "line",
-      "title": "Gasoline Left in Tank",
-      "xLabel": "Miles driven",
-      "yLabel": "Gasoline (gallons)",
-      "labels": [
-       "0",
-       "60",
-       "120",
-       "180",
-       "240",
-       "300"
-      ],
-      "series": [
-       {
-        "name": "Gasoline",
-        "values": [
-         14,
-         12,
-         10,
-         8,
-         6,
-         4
-        ]
-       }
-      ]
-     },
-     "options": [
-      "&minus;2; the car uses 2 gallons for every mile driven.",
-      "&minus;30; the car uses 30 gallons for every mile driven.",
-      "&minus;1/30; the car uses 1 gallon for every 30 miles driven.",
-      "14; the tank holds 14 gallons when the trip starts."
-     ],
-     "answer": 2,
-     "explain": "<p>Pick two points from the graph: (0, 14) and (60, 12).</p><p>Slope = change in gallons &divide; change in miles = (12 &minus; 14) / (60 &minus; 0) = &minus;2/60 = <strong>&minus;1/30</strong>.</p><p>The slope is negative because the fuel goes down. It means the car uses 1 gallon of gasoline for every 30 miles driven (30 miles per gallon).</p><p>&minus;2 is the change in gallons for each 60-mile step on the graph, not for each mile. 14 is the y-intercept (the starting amount), not the slope.</p>"
-    },
-    {
-     "id": "m19",
-     "type": "hotspot",
-     "skill": "Vertex of a parabola",
-     "difficulty": 3,
-     "prompt": "<p>A parabola has the equation y = &minus;x<sup>2</sup> + 6x &minus; 5. On the coordinate plane, click the vertex of this parabola.</p>",
-     "plane": {
-      "xmin": -6,
-      "xmax": 6,
-      "ymin": -6,
-      "ymax": 6
-     },
-     "answer": [
-      3,
-      4
-     ],
-     "explain": "<p>For y = ax<sup>2</sup> + bx + c, the x-coordinate of the vertex is x = &minus;b / (2a).</p><p>Here a = &minus;1 and b = 6, so x = &minus;6 / (2 &times; (&minus;1)) = &minus;6 / (&minus;2) = 3.</p><p>Substitute x = 3: y = &minus;(3)<sup>2</sup> + 6(3) &minus; 5 = &minus;9 + 18 &minus; 5 = 4.</p><p>The vertex is <strong>(3, 4)</strong>. Because a = &minus;1 is negative, the parabola opens downward and this is its highest point.</p><p>Using x = b / (2a) without the negative sign gives x = &minus;3 and y = &minus;32, a point that is not even on the grid. (0, &minus;5) is the y-intercept, and (1, 0) and (5, 0) are the x-intercepts, not the vertex.</p>"
-    },
-    {
-     "id": "m20",
-     "type": "mc",
-     "skill": "Finding the original amount",
-     "difficulty": 2,
-     "prompt": "<p>After a 20% discount, a monthly bus pass costs $48. What was the price of the pass before the discount?</p>",
-     "options": [
-      "$57.60",
-      "$60.00",
-      "$38.40",
-      "$68.00"
-     ],
-     "answer": 1,
-     "explain": "<p>After a 20% discount, the customer pays 100% &minus; 20% = 80% of the original price.</p><p>0.80p = 48</p><p>p = 48 &divide; 0.80 = <strong>$60.00</strong>.</p><p>Check: 20% of $60 is $12, and 60 &minus; 12 = $48.</p><p>$57.60 comes from adding 20% of $48 to $48. The 20% was taken from the original price, not from $48, so that method does not work.</p>"
-    },
-    {
-     "id": "m21",
-     "type": "fill",
-     "skill": "Converting units",
-     "difficulty": 2,
-     "prompt": "<p>A truck is traveling at 45 miles per hour. What is the truck's speed in feet per second? (1 mile = 5,280 feet and 1 hour = 3,600 seconds)</p>",
-     "answer": [
-      "66"
-     ],
-     "value": 66,
-     "tol": 0.001,
-     "suffix": "feet per second",
-     "explain": "<p>Change miles to feet: 45 miles &times; 5,280 feet per mile = 237,600 feet per hour.</p><p>Change hours to seconds: 237,600 &divide; 3,600 = <strong>66 feet per second</strong>.</p><p>A common error is to multiply by 3,600 instead of dividing. There are more seconds than hours, so the truck covers fewer feet in one second than in one hour.</p>"
-    },
-    {
-     "id": "m22",
-     "type": "mc",
-     "skill": "Inequality word problem",
-     "difficulty": 2,
-     "prompt": "<p>A delivery van can safely carry at most 2,400 pounds. The driver weighs 180 pounds, and each box being delivered weighs 35 pounds. What is the greatest number of boxes the van can carry with the driver on board?</p>",
-     "options": [
-      "63",
-      "64",
-      "68",
-      "69"
-     ],
-     "answer": 0,
-     "noShuffle": true,
-     "explain": "<p>Let b be the number of boxes. The total weight must be at most 2,400 pounds:</p><p>180 + 35b &le; 2,400</p><p>35b &le; 2,220</p><p>b &le; 2,220 &divide; 35 &asymp; 63.4</p><p>The number of boxes must be a whole number, so the greatest is <strong>63</strong>.</p><p>Check: 180 + 35(63) = 180 + 2,205 = 2,385 pounds, which is allowed. With 64 boxes: 180 + 2,240 = 2,420 pounds, which is too much.</p><p>68 comes from 2,400 &divide; 35 and ignores the driver's weight. 64 rounds 63.4 up, which would put the van over the limit.</p>"
-    },
-    {
-     "id": "m23",
-     "type": "mc",
-     "skill": "Systems of equations word problem",
-     "difficulty": 3,
-     "prompt": "<p>A fuel station sells regular gasoline for $3.40 per gallon and premium gasoline for $4.10 per gallon. One day the station sold 5,000 gallons of gasoline in all, for a total of $17,770. How many gallons of premium gasoline were sold?</p>",
-     "options": [
-      "3,900",
-      "1,100",
-      "2,500",
-      "4,334"
-     ],
-     "answer": 1,
-     "explain": "<p>Let r = gallons of regular and p = gallons of premium.</p><p>r + p = 5,000</p><p>3.40r + 4.10p = 17,770</p><p>From the first equation, r = 5,000 &minus; p. Substitute:</p><p>3.40(5,000 &minus; p) + 4.10p = 17,770</p><p>17,000 &minus; 3.40p + 4.10p = 17,770</p><p>0.70p = 770</p><p>p = <strong>1,100</strong> gallons of premium (and r = 3,900 gallons of regular).</p><p>Check: 3.40(3,900) + 4.10(1,100) = 13,260 + 4,510 = $17,770.</p><p>3,900 is the number of gallons of regular, not premium. 4,334 comes from 17,770 &divide; 4.10, which assumes all of the gasoline sold was premium.</p>"
-    },
-    {
-     "id": "m24",
-     "type": "mc",
-     "skill": "Distance, rate, and time",
-     "difficulty": 2,
-     "prompt": "<p>Two cars leave the same rest stop at the same time and drive in opposite directions on a straight highway. One car averages 58 miles per hour and the other averages 66 miles per hour. After how many hours will the cars be 403 miles apart?</p>",
-     "options": [
-      "6.11 hours",
-      "6.95 hours",
-      "6.5 hours",
-      "3.25 hours"
-     ],
-     "answer": 3,
-     "explain": "<p>The cars move apart from each other, so the distance between them grows by 58 + 66 = 124 miles every hour.</p><p>Let t be the time in hours: 58t + 66t = 403</p><p>124t = 403</p><p>t = 403 &divide; 124 = <strong>3.25 hours</strong> (3 hours 15 minutes).</p><p>Check: 58(3.25) + 66(3.25) = 188.5 + 214.5 = 403 miles.</p><p>6.5 hours comes from using the average of the two speeds (62 mph) as the rate of separation. 6.95 hours and 6.11 hours each use only one car's speed.</p>"
-    },
-    {
-     "id": "m25",
-     "type": "drag",
-     "skill": "Classifying slope",
-     "difficulty": 2,
-     "prompt": "<p>Sort these equations by the slope of each line. Place every equation in the matching slope category.</p>",
-     "choices": [
-      "y = &minus;(2/5)x + 7",
-      "4x &minus; 2y = 10",
-      "y = &minus;1",
-      "x = 6",
-      "5x + y = 3",
-      "y + 2 = 3(x &minus; 1)"
-     ],
-     "bins": [
-      "Positive slope",
-      "Negative slope",
-      "Zero slope",
-      "Undefined slope"
-     ],
-     "answer": [
-      1,
-      0,
-      2,
-      3,
-      1,
-      0
-     ],
-     "explain": "<p>Write each equation in slope-intercept form when possible:</p><ul><li>y = &minus;(2/5)x + 7: slope &minus;2/5, <strong>negative</strong>.</li><li>4x &minus; 2y = 10 becomes &minus;2y = &minus;4x + 10, so y = 2x &minus; 5: slope 2, <strong>positive</strong>.</li><li>y = &minus;1 is a horizontal line: <strong>zero slope</strong>.</li><li>x = 6 is a vertical line: <strong>undefined slope</strong>.</li><li>5x + y = 3 becomes y = &minus;5x + 3: slope &minus;5, <strong>negative</strong>.</li><li>y + 2 = 3(x &minus; 1) is point-slope form with slope 3, <strong>positive</strong>.</li></ul><p>A common mistake is to read the slope of 4x &minus; 2y = 10 as 4 or &minus;2 without solving for y, or to think x = 6 has zero slope. Horizontal lines have zero slope; vertical lines have undefined slope.</p>"
-    },
-    {
-     "id": "m26",
-     "type": "mc",
-     "skill": "Volume of a sphere",
-     "difficulty": 3,
-     "prompt": "<p>The tank of a water tower is shaped like a sphere with a diameter of 30 feet. To the nearest cubic foot, what is the volume of the tank? Use the formula sheet if needed.</p>",
-     "options": [
-      "2,827",
-      "10,603",
-      "14,137",
-      "113,097"
-     ],
-     "answer": 2,
-     "explain": "<p>Volume of a sphere: V = (4/3)&pi;r<sup>3</sup>. The radius is half the diameter: r = 30 &divide; 2 = 15 feet.</p><p>r<sup>3</sup> = 15 &times; 15 &times; 15 = 3,375</p><p>V = (4/3)&pi;(3,375) = 4,500&pi; &asymp; <strong>14,137 cubic feet</strong>.</p><p>113,097 uses the diameter (30) as the radius. 2,827 is 4&pi;r<sup>2</sup>, the surface area. 10,603 is &pi;r<sup>3</sup>, which leaves out the 4/3.</p>"
-    },
-    {
-     "id": "m27",
-     "type": "fill",
-     "skill": "Surface area of a cylinder",
-     "difficulty": 3,
-     "prompt": "<p>A closed fuel drum is shaped like a cylinder with a radius of 2 feet and a height of 4 feet. What is the total surface area of the drum, in square feet, rounded to the nearest tenth? Use the formula sheet if needed.</p>",
-     "answer": [
-      "75.4"
-     ],
-     "value": 75.4,
-     "tol": 0.1,
-     "suffix": "square feet",
-     "explain": "<p>Surface area of a cylinder: SA = 2&pi;rh + 2&pi;r<sup>2</sup>.</p><p>Side (lateral area): 2&pi;(2)(4) = 16&pi;</p><p>Top and bottom: 2&pi;(2)<sup>2</sup> = 2&pi;(4) = 8&pi;</p><p>SA = 16&pi; + 8&pi; = 24&pi; &asymp; <strong>75.4 square feet</strong>.</p><p>Leaving out the top and bottom gives only 16&pi; &asymp; 50.3 square feet. The volume, &pi;r<sup>2</sup>h = 16&pi;, also happens to be about 50.3, but it is measured in cubic feet and does not answer the question.</p>"
-    },
-    {
-     "id": "m28",
-     "type": "mc",
-     "skill": "Writing a linear equation from two points",
-     "difficulty": 3,
-     "prompt": "<p>The cost of a taxi ride is a linear function of the distance traveled. A 4-mile ride costs $13.50, and a 10-mile ride costs $27.00. Which equation gives the cost C, in dollars, of a ride of m miles?</p>",
-     "options": [
-      "C = 4.50m + 2.25",
-      "C = 2.25m + 4.50",
-      "C = 3.375m",
-      "C = 2.25m + 13.50"
-     ],
-     "answer": 1,
-     "explain": "<p>Slope (cost per mile): (27.00 &minus; 13.50) / (10 &minus; 4) = 13.50 / 6 = 2.25.</p><p>Use the point (4, 13.50) to find the starting fee b: 13.50 = 2.25(4) + b, so 13.50 = 9 + b and b = 4.50.</p><p>Equation: <strong>C = 2.25m + 4.50</strong>.</p><p>Check: 2.25(10) + 4.50 = 22.50 + 4.50 = 27.00.</p><p>C = 4.50m + 2.25 switches the slope and the intercept. C = 3.375m divides $13.50 by 4 miles and leaves out the starting fee, so it fails for the 10-mile ride (33.75, not 27.00).</p>"
-    },
-    {
-     "id": "m29",
-     "type": "dropdown",
-     "skill": "Comparing linear functions",
-     "difficulty": 2,
-     "prompt": "<p>Two cars travel on the same highway. The distance d, in miles, that Car A is past a toll booth after t hours is given by d = 55t. The table shows the distance of Car B past the same toll booth.</p><table><thead><tr><th>t (hours)</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead><tbody><tr><td>d (miles)</td><td>20</td><td>80</td><td>140</td><td>200</td></tr></tbody></table><p>The speed of Car B is {{0}}.</p><p>The car with the greater speed is {{1}}.</p><p>At t = 0, Car B is {{2}} past the toll booth.</p>",
-     "blanks": [
-      {
-       "options": [
-        "20 miles per hour",
-        "55 miles per hour",
-        "60 miles per hour",
-        "80 miles per hour"
-       ],
-       "answer": 2
-      },
-      {
-       "options": [
-        "Car A",
-        "Car B",
-        "neither; the speeds are equal"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "0 miles",
-        "20 miles",
-        "55 miles",
-        "60 miles"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Car B's speed is the rate of change in the table: each hour the distance increases by 60 miles (20 to 80, 80 to 140, 140 to 200). So Car B travels <strong>60 miles per hour</strong>.</p><p>Car A's speed is the slope of d = 55t, which is 55 miles per hour. Since 60 &gt; 55, <strong>Car B</strong> is faster.</p><p>At t = 0, the table shows Car B is already <strong>20 miles</strong> past the toll booth. (Car B's equation is d = 60t + 20.)</p><p>80 miles per hour is Car B's distance at t = 1, not its speed; the 20-mile head start must be subtracted.</p>"
-    },
-    {
-     "id": "m30",
-     "type": "mc",
-     "skill": "Solving quadratics by factoring",
-     "difficulty": 3,
-     "prompt": "<p>What are the solutions of the equation 3x<sup>2</sup> + 10x &minus; 8 = 0?</p>",
-     "options": [
-      "x = &minus;2/3 and x = 4",
-      "x = 2 and x = &minus;4",
-      "x = 2/3 and x = &minus;4",
-      "x = 3/2 and x = &minus;4"
-     ],
-     "answer": 2,
-     "explain": "<p>Factor: look for (3x + ?)(x + ?) whose product is 3x<sup>2</sup> + 10x &minus; 8.</p><p>(3x &minus; 2)(x + 4) = 3x<sup>2</sup> + 12x &minus; 2x &minus; 8 = 3x<sup>2</sup> + 10x &minus; 8. &#10003;</p><p>Set each factor equal to 0: 3x &minus; 2 = 0 gives x = 2/3; x + 4 = 0 gives x = &minus;4.</p><p>The solutions are <strong>x = 2/3 and x = &minus;4</strong>.</p><p>Check x = 2/3: 3(4/9) + 10(2/3) &minus; 8 = 4/3 + 20/3 &minus; 8 = 8 &minus; 8 = 0.</p><p>x = 2 comes from setting 3x &minus; 2 = 0 and forgetting to divide by 3. x = &minus;2/3 and x = 4 use the wrong signs.</p>"
-    },
-    {
-     "id": "m31",
-     "type": "mc",
-     "skill": "Quadratic formula in context",
-     "difficulty": 3,
-     "prompt": "<p>On dry pavement, the stopping distance d, in feet, of a car traveling at v miles per hour can be modeled by d = 0.05v<sup>2</sup> + 1.1v. To the nearest mile per hour, at what speed is the stopping distance 200 feet? Use the formula sheet if needed.</p>",
-     "options": [
-      "53 mph",
-      "63 mph",
-      "75 mph",
-      "106 mph"
-     ],
-     "answer": 0,
-     "noShuffle": true,
-     "explain": "<p>Set d = 200 and write the equation in standard form: 0.05v<sup>2</sup> + 1.1v &minus; 200 = 0, with a = 0.05, b = 1.1, c = &minus;200.</p><p>Discriminant: b<sup>2</sup> &minus; 4ac = 1.21 &minus; 4(0.05)(&minus;200) = 1.21 + 40 = 41.21</p><p>v = (&minus;1.1 &plusmn; &radic;41.21) / (2 &times; 0.05) = (&minus;1.1 &plusmn; 6.4195) / 0.1</p><p>The positive solution is 5.3195 &divide; 0.1 &asymp; 53.2, so the speed is <strong>53 mph</strong>. (The other solution is negative, and a speed cannot be negative.)</p><p>Check: 0.05(53.2)<sup>2</sup> + 1.1(53.2) &asymp; 141.5 + 58.5 = 200.</p><p>75 mph uses +1.1 instead of &minus;b = &minus;1.1. 106 mph divides by a instead of 2a. 63 mph ignores the 1.1v term.</p>"
-    },
-    {
-     "id": "m32",
-     "type": "mc",
-     "skill": "Negative exponents",
-     "difficulty": 3,
-     "prompt": "<p>Which expression is equivalent to (x<sup>&minus;2</sup>y<sup>3</sup>) / (x<sup>3</sup>y<sup>&minus;1</sup>) for x &ne; 0 and y &ne; 0?</p>",
-     "options": [
-      "xy<sup>4</sup>",
-      "y<sup>2</sup>/x<sup>5</sup>",
-      "x<sup>5</sup>y<sup>4</sup>",
-      "y<sup>4</sup>/x<sup>5</sup>"
-     ],
-     "answer": 3,
-     "explain": "<p>When dividing powers with the same base, subtract the exponents.</p><p>x: x<sup>&minus;2 &minus; 3</sup> = x<sup>&minus;5</sup></p><p>y: y<sup>3 &minus; (&minus;1)</sup> = y<sup>4</sup></p><p>A negative exponent means a reciprocal: x<sup>&minus;5</sup>y<sup>4</sup> = <strong>y<sup>4</sup>/x<sup>5</sup></strong>.</p><p>y<sup>2</sup>/x<sup>5</sup> comes from subtracting 3 &minus; 1 instead of 3 &minus; (&minus;1). xy<sup>4</sup> comes from computing &minus;2 + 3 instead of &minus;2 &minus; 3.</p>"
-    },
-    {
-     "id": "m33",
-     "type": "fill",
-     "skill": "Linear equation word problem",
-     "difficulty": 3,
-     "prompt": "<p>Jamal drove for a total of 5 hours and covered 255 miles. He drove part of the time on a highway at 60 miles per hour and the rest of the time on country roads at 45 miles per hour. How many hours did he drive on the highway?</p>",
-     "answer": [
-      "2"
-     ],
-     "value": 2,
-     "tol": 0.001,
-     "suffix": "hours",
-     "explain": "<p>Let h be the hours on the highway. Then 5 &minus; h is the hours on country roads.</p><p>Distance: 60h + 45(5 &minus; h) = 255</p><p>60h + 225 &minus; 45h = 255</p><p>15h = 30</p><p>h = <strong>2 hours</strong></p><p>Check: 60(2) + 45(3) = 120 + 135 = 255 miles.</p><p>A common error is to forget to distribute the 45 to both terms in (5 &minus; h).</p>"
-    },
-    {
-     "id": "m34",
-     "type": "mc",
-     "skill": "Counting (permutations)",
-     "difficulty": 2,
-     "prompt": "<p>A travel agency offers tours of 6 different cities. A customer will choose 3 different cities and the order in which to visit them. How many different ordered tours are possible?</p>",
-     "options": [
-      "18",
-      "20",
-      "120",
-      "216"
-     ],
-     "answer": 2,
-     "noShuffle": true,
-     "explain": "<p>There are 6 choices for the first city, 5 remaining choices for the second, and 4 remaining choices for the third.</p><p>6 &times; 5 &times; 4 = <strong>120</strong> ordered tours.</p><p>20 counts groups of 3 cities without regard to order (120 &divide; 6). The order matters here, so 20 is too small. 216 = 6 &times; 6 &times; 6 allows the same city to be visited more than once.</p>"
-    },
-    {
-     "id": "m35",
-     "type": "mc",
-     "skill": "Area of a trapezoid",
-     "difficulty": 2,
-     "prompt": "<p>A parking lot at a train station is shaped like the trapezoid shown. The parallel sides are 120 feet and 80 feet long, and the distance between them is 60 feet. What is the area of the parking lot, in square feet? Use the formula sheet if needed.</p>",
-     "figure": {
-      "type": "svg",
-      "svg": "<svg viewBox='0 0 300 210' xmlns='http://www.w3.org/2000/svg'><polygon points='30,170 270,170 230,50 70,50' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='70' y1='50' x2='70' y2='170' stroke='#0A1F3D' stroke-dasharray='5,4'/><polyline points='70,158 82,158 82,170' fill='none' stroke='#0A1F3D'/><text x='130' y='40' font-size='14' fill='#0A1F3D'>80 ft</text><text x='125' y='195' font-size='14' fill='#0A1F3D'>120 ft</text><text x='78' y='115' font-size='14' fill='#0A1F3D'>60 ft</text></svg>",
-      "alt": "A trapezoid. The top base is 80 feet, the bottom base is 120 feet, and a dashed height line perpendicular to the bases is 60 feet."
-     },
-     "options": [
-      "4,800",
-      "6,000",
-      "7,200",
-      "12,000"
-     ],
-     "answer": 1,
-     "noShuffle": true,
-     "explain": "<p>Area of a trapezoid: A = (1/2)h(b<sub>1</sub> + b<sub>2</sub>).</p><p>A = (1/2)(60)(120 + 80) = (1/2)(60)(200) = 30 &times; 200 = <strong>6,000 square feet</strong>.</p><p>12,000 forgets the 1/2. 7,200 and 4,800 treat the lot as a rectangle using only one of the bases (120 &times; 60 or 80 &times; 60).</p>"
-    },
-    {
-     "id": "m36",
-     "type": "mc",
-     "skill": "Simplifying polynomials",
-     "difficulty": 2,
-     "prompt": "<p>Which expression is equivalent to 2x(x &minus; 4) &minus; (x<sup>2</sup> &minus; 3x + 5)?</p>",
-     "options": [
-      "x<sup>2</sup> &minus; 11x + 5",
-      "x<sup>2</sup> &minus; 5x &minus; 5",
-      "x<sup>2</sup> &minus; 5x + 5",
-      "3x<sup>2</sup> &minus; 11x + 5"
-     ],
-     "answer": 1,
-     "explain": "<p>Distribute 2x: 2x(x &minus; 4) = 2x<sup>2</sup> &minus; 8x.</p><p>Distribute the subtraction to every term in the second polynomial: &minus;x<sup>2</sup> + 3x &minus; 5.</p><p>Combine like terms: 2x<sup>2</sup> &minus; x<sup>2</sup> = x<sup>2</sup>; &minus;8x + 3x = &minus;5x; the constant is &minus;5.</p><p>Result: <strong>x<sup>2</sup> &minus; 5x &minus; 5</strong>.</p><p>x<sup>2</sup> &minus; 11x + 5 comes from subtracting only the x<sup>2</sup> term and leaving &minus;3x and +5 unchanged.</p>"
-    },
-    {
-     "id": "m37",
-     "type": "hotspot",
-     "skill": "Intercepts of a line",
-     "difficulty": 1,
-     "prompt": "<p>Click the point where the graph of 3x + 5y = 15 crosses the x-axis.</p>",
-     "plane": {
-      "xmin": -8,
-      "xmax": 8,
-      "ymin": -8,
-      "ymax": 8
-     },
-     "answer": [
-      5,
-      0
-     ],
-     "explain": "<p>Every point on the x-axis has y = 0. Substitute y = 0:</p><p>3x + 5(0) = 15</p><p>3x = 15, so x = 5.</p><p>The x-intercept is <strong>(5, 0)</strong>.</p><p>The point (0, 3) is the y-intercept (found by setting x = 0: 5y = 15, y = 3). It is where the line crosses the y-axis, not the x-axis.</p>"
-    },
-    {
-     "id": "m38",
-     "type": "mc",
-     "skill": "Ratios",
-     "difficulty": 2,
-     "prompt": "<p>A boat engine needs a fuel mixture of gasoline and oil in the ratio 50 to 1. One gallon equals 128 fluid ounces. How many fluid ounces of oil should be added to 2.5 gallons of gasoline?</p>",
-     "options": [
-      "0.05",
-      "6.27",
-      "6.4",
-      "125"
-     ],
-     "answer": 2,
-     "noShuffle": true,
-     "explain": "<p>Change the gasoline to fluid ounces: 2.5 &times; 128 = 320 fluid ounces.</p><p>The ratio 50 : 1 means 1 ounce of oil for every 50 ounces of gasoline.</p><p>Oil = 320 &divide; 50 = <strong>6.4 fluid ounces</strong>.</p><p>6.27 comes from 320 &divide; 51, which treats 320 ounces as the total mixture instead of the gasoline alone. 125 comes from 2.5 &times; 50 and skips the conversion to ounces and the division.</p>"
-    },
-    {
-     "id": "m39",
-     "type": "mc",
-     "skill": "Two-way tables",
-     "difficulty": 2,
-     "prompt": "<p>A city surveyed 250 commuters about how they usually get to work. The results are shown.</p><table><thead><tr><th></th><th>Car</th><th>Bus</th><th>Train</th><th>Total</th></tr></thead><tbody><tr><td>Under 30</td><td>42</td><td>28</td><td>30</td><td>100</td></tr><tr><td>30 and over</td><td>78</td><td>22</td><td>50</td><td>150</td></tr><tr><td>Total</td><td>120</td><td>50</td><td>80</td><td>250</td></tr></tbody></table><p>What percent of the commuters who ride the train are under 30?</p>",
-     "options": [
-      "12%",
-      "30%",
-      "37.5%",
-      "62.5%"
-     ],
-     "answer": 2,
-     "noShuffle": true,
-     "explain": "<p>The question is about train riders only, so the whole is the train total: 80 commuters.</p><p>Train riders under 30: 30.</p><p>30 &divide; 80 = 0.375 = <strong>37.5%</strong>.</p><p>30% is 30 &divide; 100, the percent of under-30 commuters who ride the train, which answers a different question. 12% is 30 &divide; 250, out of all commuters. 62.5% is the percent of train riders who are 30 and over.</p>"
-    },
-    {
-     "id": "m40",
-     "type": "mc",
-     "skill": "Multiplying rational expressions",
-     "difficulty": 3,
-     "prompt": "<p>Simplify the product. Assume x is not &minus;3 or 2.</p><p>(x<sup>2</sup> &minus; 4) / (x + 3) &times; (2x + 6) / (x &minus; 2)</p>",
-     "options": [
-      "x + 2",
-      "2x + 4",
-      "2x &minus; 4",
-      "(2x + 4) / (x + 3)"
-     ],
-     "answer": 1,
-     "explain": "<p>Factor each part:</p><p>x<sup>2</sup> &minus; 4 = (x &minus; 2)(x + 2) and 2x + 6 = 2(x + 3).</p><p>Write the product: [(x &minus; 2)(x + 2) &times; 2(x + 3)] / [(x + 3)(x &minus; 2)].</p><p>Cancel the common factors (x &minus; 2) and (x + 3): 2(x + 2) = <strong>2x + 4</strong>.</p><p>x + 2 forgets the factor of 2 from 2x + 6. (2x + 4)/(x + 3) cancels (x &minus; 2) but not (x + 3).</p>"
-    },
-    {
-     "id": "m41",
-     "type": "drag",
-     "skill": "Comparing numbers in scientific notation",
-     "difficulty": 2,
-     "prompt": "<p>The numbers below are the distances, in kilometers, flown by five airplanes in one month. Drag each distance into the correct position to order them from least to greatest.</p>",
-     "choices": [
-      "4.1 &times; 10<sup>4</sup>",
-      "3.8 &times; 10<sup>5</sup>",
-      "9.6 &times; 10<sup>3</sup>",
-      "0.75 &times; 10<sup>5</sup>",
-      "2.4 &times; 10<sup>4</sup>"
-     ],
-     "bins": [
-      "1st (least)",
-      "2nd",
-      "3rd",
-      "4th",
-      "5th (greatest)"
-     ],
-     "answer": [
-      2,
-      4,
-      0,
-      3,
-      1
-     ],
-     "explain": "<p>Write each number in standard form:</p><p>9.6 &times; 10<sup>3</sup> = 9,600; 2.4 &times; 10<sup>4</sup> = 24,000; 4.1 &times; 10<sup>4</sup> = 41,000; 0.75 &times; 10<sup>5</sup> = 75,000; 3.8 &times; 10<sup>5</sup> = 380,000.</p><p>Order from least to greatest: <strong>9.6 &times; 10<sup>3</sup>, 2.4 &times; 10<sup>4</sup>, 4.1 &times; 10<sup>4</sup>, 0.75 &times; 10<sup>5</sup>, 3.8 &times; 10<sup>5</sup></strong>.</p><p>Watch 0.75 &times; 10<sup>5</sup>: it is not in standard scientific notation. Comparing exponents alone would wrongly place it with 3.8 &times; 10<sup>5</sup>, but it equals 7.5 &times; 10<sup>4</sup>.</p>"
-    },
-    {
-     "id": "m42",
-     "type": "mc",
-     "skill": "Function notation",
-     "difficulty": 2,
-     "prompt": "<p>A freight company uses the function C(w) = 1.5w + 18 to find the cost C, in dollars, of shipping a package that weighs w pounds. A package costs $81 to ship. How much does the package weigh?</p>",
-     "options": [
-      "42 pounds",
-      "54 pounds",
-      "66 pounds",
-      "139.5 pounds"
-     ],
-     "answer": 0,
-     "noShuffle": true,
-     "explain": "<p>The cost is given, so set C(w) = 81 and solve for w:</p><p>1.5w + 18 = 81</p><p>1.5w = 63</p><p>w = 63 &divide; 1.5 = <strong>42 pounds</strong></p><p>Check: 1.5(42) + 18 = 63 + 18 = 81.</p><p>139.5 comes from finding C(81), which substitutes 81 for the weight instead of the cost. 54 comes from 81 &divide; 1.5, which ignores the $18 fee. 66 comes from adding 18 instead of subtracting it.</p>"
-    },
-    {
-     "id": "m43",
-     "type": "multi",
-     "skill": "Compound inequalities",
-     "difficulty": 3,
-     "prompt": "<p>Which values of x are solutions of the inequality &minus;2 &lt; 3x + 4 &le; 13? Select <strong>three</strong> answers.</p>",
-     "options": [
-      "&minus;3",
-      "&minus;2",
-      "&minus;1",
-      "0",
-      "3",
-      "4"
-     ],
-     "answer": [
-      2,
-      3,
-      4
-     ],
-     "explain": "<p>Subtract 4 from all three parts: &minus;6 &lt; 3x &le; 9.</p><p>Divide all three parts by 3: &minus;2 &lt; x &le; 3.</p><p>The solutions from the list are <strong>&minus;1, 0, and 3</strong>.</p><p>&minus;2 is not a solution because the left symbol is &lt;, not &le;: 3(&minus;2) + 4 = &minus;2, and &minus;2 &lt; &minus;2 is false. 3 is a solution because 3(3) + 4 = 13 and 13 &le; 13 is true. 4 gives 16, which is greater than 13.</p>"
-    },
-    {
-     "id": "m44",
-     "type": "mc",
-     "skill": "Interpreting a line graph",
-     "difficulty": 2,
-     "prompt": "<p>The graph shows the total distance a family drove during a 6-hour trip. The family stopped for lunch during part of the trip. To the nearest mile per hour, what was the average speed for the entire 6-hour trip?</p>",
-     "figure": {
-      "type": "line",
-      "title": "Distance Driven",
-      "xLabel": "Hours since start",
-      "yLabel": "Total distance (miles)",
-      "labels": [
-       "0",
-       "1",
-       "2",
-       "3",
-       "4",
-       "5",
-       "6"
-      ],
-      "series": [
-       {
-        "name": "Distance",
-        "values": [
-         0,
-         55,
-         110,
-         110,
-         170,
-         230,
-         290
-        ]
-       }
-      ]
-     },
-     "options": [
-      "48 mph",
-      "55 mph",
-      "58 mph",
-      "60 mph"
-     ],
-     "answer": 0,
-     "noShuffle": true,
-     "explain": "<p>Average speed = total distance &divide; total time.</p><p>Total distance after 6 hours: 290 miles.</p><p>290 &divide; 6 &asymp; 48.3, which rounds to <strong>48 mph</strong>.</p><p>58 mph is 290 &divide; 5, which leaves out the hour the family was stopped (hours 2 to 3, where the graph is flat). The question asks about the entire 6-hour trip, so the stop counts. 60 mph is the speed during the last three hours only.</p>"
-    },
-    {
-     "id": "m45",
-     "type": "dropdown",
-     "skill": "Solving literal equations",
-     "difficulty": 3,
-     "prompt": "<p>The formula A = P + Prt gives the total amount A owed on a loan of P dollars at a simple annual interest rate r for t years.</p><p>Solved for r, the formula is r = ({{0}}) &divide; ({{1}}).</p><p>A family borrows $2,000 for a used car and owes a total of $2,720 after 4 years. The annual interest rate r, written as a decimal, is {{2}}.</p>",
-     "blanks": [
-      {
-       "options": [
-        "A &minus; P",
-        "A + P",
-        "A &minus; Pt",
-        "A"
-       ],
-       "answer": 0
-      },
-      {
-       "options": [
-        "P",
-        "t",
-        "Pt",
-        "P + t"
-       ],
-       "answer": 2
-      },
-      {
-       "options": [
-        "0.0225",
-        "0.09",
-        "0.34",
-        "0.36"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Start with A = P + Prt.</p><p>Subtract P from both sides: A &minus; P = Prt.</p><p>Divide both sides by Pt: r = <strong>(A &minus; P) &divide; (Pt)</strong>.</p><p>Substitute A = 2,720, P = 2,000, t = 4: r = (2,720 &minus; 2,000) &divide; (2,000 &times; 4) = 720 &divide; 8,000 = <strong>0.09</strong> (9% per year).</p><p>0.36 comes from dividing by P only (720 &divide; 2,000), which gives the interest for all 4 years combined. 0.34 comes from forgetting to subtract P (2,720 &divide; 8,000).</p>"
-    },
-    {
-     "id": "m46",
-     "type": "fill",
-     "skill": "Perimeter equation word problem",
-     "difficulty": 2,
-     "prompt": "<p>A rectangular parking lot for a bus depot has a perimeter of 480 feet. The length of the lot is 30 feet more than twice its width. What is the width of the lot, in feet?</p>",
-     "answer": [
-      "70"
-     ],
-     "value": 70,
-     "tol": 0.001,
-     "suffix": "feet",
-     "explain": "<p>Let w be the width. Then the length is 2w + 30.</p><p>Perimeter: 2(length) + 2(width) = 480</p><p>2(2w + 30) + 2w = 480</p><p>4w + 60 + 2w = 480</p><p>6w + 60 = 480</p><p>6w = 420</p><p>w = <strong>70 feet</strong> (and the length is 2(70) + 30 = 170 feet).</p><p>Check: 2(170) + 2(70) = 340 + 140 = 480 feet.</p><p>A common error is to use only one length and one width (3w + 30 = 480, w = 150), which sets half the perimeter equal to 480.</p>"
-    }
-   ]
-  }
- ]
+"form": 3,
+"subject": "math",
+"title": "Practice GED Form 3 — Mathematical Reasoning",
+"minutes": 115,
+"stimuli": [],
+"parts": [
+{
+"name": "Part 1",
+"calculator": false,
+"items": [
+{
+"id": "m01",
+"type": "mc",
+"skill": "Integers and absolute value",
+"difficulty": 1,
+"prompt": "<p>Evaluate.</p><p>|&minus;7 + 3| &minus; (&minus;2)(&minus;5)</p>",
+"options": [
+"&minus;6",
+"14",
+"6",
+"&minus;14"
+],
+"answer": 0,
+"explain": "<p>Work inside the absolute value bars first: &minus;7 + 3 = &minus;4, and |&minus;4| = 4.</p><p>Multiply: (&minus;2)(&minus;5) = 10 (a negative times a negative is positive).</p><p>Subtract: 4 &minus; 10 = <strong>&minus;6</strong>.</p><p>The answer 14 comes from treating (&minus;2)(&minus;5) as &minus;10, giving 4 &minus; (&minus;10) = 14. The product of two negative numbers is positive.</p>",
+"why": [
+"",
+"You treated (&minus;2)(&minus;5) as &minus;10, so 4 &minus; (&minus;10) = 14. A negative times a negative is positive: (&minus;2)(&minus;5) = 10, and 4 &minus; 10 = &minus;6.",
+"You subtracted in the wrong order (10 &minus; 4 = 6) or dropped the sign of the result. The expression is 4 &minus; 10, which is &minus;6.",
+"You skipped the absolute value and used &minus;4 instead of |&minus;4| = 4, giving &minus;4 &minus; 10 = &minus;14. Absolute value makes &minus;4 into 4 before you subtract."
+]
+},
+{
+"id": "m02",
+"type": "fill",
+"skill": "Dividing fractions",
+"difficulty": 2,
+"prompt": "<p>A shuttle bus route is 4&frac12; miles long. The route is divided into equal sections that are each &frac34; mile long. How many sections are on the route?</p>",
+"answer": [
+"6"
+],
+"value": 6,
+"tol": 0.001,
+"suffix": "sections",
+"explain": "<p>Divide the total length by the length of one section: 4&frac12; &divide; &frac34;.</p><p>Change the mixed number to an improper fraction: 4&frac12; = 9/2.</p><p>Multiply by the reciprocal: 9/2 &times; 4/3 = 36/6 = <strong>6</strong> sections.</p><p>Check: 6 &times; &frac34; = 18/4 = 4&frac12; miles.</p><p>A common error is to multiply instead of divide: 9/2 &times; 3/4 = 27/8, which is less than the length of the whole route and does not make sense here.</p>",
+"mistakes": [
+{
+"answer": [
+"27/8",
+"3.375",
+"3 3/8"
+],
+"why": "You multiplied 9/2 &times; 3/4 instead of dividing. To find how many &frac34;-mile sections fit in 4&frac12; miles, divide: 9/2 &times; 4/3 = 6."
+},
+{
+"answer": [
+"1/6",
+"0.17",
+"0.167"
+],
+"why": "You divided in the wrong order (&frac34; &divide; 4&frac12;). Divide the total length by the length of one section: 4&frac12; &divide; &frac34; = 6."
+}
+]
+},
+{
+"id": "m03",
+"type": "mc",
+"skill": "Exponent rules",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to (2x<sup>3</sup>)<sup>2</sup> &divide; (4x<sup>2</sup>) for x &ne; 0?</p>",
+"options": [
+"x<sup>3</sup>",
+"x<sup>4</sup>",
+"(1/2)x<sup>4</sup>",
+"4x<sup>4</sup>"
+],
+"answer": 1,
+"explain": "<p>Raise each factor inside the parentheses to the second power: (2x<sup>3</sup>)<sup>2</sup> = 2<sup>2</sup> &times; x<sup>3&times;2</sup> = 4x<sup>6</sup>.</p><p>Divide: 4x<sup>6</sup> &divide; 4x<sup>2</sup> = (4 &divide; 4) &times; x<sup>6&minus;2</sup> = <strong>x<sup>4</sup></strong>.</p><p>(1/2)x<sup>4</sup> comes from forgetting to square the 2 (getting 2x<sup>6</sup>). x<sup>3</sup> comes from adding the exponents 3 + 2 instead of multiplying them when raising a power to a power.</p>",
+"why": [
+"You added the exponents (3 + 2 = 5) when squaring x<sup>3</sup>, then subtracted 2. A power raised to a power multiplies the exponents: (x<sup>3</sup>)<sup>2</sup> = x<sup>6</sup>, and x<sup>6</sup> &divide; x<sup>2</sup> = x<sup>4</sup>.",
+"",
+"You forgot to square the 2, getting 2x<sup>6</sup> &divide; 4x<sup>2</sup> = (1/2)x<sup>4</sup>. Every factor inside the parentheses is squared: 2<sup>2</sup> = 4, and 4 &divide; 4 = 1.",
+"You divided the x terms but not the coefficients. (2x<sup>3</sup>)<sup>2</sup> = 4x<sup>6</sup>, and 4 &divide; 4 = 1, so the result is x<sup>4</sup>, not 4x<sup>4</sup>."
+]
+},
+{
+"id": "m04",
+"type": "mc",
+"skill": "Solving linear equations",
+"difficulty": 2,
+"prompt": "<p>What value of x makes the equation true?</p><p>x/3 + 5 = 2x &minus; 5</p>",
+"options": [
+"4",
+"2",
+"6",
+"10"
+],
+"answer": 2,
+"explain": "<p>Multiply every term by 3 to clear the fraction: x + 15 = 6x &minus; 15.</p><p>Subtract x from both sides: 15 = 5x &minus; 15.</p><p>Add 15 to both sides: 30 = 5x.</p><p>Divide by 5: x = <strong>6</strong>.</p><p>Check: 6/3 + 5 = 2 + 5 = 7 and 2(6) &minus; 5 = 12 &minus; 5 = 7.</p><p>The answer 4 comes from multiplying only some of the terms by 3 (for example, x + 5 = 6x &minus; 15). Every term on both sides must be multiplied.</p>",
+"why": [
+"You multiplied only some terms by 3 (for example, x + 5 = 6x &minus; 15), which gives x = 4. Every term on both sides must be multiplied by 3: x + 15 = 6x &minus; 15, so x = 6.",
+"You multiplied only the x terms by 3 and left the 5s alone (x + 5 = 6x &minus; 5), which gives x = 2. Multiply every term by 3: x + 15 = 6x &minus; 15.",
+"",
+"You dropped the denominator and solved x + 5 = 2x &minus; 5, which gives x = 10. The fraction x/3 must be cleared by multiplying every term by 3."
+]
+},
+{
+"id": "m05",
+"type": "mc",
+"skill": "Estimating square roots",
+"difficulty": 1,
+"prompt": "<p>Between which two consecutive whole numbers is &radic;58?</p>",
+"options": [
+"6 and 7",
+"7 and 8",
+"8 and 9",
+"29 and 30"
+],
+"answer": 1,
+"noShuffle": true,
+"explain": "<p>Find the perfect squares on either side of 58: 7<sup>2</sup> = 49 and 8<sup>2</sup> = 64.</p><p>Because 49 &lt; 58 &lt; 64, &radic;49 &lt; &radic;58 &lt; &radic;64, so &radic;58 is between <strong>7 and 8</strong>.</p><p>29 and 30 come from dividing 58 by 2. Taking a square root is not the same as dividing by 2.</p>",
+"why": [
+"6<sup>2</sup> = 36 and 7<sup>2</sup> = 49 are both less than 58, so &radic;58 is greater than 7. Find the perfect squares on each side of 58: 49 and 64.",
+"",
+"8<sup>2</sup> = 64 is already greater than 58, so &radic;58 is less than 8. The perfect squares around 58 are 49 and 64, so the root is between 7 and 8.",
+"You divided 58 by 2. A square root is the number that times itself gives 58, and 7 &times; 7 = 49 while 8 &times; 8 = 64."
+]
+}
+]
+},
+{
+"name": "Part 2",
+"calculator": true,
+"items": [
+{
+"id": "m06",
+"type": "mc",
+"skill": "Percent change",
+"difficulty": 2,
+"prompt": "<p>The price of regular gasoline at a station rose from $3.20 per gallon to $3.68 per gallon. What was the percent increase in the price?</p>",
+"options": [
+"13.0%",
+"48%",
+"15%",
+"115%"
+],
+"answer": 2,
+"explain": "<p>Amount of change: 3.68 &minus; 3.20 = $0.48.</p><p>Percent change = change &divide; original = 0.48 &divide; 3.20 = 0.15 = <strong>15%</strong>.</p><p>13.0% comes from dividing by the new price (0.48 &divide; 3.68 &asymp; 0.130). Percent change always divides by the original (earlier) value. 115% is the new price as a percent of the old price, not the increase.</p>",
+"why": [
+"You divided the change by the new price (0.48 &divide; 3.68 &asymp; 0.130). Percent change always divides by the original price: 0.48 &divide; 3.20 = 15%.",
+"You turned the $0.48 change directly into 48%. The change must be compared to the original price: 0.48 &divide; 3.20 = 0.15 = 15%.",
+"",
+"115% is the new price as a percent of the old price (3.68 &divide; 3.20). The increase is the part above 100%, which is 15%."
+]
+},
+{
+"id": "m07",
+"type": "fill",
+"skill": "Unit rates",
+"difficulty": 1,
+"prompt": "<p>A passenger train travels 351 miles in 4.5 hours. What is the train's average speed, in miles per hour?</p>",
+"answer": [
+"78"
+],
+"value": 78,
+"tol": 0.001,
+"suffix": "miles per hour",
+"explain": "<p>Average speed = distance &divide; time.</p><p>351 &divide; 4.5 = <strong>78 miles per hour</strong>.</p><p>Check: 78 &times; 4.5 = 351.</p><p>Dividing time by distance (4.5 &divide; 351 &asymp; 0.013) gives hours per mile, not miles per hour.</p>",
+"mistakes": [
+{
+"answer": [
+"0.013",
+"0.0128"
+],
+"why": "You divided time by distance (4.5 &divide; 351), which gives hours per mile. Miles per hour is distance &divide; time: 351 &divide; 4.5 = 78."
+},
+{
+"answer": [
+"1579.5"
+],
+"why": "You multiplied 351 by 4.5. Speed is distance divided by time: 351 &divide; 4.5 = 78 miles per hour."
+}
+]
+},
+{
+"id": "m08",
+"type": "mc",
+"skill": "Multi-step rate problem",
+"difficulty": 2,
+"prompt": "<p>Renee is planning a 540-mile road trip. Her car gets 30 miles per gallon, and gasoline costs $3.45 per gallon. How much will the gasoline for the trip cost?</p>",
+"options": [
+"$18.00",
+"$62.10",
+"$103.50",
+"$156.52"
+],
+"answer": 1,
+"explain": "<p>Gallons needed: 540 &divide; 30 = 18 gallons.</p><p>Cost: 18 &times; $3.45 = <strong>$62.10</strong>.</p><p>$18.00 is the number of gallons, not the cost. $103.50 is 30 &times; 3.45, which multiplies the miles per gallon by the price. $156.52 is 540 &divide; 3.45, which divides miles by the price.</p>",
+"why": [
+"$18.00 is the number of gallons (540 &divide; 30), not the cost. Multiply the gallons by the price: 18 &times; $3.45 = $62.10.",
+"",
+"You multiplied miles per gallon by the price (30 &times; 3.45). First find the gallons needed, 540 &divide; 30 = 18, then multiply by $3.45.",
+"You divided the miles by the price (540 &divide; 3.45), which mixes units. Find gallons first (540 &divide; 30 = 18), then multiply by the price per gallon."
+]
+},
+{
+"id": "m09",
+"type": "mc",
+"skill": "Writing expressions",
+"difficulty": 1,
+"prompt": "<p>A car rental company charges $42 per day plus $0.18 for each mile driven. Which expression gives the total cost, in dollars, of renting a car for d days and driving it m miles?</p>",
+"options": [
+"42d + 0.18m",
+"42 + 0.18md",
+"0.18d + 42m",
+"42.18(d + m)"
+],
+"answer": 0,
+"explain": "<p>The $42 is charged for each day, so it is multiplied by d: 42d.</p><p>The $0.18 is charged for each mile, so it is multiplied by m: 0.18m.</p><p>Total cost = <strong>42d + 0.18m</strong>.</p><p>Check: 3 days and 200 miles cost 42(3) + 0.18(200) = 126 + 36 = $162.</p><p>0.18d + 42m switches the rates, charging $42 per mile. 42.18(d + m) wrongly combines a daily rate and a per-mile rate into one number.</p>",
+"why": [
+"",
+"You multiplied m and d together in the mileage term and did not multiply 42 by the days. The $42 charge repeats each day (42d), and the $0.18 charge repeats each mile (0.18m).",
+"You switched the rates, charging $0.18 per day and $42 per mile. Match each rate with its unit: $42 per day gives 42d and $0.18 per mile gives 0.18m.",
+"You added the two rates into 42.18 and applied it to days plus miles. A daily rate and a per-mile rate cannot be combined; each multiplies its own variable: 42d + 0.18m."
+]
+},
+{
+"id": "m10",
+"type": "mc",
+"skill": "Scientific notation",
+"difficulty": 2,
+"prompt": "<p>A highway department used about 1.2 &times; 10<sup>9</sup> pounds of asphalt last year. One dump truck carries about 4.0 &times; 10<sup>4</sup> pounds per load. About how many truckloads of asphalt were used?</p>",
+"options": [
+"3.3 &times; 10<sup>&minus;5</sup>",
+"3.0 &times; 10<sup>5</sup>",
+"4.8 &times; 10<sup>13</sup>",
+"3.0 &times; 10<sup>4</sup>"
+],
+"answer": 3,
+"explain": "<p>Number of loads = total weight &divide; weight per load.</p><p>(1.2 &times; 10<sup>9</sup>) &divide; (4.0 &times; 10<sup>4</sup>) = (1.2 &divide; 4.0) &times; 10<sup>9&minus;4</sup> = 0.3 &times; 10<sup>5</sup></p><p>Rewrite in scientific notation: 0.3 &times; 10<sup>5</sup> = <strong>3.0 &times; 10<sup>4</sup></strong> truckloads (30,000 loads).</p><p>3.0 &times; 10<sup>5</sup> forgets to lower the exponent by 1 when 0.3 is changed to 3.0. 4.8 &times; 10<sup>13</sup> multiplies instead of dividing. 3.3 &times; 10<sup>&minus;5</sup> divides the weight per load by the total weight.</p>",
+"why": [
+"You divided the weight per load by the total (4.0 &times; 10<sup>4</sup> &divide; 1.2 &times; 10<sup>9</sup>). The number of loads is total &divide; per load, which gives a large number, not a tiny one.",
+"You found 0.3 &times; 10<sup>5</sup> but changed 0.3 to 3.0 without lowering the exponent. Moving the decimal right one place means subtracting 1 from the exponent: 3.0 &times; 10<sup>4</sup>.",
+"You multiplied the two numbers (1.2 &times; 4.0 = 4.8 and 10<sup>9+4</sup>). To find the number of loads, divide the total weight by the weight of one load.",
+""
+]
+},
+{
+"id": "m11",
+"type": "dropdown",
+"skill": "Scale and proportions",
+"difficulty": 2,
+"prompt": "<p>On a road map, 1 inch represents 25 miles. Two towns are 3.4 inches apart on the map.</p><p>The actual distance between the towns is {{0}}.</p><p>A driver who travels between the towns at an average speed of 50 miles per hour will take {{1}}.</p>",
+"blanks": [
+{
+"options": [
+"7.35 miles",
+"28.4 miles",
+"85 miles",
+"850 miles"
+],
+"answer": 2,
+"why": [
+"You divided 25 by 3.4. Each inch stands for 25 miles, so multiply: 3.4 &times; 25 = 85 miles.",
+"You added 25 and 3.4. The scale is a rate: 3.4 inches &times; 25 miles per inch = 85 miles.",
+"",
+"You misplaced the decimal (3.4 &times; 250). 3.4 &times; 25 = 85 miles."
+]
+},
+{
+"options": [
+"0.59 hours",
+"1.5 hours",
+"1.7 hours",
+"2.1 hours"
+],
+"answer": 2,
+"why": [
+"You divided the speed by the distance (50 &divide; 85). Time = distance &divide; speed = 85 &divide; 50 = 1.7 hours.",
+"At 50 mph, 1.5 hours covers only 75 miles. Divide carefully: 85 &divide; 50 = 1.7 hours.",
+"",
+"At 50 mph, 2.1 hours would cover 105 miles, which is more than 85. Time = 85 &divide; 50 = 1.7 hours."
+]
+}
+],
+"explain": "<p>Set up a proportion: 1 inch / 25 miles = 3.4 inches / d miles, so d = 3.4 &times; 25 = <strong>85 miles</strong>.</p><p>Time = distance &divide; speed = 85 &divide; 50 = <strong>1.7 hours</strong> (1 hour 42 minutes).</p><p>7.35 miles comes from dividing 25 by 3.4 instead of multiplying. 0.59 hours comes from dividing speed by distance (50 &divide; 85).</p>"
+},
+{
+"id": "m12",
+"type": "mc",
+"skill": "Mean",
+"difficulty": 1,
+"prompt": "<p>The table shows the number of passengers on a city bus for seven trips along the same route.</p><table><thead><tr><th>Trip</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>Passengers</td><td>32</td><td>45</td><td>28</td><td>51</td><td>45</td><td>39</td><td>47</td></tr></tbody></table><p>What is the mean number of passengers per trip?</p>",
+"options": [
+"41",
+"45",
+"23",
+"47.8"
+],
+"answer": 0,
+"explain": "<p>Add the values: 32 + 45 + 28 + 51 + 45 + 39 + 47 = 287.</p><p>Divide by the number of trips: 287 &divide; 7 = <strong>41</strong>.</p><p>45 is both the median and the mode, not the mean. 23 is the range (51 &minus; 28). 47.8 comes from dividing by 6 instead of 7.</p>",
+"why": [
+"",
+"45 is the median and the mode (the middle value and the most common value), not the mean. The mean is the sum divided by the count: 287 &divide; 7 = 41.",
+"23 is the range (51 &minus; 28). The mean is the total, 287, divided by the 7 trips: 41.",
+"You divided the sum by 6 instead of 7. There are seven trips, so the mean is 287 &divide; 7 = 41."
+]
+},
+{
+"id": "m13",
+"type": "mc",
+"skill": "Probability of independent events",
+"difficulty": 2,
+"prompt": "<p>A traveler has two flights. The probability that the first flight arrives on time is 0.85. The probability that the second flight departs on time is 0.9. The two events are independent. What is the probability that the first flight arrives on time <strong>and</strong> the second flight departs on time?</p>",
+"options": [
+"0.875",
+"0.235",
+"0.015",
+"0.765"
+],
+"answer": 3,
+"explain": "<p>For independent events, P(A and B) = P(A) &times; P(B).</p><p>0.85 &times; 0.9 = <strong>0.765</strong>.</p><p>0.875 is the average of the two probabilities, which is not how probabilities combine. 0.235 is the probability that at least one of the two events does <em>not</em> happen (1 &minus; 0.765). 0.015 is the probability that both events fail (0.15 &times; 0.1).</p>",
+"why": [
+"You averaged the two probabilities. For independent events that must both happen, multiply: 0.85 &times; 0.9 = 0.765.",
+"0.235 is 1 &minus; 0.765, the chance that at least one event does not happen. The question asks for both events happening: 0.85 &times; 0.9 = 0.765.",
+"You multiplied the chances of each event failing (0.15 &times; 0.1). The question asks for both succeeding, so multiply 0.85 &times; 0.9.",
+""
+]
+},
+{
+"id": "m14",
+"type": "fill",
+"skill": "Pythagorean theorem",
+"difficulty": 2,
+"prompt": "<p>A small plane flies 120 miles due north and then 160 miles due east. How many miles is the plane from its starting point, measured in a straight line?</p>",
+"answer": [
+"200"
+],
+"value": 200,
+"tol": 0.001,
+"suffix": "miles",
+"explain": "<p>Flying north and then east makes a right angle, so the straight-line distance is the hypotenuse of a right triangle.</p><p>c<sup>2</sup> = 120<sup>2</sup> + 160<sup>2</sup> = 14,400 + 25,600 = 40,000</p><p>c = &radic;40,000 = <strong>200 miles</strong>.</p><p>Adding the legs (120 + 160 = 280) gives the distance flown, not the straight-line distance back to the start.</p>",
+"mistakes": [
+{
+"answer": [
+"280"
+],
+"why": "You added the two legs (120 + 160). That is the distance flown, not the straight-line distance. Use the Pythagorean theorem: &radic;(120<sup>2</sup> + 160<sup>2</sup>) = 200."
+},
+{
+"answer": [
+"40000",
+"40,000"
+],
+"why": "You found c<sup>2</sup> = 40,000 but did not take the square root. c = &radic;40,000 = 200 miles."
+}
+]
+},
+{
+"id": "m15",
+"type": "mc",
+"skill": "Area of circles",
+"difficulty": 3,
+"prompt": "<p>A circular fountain in front of a train station has a radius of 9 feet. A walkway 3 feet wide surrounds the fountain. To the nearest square foot, what is the area of the walkway? Use the formula sheet if needed.</p>",
+"options": [
+"19",
+"254",
+"452",
+"198"
+],
+"answer": 3,
+"explain": "<p>The walkway is the ring between two circles. The outer circle has radius 9 + 3 = 12 feet; the inner circle (the fountain) has radius 9 feet.</p><p>Outer area: &pi;(12)<sup>2</sup> = 144&pi;</p><p>Inner area: &pi;(9)<sup>2</sup> = 81&pi;</p><p>Walkway area: 144&pi; &minus; 81&pi; = 63&pi; &asymp; 197.9, which rounds to <strong>198 square feet</strong>.</p><p>452 is the area of the whole outer circle, which includes the fountain. 254 is the area of the fountain alone. 19 is the difference of the two circumferences (24&pi; &minus; 18&pi; = 6&pi;), which is a length, not an area.</p>",
+"why": [
+"19 is about 6&pi;, the difference of the two circumferences. That is a length, not an area. Subtract the areas: 144&pi; &minus; 81&pi; = 63&pi; &asymp; 198.",
+"254 is the area of the fountain alone (81&pi;). The walkway is the ring: outer circle minus fountain, 144&pi; &minus; 81&pi; &asymp; 198.",
+"452 is the area of the whole outer circle (144&pi;), which still includes the fountain. Subtract the fountain's area, 81&pi;, to get about 198.",
+""
+]
+},
+{
+"id": "m16",
+"type": "mc",
+"skill": "Solving linear equations",
+"difficulty": 2,
+"prompt": "<p>What value of x makes the equation true?</p><p>5(2x &minus; 3) &minus; 4x = 3(x + 7)</p>",
+"options": [
+"&minus;2",
+"22/3",
+"2",
+"12"
+],
+"answer": 3,
+"explain": "<p>Distribute on both sides: 10x &minus; 15 &minus; 4x = 3x + 21.</p><p>Combine like terms on the left: 6x &minus; 15 = 3x + 21.</p><p>Subtract 3x from both sides: 3x &minus; 15 = 21.</p><p>Add 15 to both sides: 3x = 36, so x = <strong>12</strong>.</p><p>Check: 5(24 &minus; 3) &minus; 48 = 105 &minus; 48 = 57 and 3(12 + 7) = 57.</p><p>22/3 comes from distributing the 3 only to x on the right side (3x + 7 instead of 3x + 21).</p>",
+"why": [
+"You moved &minus;15 to the wrong side with the wrong sign, getting 3x = &minus;6. From 6x &minus; 15 = 3x + 21, add 15 to both sides: 3x = 36, so x = 12.",
+"You distributed the 3 only to x on the right side (3x + 7 instead of 3x + 21). Distribute to both terms: 3(x + 7) = 3x + 21.",
+"You subtracted 15 instead of adding it, getting 3x = 6. To undo &minus;15, add 15 to both sides: 3x = 21 + 15 = 36, so x = 12.",
+""
+]
+},
+{
+"id": "m17",
+"type": "multi",
+"skill": "Factoring out the GCF",
+"difficulty": 2,
+"prompt": "<p>Which expressions are equivalent to 6x<sup>2</sup> &minus; 9x? Select <strong>two</strong> answers.</p>",
+"options": [
+"3x(2x &minus; 3)",
+"3(2x<sup>2</sup> &minus; 3x)",
+"6x(x &minus; 9)",
+"3x(2x &minus; 9)",
+"x(6x &minus; 3)"
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>The greatest common factor of 6x<sup>2</sup> and 9x is 3x, so 6x<sup>2</sup> &minus; 9x = <strong>3x(2x &minus; 3)</strong>. Check: 3x &times; 2x = 6x<sup>2</sup> and 3x &times; (&minus;3) = &minus;9x.</p><p>Factoring out only 3 also gives an equivalent expression: <strong>3(2x<sup>2</sup> &minus; 3x)</strong> = 6x<sup>2</sup> &minus; 9x.</p><p>The others do not multiply back correctly: 6x(x &minus; 9) = 6x<sup>2</sup> &minus; 54x; 3x(2x &minus; 9) = 6x<sup>2</sup> &minus; 27x; x(6x &minus; 3) = 6x<sup>2</sup> &minus; 3x. A factored form must multiply back to the original expression.</p>",
+"why": [
+"",
+"",
+"You factored 6x out of 6x<sup>2</sup> but left the 9 as it was. Check by multiplying: 6x(x &minus; 9) = 6x<sup>2</sup> &minus; 54x, not 6x<sup>2</sup> &minus; 9x.",
+"You divided 6x<sup>2</sup> by 3x but forgot to divide 9x by 3x. Multiplying back gives 3x(2x &minus; 9) = 6x<sup>2</sup> &minus; 27x.",
+"You took out x but divided 9x by 3 instead of by x. Multiplying back gives x(6x &minus; 3) = 6x<sup>2</sup> &minus; 3x; factoring out x should leave 6x &minus; 9."
+]
+},
+{
+"id": "m18",
+"type": "mc",
+"skill": "Slope as a rate of change",
+"difficulty": 2,
+"prompt": "<p>The graph shows the amount of gasoline left in a car's tank after the car is driven a certain number of miles. Which statement correctly gives the slope of the line and what it means?</p>",
+"figure": {
+"type": "line",
+"title": "Gasoline Left in Tank",
+"xLabel": "Miles driven",
+"yLabel": "Gasoline (gallons)",
+"labels": [
+"0",
+"60",
+"120",
+"180",
+"240",
+"300"
+],
+"series": [
+{
+"name": "Gasoline",
+"values": [
+14,
+12,
+10,
+8,
+6,
+4
+]
+}
+]
+},
+"options": [
+"&minus;2; the car uses 2 gallons for every mile driven.",
+"&minus;30; the car uses 30 gallons for every mile driven.",
+"&minus;1/30; the car uses 1 gallon for every 30 miles driven.",
+"14; the tank holds 14 gallons when the trip starts."
+],
+"answer": 2,
+"explain": "<p>Pick two points from the graph: (0, 14) and (60, 12).</p><p>Slope = change in gallons &divide; change in miles = (12 &minus; 14) / (60 &minus; 0) = &minus;2/60 = <strong>&minus;1/30</strong>.</p><p>The slope is negative because the fuel goes down. It means the car uses 1 gallon of gasoline for every 30 miles driven (30 miles per gallon).</p><p>&minus;2 is the change in gallons for each 60-mile step on the graph, not for each mile. 14 is the y-intercept (the starting amount), not the slope.</p>",
+"why": [
+"&minus;2 is the change in gallons for each 60-mile step on the graph, not for each mile. Slope = &minus;2 &divide; 60 = &minus;1/30.",
+"You divided the change in miles by the change in gallons (60 &divide; &minus;2). Slope is change in y (gallons) over change in x (miles): &minus;2/60 = &minus;1/30.",
+"",
+"14 is the y-intercept, the starting amount of gas. The slope is the rate of change: (12 &minus; 14) &divide; (60 &minus; 0) = &minus;1/30."
+]
+},
+{
+"id": "m19",
+"type": "hotspot",
+"skill": "Vertex of a parabola",
+"difficulty": 3,
+"prompt": "<p>A parabola has the equation y = &minus;x<sup>2</sup> + 6x &minus; 5. On the coordinate plane, click the vertex of this parabola.</p>",
+"plane": {
+"xmin": -6,
+"xmax": 6,
+"ymin": -6,
+"ymax": 6
+},
+"answer": [
+3,
+4
+],
+"explain": "<p>For y = ax<sup>2</sup> + bx + c, the x-coordinate of the vertex is x = &minus;b / (2a).</p><p>Here a = &minus;1 and b = 6, so x = &minus;6 / (2 &times; (&minus;1)) = &minus;6 / (&minus;2) = 3.</p><p>Substitute x = 3: y = &minus;(3)<sup>2</sup> + 6(3) &minus; 5 = &minus;9 + 18 &minus; 5 = 4.</p><p>The vertex is <strong>(3, 4)</strong>. Because a = &minus;1 is negative, the parabola opens downward and this is its highest point.</p><p>Using x = b / (2a) without the negative sign gives x = &minus;3 and y = &minus;32, a point that is not even on the grid. (0, &minus;5) is the y-intercept, and (1, 0) and (5, 0) are the x-intercepts, not the vertex.</p>",
+"why": "The most common wrong click uses x = b/(2a) without the negative sign, or picks the y-intercept (0, &minus;5) or an x-intercept (1, 0) or (5, 0). The vertex is at x = &minus;b/(2a) = &minus;6/(&minus;2) = 3, and y = &minus;9 + 18 &minus; 5 = 4, so click (3, 4)."
+},
+{
+"id": "m20",
+"type": "mc",
+"skill": "Finding the original amount",
+"difficulty": 2,
+"prompt": "<p>After a 20% discount, a monthly bus pass costs $48. What was the price of the pass before the discount?</p>",
+"options": [
+"$57.60",
+"$60.00",
+"$38.40",
+"$68.00"
+],
+"answer": 1,
+"explain": "<p>After a 20% discount, the customer pays 100% &minus; 20% = 80% of the original price.</p><p>0.80p = 48</p><p>p = 48 &divide; 0.80 = <strong>$60.00</strong>.</p><p>Check: 20% of $60 is $12, and 60 &minus; 12 = $48.</p><p>$57.60 comes from adding 20% of $48 to $48. The 20% was taken from the original price, not from $48, so that method does not work.</p>",
+"why": [
+"You added 20% of $48 to $48. The discount was 20% of the original price, so $48 is 80% of it: p = 48 &divide; 0.80 = $60.",
+"",
+"You took 20% off $48 again (48 &times; 0.80). $48 is already the discounted price; divide by 0.80 to undo the discount: $60.",
+"You added $20 to $48, treating 20% as $20. $48 is 80% of the original price, so the original is 48 &divide; 0.80 = $60."
+]
+},
+{
+"id": "m21",
+"type": "fill",
+"skill": "Converting units",
+"difficulty": 2,
+"prompt": "<p>A truck is traveling at 45 miles per hour. What is the truck's speed in feet per second? (1 mile = 5,280 feet and 1 hour = 3,600 seconds)</p>",
+"answer": [
+"66"
+],
+"value": 66,
+"tol": 0.001,
+"suffix": "feet per second",
+"explain": "<p>Change miles to feet: 45 miles &times; 5,280 feet per mile = 237,600 feet per hour.</p><p>Change hours to seconds: 237,600 &divide; 3,600 = <strong>66 feet per second</strong>.</p><p>A common error is to multiply by 3,600 instead of dividing. There are more seconds than hours, so the truck covers fewer feet in one second than in one hour.</p>",
+"mistakes": [
+{
+"answer": [
+"855360000",
+"855,360,000"
+],
+"why": "You multiplied by 3,600 instead of dividing. A second is much shorter than an hour, so divide: 45 &times; 5,280 &divide; 3,600 = 66."
+},
+{
+"answer": [
+"30.68",
+"30.7"
+],
+"why": "You set up the conversion upside down (45 &times; 3,600 &divide; 5,280). Multiply miles by 5,280 to get feet, then divide by 3,600 seconds: 66."
+}
+]
+},
+{
+"id": "m22",
+"type": "mc",
+"skill": "Inequality word problem",
+"difficulty": 2,
+"prompt": "<p>A delivery van can safely carry at most 2,400 pounds. The driver weighs 180 pounds, and each box being delivered weighs 35 pounds. What is the greatest number of boxes the van can carry with the driver on board?</p>",
+"options": [
+"63",
+"64",
+"68",
+"69"
+],
+"answer": 0,
+"noShuffle": true,
+"explain": "<p>Let b be the number of boxes. The total weight must be at most 2,400 pounds:</p><p>180 + 35b &le; 2,400</p><p>35b &le; 2,220</p><p>b &le; 2,220 &divide; 35 &asymp; 63.4</p><p>The number of boxes must be a whole number, so the greatest is <strong>63</strong>.</p><p>Check: 180 + 35(63) = 180 + 2,205 = 2,385 pounds, which is allowed. With 64 boxes: 180 + 2,240 = 2,420 pounds, which is too much.</p><p>68 comes from 2,400 &divide; 35 and ignores the driver's weight. 64 rounds 63.4 up, which would put the van over the limit.</p>",
+"why": [
+"",
+"You rounded 63.4 up to 64. With 64 boxes the weight is 180 + 2,240 = 2,420 pounds, which is over the limit, so round down to 63.",
+"You divided 2,400 by 35 and ignored the driver's 180 pounds. Subtract the driver first: 2,220 &divide; 35 &asymp; 63.4, so 63 boxes.",
+"You ignored the driver and rounded 68.6 up. Subtract the driver's weight first (2,400 &minus; 180 = 2,220), then divide by 35 and round down: 63."
+]
+},
+{
+"id": "m23",
+"type": "mc",
+"skill": "Systems of equations word problem",
+"difficulty": 3,
+"prompt": "<p>A fuel station sells regular gasoline for $3.40 per gallon and premium gasoline for $4.10 per gallon. One day the station sold 5,000 gallons of gasoline in all, for a total of $17,770. How many gallons of premium gasoline were sold?</p>",
+"options": [
+"3,900",
+"1,100",
+"2,500",
+"4,334"
+],
+"answer": 1,
+"explain": "<p>Let r = gallons of regular and p = gallons of premium.</p><p>r + p = 5,000</p><p>3.40r + 4.10p = 17,770</p><p>From the first equation, r = 5,000 &minus; p. Substitute:</p><p>3.40(5,000 &minus; p) + 4.10p = 17,770</p><p>17,000 &minus; 3.40p + 4.10p = 17,770</p><p>0.70p = 770</p><p>p = <strong>1,100</strong> gallons of premium (and r = 3,900 gallons of regular).</p><p>Check: 3.40(3,900) + 4.10(1,100) = 13,260 + 4,510 = $17,770.</p><p>3,900 is the number of gallons of regular, not premium. 4,334 comes from 17,770 &divide; 4.10, which assumes all of the gasoline sold was premium.</p>",
+"why": [
+"3,900 is the number of gallons of regular gasoline. The question asks for premium: 5,000 &minus; 3,900 = 1,100.",
+"",
+"You split the 5,000 gallons evenly. That would bring in 3.40(2,500) + 4.10(2,500) = $18,750, not $17,770. Solve the system to get 1,100 gallons of premium.",
+"You divided $17,770 by $4.10, assuming all the gas was premium. Use both equations, r + p = 5,000 and 3.40r + 4.10p = 17,770, to get p = 1,100."
+]
+},
+{
+"id": "m24",
+"type": "mc",
+"skill": "Distance, rate, and time",
+"difficulty": 2,
+"prompt": "<p>Two cars leave the same rest stop at the same time and drive in opposite directions on a straight highway. One car averages 58 miles per hour and the other averages 66 miles per hour. After how many hours will the cars be 403 miles apart?</p>",
+"options": [
+"6.11 hours",
+"6.95 hours",
+"6.5 hours",
+"3.25 hours"
+],
+"answer": 3,
+"explain": "<p>The cars move apart from each other, so the distance between them grows by 58 + 66 = 124 miles every hour.</p><p>Let t be the time in hours: 58t + 66t = 403</p><p>124t = 403</p><p>t = 403 &divide; 124 = <strong>3.25 hours</strong> (3 hours 15 minutes).</p><p>Check: 58(3.25) + 66(3.25) = 188.5 + 214.5 = 403 miles.</p><p>6.5 hours comes from using the average of the two speeds (62 mph) as the rate of separation. 6.95 hours and 6.11 hours each use only one car's speed.</p>",
+"why": [
+"You used only the faster car's speed (403 &divide; 66). Both cars move apart, so the gap grows 58 + 66 = 124 miles each hour: 403 &divide; 124 = 3.25.",
+"You used only the slower car's speed (403 &divide; 58). Both cars add to the distance between them, so divide by 58 + 66 = 124.",
+"You used the average speed, 62 mph, as the rate of separation. The cars move in opposite directions, so their speeds add: 403 &divide; 124 = 3.25 hours.",
+""
+]
+},
+{
+"id": "m25",
+"type": "drag",
+"skill": "Classifying slope",
+"difficulty": 2,
+"prompt": "<p>Sort these equations by the slope of each line. Place every equation in the matching slope category.</p>",
+"choices": [
+"y = &minus;(2/5)x + 7",
+"4x &minus; 2y = 10",
+"y = &minus;1",
+"x = 6",
+"5x + y = 3",
+"y + 2 = 3(x &minus; 1)"
+],
+"bins": [
+"Positive slope",
+"Negative slope",
+"Zero slope",
+"Undefined slope"
+],
+"answer": [
+1,
+0,
+2,
+3,
+1,
+0
+],
+"explain": "<p>Write each equation in slope-intercept form when possible:</p><ul><li>y = &minus;(2/5)x + 7: slope &minus;2/5, <strong>negative</strong>.</li><li>4x &minus; 2y = 10 becomes &minus;2y = &minus;4x + 10, so y = 2x &minus; 5: slope 2, <strong>positive</strong>.</li><li>y = &minus;1 is a horizontal line: <strong>zero slope</strong>.</li><li>x = 6 is a vertical line: <strong>undefined slope</strong>.</li><li>5x + y = 3 becomes y = &minus;5x + 3: slope &minus;5, <strong>negative</strong>.</li><li>y + 2 = 3(x &minus; 1) is point-slope form with slope 3, <strong>positive</strong>.</li></ul><p>A common mistake is to read the slope of 4x &minus; 2y = 10 as 4 or &minus;2 without solving for y, or to think x = 6 has zero slope. Horizontal lines have zero slope; vertical lines have undefined slope.</p>",
+"why": "The most common mistake is reading the slope of 4x &minus; 2y = 10 as 4 or &minus;2 without solving for y (it is y = 2x &minus; 5, slope 2), or calling x = 6 zero slope. Horizontal lines like y = &minus;1 have zero slope; vertical lines like x = 6 have undefined slope."
+},
+{
+"id": "m26",
+"type": "mc",
+"skill": "Volume of a sphere",
+"difficulty": 3,
+"prompt": "<p>The tank of a water tower is shaped like a sphere with a diameter of 30 feet. To the nearest cubic foot, what is the volume of the tank? Use the formula sheet if needed.</p>",
+"options": [
+"2,827",
+"10,603",
+"14,137",
+"113,097"
+],
+"answer": 2,
+"explain": "<p>Volume of a sphere: V = (4/3)&pi;r<sup>3</sup>. The radius is half the diameter: r = 30 &divide; 2 = 15 feet.</p><p>r<sup>3</sup> = 15 &times; 15 &times; 15 = 3,375</p><p>V = (4/3)&pi;(3,375) = 4,500&pi; &asymp; <strong>14,137 cubic feet</strong>.</p><p>113,097 uses the diameter (30) as the radius. 2,827 is 4&pi;r<sup>2</sup>, the surface area. 10,603 is &pi;r<sup>3</sup>, which leaves out the 4/3.</p>",
+"why": [
+"2,827 is 4&pi;r<sup>2</sup>, the surface area of the sphere. Volume uses (4/3)&pi;r<sup>3</sup> = (4/3)&pi;(3,375) &asymp; 14,137.",
+"You used &pi;r<sup>3</sup> and left out the 4/3. V = (4/3)&pi;(15)<sup>3</sup> &asymp; 14,137.",
+"",
+"You used the diameter, 30, as the radius. The radius is half the diameter, 15 feet: (4/3)&pi;(15)<sup>3</sup> &asymp; 14,137."
+]
+},
+{
+"id": "m27",
+"type": "fill",
+"skill": "Surface area of a cylinder",
+"difficulty": 3,
+"prompt": "<p>A closed fuel drum is shaped like a cylinder with a radius of 2 feet and a height of 4 feet. What is the total surface area of the drum, in square feet, rounded to the nearest tenth? Use the formula sheet if needed.</p>",
+"answer": [
+"75.4"
+],
+"value": 75.4,
+"tol": 0.1,
+"suffix": "square feet",
+"explain": "<p>Surface area of a cylinder: SA = 2&pi;rh + 2&pi;r<sup>2</sup>.</p><p>Side (lateral area): 2&pi;(2)(4) = 16&pi;</p><p>Top and bottom: 2&pi;(2)<sup>2</sup> = 2&pi;(4) = 8&pi;</p><p>SA = 16&pi; + 8&pi; = 24&pi; &asymp; <strong>75.4 square feet</strong>.</p><p>Leaving out the top and bottom gives only 16&pi; &asymp; 50.3 square feet. The volume, &pi;r<sup>2</sup>h = 16&pi;, also happens to be about 50.3, but it is measured in cubic feet and does not answer the question.</p>",
+"mistakes": [
+{
+"answer": [
+"50.3",
+"50.27"
+],
+"why": "You found only the side (lateral) area, 2&pi;rh = 16&pi;. A closed drum also has a top and a bottom: add 2&pi;r<sup>2</sup> = 8&pi; to get 24&pi; &asymp; 75.4."
+},
+{
+"answer": [
+"62.8",
+"62.83"
+],
+"why": "You included only one circular end (&pi;r<sup>2</sup> = 4&pi;). A closed drum has two ends: 16&pi; + 2(4&pi;) = 24&pi; &asymp; 75.4."
+}
+]
+},
+{
+"id": "m28",
+"type": "mc",
+"skill": "Writing a linear equation from two points",
+"difficulty": 3,
+"prompt": "<p>The cost of a taxi ride is a linear function of the distance traveled. A 4-mile ride costs $13.50, and a 10-mile ride costs $27.00. Which equation gives the cost C, in dollars, of a ride of m miles?</p>",
+"options": [
+"C = 4.50m + 2.25",
+"C = 2.25m + 4.50",
+"C = 3.375m",
+"C = 2.25m + 13.50"
+],
+"answer": 1,
+"explain": "<p>Slope (cost per mile): (27.00 &minus; 13.50) / (10 &minus; 4) = 13.50 / 6 = 2.25.</p><p>Use the point (4, 13.50) to find the starting fee b: 13.50 = 2.25(4) + b, so 13.50 = 9 + b and b = 4.50.</p><p>Equation: <strong>C = 2.25m + 4.50</strong>.</p><p>Check: 2.25(10) + 4.50 = 22.50 + 4.50 = 27.00.</p><p>C = 4.50m + 2.25 switches the slope and the intercept. C = 3.375m divides $13.50 by 4 miles and leaves out the starting fee, so it fails for the 10-mile ride (33.75, not 27.00).</p>",
+"why": [
+"You switched the slope and the intercept. The cost per mile is (27 &minus; 13.50) &divide; (10 &minus; 4) = 2.25, and the starting fee is 4.50: C = 2.25m + 4.50.",
+"",
+"You divided $13.50 by 4 miles and left out the starting fee. That rule fails for the 10-mile ride (3.375 &times; 10 = 33.75, not 27). Use the slope between the two rides, 2.25, and solve for the fee.",
+"You used the cost of the 4-mile ride, $13.50, as the starting fee. The fee is the cost at 0 miles: 13.50 = 2.25(4) + b, so b = 4.50."
+]
+},
+{
+"id": "m29",
+"type": "dropdown",
+"skill": "Comparing linear functions",
+"difficulty": 2,
+"prompt": "<p>Two cars travel on the same highway. The distance d, in miles, that Car A is past a toll booth after t hours is given by d = 55t. The table shows the distance of Car B past the same toll booth.</p><table><thead><tr><th>t (hours)</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead><tbody><tr><td>d (miles)</td><td>20</td><td>80</td><td>140</td><td>200</td></tr></tbody></table><p>The speed of Car B is {{0}}.</p><p>The car with the greater speed is {{1}}.</p><p>At t = 0, Car B is {{2}} past the toll booth.</p>",
+"blanks": [
+{
+"options": [
+"20 miles per hour",
+"55 miles per hour",
+"60 miles per hour",
+"80 miles per hour"
+],
+"answer": 2,
+"why": [
+"20 is Car B's distance at t = 0, its head start, not its speed. Speed is how much the distance grows each hour: 80 &minus; 20 = 60.",
+"55 miles per hour is Car A's speed from d = 55t. Car B's distance grows by 60 miles each hour.",
+"",
+"80 is Car B's distance at t = 1, which includes the 20-mile head start. Its speed is 80 &minus; 20 = 60 miles per hour."
+]
+},
+{
+"options": [
+"Car A",
+"Car B",
+"neither; the speeds are equal"
+],
+"answer": 1,
+"why": [
+"Car A goes 55 miles per hour, while Car B goes 60 miles per hour, so Car B is faster. Compare the rates of change, not the starting positions.",
+"",
+"The speeds are 55 and 60 miles per hour, which are not equal. Car B's distance grows by 60 miles each hour."
+]
+},
+{
+"options": [
+"0 miles",
+"20 miles",
+"55 miles",
+"60 miles"
+],
+"answer": 1,
+"why": [
+"You assumed Car B starts at the toll booth like Car A. The table shows d = 20 when t = 0.",
+"",
+"55 is Car A's speed, not Car B's starting position. Read the table at t = 0: d = 20.",
+"60 is Car B's speed. Its position at t = 0 is read directly from the table: 20 miles."
+]
+}
+],
+"explain": "<p>Car B's speed is the rate of change in the table: each hour the distance increases by 60 miles (20 to 80, 80 to 140, 140 to 200). So Car B travels <strong>60 miles per hour</strong>.</p><p>Car A's speed is the slope of d = 55t, which is 55 miles per hour. Since 60 &gt; 55, <strong>Car B</strong> is faster.</p><p>At t = 0, the table shows Car B is already <strong>20 miles</strong> past the toll booth. (Car B's equation is d = 60t + 20.)</p><p>80 miles per hour is Car B's distance at t = 1, not its speed; the 20-mile head start must be subtracted.</p>"
+},
+{
+"id": "m30",
+"type": "mc",
+"skill": "Solving quadratics by factoring",
+"difficulty": 3,
+"prompt": "<p>What are the solutions of the equation 3x<sup>2</sup> + 10x &minus; 8 = 0?</p>",
+"options": [
+"x = &minus;2/3 and x = 4",
+"x = 2 and x = &minus;4",
+"x = 2/3 and x = &minus;4",
+"x = 3/2 and x = &minus;4"
+],
+"answer": 2,
+"explain": "<p>Factor: look for (3x + ?)(x + ?) whose product is 3x<sup>2</sup> + 10x &minus; 8.</p><p>(3x &minus; 2)(x + 4) = 3x<sup>2</sup> + 12x &minus; 2x &minus; 8 = 3x<sup>2</sup> + 10x &minus; 8. &#10003;</p><p>Set each factor equal to 0: 3x &minus; 2 = 0 gives x = 2/3; x + 4 = 0 gives x = &minus;4.</p><p>The solutions are <strong>x = 2/3 and x = &minus;4</strong>.</p><p>Check x = 2/3: 3(4/9) + 10(2/3) &minus; 8 = 4/3 + 20/3 &minus; 8 = 8 &minus; 8 = 0.</p><p>x = 2 comes from setting 3x &minus; 2 = 0 and forgetting to divide by 3. x = &minus;2/3 and x = 4 use the wrong signs.</p>",
+"why": [
+"You used the wrong signs in the factors. (3x &minus; 2)(x + 4) = 0 gives 3x = 2 and x = &minus;4, so the solutions are 2/3 and &minus;4.",
+"You set 3x &minus; 2 = 0 and forgot to divide by 3, giving x = 2. Solve fully: 3x = 2, so x = 2/3.",
+"",
+"You divided the wrong way when solving 3x = 2 (3 &divide; 2 instead of 2 &divide; 3). x = 2/3."
+]
+},
+{
+"id": "m31",
+"type": "mc",
+"skill": "Quadratic formula in context",
+"difficulty": 3,
+"prompt": "<p>On dry pavement, the stopping distance d, in feet, of a car traveling at v miles per hour can be modeled by d = 0.05v<sup>2</sup> + 1.1v. To the nearest mile per hour, at what speed is the stopping distance 200 feet? Use the formula sheet if needed.</p>",
+"options": [
+"53 mph",
+"63 mph",
+"75 mph",
+"106 mph"
+],
+"answer": 0,
+"noShuffle": true,
+"explain": "<p>Set d = 200 and write the equation in standard form: 0.05v<sup>2</sup> + 1.1v &minus; 200 = 0, with a = 0.05, b = 1.1, c = &minus;200.</p><p>Discriminant: b<sup>2</sup> &minus; 4ac = 1.21 &minus; 4(0.05)(&minus;200) = 1.21 + 40 = 41.21</p><p>v = (&minus;1.1 &plusmn; &radic;41.21) / (2 &times; 0.05) = (&minus;1.1 &plusmn; 6.4195) / 0.1</p><p>The positive solution is 5.3195 &divide; 0.1 &asymp; 53.2, so the speed is <strong>53 mph</strong>. (The other solution is negative, and a speed cannot be negative.)</p><p>Check: 0.05(53.2)<sup>2</sup> + 1.1(53.2) &asymp; 141.5 + 58.5 = 200.</p><p>75 mph uses +1.1 instead of &minus;b = &minus;1.1. 106 mph divides by a instead of 2a. 63 mph ignores the 1.1v term.</p>",
+"why": [
+"",
+"You dropped the 1.1v term and solved 0.05v<sup>2</sup> = 200, getting v &asymp; 63. Both terms count toward stopping distance; use the quadratic formula on 0.05v<sup>2</sup> + 1.1v &minus; 200 = 0.",
+"You used +b instead of &minus;b in the quadratic formula: (1.1 + 6.42) &divide; 0.1 &asymp; 75. The formula starts with &minus;b = &minus;1.1.",
+"You divided by a (0.05) instead of 2a (0.1): 5.32 &divide; 0.05 &asymp; 106. The denominator of the quadratic formula is 2a."
+]
+},
+{
+"id": "m32",
+"type": "mc",
+"skill": "Negative exponents",
+"difficulty": 3,
+"prompt": "<p>Which expression is equivalent to (x<sup>&minus;2</sup>y<sup>3</sup>) / (x<sup>3</sup>y<sup>&minus;1</sup>) for x &ne; 0 and y &ne; 0?</p>",
+"options": [
+"xy<sup>4</sup>",
+"y<sup>2</sup>/x<sup>5</sup>",
+"x<sup>5</sup>y<sup>4</sup>",
+"y<sup>4</sup>/x<sup>5</sup>"
+],
+"answer": 3,
+"explain": "<p>When dividing powers with the same base, subtract the exponents.</p><p>x: x<sup>&minus;2 &minus; 3</sup> = x<sup>&minus;5</sup></p><p>y: y<sup>3 &minus; (&minus;1)</sup> = y<sup>4</sup></p><p>A negative exponent means a reciprocal: x<sup>&minus;5</sup>y<sup>4</sup> = <strong>y<sup>4</sup>/x<sup>5</sup></strong>.</p><p>y<sup>2</sup>/x<sup>5</sup> comes from subtracting 3 &minus; 1 instead of 3 &minus; (&minus;1). xy<sup>4</sup> comes from computing &minus;2 + 3 instead of &minus;2 &minus; 3.</p>",
+"why": [
+"You added the x exponents (&minus;2 + 3 = 1) instead of subtracting. Dividing powers means subtracting: &minus;2 &minus; 3 = &minus;5, so x ends up in the denominator.",
+"You subtracted 3 &minus; 1 for y instead of 3 &minus; (&minus;1). Subtracting a negative adds: y<sup>3 + 1</sup> = y<sup>4</sup>.",
+"You subtracted the x exponents in the wrong order (3 &minus; (&minus;2) = 5) and kept x in the numerator. Numerator minus denominator: &minus;2 &minus; 3 = &minus;5, so x<sup>5</sup> belongs in the denominator.",
+""
+]
+},
+{
+"id": "m33",
+"type": "fill",
+"skill": "Linear equation word problem",
+"difficulty": 3,
+"prompt": "<p>Jamal drove for a total of 5 hours and covered 255 miles. He drove part of the time on a highway at 60 miles per hour and the rest of the time on country roads at 45 miles per hour. How many hours did he drive on the highway?</p>",
+"answer": [
+"2"
+],
+"value": 2,
+"tol": 0.001,
+"suffix": "hours",
+"explain": "<p>Let h be the hours on the highway. Then 5 &minus; h is the hours on country roads.</p><p>Distance: 60h + 45(5 &minus; h) = 255</p><p>60h + 225 &minus; 45h = 255</p><p>15h = 30</p><p>h = <strong>2 hours</strong></p><p>Check: 60(2) + 45(3) = 120 + 135 = 255 miles.</p><p>A common error is to forget to distribute the 45 to both terms in (5 &minus; h).</p>",
+"mistakes": [
+{
+"answer": [
+"3"
+],
+"why": "3 is the number of hours on country roads (5 &minus; 2). The question asks for highway hours, h = 2."
+},
+{
+"answer": [
+"4.25"
+],
+"why": "You divided 255 by 60, as if all 5 hours were on the highway. Set up 60h + 45(5 &minus; h) = 255 to get h = 2."
+}
+]
+},
+{
+"id": "m34",
+"type": "mc",
+"skill": "Counting (permutations)",
+"difficulty": 2,
+"prompt": "<p>A travel agency offers tours of 6 different cities. A customer will choose 3 different cities and the order in which to visit them. How many different ordered tours are possible?</p>",
+"options": [
+"18",
+"20",
+"120",
+"216"
+],
+"answer": 2,
+"noShuffle": true,
+"explain": "<p>There are 6 choices for the first city, 5 remaining choices for the second, and 4 remaining choices for the third.</p><p>6 &times; 5 &times; 4 = <strong>120</strong> ordered tours.</p><p>20 counts groups of 3 cities without regard to order (120 &divide; 6). The order matters here, so 20 is too small. 216 = 6 &times; 6 &times; 6 allows the same city to be visited more than once.</p>",
+"why": [
+"You multiplied 6 &times; 3. Count the choices for each stop: 6 for the first city, 5 for the second, 4 for the third: 6 &times; 5 &times; 4 = 120.",
+"20 counts groups of 3 cities without order (120 &divide; 6). The customer also chooses the order, so each group counts 6 times: 120.",
+"",
+"6 &times; 6 &times; 6 lets the same city be chosen more than once. The cities must be different, so the choices drop: 6 &times; 5 &times; 4 = 120."
+]
+},
+{
+"id": "m35",
+"type": "mc",
+"skill": "Area of a trapezoid",
+"difficulty": 2,
+"prompt": "<p>A parking lot at a train station is shaped like the trapezoid shown. The parallel sides are 120 feet and 80 feet long, and the distance between them is 60 feet. What is the area of the parking lot, in square feet? Use the formula sheet if needed.</p>",
+"figure": {
+"type": "svg",
+"svg": "<svg viewBox='0 0 300 210' xmlns='http://www.w3.org/2000/svg'><polygon points='30,170 270,170 230,50 70,50' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='70' y1='50' x2='70' y2='170' stroke='#0A1F3D' stroke-dasharray='5,4'/><polyline points='70,158 82,158 82,170' fill='none' stroke='#0A1F3D'/><text x='130' y='40' font-size='14' fill='#0A1F3D'>80 ft</text><text x='125' y='195' font-size='14' fill='#0A1F3D'>120 ft</text><text x='78' y='115' font-size='14' fill='#0A1F3D'>60 ft</text></svg>",
+"alt": "A trapezoid. The top base is 80 feet, the bottom base is 120 feet, and a dashed height line perpendicular to the bases is 60 feet."
+},
+"options": [
+"4,800",
+"6,000",
+"7,200",
+"12,000"
+],
+"answer": 1,
+"noShuffle": true,
+"explain": "<p>Area of a trapezoid: A = (1/2)h(b<sub>1</sub> + b<sub>2</sub>).</p><p>A = (1/2)(60)(120 + 80) = (1/2)(60)(200) = 30 &times; 200 = <strong>6,000 square feet</strong>.</p><p>12,000 forgets the 1/2. 7,200 and 4,800 treat the lot as a rectangle using only one of the bases (120 &times; 60 or 80 &times; 60).</p>",
+"why": [
+"You treated the lot as a rectangle using only the shorter base (80 &times; 60). A trapezoid uses the average of both bases: (1/2)(60)(120 + 80) = 6,000.",
+"",
+"You treated the lot as a rectangle using only the longer base (120 &times; 60). Use both bases: (1/2)(60)(200) = 6,000.",
+"You forgot the 1/2 in the trapezoid formula. 60 &times; 200 = 12,000, and half of that is 6,000."
+]
+},
+{
+"id": "m36",
+"type": "mc",
+"skill": "Simplifying polynomials",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to 2x(x &minus; 4) &minus; (x<sup>2</sup> &minus; 3x + 5)?</p>",
+"options": [
+"x<sup>2</sup> &minus; 11x + 5",
+"x<sup>2</sup> &minus; 5x &minus; 5",
+"x<sup>2</sup> &minus; 5x + 5",
+"3x<sup>2</sup> &minus; 11x + 5"
+],
+"answer": 1,
+"explain": "<p>Distribute 2x: 2x(x &minus; 4) = 2x<sup>2</sup> &minus; 8x.</p><p>Distribute the subtraction to every term in the second polynomial: &minus;x<sup>2</sup> + 3x &minus; 5.</p><p>Combine like terms: 2x<sup>2</sup> &minus; x<sup>2</sup> = x<sup>2</sup>; &minus;8x + 3x = &minus;5x; the constant is &minus;5.</p><p>Result: <strong>x<sup>2</sup> &minus; 5x &minus; 5</strong>.</p><p>x<sup>2</sup> &minus; 11x + 5 comes from subtracting only the x<sup>2</sup> term and leaving &minus;3x and +5 unchanged.</p>",
+"why": [
+"You subtracted only the x<sup>2</sup> term and left &minus;3x and +5 unchanged. The minus sign applies to every term: &minus;x<sup>2</sup> + 3x &minus; 5.",
+"",
+"You changed the signs of x<sup>2</sup> and &minus;3x but not the +5. Subtracting the whole polynomial makes +5 into &minus;5.",
+"You added the second polynomial instead of subtracting it (2x<sup>2</sup> + x<sup>2</sup>, &minus;8x &minus; 3x). The minus sign flips every term: &minus;x<sup>2</sup> + 3x &minus; 5."
+]
+},
+{
+"id": "m37",
+"type": "hotspot",
+"skill": "Intercepts of a line",
+"difficulty": 1,
+"prompt": "<p>Click the point where the graph of 3x + 5y = 15 crosses the x-axis.</p>",
+"plane": {
+"xmin": -8,
+"xmax": 8,
+"ymin": -8,
+"ymax": 8
+},
+"answer": [
+5,
+0
+],
+"explain": "<p>Every point on the x-axis has y = 0. Substitute y = 0:</p><p>3x + 5(0) = 15</p><p>3x = 15, so x = 5.</p><p>The x-intercept is <strong>(5, 0)</strong>.</p><p>The point (0, 3) is the y-intercept (found by setting x = 0: 5y = 15, y = 3). It is where the line crosses the y-axis, not the x-axis.</p>",
+"why": "The most common wrong click is (0, 3), the y-intercept, found by setting x = 0. The x-axis crossing has y = 0: 3x = 15, so x = 5. Click (5, 0)."
+},
+{
+"id": "m38",
+"type": "mc",
+"skill": "Ratios",
+"difficulty": 2,
+"prompt": "<p>A boat engine needs a fuel mixture of gasoline and oil in the ratio 50 to 1. One gallon equals 128 fluid ounces. How many fluid ounces of oil should be added to 2.5 gallons of gasoline?</p>",
+"options": [
+"0.05",
+"6.27",
+"6.4",
+"125"
+],
+"answer": 2,
+"noShuffle": true,
+"explain": "<p>Change the gasoline to fluid ounces: 2.5 &times; 128 = 320 fluid ounces.</p><p>The ratio 50 : 1 means 1 ounce of oil for every 50 ounces of gasoline.</p><p>Oil = 320 &divide; 50 = <strong>6.4 fluid ounces</strong>.</p><p>6.27 comes from 320 &divide; 51, which treats 320 ounces as the total mixture instead of the gasoline alone. 125 comes from 2.5 &times; 50 and skips the conversion to ounces and the division.</p>",
+"why": [
+"You divided 2.5 gallons by 50 and did not convert to fluid ounces. Change gallons to ounces first: 2.5 &times; 128 = 320, then 320 &divide; 50 = 6.4.",
+"You divided 320 by 51, treating 320 ounces as the whole mixture. The 320 ounces is the gasoline alone, so divide by 50: 6.4.",
+"",
+"You multiplied 2.5 by 50, which gives far more oil than gasoline. In a 50 to 1 mix, oil is 1/50 of the gasoline: 320 &divide; 50 = 6.4 ounces."
+]
+},
+{
+"id": "m39",
+"type": "mc",
+"skill": "Two-way tables",
+"difficulty": 2,
+"prompt": "<p>A city surveyed 250 commuters about how they usually get to work. The results are shown.</p><table><thead><tr><th></th><th>Car</th><th>Bus</th><th>Train</th><th>Total</th></tr></thead><tbody><tr><td>Under 30</td><td>42</td><td>28</td><td>30</td><td>100</td></tr><tr><td>30 and over</td><td>78</td><td>22</td><td>50</td><td>150</td></tr><tr><td>Total</td><td>120</td><td>50</td><td>80</td><td>250</td></tr></tbody></table><p>What percent of the commuters who ride the train are under 30?</p>",
+"options": [
+"12%",
+"30%",
+"37.5%",
+"62.5%"
+],
+"answer": 2,
+"noShuffle": true,
+"explain": "<p>The question is about train riders only, so the whole is the train total: 80 commuters.</p><p>Train riders under 30: 30.</p><p>30 &divide; 80 = 0.375 = <strong>37.5%</strong>.</p><p>30% is 30 &divide; 100, the percent of under-30 commuters who ride the train, which answers a different question. 12% is 30 &divide; 250, out of all commuters. 62.5% is the percent of train riders who are 30 and over.</p>",
+"why": [
+"You divided by all 250 commuters (30 &divide; 250). The question is only about train riders, so the whole is 80: 30 &divide; 80 = 37.5%.",
+"You divided by the 100 commuters under 30, which tells what percent of under-30 commuters ride the train. Divide by the train total: 30 &divide; 80.",
+"",
+"62.5% is the share of train riders who are 30 and over (50 &divide; 80). The question asks about those under 30: 30 &divide; 80 = 37.5%."
+]
+},
+{
+"id": "m40",
+"type": "mc",
+"skill": "Multiplying rational expressions",
+"difficulty": 3,
+"prompt": "<p>Simplify the product. Assume x is not &minus;3 or 2.</p><p>(x<sup>2</sup> &minus; 4) / (x + 3) &times; (2x + 6) / (x &minus; 2)</p>",
+"options": [
+"x + 2",
+"2x + 4",
+"2x &minus; 4",
+"(2x + 4) / (x + 3)"
+],
+"answer": 1,
+"explain": "<p>Factor each part:</p><p>x<sup>2</sup> &minus; 4 = (x &minus; 2)(x + 2) and 2x + 6 = 2(x + 3).</p><p>Write the product: [(x &minus; 2)(x + 2) &times; 2(x + 3)] / [(x + 3)(x &minus; 2)].</p><p>Cancel the common factors (x &minus; 2) and (x + 3): 2(x + 2) = <strong>2x + 4</strong>.</p><p>x + 2 forgets the factor of 2 from 2x + 6. (2x + 4)/(x + 3) cancels (x &minus; 2) but not (x + 3).</p>",
+"why": [
+"You forgot the factor of 2 from 2x + 6 = 2(x + 3). After canceling, 2(x + 2) = 2x + 4 remains.",
+"",
+"You canceled (x + 2) instead of (x &minus; 2). x<sup>2</sup> &minus; 4 = (x &minus; 2)(x + 2), and the (x &minus; 2) cancels with the denominator, leaving 2(x + 2).",
+"You canceled (x &minus; 2) but not (x + 3). Since 2x + 6 = 2(x + 3), the (x + 3) cancels too, leaving 2x + 4."
+]
+},
+{
+"id": "m41",
+"type": "drag",
+"skill": "Comparing numbers in scientific notation",
+"difficulty": 2,
+"prompt": "<p>The numbers below are the distances, in kilometers, flown by five airplanes in one month. Drag each distance into the correct position to order them from least to greatest.</p>",
+"choices": [
+"4.1 &times; 10<sup>4</sup>",
+"3.8 &times; 10<sup>5</sup>",
+"9.6 &times; 10<sup>3</sup>",
+"0.75 &times; 10<sup>5</sup>",
+"2.4 &times; 10<sup>4</sup>"
+],
+"bins": [
+"1st (least)",
+"2nd",
+"3rd",
+"4th",
+"5th (greatest)"
+],
+"answer": [
+2,
+4,
+0,
+3,
+1
+],
+"explain": "<p>Write each number in standard form:</p><p>9.6 &times; 10<sup>3</sup> = 9,600; 2.4 &times; 10<sup>4</sup> = 24,000; 4.1 &times; 10<sup>4</sup> = 41,000; 0.75 &times; 10<sup>5</sup> = 75,000; 3.8 &times; 10<sup>5</sup> = 380,000.</p><p>Order from least to greatest: <strong>9.6 &times; 10<sup>3</sup>, 2.4 &times; 10<sup>4</sup>, 4.1 &times; 10<sup>4</sup>, 0.75 &times; 10<sup>5</sup>, 3.8 &times; 10<sup>5</sup></strong>.</p><p>Watch 0.75 &times; 10<sup>5</sup>: it is not in standard scientific notation. Comparing exponents alone would wrongly place it with 3.8 &times; 10<sup>5</sup>, but it equals 7.5 &times; 10<sup>4</sup>.</p>",
+"why": "The most common mistake is ordering by exponent alone and placing 0.75 &times; 10<sup>5</sup> near 3.8 &times; 10<sup>5</sup>. It equals 75,000 (7.5 &times; 10<sup>4</sup>), so it comes after 41,000 and before 380,000. Write each number in standard form before comparing."
+},
+{
+"id": "m42",
+"type": "mc",
+"skill": "Function notation",
+"difficulty": 2,
+"prompt": "<p>A freight company uses the function C(w) = 1.5w + 18 to find the cost C, in dollars, of shipping a package that weighs w pounds. A package costs $81 to ship. How much does the package weigh?</p>",
+"options": [
+"42 pounds",
+"54 pounds",
+"66 pounds",
+"139.5 pounds"
+],
+"answer": 0,
+"noShuffle": true,
+"explain": "<p>The cost is given, so set C(w) = 81 and solve for w:</p><p>1.5w + 18 = 81</p><p>1.5w = 63</p><p>w = 63 &divide; 1.5 = <strong>42 pounds</strong></p><p>Check: 1.5(42) + 18 = 63 + 18 = 81.</p><p>139.5 comes from finding C(81), which substitutes 81 for the weight instead of the cost. 54 comes from 81 &divide; 1.5, which ignores the $18 fee. 66 comes from adding 18 instead of subtracting it.</p>",
+"why": [
+"",
+"You divided 81 by 1.5 and ignored the $18 fee. Subtract the fee first: 81 &minus; 18 = 63, then 63 &divide; 1.5 = 42.",
+"You added 18 instead of subtracting it (81 + 18 = 99, 99 &divide; 1.5 = 66). Undo + 18 by subtracting: 1.5w = 63, w = 42.",
+"You substituted 81 for the weight and found C(81). The $81 is the cost, so set 1.5w + 18 = 81 and solve for w."
+]
+},
+{
+"id": "m43",
+"type": "multi",
+"skill": "Compound inequalities",
+"difficulty": 3,
+"prompt": "<p>Which values of x are solutions of the inequality &minus;2 &lt; 3x + 4 &le; 13? Select <strong>three</strong> answers.</p>",
+"options": [
+"&minus;3",
+"&minus;2",
+"&minus;1",
+"0",
+"3",
+"4"
+],
+"answer": [
+2,
+3,
+4
+],
+"explain": "<p>Subtract 4 from all three parts: &minus;6 &lt; 3x &le; 9.</p><p>Divide all three parts by 3: &minus;2 &lt; x &le; 3.</p><p>The solutions from the list are <strong>&minus;1, 0, and 3</strong>.</p><p>&minus;2 is not a solution because the left symbol is &lt;, not &le;: 3(&minus;2) + 4 = &minus;2, and &minus;2 &lt; &minus;2 is false. 3 is a solution because 3(3) + 4 = 13 and 13 &le; 13 is true. 4 gives 16, which is greater than 13.</p>",
+"why": [
+"3(&minus;3) + 4 = &minus;5, which is not greater than &minus;2. The solution set is &minus;2 &lt; x &le; 3, and &minus;3 is below it.",
+"3(&minus;2) + 4 = &minus;2, and &minus;2 &lt; &minus;2 is false. The left symbol is a strict &lt;, so &minus;2 itself is not included.",
+"",
+"",
+"",
+"3(4) + 4 = 16, which is greater than 13. The solution set stops at x = 3."
+]
+},
+{
+"id": "m44",
+"type": "mc",
+"skill": "Interpreting a line graph",
+"difficulty": 2,
+"prompt": "<p>The graph shows the total distance a family drove during a 6-hour trip. The family stopped for lunch during part of the trip. To the nearest mile per hour, what was the average speed for the entire 6-hour trip?</p>",
+"figure": {
+"type": "line",
+"title": "Distance Driven",
+"xLabel": "Hours since start",
+"yLabel": "Total distance (miles)",
+"labels": [
+"0",
+"1",
+"2",
+"3",
+"4",
+"5",
+"6"
+],
+"series": [
+{
+"name": "Distance",
+"values": [
+0,
+55,
+110,
+110,
+170,
+230,
+290
+]
+}
+]
+},
+"options": [
+"48 mph",
+"55 mph",
+"58 mph",
+"60 mph"
+],
+"answer": 0,
+"noShuffle": true,
+"explain": "<p>Average speed = total distance &divide; total time.</p><p>Total distance after 6 hours: 290 miles.</p><p>290 &divide; 6 &asymp; 48.3, which rounds to <strong>48 mph</strong>.</p><p>58 mph is 290 &divide; 5, which leaves out the hour the family was stopped (hours 2 to 3, where the graph is flat). The question asks about the entire 6-hour trip, so the stop counts. 60 mph is the speed during the last three hours only.</p>",
+"why": [
+"",
+"55 mph is the speed during the first two hours only. Average speed for the whole trip is total distance &divide; total time: 290 &divide; 6 &asymp; 48.",
+"You divided 290 by 5 and left out the hour the family stopped for lunch. The question asks about the entire 6-hour trip, so divide by 6.",
+"60 mph is the speed during the last three hours only. Use the total distance and total time: 290 &divide; 6 &asymp; 48."
+]
+},
+{
+"id": "m45",
+"type": "dropdown",
+"skill": "Solving literal equations",
+"difficulty": 3,
+"prompt": "<p>The formula A = P + Prt gives the total amount A owed on a loan of P dollars at a simple annual interest rate r for t years.</p><p>Solved for r, the formula is r = ({{0}}) &divide; ({{1}}).</p><p>A family borrows $2,000 for a used car and owes a total of $2,720 after 4 years. The annual interest rate r, written as a decimal, is {{2}}.</p>",
+"blanks": [
+{
+"options": [
+"A &minus; P",
+"A + P",
+"A &minus; Pt",
+"A"
+],
+"answer": 0,
+"why": [
+"",
+"You added P instead of subtracting it. To isolate Prt, subtract P from both sides: A &minus; P = Prt.",
+"You subtracted Pt instead of P. The term without r is P alone, so subtract P: A &minus; P = Prt.",
+"You forgot to subtract P first. Only the interest, A &minus; P, equals Prt."
+]
+},
+{
+"options": [
+"P",
+"t",
+"Pt",
+"P + t"
+],
+"answer": 2,
+"why": [
+"Dividing by P alone leaves rt, not r. Divide by both P and t: r = (A &minus; P) &divide; (Pt).",
+"Dividing by t alone leaves Pr, not r. Divide by both P and t.",
+"",
+"P and t are multiplied in Prt, so you divide by their product, Pt, not their sum."
+]
+},
+{
+"options": [
+"0.0225",
+"0.09",
+"0.34",
+"0.36"
+],
+"answer": 1,
+"why": [
+"You divided by 4 one time too many (720 &divide; 32,000). r = 720 &divide; (2,000 &times; 4) = 0.09.",
+"",
+"You forgot to subtract P and used 2,720 &divide; 8,000. Only the interest, 2,720 &minus; 2,000 = 720, goes in the numerator.",
+"You divided by P only (720 &divide; 2,000), which is the interest for all 4 years. Divide by Pt = 8,000 to get the yearly rate: 0.09."
+]
+}
+],
+"explain": "<p>Start with A = P + Prt.</p><p>Subtract P from both sides: A &minus; P = Prt.</p><p>Divide both sides by Pt: r = <strong>(A &minus; P) &divide; (Pt)</strong>.</p><p>Substitute A = 2,720, P = 2,000, t = 4: r = (2,720 &minus; 2,000) &divide; (2,000 &times; 4) = 720 &divide; 8,000 = <strong>0.09</strong> (9% per year).</p><p>0.36 comes from dividing by P only (720 &divide; 2,000), which gives the interest for all 4 years combined. 0.34 comes from forgetting to subtract P (2,720 &divide; 8,000).</p>"
+},
+{
+"id": "m46",
+"type": "fill",
+"skill": "Perimeter equation word problem",
+"difficulty": 2,
+"prompt": "<p>A rectangular parking lot for a bus depot has a perimeter of 480 feet. The length of the lot is 30 feet more than twice its width. What is the width of the lot, in feet?</p>",
+"answer": [
+"70"
+],
+"value": 70,
+"tol": 0.001,
+"suffix": "feet",
+"explain": "<p>Let w be the width. Then the length is 2w + 30.</p><p>Perimeter: 2(length) + 2(width) = 480</p><p>2(2w + 30) + 2w = 480</p><p>4w + 60 + 2w = 480</p><p>6w + 60 = 480</p><p>6w = 420</p><p>w = <strong>70 feet</strong> (and the length is 2(70) + 30 = 170 feet).</p><p>Check: 2(170) + 2(70) = 340 + 140 = 480 feet.</p><p>A common error is to use only one length and one width (3w + 30 = 480, w = 150), which sets half the perimeter equal to 480.</p>",
+"mistakes": [
+{
+"answer": [
+"150"
+],
+"why": "You used only one length and one width (3w + 30 = 480). The perimeter counts two lengths and two widths: 2(2w + 30) + 2w = 480, so w = 70."
+},
+{
+"answer": [
+"170"
+],
+"why": "170 feet is the length (2 &times; 70 + 30). The question asks for the width, which is 70 feet."
+}
+]
+}
+]
+}
+]
 }

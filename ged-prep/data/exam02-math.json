@@ -1,903 +1,1295 @@
 {
- "form": 2,
- "subject": "math",
- "title": "Practice GED Form 2 — Mathematical Reasoning",
- "minutes": 115,
- "stimuli": [],
- "parts": [
-  {
-   "name": "Part 1",
-   "calculator": false,
-   "items": [
-    {
-     "id": "m01",
-     "type": "mc",
-     "skill": "Order of operations with integers",
-     "difficulty": 2,
-     "prompt": "<p>Evaluate the expression.</p><p>(&minus;3)<sup>2</sup> &minus; 2(4 &minus; 9) &divide; 5</p>",
-     "options": [
-      "11",
-      "7",
-      "&minus;7",
-      "&minus;11"
-     ],
-     "answer": 0,
-     "explain": "<p>Work inside the parentheses first: 4 &minus; 9 = &minus;5.</p><p>Exponent: (&minus;3)<sup>2</sup> = (&minus;3)(&minus;3) = 9.</p><p>Multiply, then divide, from left to right: 2(&minus;5) = &minus;10, and &minus;10 &divide; 5 = &minus;2.</p><p>Subtract: 9 &minus; (&minus;2) = 9 + 2 = <strong>11</strong>.</p><p>The answer 7 comes from treating 9 &minus; (&minus;2) as 9 &minus; 2. The answer &minus;7 comes from reading (&minus;3)<sup>2</sup> as &minus;9; the parentheses mean the negative sign is squared too.</p>"
-    },
-    {
-     "id": "m02",
-     "type": "fill",
-     "skill": "Dividing fractions",
-     "difficulty": 2,
-     "prompt": "<p>A muffin recipe uses &frac34; cup of sugar for each batch. Terrell has 4&frac12; cups of sugar. How many full batches of muffins can he make with this sugar?</p>",
-     "answer": [
-      "6"
-     ],
-     "value": 6,
-     "tol": 0.001,
-     "suffix": "batches",
-     "explain": "<p>Divide the sugar on hand by the sugar per batch: 4&frac12; &divide; &frac34;.</p><p>Change the mixed number to an improper fraction: 4&frac12; = 9/2.</p><p>Multiply by the reciprocal: 9/2 &times; 4/3 = 36/6 = <strong>6 batches</strong>.</p><p>Check: 6 &times; &frac34; = 18/4 = 4&frac12; cups.</p><p>A common error is to multiply 4&frac12; &times; &frac34; = 27/8 (about 3.4), which finds &frac34; of the sugar instead of how many &frac34;-cup portions it holds.</p>"
-    },
-    {
-     "id": "m03",
-     "type": "mc",
-     "skill": "Multiplying monomials",
-     "difficulty": 1,
-     "prompt": "<p>Which expression is equivalent to (2x<sup>3</sup>)(&minus;3x<sup>4</sup>)?</p>",
-     "options": [
-      "&minus;6x<sup>7</sup>",
-      "&minus;6x<sup>12</sup>",
-      "&minus;x<sup>7</sup>",
-      "6x<sup>7</sup>"
-     ],
-     "answer": 0,
-     "explain": "<p>Multiply the coefficients: 2 &times; (&minus;3) = &minus;6.</p><p>Multiply the powers of x by adding the exponents: x<sup>3</sup> &times; x<sup>4</sup> = x<sup>3 + 4</sup> = x<sup>7</sup>.</p><p>Result: <strong>&minus;6x<sup>7</sup></strong>.</p><p>&minus;6x<sup>12</sup> multiplies the exponents instead of adding them. &minus;x<sup>7</sup> adds the coefficients (2 + (&minus;3)) instead of multiplying them.</p>"
-    },
-    {
-     "id": "m04",
-     "type": "mc",
-     "skill": "Solving two-step equations",
-     "difficulty": 1,
-     "prompt": "<p>Solve for x.</p><p>x/3 + 5 = 11</p>",
-     "options": [
-      "2",
-      "6",
-      "18",
-      "48"
-     ],
-     "answer": 2,
-     "noShuffle": true,
-     "explain": "<p>Subtract 5 from both sides: x/3 = 6.</p><p>Multiply both sides by 3: x = <strong>18</strong>.</p><p>Check: 18/3 + 5 = 6 + 5 = 11.</p><p>The answer 2 divides 6 by 3 instead of multiplying. The answer 48 adds 5 instead of subtracting it: (11 + 5) &times; 3 = 48.</p>"
-    },
-    {
-     "id": "m05",
-     "type": "mc",
-     "skill": "Evaluating functions",
-     "difficulty": 2,
-     "prompt": "<p>The function g is defined as g(x) = x<sup>2</sup> &minus; 4x. What is the value of g(&minus;3)?</p>",
-     "options": [
-      "&minus;3",
-      "3",
-      "&minus;21",
-      "21"
-     ],
-     "answer": 3,
-     "explain": "<p>Substitute &minus;3 for every x:</p><p>g(&minus;3) = (&minus;3)<sup>2</sup> &minus; 4(&minus;3)</p><p>(&minus;3)<sup>2</sup> = 9</p><p>&minus;4(&minus;3) = +12</p><p>9 + 12 = <strong>21</strong></p><p>The answer &minus;3 comes from treating &minus;4(&minus;3) as &minus;12 (9 &minus; 12). The answer 3 comes from squaring &minus;3 to get &minus;9 (&minus;9 + 12).</p>"
-    }
-   ]
-  },
-  {
-   "name": "Part 2",
-   "calculator": true,
-   "items": [
-    {
-     "id": "m06",
-     "type": "mc",
-     "skill": "Unit price",
-     "difficulty": 1,
-     "prompt": "<p>A grocery store sells peanut butter in two sizes: a 24-ounce jar for $4.32 and a 40-ounce jar for $6.80. Which statement correctly compares the unit prices?</p>",
-     "options": [
-      "The 40-ounce jar is the better buy by $0.01 per ounce.",
-      "The 24-ounce jar is the better buy by $0.01 per ounce.",
-      "The 40-ounce jar is the better buy by $0.03 per ounce.",
-      "The 24-ounce jar is the better buy by $2.48."
-     ],
-     "answer": 0,
-     "explain": "<p>Find the price per ounce of each jar:</p><p>24-ounce jar: $4.32 &divide; 24 = $0.18 per ounce.</p><p>40-ounce jar: $6.80 &divide; 40 = $0.17 per ounce.</p><p>The 40-ounce jar costs 0.18 &minus; 0.17 = $0.01 less per ounce, so <strong>the 40-ounce jar is the better buy by $0.01 per ounce</strong>.</p><p>Saying the 24-ounce jar is better because it costs $2.48 less compares total prices, not unit prices. The smaller jar also holds 16 fewer ounces.</p>"
-    },
-    {
-     "id": "m07",
-     "type": "fill",
-     "skill": "Percent change from a graph",
-     "difficulty": 2,
-     "prompt": "<p>The graph shows the average price of a dozen eggs at one grocery store for four months. By what percent did the price increase from January to March?</p>",
-     "figure": {
-      "type": "bar",
-      "title": "Average Price of a Dozen Eggs",
-      "xLabel": "Month",
-      "yLabel": "Price (dollars)",
-      "labels": [
-       "Jan",
-       "Feb",
-       "Mar",
-       "Apr"
-      ],
-      "series": [
-       {
-        "name": "Price",
-        "values": [
-         2.8,
-         3.15,
-         3.71,
-         3.4
-        ]
-       }
-      ]
-     },
-     "answer": [
-      "32.5",
-      "32.5%"
-     ],
-     "value": 32.5,
-     "tol": 0.001,
-     "suffix": "percent",
-     "explain": "<p>Read the graph: January price = $2.80; March price = $3.71.</p><p>Amount of change: 3.71 &minus; 2.80 = $0.91.</p><p>Percent change = change &divide; original = 0.91 &divide; 2.80 = 0.325 = <strong>32.5%</strong>.</p><p>Dividing by the March price instead (0.91 &divide; 3.71 &asymp; 24.5%) is a common error. Percent change always divides by the original (earlier) value.</p>"
-    },
-    {
-     "id": "m08",
-     "type": "mc",
-     "skill": "Proportions",
-     "difficulty": 1,
-     "prompt": "<p>A rice recipe uses 2 cups of rice for every 3 cups of water. How many cups of water are needed for 5 cups of rice?</p>",
-     "options": [
-      "6",
-      "3&frac13;",
-      "7&frac12;",
-      "8"
-     ],
-     "answer": 2,
-     "explain": "<p>Set up a proportion of rice to water: 2/3 = 5/w.</p><p>Cross-multiply: 2w = 3 &times; 5 = 15.</p><p>w = 15 &divide; 2 = <strong>7&frac12; cups</strong> of water.</p><p>Check: the water is always 1.5 times the rice, and 1.5 &times; 5 = 7.5.</p><p>The answer 6 adds 1 cup (the difference between 3 and 2) instead of scaling. The answer 3&frac13; flips the ratio: 5 &times; 2/3.</p>"
-    },
-    {
-     "id": "m09",
-     "type": "mc",
-     "skill": "Area in a real-world problem",
-     "difficulty": 2,
-     "prompt": "<p>Luis is installing new flooring in a rectangular bedroom that measures 14 feet by 11.5 feet. The flooring is sold in boxes that each cover 20 square feet, and only whole boxes can be bought. What is the least number of boxes Luis must buy to cover the floor?</p>",
-     "options": [
-      "8",
-      "26",
-      "3",
-      "9"
-     ],
-     "answer": 3,
-     "explain": "<p>Area of the floor: 14 &times; 11.5 = 161 square feet.</p><p>Boxes needed: 161 &divide; 20 = 8.05.</p><p>Eight boxes cover only 160 square feet, which is not enough, so Luis must round up to <strong>9 boxes</strong>.</p><p>The answer 8 rounds 8.05 down, leaving 1 square foot uncovered. The answer 3 uses the perimeter, 2(14 + 11.5) = 51, instead of the area (51 &divide; 20 = 2.55, rounded up). The answer 26 adds the length and width (14 + 11.5 = 25.5) instead of multiplying, then rounds up.</p>"
-    },
-    {
-     "id": "m10",
-     "type": "mc",
-     "skill": "Finding the original price",
-     "difficulty": 2,
-     "prompt": "<p>A hardware store marks down a stepladder by 20%. The sale price is $96. What was the original price of the stepladder?</p>",
-     "options": [
-      "$76.80",
-      "$115.20",
-      "$120.00",
-      "$116.00"
-     ],
-     "answer": 2,
-     "explain": "<p>After a 20% discount, the sale price is 80% of the original price.</p><p>0.80 &times; p = 96</p><p>p = 96 &divide; 0.80 = <strong>$120.00</strong></p><p>Check: 20% of $120 is $24, and 120 &minus; 24 = $96.</p><p>$115.20 adds 20% of the sale price (96 &times; 1.2). That is wrong because the 20% was taken from the original price, not from $96. $76.80 takes another 20% off the sale price.</p>"
-    },
-    {
-     "id": "m11",
-     "type": "mc",
-     "skill": "Scientific notation",
-     "difficulty": 2,
-     "prompt": "<p>A food warehouse ships 4.8 &times; 10<sup>6</sup> cans of tomatoes, packed equally into 1.6 &times; 10<sup>3</sup> crates. How many cans are in each crate?</p>",
-     "options": [
-      "3 &times; 10<sup>2</sup>",
-      "7.68 &times; 10<sup>9</sup>",
-      "3 &times; 10<sup>3</sup>",
-      "3 &times; 10<sup>9</sup>"
-     ],
-     "answer": 2,
-     "explain": "<p>Divide the total number of cans by the number of crates:</p><p>(4.8 &times; 10<sup>6</sup>) &divide; (1.6 &times; 10<sup>3</sup>) = (4.8 &divide; 1.6) &times; 10<sup>6 &minus; 3</sup> = 3 &times; 10<sup>3</sup></p><p>Each crate holds <strong>3 &times; 10<sup>3</sup></strong> cans (3,000 cans).</p><p>Check: 3,000 &times; 1,600 = 4,800,000.</p><p>3 &times; 10<sup>9</sup> adds the exponents, which is the rule for multiplying, not dividing. 7.68 &times; 10<sup>9</sup> multiplies the two numbers.</p>"
-    },
-    {
-     "id": "m12",
-     "type": "mc",
-     "skill": "Estimating square roots",
-     "difficulty": 2,
-     "prompt": "<p>A square ceramic tile has an area of 50 square inches. The length of one side of the tile is between which two whole numbers of inches?</p>",
-     "options": [
-      "6 and 7",
-      "7 and 8",
-      "12 and 13",
-      "24 and 26"
-     ],
-     "answer": 1,
-     "noShuffle": true,
-     "explain": "<p>The side length s of a square satisfies s<sup>2</sup> = 50, so s = &radic;50.</p><p>7<sup>2</sup> = 49 and 8<sup>2</sup> = 64. Because 49 &lt; 50 &lt; 64, &radic;50 is <strong>between 7 and 8</strong> (about 7.07 inches).</p><p>12 and 13 come from dividing the area by 4, which treats 50 as the perimeter. 24 and 26 come from dividing by 2 instead of taking the square root.</p>"
-    },
-    {
-     "id": "m13",
-     "type": "fill",
-     "skill": "Mean",
-     "difficulty": 1,
-     "prompt": "<p>The Okafor family spent the following amounts on groceries during four weeks.</p><table><thead><tr><th>Week</th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead><tbody><tr><td>Amount</td><td>$112.50</td><td>$98.75</td><td>$124.20</td><td>$105.55</td></tr></tbody></table><p>What is the mean (average) amount they spent per week, in dollars?</p>",
-     "answer": [
-      "110.25",
-      "$110.25"
-     ],
-     "value": 110.25,
-     "tol": 0.001,
-     "suffix": "dollars",
-     "explain": "<p>Add the four amounts: 112.50 + 98.75 + 124.20 + 105.55 = 441.00.</p><p>Divide by the number of weeks: 441.00 &divide; 4 = <strong>$110.25</strong>.</p>"
-    },
-    {
-     "id": "m14",
-     "type": "mc",
-     "skill": "Median",
-     "difficulty": 2,
-     "prompt": "<p>The price of a gallon of milk was recorded at seven stores.</p><p>$3.49, $3.89, $3.29, $4.19, $3.59, $3.89, $3.75</p><p>What is the median price?</p>",
-     "options": [
-      "$3.89",
-      "$3.73",
-      "$0.90",
-      "$3.75"
-     ],
-     "answer": 3,
-     "explain": "<p>Put the prices in order: $3.29, $3.49, $3.59, $3.75, $3.89, $3.89, $4.19.</p><p>With seven values, the median is the 4th value: <strong>$3.75</strong>.</p><p>$3.89 is the mode (the value that appears most often). $3.73 is the mean (26.09 &divide; 7 &asymp; 3.73). $0.90 is the range (4.19 &minus; 3.29).</p><p>Picking the middle value of the unsorted list ($4.19) is another common error; always sort first.</p>"
-    },
-    {
-     "id": "m15",
-     "type": "mc",
-     "skill": "Probability of dependent events",
-     "difficulty": 3,
-     "prompt": "<p>A bag holds 6 red apples and 4 green apples. Nadia reaches in without looking and takes one apple, keeps it, and then takes a second apple. What is the probability that both apples are green?</p>",
-     "options": [
-      "2/15",
-      "4/25",
-      "2/5",
-      "3/5"
-     ],
-     "answer": 0,
-     "explain": "<p>There are 6 + 4 = 10 apples.</p><p>First apple green: 4/10.</p><p>The first apple is not put back, so 9 apples remain and 3 of them are green. Second apple green: 3/9.</p><p>Multiply: 4/10 &times; 3/9 = 12/90 = <strong>2/15</strong>.</p><p>4/25 = (4/10)(4/10) assumes the first apple was put back. 2/5 (that is, 4/10) is only the probability that the first apple is green. 3/5 (that is, 6/10) is the probability that the first apple is red.</p>"
-    },
-    {
-     "id": "m16",
-     "type": "mc",
-     "skill": "Counting and combinations",
-     "difficulty": 3,
-     "prompt": "<p>A pizza shop offers 3 types of crust and 8 toppings. A \"two-topping special\" is one crust with exactly two <strong>different</strong> toppings. The order of the toppings does not matter. How many different two-topping specials are possible?</p>",
-     "options": [
-      "48",
-      "84",
-      "168",
-      "192"
-     ],
-     "answer": 1,
-     "noShuffle": true,
-     "explain": "<p>Count the pairs of toppings. There are 8 choices for the first and 7 for the second: 8 &times; 7 = 56. Each pair has been counted twice (pepperoni-onion is the same as onion-pepperoni), so divide by 2: 56 &divide; 2 = 28 pairs.</p><p>Multiply by the crust choices: 3 &times; 28 = <strong>84</strong> specials.</p><p>168 = 3 &times; 8 &times; 7 forgets that the order of the toppings does not matter. 192 = 3 &times; 8 &times; 8 also allows the same topping twice.</p>"
-    },
-    {
-     "id": "m17",
-     "type": "mc",
-     "skill": "Circumference",
-     "difficulty": 2,
-     "prompt": "<p>Grace is putting metal trim around the edge of a round tabletop with a diameter of 42 inches. To the nearest inch, how much trim does she need?</p>",
-     "options": [
-      "66 inches",
-      "132 inches",
-      "264 inches",
-      "1,385 inches"
-     ],
-     "answer": 1,
-     "noShuffle": true,
-     "explain": "<p>The trim goes around the edge, so find the circumference: C = &pi;d.</p><p>C = &pi; &times; 42 &asymp; 131.95 inches, which rounds to <strong>132 inches</strong>.</p><p>66 inches uses the radius in C = &pi;d (&pi; &times; 21). 264 inches uses 2&pi;d instead of 2&pi;r. 1,385 is the area, &pi;(21)<sup>2</sup>, measured in square inches, not a length.</p>"
-    },
-    {
-     "id": "m18",
-     "type": "fill",
-     "skill": "Pythagorean theorem",
-     "difficulty": 2,
-     "prompt": "<p>A wooden garden gate is a rectangle 48 inches wide and 36 inches tall. A diagonal brace runs from one corner of the gate to the opposite corner. How long is the brace, in inches?</p>",
-     "figure": {
-      "type": "svg",
-      "svg": "<svg viewBox='0 0 300 220' xmlns='http://www.w3.org/2000/svg'><rect x='40' y='30' width='200' height='150' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='3'/><line x1='40' y1='180' x2='240' y2='30' stroke='#0A1F3D' stroke-width='3'/><text x='120' y='205' font-size='14' fill='#0A1F3D'>48 in</text><text x='248' y='110' font-size='14' fill='#0A1F3D'>36 in</text><text x='120' y='95' font-size='14' fill='#0A1F3D'>brace</text></svg>",
-      "alt": "A rectangular gate 48 inches wide and 36 inches tall with a diagonal brace from the bottom left corner to the top right corner."
-     },
-     "answer": [
-      "60"
-     ],
-     "value": 60,
-     "tol": 0.001,
-     "suffix": "inches",
-     "explain": "<p>The width, the height, and the brace form a right triangle. The brace is the hypotenuse.</p><p>c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup></p><p>c<sup>2</sup> = 48<sup>2</sup> + 36<sup>2</sup> = 2,304 + 1,296 = 3,600</p><p>c = &radic;3,600 = <strong>60 inches</strong></p><p>Adding the sides (48 + 36 = 84) is a common error; the sides must be squared first.</p>"
-    },
-    {
-     "id": "m19",
-     "type": "mc",
-     "skill": "Volume and unit conversion",
-     "difficulty": 3,
-     "prompt": "<p>A raised garden bed is a rectangular box 8 feet long, 4 feet wide, and 1.5 feet deep. Soil is sold by the cubic yard (1 cubic yard = 27 cubic feet). To the nearest tenth, how many cubic yards of soil are needed to fill the bed?</p>",
-     "options": [
-      "16.0",
-      "5.3",
-      "48.0",
-      "1.8"
-     ],
-     "answer": 3,
-     "explain": "<p>Volume in cubic feet: V = lwh = 8 &times; 4 &times; 1.5 = 48 cubic feet.</p><p>Convert to cubic yards: 48 &divide; 27 &asymp; 1.78, which rounds to <strong>1.8 cubic yards</strong>.</p><p>16.0 divides by 3, but 1 cubic yard is 3 &times; 3 &times; 3 = 27 cubic feet, not 3. 5.3 divides by 9, the number of square feet in a square yard. 48.0 is the volume in cubic feet, not cubic yards.</p>"
-    },
-    {
-     "id": "m20",
-     "type": "mc",
-     "skill": "Volume of a sphere",
-     "difficulty": 2,
-     "prompt": "<p>A scoop of cookie dough is shaped like a sphere with a radius of 1.5 inches. How much dough is in the scoop, in cubic inches, rounded to the nearest tenth? Use the formula sheet if needed.</p>",
-     "options": [
-      "9.4",
-      "14.1",
-      "28.3",
-      "113.1"
-     ],
-     "answer": 1,
-     "noShuffle": true,
-     "explain": "<p>Volume of a sphere: V = (4/3)&pi;r<sup>3</sup>.</p><p>r<sup>3</sup> = 1.5 &times; 1.5 &times; 1.5 = 3.375</p><p>V = (4/3)&pi;(3.375) = 4.5&pi; &asymp; <strong>14.1 cubic inches</strong>.</p><p>9.4 squares the radius instead of cubing it. 28.3 is the surface area, 4&pi;r<sup>2</sup>. 113.1 uses the diameter, 3, as the radius.</p>"
-    },
-    {
-     "id": "m21",
-     "type": "fill",
-     "skill": "Surface area of a cylinder",
-     "difficulty": 3,
-     "prompt": "<p>A closed cylindrical kitchen canister has a radius of 4 inches and a height of 10 inches. What is the total surface area of the canister, including the top and bottom, rounded to the nearest square inch? Use the formula sheet if needed.</p>",
-     "answer": [
-      "352"
-     ],
-     "value": 352,
-     "tol": 0.001,
-     "suffix": "square inches",
-     "explain": "<p>Surface area of a cylinder: SA = 2&pi;rh + 2&pi;r<sup>2</sup>.</p><p>Side: 2&pi;(4)(10) = 80&pi;</p><p>Top and bottom: 2&pi;(4)<sup>2</sup> = 2&pi;(16) = 32&pi;</p><p>Total: 80&pi; + 32&pi; = 112&pi; &asymp; 351.86, which rounds to <strong>352 square inches</strong>.</p><p>Leaving out the top and bottom gives only 80&pi; &asymp; 251 square inches. Including only one circle gives 96&pi; &asymp; 302 square inches.</p>"
-    },
-    {
-     "id": "m22",
-     "type": "mc",
-     "skill": "Volume of a pyramid",
-     "difficulty": 2,
-     "prompt": "<p>A candle is shaped like a square pyramid. Each side of its square base is 4 inches, and its height is 9 inches. What is the volume of the candle, in cubic inches? Use the formula sheet if needed.</p>",
-     "options": [
-      "12",
-      "48",
-      "72",
-      "144"
-     ],
-     "answer": 1,
-     "noShuffle": true,
-     "explain": "<p>Volume of a pyramid: V = (1/3)Bh, where B is the area of the base.</p><p>B = 4 &times; 4 = 16 square inches</p><p>V = (1/3)(16)(9) = (1/3)(144) = <strong>48 cubic inches</strong></p><p>144 is Bh, the volume of a box with the same base and height; it leaves out the 1/3. 72 uses 1/2 instead of 1/3. 12 uses the side length, 4, as the base area.</p>"
-    },
-    {
-     "id": "m23",
-     "type": "mc",
-     "skill": "Scale drawings",
-     "difficulty": 2,
-     "prompt": "<p>On a floor plan for a home remodel, &frac14; inch represents 1 foot. The kitchen is 3&frac12; inches long on the floor plan. What is the actual length of the kitchen?</p>",
-     "options": [
-      "0.875 foot",
-      "3.5 feet",
-      "14 feet",
-      "28 feet"
-     ],
-     "answer": 2,
-     "noShuffle": true,
-     "explain": "<p>Find how many quarter inches are in 3&frac12; inches: 3.5 &divide; 0.25 = 14.</p><p>Each quarter inch stands for 1 foot, so the kitchen is <strong>14 feet</strong> long.</p><p>You can also use a proportion: (1/4)/1 = 3.5/L, so (1/4)L = 3.5 and L = 14.</p><p>0.875 foot multiplies 3.5 by &frac14; instead of dividing. 28 feet uses &frac18; inch per foot.</p>"
-    },
-    {
-     "id": "m24",
-     "type": "mc",
-     "skill": "Rates in a real-world problem",
-     "difficulty": 2,
-     "prompt": "<p>One gallon of paint covers 350 square feet. Ines needs to paint walls with a total area of 1,330 square feet, and she will apply two coats. Paint is sold only in whole gallons. What is the least number of gallons she must buy?</p>",
-     "options": [
-      "4",
-      "7",
-      "8",
-      "3.8"
-     ],
-     "answer": 2,
-     "explain": "<p>Two coats means painting the area twice: 1,330 &times; 2 = 2,660 square feet.</p><p>Gallons needed: 2,660 &divide; 350 = 7.6.</p><p>Seven gallons would cover only 2,450 square feet, so she must round up to <strong>8 gallons</strong>.</p><p>4 gallons covers only one coat (1,330 &divide; 350 = 3.8, rounded up). 7 gallons rounds 7.6 down. 3.8 is not a whole number of gallons and covers only one coat.</p>"
-    },
-    {
-     "id": "m25",
-     "type": "mc",
-     "skill": "Translating words into equations",
-     "difficulty": 1,
-     "prompt": "<p>Five less than twice a number n is 17. Which equation represents this statement?</p>",
-     "options": [
-      "5 &minus; 2n = 17",
-      "2(n &minus; 5) = 17",
-      "2n + 5 = 17",
-      "2n &minus; 5 = 17"
-     ],
-     "answer": 3,
-     "explain": "<p>\"Twice a number\" is 2n.</p><p>\"Five less than\" 2n means start with 2n and take away 5: 2n &minus; 5.</p><p>\"Is 17\" means equals 17: <strong>2n &minus; 5 = 17</strong>.</p><p>5 &minus; 2n reverses the order; \"five less than\" a quantity subtracts 5 <em>from</em> it. 2(n &minus; 5) subtracts 5 before doubling.</p>"
-    },
-    {
-     "id": "m26",
-     "type": "mc",
-     "skill": "Distributive property and like terms",
-     "difficulty": 2,
-     "prompt": "<p>Which expression is equivalent to 4(2x &minus; 3) &minus; 3(x &minus; 5)?</p>",
-     "options": [
-      "5x + 3",
-      "5x &minus; 27",
-      "5x &minus; 7",
-      "11x + 3"
-     ],
-     "answer": 0,
-     "explain": "<p>Distribute each number, keeping track of signs:</p><p>4(2x &minus; 3) = 8x &minus; 12</p><p>&minus;3(x &minus; 5) = &minus;3x + 15</p><p>Combine like terms: 8x &minus; 3x = 5x and &minus;12 + 15 = 3.</p><p>Result: <strong>5x + 3</strong>.</p><p>5x &minus; 27 treats &minus;3 &times; (&minus;5) as &minus;15. 5x &minus; 7 multiplies only the x by &minus;3, writing &minus;3x + 5 instead of &minus;3x + 15. 11x + 3 adds 3x instead of subtracting it.</p>"
-    },
-    {
-     "id": "m27",
-     "type": "multi",
-     "skill": "Factoring out the GCF",
-     "difficulty": 2,
-     "prompt": "<p>Which expressions are equivalent to 6x<sup>2</sup> &minus; 15x? Select <strong>three</strong> answers.</p>",
-     "options": [
-      "3x(2x &minus; 5)",
-      "3(2x<sup>2</sup> &minus; 5x)",
-      "x(6x &minus; 15)",
-      "3x(2x &minus; 15)",
-      "6x(x &minus; 15)",
-      "3x(2x + 5)"
-     ],
-     "answer": [
-      0,
-      1,
-      2
-     ],
-     "explain": "<p>Multiply out each choice to test it:</p><p>3x(2x &minus; 5) = 6x<sup>2</sup> &minus; 15x. Equivalent.</p><p>3(2x<sup>2</sup> &minus; 5x) = 6x<sup>2</sup> &minus; 15x. Equivalent (only 3 is factored out).</p><p>x(6x &minus; 15) = 6x<sup>2</sup> &minus; 15x. Equivalent (only x is factored out).</p><p>3x(2x &minus; 15) = 6x<sup>2</sup> &minus; 45x, 6x(x &minus; 15) = 6x<sup>2</sup> &minus; 90x, and 3x(2x + 5) = 6x<sup>2</sup> + 15x. None of these match.</p><p>The correct choices are <strong>3x(2x &minus; 5), 3(2x<sup>2</sup> &minus; 5x), and x(6x &minus; 15)</strong>. 3x(2x &minus; 5) is the fully factored form, but all three are equivalent.</p>"
-    },
-    {
-     "id": "m28",
-     "type": "mc",
-     "skill": "Factoring a difference of squares",
-     "difficulty": 2,
-     "prompt": "<p>Which expression is equivalent to 4x<sup>2</sup> &minus; 25?</p>",
-     "options": [
-      "(2x &minus; 5)<sup>2</sup>",
-      "(2x &minus; 5)(2x + 5)",
-      "(4x &minus; 5)(x + 5)",
-      "(2x + 5)<sup>2</sup>"
-     ],
-     "answer": 1,
-     "explain": "<p>4x<sup>2</sup> = (2x)<sup>2</sup> and 25 = 5<sup>2</sup>, so this is a difference of squares: a<sup>2</sup> &minus; b<sup>2</sup> = (a &minus; b)(a + b).</p><p>4x<sup>2</sup> &minus; 25 = <strong>(2x &minus; 5)(2x + 5)</strong>.</p><p>Check: (2x &minus; 5)(2x + 5) = 4x<sup>2</sup> + 10x &minus; 10x &minus; 25 = 4x<sup>2</sup> &minus; 25.</p><p>(2x &minus; 5)<sup>2</sup> = 4x<sup>2</sup> &minus; 20x + 25, which has a middle term and a positive constant.</p>"
-    },
-    {
-     "id": "m29",
-     "type": "mc",
-     "skill": "Simplifying rational expressions",
-     "difficulty": 3,
-     "prompt": "<p>Simplify the rational expression below. Assume x &ne; 4 and x &ne; &minus;4.</p><p>(x<sup>2</sup> + 7x + 12) / (x<sup>2</sup> &minus; 16)</p>",
-     "options": [
-      "(x + 3) / (x + 4)",
-      "(x &minus; 3) / (x &minus; 4)",
-      "(x + 3) / (x &minus; 4)",
-      "&minus;(7x + 12) / 16"
-     ],
-     "answer": 2,
-     "explain": "<p>Factor the numerator: x<sup>2</sup> + 7x + 12 = (x + 3)(x + 4), because 3 &times; 4 = 12 and 3 + 4 = 7.</p><p>Factor the denominator (difference of squares): x<sup>2</sup> &minus; 16 = (x &minus; 4)(x + 4).</p><p>Cancel the common factor (x + 4):</p><p>[(x + 3)(x + 4)] / [(x &minus; 4)(x + 4)] = <strong>(x + 3) / (x &minus; 4)</strong></p><p>(x + 3) / (x + 4) cancels the wrong factor. &minus;(7x + 12) / 16 cancels the x<sup>2</sup> terms, but only common factors can be canceled, never terms that are added or subtracted.</p>"
-    },
-    {
-     "id": "m30",
-     "type": "fill",
-     "skill": "Linear equation word problem",
-     "difficulty": 2,
-     "prompt": "<p>Maria buys 3 pounds of chicken and one $4.75 bag of rice. Her total before tax is $19.15. What is the price of the chicken per pound, in dollars?</p>",
-     "answer": [
-      "4.80",
-      "4.8",
-      "$4.80"
-     ],
-     "value": 4.8,
-     "tol": 0.001,
-     "suffix": "dollars per pound",
-     "explain": "<p>Let p be the price per pound.</p><p>3p + 4.75 = 19.15</p><p>3p = 19.15 &minus; 4.75 = 14.40</p><p>p = 14.40 &divide; 3 = <strong>$4.80 per pound</strong></p><p>Check: 3(4.80) + 4.75 = 14.40 + 4.75 = $19.15.</p><p>A common error is to divide the whole total by 3 (19.15 &divide; 3 &asymp; 6.38) without first subtracting the cost of the rice.</p>"
-    },
-    {
-     "id": "m31",
-     "type": "mc",
-     "skill": "Equations with variables on both sides",
-     "difficulty": 2,
-     "prompt": "<p>Solve for x.</p><p>5(x &minus; 2) = 3x + 14</p>",
-     "options": [
-      "2",
-      "8",
-      "&minus;12",
-      "12"
-     ],
-     "answer": 3,
-     "explain": "<p>Distribute: 5x &minus; 10 = 3x + 14</p><p>Subtract 3x from both sides: 2x &minus; 10 = 14</p><p>Add 10 to both sides: 2x = 24</p><p>Divide by 2: x = <strong>12</strong></p><p>Check: 5(12 &minus; 2) = 50 and 3(12) + 14 = 50.</p><p>The answer 8 comes from distributing the 5 only to x: 5x &minus; 2 = 3x + 14 gives 2x = 16. The answer 2 comes from subtracting 10 instead of adding it: 2x = 4.</p>"
-    },
-    {
-     "id": "m32",
-     "type": "mc",
-     "skill": "Solving literal equations",
-     "difficulty": 2,
-     "prompt": "<p>The perimeter of a rectangle is given by P = 2l + 2w. Which equation correctly solves this formula for w?</p>",
-     "options": [
-      "w = (P &minus; 2l) / 2",
-      "w = P/2 &minus; 2l",
-      "w = (P + 2l) / 2",
-      "w = 2(P &minus; l)"
-     ],
-     "answer": 0,
-     "explain": "<p>Subtract 2l from both sides: P &minus; 2l = 2w.</p><p>Divide both sides by 2: <strong>w = (P &minus; 2l) / 2</strong>.</p><p>Check with a 5-by-3 rectangle: P = 16, and (16 &minus; 2 &times; 5) / 2 = 6 / 2 = 3.</p><p>w = P/2 &minus; 2l divides only P by 2 and not the 2l. The same check gives 8 &minus; 10 = &minus;2, which is impossible.</p>"
-    },
-    {
-     "id": "m33",
-     "type": "dropdown",
-     "skill": "Inequality word problem",
-     "difficulty": 2,
-     "prompt": "<p>Devon has a budget of $600 to stain his deck. He has already spent $135 on brushes and rollers. Deck stain costs $32.50 per gallon. Let g be the number of gallons he buys, and he cannot go over budget.</p><p>The inequality that represents this situation is 135 + 32.50g {{0}} 600.</p><p>The greatest number of gallons Devon can buy is {{1}}.</p>",
-     "blanks": [
-      {
-       "options": [
-        "&lt;",
-        "&le;",
-        "&gt;",
-        "&ge;"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "13",
-        "14",
-        "15",
-        "18"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Devon cannot go over $600, so his total can equal $600 or be less. The symbol is <strong>&le;</strong>: 135 + 32.50g &le; 600.</p><p>Solve: 32.50g &le; 600 &minus; 135 = 465</p><p>g &le; 465 &divide; 32.50 &asymp; 14.3</p><p>He can only buy whole gallons, so the greatest number is <strong>14</strong>. Check: 135 + 32.50(14) = 135 + 455 = $590, which is within budget. Fifteen gallons would cost 135 + 487.50 = $622.50, which is over budget.</p><p>The answer 18 ignores the $135 already spent (600 &divide; 32.50 &asymp; 18.5).</p>"
-    },
-    {
-     "id": "m34",
-     "type": "mc",
-     "skill": "Compound inequalities",
-     "difficulty": 3,
-     "prompt": "<p>Which inequality describes all solutions of &minus;2 &lt; 2x + 4 &le; 10?</p>",
-     "options": [
-      "&minus;3 &le; x &lt; 3",
-      "&minus;6 &lt; x &le; 6",
-      "1 &lt; x &le; 7",
-      "&minus;3 &lt; x &le; 3"
-     ],
-     "answer": 3,
-     "explain": "<p>Do the same operation to all three parts.</p><p>Subtract 4: &minus;2 &minus; 4 &lt; 2x &le; 10 &minus; 4, which gives &minus;6 &lt; 2x &le; 6.</p><p>Divide by 2: <strong>&minus;3 &lt; x &le; 3</strong>.</p><p>Check: x = 3 gives 2(3) + 4 = 10, and 10 &le; 10 is true, so 3 is included. x = &minus;3 gives &minus;2, and &minus;2 &lt; &minus;2 is false, so &minus;3 is not included.</p><p>&minus;3 &le; x &lt; 3 switches which end is included. &minus;6 &lt; x &le; 6 forgets to divide by 2. 1 &lt; x &le; 7 adds 4 instead of subtracting it.</p>"
-    },
-    {
-     "id": "m35",
-     "type": "mc",
-     "skill": "Solving systems by elimination",
-     "difficulty": 2,
-     "prompt": "<p>Solve the system.</p><p>2x + 3y = 12<br>4x &minus; 3y = 6</p>",
-     "options": [
-      "(3, 2)",
-      "(2, 3)",
-      "(3, &minus;2)",
-      "(&minus;3, 6)"
-     ],
-     "answer": 0,
-     "explain": "<p>Add the two equations to eliminate y:</p><p>(2x + 4x) + (3y &minus; 3y) = 12 + 6</p><p>6x = 18, so x = 3</p><p>Substitute into the first equation: 2(3) + 3y = 12, so 3y = 6 and y = 2.</p><p>The solution is <strong>(3, 2)</strong>. Check in the second equation: 4(3) &minus; 3(2) = 12 &minus; 6 = 6.</p><p>(2, 3) reverses the coordinates; it fails the second equation because 4(2) &minus; 3(3) = &minus;1. (&minus;3, 6) works in the first equation only.</p>"
-    },
-    {
-     "id": "m36",
-     "type": "mc",
-     "skill": "Systems of equations word problem",
-     "difficulty": 3,
-     "prompt": "<p>At a farmers market, apples cost $1.70 per pound and oranges cost $1.40 per pound. Kenji buys 9 pounds of apples and oranges in all and pays $14.10. How many pounds of oranges does he buy?</p>",
-     "options": [
-      "3",
-      "4",
-      "5",
-      "6"
-     ],
-     "answer": 1,
-     "noShuffle": true,
-     "explain": "<p>Let a = pounds of apples and r = pounds of oranges.</p><p>a + r = 9</p><p>1.70a + 1.40r = 14.10</p><p>From the first equation, a = 9 &minus; r. Substitute:</p><p>1.70(9 &minus; r) + 1.40r = 14.10</p><p>15.30 &minus; 1.70r + 1.40r = 14.10</p><p>&minus;0.30r = &minus;1.20</p><p>r = <strong>4 pounds of oranges</strong> (and a = 5 pounds of apples).</p><p>Check: 1.70(5) + 1.40(4) = 8.50 + 5.60 = $14.10.</p><p>The answer 5 is the number of pounds of apples, not oranges.</p>"
-    },
-    {
-     "id": "m37",
-     "type": "hotspot",
-     "skill": "Intercepts of a line",
-     "difficulty": 2,
-     "prompt": "<p>Click the point on the coordinate plane where the graph of 3x &minus; 2y = 12 crosses the x-axis.</p>",
-     "plane": {
-      "xmin": -8,
-      "xmax": 8,
-      "ymin": -8,
-      "ymax": 8
-     },
-     "answer": [
-      4,
-      0
-     ],
-     "explain": "<p>Every point on the x-axis has a y-coordinate of 0. Substitute y = 0:</p><p>3x &minus; 2(0) = 12</p><p>3x = 12, so x = 4</p><p>The x-intercept is <strong>(4, 0)</strong>.</p><p>A common error is to find the y-intercept instead. Setting x = 0 gives &minus;2y = 12, so y = &minus;6; the point (0, &minus;6) is where the line crosses the y-axis, not the x-axis.</p>"
-    },
-    {
-     "id": "m38",
-     "type": "hotspot",
-     "skill": "Coordinates of polygons",
-     "difficulty": 1,
-     "prompt": "<p>Points A(&minus;3, 2), B(4, 2), and C(4, &minus;3) are three corners of rectangle ABCD, shown on the coordinate plane. Click the point where the fourth corner, D, must be located.</p>",
-     "figure": {
-      "type": "plane",
-      "xmin": -6,
-      "xmax": 6,
-      "ymin": -6,
-      "ymax": 6,
-      "points": [
-       [
-        -3,
-        2,
-        "A"
-       ],
-       [
-        4,
-        2,
-        "B"
-       ],
-       [
-        4,
-        -3,
-        "C"
-       ]
-      ],
-      "segments": [
-       [
-        [
-         -3,
-         2
-        ],
-        [
-         4,
-         2
-        ]
-       ],
-       [
-        [
-         4,
-         2
-        ],
-        [
-         4,
-         -3
-        ]
-       ]
-      ]
-     },
-     "plane": {
-      "xmin": -6,
-      "xmax": 6,
-      "ymin": -6,
-      "ymax": 6
-     },
-     "answer": [
-      -3,
-      -3
-     ],
-     "explain": "<p>In a rectangle, opposite sides are parallel and equal in length.</p><p>Side AB is horizontal (y = 2) and side BC is vertical (x = 4). So D must be directly below A, on the vertical line x = &minus;3, and directly to the left of C, on the horizontal line y = &minus;3.</p><p>D is at <strong>(&minus;3, &minus;3)</strong>.</p><p>Check: AD runs from y = 2 to y = &minus;3, a length of 5, the same as BC. DC runs from x = &minus;3 to x = 4, a length of 7, the same as AB.</p>"
-    },
-    {
-     "id": "m39",
-     "type": "mc",
-     "skill": "Slope from a graph",
-     "difficulty": 2,
-     "prompt": "<p>The line shown passes through the points (0, 2) and (4, &minus;1). What is the slope of the line?</p>",
-     "figure": {
-      "type": "plane",
-      "xmin": -6,
-      "xmax": 6,
-      "ymin": -6,
-      "ymax": 6,
-      "lines": [
-       {
-        "m": -0.75,
-        "b": 2
-       }
-      ],
-      "points": [
-       [
-        0,
-        2
-       ],
-       [
-        4,
-        -1
-       ]
-      ]
-     },
-     "options": [
-      "3/4",
-      "&minus;4/3",
-      "2",
-      "&minus;3/4"
-     ],
-     "answer": 3,
-     "explain": "<p>Slope m = (change in y) / (change in x) = (y<sub>2</sub> &minus; y<sub>1</sub>) / (x<sub>2</sub> &minus; x<sub>1</sub>).</p><p>m = (&minus;1 &minus; 2) / (4 &minus; 0) = &minus;3/4 = <strong>&minus;3/4</strong>.</p><p>The line falls from left to right, so the slope must be negative; that rules out 3/4. &minus;4/3 puts the change in x on top. 2 is the y-intercept, not the slope.</p>"
-    },
-    {
-     "id": "m40",
-     "type": "mc",
-     "skill": "Perpendicular lines",
-     "difficulty": 3,
-     "prompt": "<p>Which equation represents the line that passes through the point (2, 3) and is perpendicular to the line y = (2/5)x &minus; 1?</p>",
-     "options": [
-      "y = (5/2)x &minus; 2",
-      "y = &minus;(2/5)x + 19/5",
-      "y = &minus;(5/2)x + 8",
-      "y = (2/5)x + 11/5"
-     ],
-     "answer": 2,
-     "explain": "<p>Perpendicular lines have slopes that are negative reciprocals. The given slope is 2/5, so the perpendicular slope is &minus;5/2.</p><p>Use the point (2, 3) to find b: 3 = &minus;(5/2)(2) + b, so 3 = &minus;5 + b and b = 8.</p><p>Equation: <strong>y = &minus;(5/2)x + 8</strong>.</p><p>All four choices pass through (2, 3), so the slope decides the answer. y = (5/2)x &minus; 2 uses the reciprocal without changing the sign. y = &minus;(2/5)x + 19/5 changes the sign without taking the reciprocal. y = (2/5)x + 11/5 is parallel, not perpendicular.</p>"
-    },
-    {
-     "id": "m41",
-     "type": "dropdown",
-     "skill": "Linear functions from a table",
-     "difficulty": 2,
-     "prompt": "<p>A pot of water is heated on a stove. The table shows the temperature T of the water, in degrees Fahrenheit, t minutes after the burner is turned on. The temperature rises at a constant rate until the water boils at 212&deg;F.</p><table><thead><tr><th>t (minutes)</th><th>0</th><th>2</th><th>4</th><th>6</th></tr></thead><tbody><tr><td>T (&deg;F)</td><td>68</td><td>100</td><td>132</td><td>164</td></tr></tbody></table><p>The temperature increases by {{0}} degrees per minute.</p><p>In the equation T = 68 + mt, the number 68 represents {{1}}.</p><p>The water reaches 212&deg;F after {{2}} minutes.</p>",
-     "blanks": [
-      {
-       "options": [
-        "8",
-        "16",
-        "32",
-        "68"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "the starting temperature of the water",
-        "the increase in temperature each minute",
-        "the boiling point of water",
-        "the number of minutes until boiling"
-       ],
-       "answer": 0
-      },
-      {
-       "options": [
-        "8",
-        "9",
-        "13.25",
-        "18"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Rate: every 2 minutes the temperature rises 32 degrees (68 to 100, 100 to 132, 132 to 164). Per minute: 32 &divide; 2 = <strong>16 degrees per minute</strong>. Choosing 32 forgets that the table goes up by 2 minutes at a time.</p><p>The 68 is the temperature when t = 0, so it is <strong>the starting temperature of the water</strong>.</p><p>The model is T = 68 + 16t. Set T = 212:</p><p>68 + 16t = 212</p><p>16t = 144</p><p>t = <strong>9 minutes</strong></p><p>13.25 comes from 212 &divide; 16, which ignores the starting temperature of 68&deg;F.</p>"
-    },
-    {
-     "id": "m42",
-     "type": "dropdown",
-     "skill": "Comparing functions",
-     "difficulty": 3,
-     "prompt": "<p>Function A is defined by the equation f(x) = 3x + 2.</p><p>Function B is linear and is defined by the table below.</p><table><thead><tr><th>x</th><th>0</th><th>2</th><th>4</th></tr></thead><tbody><tr><td>y</td><td>&minus;1</td><td>7</td><td>15</td></tr></tbody></table><p>The rate of change of Function B is {{0}} the rate of change of Function A.</p><p>The y-intercept of Function B is {{1}} the y-intercept of Function A.</p>",
-     "blanks": [
-      {
-       "options": [
-        "greater than",
-        "less than",
-        "equal to"
-       ],
-       "answer": 0
-      },
-      {
-       "options": [
-        "greater than",
-        "less than",
-        "equal to"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Function A: f(x) = 3x + 2 has a rate of change (slope) of 3 and a y-intercept of 2.</p><p>Function B: from x = 0 to x = 2, y goes from &minus;1 to 7, a change of 8. Rate of change = 8 &divide; 2 = 4. Check from x = 2 to x = 4: (15 &minus; 7) &divide; 2 = 4. The y-intercept is the value when x = 0, which is &minus;1.</p><p>Compare: 4 &gt; 3, so B's rate of change is <strong>greater than</strong> A's. &minus;1 &lt; 2, so B's y-intercept is <strong>less than</strong> A's.</p><p>A common error is to use 8 (the change in y for 2 steps of x) as the rate; the change in y must be divided by the change in x.</p>"
-    },
-    {
-     "id": "m43",
-     "type": "fill",
-     "skill": "Quadratic formula",
-     "difficulty": 3,
-     "prompt": "<p>The equation x<sup>2</sup> &minus; 6x + 4 = 0 has two solutions. What is the <strong>greater</strong> solution, rounded to the nearest hundredth? Use the formula sheet if needed.</p>",
-     "answer": [
-      "5.24"
-     ],
-     "value": 5.24,
-     "tol": 0.005,
-     "explain": "<p>Quadratic formula: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 1, b = &minus;6, c = 4.</p><p>b<sup>2</sup> &minus; 4ac = (&minus;6)<sup>2</sup> &minus; 4(1)(4) = 36 &minus; 16 = 20</p><p>x = (6 &plusmn; &radic;20) / 2</p><p>&radic;20 &asymp; 4.472</p><p>Greater solution: (6 + 4.472) / 2 = 10.472 / 2 &asymp; <strong>5.24</strong>. (The other solution is (6 &minus; 4.472) / 2 &asymp; 0.76.)</p><p>A common error is to use &minus;b = &minus;6 instead of +6, which gives (&minus;6 + 4.472) / 2 &asymp; &minus;0.76.</p>"
-    },
-    {
-     "id": "m44",
-     "type": "multi",
-     "skill": "Solving quadratics by factoring",
-     "difficulty": 3,
-     "prompt": "<p>What are the solutions of the equation 2x<sup>2</sup> + 5x &minus; 3 = 0? Select <strong>two</strong> answers.</p>",
-     "options": [
-      "1/2",
-      "&minus;3",
-      "&minus;1/2",
-      "3",
-      "2",
-      "&minus;1"
-     ],
-     "answer": [
-      0,
-      1
-     ],
-     "explain": "<p>Factor: look for two numbers that multiply to a &times; c = 2 &times; (&minus;3) = &minus;6 and add to 5. They are 6 and &minus;1.</p><p>Split the middle term: 2x<sup>2</sup> + 6x &minus; x &minus; 3 = 2x(x + 3) &minus; 1(x + 3) = (2x &minus; 1)(x + 3).</p><p>Set each factor equal to 0: 2x &minus; 1 = 0 gives x = 1/2; x + 3 = 0 gives x = &minus;3.</p><p>The solutions are <strong>1/2 and &minus;3</strong>.</p><p>Check: 2(1/2)<sup>2</sup> + 5(1/2) &minus; 3 = 0.5 + 2.5 &minus; 3 = 0, and 2(&minus;3)<sup>2</sup> + 5(&minus;3) &minus; 3 = 18 &minus; 15 &minus; 3 = 0.</p><p>Choosing &minus;1/2 and 3 reverses both signs.</p>"
-    },
-    {
-     "id": "m45",
-     "type": "drag",
-     "skill": "Number of solutions of linear equations",
-     "difficulty": 3,
-     "prompt": "<p>Drag each equation into the category that describes how many solutions it has.</p>",
-     "choices": [
-      "3(x + 2) = 3x + 6",
-      "2x + 5 = 2x &minus; 1",
-      "4x &minus; 7 = 2x + 1",
-      "5(x &minus; 1) = 5x &minus; 1",
-      "6x &minus; 3 = 3(2x &minus; 1)",
-      "2(x + 3) = x + 3"
-     ],
-     "bins": [
-      "One solution",
-      "No solution",
-      "Infinitely many solutions"
-     ],
-     "answer": [
-      2,
-      1,
-      0,
-      1,
-      2,
-      0
-     ],
-     "explain": "<p>Simplify each side and compare.</p><p>3(x + 2) = 3x + 6: both sides are 3x + 6, so every x works. <strong>Infinitely many solutions.</strong></p><p>2x + 5 = 2x &minus; 1: subtracting 2x leaves 5 = &minus;1, which is false. <strong>No solution.</strong></p><p>4x &minus; 7 = 2x + 1: 2x = 8, so x = 4. <strong>One solution.</strong></p><p>5(x &minus; 1) = 5x &minus; 1: 5x &minus; 5 = 5x &minus; 1 leaves &minus;5 = &minus;1, which is false. <strong>No solution.</strong></p><p>6x &minus; 3 = 3(2x &minus; 1): the right side is 6x &minus; 3, identical to the left. <strong>Infinitely many solutions.</strong></p><p>2(x + 3) = x + 3: 2x + 6 = x + 3, so x = &minus;3. <strong>One solution.</strong></p><p>Same x-coefficients with different constants means no solution; identical sides mean infinitely many.</p>"
-    },
-    {
-     "id": "m46",
-     "type": "drag",
-     "skill": "Comparing and ordering real numbers",
-     "difficulty": 3,
-     "prompt": "<p>The five numbers below are all close to 2.6. Place each number in its position so that the list runs from the least value to the greatest value.</p>",
-     "choices": [
-      "&radic;7",
-      "2.64",
-      "29/11",
-      "8/3",
-      "2.65"
-     ],
-     "bins": [
-      "1st (least)",
-      "2nd",
-      "3rd",
-      "4th",
-      "5th (greatest)"
-     ],
-     "answer": [
-      2,
-      1,
-      0,
-      4,
-      3
-     ],
-     "explain": "<p>Change each number to a decimal with a calculator, carrying at least three decimal places:</p><p>29/11 &asymp; 2.636; 2.64 = 2.640; &radic;7 &asymp; 2.646; 2.65 = 2.650; 8/3 &asymp; 2.667</p><p>Order from least to greatest: <strong>29/11, 2.64, &radic;7, 2.65, 8/3</strong>.</p><p>These values are very close, so rounding to two decimal places is not enough: 29/11, 2.64, and &radic;7 all round to 2.64 or 2.65. Compare in the thousandths place to separate them.</p>"
-    }
-   ]
-  }
- ]
+"form": 2,
+"subject": "math",
+"title": "Practice GED Form 2 — Mathematical Reasoning",
+"minutes": 115,
+"stimuli": [],
+"parts": [
+{
+"name": "Part 1",
+"calculator": false,
+"items": [
+{
+"id": "m01",
+"type": "mc",
+"skill": "Order of operations with integers",
+"difficulty": 2,
+"prompt": "<p>Evaluate the expression.</p><p>(&minus;3)<sup>2</sup> &minus; 2(4 &minus; 9) &divide; 5</p>",
+"options": [
+"11",
+"7",
+"&minus;7",
+"&minus;11"
+],
+"answer": 0,
+"explain": "<p>Work inside the parentheses first: 4 &minus; 9 = &minus;5.</p><p>Exponent: (&minus;3)<sup>2</sup> = (&minus;3)(&minus;3) = 9.</p><p>Multiply, then divide, from left to right: 2(&minus;5) = &minus;10, and &minus;10 &divide; 5 = &minus;2.</p><p>Subtract: 9 &minus; (&minus;2) = 9 + 2 = <strong>11</strong>.</p><p>The answer 7 comes from treating 9 &minus; (&minus;2) as 9 &minus; 2. The answer &minus;7 comes from reading (&minus;3)<sup>2</sup> as &minus;9; the parentheses mean the negative sign is squared too.</p>",
+"why": [
+"",
+"You treated 9 &minus; (&minus;2) as 9 &minus; 2. Subtracting a negative is adding: 9 + 2 = 11.",
+"You read (&minus;3)<sup>2</sup> as &minus;9. The parentheses mean the negative sign is squared too: (&minus;3)(&minus;3) = +9, so the result is 9 + 2 = 11.",
+"You made two sign errors: (&minus;3)<sup>2</sup> as &minus;9 and 9 &minus; (&minus;2) as a subtraction. (&minus;3)<sup>2</sup> = 9 and subtracting &minus;2 adds 2, so the answer is 11."
+]
+},
+{
+"id": "m02",
+"type": "fill",
+"skill": "Dividing fractions",
+"difficulty": 2,
+"prompt": "<p>A muffin recipe uses &frac34; cup of sugar for each batch. Terrell has 4&frac12; cups of sugar. How many full batches of muffins can he make with this sugar?</p>",
+"answer": [
+"6"
+],
+"value": 6,
+"tol": 0.001,
+"suffix": "batches",
+"explain": "<p>Divide the sugar on hand by the sugar per batch: 4&frac12; &divide; &frac34;.</p><p>Change the mixed number to an improper fraction: 4&frac12; = 9/2.</p><p>Multiply by the reciprocal: 9/2 &times; 4/3 = 36/6 = <strong>6 batches</strong>.</p><p>Check: 6 &times; &frac34; = 18/4 = 4&frac12; cups.</p><p>A common error is to multiply 4&frac12; &times; &frac34; = 27/8 (about 3.4), which finds &frac34; of the sugar instead of how many &frac34;-cup portions it holds.</p>",
+"mistakes": [
+{
+"answer": [
+"27/8",
+"3.375",
+"3.4",
+"3"
+],
+"why": "You multiplied 4&frac12; &times; &frac34;, which finds &frac34; of the sugar. To find how many &frac34;-cup portions fit, divide: 9/2 &divide; 3/4 = 9/2 &times; 4/3 = 6."
+},
+{
+"answer": [
+"5"
+],
+"why": "You may have divided only the whole number 4 by &frac34; (about 5.3) and dropped the half cup. Use all 4&frac12; cups: 9/2 &times; 4/3 = 6."
+}
+]
+},
+{
+"id": "m03",
+"type": "mc",
+"skill": "Multiplying monomials",
+"difficulty": 1,
+"prompt": "<p>Which expression is equivalent to (2x<sup>3</sup>)(&minus;3x<sup>4</sup>)?</p>",
+"options": [
+"&minus;6x<sup>7</sup>",
+"&minus;6x<sup>12</sup>",
+"&minus;x<sup>7</sup>",
+"6x<sup>7</sup>"
+],
+"answer": 0,
+"explain": "<p>Multiply the coefficients: 2 &times; (&minus;3) = &minus;6.</p><p>Multiply the powers of x by adding the exponents: x<sup>3</sup> &times; x<sup>4</sup> = x<sup>3 + 4</sup> = x<sup>7</sup>.</p><p>Result: <strong>&minus;6x<sup>7</sup></strong>.</p><p>&minus;6x<sup>12</sup> multiplies the exponents instead of adding them. &minus;x<sup>7</sup> adds the coefficients (2 + (&minus;3)) instead of multiplying them.</p>",
+"why": [
+"",
+"You multiplied the exponents (3 &times; 4 = 12). When multiplying powers with the same base, add the exponents: x<sup>3 + 4</sup> = x<sup>7</sup>.",
+"You added the coefficients, 2 + (&minus;3) = &minus;1. Coefficients are multiplied: 2 &times; (&minus;3) = &minus;6.",
+"You dropped the negative sign. A positive times a negative is negative: 2 &times; (&minus;3) = &minus;6."
+]
+},
+{
+"id": "m04",
+"type": "mc",
+"skill": "Solving two-step equations",
+"difficulty": 1,
+"prompt": "<p>Solve for x.</p><p>x/3 + 5 = 11</p>",
+"options": [
+"2",
+"6",
+"18",
+"48"
+],
+"answer": 2,
+"noShuffle": true,
+"explain": "<p>Subtract 5 from both sides: x/3 = 6.</p><p>Multiply both sides by 3: x = <strong>18</strong>.</p><p>Check: 18/3 + 5 = 6 + 5 = 11.</p><p>The answer 2 divides 6 by 3 instead of multiplying. The answer 48 adds 5 instead of subtracting it: (11 + 5) &times; 3 = 48.</p>",
+"why": [
+"You divided 6 by 3 instead of multiplying. To undo x/3, multiply both sides by 3: x = 6 &times; 3 = 18.",
+"6 is the value of x/3, not x. One more step: multiply by 3 to get x = 18.",
+"",
+"You added 5 instead of subtracting it: (11 + 5) &times; 3 = 48. Subtract 5 from both sides first: x/3 = 6, so x = 18."
+]
+},
+{
+"id": "m05",
+"type": "mc",
+"skill": "Evaluating functions",
+"difficulty": 2,
+"prompt": "<p>The function g is defined as g(x) = x<sup>2</sup> &minus; 4x. What is the value of g(&minus;3)?</p>",
+"options": [
+"&minus;3",
+"3",
+"&minus;21",
+"21"
+],
+"answer": 3,
+"explain": "<p>Substitute &minus;3 for every x:</p><p>g(&minus;3) = (&minus;3)<sup>2</sup> &minus; 4(&minus;3)</p><p>(&minus;3)<sup>2</sup> = 9</p><p>&minus;4(&minus;3) = +12</p><p>9 + 12 = <strong>21</strong></p><p>The answer &minus;3 comes from treating &minus;4(&minus;3) as &minus;12 (9 &minus; 12). The answer 3 comes from squaring &minus;3 to get &minus;9 (&minus;9 + 12).</p>",
+"why": [
+"You treated &minus;4(&minus;3) as &minus;12, giving 9 &minus; 12. A negative times a negative is positive: &minus;4(&minus;3) = +12, so g(&minus;3) = 21.",
+"You squared &minus;3 and got &minus;9, giving &minus;9 + 12 = 3. (&minus;3)<sup>2</sup> = (&minus;3)(&minus;3) = 9, so the total is 9 + 12 = 21.",
+"You made both sign errors: (&minus;3)<sup>2</sup> as &minus;9 and &minus;4(&minus;3) as &minus;12. Both are positive: 9 + 12 = 21.",
+""
+]
+}
+]
+},
+{
+"name": "Part 2",
+"calculator": true,
+"items": [
+{
+"id": "m06",
+"type": "mc",
+"skill": "Unit price",
+"difficulty": 1,
+"prompt": "<p>A grocery store sells peanut butter in two sizes: a 24-ounce jar for $4.32 and a 40-ounce jar for $6.80. Which statement correctly compares the unit prices?</p>",
+"options": [
+"The 40-ounce jar is the better buy by $0.01 per ounce.",
+"The 24-ounce jar is the better buy by $0.01 per ounce.",
+"The 40-ounce jar is the better buy by $0.03 per ounce.",
+"The 24-ounce jar is the better buy by $2.48."
+],
+"answer": 0,
+"explain": "<p>Find the price per ounce of each jar:</p><p>24-ounce jar: $4.32 &divide; 24 = $0.18 per ounce.</p><p>40-ounce jar: $6.80 &divide; 40 = $0.17 per ounce.</p><p>The 40-ounce jar costs 0.18 &minus; 0.17 = $0.01 less per ounce, so <strong>the 40-ounce jar is the better buy by $0.01 per ounce</strong>.</p><p>Saying the 24-ounce jar is better because it costs $2.48 less compares total prices, not unit prices. The smaller jar also holds 16 fewer ounces.</p>",
+"why": [
+"",
+"You reversed the unit prices. The 24-ounce jar costs $4.32 &divide; 24 = $0.18 per ounce and the 40-ounce jar costs $6.80 &divide; 40 = $0.17, so the larger jar is cheaper per ounce.",
+"The larger jar is the better buy, but the difference is not $0.03. The unit prices are $0.18 and $0.17, a difference of $0.01 per ounce; recheck each division.",
+"You compared total prices ($6.80 &minus; $4.32 = $2.48), not unit prices. Per ounce, the 24-ounce jar costs $0.18 and the 40-ounce jar costs $0.17, so the larger jar is the better buy."
+]
+},
+{
+"id": "m07",
+"type": "fill",
+"skill": "Percent change from a graph",
+"difficulty": 2,
+"prompt": "<p>The graph shows the average price of a dozen eggs at one grocery store for four months. By what percent did the price increase from January to March?</p>",
+"figure": {
+"type": "bar",
+"title": "Average Price of a Dozen Eggs",
+"xLabel": "Month",
+"yLabel": "Price (dollars)",
+"labels": [
+"Jan",
+"Feb",
+"Mar",
+"Apr"
+],
+"series": [
+{
+"name": "Price",
+"values": [
+2.8,
+3.15,
+3.71,
+3.4
+]
+}
+]
+},
+"answer": [
+"32.5",
+"32.5%"
+],
+"value": 32.5,
+"tol": 0.001,
+"suffix": "percent",
+"explain": "<p>Read the graph: January price = $2.80; March price = $3.71.</p><p>Amount of change: 3.71 &minus; 2.80 = $0.91.</p><p>Percent change = change &divide; original = 0.91 &divide; 2.80 = 0.325 = <strong>32.5%</strong>.</p><p>Dividing by the March price instead (0.91 &divide; 3.71 &asymp; 24.5%) is a common error. Percent change always divides by the original (earlier) value.</p>",
+"mistakes": [
+{
+"answer": [
+"24.5",
+"24.5%",
+"24.53"
+],
+"why": "You divided the change by the March price (0.91 &divide; 3.71). Percent change divides by the original, January value: 0.91 &divide; 2.80 = 32.5%."
+},
+{
+"answer": [
+"0.91",
+"91"
+],
+"why": "0.91 is the change in dollars, not the percent change. Divide it by the January price: 0.91 &divide; 2.80 = 0.325 = 32.5%."
+},
+{
+"answer": [
+"132.5",
+"132.5%"
+],
+"why": "132.5% is the March price as a percent of the January price (3.71 &divide; 2.80). The increase is the part above 100%: 32.5%."
+}
+]
+},
+{
+"id": "m08",
+"type": "mc",
+"skill": "Proportions",
+"difficulty": 1,
+"prompt": "<p>A rice recipe uses 2 cups of rice for every 3 cups of water. How many cups of water are needed for 5 cups of rice?</p>",
+"options": [
+"6",
+"3&frac13;",
+"7&frac12;",
+"8"
+],
+"answer": 2,
+"explain": "<p>Set up a proportion of rice to water: 2/3 = 5/w.</p><p>Cross-multiply: 2w = 3 &times; 5 = 15.</p><p>w = 15 &divide; 2 = <strong>7&frac12; cups</strong> of water.</p><p>Check: the water is always 1.5 times the rice, and 1.5 &times; 5 = 7.5.</p><p>The answer 6 adds 1 cup (the difference between 3 and 2) instead of scaling. The answer 3&frac13; flips the ratio: 5 &times; 2/3.</p>",
+"why": [
+"You added 1 cup (the gap between 2 and 3) instead of scaling. Water is always 3/2 of the rice: 5 &times; 3/2 = 7&frac12;.",
+"You flipped the ratio and found 5 &times; 2/3. The ratio is 2 rice to 3 water, so water = 5 &times; 3/2 = 7&frac12;.",
+"",
+"You added the numbers 5 + 3 instead of scaling the ratio. Set up 2/3 = 5/w: 2w = 15, so w = 7&frac12;."
+]
+},
+{
+"id": "m09",
+"type": "mc",
+"skill": "Area in a real-world problem",
+"difficulty": 2,
+"prompt": "<p>Luis is installing new flooring in a rectangular bedroom that measures 14 feet by 11.5 feet. The flooring is sold in boxes that each cover 20 square feet, and only whole boxes can be bought. What is the least number of boxes Luis must buy to cover the floor?</p>",
+"options": [
+"8",
+"26",
+"3",
+"9"
+],
+"answer": 3,
+"explain": "<p>Area of the floor: 14 &times; 11.5 = 161 square feet.</p><p>Boxes needed: 161 &divide; 20 = 8.05.</p><p>Eight boxes cover only 160 square feet, which is not enough, so Luis must round up to <strong>9 boxes</strong>.</p><p>The answer 8 rounds 8.05 down, leaving 1 square foot uncovered. The answer 3 uses the perimeter, 2(14 + 11.5) = 51, instead of the area (51 &divide; 20 = 2.55, rounded up). The answer 26 adds the length and width (14 + 11.5 = 25.5) instead of multiplying, then rounds up.</p>",
+"why": [
+"You rounded 8.05 down. Eight boxes cover only 160 square feet, and the floor is 161 square feet, so Luis needs 9.",
+"You added the length and width (25.5) instead of multiplying. Area is 14 &times; 11.5 = 161 square feet, which needs 9 boxes.",
+"You used the perimeter, 2(14 + 11.5) = 51, instead of the area. Flooring covers area: 161 &divide; 20 = 8.05, so round up to 9.",
+""
+]
+},
+{
+"id": "m10",
+"type": "mc",
+"skill": "Finding the original price",
+"difficulty": 2,
+"prompt": "<p>A hardware store marks down a stepladder by 20%. The sale price is $96. What was the original price of the stepladder?</p>",
+"options": [
+"$76.80",
+"$115.20",
+"$120.00",
+"$116.00"
+],
+"answer": 2,
+"explain": "<p>After a 20% discount, the sale price is 80% of the original price.</p><p>0.80 &times; p = 96</p><p>p = 96 &divide; 0.80 = <strong>$120.00</strong></p><p>Check: 20% of $120 is $24, and 120 &minus; 24 = $96.</p><p>$115.20 adds 20% of the sale price (96 &times; 1.2). That is wrong because the 20% was taken from the original price, not from $96. $76.80 takes another 20% off the sale price.</p>",
+"why": [
+"You took 20% off the sale price again (96 &times; 0.8). The $96 is 80% of the original, so divide: 96 &divide; 0.80 = $120.",
+"You added 20% of the sale price (96 &times; 1.2). The 20% was taken from the original price, so 0.80p = 96 and p = $120.",
+"",
+"You added $20 instead of 20%. The sale price is 80% of the original: 96 &divide; 0.80 = $120."
+]
+},
+{
+"id": "m11",
+"type": "mc",
+"skill": "Scientific notation",
+"difficulty": 2,
+"prompt": "<p>A food warehouse ships 4.8 &times; 10<sup>6</sup> cans of tomatoes, packed equally into 1.6 &times; 10<sup>3</sup> crates. How many cans are in each crate?</p>",
+"options": [
+"3 &times; 10<sup>2</sup>",
+"7.68 &times; 10<sup>9</sup>",
+"3 &times; 10<sup>3</sup>",
+"3 &times; 10<sup>9</sup>"
+],
+"answer": 2,
+"explain": "<p>Divide the total number of cans by the number of crates:</p><p>(4.8 &times; 10<sup>6</sup>) &divide; (1.6 &times; 10<sup>3</sup>) = (4.8 &divide; 1.6) &times; 10<sup>6 &minus; 3</sup> = 3 &times; 10<sup>3</sup></p><p>Each crate holds <strong>3 &times; 10<sup>3</sup></strong> cans (3,000 cans).</p><p>Check: 3,000 &times; 1,600 = 4,800,000.</p><p>3 &times; 10<sup>9</sup> adds the exponents, which is the rule for multiplying, not dividing. 7.68 &times; 10<sup>9</sup> multiplies the two numbers.</p>",
+"why": [
+"You subtracted the exponents incorrectly. 10<sup>6</sup> &divide; 10<sup>3</sup> = 10<sup>6 &minus; 3</sup> = 10<sup>3</sup>, so the answer is 3 &times; 10<sup>3</sup>.",
+"You multiplied the two numbers instead of dividing. Cans per crate = total &divide; crates: (4.8 &divide; 1.6) &times; 10<sup>6 &minus; 3</sup> = 3 &times; 10<sup>3</sup>.",
+"",
+"You added the exponents, which is the rule for multiplying. For division, subtract: 6 &minus; 3 = 3, so the answer is 3 &times; 10<sup>3</sup>."
+]
+},
+{
+"id": "m12",
+"type": "mc",
+"skill": "Estimating square roots",
+"difficulty": 2,
+"prompt": "<p>A square ceramic tile has an area of 50 square inches. The length of one side of the tile is between which two whole numbers of inches?</p>",
+"options": [
+"6 and 7",
+"7 and 8",
+"12 and 13",
+"24 and 26"
+],
+"answer": 1,
+"noShuffle": true,
+"explain": "<p>The side length s of a square satisfies s<sup>2</sup> = 50, so s = &radic;50.</p><p>7<sup>2</sup> = 49 and 8<sup>2</sup> = 64. Because 49 &lt; 50 &lt; 64, &radic;50 is <strong>between 7 and 8</strong> (about 7.07 inches).</p><p>12 and 13 come from dividing the area by 4, which treats 50 as the perimeter. 24 and 26 come from dividing by 2 instead of taking the square root.</p>",
+"why": [
+"Because 7<sup>2</sup> = 49 is so close to 50, you may have placed &radic;50 below 7. But 50 is greater than 49, so &radic;50 is a little more than 7: between 7 and 8.",
+"",
+"You divided the area by 4, which treats 50 as the perimeter. The side of a square with area 50 is &radic;50, about 7.07.",
+"You divided the area by 2 instead of taking the square root. Side length = &radic;50, and 7<sup>2</sup> = 49 &lt; 50 &lt; 64 = 8<sup>2</sup>."
+]
+},
+{
+"id": "m13",
+"type": "fill",
+"skill": "Mean",
+"difficulty": 1,
+"prompt": "<p>The Okafor family spent the following amounts on groceries during four weeks.</p><table><thead><tr><th>Week</th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead><tbody><tr><td>Amount</td><td>$112.50</td><td>$98.75</td><td>$124.20</td><td>$105.55</td></tr></tbody></table><p>What is the mean (average) amount they spent per week, in dollars?</p>",
+"answer": [
+"110.25",
+"$110.25"
+],
+"value": 110.25,
+"tol": 0.001,
+"suffix": "dollars",
+"explain": "<p>Add the four amounts: 112.50 + 98.75 + 124.20 + 105.55 = 441.00.</p><p>Divide by the number of weeks: 441.00 &divide; 4 = <strong>$110.25</strong>.</p>",
+"mistakes": [
+{
+"answer": [
+"441",
+"441.00"
+],
+"why": "441 is the total for all four weeks. The mean divides the total by the number of weeks: 441 &divide; 4 = 110.25."
+},
+{
+"answer": [
+"147"
+],
+"why": "You divided by 3 instead of 4. There are four weeks of data, so 441 &divide; 4 = 110.25."
+}
+]
+},
+{
+"id": "m14",
+"type": "mc",
+"skill": "Median",
+"difficulty": 2,
+"prompt": "<p>The price of a gallon of milk was recorded at seven stores.</p><p>$3.49, $3.89, $3.29, $4.19, $3.59, $3.89, $3.75</p><p>What is the median price?</p>",
+"options": [
+"$3.89",
+"$3.73",
+"$0.90",
+"$3.75"
+],
+"answer": 3,
+"explain": "<p>Put the prices in order: $3.29, $3.49, $3.59, $3.75, $3.89, $3.89, $4.19.</p><p>With seven values, the median is the 4th value: <strong>$3.75</strong>.</p><p>$3.89 is the mode (the value that appears most often). $3.73 is the mean (26.09 &divide; 7 &asymp; 3.73). $0.90 is the range (4.19 &minus; 3.29).</p><p>Picking the middle value of the unsorted list ($4.19) is another common error; always sort first.</p>",
+"why": [
+"$3.89 is the mode, the price that appears most often. The median is the middle value after sorting: $3.75.",
+"$3.73 is the mean (26.09 &divide; 7). The median is the 4th of the seven sorted prices: $3.75.",
+"$0.90 is the range (4.19 &minus; 3.29). The median is the middle value after sorting: $3.75.",
+""
+]
+},
+{
+"id": "m15",
+"type": "mc",
+"skill": "Probability of dependent events",
+"difficulty": 3,
+"prompt": "<p>A bag holds 6 red apples and 4 green apples. Nadia reaches in without looking and takes one apple, keeps it, and then takes a second apple. What is the probability that both apples are green?</p>",
+"options": [
+"2/15",
+"4/25",
+"2/5",
+"3/5"
+],
+"answer": 0,
+"explain": "<p>There are 6 + 4 = 10 apples.</p><p>First apple green: 4/10.</p><p>The first apple is not put back, so 9 apples remain and 3 of them are green. Second apple green: 3/9.</p><p>Multiply: 4/10 &times; 3/9 = 12/90 = <strong>2/15</strong>.</p><p>4/25 = (4/10)(4/10) assumes the first apple was put back. 2/5 (that is, 4/10) is only the probability that the first apple is green. 3/5 (that is, 6/10) is the probability that the first apple is red.</p>",
+"why": [
+"",
+"4/25 = (4/10)(4/10) assumes the first apple was put back. Nadia keeps it, so only 9 apples and 3 green ones remain: 4/10 &times; 3/9 = 2/15.",
+"2/5 (4/10) is only the chance that the first apple is green. Both must be green, so multiply by the second chance, 3/9: 2/15.",
+"3/5 (6/10) is the chance that the first apple is red. The question asks for two green apples: 4/10 &times; 3/9 = 2/15."
+]
+},
+{
+"id": "m16",
+"type": "mc",
+"skill": "Counting and combinations",
+"difficulty": 3,
+"prompt": "<p>A pizza shop offers 3 types of crust and 8 toppings. A \"two-topping special\" is one crust with exactly two <strong>different</strong> toppings. The order of the toppings does not matter. How many different two-topping specials are possible?</p>",
+"options": [
+"48",
+"84",
+"168",
+"192"
+],
+"answer": 1,
+"noShuffle": true,
+"explain": "<p>Count the pairs of toppings. There are 8 choices for the first and 7 for the second: 8 &times; 7 = 56. Each pair has been counted twice (pepperoni-onion is the same as onion-pepperoni), so divide by 2: 56 &divide; 2 = 28 pairs.</p><p>Multiply by the crust choices: 3 &times; 28 = <strong>84</strong> specials.</p><p>168 = 3 &times; 8 &times; 7 forgets that the order of the toppings does not matter. 192 = 3 &times; 8 &times; 8 also allows the same topping twice.</p>",
+"why": [
+"You multiplied crusts by toppings (3 &times; 8 = 24) and then doubled for two toppings. Count pairs of toppings instead: (8 &times; 7) &divide; 2 = 28, then 3 &times; 28 = 84.",
+"",
+"168 = 3 &times; 8 &times; 7 counts pepperoni-onion and onion-pepperoni as different. Order does not matter, so divide the pairs by 2: 3 &times; 28 = 84.",
+"192 = 3 &times; 8 &times; 8 allows the same topping twice and counts order. The two toppings must be different and unordered: 3 &times; 28 = 84."
+]
+},
+{
+"id": "m17",
+"type": "mc",
+"skill": "Circumference",
+"difficulty": 2,
+"prompt": "<p>Grace is putting metal trim around the edge of a round tabletop with a diameter of 42 inches. To the nearest inch, how much trim does she need?</p>",
+"options": [
+"66 inches",
+"132 inches",
+"264 inches",
+"1,385 inches"
+],
+"answer": 1,
+"noShuffle": true,
+"explain": "<p>The trim goes around the edge, so find the circumference: C = &pi;d.</p><p>C = &pi; &times; 42 &asymp; 131.95 inches, which rounds to <strong>132 inches</strong>.</p><p>66 inches uses the radius in C = &pi;d (&pi; &times; 21). 264 inches uses 2&pi;d instead of 2&pi;r. 1,385 is the area, &pi;(21)<sup>2</sup>, measured in square inches, not a length.</p>",
+"why": [
+"You used the radius in C = &pi;d (&pi; &times; 21). The formula C = &pi;d uses the full diameter: &pi; &times; 42 &asymp; 132.",
+"",
+"You used 2&pi;d, which doubles the circumference. Use C = &pi;d or 2&pi;r: &pi; &times; 42 &asymp; 132.",
+"1,385 is the area, &pi;(21)<sup>2</sup>, in square inches. Trim goes around the edge, so find the circumference: &pi; &times; 42 &asymp; 132."
+]
+},
+{
+"id": "m18",
+"type": "fill",
+"skill": "Pythagorean theorem",
+"difficulty": 2,
+"prompt": "<p>A wooden garden gate is a rectangle 48 inches wide and 36 inches tall. A diagonal brace runs from one corner of the gate to the opposite corner. How long is the brace, in inches?</p>",
+"figure": {
+"type": "svg",
+"svg": "<svg viewBox='0 0 300 220' xmlns='http://www.w3.org/2000/svg'><rect x='40' y='30' width='200' height='150' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='3'/><line x1='40' y1='180' x2='240' y2='30' stroke='#0A1F3D' stroke-width='3'/><text x='120' y='205' font-size='14' fill='#0A1F3D'>48 in</text><text x='248' y='110' font-size='14' fill='#0A1F3D'>36 in</text><text x='120' y='95' font-size='14' fill='#0A1F3D'>brace</text></svg>",
+"alt": "A rectangular gate 48 inches wide and 36 inches tall with a diagonal brace from the bottom left corner to the top right corner."
+},
+"answer": [
+"60"
+],
+"value": 60,
+"tol": 0.001,
+"suffix": "inches",
+"explain": "<p>The width, the height, and the brace form a right triangle. The brace is the hypotenuse.</p><p>c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup></p><p>c<sup>2</sup> = 48<sup>2</sup> + 36<sup>2</sup> = 2,304 + 1,296 = 3,600</p><p>c = &radic;3,600 = <strong>60 inches</strong></p><p>Adding the sides (48 + 36 = 84) is a common error; the sides must be squared first.</p>",
+"mistakes": [
+{
+"answer": [
+"84"
+],
+"why": "You added the sides (48 + 36). Square them first: 48<sup>2</sup> + 36<sup>2</sup> = 3,600, and &radic;3,600 = 60."
+},
+{
+"answer": [
+"3600",
+"3,600"
+],
+"why": "3,600 is c<sup>2</sup>. Take the square root to get the length of the brace: &radic;3,600 = 60."
+},
+{
+"answer": [
+"31.7",
+"31.75",
+"32"
+],
+"why": "You subtracted the squares (2,304 &minus; 1,296). The brace is the hypotenuse, so add: 2,304 + 1,296 = 3,600, and &radic;3,600 = 60."
+}
+]
+},
+{
+"id": "m19",
+"type": "mc",
+"skill": "Volume and unit conversion",
+"difficulty": 3,
+"prompt": "<p>A raised garden bed is a rectangular box 8 feet long, 4 feet wide, and 1.5 feet deep. Soil is sold by the cubic yard (1 cubic yard = 27 cubic feet). To the nearest tenth, how many cubic yards of soil are needed to fill the bed?</p>",
+"options": [
+"16.0",
+"5.3",
+"48.0",
+"1.8"
+],
+"answer": 3,
+"explain": "<p>Volume in cubic feet: V = lwh = 8 &times; 4 &times; 1.5 = 48 cubic feet.</p><p>Convert to cubic yards: 48 &divide; 27 &asymp; 1.78, which rounds to <strong>1.8 cubic yards</strong>.</p><p>16.0 divides by 3, but 1 cubic yard is 3 &times; 3 &times; 3 = 27 cubic feet, not 3. 5.3 divides by 9, the number of square feet in a square yard. 48.0 is the volume in cubic feet, not cubic yards.</p>",
+"why": [
+"You divided by 3, but a cubic yard is 3 &times; 3 &times; 3 = 27 cubic feet. 48 &divide; 27 &asymp; 1.8.",
+"You divided by 9, the number of square feet in a square yard. For volume, use 27 cubic feet per cubic yard: 48 &divide; 27 &asymp; 1.8.",
+"48 is the volume in cubic feet. The question asks for cubic yards: 48 &divide; 27 &asymp; 1.8.",
+""
+]
+},
+{
+"id": "m20",
+"type": "mc",
+"skill": "Volume of a sphere",
+"difficulty": 2,
+"prompt": "<p>A scoop of cookie dough is shaped like a sphere with a radius of 1.5 inches. How much dough is in the scoop, in cubic inches, rounded to the nearest tenth? Use the formula sheet if needed.</p>",
+"options": [
+"9.4",
+"14.1",
+"28.3",
+"113.1"
+],
+"answer": 1,
+"noShuffle": true,
+"explain": "<p>Volume of a sphere: V = (4/3)&pi;r<sup>3</sup>.</p><p>r<sup>3</sup> = 1.5 &times; 1.5 &times; 1.5 = 3.375</p><p>V = (4/3)&pi;(3.375) = 4.5&pi; &asymp; <strong>14.1 cubic inches</strong>.</p><p>9.4 squares the radius instead of cubing it. 28.3 is the surface area, 4&pi;r<sup>2</sup>. 113.1 uses the diameter, 3, as the radius.</p>",
+"why": [
+"You squared the radius instead of cubing it: (4/3)&pi;(2.25) = 3&pi;. Sphere volume uses r<sup>3</sup> = 3.375: 4.5&pi; &asymp; 14.1.",
+"",
+"28.3 is the surface area, 4&pi;r<sup>2</sup> = 9&pi;. Volume is (4/3)&pi;r<sup>3</sup> = 4.5&pi; &asymp; 14.1.",
+"You used the diameter, 3, as the radius: (4/3)&pi;(27) = 36&pi;. The radius is 1.5, so V = 4.5&pi; &asymp; 14.1."
+]
+},
+{
+"id": "m21",
+"type": "fill",
+"skill": "Surface area of a cylinder",
+"difficulty": 3,
+"prompt": "<p>A closed cylindrical kitchen canister has a radius of 4 inches and a height of 10 inches. What is the total surface area of the canister, including the top and bottom, rounded to the nearest square inch? Use the formula sheet if needed.</p>",
+"answer": [
+"352"
+],
+"value": 352,
+"tol": 0.001,
+"suffix": "square inches",
+"explain": "<p>Surface area of a cylinder: SA = 2&pi;rh + 2&pi;r<sup>2</sup>.</p><p>Side: 2&pi;(4)(10) = 80&pi;</p><p>Top and bottom: 2&pi;(4)<sup>2</sup> = 2&pi;(16) = 32&pi;</p><p>Total: 80&pi; + 32&pi; = 112&pi; &asymp; 351.86, which rounds to <strong>352 square inches</strong>.</p><p>Leaving out the top and bottom gives only 80&pi; &asymp; 251 square inches. Including only one circle gives 96&pi; &asymp; 302 square inches.</p>",
+"mistakes": [
+{
+"answer": [
+"251",
+"251.3",
+"251.33"
+],
+"why": "251 is only the side, 2&pi;rh = 80&pi;. A closed canister also has a top and bottom: 2&pi;r<sup>2</sup> = 32&pi;, so the total is 112&pi; &asymp; 352."
+},
+{
+"answer": [
+"302",
+"301.6",
+"301.59"
+],
+"why": "You included only one circle (80&pi; + 16&pi;). A closed canister has a top and a bottom: 80&pi; + 32&pi; = 112&pi; &asymp; 352."
+},
+{
+"answer": [
+"503",
+"502.65",
+"502.7"
+],
+"why": "You found the volume, &pi;r<sup>2</sup>h = 160&pi;. Surface area adds the side and the two circles: 80&pi; + 32&pi; &asymp; 352."
+}
+]
+},
+{
+"id": "m22",
+"type": "mc",
+"skill": "Volume of a pyramid",
+"difficulty": 2,
+"prompt": "<p>A candle is shaped like a square pyramid. Each side of its square base is 4 inches, and its height is 9 inches. What is the volume of the candle, in cubic inches? Use the formula sheet if needed.</p>",
+"options": [
+"12",
+"48",
+"72",
+"144"
+],
+"answer": 1,
+"noShuffle": true,
+"explain": "<p>Volume of a pyramid: V = (1/3)Bh, where B is the area of the base.</p><p>B = 4 &times; 4 = 16 square inches</p><p>V = (1/3)(16)(9) = (1/3)(144) = <strong>48 cubic inches</strong></p><p>144 is Bh, the volume of a box with the same base and height; it leaves out the 1/3. 72 uses 1/2 instead of 1/3. 12 uses the side length, 4, as the base area.</p>",
+"why": [
+"You used the side length, 4, as the base area. The base is a 4 by 4 square, B = 16, so V = (1/3)(16)(9) = 48.",
+"",
+"You used 1/2 instead of 1/3. Pyramid volume is (1/3)Bh = (1/3)(16)(9) = 48.",
+"144 is Bh, the volume of a box with the same base and height. A pyramid holds one-third of that: 48."
+]
+},
+{
+"id": "m23",
+"type": "mc",
+"skill": "Scale drawings",
+"difficulty": 2,
+"prompt": "<p>On a floor plan for a home remodel, &frac14; inch represents 1 foot. The kitchen is 3&frac12; inches long on the floor plan. What is the actual length of the kitchen?</p>",
+"options": [
+"0.875 foot",
+"3.5 feet",
+"14 feet",
+"28 feet"
+],
+"answer": 2,
+"noShuffle": true,
+"explain": "<p>Find how many quarter inches are in 3&frac12; inches: 3.5 &divide; 0.25 = 14.</p><p>Each quarter inch stands for 1 foot, so the kitchen is <strong>14 feet</strong> long.</p><p>You can also use a proportion: (1/4)/1 = 3.5/L, so (1/4)L = 3.5 and L = 14.</p><p>0.875 foot multiplies 3.5 by &frac14; instead of dividing. 28 feet uses &frac18; inch per foot.</p>",
+"why": [
+"You multiplied 3.5 by &frac14; instead of dividing. Each &frac14; inch is 1 foot, so count quarter inches: 3.5 &divide; 0.25 = 14 feet.",
+"You used the drawing length as the real length. On this plan, 1 inch stands for 4 feet, so 3&frac12; inches is 14 feet.",
+"",
+"You used &frac18; inch per foot (3.5 &times; 8). The scale is &frac14; inch per foot, so 3.5 &times; 4 = 14 feet."
+]
+},
+{
+"id": "m24",
+"type": "mc",
+"skill": "Rates in a real-world problem",
+"difficulty": 2,
+"prompt": "<p>One gallon of paint covers 350 square feet. Ines needs to paint walls with a total area of 1,330 square feet, and she will apply two coats. Paint is sold only in whole gallons. What is the least number of gallons she must buy?</p>",
+"options": [
+"4",
+"7",
+"8",
+"3.8"
+],
+"answer": 2,
+"explain": "<p>Two coats means painting the area twice: 1,330 &times; 2 = 2,660 square feet.</p><p>Gallons needed: 2,660 &divide; 350 = 7.6.</p><p>Seven gallons would cover only 2,450 square feet, so she must round up to <strong>8 gallons</strong>.</p><p>4 gallons covers only one coat (1,330 &divide; 350 = 3.8, rounded up). 7 gallons rounds 7.6 down. 3.8 is not a whole number of gallons and covers only one coat.</p>",
+"why": [
+"4 gallons covers only one coat (1,330 &divide; 350 &asymp; 3.8, rounded up). Two coats means 2,660 square feet: 2,660 &divide; 350 = 7.6, so 8 gallons.",
+"You rounded 7.6 down. Seven gallons cover only 2,450 square feet, less than 2,660, so she must buy 8.",
+"",
+"3.8 is not a whole number of gallons, and it covers only one coat. Double the area and round up: 8 gallons."
+]
+},
+{
+"id": "m25",
+"type": "mc",
+"skill": "Translating words into equations",
+"difficulty": 1,
+"prompt": "<p>Five less than twice a number n is 17. Which equation represents this statement?</p>",
+"options": [
+"5 &minus; 2n = 17",
+"2(n &minus; 5) = 17",
+"2n + 5 = 17",
+"2n &minus; 5 = 17"
+],
+"answer": 3,
+"explain": "<p>\"Twice a number\" is 2n.</p><p>\"Five less than\" 2n means start with 2n and take away 5: 2n &minus; 5.</p><p>\"Is 17\" means equals 17: <strong>2n &minus; 5 = 17</strong>.</p><p>5 &minus; 2n reverses the order; \"five less than\" a quantity subtracts 5 <em>from</em> it. 2(n &minus; 5) subtracts 5 before doubling.</p>",
+"why": [
+"You reversed the order. &ldquo;Five less than&rdquo; a quantity subtracts 5 from it: 2n &minus; 5, not 5 &minus; 2n.",
+"You subtracted 5 before doubling. &ldquo;Twice a number&rdquo; is 2n, and 5 less than that is 2n &minus; 5.",
+"You added 5 instead of subtracting. &ldquo;Five less than&rdquo; means take 5 away: 2n &minus; 5 = 17.",
+""
+]
+},
+{
+"id": "m26",
+"type": "mc",
+"skill": "Distributive property and like terms",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to 4(2x &minus; 3) &minus; 3(x &minus; 5)?</p>",
+"options": [
+"5x + 3",
+"5x &minus; 27",
+"5x &minus; 7",
+"11x + 3"
+],
+"answer": 0,
+"explain": "<p>Distribute each number, keeping track of signs:</p><p>4(2x &minus; 3) = 8x &minus; 12</p><p>&minus;3(x &minus; 5) = &minus;3x + 15</p><p>Combine like terms: 8x &minus; 3x = 5x and &minus;12 + 15 = 3.</p><p>Result: <strong>5x + 3</strong>.</p><p>5x &minus; 27 treats &minus;3 &times; (&minus;5) as &minus;15. 5x &minus; 7 multiplies only the x by &minus;3, writing &minus;3x + 5 instead of &minus;3x + 15. 11x + 3 adds 3x instead of subtracting it.</p>",
+"why": [
+"",
+"You treated &minus;3 &times; (&minus;5) as &minus;15. A negative times a negative is positive: &minus;3(x &minus; 5) = &minus;3x + 15, so the constant is &minus;12 + 15 = 3.",
+"You multiplied only the x by &minus;3 and wrote &minus;3x + 5. The &minus;3 multiplies both terms: &minus;3x + 15, giving 5x + 3.",
+"You added 3x instead of subtracting it. &minus;3(x) = &minus;3x, so 8x &minus; 3x = 5x."
+]
+},
+{
+"id": "m27",
+"type": "multi",
+"skill": "Factoring out the GCF",
+"difficulty": 2,
+"prompt": "<p>Which expressions are equivalent to 6x<sup>2</sup> &minus; 15x? Select <strong>three</strong> answers.</p>",
+"options": [
+"3x(2x &minus; 5)",
+"3(2x<sup>2</sup> &minus; 5x)",
+"x(6x &minus; 15)",
+"3x(2x &minus; 15)",
+"6x(x &minus; 15)",
+"3x(2x + 5)"
+],
+"answer": [
+0,
+1,
+2
+],
+"explain": "<p>Multiply out each choice to test it:</p><p>3x(2x &minus; 5) = 6x<sup>2</sup> &minus; 15x. Equivalent.</p><p>3(2x<sup>2</sup> &minus; 5x) = 6x<sup>2</sup> &minus; 15x. Equivalent (only 3 is factored out).</p><p>x(6x &minus; 15) = 6x<sup>2</sup> &minus; 15x. Equivalent (only x is factored out).</p><p>3x(2x &minus; 15) = 6x<sup>2</sup> &minus; 45x, 6x(x &minus; 15) = 6x<sup>2</sup> &minus; 90x, and 3x(2x + 5) = 6x<sup>2</sup> + 15x. None of these match.</p><p>The correct choices are <strong>3x(2x &minus; 5), 3(2x<sup>2</sup> &minus; 5x), and x(6x &minus; 15)</strong>. 3x(2x &minus; 5) is the fully factored form, but all three are equivalent.</p>",
+"why": [
+"",
+"",
+"",
+"Multiplying out gives 3x(2x &minus; 15) = 6x<sup>2</sup> &minus; 45x. When you factored 3x out of &minus;15x, you left 15 instead of dividing it by 3 to get 5.",
+"Multiplying out gives 6x(x &minus; 15) = 6x<sup>2</sup> &minus; 90x. You factored 6x from the first term but did not divide &minus;15x by 6x.",
+"Multiplying out gives 3x(2x + 5) = 6x<sup>2</sup> + 15x. The sign inside must stay negative: 3x(2x &minus; 5)."
+]
+},
+{
+"id": "m28",
+"type": "mc",
+"skill": "Factoring a difference of squares",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to 4x<sup>2</sup> &minus; 25?</p>",
+"options": [
+"(2x &minus; 5)<sup>2</sup>",
+"(2x &minus; 5)(2x + 5)",
+"(4x &minus; 5)(x + 5)",
+"(2x + 5)<sup>2</sup>"
+],
+"answer": 1,
+"explain": "<p>4x<sup>2</sup> = (2x)<sup>2</sup> and 25 = 5<sup>2</sup>, so this is a difference of squares: a<sup>2</sup> &minus; b<sup>2</sup> = (a &minus; b)(a + b).</p><p>4x<sup>2</sup> &minus; 25 = <strong>(2x &minus; 5)(2x + 5)</strong>.</p><p>Check: (2x &minus; 5)(2x + 5) = 4x<sup>2</sup> + 10x &minus; 10x &minus; 25 = 4x<sup>2</sup> &minus; 25.</p><p>(2x &minus; 5)<sup>2</sup> = 4x<sup>2</sup> &minus; 20x + 25, which has a middle term and a positive constant.</p>",
+"why": [
+"(2x &minus; 5)<sup>2</sup> = 4x<sup>2</sup> &minus; 20x + 25, which has a middle term and a positive constant. A difference of squares factors into one minus and one plus: (2x &minus; 5)(2x + 5).",
+"",
+"Multiplying out (4x &minus; 5)(x + 5) gives 4x<sup>2</sup> + 15x &minus; 25, which has a middle term. Write 4x<sup>2</sup> as (2x)<sup>2</sup> and use (a &minus; b)(a + b).",
+"(2x + 5)<sup>2</sup> = 4x<sup>2</sup> + 20x + 25, which adds instead of subtracts. A difference of squares needs one minus factor and one plus factor."
+]
+},
+{
+"id": "m29",
+"type": "mc",
+"skill": "Simplifying rational expressions",
+"difficulty": 3,
+"prompt": "<p>Simplify the rational expression below. Assume x &ne; 4 and x &ne; &minus;4.</p><p>(x<sup>2</sup> + 7x + 12) / (x<sup>2</sup> &minus; 16)</p>",
+"options": [
+"(x + 3) / (x + 4)",
+"(x &minus; 3) / (x &minus; 4)",
+"(x + 3) / (x &minus; 4)",
+"&minus;(7x + 12) / 16"
+],
+"answer": 2,
+"explain": "<p>Factor the numerator: x<sup>2</sup> + 7x + 12 = (x + 3)(x + 4), because 3 &times; 4 = 12 and 3 + 4 = 7.</p><p>Factor the denominator (difference of squares): x<sup>2</sup> &minus; 16 = (x &minus; 4)(x + 4).</p><p>Cancel the common factor (x + 4):</p><p>[(x + 3)(x + 4)] / [(x &minus; 4)(x + 4)] = <strong>(x + 3) / (x &minus; 4)</strong></p><p>(x + 3) / (x + 4) cancels the wrong factor. &minus;(7x + 12) / 16 cancels the x<sup>2</sup> terms, but only common factors can be canceled, never terms that are added or subtracted.</p>",
+"why": [
+"You canceled the wrong factor. The common factor is (x + 4), so after canceling it, (x + 3) stays on top and (x &minus; 4) stays on the bottom.",
+"You factored x<sup>2</sup> + 7x + 12 with minus signs. The numbers 3 and 4 add to +7, so the numerator is (x + 3)(x + 4).",
+"",
+"You canceled the x<sup>2</sup> terms. Only common factors cancel, never terms that are added or subtracted. Factor first, then cancel (x + 4)."
+]
+},
+{
+"id": "m30",
+"type": "fill",
+"skill": "Linear equation word problem",
+"difficulty": 2,
+"prompt": "<p>Maria buys 3 pounds of chicken and one $4.75 bag of rice. Her total before tax is $19.15. What is the price of the chicken per pound, in dollars?</p>",
+"answer": [
+"4.80",
+"4.8",
+"$4.80"
+],
+"value": 4.8,
+"tol": 0.001,
+"suffix": "dollars per pound",
+"explain": "<p>Let p be the price per pound.</p><p>3p + 4.75 = 19.15</p><p>3p = 19.15 &minus; 4.75 = 14.40</p><p>p = 14.40 &divide; 3 = <strong>$4.80 per pound</strong></p><p>Check: 3(4.80) + 4.75 = 14.40 + 4.75 = $19.15.</p><p>A common error is to divide the whole total by 3 (19.15 &divide; 3 &asymp; 6.38) without first subtracting the cost of the rice.</p>",
+"mistakes": [
+{
+"answer": [
+"6.38",
+"6.383",
+"$6.38"
+],
+"why": "You divided the whole $19.15 by 3 without first taking out the $4.75 rice. Subtract first: 19.15 &minus; 4.75 = 14.40, then 14.40 &divide; 3 = 4.80."
+},
+{
+"answer": [
+"7.97",
+"7.966",
+"$7.97"
+],
+"why": "You added the cost of the rice instead of subtracting it. The chicken cost 19.15 &minus; 4.75 = 14.40, so the price per pound is 4.80."
+},
+{
+"answer": [
+"14.40",
+"14.4",
+"$14.40"
+],
+"why": "14.40 is the total cost of the chicken. Divide by the 3 pounds to get the price per pound: 4.80."
+}
+]
+},
+{
+"id": "m31",
+"type": "mc",
+"skill": "Equations with variables on both sides",
+"difficulty": 2,
+"prompt": "<p>Solve for x.</p><p>5(x &minus; 2) = 3x + 14</p>",
+"options": [
+"2",
+"8",
+"&minus;12",
+"12"
+],
+"answer": 3,
+"explain": "<p>Distribute: 5x &minus; 10 = 3x + 14</p><p>Subtract 3x from both sides: 2x &minus; 10 = 14</p><p>Add 10 to both sides: 2x = 24</p><p>Divide by 2: x = <strong>12</strong></p><p>Check: 5(12 &minus; 2) = 50 and 3(12) + 14 = 50.</p><p>The answer 8 comes from distributing the 5 only to x: 5x &minus; 2 = 3x + 14 gives 2x = 16. The answer 2 comes from subtracting 10 instead of adding it: 2x = 4.</p>",
+"why": [
+"You subtracted 10 instead of adding it, getting 2x = 4. From 2x &minus; 10 = 14, add 10: 2x = 24, so x = 12.",
+"You distributed the 5 only to x (5x &minus; 2 = 3x + 14), getting 2x = 16. The 5 multiplies both terms: 5x &minus; 10.",
+"You made a sign error in the last steps. 2x = 24 gives x = +12; check: 5(10) = 50 and 3(12) + 14 = 50.",
+""
+]
+},
+{
+"id": "m32",
+"type": "mc",
+"skill": "Solving literal equations",
+"difficulty": 2,
+"prompt": "<p>The perimeter of a rectangle is given by P = 2l + 2w. Which equation correctly solves this formula for w?</p>",
+"options": [
+"w = (P &minus; 2l) / 2",
+"w = P/2 &minus; 2l",
+"w = (P + 2l) / 2",
+"w = 2(P &minus; l)"
+],
+"answer": 0,
+"explain": "<p>Subtract 2l from both sides: P &minus; 2l = 2w.</p><p>Divide both sides by 2: <strong>w = (P &minus; 2l) / 2</strong>.</p><p>Check with a 5-by-3 rectangle: P = 16, and (16 &minus; 2 &times; 5) / 2 = 6 / 2 = 3.</p><p>w = P/2 &minus; 2l divides only P by 2 and not the 2l. The same check gives 8 &minus; 10 = &minus;2, which is impossible.</p>",
+"why": [
+"",
+"You divided only P by 2 and not the 2l. Dividing both sides by 2 divides every term: w = (P &minus; 2l)/2, which is P/2 &minus; l.",
+"You added 2l instead of subtracting it. To get 2w alone, subtract 2l from both sides: 2w = P &minus; 2l.",
+"You multiplied by 2 instead of dividing, and you dropped the 2 on l. Subtract 2l, then divide by 2: w = (P &minus; 2l)/2."
+]
+},
+{
+"id": "m33",
+"type": "dropdown",
+"skill": "Inequality word problem",
+"difficulty": 2,
+"prompt": "<p>Devon has a budget of $600 to stain his deck. He has already spent $135 on brushes and rollers. Deck stain costs $32.50 per gallon. Let g be the number of gallons he buys, and he cannot go over budget.</p><p>The inequality that represents this situation is 135 + 32.50g {{0}} 600.</p><p>The greatest number of gallons Devon can buy is {{1}}.</p>",
+"blanks": [
+{
+"options": [
+"&lt;",
+"&le;",
+"&gt;",
+"&ge;"
+],
+"answer": 1,
+"why": [
+"&lt; would not let Devon spend exactly $600. &ldquo;Cannot go over&rdquo; allows equal to the budget, so use &le;.",
+"",
+"&gt; means spending more than $600, the opposite of staying within budget. Use &le;.",
+"&ge; means &ldquo;at least $600.&rdquo; The budget is a ceiling, so the total must be &le; 600."
+]
+},
+{
+"options": [
+"13",
+"14",
+"15",
+"18"
+],
+"answer": 1,
+"why": [
+"13 gallons is within budget, but it is not the greatest number. 14 gallons costs 135 + 455 = $590, still under $600.",
+"",
+"You rounded 14.3 up. Fifteen gallons cost 135 + 487.50 = $622.50, which goes over budget, so round down to 14.",
+"You divided 600 by 32.50 and ignored the $135 already spent. Only 600 &minus; 135 = 465 is left: 465 &divide; 32.50 &asymp; 14.3, so 14."
+]
+}
+],
+"explain": "<p>Devon cannot go over $600, so his total can equal $600 or be less. The symbol is <strong>&le;</strong>: 135 + 32.50g &le; 600.</p><p>Solve: 32.50g &le; 600 &minus; 135 = 465</p><p>g &le; 465 &divide; 32.50 &asymp; 14.3</p><p>He can only buy whole gallons, so the greatest number is <strong>14</strong>. Check: 135 + 32.50(14) = 135 + 455 = $590, which is within budget. Fifteen gallons would cost 135 + 487.50 = $622.50, which is over budget.</p><p>The answer 18 ignores the $135 already spent (600 &divide; 32.50 &asymp; 18.5).</p>"
+},
+{
+"id": "m34",
+"type": "mc",
+"skill": "Compound inequalities",
+"difficulty": 3,
+"prompt": "<p>Which inequality describes all solutions of &minus;2 &lt; 2x + 4 &le; 10?</p>",
+"options": [
+"&minus;3 &le; x &lt; 3",
+"&minus;6 &lt; x &le; 6",
+"1 &lt; x &le; 7",
+"&minus;3 &lt; x &le; 3"
+],
+"answer": 3,
+"explain": "<p>Do the same operation to all three parts.</p><p>Subtract 4: &minus;2 &minus; 4 &lt; 2x &le; 10 &minus; 4, which gives &minus;6 &lt; 2x &le; 6.</p><p>Divide by 2: <strong>&minus;3 &lt; x &le; 3</strong>.</p><p>Check: x = 3 gives 2(3) + 4 = 10, and 10 &le; 10 is true, so 3 is included. x = &minus;3 gives &minus;2, and &minus;2 &lt; &minus;2 is false, so &minus;3 is not included.</p><p>&minus;3 &le; x &lt; 3 switches which end is included. &minus;6 &lt; x &le; 6 forgets to divide by 2. 1 &lt; x &le; 7 adds 4 instead of subtracting it.</p>",
+"why": [
+"You switched which end is included. x = 3 makes 2x + 4 = 10, and &le; 10 includes it; x = &minus;3 makes &minus;2, and &minus;2 &lt; &minus;2 is false. So &minus;3 &lt; x &le; 3.",
+"You subtracted 4 but forgot to divide all three parts by 2. &minus;6 &lt; 2x &le; 6 becomes &minus;3 &lt; x &le; 3.",
+"You added 4 to each part instead of subtracting it. Subtract 4: &minus;6 &lt; 2x &le; 6, then divide by 2.",
+""
+]
+},
+{
+"id": "m35",
+"type": "mc",
+"skill": "Solving systems by elimination",
+"difficulty": 2,
+"prompt": "<p>Solve the system.</p><p>2x + 3y = 12<br>4x &minus; 3y = 6</p>",
+"options": [
+"(3, 2)",
+"(2, 3)",
+"(3, &minus;2)",
+"(&minus;3, 6)"
+],
+"answer": 0,
+"explain": "<p>Add the two equations to eliminate y:</p><p>(2x + 4x) + (3y &minus; 3y) = 12 + 6</p><p>6x = 18, so x = 3</p><p>Substitute into the first equation: 2(3) + 3y = 12, so 3y = 6 and y = 2.</p><p>The solution is <strong>(3, 2)</strong>. Check in the second equation: 4(3) &minus; 3(2) = 12 &minus; 6 = 6.</p><p>(2, 3) reverses the coordinates; it fails the second equation because 4(2) &minus; 3(3) = &minus;1. (&minus;3, 6) works in the first equation only.</p>",
+"why": [
+"",
+"You reversed the coordinates. x = 3 and y = 2; (2, 3) fails the second equation because 4(2) &minus; 3(3) = &minus;1.",
+"You made a sign error when solving for y. From 6 + 3y = 12, 3y = 6 and y = +2.",
+"(&minus;3, 6) works in the first equation only; in the second, 4(&minus;3) &minus; 3(6) = &minus;30, not 6. Adding the equations eliminates y: 6x = 18, so x = 3 and y = 2."
+]
+},
+{
+"id": "m36",
+"type": "mc",
+"skill": "Systems of equations word problem",
+"difficulty": 3,
+"prompt": "<p>At a farmers market, apples cost $1.70 per pound and oranges cost $1.40 per pound. Kenji buys 9 pounds of apples and oranges in all and pays $14.10. How many pounds of oranges does he buy?</p>",
+"options": [
+"3",
+"4",
+"5",
+"6"
+],
+"answer": 1,
+"noShuffle": true,
+"explain": "<p>Let a = pounds of apples and r = pounds of oranges.</p><p>a + r = 9</p><p>1.70a + 1.40r = 14.10</p><p>From the first equation, a = 9 &minus; r. Substitute:</p><p>1.70(9 &minus; r) + 1.40r = 14.10</p><p>15.30 &minus; 1.70r + 1.40r = 14.10</p><p>&minus;0.30r = &minus;1.20</p><p>r = <strong>4 pounds of oranges</strong> (and a = 5 pounds of apples).</p><p>Check: 1.70(5) + 1.40(4) = 8.50 + 5.60 = $14.10.</p><p>The answer 5 is the number of pounds of apples, not oranges.</p>",
+"why": [
+"Check it: 3 pounds of oranges means 6 pounds of apples, which costs 1.70(6) + 1.40(3) = $14.40, not $14.10. Solve 1.70(9 &minus; r) + 1.40r = 14.10 to get r = 4.",
+"",
+"5 is the pounds of apples, not oranges. The question asks for oranges: 9 &minus; 5 = 4.",
+"Check it: 6 pounds of oranges means 3 pounds of apples, which costs 1.70(3) + 1.40(6) = $13.50, not $14.10. Solving the system gives r = 4."
+]
+},
+{
+"id": "m37",
+"type": "hotspot",
+"skill": "Intercepts of a line",
+"difficulty": 2,
+"prompt": "<p>Click the point on the coordinate plane where the graph of 3x &minus; 2y = 12 crosses the x-axis.</p>",
+"plane": {
+"xmin": -8,
+"xmax": 8,
+"ymin": -8,
+"ymax": 8
+},
+"answer": [
+4,
+0
+],
+"explain": "<p>Every point on the x-axis has a y-coordinate of 0. Substitute y = 0:</p><p>3x &minus; 2(0) = 12</p><p>3x = 12, so x = 4</p><p>The x-intercept is <strong>(4, 0)</strong>.</p><p>A common error is to find the y-intercept instead. Setting x = 0 gives &minus;2y = 12, so y = &minus;6; the point (0, &minus;6) is where the line crosses the y-axis, not the x-axis.</p>",
+"why": "The most common wrong click is (0, &minus;6), the y-intercept found by setting x = 0. To find where the line crosses the x-axis, set y = 0: 3x = 12, so the point is (4, 0)."
+},
+{
+"id": "m38",
+"type": "hotspot",
+"skill": "Coordinates of polygons",
+"difficulty": 1,
+"prompt": "<p>Points A(&minus;3, 2), B(4, 2), and C(4, &minus;3) are three corners of rectangle ABCD, shown on the coordinate plane. Click the point where the fourth corner, D, must be located.</p>",
+"figure": {
+"type": "plane",
+"xmin": -6,
+"xmax": 6,
+"ymin": -6,
+"ymax": 6,
+"points": [
+[
+-3,
+2,
+"A"
+],
+[
+4,
+2,
+"B"
+],
+[
+4,
+-3,
+"C"
+]
+],
+"segments": [
+[
+[
+-3,
+2
+],
+[
+4,
+2
+]
+],
+[
+[
+4,
+2
+],
+[
+4,
+-3
+]
+]
+]
+},
+"plane": {
+"xmin": -6,
+"xmax": 6,
+"ymin": -6,
+"ymax": 6
+},
+"answer": [
+-3,
+-3
+],
+"explain": "<p>In a rectangle, opposite sides are parallel and equal in length.</p><p>Side AB is horizontal (y = 2) and side BC is vertical (x = 4). So D must be directly below A, on the vertical line x = &minus;3, and directly to the left of C, on the horizontal line y = &minus;3.</p><p>D is at <strong>(&minus;3, &minus;3)</strong>.</p><p>Check: AD runs from y = 2 to y = &minus;3, a length of 5, the same as BC. DC runs from x = &minus;3 to x = 4, a length of 7, the same as AB.</p>",
+"why": "A common wrong click is (&minus;3, &minus;2) or another point that is not lined up with both A and C. D must be straight below A (x = &minus;3) and straight left of C (y = &minus;3), so D is (&minus;3, &minus;3)."
+},
+{
+"id": "m39",
+"type": "mc",
+"skill": "Slope from a graph",
+"difficulty": 2,
+"prompt": "<p>The line shown passes through the points (0, 2) and (4, &minus;1). What is the slope of the line?</p>",
+"figure": {
+"type": "plane",
+"xmin": -6,
+"xmax": 6,
+"ymin": -6,
+"ymax": 6,
+"lines": [
+{
+"m": -0.75,
+"b": 2
+}
+],
+"points": [
+[
+0,
+2
+],
+[
+4,
+-1
+]
+]
+},
+"options": [
+"3/4",
+"&minus;4/3",
+"2",
+"&minus;3/4"
+],
+"answer": 3,
+"explain": "<p>Slope m = (change in y) / (change in x) = (y<sub>2</sub> &minus; y<sub>1</sub>) / (x<sub>2</sub> &minus; x<sub>1</sub>).</p><p>m = (&minus;1 &minus; 2) / (4 &minus; 0) = &minus;3/4 = <strong>&minus;3/4</strong>.</p><p>The line falls from left to right, so the slope must be negative; that rules out 3/4. &minus;4/3 puts the change in x on top. 2 is the y-intercept, not the slope.</p>",
+"why": [
+"You dropped the negative sign. The line falls from left to right: (&minus;1 &minus; 2)/(4 &minus; 0) = &minus;3/4.",
+"You put the change in x on top (4 / &minus;3). Slope is change in y over change in x: &minus;3/4.",
+"2 is the y-intercept, where the line crosses the y-axis, not the slope. Slope = (&minus;1 &minus; 2)/(4 &minus; 0) = &minus;3/4.",
+""
+]
+},
+{
+"id": "m40",
+"type": "mc",
+"skill": "Perpendicular lines",
+"difficulty": 3,
+"prompt": "<p>Which equation represents the line that passes through the point (2, 3) and is perpendicular to the line y = (2/5)x &minus; 1?</p>",
+"options": [
+"y = (5/2)x &minus; 2",
+"y = &minus;(2/5)x + 19/5",
+"y = &minus;(5/2)x + 8",
+"y = (2/5)x + 11/5"
+],
+"answer": 2,
+"explain": "<p>Perpendicular lines have slopes that are negative reciprocals. The given slope is 2/5, so the perpendicular slope is &minus;5/2.</p><p>Use the point (2, 3) to find b: 3 = &minus;(5/2)(2) + b, so 3 = &minus;5 + b and b = 8.</p><p>Equation: <strong>y = &minus;(5/2)x + 8</strong>.</p><p>All four choices pass through (2, 3), so the slope decides the answer. y = (5/2)x &minus; 2 uses the reciprocal without changing the sign. y = &minus;(2/5)x + 19/5 changes the sign without taking the reciprocal. y = (2/5)x + 11/5 is parallel, not perpendicular.</p>",
+"why": [
+"You took the reciprocal of 2/5 but did not change the sign. Perpendicular slopes are negative reciprocals: &minus;5/2.",
+"You changed the sign but did not take the reciprocal. The perpendicular slope of 2/5 is &minus;5/2, not &minus;2/5.",
+"",
+"This line has the same slope, 2/5, so it is parallel, not perpendicular. Use the negative reciprocal, &minus;5/2."
+]
+},
+{
+"id": "m41",
+"type": "dropdown",
+"skill": "Linear functions from a table",
+"difficulty": 2,
+"prompt": "<p>A pot of water is heated on a stove. The table shows the temperature T of the water, in degrees Fahrenheit, t minutes after the burner is turned on. The temperature rises at a constant rate until the water boils at 212&deg;F.</p><table><thead><tr><th>t (minutes)</th><th>0</th><th>2</th><th>4</th><th>6</th></tr></thead><tbody><tr><td>T (&deg;F)</td><td>68</td><td>100</td><td>132</td><td>164</td></tr></tbody></table><p>The temperature increases by {{0}} degrees per minute.</p><p>In the equation T = 68 + mt, the number 68 represents {{1}}.</p><p>The water reaches 212&deg;F after {{2}} minutes.</p>",
+"blanks": [
+{
+"options": [
+"8",
+"16",
+"32",
+"68"
+],
+"answer": 1,
+"why": [
+"You divided the 32-degree change by 4 instead of by 2. The table steps by 2 minutes, so the rate is 32 &divide; 2 = 16.",
+"",
+"32 is the rise every 2 minutes, not every minute. Divide by 2: 16 degrees per minute.",
+"68 is the starting temperature, not the rate. The temperature rises 32 degrees every 2 minutes, or 16 per minute."
+]
+},
+{
+"options": [
+"the starting temperature of the water",
+"the increase in temperature each minute",
+"the boiling point of water",
+"the number of minutes until boiling"
+],
+"answer": 0,
+"why": [
+"",
+"The increase each minute is m = 16, the number multiplied by t. The 68 is T when t = 0, the starting temperature.",
+"The boiling point is 212&deg;F. The 68 is the temperature at t = 0, the starting temperature.",
+"68 is a temperature, not a time. It is the value of T when t = 0, the starting temperature."
+]
+},
+{
+"options": [
+"8",
+"9",
+"13.25",
+"18"
+],
+"answer": 1,
+"why": [
+"You may have picked the next table step. At t = 8, T = 68 + 16(8) = 196&deg;F, which is not yet boiling. Solve 68 + 16t = 212: t = 9.",
+"",
+"You divided 212 by 16 and ignored the starting temperature. The water must rise only 212 &minus; 68 = 144 degrees: 144 &divide; 16 = 9.",
+"You used 8 degrees per minute as the rate: 144 &divide; 8 = 18. The rate is 16, so 144 &divide; 16 = 9."
+]
+}
+],
+"explain": "<p>Rate: every 2 minutes the temperature rises 32 degrees (68 to 100, 100 to 132, 132 to 164). Per minute: 32 &divide; 2 = <strong>16 degrees per minute</strong>. Choosing 32 forgets that the table goes up by 2 minutes at a time.</p><p>The 68 is the temperature when t = 0, so it is <strong>the starting temperature of the water</strong>.</p><p>The model is T = 68 + 16t. Set T = 212:</p><p>68 + 16t = 212</p><p>16t = 144</p><p>t = <strong>9 minutes</strong></p><p>13.25 comes from 212 &divide; 16, which ignores the starting temperature of 68&deg;F.</p>"
+},
+{
+"id": "m42",
+"type": "dropdown",
+"skill": "Comparing functions",
+"difficulty": 3,
+"prompt": "<p>Function A is defined by the equation f(x) = 3x + 2.</p><p>Function B is linear and is defined by the table below.</p><table><thead><tr><th>x</th><th>0</th><th>2</th><th>4</th></tr></thead><tbody><tr><td>y</td><td>&minus;1</td><td>7</td><td>15</td></tr></tbody></table><p>The rate of change of Function B is {{0}} the rate of change of Function A.</p><p>The y-intercept of Function B is {{1}} the y-intercept of Function A.</p>",
+"blanks": [
+{
+"options": [
+"greater than",
+"less than",
+"equal to"
+],
+"answer": 0,
+"why": [
+"",
+"You may have compared y-intercepts or misread the slope of B. B rises 8 for every 2 steps of x, so its rate is 4, which is greater than 3.",
+"B's rate is not 3. From x = 0 to x = 2, y rises 8, so the rate is 8 &divide; 2 = 4, greater than A's 3."
+]
+},
+{
+"options": [
+"greater than",
+"less than",
+"equal to"
+],
+"answer": 1,
+"why": [
+"You may have used the last table value or the slope. B's y-intercept is its value at x = 0, which is &minus;1, less than A's 2.",
+"",
+"B's y-intercept is &minus;1 (the y-value at x = 0), and A's is 2. Since &minus;1 &lt; 2, B's is less."
+]
+}
+],
+"explain": "<p>Function A: f(x) = 3x + 2 has a rate of change (slope) of 3 and a y-intercept of 2.</p><p>Function B: from x = 0 to x = 2, y goes from &minus;1 to 7, a change of 8. Rate of change = 8 &divide; 2 = 4. Check from x = 2 to x = 4: (15 &minus; 7) &divide; 2 = 4. The y-intercept is the value when x = 0, which is &minus;1.</p><p>Compare: 4 &gt; 3, so B's rate of change is <strong>greater than</strong> A's. &minus;1 &lt; 2, so B's y-intercept is <strong>less than</strong> A's.</p><p>A common error is to use 8 (the change in y for 2 steps of x) as the rate; the change in y must be divided by the change in x.</p>"
+},
+{
+"id": "m43",
+"type": "fill",
+"skill": "Quadratic formula",
+"difficulty": 3,
+"prompt": "<p>The equation x<sup>2</sup> &minus; 6x + 4 = 0 has two solutions. What is the <strong>greater</strong> solution, rounded to the nearest hundredth? Use the formula sheet if needed.</p>",
+"answer": [
+"5.24"
+],
+"value": 5.24,
+"tol": 0.005,
+"explain": "<p>Quadratic formula: x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a), with a = 1, b = &minus;6, c = 4.</p><p>b<sup>2</sup> &minus; 4ac = (&minus;6)<sup>2</sup> &minus; 4(1)(4) = 36 &minus; 16 = 20</p><p>x = (6 &plusmn; &radic;20) / 2</p><p>&radic;20 &asymp; 4.472</p><p>Greater solution: (6 + 4.472) / 2 = 10.472 / 2 &asymp; <strong>5.24</strong>. (The other solution is (6 &minus; 4.472) / 2 &asymp; 0.76.)</p><p>A common error is to use &minus;b = &minus;6 instead of +6, which gives (&minus;6 + 4.472) / 2 &asymp; &minus;0.76.</p>",
+"mistakes": [
+{
+"answer": [
+"0.76"
+],
+"why": "0.76 is the smaller solution, (6 &minus; &radic;20)/2. The question asks for the greater one: (6 + &radic;20)/2 &asymp; 5.24."
+},
+{
+"answer": [
+"-0.76"
+],
+"why": "You used &minus;b = &minus;6 instead of +6. Since b = &minus;6, &minus;b = 6, and the greater solution is (6 + 4.472)/2 &asymp; 5.24."
+},
+{
+"answer": [
+"10.47",
+"10.472"
+],
+"why": "You forgot to divide by 2a = 2. (6 + 4.472) &divide; 2 &asymp; 5.24."
+}
+]
+},
+{
+"id": "m44",
+"type": "multi",
+"skill": "Solving quadratics by factoring",
+"difficulty": 3,
+"prompt": "<p>What are the solutions of the equation 2x<sup>2</sup> + 5x &minus; 3 = 0? Select <strong>two</strong> answers.</p>",
+"options": [
+"1/2",
+"&minus;3",
+"&minus;1/2",
+"3",
+"2",
+"&minus;1"
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>Factor: look for two numbers that multiply to a &times; c = 2 &times; (&minus;3) = &minus;6 and add to 5. They are 6 and &minus;1.</p><p>Split the middle term: 2x<sup>2</sup> + 6x &minus; x &minus; 3 = 2x(x + 3) &minus; 1(x + 3) = (2x &minus; 1)(x + 3).</p><p>Set each factor equal to 0: 2x &minus; 1 = 0 gives x = 1/2; x + 3 = 0 gives x = &minus;3.</p><p>The solutions are <strong>1/2 and &minus;3</strong>.</p><p>Check: 2(1/2)<sup>2</sup> + 5(1/2) &minus; 3 = 0.5 + 2.5 &minus; 3 = 0, and 2(&minus;3)<sup>2</sup> + 5(&minus;3) &minus; 3 = 18 &minus; 15 &minus; 3 = 0.</p><p>Choosing &minus;1/2 and 3 reverses both signs.</p>",
+"why": [
+"",
+"",
+"You flipped the sign of the solution from 2x &minus; 1 = 0. Solving gives 2x = 1, so x = +1/2.",
+"You flipped the sign of the solution from x + 3 = 0. Solving gives x = &minus;3.",
+"You took the coefficient 2 from the factor (2x &minus; 1). Set the factor equal to zero: 2x &minus; 1 = 0 gives x = 1/2.",
+"&minus;1 is one of the numbers used to split the middle term (6 and &minus;1), not a solution. The factors are (2x &minus; 1)(x + 3), giving 1/2 and &minus;3."
+]
+},
+{
+"id": "m45",
+"type": "drag",
+"skill": "Number of solutions of linear equations",
+"difficulty": 3,
+"prompt": "<p>Drag each equation into the category that describes how many solutions it has.</p>",
+"choices": [
+"3(x + 2) = 3x + 6",
+"2x + 5 = 2x &minus; 1",
+"4x &minus; 7 = 2x + 1",
+"5(x &minus; 1) = 5x &minus; 1",
+"6x &minus; 3 = 3(2x &minus; 1)",
+"2(x + 3) = x + 3"
+],
+"bins": [
+"One solution",
+"No solution",
+"Infinitely many solutions"
+],
+"answer": [
+2,
+1,
+0,
+1,
+2,
+0
+],
+"explain": "<p>Simplify each side and compare.</p><p>3(x + 2) = 3x + 6: both sides are 3x + 6, so every x works. <strong>Infinitely many solutions.</strong></p><p>2x + 5 = 2x &minus; 1: subtracting 2x leaves 5 = &minus;1, which is false. <strong>No solution.</strong></p><p>4x &minus; 7 = 2x + 1: 2x = 8, so x = 4. <strong>One solution.</strong></p><p>5(x &minus; 1) = 5x &minus; 1: 5x &minus; 5 = 5x &minus; 1 leaves &minus;5 = &minus;1, which is false. <strong>No solution.</strong></p><p>6x &minus; 3 = 3(2x &minus; 1): the right side is 6x &minus; 3, identical to the left. <strong>Infinitely many solutions.</strong></p><p>2(x + 3) = x + 3: 2x + 6 = x + 3, so x = &minus;3. <strong>One solution.</strong></p><p>Same x-coefficients with different constants means no solution; identical sides mean infinitely many.</p>",
+"why": "The most common error is calling an identity like 3(x + 2) = 3x + 6 &ldquo;No solution&rdquo; because the x-terms cancel. When the x-terms cancel, look at what is left: a true statement (6 = 6) means infinitely many solutions, and a false one (5 = &minus;1) means no solution."
+},
+{
+"id": "m46",
+"type": "drag",
+"skill": "Comparing and ordering real numbers",
+"difficulty": 3,
+"prompt": "<p>The five numbers below are all close to 2.6. Place each number in its position so that the list runs from the least value to the greatest value.</p>",
+"choices": [
+"&radic;7",
+"2.64",
+"29/11",
+"8/3",
+"2.65"
+],
+"bins": [
+"1st (least)",
+"2nd",
+"3rd",
+"4th",
+"5th (greatest)"
+],
+"answer": [
+2,
+1,
+0,
+4,
+3
+],
+"explain": "<p>Change each number to a decimal with a calculator, carrying at least three decimal places:</p><p>29/11 &asymp; 2.636; 2.64 = 2.640; &radic;7 &asymp; 2.646; 2.65 = 2.650; 8/3 &asymp; 2.667</p><p>Order from least to greatest: <strong>29/11, 2.64, &radic;7, 2.65, 8/3</strong>.</p><p>These values are very close, so rounding to two decimal places is not enough: 29/11, 2.64, and &radic;7 all round to 2.64 or 2.65. Compare in the thousandths place to separate them.</p>",
+"why": "The most common error is rounding to two decimal places, which makes 29/11, 2.64, and &radic;7 look equal and puts &radic;7 first. Compare to the thousandths: 29/11 &asymp; 2.636, 2.640, &radic;7 &asymp; 2.646, 2.650, and 8/3 &asymp; 2.667."
+}
+]
+}
+]
 }

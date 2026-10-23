@@ -1,305 +1,1056 @@
 {
-  "form": 6,
-  "subject": "sci",
-  "title": "Practice GED Form 6 — Science",
-  "minutes": 90,
-  "stimuli": [
-    {
-      "id": "s1",
-      "title": "Braking on Dry and Wet Pavement",
-      "html": "<p>A highway safety team tested how far a car travels after the driver slams on the brakes. On a closed test track, a driver brought the car to a steady speed, and at a signal she pressed the brake pedal as hard as possible. The team measured the <strong>braking distance</strong>: the distance the car traveled from the moment the brakes were applied until it stopped. The same car, the same set of tires, and the same driver were used in every trial.</p><p>The team tested three speeds on dry pavement and then repeated the tests after the track was soaked with water. Each speed was tested three times on each surface.</p><table><thead><tr><th>Speed (m/s)</th><th>Dry: Trial 1 (m)</th><th>Dry: Trial 2 (m)</th><th>Dry: Trial 3 (m)</th><th>Dry: Mean (m)</th><th>Wet: Mean (m)</th></tr></thead><tbody><tr><td>10</td><td>7</td><td>8</td><td>6</td><td>7</td><td>12</td></tr><tr><td>20</td><td>27</td><td>30</td><td>27</td><td>?</td><td>48</td></tr><tr><td>30</td><td>62</td><td>65</td><td>62</td><td>63</td><td>108</td></tr></tbody></table>"
-    },
-    {
-      "id": "s2",
-      "title": "Merging onto a Highway",
-      "html": "<p>A car with a total mass of 1,400 kg (including the driver) speeds up along a straight on-ramp to merge onto a highway. A GPS unit recorded the car's velocity every 2 seconds, starting from a stop at the bottom of the ramp.</p><table><thead><tr><th>Time (s)</th><th>0</th><th>2</th><th>4</th><th>6</th><th>8</th></tr></thead><tbody><tr><td>Velocity (m/s)</td><td>0</td><td>6</td><td>12</td><td>18</td><td>24</td></tr></tbody></table><p>Acceleration is the change in velocity divided by the time taken for the change.</p>",
-      "figure": {"type": "line", "title": "Velocity of a Car on an On-Ramp", "xLabel": "Time (s)", "yLabel": "Velocity (m/s)", "labels": ["0", "2", "4", "6", "8"], "series": [{"name": "Velocity (m/s)", "values": [0, 6, 12, 18, 24]}]}
-    },
-    {
-      "id": "s3",
-      "title": "Tire Pressure on a Long Drive",
-      "html": "<p>Before a summer road trip, a driver checked the pressure in one of her car's tires early in the morning. She checked the same tire with the same gauge several more times during the day as the tire warmed up from the sun and from rolling on hot pavement. No air was added to or released from the tire.</p><table><thead><tr><th>Temperature of air inside tire (°C)</th><th>Tire pressure (kPa)</th></tr></thead><tbody><tr><td>10</td><td>220</td></tr><tr><td>20</td><td>231</td></tr><tr><td>30</td><td>243</td></tr><tr><td>40</td><td>254</td></tr></tbody></table>"
-    },
-    {
-      "id": "s4",
-      "title": "Antifreeze in a Car's Cooling System",
-      "html": "<p>A car engine is cooled by liquid coolant that circulates through the engine and the radiator. Coolant is a solution of water and antifreeze (ethylene glycol). If the coolant freezes in winter, it expands and can crack the engine. The table shows the approximate freezing point of coolant mixtures with different percentages of antifreeze by volume.</p><table><thead><tr><th>Antifreeze in mixture (% by volume)</th><th>Approximate freezing point (°C)</th></tr></thead><tbody><tr><td>0 (pure water)</td><td>0</td></tr><tr><td>20</td><td>&minus;9</td></tr><tr><td>30</td><td>&minus;16</td></tr><tr><td>40</td><td>&minus;25</td></tr><tr><td>50</td><td>&minus;37</td></tr><tr><td>60</td><td>&minus;52</td></tr><tr><td>100 (pure antifreeze)</td><td>&minus;13</td></tr></tbody></table>"
-    },
-    {
-      "id": "s5",
-      "title": "Rain and Desert Wildflower Seeds",
-      "html": "<p>Many desert wildflowers are annuals: they sprout, flower, make seeds, and die within a few weeks. Their seeds can lie in the soil for years. A botanist noticed that these wildflowers bloom in large numbers only in years with a heavy winter rain. In the desert, a light shower of about 5 mm usually dries out of the soil within a day or two, while a soaking rain of 25 mm or more can keep the soil moist for several weeks.</p><p>To investigate, the botanist filled 15 identical trays with desert sand and placed 50 seeds of one wildflower species in each tray. Each tray received a single artificial &ldquo;rain&rdquo; of a set amount, and drainage holes let the water flow through the sand. Three trays were used for each rainfall amount. All trays were kept in the same growth chamber at the same temperature and light. After 14 days, she counted the seeds that had sprouted in each tray.</p><table><thead><tr><th>Rainfall (mm)</th><th>Tray 1</th><th>Tray 2</th><th>Tray 3</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>5</td><td>1</td><td>0</td><td>2</td></tr><tr><td>10</td><td>3</td><td>4</td><td>2</td></tr><tr><td>25</td><td>31</td><td>34</td><td>31</td></tr><tr><td>50</td><td>36</td><td>33</td><td>36</td></tr></tbody></table><p>Numbers in the table are the seeds sprouted out of 50 in each tray.</p>"
-    },
-    {
-      "id": "s6",
-      "title": "A Southwestern Desert Food Web",
-      "html": "<p>The list below shows feeding relationships among some organisms in a desert of the southwestern United States. Each arrow means &ldquo;is eaten by.&rdquo;</p><ul><li>Desert grasses → grasshoppers, kangaroo rats (seeds), jackrabbits</li><li>Mesquite trees → kangaroo rats (seeds), jackrabbits (leaves)</li><li>Grasshoppers → scorpions, lizards</li><li>Scorpions → roadrunners</li><li>Lizards → roadrunners, hawks</li><li>Kangaroo rats → rattlesnakes, coyotes</li><li>Jackrabbits → coyotes, hawks</li><li>Rattlesnakes → hawks</li></ul><p>On average, only about 10% of the energy stored in one feeding level is passed on to the organisms that eat it.</p>"
-    },
-    {
-      "id": "s7",
-      "title": "A Rodent That Never Drinks",
-      "html": "<p>The kangaroo rat lives in some of the driest deserts of North America, and many kangaroo rats go their whole lives without drinking water. A kangaroo rat eats mostly dry seeds. When its cells break down the sugars and fats from those seeds, using oxygen to release energy, water is produced as a by-product. Scientists estimate that this process supplies about 90% of the water a kangaroo rat gains each day; the small amount of moisture in its food supplies the rest.</p><p>The kangaroo rat is also very good at holding on to water. Its kidneys remove wastes using very little water, producing urine about four times as concentrated as the most concentrated human urine. Its long nasal passages are cooler than the rest of its body, so water vapor in each breath it breathes out condenses inside the nose and is reabsorbed. It does not sweat. During the hot day it stays in a deep burrow, where the air is cooler and more humid than the air at the surface, and it comes out to gather seeds only at night.</p>"
-    },
-    {
-      "id": "s8",
-      "title": "Two Towns, One Mountain Range",
-      "html": "<p>A mountain range runs north to south, about 150 km inland from an ocean. The range's highest peaks rise to about 3,000 m. Winds in this region usually blow from the west, carrying moist air from the ocean toward the mountains.</p><table><thead><tr><th>Town</th><th>Location</th><th>Elevation (m)</th><th>Average yearly precipitation (mm)</th></tr></thead><tbody><tr><td>Westfield</td><td>Western foothills, facing the ocean</td><td>400</td><td>1,650</td></tr><tr><td>Eastvale</td><td>Eastern foothills, on the far side of the range</td><td>450</td><td>190</td></tr></tbody></table><p>Any region that receives less than about 250 mm of precipitation per year is considered a desert.</p>"
-    },
-    {
-      "id": "s9",
-      "title": "One July Day in Two Places",
-      "html": "<p>The table and graph show air temperatures recorded on the same clear July day in a desert town and in a humid coastal city. The two places are at about the same latitude.</p><table><thead><tr><th>Time</th><th>3 AM</th><th>6 AM</th><th>9 AM</th><th>Noon</th><th>3 PM</th><th>6 PM</th><th>9 PM</th><th>Midnight</th></tr></thead><tbody><tr><td>Desert town (°C)</td><td>15</td><td>12</td><td>24</td><td>35</td><td>40</td><td>34</td><td>24</td><td>18</td></tr><tr><td>Coastal city (°C)</td><td>25</td><td>24</td><td>27</td><td>30</td><td>31</td><td>29</td><td>27</td><td>26</td></tr></tbody></table><p>The desert air that day held very little water vapor, and there were no clouds. The coastal air was humid, and the city sits beside a large body of ocean water.</p>",
-      "figure": {"type": "line", "title": "Air Temperature Over One Day", "xLabel": "Time of day", "yLabel": "Temperature (°C)", "labels": ["3 AM", "6 AM", "9 AM", "Noon", "3 PM", "6 PM", "9 PM", "Midnight"], "series": [{"name": "Desert town", "values": [15, 12, 24, 35, 40, 34, 24, 18]}, {"name": "Coastal city", "values": [25, 24, 27, 30, 31, 29, 27, 26]}]}
-    }
-  ],
-  "parts": [
-    {
-      "name": "Science",
-      "items": [
-        {
-          "id": "q1", "type": "mc", "skill": "Controlled variables", "difficulty": 1, "stim": "s1",
-          "prompt": "<p>Which factor did the safety team keep the same in every trial so that the braking distances could be fairly compared?</p>",
-          "options": ["The car and tires used", "The speed of the car", "The condition of the pavement", "The braking distance"],
-          "answer": 0,
-          "explain": "<p>The passage says the <strong>same car, the same set of tires, and the same driver</strong> were used in every trial. These are controlled variables.</p><p>Speed and pavement condition (dry or wet) were changed on purpose, so they are independent variables. Braking distance is what the team measured, so it is the dependent variable.</p>"
-        },
-        {
-          "id": "q2", "type": "fill", "skill": "Calculating the mean", "difficulty": 1, "stim": "s1",
-          "prompt": "<p>What is the mean braking distance on <strong>dry</strong> pavement at a speed of 20 m/s? Enter a whole number.</p>",
-          "answer": ["28"], "value": 28, "tol": 0.001, "suffix": "m",
-          "explain": "<p>Mean = sum of the trials &divide; number of trials.</p><p>27 + 30 + 27 = 84<br>84 &divide; 3 = <strong>28 m</strong></p><p>Be sure to use the three dry trials for 20 m/s, not the wet mean of 48 m.</p>"
-        },
-        {
-          "id": "q3", "type": "mc", "skill": "Predicting from a data pattern", "difficulty": 3, "stim": "s1", "noShuffle": true,
-          "prompt": "<p>Based on the pattern in the dry-pavement means, which is the best prediction of the car's braking distance on dry pavement at 40 m/s?</p>",
-          "options": ["84 m", "98 m", "112 m", "126 m"],
-          "answer": 2,
-          "explain": "<p>Compare speeds to the 10 m/s result (7 m):</p><p>20 m/s is 2 times as fast: 28 &divide; 7 = 4 = 2<sup>2</sup> times the distance.<br>30 m/s is 3 times as fast: 63 &divide; 7 = 9 = 3<sup>2</sup> times the distance.<br>40 m/s is 4 times as fast: 4<sup>2</sup> = 16, and 7 &times; 16 = <strong>112 m</strong>.</p><p>The braking distance grows with the <em>square</em> of the speed. 126 m comes from simply doubling the 30 m/s value, and 84 m comes from adding the first increase (21 m) again, as if the distance grew by equal steps.</p>"
-        },
-        {
-          "id": "q4", "type": "multi", "skill": "Drawing conclusions from data", "difficulty": 2, "stim": "s1",
-          "prompt": "<p>Which conclusions are supported by the data?</p><p>Select <strong>two</strong> answers.</p>",
-          "options": ["Braking distance increases as speed increases on both dry and wet pavement.", "At each speed tested, the car needed a longer distance to stop on wet pavement than on dry pavement.", "Doubling the car's speed doubles its braking distance.", "Wet pavement makes the car travel at a lower speed before braking.", "Drivers take longer to react on wet pavement than on dry pavement."],
-          "answer": [0, 1],
-          "explain": "<p>Dry means rise 7 → 28 → 63 m and wet means rise 12 → 48 → 108 m, so <strong>braking distance increases with speed on both surfaces</strong>. At every speed the wet mean is larger (12 &gt; 7, 48 &gt; 28, 108 &gt; 63), so <strong>the car needs more distance to stop on wet pavement</strong>.</p><p>Doubling speed from 10 to 20 m/s made the dry distance four times as long (7 → 28), not twice as long. The speeds were set by the team, so wet pavement did not change them. Reaction time was never measured; braking distance starts only once the brakes are applied.</p>"
-        },
-        {
-          "id": "q5", "type": "fill", "skill": "Kinetic energy", "difficulty": 2,
-          "prompt": "<p>Kinetic energy is found with <strong>KE = &frac12;mv<sup>2</sup></strong>, where <em>m</em> is mass in kilograms and <em>v</em> is speed in meters per second. How much kinetic energy, in joules, does a 1,200 kg car have when it travels at 25 m/s?</p>",
-          "answer": ["375000", "375,000"], "value": 375000, "tol": 0.001, "suffix": "J",
-          "explain": "<p>KE = &frac12; &times; m &times; v<sup>2</sup><br>v<sup>2</sup> = 25 &times; 25 = 625<br>KE = 0.5 &times; 1,200 &times; 625 = 600 &times; 625 = <strong>375,000 J</strong></p><p>A common error is forgetting to square the speed: 0.5 &times; 1,200 &times; 25 = 15,000 J. Another is leaving out the &frac12;, which gives 750,000 J.</p>"
-        },
-        {
-          "id": "q6", "type": "mc", "skill": "Calculating acceleration", "difficulty": 1, "stim": "s2", "noShuffle": true,
-          "prompt": "<p>What was the car's acceleration on the on-ramp?</p>",
-          "options": ["0.33 m/s<sup>2</sup>", "3 m/s<sup>2</sup>", "12 m/s<sup>2</sup>", "24 m/s<sup>2</sup>"],
-          "answer": 1,
-          "explain": "<p>Acceleration = change in velocity &divide; time.</p><p>Change in velocity = 24 &minus; 0 = 24 m/s<br>Time = 8 s<br>24 &divide; 8 = <strong>3 m/s<sup>2</sup></strong></p><p>The table confirms this: velocity rises by 6 m/s every 2 s, which is 3 m/s each second. 0.33 comes from dividing time by velocity (8 &divide; 24), 24 is the final velocity, and 12 m/s is the car's average velocity, not its acceleration.</p>"
-        },
-        {
-          "id": "q7", "type": "mc", "skill": "Using F = ma", "difficulty": 2, "stim": "s2", "noShuffle": true,
-          "prompt": "<p>Using Newton's second law, <strong>F = ma</strong>, what net force acted on the car while it sped up on the on-ramp?</p>",
-          "options": ["467 N", "1,403 N", "4,200 N", "33,600 N"],
-          "answer": 2,
-          "explain": "<p>First find the acceleration: 24 m/s &divide; 8 s = 3 m/s<sup>2</sup>.</p><p>F = m &times; a = 1,400 kg &times; 3 m/s<sup>2</sup> = <strong>4,200 N</strong></p><p>467 N comes from dividing 1,400 by 3, and 1,403 N from adding instead of multiplying. 33,600 N comes from multiplying the mass by the final velocity (1,400 &times; 24) instead of by the acceleration.</p>"
-        },
-        {
-          "id": "q8", "type": "dropdown", "skill": "Energy transformations", "difficulty": 2, "stim": "s2",
-          "prompt": "<p>The car on the on-ramp runs on gasoline. Complete the statements about energy as the car speeds up.</p><p>Burning gasoline releases the {{0}} energy stored in the fuel. Part of this energy becomes the {{1}} energy of the moving car. Much of the fuel's energy is not used to move the car and is lost to the surroundings as {{2}} energy, which is why the engine gets hot.</p>",
-          "blanks": [
-            {"options": ["chemical", "nuclear", "elastic", "sound"], "answer": 0},
-            {"options": ["potential", "kinetic", "chemical", "nuclear"], "answer": 1},
-            {"options": ["gravitational", "elastic", "thermal", "chemical"], "answer": 2}
-          ],
-          "explain": "<p>Gasoline stores <strong>chemical</strong> energy in the bonds of its molecules. When it burns, part of that energy becomes the <strong>kinetic</strong> energy (energy of motion) of the car, which increases as the car speeds up. Most of the rest is released as <strong>thermal</strong> energy (heat), which is why engines need a cooling system.</p><p>Nuclear energy comes from changes in atomic nuclei, which do not happen when fuel burns. Potential energy is stored energy; the energy that shows up as the car gains speed is energy of motion, which is kinetic energy.</p>"
-        },
-        {
-          "id": "q9", "type": "mc", "skill": "Newton's first law (inertia)", "difficulty": 1,
-          "prompt": "<p>A car traveling at highway speed stops suddenly in a collision. A passenger who is not wearing a seat belt keeps moving forward and may strike the dashboard. Which idea best explains why the passenger moves forward?</p>",
-          "options": ["The car pushes the passenger forward when it stops.", "Gravity pulls the passenger toward the front of the car.", "The force of the collision makes the passenger speed up.", "A moving object keeps moving at the same speed and direction unless a force acts on it."],
-          "answer": 3,
-          "explain": "<p>This is <strong>Newton's first law</strong>, the law of inertia. The passenger was moving at highway speed along with the car. When the car stops, nothing has yet acted on the passenger to stop him, so he <strong>keeps moving forward</strong> until the dashboard or windshield stops him. A seat belt supplies the force that stops the passenger along with the car.</p><p>The car does not push the passenger forward; it actually stops. Gravity pulls downward, not forward. The passenger does not speed up; he simply continues at the speed he already had.</p>"
-        },
-        {
-          "id": "q10", "type": "mc", "skill": "Series and parallel circuits", "difficulty": 2,
-          "prompt": "<p>A driver notices that her car's left headlight has burned out, but the right headlight still shines normally. Which explanation is most likely?</p>",
-          "options": ["The headlights are wired in parallel, so each bulb has its own path for current from the battery.", "The headlights are wired in series, so current skips around the burned-out bulb.", "The battery now sends twice its usual voltage to the working bulb.", "The burned-out bulb has become a better conductor than the working bulb."],
-          "answer": 0,
-          "explain": "<p>In a <strong>parallel circuit</strong>, each device is on its own branch connected to the power source. If one branch is broken, such as by a burned-out bulb, current still flows through the other branches. That is why one headlight can go out while the other stays lit.</p><p>In a series circuit there is only one path, so one broken bulb would stop the current to both lights; current does not &ldquo;skip around&rdquo; a break. The car's battery supplies the same voltage (about 12 V) either way. A burned-out bulb has a broken filament, which acts as an open gap, not a better conductor.</p>"
-        },
-        {
-          "id": "q11", "type": "mc", "skill": "Gases and particle motion", "difficulty": 2, "stim": "s3",
-          "prompt": "<p>Which statement best explains why the tire pressure increased during the day?</p>",
-          "options": ["The air particles in the tire grew larger as they warmed, filling more of the tire.", "Hot pavement pushed more air particles into the tire through the rubber.", "The air particles slowed down and settled against the tire walls.", "The air particles moved faster as they warmed, so they struck the tire walls more often and with more force."],
-          "answer": 3,
-          "explain": "<p>Pressure is caused by gas particles colliding with the walls of their container. When the air in the tire warmed from 10 °C to 40 °C, its <strong>particles moved faster</strong>, hitting the inside of the tire more often and harder, so the pressure rose from 220 to 254 kPa.</p><p>Particles do not grow larger when heated; they move faster. The passage says no air was added, so the number of particles stayed the same. Particles speed up, not slow down, as temperature rises.</p>"
-        },
-        {
-          "id": "q12", "type": "dropdown", "skill": "Balancing chemical equations", "difficulty": 3,
-          "prompt": "<p>Octane (C<sub>8</sub>H<sub>18</sub>) is one of the main compounds in gasoline. When it burns completely in a car engine, it reacts with oxygen to form carbon dioxide and water. Choose the coefficients that balance the equation.</p><p>2 C<sub>8</sub>H<sub>18</sub> + {{0}} O<sub>2</sub> → {{1}} CO<sub>2</sub> + {{2}} H<sub>2</sub>O</p>",
-          "blanks": [
-            {"options": ["9", "17", "25", "50"], "answer": 2},
-            {"options": ["8", "16", "18", "32"], "answer": 1},
-            {"options": ["9", "16", "18", "36"], "answer": 2}
-          ],
-          "explain": "<p>Count atoms in 2 C<sub>8</sub>H<sub>18</sub>: 2 &times; 8 = 16 carbon atoms and 2 &times; 18 = 36 hydrogen atoms.</p><p>Carbon: 16 C atoms need <strong>16</strong> CO<sub>2</sub>.<br>Hydrogen: 36 H atoms need 36 &divide; 2 = <strong>18</strong> H<sub>2</sub>O.<br>Oxygen on the right: (16 &times; 2) + (18 &times; 1) = 32 + 18 = 50 O atoms, so the left needs 50 &divide; 2 = <strong>25</strong> O<sub>2</sub>.</p><p>Check: 16 C, 36 H, and 50 O on each side. Choosing 50 for O<sub>2</sub> counts oxygen atoms instead of O<sub>2</sub> molecules, which would put 100 oxygen atoms on the left.</p>"
-        },
-        {
-          "id": "q13", "type": "mc", "skill": "Catalysts and reaction rate", "difficulty": 2,
-          "prompt": "<p>A car's catalytic converter contains small amounts of the metals platinum and palladium. As hot exhaust passes over these metals, poisonous carbon monoxide reacts with oxygen to form carbon dioxide (2CO + O<sub>2</sub> → 2CO<sub>2</sub>). The platinum and palladium are not used up, and a converter can work for many years. What is the role of these metals?</p>",
-          "options": ["They are reactants that combine with carbon monoxide to form carbon dioxide.", "They are catalysts that speed up the reaction without being used up.", "They are products that form when carbon monoxide burns.", "They are filters that trap carbon monoxide so it cannot leave the car."],
-          "answer": 1,
-          "explain": "<p>A <strong>catalyst</strong> speeds up a chemical reaction without being consumed by it. The metals help carbon monoxide and oxygen react quickly, and the passage says they are not used up, so the converter keeps working for years.</p><p>The reactants in the equation are CO and O<sub>2</sub>, and the only product is CO<sub>2</sub>; platinum and palladium do not appear in the equation. The converter changes carbon monoxide into a different substance rather than trapping it.</p>"
-        },
-        {
-          "id": "q14", "type": "mc", "skill": "Reading data in a table", "difficulty": 2, "stim": "s4", "noShuffle": true,
-          "prompt": "<p>A driver lives where winter temperatures sometimes fall to &minus;30 °C. Based on the table, what is the <strong>lowest</strong> percentage of antifreeze listed that would keep the coolant from freezing at that temperature?</p>",
-          "options": ["30%", "40%", "50%", "100%"],
-          "answer": 2,
-          "explain": "<p>The coolant must have a freezing point <em>below</em> &minus;30 °C.</p><p>30% freezes at &minus;16 °C and 40% freezes at &minus;25 °C; both are warmer than &minus;30 °C, so they would freeze. 50% freezes at &minus;37 °C, which is colder than &minus;30 °C, so <strong>50%</strong> is the lowest listed percentage that works.</p><p>Pure antifreeze (100%) freezes at about &minus;13 °C, so it would actually freeze before reaching &minus;30 °C.</p>"
-        },
-        {
-          "id": "q15", "type": "mc", "skill": "Forming a hypothesis", "difficulty": 1, "stim": "s5",
-          "prompt": "<p>Which hypothesis was the botanist most likely testing?</p>",
-          "options": ["Seeds of this wildflower sprout in greater numbers after a larger rainfall.", "Seeds of this wildflower sprout faster at higher temperatures.", "Desert sand contains more nutrients than other types of soil.", "Wildflower seeds survive longer in the soil when it is dry."],
-          "answer": 0,
-          "explain": "<p>The botanist changed only the <strong>amount of rainfall</strong> and counted how many seeds sprouted. So she was testing whether <strong>the amount of rain affects how many seeds sprout</strong>.</p><p>Temperature was kept the same in every tray, so the experiment cannot test temperature. Nutrients and seed survival time in dry soil were not measured.</p>"
-        },
-        {
-          "id": "q16", "type": "mc", "skill": "Adaptations", "difficulty": 2, "stim": "s5",
-          "prompt": "<p>Few seeds sprouted after 5 mm or 10 mm of rain, but most sprouted after 25 mm or more. How does this response most likely help the wildflower species survive in the desert?</p>",
-          "options": ["It lets the seeds sprout as quickly as possible after any rain, before other plants can.", "It keeps the plants from using any water until they are fully grown.", "It allows the seeds to absorb water directly from the air during dry years.", "It keeps most seeds waiting until the soil will stay moist long enough for the plants to flower and make seeds."],
-          "answer": 3,
-          "explain": "<p>The passage says a 5 mm shower dries out in a day or two, while a rain of 25 mm or more keeps the soil moist for several weeks. These plants need a few weeks to sprout, flower, and make seeds. By sprouting mainly after heavy rains, <strong>the seeds wait until there is enough water for the plants to complete their life cycle</strong>. A seedling that sprouted after a light shower would probably dry out and die before making seeds.</p><p>The data show the opposite of sprouting after any rain: light rains produced very few seedlings. Nothing in the passage describes seeds absorbing water from the air.</p>"
-        },
-        {
-          "id": "q17", "type": "fill", "skill": "Calculating percent", "difficulty": 2, "stim": "s5",
-          "prompt": "<p>Combine the results of all three trays that received 25 mm of rain. What percent of those seeds sprouted?</p>",
-          "answer": ["64", "64%"], "value": 64, "tol": 0.001, "suffix": "percent",
-          "explain": "<p>Seeds sprouted: 31 + 34 + 31 = 96<br>Seeds planted: 3 trays &times; 50 seeds = 150<br>96 &divide; 150 = 0.64 = <strong>64%</strong></p><p>A common error is dividing by 50 (the seeds in only one tray), which gives 192%, an impossible result. Another is reporting the count (96) instead of the percent.</p>"
-        },
-        {
-          "id": "q18", "type": "drag", "skill": "Food web roles", "difficulty": 2, "stim": "s6",
-          "prompt": "<p>Based on what each desert organism eats, sort it by its feeding level. Place every organism in a group.</p>",
-          "choices": ["Desert grasses", "Kangaroo rats", "Grasshoppers", "Lizards", "Scorpions", "Rattlesnakes"],
-          "bins": ["Producer", "Primary consumer", "Secondary consumer"],
-          "answer": [0, 1, 1, 2, 2, 2],
-          "explain": "<p><strong>Producer:</strong> Desert grasses make their own food by photosynthesis.</p><p><strong>Primary consumers:</strong> Kangaroo rats eat grass and mesquite seeds, and grasshoppers eat grasses. Both eat producers.</p><p><strong>Secondary consumers:</strong> Lizards and scorpions eat grasshoppers, and rattlesnakes eat kangaroo rats. All three eat primary consumers.</p><p>A common mistake is calling the rattlesnake a top predator in this web; it is eaten by hawks, and in this web it eats only kangaroo rats, which makes it a secondary consumer.</p>"
-        },
-        {
-          "id": "q19", "type": "mc", "skill": "Predicting changes in an ecosystem", "difficulty": 2, "stim": "s6",
-          "prompt": "<p>A long drought kills most of the desert grasses in the area. Which outcome is most likely?</p>",
-          "options": ["The hawk population increases because jackrabbits have more grass to eat.", "The grasshopper population increases because scorpions have less food.", "The grasshopper, kangaroo rat, and jackrabbit populations decrease, and later the populations of animals that eat them may also decrease.", "The mesquite tree population decreases because mesquite trees eat grasses."],
-          "answer": 2,
-          "explain": "<p>Grasshoppers, kangaroo rats, and jackrabbits all eat desert grasses. With most grasses gone, these <strong>primary consumers lose food and are likely to decline</strong>. The predators that depend on them (scorpions, lizards, rattlesnakes, coyotes, hawks) then have less food, so their numbers may fall later.</p><p>Jackrabbits would have <em>less</em> grass, not more. Grasshoppers would lose their food, so their numbers would fall rather than rise. Mesquite trees are producers; they do not eat grasses.</p>"
-        },
-        {
-          "id": "q20", "type": "fill", "skill": "Energy transfer (10% rule)", "difficulty": 3, "stim": "s6",
-          "prompt": "<p>In one year, the desert grasses in an area store 80,000 kcal of energy. Following the path grasses → kangaroo rats → coyotes and using the 10% estimate from the passage, about how many kilocalories of that energy reach the coyotes?</p>",
-          "answer": ["800"], "value": 800, "tol": 0.001, "suffix": "kcal",
-          "explain": "<p>Energy passes through two transfers, keeping about 10% each time.</p><p>Grasses to kangaroo rats: 80,000 &times; 0.10 = 8,000 kcal<br>Kangaroo rats to coyotes: 8,000 &times; 0.10 = <strong>800 kcal</strong></p><p>8,000 kcal is the energy that reaches the kangaroo rats, one step short of the coyotes. 72,000 kcal is the energy <em>lost</em> at the first step, not the energy passed on.</p>"
-        },
-        {
-          "id": "q21", "type": "mc", "skill": "Cellular respiration", "difficulty": 1, "stim": "s7",
-          "prompt": "<p>Most of the kangaroo rat's water comes from the process its cells use to break down sugars and fats with oxygen to release energy. What is this process called?</p>",
-          "options": ["Cellular respiration", "Photosynthesis", "Osmosis", "Condensation"],
-          "answer": 0,
-          "explain": "<p><strong>Cellular respiration</strong> uses oxygen to break down sugar (and fats) and release energy the cell can use. Its products are carbon dioxide and <strong>water</strong>: glucose + oxygen → carbon dioxide + water + energy.</p><p>Photosynthesis happens in plants and uses water rather than producing it for the animal. Osmosis is the movement of water across a membrane; it does not make new water. Condensation describes the water recovered in the nose, not the water made inside cells.</p>"
-        },
-        {
-          "id": "q22", "type": "multi", "skill": "Adaptations and homeostasis", "difficulty": 2, "stim": "s7",
-          "prompt": "<p>According to the passage, which features help the kangaroo rat <strong>reduce water loss</strong>?</p><p>Select <strong>two</strong> answers.</p>",
-          "options": ["Producing very concentrated urine", "Drinking from desert springs at night", "Sweating to cool its body during the day", "Recovering water vapor from its breath inside its nose", "Gathering seeds during the hottest part of the day"],
-          "answer": [0, 3],
-          "explain": "<p>The passage describes two ways the kangaroo rat holds on to water: its kidneys produce <strong>very concentrated urine</strong>, so little water leaves with wastes, and its cool nasal passages make water vapor <strong>condense and be reabsorbed</strong> before it is breathed out.</p><p>Drinking would be a way to <em>gain</em> water, and the passage says many kangaroo rats never drink. The passage states that it does not sweat and that it gathers seeds only at night.</p>"
-        },
-        {
-          "id": "q23", "type": "hotspot", "skill": "Behavioral and physical adaptations", "difficulty": 2,
-          "prompt": "<p>The sentences below describe traits of the kangaroo rat. A <strong>behavioral</strong> adaptation is something an animal does, while a <strong>physical</strong> adaptation is a body structure. Click the sentence that describes a <strong>behavioral</strong> adaptation.</p>",
-          "spans": ["Its large, powerful hind legs let it hop quickly away from predators.", "Its kidneys remove wastes using very little water.", "It spends the hot daylight hours in a cool, humid burrow underground.", "It has fur-lined pouches in its cheeks for carrying seeds.", "Its long nasal passages cool the air it breathes out."],
-          "answer": 2,
-          "explain": "<p>Staying in a burrow during the hottest hours is something the kangaroo rat <strong>does</strong>, so it is a <strong>behavioral adaptation</strong>. It keeps the animal out of the heat and dry air, which reduces water loss.</p><p>Hind legs, kidneys, cheek pouches, and nasal passages are all body structures, so they are physical adaptations.</p>"
-        },
-        {
-          "id": "q24", "type": "mc", "skill": "Homeostasis and feedback", "difficulty": 2,
-          "prompt": "<p>During a long hike in desert heat, a hiker sweats heavily and drinks little water. Her brain detects that her blood has become too concentrated, and her pituitary gland releases more antidiuretic hormone (ADH). ADH signals the kidneys to return more water to the blood. Which result is expected?</p>",
-          "options": ["She produces more urine, which is pale and dilute.", "Her kidneys stop filtering her blood until she drinks.", "Her sweating stops completely, so her body temperature stays the same.", "She produces less urine, which is darker and more concentrated."],
-          "answer": 3,
-          "explain": "<p>ADH makes the kidneys <strong>reabsorb more water</strong> back into the blood, so less water leaves the body. The hiker makes a <strong>smaller amount of darker, more concentrated urine</strong>. This is negative feedback: the response works against the change (water loss) and helps bring the blood back toward normal.</p><p>Large amounts of pale urine are what happens when the body has <em>extra</em> water and releases less ADH. The kidneys keep filtering blood; ADH changes how much water they return. ADH acts on the kidneys and does not shut off sweating.</p>"
-        },
-        {
-          "id": "q25", "type": "mc", "skill": "Disease prevention", "difficulty": 2,
-          "prompt": "<p>Valley fever is an illness caused by a fungus that lives in the soil of some dry regions of the southwestern United States. When the soil is disturbed by wind, digging, or construction, tiny spores of the fungus float into the air. People become infected by breathing in the spores. The illness does not spread from person to person. Based on this information, which action would best protect a road crew digging in this soil?</p>",
-          "options": ["Spraying water on the soil to keep dust down and wearing well-fitted dust masks", "Avoiding handshakes with coworkers who have had Valley fever", "Boiling all drinking water before the workday", "Washing their hands after eating lunch at the work site"],
-          "answer": 0,
-          "explain": "<p>The passage says people are infected by <strong>breathing in spores</strong> that rise from disturbed soil. Keeping the soil damp stops dust (and spores) from rising, and a well-fitted mask filters the air the workers breathe, so this is the <strong>best protection</strong>.</p><p>The illness does not spread from person to person, so avoiding handshakes would not help. The spores enter through the air, not through water or food, so boiling water and handwashing do not block the route of infection.</p>"
-        },
-        {
-          "id": "q26", "type": "mc", "skill": "Body systems", "difficulty": 2,
-          "prompt": "<p>Car exhaust contains carbon monoxide (CO), a colorless, odorless gas. Carbon monoxide attaches to hemoglobin, the oxygen-carrying protein in red blood cells, far more tightly than oxygen does. Why is running a car's engine inside a closed garage so dangerous?</p>",
-          "options": ["Carbon monoxide causes the kidneys to remove too much water from the blood.", "Carbon monoxide keeps the blood from carrying enough oxygen to the body's cells.", "Carbon monoxide makes the lungs absorb extra oxygen, which damages the heart.", "Carbon monoxide breaks down the food in the stomach before it can be digested."],
-          "answer": 1,
-          "explain": "<p>Hemoglobin normally picks up oxygen in the lungs, and the circulatory system delivers it to cells all over the body. When carbon monoxide takes up the places on hemoglobin where oxygen would attach, <strong>the blood carries far less oxygen</strong>. Cells, especially in the brain and heart, cannot get the oxygen they need for cellular respiration, which can cause unconsciousness and death.</p><p>The passage describes carbon monoxide acting on red blood cells, not on the kidneys or stomach. Carbon monoxide <em>reduces</em> the oxygen the blood can carry; it does not add extra oxygen.</p>"
-        },
-        {
-          "id": "q27", "type": "mc", "skill": "Punnett squares (multiple alleles)", "difficulty": 3, "noShuffle": true,
-          "prompt": "<p>Human ABO blood type is controlled by one gene with three alleles. Alleles I<sup>A</sup> and I<sup>B</sup> are codominant, and both are dominant over allele i. A person with genotype ii has type O blood. A mother with type A blood has genotype I<sup>A</sup>i, and a father with type B blood has genotype I<sup>B</sup>i. What is the probability that one of their children will have <strong>type O</strong> blood?</p>",
-          "options": ["0%", "25%", "50%", "75%"],
-          "answer": 1,
-          "explain": "<p>Set up the Punnett square with the mother's alleles (I<sup>A</sup>, i) across the top and the father's (I<sup>B</sup>, i) down the side:</p><table><thead><tr><th></th><th>I<sup>A</sup></th><th>i</th></tr></thead><tbody><tr><th>I<sup>B</sup></th><td>I<sup>A</sup>I<sup>B</sup> (type AB)</td><td>I<sup>B</sup>i (type B)</td></tr><tr><th>i</th><td>I<sup>A</sup>i (type A)</td><td>ii (type O)</td></tr></tbody></table><p>Only 1 of the 4 boxes is ii, so the probability of type O is 1 &divide; 4 = <strong>25%</strong>.</p><p>Choosing 0% assumes two parents without type O blood cannot have a type O child; but both parents carry the hidden i allele, so they can each pass it on.</p>"
-        },
-        {
-          "id": "q28", "type": "mc", "skill": "Natural selection", "difficulty": 2,
-          "prompt": "<p>Black-tailed jackrabbits that live in hot deserts have very large ears with many blood vessels close to the surface. As blood flows through the ears, it gives off heat to the air. Related hares that live in cold northern regions have much shorter ears. Which explanation of how large ears became common in desert jackrabbits is consistent with natural selection?</p>",
-          "options": ["Each jackrabbit's ears stretched during its life from the heat, and its offspring inherited the larger ears.", "The jackrabbits needed larger ears, so new mutations for large ears appeared in response to that need.", "Short-eared jackrabbits chose to move north to escape the heat, leaving only large-eared ones behind.", "Ear size varied among ancestors; those with larger ears shed heat better, survived and reproduced more, and passed on genes for large ears."],
-          "answer": 3,
-          "explain": "<p>Natural selection works on <strong>inherited variation that already exists</strong> in a population. In a hot desert, jackrabbits with larger ears could get rid of extra body heat more easily, so they were more likely to <strong>survive and reproduce</strong>. Over many generations, the genes for large ears became more common.</p><p>Traits that change during an animal's life, such as stretched ears, are not passed to offspring. Mutations happen randomly; they do not appear because an organism needs them. The passage gives no evidence that jackrabbits chose to move north.</p>"
-        },
-        {
-          "id": "q29", "type": "mc", "skill": "Rain shadow effect", "difficulty": 2, "stim": "s8",
-          "prompt": "<p>Which explanation best accounts for the large difference in precipitation between Westfield and Eastvale?</p>",
-          "options": ["Eastvale is at a much higher elevation than Westfield, so its air is too cold to hold rain.", "The mountains block sunlight from reaching Eastvale, so less water evaporates there.", "Moist ocean air cools as it rises over the western slopes and drops most of its water before it reaches Eastvale.", "Eastvale is farther from the equator than Westfield, so it receives less rain."],
-          "answer": 2,
-          "explain": "<p>Winds carry moist ocean air from the west. As the air is forced up the western slopes, it cools, and its water vapor condenses into clouds that release rain and snow on Westfield's side. The air that crosses the peaks and sinks toward Eastvale has already lost most of its moisture. This is called a <strong>rain shadow</strong>, and it explains why Eastvale gets only 190 mm per year, less than the 250 mm that marks a desert.</p><p>The two towns are at similar elevations (400 m and 450 m), and a north-south range would not put one town much farther from the equator. Mountains do not block sunlight from a whole town all day.</p>"
-        },
-        {
-          "id": "q30", "type": "dropdown", "skill": "Water cycle and weather", "difficulty": 2, "stim": "s8",
-          "prompt": "<p>Complete the description of what happens to the air as it crosses the mountain range.</p><p>As moist air is pushed up the western slopes, it expands and {{0}}. Its water vapor {{1}} to form clouds, and precipitation falls. After passing the peaks, the air sinks down the eastern slopes, where it is compressed, becomes warmer, and is {{2}}.</p>",
-          "blanks": [
-            {"options": ["warms", "cools", "speeds up", "gains moisture"], "answer": 1},
-            {"options": ["evaporates", "freezes into ice caps", "condenses", "sinks"], "answer": 2},
-            {"options": ["drier", "more humid", "full of clouds", "colder"], "answer": 0}
-          ],
-          "explain": "<p>Rising air expands because air pressure is lower at higher altitudes, and expanding air <strong>cools</strong>. Cool air holds less water vapor, so the vapor <strong>condenses</strong> into cloud droplets, which fall as rain or snow. The sinking air on the eastern side is compressed and warms, and because it already lost its moisture, it is <strong>drier</strong>.</p><p>Evaporation turns liquid water into vapor, which is the opposite of what forms clouds. Warm, sinking air does not become more humid or cloudy; that is why the eastern side is a desert.</p>"
-        },
-        {
-          "id": "q31", "type": "fill", "skill": "Calculating range", "difficulty": 2, "stim": "s9",
-          "prompt": "<p>The temperature range is the highest temperature minus the lowest temperature. How many degrees Celsius greater was the desert town's temperature range than the coastal city's on this day?</p>",
-          "answer": ["21"], "value": 21, "tol": 0.001, "suffix": "°C",
-          "explain": "<p>Desert town: highest 40 °C (3 PM), lowest 12 °C (6 AM). Range = 40 &minus; 12 = 28 °C.<br>Coastal city: highest 31 °C (3 PM), lowest 24 °C (6 AM). Range = 31 &minus; 24 = 7 °C.<br>Difference: 28 &minus; 7 = <strong>21 °C</strong></p><p>A common error is subtracting the two highest temperatures (40 &minus; 31 = 9) instead of comparing the ranges.</p>"
-        },
-        {
-          "id": "q32", "type": "mc", "skill": "Explaining climate data", "difficulty": 3, "stim": "s9",
-          "prompt": "<p>Which explanation best accounts for why the desert town cooled so much more than the coastal city during the night?</p>",
-          "options": ["The dry, cloudless desert air let heat from the ground escape quickly, while the humid air and nearby ocean water held heat in the coastal city.", "Desert sand stores more heat than ocean water, so the sand released all its heat early in the evening.", "The desert town received fewer hours of daylight than the coastal city on that day.", "Clouds over the desert trapped cold air near the ground during the night."],
-          "answer": 0,
-          "explain": "<p>Water vapor and clouds absorb heat given off by the ground and slow its escape. The passage says the desert air held very little water vapor and the sky was clear, so <strong>heat radiated away quickly</strong> and the temperature dropped from 40 °C to 12 °C. The coastal city's humid air, plus the large body of ocean water, which warms and cools slowly, kept its temperature steady between 24 °C and 31 °C.</p><p>Water, not sand, stores more heat. The two places are at the same latitude on the same day, so their daylight hours are about equal. The passage says there were no clouds over the desert.</p>"
-        },
-        {
-          "id": "q33", "type": "mc", "skill": "Applying patterns to other planets", "difficulty": 3, "stim": "s9",
-          "prompt": "<p>Mars is often called a desert planet. Its atmosphere is only about 1% as dense as Earth's, and it contains almost no water vapor. Based on the pattern shown in the data, which prediction about daily temperatures on the surface of Mars is best supported?</p>",
-          "options": ["Mars's temperature stays nearly the same all day, like the coastal city's.", "Mars is warmer at night than during the day because its thin air traps heat.", "Mars has no daily temperature change because it has no oceans.", "Mars has very large differences between daytime and nighttime temperatures, even larger than Earth's deserts."],
-          "answer": 3,
-          "explain": "<p>On Earth, dry, clear desert air lets heat escape quickly at night, producing a large daily range (28 °C in the data). Mars's atmosphere is even thinner and drier, so it holds even less heat, and the pattern predicts <strong>an even larger difference between day and night temperatures</strong>. In fact, near Mars's equator the ground can warm to about 20 °C in the afternoon and fall below &minus;70 °C at night.</p><p>A steady temperature comes from humid air and nearby water, which Mars lacks. Thin air traps <em>less</em> heat, so nights would be colder, not warmer. Having no oceans makes temperature swings larger, not absent.</p>"
-        },
-        {
-          "id": "q34", "type": "mc", "skill": "Wind erosion and deposition", "difficulty": 1, "noShuffle": true,
-          "prompt": "<p>Wind blowing across a desert picks up sand and drops it on the downwind side of a sand dune, so the whole dune slowly moves. A dune is moving toward a highway at a steady rate of 15 meters per year. Its leading edge is now 120 meters from the road. At this rate, about how many years will it take the dune to reach the highway?</p>",
-          "options": ["0.125 years", "8 years", "105 years", "1,800 years"],
-          "answer": 1,
-          "explain": "<p>Time = distance &divide; rate.</p><p>120 m &divide; 15 m per year = <strong>8 years</strong></p><p>0.125 comes from dividing the rate by the distance (15 &divide; 120). 105 comes from subtracting, and 1,800 from multiplying. Road crews in desert areas use estimates like this to plan sand fences and plantings that slow dune movement.</p>"
-        }
-      ]
-    }
-  ]
+"form": 6,
+"subject": "sci",
+"title": "Practice GED Form 6 — Science",
+"minutes": 90,
+"stimuli": [
+{
+"id": "s1",
+"title": "Braking on Dry and Wet Pavement",
+"html": "<p>A highway safety team tested how far a car travels after the driver slams on the brakes. On a closed test track, a driver brought the car to a steady speed, and at a signal she pressed the brake pedal as hard as possible. The team measured the <strong>braking distance</strong>: the distance the car traveled from the moment the brakes were applied until it stopped. The same car, the same set of tires, and the same driver were used in every trial.</p><p>The team tested three speeds on dry pavement and then repeated the tests after the track was soaked with water. Each speed was tested three times on each surface.</p><table><thead><tr><th>Speed (m/s)</th><th>Dry: Trial 1 (m)</th><th>Dry: Trial 2 (m)</th><th>Dry: Trial 3 (m)</th><th>Dry: Mean (m)</th><th>Wet: Mean (m)</th></tr></thead><tbody><tr><td>10</td><td>7</td><td>8</td><td>6</td><td>7</td><td>12</td></tr><tr><td>20</td><td>27</td><td>30</td><td>27</td><td>?</td><td>48</td></tr><tr><td>30</td><td>62</td><td>65</td><td>62</td><td>63</td><td>108</td></tr></tbody></table>"
+},
+{
+"id": "s2",
+"title": "Merging onto a Highway",
+"html": "<p>A car with a total mass of 1,400 kg (including the driver) speeds up along a straight on-ramp to merge onto a highway. A GPS unit recorded the car's velocity every 2 seconds, starting from a stop at the bottom of the ramp.</p><table><thead><tr><th>Time (s)</th><th>0</th><th>2</th><th>4</th><th>6</th><th>8</th></tr></thead><tbody><tr><td>Velocity (m/s)</td><td>0</td><td>6</td><td>12</td><td>18</td><td>24</td></tr></tbody></table><p>Acceleration is the change in velocity divided by the time taken for the change.</p>",
+"figure": {
+"type": "line",
+"title": "Velocity of a Car on an On-Ramp",
+"xLabel": "Time (s)",
+"yLabel": "Velocity (m/s)",
+"labels": [
+"0",
+"2",
+"4",
+"6",
+"8"
+],
+"series": [
+{
+"name": "Velocity (m/s)",
+"values": [
+0,
+6,
+12,
+18,
+24
+]
+}
+]
+}
+},
+{
+"id": "s3",
+"title": "Tire Pressure on a Long Drive",
+"html": "<p>Before a summer road trip, a driver checked the pressure in one of her car's tires early in the morning. She checked the same tire with the same gauge several more times during the day as the tire warmed up from the sun and from rolling on hot pavement. No air was added to or released from the tire.</p><table><thead><tr><th>Temperature of air inside tire (°C)</th><th>Tire pressure (kPa)</th></tr></thead><tbody><tr><td>10</td><td>220</td></tr><tr><td>20</td><td>231</td></tr><tr><td>30</td><td>243</td></tr><tr><td>40</td><td>254</td></tr></tbody></table>"
+},
+{
+"id": "s4",
+"title": "Antifreeze in a Car's Cooling System",
+"html": "<p>A car engine is cooled by liquid coolant that circulates through the engine and the radiator. Coolant is a solution of water and antifreeze (ethylene glycol). If the coolant freezes in winter, it expands and can crack the engine. The table shows the approximate freezing point of coolant mixtures with different percentages of antifreeze by volume.</p><table><thead><tr><th>Antifreeze in mixture (% by volume)</th><th>Approximate freezing point (°C)</th></tr></thead><tbody><tr><td>0 (pure water)</td><td>0</td></tr><tr><td>20</td><td>&minus;9</td></tr><tr><td>30</td><td>&minus;16</td></tr><tr><td>40</td><td>&minus;25</td></tr><tr><td>50</td><td>&minus;37</td></tr><tr><td>60</td><td>&minus;52</td></tr><tr><td>100 (pure antifreeze)</td><td>&minus;13</td></tr></tbody></table>"
+},
+{
+"id": "s5",
+"title": "Rain and Desert Wildflower Seeds",
+"html": "<p>Many desert wildflowers are annuals: they sprout, flower, make seeds, and die within a few weeks. Their seeds can lie in the soil for years. A botanist noticed that these wildflowers bloom in large numbers only in years with a heavy winter rain. In the desert, a light shower of about 5 mm usually dries out of the soil within a day or two, while a soaking rain of 25 mm or more can keep the soil moist for several weeks.</p><p>To investigate, the botanist filled 15 identical trays with desert sand and placed 50 seeds of one wildflower species in each tray. Each tray received a single artificial &ldquo;rain&rdquo; of a set amount, and drainage holes let the water flow through the sand. Three trays were used for each rainfall amount. All trays were kept in the same growth chamber at the same temperature and light. After 14 days, she counted the seeds that had sprouted in each tray.</p><table><thead><tr><th>Rainfall (mm)</th><th>Tray 1</th><th>Tray 2</th><th>Tray 3</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>5</td><td>1</td><td>0</td><td>2</td></tr><tr><td>10</td><td>3</td><td>4</td><td>2</td></tr><tr><td>25</td><td>31</td><td>34</td><td>31</td></tr><tr><td>50</td><td>36</td><td>33</td><td>36</td></tr></tbody></table><p>Numbers in the table are the seeds sprouted out of 50 in each tray.</p>"
+},
+{
+"id": "s6",
+"title": "A Southwestern Desert Food Web",
+"html": "<p>The list below shows feeding relationships among some organisms in a desert of the southwestern United States. Each arrow means &ldquo;is eaten by.&rdquo;</p><ul><li>Desert grasses → grasshoppers, kangaroo rats (seeds), jackrabbits</li><li>Mesquite trees → kangaroo rats (seeds), jackrabbits (leaves)</li><li>Grasshoppers → scorpions, lizards</li><li>Scorpions → roadrunners</li><li>Lizards → roadrunners, hawks</li><li>Kangaroo rats → rattlesnakes, coyotes</li><li>Jackrabbits → coyotes, hawks</li><li>Rattlesnakes → hawks</li></ul><p>On average, only about 10% of the energy stored in one feeding level is passed on to the organisms that eat it.</p>"
+},
+{
+"id": "s7",
+"title": "A Rodent That Never Drinks",
+"html": "<p>The kangaroo rat lives in some of the driest deserts of North America, and many kangaroo rats go their whole lives without drinking water. A kangaroo rat eats mostly dry seeds. When its cells break down the sugars and fats from those seeds, using oxygen to release energy, water is produced as a by-product. Scientists estimate that this process supplies about 90% of the water a kangaroo rat gains each day; the small amount of moisture in its food supplies the rest.</p><p>The kangaroo rat is also very good at holding on to water. Its kidneys remove wastes using very little water, producing urine about four times as concentrated as the most concentrated human urine. Its long nasal passages are cooler than the rest of its body, so water vapor in each breath it breathes out condenses inside the nose and is reabsorbed. It does not sweat. During the hot day it stays in a deep burrow, where the air is cooler and more humid than the air at the surface, and it comes out to gather seeds only at night.</p>"
+},
+{
+"id": "s8",
+"title": "Two Towns, One Mountain Range",
+"html": "<p>A mountain range runs north to south, about 150 km inland from an ocean. The range's highest peaks rise to about 3,000 m. Winds in this region usually blow from the west, carrying moist air from the ocean toward the mountains.</p><table><thead><tr><th>Town</th><th>Location</th><th>Elevation (m)</th><th>Average yearly precipitation (mm)</th></tr></thead><tbody><tr><td>Westfield</td><td>Western foothills, facing the ocean</td><td>400</td><td>1,650</td></tr><tr><td>Eastvale</td><td>Eastern foothills, on the far side of the range</td><td>450</td><td>190</td></tr></tbody></table><p>Any region that receives less than about 250 mm of precipitation per year is considered a desert.</p>"
+},
+{
+"id": "s9",
+"title": "One July Day in Two Places",
+"html": "<p>The table and graph show air temperatures recorded on the same clear July day in a desert town and in a humid coastal city. The two places are at about the same latitude.</p><table><thead><tr><th>Time</th><th>3 AM</th><th>6 AM</th><th>9 AM</th><th>Noon</th><th>3 PM</th><th>6 PM</th><th>9 PM</th><th>Midnight</th></tr></thead><tbody><tr><td>Desert town (°C)</td><td>15</td><td>12</td><td>24</td><td>35</td><td>40</td><td>34</td><td>24</td><td>18</td></tr><tr><td>Coastal city (°C)</td><td>25</td><td>24</td><td>27</td><td>30</td><td>31</td><td>29</td><td>27</td><td>26</td></tr></tbody></table><p>The desert air that day held very little water vapor, and there were no clouds. The coastal air was humid, and the city sits beside a large body of ocean water.</p>",
+"figure": {
+"type": "line",
+"title": "Air Temperature Over One Day",
+"xLabel": "Time of day",
+"yLabel": "Temperature (°C)",
+"labels": [
+"3 AM",
+"6 AM",
+"9 AM",
+"Noon",
+"3 PM",
+"6 PM",
+"9 PM",
+"Midnight"
+],
+"series": [
+{
+"name": "Desert town",
+"values": [
+15,
+12,
+24,
+35,
+40,
+34,
+24,
+18
+]
+},
+{
+"name": "Coastal city",
+"values": [
+25,
+24,
+27,
+30,
+31,
+29,
+27,
+26
+]
+}
+]
+}
+}
+],
+"parts": [
+{
+"name": "Science",
+"items": [
+{
+"id": "q1",
+"type": "mc",
+"skill": "Controlled variables",
+"difficulty": 1,
+"stim": "s1",
+"prompt": "<p>Which factor did the safety team keep the same in every trial so that the braking distances could be fairly compared?</p>",
+"options": [
+"The car and tires used",
+"The speed of the car",
+"The condition of the pavement",
+"The braking distance"
+],
+"answer": 0,
+"explain": "<p>The passage says the <strong>same car, the same set of tires, and the same driver</strong> were used in every trial. These are controlled variables.</p><p>Speed and pavement condition (dry or wet) were changed on purpose, so they are independent variables. Braking distance is what the team measured, so it is the dependent variable.</p>",
+"why": [
+"",
+"Speed was changed on purpose (10, 20, and 30 m/s), so it is an independent variable, not a controlled one.",
+"The team tested both dry and wet pavement, so pavement condition was changed on purpose.",
+"Braking distance is what the team measured (the dependent variable); it changed from trial to trial."
+]
+},
+{
+"id": "q2",
+"type": "fill",
+"skill": "Calculating the mean",
+"difficulty": 1,
+"stim": "s1",
+"prompt": "<p>What is the mean braking distance on <strong>dry</strong> pavement at a speed of 20 m/s? Enter a whole number.</p>",
+"answer": [
+"28"
+],
+"value": 28,
+"tol": 0.001,
+"suffix": "m",
+"explain": "<p>Mean = sum of the trials &divide; number of trials.</p><p>27 + 30 + 27 = 84<br>84 &divide; 3 = <strong>28 m</strong></p><p>Be sure to use the three dry trials for 20 m/s, not the wet mean of 48 m.</p>",
+"mistakes": [
+{
+"answer": [
+"48"
+],
+"why": "48 m is the wet-pavement mean. The question asks about dry pavement: (27 + 30 + 27) &divide; 3 = 28."
+},
+{
+"answer": [
+"84"
+],
+"why": "84 m is the total of the three dry trials. Divide by 3 trials to get the mean: 28."
+},
+{
+"answer": [
+"21"
+],
+"why": "You divided by 4 instead of 3. There are three dry trials: 84 &divide; 3 = 28."
+}
+]
+},
+{
+"id": "q3",
+"type": "mc",
+"skill": "Predicting from a data pattern",
+"difficulty": 3,
+"stim": "s1",
+"noShuffle": true,
+"prompt": "<p>Based on the pattern in the dry-pavement means, which is the best prediction of the car's braking distance on dry pavement at 40 m/s?</p>",
+"options": [
+"84 m",
+"98 m",
+"112 m",
+"126 m"
+],
+"answer": 2,
+"explain": "<p>Compare speeds to the 10 m/s result (7 m):</p><p>20 m/s is 2 times as fast: 28 &divide; 7 = 4 = 2<sup>2</sup> times the distance.<br>30 m/s is 3 times as fast: 63 &divide; 7 = 9 = 3<sup>2</sup> times the distance.<br>40 m/s is 4 times as fast: 4<sup>2</sup> = 16, and 7 &times; 16 = <strong>112 m</strong>.</p><p>The braking distance grows with the <em>square</em> of the speed. 126 m comes from simply doubling the 30 m/s value, and 84 m comes from adding the first increase (21 m) again, as if the distance grew by equal steps.</p>",
+"why": [
+"You added the first increase (21 m) again, as if distance grew by equal steps. The data grow with the square of speed: 4<sup>2</sup> &times; 7 = 112.",
+"You repeated the last increase (35 m) once more. The increases themselves grow (21, 35, then 49), so the next value is 63 + 49 = 112.",
+"",
+"You doubled the 30 m/s value. 40 m/s is 4 times 10 m/s, so the distance is 4<sup>2</sup> = 16 times 7 m."
+]
+},
+{
+"id": "q4",
+"type": "multi",
+"skill": "Drawing conclusions from data",
+"difficulty": 2,
+"stim": "s1",
+"prompt": "<p>Which conclusions are supported by the data?</p><p>Select <strong>two</strong> answers.</p>",
+"options": [
+"Braking distance increases as speed increases on both dry and wet pavement.",
+"At each speed tested, the car needed a longer distance to stop on wet pavement than on dry pavement.",
+"Doubling the car's speed doubles its braking distance.",
+"Wet pavement makes the car travel at a lower speed before braking.",
+"Drivers take longer to react on wet pavement than on dry pavement."
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>Dry means rise 7 → 28 → 63 m and wet means rise 12 → 48 → 108 m, so <strong>braking distance increases with speed on both surfaces</strong>. At every speed the wet mean is larger (12 &gt; 7, 48 &gt; 28, 108 &gt; 63), so <strong>the car needs more distance to stop on wet pavement</strong>.</p><p>Doubling speed from 10 to 20 m/s made the dry distance four times as long (7 → 28), not twice as long. The speeds were set by the team, so wet pavement did not change them. Reaction time was never measured; braking distance starts only once the brakes are applied.</p>",
+"why": [
+"",
+"",
+"Doubling speed from 10 to 20 m/s made the dry distance go from 7 m to 28 m, four times as long, not twice.",
+"The team set each speed before braking, so the pavement did not change the speed. Only the stopping distance changed.",
+"Reaction time was never measured; braking distance starts only once the brakes are applied."
+]
+},
+{
+"id": "q5",
+"type": "fill",
+"skill": "Kinetic energy",
+"difficulty": 2,
+"prompt": "<p>Kinetic energy is found with <strong>KE = &frac12;mv<sup>2</sup></strong>, where <em>m</em> is mass in kilograms and <em>v</em> is speed in meters per second. How much kinetic energy, in joules, does a 1,200 kg car have when it travels at 25 m/s?</p>",
+"answer": [
+"375000",
+"375,000"
+],
+"value": 375000,
+"tol": 0.001,
+"suffix": "J",
+"explain": "<p>KE = &frac12; &times; m &times; v<sup>2</sup><br>v<sup>2</sup> = 25 &times; 25 = 625<br>KE = 0.5 &times; 1,200 &times; 625 = 600 &times; 625 = <strong>375,000 J</strong></p><p>A common error is forgetting to square the speed: 0.5 &times; 1,200 &times; 25 = 15,000 J. Another is leaving out the &frac12;, which gives 750,000 J.</p>",
+"mistakes": [
+{
+"answer": [
+"15000",
+"15,000"
+],
+"why": "You forgot to square the speed. v<sup>2</sup> = 25 &times; 25 = 625, so KE = 0.5 &times; 1,200 &times; 625 = 375,000 J."
+},
+{
+"answer": [
+"750000",
+"750,000"
+],
+"why": "You left out the &frac12;. KE = &frac12;mv<sup>2</sup>, so halve 1,200 &times; 625 = 750,000 to get 375,000 J."
+},
+{
+"answer": [
+"30000",
+"30,000"
+],
+"why": "You doubled the speed instead of squaring it (25 &times; 2 = 50). Square it: 25<sup>2</sup> = 625."
+}
+]
+},
+{
+"id": "q6",
+"type": "mc",
+"skill": "Calculating acceleration",
+"difficulty": 1,
+"stim": "s2",
+"noShuffle": true,
+"prompt": "<p>What was the car's acceleration on the on-ramp?</p>",
+"options": [
+"0.33 m/s<sup>2</sup>",
+"3 m/s<sup>2</sup>",
+"12 m/s<sup>2</sup>",
+"24 m/s<sup>2</sup>"
+],
+"answer": 1,
+"explain": "<p>Acceleration = change in velocity &divide; time.</p><p>Change in velocity = 24 &minus; 0 = 24 m/s<br>Time = 8 s<br>24 &divide; 8 = <strong>3 m/s<sup>2</sup></strong></p><p>The table confirms this: velocity rises by 6 m/s every 2 s, which is 3 m/s each second. 0.33 comes from dividing time by velocity (8 &divide; 24), 24 is the final velocity, and 12 m/s is the car's average velocity, not its acceleration.</p>",
+"why": [
+"You divided time by velocity (8 &divide; 24). Acceleration is change in velocity divided by time: 24 &divide; 8.",
+"",
+"12 m/s is the average velocity (or the velocity at 4 s), not the acceleration. Divide the change in velocity by the time.",
+"24 m/s is the final velocity. Divide it by the 8 s it took: 3 m/s<sup>2</sup>."
+]
+},
+{
+"id": "q7",
+"type": "mc",
+"skill": "Using F = ma",
+"difficulty": 2,
+"stim": "s2",
+"noShuffle": true,
+"prompt": "<p>Using Newton's second law, <strong>F = ma</strong>, what net force acted on the car while it sped up on the on-ramp?</p>",
+"options": [
+"467 N",
+"1,403 N",
+"4,200 N",
+"33,600 N"
+],
+"answer": 2,
+"explain": "<p>First find the acceleration: 24 m/s &divide; 8 s = 3 m/s<sup>2</sup>.</p><p>F = m &times; a = 1,400 kg &times; 3 m/s<sup>2</sup> = <strong>4,200 N</strong></p><p>467 N comes from dividing 1,400 by 3, and 1,403 N from adding instead of multiplying. 33,600 N comes from multiplying the mass by the final velocity (1,400 &times; 24) instead of by the acceleration.</p>",
+"why": [
+"You divided the mass by the acceleration (1,400 &divide; 3). Newton's second law multiplies: F = m &times; a.",
+"You added the mass and acceleration (1,400 + 3). F = ma means multiply.",
+"",
+"You multiplied the mass by the final velocity (24 m/s). Use the acceleration, 3 m/s<sup>2</sup>: 1,400 &times; 3."
+]
+},
+{
+"id": "q8",
+"type": "dropdown",
+"skill": "Energy transformations",
+"difficulty": 2,
+"stim": "s2",
+"prompt": "<p>The car on the on-ramp runs on gasoline. Complete the statements about energy as the car speeds up.</p><p>Burning gasoline releases the {{0}} energy stored in the fuel. Part of this energy becomes the {{1}} energy of the moving car. Much of the fuel's energy is not used to move the car and is lost to the surroundings as {{2}} energy, which is why the engine gets hot.</p>",
+"blanks": [
+{
+"options": [
+"chemical",
+"nuclear",
+"elastic",
+"sound"
+],
+"answer": 0,
+"why": [
+"",
+"Nuclear energy comes from changes in atomic nuclei, which do not happen when fuel burns. Fuel stores chemical energy in its bonds.",
+"Elastic energy is stored in stretched or compressed objects like springs, not in fuel.",
+"Sound is a form of energy released, not the energy stored in gasoline."
+]
+},
+{
+"options": [
+"potential",
+"kinetic",
+"chemical",
+"nuclear"
+],
+"answer": 1,
+"why": [
+"Potential energy is stored energy. Energy that grows as the car speeds up is energy of motion, kinetic energy.",
+"",
+"Chemical energy is what the fuel had before burning. The moving car has kinetic energy.",
+"No nuclear changes happen in the car. A moving object has kinetic energy."
+]
+},
+{
+"options": [
+"gravitational",
+"elastic",
+"thermal",
+"chemical"
+],
+"answer": 2,
+"why": [
+"Gravitational energy depends on height, not on an engine getting hot.",
+"Elastic energy is stored in stretched materials, not given off as engine heat.",
+"",
+"Chemical energy is the starting form in the fuel. The wasted energy that heats the engine is thermal energy."
+]
+}
+],
+"explain": "<p>Gasoline stores <strong>chemical</strong> energy in the bonds of its molecules. When it burns, part of that energy becomes the <strong>kinetic</strong> energy (energy of motion) of the car, which increases as the car speeds up. Most of the rest is released as <strong>thermal</strong> energy (heat), which is why engines need a cooling system.</p><p>Nuclear energy comes from changes in atomic nuclei, which do not happen when fuel burns. Potential energy is stored energy; the energy that shows up as the car gains speed is energy of motion, which is kinetic energy.</p>"
+},
+{
+"id": "q9",
+"type": "mc",
+"skill": "Newton's first law (inertia)",
+"difficulty": 1,
+"prompt": "<p>A car traveling at highway speed stops suddenly in a collision. A passenger who is not wearing a seat belt keeps moving forward and may strike the dashboard. Which idea best explains why the passenger moves forward?</p>",
+"options": [
+"The car pushes the passenger forward when it stops.",
+"Gravity pulls the passenger toward the front of the car.",
+"The force of the collision makes the passenger speed up.",
+"A moving object keeps moving at the same speed and direction unless a force acts on it."
+],
+"answer": 3,
+"explain": "<p>This is <strong>Newton's first law</strong>, the law of inertia. The passenger was moving at highway speed along with the car. When the car stops, nothing has yet acted on the passenger to stop him, so he <strong>keeps moving forward</strong> until the dashboard or windshield stops him. A seat belt supplies the force that stops the passenger along with the car.</p><p>The car does not push the passenger forward; it actually stops. Gravity pulls downward, not forward. The passenger does not speed up; he simply continues at the speed he already had.</p>",
+"why": [
+"When the car stops, it does not push the passenger forward. The passenger keeps the motion he already had.",
+"Gravity pulls downward, not toward the front of the car.",
+"The passenger does not speed up; he keeps moving at the speed he already had until something stops him.",
+""
+]
+},
+{
+"id": "q10",
+"type": "mc",
+"skill": "Series and parallel circuits",
+"difficulty": 2,
+"prompt": "<p>A driver notices that her car's left headlight has burned out, but the right headlight still shines normally. Which explanation is most likely?</p>",
+"options": [
+"The headlights are wired in parallel, so each bulb has its own path for current from the battery.",
+"The headlights are wired in series, so current skips around the burned-out bulb.",
+"The battery now sends twice its usual voltage to the working bulb.",
+"The burned-out bulb has become a better conductor than the working bulb."
+],
+"answer": 0,
+"explain": "<p>In a <strong>parallel circuit</strong>, each device is on its own branch connected to the power source. If one branch is broken, such as by a burned-out bulb, current still flows through the other branches. That is why one headlight can go out while the other stays lit.</p><p>In a series circuit there is only one path, so one broken bulb would stop the current to both lights; current does not &ldquo;skip around&rdquo; a break. The car's battery supplies the same voltage (about 12 V) either way. A burned-out bulb has a broken filament, which acts as an open gap, not a better conductor.</p>",
+"why": [
+"",
+"In a series circuit there is one path, so a burned-out bulb would break the circuit and both lights would go out. Current cannot skip around a break.",
+"A car battery supplies the same voltage (about 12 V) either way. The working bulb shines normally because it is on its own branch.",
+"A burned-out bulb has a broken filament, which is an open gap that stops current, not a better conductor."
+]
+},
+{
+"id": "q11",
+"type": "mc",
+"skill": "Gases and particle motion",
+"difficulty": 2,
+"stim": "s3",
+"prompt": "<p>Which statement best explains why the tire pressure increased during the day?</p>",
+"options": [
+"The air particles in the tire grew larger as they warmed, filling more of the tire.",
+"Hot pavement pushed more air particles into the tire through the rubber.",
+"The air particles slowed down and settled against the tire walls.",
+"The air particles moved faster as they warmed, so they struck the tire walls more often and with more force."
+],
+"answer": 3,
+"explain": "<p>Pressure is caused by gas particles colliding with the walls of their container. When the air in the tire warmed from 10 °C to 40 °C, its <strong>particles moved faster</strong>, hitting the inside of the tire more often and harder, so the pressure rose from 220 to 254 kPa.</p><p>Particles do not grow larger when heated; they move faster. The passage says no air was added, so the number of particles stayed the same. Particles speed up, not slow down, as temperature rises.</p>",
+"why": [
+"Particles do not grow larger when heated; they move faster. Faster particles hit the walls harder and more often.",
+"The passage says no air was added. The number of particles stayed the same; only their speed changed.",
+"Warming makes particles speed up, not slow down. Slower particles would lower the pressure.",
+""
+]
+},
+{
+"id": "q12",
+"type": "dropdown",
+"skill": "Balancing chemical equations",
+"difficulty": 3,
+"prompt": "<p>Octane (C<sub>8</sub>H<sub>18</sub>) is one of the main compounds in gasoline. When it burns completely in a car engine, it reacts with oxygen to form carbon dioxide and water. Choose the coefficients that balance the equation.</p><p>2 C<sub>8</sub>H<sub>18</sub> + {{0}} O<sub>2</sub> → {{1}} CO<sub>2</sub> + {{2}} H<sub>2</sub>O</p>",
+"blanks": [
+{
+"options": [
+"9",
+"17",
+"25",
+"50"
+],
+"answer": 2,
+"why": [
+"9 O<sub>2</sub> gives 18 oxygen atoms, but the right side has 50 (32 in CO<sub>2</sub> + 18 in H<sub>2</sub>O).",
+"17 O<sub>2</sub> gives 34 oxygen atoms. Count the right side: 16 &times; 2 + 18 = 50, so you need 25 O<sub>2</sub>.",
+"",
+"50 counts oxygen atoms instead of O<sub>2</sub> molecules. Each O<sub>2</sub> has 2 atoms, so 50 atoms need 25 O<sub>2</sub>."
+]
+},
+{
+"options": [
+"8",
+"16",
+"18",
+"32"
+],
+"answer": 1,
+"why": [
+"8 CO<sub>2</sub> counts the carbon in only one octane molecule. There are 2 C<sub>8</sub>H<sub>18</sub>, so 16 carbon atoms.",
+"",
+"18 matches the hydrogens in one octane, not the carbons. 2 &times; 8 = 16 carbon atoms need 16 CO<sub>2</sub>.",
+"32 is the number of oxygen atoms in 16 CO<sub>2</sub>, not the coefficient. Carbon atoms: 2 &times; 8 = 16."
+]
+},
+{
+"options": [
+"9",
+"16",
+"18",
+"36"
+],
+"answer": 2,
+"why": [
+"9 H<sub>2</sub>O balances the hydrogen in only one octane. Two octane molecules have 36 H atoms, so 18 H<sub>2</sub>O.",
+"16 matches the carbon count, not hydrogen. 36 H atoms &divide; 2 per H<sub>2</sub>O = 18.",
+"",
+"36 is the number of hydrogen atoms. Each H<sub>2</sub>O has 2 hydrogens, so you need 36 &divide; 2 = 18."
+]
+}
+],
+"explain": "<p>Count atoms in 2 C<sub>8</sub>H<sub>18</sub>: 2 &times; 8 = 16 carbon atoms and 2 &times; 18 = 36 hydrogen atoms.</p><p>Carbon: 16 C atoms need <strong>16</strong> CO<sub>2</sub>.<br>Hydrogen: 36 H atoms need 36 &divide; 2 = <strong>18</strong> H<sub>2</sub>O.<br>Oxygen on the right: (16 &times; 2) + (18 &times; 1) = 32 + 18 = 50 O atoms, so the left needs 50 &divide; 2 = <strong>25</strong> O<sub>2</sub>.</p><p>Check: 16 C, 36 H, and 50 O on each side. Choosing 50 for O<sub>2</sub> counts oxygen atoms instead of O<sub>2</sub> molecules, which would put 100 oxygen atoms on the left.</p>"
+},
+{
+"id": "q13",
+"type": "mc",
+"skill": "Catalysts and reaction rate",
+"difficulty": 2,
+"prompt": "<p>A car's catalytic converter contains small amounts of the metals platinum and palladium. As hot exhaust passes over these metals, poisonous carbon monoxide reacts with oxygen to form carbon dioxide (2CO + O<sub>2</sub> → 2CO<sub>2</sub>). The platinum and palladium are not used up, and a converter can work for many years. What is the role of these metals?</p>",
+"options": [
+"They are reactants that combine with carbon monoxide to form carbon dioxide.",
+"They are catalysts that speed up the reaction without being used up.",
+"They are products that form when carbon monoxide burns.",
+"They are filters that trap carbon monoxide so it cannot leave the car."
+],
+"answer": 1,
+"explain": "<p>A <strong>catalyst</strong> speeds up a chemical reaction without being consumed by it. The metals help carbon monoxide and oxygen react quickly, and the passage says they are not used up, so the converter keeps working for years.</p><p>The reactants in the equation are CO and O<sub>2</sub>, and the only product is CO<sub>2</sub>; platinum and palladium do not appear in the equation. The converter changes carbon monoxide into a different substance rather than trapping it.</p>",
+"why": [
+"Reactants are used up, but the passage says the metals are not used up. The reactants in the equation are CO and O<sub>2</sub>.",
+"",
+"The only product in the equation is CO<sub>2</sub>. Platinum and palladium do not appear in the equation.",
+"The converter changes carbon monoxide into CO<sub>2</sub>; it does not trap it inside the car."
+]
+},
+{
+"id": "q14",
+"type": "mc",
+"skill": "Reading data in a table",
+"difficulty": 2,
+"stim": "s4",
+"noShuffle": true,
+"prompt": "<p>A driver lives where winter temperatures sometimes fall to &minus;30 °C. Based on the table, what is the <strong>lowest</strong> percentage of antifreeze listed that would keep the coolant from freezing at that temperature?</p>",
+"options": [
+"30%",
+"40%",
+"50%",
+"100%"
+],
+"answer": 2,
+"explain": "<p>The coolant must have a freezing point <em>below</em> &minus;30 °C.</p><p>30% freezes at &minus;16 °C and 40% freezes at &minus;25 °C; both are warmer than &minus;30 °C, so they would freeze. 50% freezes at &minus;37 °C, which is colder than &minus;30 °C, so <strong>50%</strong> is the lowest listed percentage that works.</p><p>Pure antifreeze (100%) freezes at about &minus;13 °C, so it would actually freeze before reaching &minus;30 °C.</p>",
+"why": [
+"30% antifreeze freezes at &minus;16 &deg;C, which is warmer than &minus;30 &deg;C, so it would freeze.",
+"40% freezes at &minus;25 &deg;C, still warmer than &minus;30 &deg;C. You need a freezing point below &minus;30 &deg;C.",
+"",
+"Pure antifreeze freezes at about &minus;13 &deg;C, so it would freeze before &minus;30 &deg;C. More antifreeze is not always better."
+]
+},
+{
+"id": "q15",
+"type": "mc",
+"skill": "Forming a hypothesis",
+"difficulty": 1,
+"stim": "s5",
+"prompt": "<p>Which hypothesis was the botanist most likely testing?</p>",
+"options": [
+"Seeds of this wildflower sprout in greater numbers after a larger rainfall.",
+"Seeds of this wildflower sprout faster at higher temperatures.",
+"Desert sand contains more nutrients than other types of soil.",
+"Wildflower seeds survive longer in the soil when it is dry."
+],
+"answer": 0,
+"explain": "<p>The botanist changed only the <strong>amount of rainfall</strong> and counted how many seeds sprouted. So she was testing whether <strong>the amount of rain affects how many seeds sprout</strong>.</p><p>Temperature was kept the same in every tray, so the experiment cannot test temperature. Nutrients and seed survival time in dry soil were not measured.</p>",
+"why": [
+"",
+"All trays were kept at the same temperature, so the experiment cannot test temperature. Only rainfall was changed.",
+"Every tray used the same desert sand, and nutrients were not measured.",
+"The botanist counted sprouting after 14 days; she did not measure how long seeds survive in dry soil."
+]
+},
+{
+"id": "q16",
+"type": "mc",
+"skill": "Adaptations",
+"difficulty": 2,
+"stim": "s5",
+"prompt": "<p>Few seeds sprouted after 5 mm or 10 mm of rain, but most sprouted after 25 mm or more. How does this response most likely help the wildflower species survive in the desert?</p>",
+"options": [
+"It lets the seeds sprout as quickly as possible after any rain, before other plants can.",
+"It keeps the plants from using any water until they are fully grown.",
+"It allows the seeds to absorb water directly from the air during dry years.",
+"It keeps most seeds waiting until the soil will stay moist long enough for the plants to flower and make seeds."
+],
+"answer": 3,
+"explain": "<p>The passage says a 5 mm shower dries out in a day or two, while a rain of 25 mm or more keeps the soil moist for several weeks. These plants need a few weeks to sprout, flower, and make seeds. By sprouting mainly after heavy rains, <strong>the seeds wait until there is enough water for the plants to complete their life cycle</strong>. A seedling that sprouted after a light shower would probably dry out and die before making seeds.</p><p>The data show the opposite of sprouting after any rain: light rains produced very few seedlings. Nothing in the passage describes seeds absorbing water from the air.</p>",
+"why": [
+"The data show the opposite: light rains of 5 or 10 mm produced very few seedlings. The seeds wait for heavy rain.",
+"Plants must use water to grow; the response controls when seeds sprout, not whether the plant uses water.",
+"Nothing in the passage describes seeds absorbing water from the air. Sprouting depended on how much rain soaked the soil.",
+""
+]
+},
+{
+"id": "q17",
+"type": "fill",
+"skill": "Calculating percent",
+"difficulty": 2,
+"stim": "s5",
+"prompt": "<p>Combine the results of all three trays that received 25 mm of rain. What percent of those seeds sprouted?</p>",
+"answer": [
+"64",
+"64%"
+],
+"value": 64,
+"tol": 0.001,
+"suffix": "percent",
+"explain": "<p>Seeds sprouted: 31 + 34 + 31 = 96<br>Seeds planted: 3 trays &times; 50 seeds = 150<br>96 &divide; 150 = 0.64 = <strong>64%</strong></p><p>A common error is dividing by 50 (the seeds in only one tray), which gives 192%, an impossible result. Another is reporting the count (96) instead of the percent.</p>",
+"mistakes": [
+{
+"answer": [
+"192",
+"192%"
+],
+"why": "You divided by 50, the seeds in one tray. Three trays held 150 seeds: 96 &divide; 150 = 64%."
+},
+{
+"answer": [
+"96"
+],
+"why": "96 is the number of seeds that sprouted, not the percent. Divide by the 150 seeds planted: 64%."
+},
+{
+"answer": [
+"32",
+"32%"
+],
+"why": "32 is the average count per tray, not a percent. Divide it by 50 seeds per tray: 32 &divide; 50 = 64%."
+}
+]
+},
+{
+"id": "q18",
+"type": "drag",
+"skill": "Food web roles",
+"difficulty": 2,
+"stim": "s6",
+"prompt": "<p>Based on what each desert organism eats, sort it by its feeding level. Place every organism in a group.</p>",
+"choices": [
+"Desert grasses",
+"Kangaroo rats",
+"Grasshoppers",
+"Lizards",
+"Scorpions",
+"Rattlesnakes"
+],
+"bins": [
+"Producer",
+"Primary consumer",
+"Secondary consumer"
+],
+"answer": [
+0,
+1,
+1,
+2,
+2,
+2
+],
+"explain": "<p><strong>Producer:</strong> Desert grasses make their own food by photosynthesis.</p><p><strong>Primary consumers:</strong> Kangaroo rats eat grass and mesquite seeds, and grasshoppers eat grasses. Both eat producers.</p><p><strong>Secondary consumers:</strong> Lizards and scorpions eat grasshoppers, and rattlesnakes eat kangaroo rats. All three eat primary consumers.</p><p>A common mistake is calling the rattlesnake a top predator in this web; it is eaten by hawks, and in this web it eats only kangaroo rats, which makes it a secondary consumer.</p>",
+"why": "The most common error is putting the rattlesnake in a top-level group or the kangaroo rat with the predators. Kangaroo rats eat seeds (producers), so they are primary consumers; rattlesnakes eat kangaroo rats, so they are secondary consumers."
+},
+{
+"id": "q19",
+"type": "mc",
+"skill": "Predicting changes in an ecosystem",
+"difficulty": 2,
+"stim": "s6",
+"prompt": "<p>A long drought kills most of the desert grasses in the area. Which outcome is most likely?</p>",
+"options": [
+"The hawk population increases because jackrabbits have more grass to eat.",
+"The grasshopper population increases because scorpions have less food.",
+"The grasshopper, kangaroo rat, and jackrabbit populations decrease, and later the populations of animals that eat them may also decrease.",
+"The mesquite tree population decreases because mesquite trees eat grasses."
+],
+"answer": 2,
+"explain": "<p>Grasshoppers, kangaroo rats, and jackrabbits all eat desert grasses. With most grasses gone, these <strong>primary consumers lose food and are likely to decline</strong>. The predators that depend on them (scorpions, lizards, rattlesnakes, coyotes, hawks) then have less food, so their numbers may fall later.</p><p>Jackrabbits would have <em>less</em> grass, not more. Grasshoppers would lose their food, so their numbers would fall rather than rise. Mesquite trees are producers; they do not eat grasses.</p>",
+"why": [
+"Jackrabbits eat grass, so a drought that kills grass leaves them less food, not more; fewer jackrabbits means less food for hawks.",
+"Grasshoppers eat grasses. Losing their food makes them decline, whatever happens to scorpions.",
+"",
+"Mesquite trees are producers that make their own food. They do not eat grasses."
+]
+},
+{
+"id": "q20",
+"type": "fill",
+"skill": "Energy transfer (10% rule)",
+"difficulty": 3,
+"stim": "s6",
+"prompt": "<p>In one year, the desert grasses in an area store 80,000 kcal of energy. Following the path grasses → kangaroo rats → coyotes and using the 10% estimate from the passage, about how many kilocalories of that energy reach the coyotes?</p>",
+"answer": [
+"800"
+],
+"value": 800,
+"tol": 0.001,
+"suffix": "kcal",
+"explain": "<p>Energy passes through two transfers, keeping about 10% each time.</p><p>Grasses to kangaroo rats: 80,000 &times; 0.10 = 8,000 kcal<br>Kangaroo rats to coyotes: 8,000 &times; 0.10 = <strong>800 kcal</strong></p><p>8,000 kcal is the energy that reaches the kangaroo rats, one step short of the coyotes. 72,000 kcal is the energy <em>lost</em> at the first step, not the energy passed on.</p>",
+"mistakes": [
+{
+"answer": [
+"8000",
+"8,000"
+],
+"why": "8,000 kcal reaches the kangaroo rats, one step short. Apply 10% again for the coyotes: 8,000 &times; 0.10 = 800."
+},
+{
+"answer": [
+"72000",
+"72,000"
+],
+"why": "72,000 kcal is the energy lost at the first step, not passed on. Keep 10% at each step: 80,000 &rarr; 8,000 &rarr; 800."
+},
+{
+"answer": [
+"80"
+],
+"why": "You applied the 10% rule three times. The path grasses &rarr; kangaroo rats &rarr; coyotes has only two transfers: 800 kcal."
+}
+]
+},
+{
+"id": "q21",
+"type": "mc",
+"skill": "Cellular respiration",
+"difficulty": 1,
+"stim": "s7",
+"prompt": "<p>Most of the kangaroo rat's water comes from the process its cells use to break down sugars and fats with oxygen to release energy. What is this process called?</p>",
+"options": [
+"Cellular respiration",
+"Photosynthesis",
+"Osmosis",
+"Condensation"
+],
+"answer": 0,
+"explain": "<p><strong>Cellular respiration</strong> uses oxygen to break down sugar (and fats) and release energy the cell can use. Its products are carbon dioxide and <strong>water</strong>: glucose + oxygen → carbon dioxide + water + energy.</p><p>Photosynthesis happens in plants and uses water rather than producing it for the animal. Osmosis is the movement of water across a membrane; it does not make new water. Condensation describes the water recovered in the nose, not the water made inside cells.</p>",
+"why": [
+"",
+"Photosynthesis happens in plants and uses water and carbon dioxide to make sugar; it does not break sugar down.",
+"Osmosis moves water across a membrane; it does not produce new water from sugars and fats.",
+"Condensation describes the water recovered in the nose, not the water made when cells break down food."
+]
+},
+{
+"id": "q22",
+"type": "multi",
+"skill": "Adaptations and homeostasis",
+"difficulty": 2,
+"stim": "s7",
+"prompt": "<p>According to the passage, which features help the kangaroo rat <strong>reduce water loss</strong>?</p><p>Select <strong>two</strong> answers.</p>",
+"options": [
+"Producing very concentrated urine",
+"Drinking from desert springs at night",
+"Sweating to cool its body during the day",
+"Recovering water vapor from its breath inside its nose",
+"Gathering seeds during the hottest part of the day"
+],
+"answer": [
+0,
+3
+],
+"explain": "<p>The passage describes two ways the kangaroo rat holds on to water: its kidneys produce <strong>very concentrated urine</strong>, so little water leaves with wastes, and its cool nasal passages make water vapor <strong>condense and be reabsorbed</strong> before it is breathed out.</p><p>Drinking would be a way to <em>gain</em> water, and the passage says many kangaroo rats never drink. The passage states that it does not sweat and that it gathers seeds only at night.</p>",
+"why": [
+"",
+"Drinking is a way to gain water, not reduce loss, and the passage says many kangaroo rats never drink.",
+"The passage says the kangaroo rat does not sweat.",
+"",
+"The passage says it gathers seeds only at night and stays in its burrow during the hot day."
+]
+},
+{
+"id": "q23",
+"type": "hotspot",
+"skill": "Behavioral and physical adaptations",
+"difficulty": 2,
+"prompt": "<p>The sentences below describe traits of the kangaroo rat. A <strong>behavioral</strong> adaptation is something an animal does, while a <strong>physical</strong> adaptation is a body structure. Click the sentence that describes a <strong>behavioral</strong> adaptation.</p>",
+"spans": [
+"Its large, powerful hind legs let it hop quickly away from predators.",
+"Its kidneys remove wastes using very little water.",
+"It spends the hot daylight hours in a cool, humid burrow underground.",
+"It has fur-lined pouches in its cheeks for carrying seeds.",
+"Its long nasal passages cool the air it breathes out."
+],
+"answer": 2,
+"explain": "<p>Staying in a burrow during the hottest hours is something the kangaroo rat <strong>does</strong>, so it is a <strong>behavioral adaptation</strong>. It keeps the animal out of the heat and dry air, which reduces water loss.</p><p>Hind legs, kidneys, cheek pouches, and nasal passages are all body structures, so they are physical adaptations.</p>",
+"why": "The most common wrong click is the sentence about hind legs, because hopping sounds like an action. The legs are a body structure (physical adaptation); staying in a cool burrow during the day is something the animal does, so it is the behavioral adaptation."
+},
+{
+"id": "q24",
+"type": "mc",
+"skill": "Homeostasis and feedback",
+"difficulty": 2,
+"prompt": "<p>During a long hike in desert heat, a hiker sweats heavily and drinks little water. Her brain detects that her blood has become too concentrated, and her pituitary gland releases more antidiuretic hormone (ADH). ADH signals the kidneys to return more water to the blood. Which result is expected?</p>",
+"options": [
+"She produces more urine, which is pale and dilute.",
+"Her kidneys stop filtering her blood until she drinks.",
+"Her sweating stops completely, so her body temperature stays the same.",
+"She produces less urine, which is darker and more concentrated."
+],
+"answer": 3,
+"explain": "<p>ADH makes the kidneys <strong>reabsorb more water</strong> back into the blood, so less water leaves the body. The hiker makes a <strong>smaller amount of darker, more concentrated urine</strong>. This is negative feedback: the response works against the change (water loss) and helps bring the blood back toward normal.</p><p>Large amounts of pale urine are what happens when the body has <em>extra</em> water and releases less ADH. The kidneys keep filtering blood; ADH changes how much water they return. ADH acts on the kidneys and does not shut off sweating.</p>",
+"why": [
+"Large amounts of pale urine happen when the body has extra water and releases less ADH. More ADH means more water is kept.",
+"The kidneys keep filtering blood; ADH only changes how much water they return to the blood.",
+"ADH acts on the kidneys and does not shut off sweating.",
+""
+]
+},
+{
+"id": "q25",
+"type": "mc",
+"skill": "Disease prevention",
+"difficulty": 2,
+"prompt": "<p>Valley fever is an illness caused by a fungus that lives in the soil of some dry regions of the southwestern United States. When the soil is disturbed by wind, digging, or construction, tiny spores of the fungus float into the air. People become infected by breathing in the spores. The illness does not spread from person to person. Based on this information, which action would best protect a road crew digging in this soil?</p>",
+"options": [
+"Spraying water on the soil to keep dust down and wearing well-fitted dust masks",
+"Avoiding handshakes with coworkers who have had Valley fever",
+"Boiling all drinking water before the workday",
+"Washing their hands after eating lunch at the work site"
+],
+"answer": 0,
+"explain": "<p>The passage says people are infected by <strong>breathing in spores</strong> that rise from disturbed soil. Keeping the soil damp stops dust (and spores) from rising, and a well-fitted mask filters the air the workers breathe, so this is the <strong>best protection</strong>.</p><p>The illness does not spread from person to person, so avoiding handshakes would not help. The spores enter through the air, not through water or food, so boiling water and handwashing do not block the route of infection.</p>",
+"why": [
+"",
+"The passage says Valley fever does not spread from person to person, so avoiding handshakes would not help.",
+"Spores enter by being breathed in, not through drinking water.",
+"Spores enter through the air the workers breathe, so handwashing does not block the route of infection."
+]
+},
+{
+"id": "q26",
+"type": "mc",
+"skill": "Body systems",
+"difficulty": 2,
+"prompt": "<p>Car exhaust contains carbon monoxide (CO), a colorless, odorless gas. Carbon monoxide attaches to hemoglobin, the oxygen-carrying protein in red blood cells, far more tightly than oxygen does. Why is running a car's engine inside a closed garage so dangerous?</p>",
+"options": [
+"Carbon monoxide causes the kidneys to remove too much water from the blood.",
+"Carbon monoxide keeps the blood from carrying enough oxygen to the body's cells.",
+"Carbon monoxide makes the lungs absorb extra oxygen, which damages the heart.",
+"Carbon monoxide breaks down the food in the stomach before it can be digested."
+],
+"answer": 1,
+"explain": "<p>Hemoglobin normally picks up oxygen in the lungs, and the circulatory system delivers it to cells all over the body. When carbon monoxide takes up the places on hemoglobin where oxygen would attach, <strong>the blood carries far less oxygen</strong>. Cells, especially in the brain and heart, cannot get the oxygen they need for cellular respiration, which can cause unconsciousness and death.</p><p>The passage describes carbon monoxide acting on red blood cells, not on the kidneys or stomach. Carbon monoxide <em>reduces</em> the oxygen the blood can carry; it does not add extra oxygen.</p>",
+"why": [
+"The passage describes carbon monoxide acting on hemoglobin in red blood cells, not on the kidneys.",
+"",
+"Carbon monoxide takes up the places where oxygen would attach, so the blood carries less oxygen, not more.",
+"The passage describes carbon monoxide in the blood, not in the stomach or digestion."
+]
+},
+{
+"id": "q27",
+"type": "mc",
+"skill": "Punnett squares (multiple alleles)",
+"difficulty": 3,
+"noShuffle": true,
+"prompt": "<p>Human ABO blood type is controlled by one gene with three alleles. Alleles I<sup>A</sup> and I<sup>B</sup> are codominant, and both are dominant over allele i. A person with genotype ii has type O blood. A mother with type A blood has genotype I<sup>A</sup>i, and a father with type B blood has genotype I<sup>B</sup>i. What is the probability that one of their children will have <strong>type O</strong> blood?</p>",
+"options": [
+"0%",
+"25%",
+"50%",
+"75%"
+],
+"answer": 1,
+"explain": "<p>Set up the Punnett square with the mother's alleles (I<sup>A</sup>, i) across the top and the father's (I<sup>B</sup>, i) down the side:</p><table><thead><tr><th></th><th>I<sup>A</sup></th><th>i</th></tr></thead><tbody><tr><th>I<sup>B</sup></th><td>I<sup>A</sup>I<sup>B</sup> (type AB)</td><td>I<sup>B</sup>i (type B)</td></tr><tr><th>i</th><td>I<sup>A</sup>i (type A)</td><td>ii (type O)</td></tr></tbody></table><p>Only 1 of the 4 boxes is ii, so the probability of type O is 1 &divide; 4 = <strong>25%</strong>.</p><p>Choosing 0% assumes two parents without type O blood cannot have a type O child; but both parents carry the hidden i allele, so they can each pass it on.</p>",
+"why": [
+"You assumed parents without type O cannot have a type O child. Both parents carry the hidden i allele, so 1 of 4 boxes is ii.",
+"",
+"50% would need 2 of 4 Punnett boxes to be ii. Only one box (i from each parent) gives type O.",
+"75% would mean most children are type O. Only 1 of 4 boxes is ii; the others are AB, A, and B."
+]
+},
+{
+"id": "q28",
+"type": "mc",
+"skill": "Natural selection",
+"difficulty": 2,
+"prompt": "<p>Black-tailed jackrabbits that live in hot deserts have very large ears with many blood vessels close to the surface. As blood flows through the ears, it gives off heat to the air. Related hares that live in cold northern regions have much shorter ears. Which explanation of how large ears became common in desert jackrabbits is consistent with natural selection?</p>",
+"options": [
+"Each jackrabbit's ears stretched during its life from the heat, and its offspring inherited the larger ears.",
+"The jackrabbits needed larger ears, so new mutations for large ears appeared in response to that need.",
+"Short-eared jackrabbits chose to move north to escape the heat, leaving only large-eared ones behind.",
+"Ear size varied among ancestors; those with larger ears shed heat better, survived and reproduced more, and passed on genes for large ears."
+],
+"answer": 3,
+"explain": "<p>Natural selection works on <strong>inherited variation that already exists</strong> in a population. In a hot desert, jackrabbits with larger ears could get rid of extra body heat more easily, so they were more likely to <strong>survive and reproduce</strong>. Over many generations, the genes for large ears became more common.</p><p>Traits that change during an animal's life, such as stretched ears, are not passed to offspring. Mutations happen randomly; they do not appear because an organism needs them. The passage gives no evidence that jackrabbits chose to move north.</p>",
+"why": [
+"Traits changed during an animal's life, like stretched ears, are not inherited. Selection acts on inherited variation.",
+"Mutations happen randomly; they do not appear because an organism needs them.",
+"The passage gives no evidence that jackrabbits chose to move. Natural selection explains the change through survival and reproduction.",
+""
+]
+},
+{
+"id": "q29",
+"type": "mc",
+"skill": "Rain shadow effect",
+"difficulty": 2,
+"stim": "s8",
+"prompt": "<p>Which explanation best accounts for the large difference in precipitation between Westfield and Eastvale?</p>",
+"options": [
+"Eastvale is at a much higher elevation than Westfield, so its air is too cold to hold rain.",
+"The mountains block sunlight from reaching Eastvale, so less water evaporates there.",
+"Moist ocean air cools as it rises over the western slopes and drops most of its water before it reaches Eastvale.",
+"Eastvale is farther from the equator than Westfield, so it receives less rain."
+],
+"answer": 2,
+"explain": "<p>Winds carry moist ocean air from the west. As the air is forced up the western slopes, it cools, and its water vapor condenses into clouds that release rain and snow on Westfield's side. The air that crosses the peaks and sinks toward Eastvale has already lost most of its moisture. This is called a <strong>rain shadow</strong>, and it explains why Eastvale gets only 190 mm per year, less than the 250 mm that marks a desert.</p><p>The two towns are at similar elevations (400 m and 450 m), and a north-south range would not put one town much farther from the equator. Mountains do not block sunlight from a whole town all day.</p>",
+"why": [
+"The table shows the towns are at similar elevations, 400 m and 450 m, so elevation does not explain the difference.",
+"Mountains do not block sunlight from a whole town all day. The difference comes from moisture being lost on the western slopes.",
+"",
+"The range runs north to south, so the towns are on its east and west sides, not at different distances from the equator."
+]
+},
+{
+"id": "q30",
+"type": "dropdown",
+"skill": "Water cycle and weather",
+"difficulty": 2,
+"stim": "s8",
+"prompt": "<p>Complete the description of what happens to the air as it crosses the mountain range.</p><p>As moist air is pushed up the western slopes, it expands and {{0}}. Its water vapor {{1}} to form clouds, and precipitation falls. After passing the peaks, the air sinks down the eastern slopes, where it is compressed, becomes warmer, and is {{2}}.</p>",
+"blanks": [
+{
+"options": [
+"warms",
+"cools",
+"speeds up",
+"gains moisture"
+],
+"answer": 1,
+"why": [
+"Rising air expands as pressure drops, and expanding air cools, not warms.",
+"",
+"Speed is not what changes cloud formation here; rising air expands and cools.",
+"Rising air does not gain moisture; it loses moisture as rain on the western slopes."
+]
+},
+{
+"options": [
+"evaporates",
+"freezes into ice caps",
+"condenses",
+"sinks"
+],
+"answer": 2,
+"why": [
+"Evaporation turns liquid into vapor, the opposite of forming clouds. Vapor condenses into droplets.",
+"Ice caps are not formed by passing air. The vapor condenses into cloud droplets.",
+"",
+"Water vapor does not sink to form clouds; it condenses as the air cools."
+]
+},
+{
+"options": [
+"drier",
+"more humid",
+"full of clouds",
+"colder"
+],
+"answer": 0,
+"why": [
+"",
+"The air dropped its moisture on the western side, so it is drier, not more humid, on the eastern side.",
+"Warm, sinking air does not form clouds; clouds form when air rises and cools.",
+"The passage says the sinking air is compressed and becomes warmer, not colder."
+]
+}
+],
+"explain": "<p>Rising air expands because air pressure is lower at higher altitudes, and expanding air <strong>cools</strong>. Cool air holds less water vapor, so the vapor <strong>condenses</strong> into cloud droplets, which fall as rain or snow. The sinking air on the eastern side is compressed and warms, and because it already lost its moisture, it is <strong>drier</strong>.</p><p>Evaporation turns liquid water into vapor, which is the opposite of what forms clouds. Warm, sinking air does not become more humid or cloudy; that is why the eastern side is a desert.</p>"
+},
+{
+"id": "q31",
+"type": "fill",
+"skill": "Calculating range",
+"difficulty": 2,
+"stim": "s9",
+"prompt": "<p>The temperature range is the highest temperature minus the lowest temperature. How many degrees Celsius greater was the desert town's temperature range than the coastal city's on this day?</p>",
+"answer": [
+"21"
+],
+"value": 21,
+"tol": 0.001,
+"suffix": "°C",
+"explain": "<p>Desert town: highest 40 °C (3 PM), lowest 12 °C (6 AM). Range = 40 &minus; 12 = 28 °C.<br>Coastal city: highest 31 °C (3 PM), lowest 24 °C (6 AM). Range = 31 &minus; 24 = 7 °C.<br>Difference: 28 &minus; 7 = <strong>21 °C</strong></p><p>A common error is subtracting the two highest temperatures (40 &minus; 31 = 9) instead of comparing the ranges.</p>",
+"mistakes": [
+{
+"answer": [
+"9"
+],
+"why": "You subtracted the two highest temperatures (40 &minus; 31). Compare the ranges: desert 40 &minus; 12 = 28 and coast 31 &minus; 24 = 7, so 28 &minus; 7 = 21."
+},
+{
+"answer": [
+"28"
+],
+"why": "28 &deg;C is the desert town's range. Subtract the coastal range (31 &minus; 24 = 7): 21."
+}
+]
+},
+{
+"id": "q32",
+"type": "mc",
+"skill": "Explaining climate data",
+"difficulty": 3,
+"stim": "s9",
+"prompt": "<p>Which explanation best accounts for why the desert town cooled so much more than the coastal city during the night?</p>",
+"options": [
+"The dry, cloudless desert air let heat from the ground escape quickly, while the humid air and nearby ocean water held heat in the coastal city.",
+"Desert sand stores more heat than ocean water, so the sand released all its heat early in the evening.",
+"The desert town received fewer hours of daylight than the coastal city on that day.",
+"Clouds over the desert trapped cold air near the ground during the night."
+],
+"answer": 0,
+"explain": "<p>Water vapor and clouds absorb heat given off by the ground and slow its escape. The passage says the desert air held very little water vapor and the sky was clear, so <strong>heat radiated away quickly</strong> and the temperature dropped from 40 °C to 12 °C. The coastal city's humid air, plus the large body of ocean water, which warms and cools slowly, kept its temperature steady between 24 °C and 31 °C.</p><p>Water, not sand, stores more heat. The two places are at the same latitude on the same day, so their daylight hours are about equal. The passage says there were no clouds over the desert.</p>",
+"why": [
+"",
+"Water, not sand, stores more heat. Sand heats and cools quickly, which is part of why the desert cooled so much.",
+"Both places are at the same latitude on the same day, so their daylight hours are about equal.",
+"The passage says there were no clouds over the desert. Clear skies let heat escape."
+]
+},
+{
+"id": "q33",
+"type": "mc",
+"skill": "Applying patterns to other planets",
+"difficulty": 3,
+"stim": "s9",
+"prompt": "<p>Mars is often called a desert planet. Its atmosphere is only about 1% as dense as Earth's, and it contains almost no water vapor. Based on the pattern shown in the data, which prediction about daily temperatures on the surface of Mars is best supported?</p>",
+"options": [
+"Mars's temperature stays nearly the same all day, like the coastal city's.",
+"Mars is warmer at night than during the day because its thin air traps heat.",
+"Mars has no daily temperature change because it has no oceans.",
+"Mars has very large differences between daytime and nighttime temperatures, even larger than Earth's deserts."
+],
+"answer": 3,
+"explain": "<p>On Earth, dry, clear desert air lets heat escape quickly at night, producing a large daily range (28 °C in the data). Mars's atmosphere is even thinner and drier, so it holds even less heat, and the pattern predicts <strong>an even larger difference between day and night temperatures</strong>. In fact, near Mars's equator the ground can warm to about 20 °C in the afternoon and fall below &minus;70 °C at night.</p><p>A steady temperature comes from humid air and nearby water, which Mars lacks. Thin air traps <em>less</em> heat, so nights would be colder, not warmer. Having no oceans makes temperature swings larger, not absent.</p>",
+"why": [
+"Steady temperatures come from humid air and nearby water, which Mars lacks. Its thin, dry air should give larger swings.",
+"Thin air traps less heat, so Mars's nights would be colder, not warmer.",
+"Having no oceans makes temperature swings larger, not absent; the dry desert town had the largest daily range.",
+""
+]
+},
+{
+"id": "q34",
+"type": "mc",
+"skill": "Wind erosion and deposition",
+"difficulty": 1,
+"noShuffle": true,
+"prompt": "<p>Wind blowing across a desert picks up sand and drops it on the downwind side of a sand dune, so the whole dune slowly moves. A dune is moving toward a highway at a steady rate of 15 meters per year. Its leading edge is now 120 meters from the road. At this rate, about how many years will it take the dune to reach the highway?</p>",
+"options": [
+"0.125 years",
+"8 years",
+"105 years",
+"1,800 years"
+],
+"answer": 1,
+"explain": "<p>Time = distance &divide; rate.</p><p>120 m &divide; 15 m per year = <strong>8 years</strong></p><p>0.125 comes from dividing the rate by the distance (15 &divide; 120). 105 comes from subtracting, and 1,800 from multiplying. Road crews in desert areas use estimates like this to plan sand fences and plantings that slow dune movement.</p>",
+"why": [
+"You divided the rate by the distance (15 &divide; 120). Time = distance &divide; rate = 120 &divide; 15.",
+"",
+"You subtracted 15 from 120. Each year the dune moves 15 m, so divide: 120 &divide; 15 = 8.",
+"You multiplied 120 by 15. Time = distance &divide; rate."
+]
+}
+]
+}
+]
 }

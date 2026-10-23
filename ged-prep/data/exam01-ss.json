@@ -1,558 +1,1077 @@
 {
-  "form": 1,
-  "subject": "ss",
-  "title": "Practice GED Form 1 — Social Studies",
-  "minutes": 70,
-  "stimuli": [
-    {
-      "id": "s1",
-      "title": "The Declaration of Independence (1776)",
-      "html": "<p>We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.—That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed,—That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness.</p>",
-      "source": "Excerpt from the Declaration of Independence, adopted by the Second Continental Congress, July 4, 1776"
-    },
-    {
-      "id": "s2",
-      "title": "The Federalist No. 51 (1788)",
-      "html": "<p>Ambition must be made to counteract ambition. . . .</p><p>. . . But what is government itself, but the greatest of all reflections on human nature? If men were angels, no government would be necessary. If angels were to govern men, neither external nor internal controls on government would be necessary. In framing a government which is to be administered by men over men, the great difficulty lies in this: you must first enable the government to control the governed; and in the next place oblige it to control itself.</p>",
-      "source": "Excerpt from The Federalist No. 51, by James Madison (published under the pen name \"Publius\"), 1788"
-    },
-    {
-      "id": "s3",
-      "title": "U.S. Constitution, Article I, Section 8 (selected clauses)",
-      "html": "<p>The Congress shall have Power . . .</p><p>To borrow Money on the credit of the United States;</p><p>To regulate Commerce with foreign Nations, and among the several States, and with the Indian Tribes; . . .</p><p>To coin Money, regulate the Value thereof, and of foreign Coin, and fix the Standard of Weights and Measures; . . .</p><p>To declare War, grant Letters of Marque and Reprisal, and make Rules concerning Captures on Land and Water; . . .</p><p>To make all Laws which shall be necessary and proper for carrying into Execution the foregoing Powers, and all other Powers vested by this Constitution in the Government of the United States, or in any Department or Officer thereof.</p>",
-      "source": "Excerpt from the Constitution of the United States, Article I, Section 8 (1787)"
-    },
-    {
-      "id": "s4",
-      "title": "The Tenth Amendment (1791)",
-      "html": "<p>The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.</p>",
-      "source": "Amendment X, Constitution of the United States, ratified 1791"
-    },
-    {
-      "id": "s5",
-      "title": "The First Amendment (1791)",
-      "html": "<p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.</p>",
-      "source": "Amendment I, Constitution of the United States, ratified 1791"
-    },
-    {
-      "id": "s6",
-      "title": "Voter Turnout by Age Group, 2016 and 2020 Presidential Elections",
-      "html": "<p>The graph shows the percentage of U.S. citizens in each age group who reported voting in the 2016 and 2020 presidential elections.</p>",
-      "figure": {
-        "type": "bar",
-        "title": "Percent of Citizens Who Voted, by Age Group",
-        "xLabel": "Age group",
-        "yLabel": "Percent who voted",
-        "labels": ["18–34", "35–64", "65 and older"],
-        "series": [
-          {"name": "2016", "values": [49, 65, 71]},
-          {"name": "2020", "values": [57, 69, 74]}
-        ]
-      },
-      "source": "U.S. Census Bureau, Current Population Survey, November 2016 and November 2020 (approximate; age groups combined and rounded)"
-    },
-    {
-      "id": "s7",
-      "title": "Political Cartoon (described)",
-      "html": "<p>The cartoon shows a wall calendar with one date circled and labeled <strong>ELECTION DAY</strong>. Below it, a man labeled <strong>ELIGIBLE VOTER</strong> is stretched out on a couch with a bag of chips, watching television. A speech bubble shows him saying, \"My one vote won't make a difference.\" Through the window behind him, a very small group of people walks toward a building marked <strong>POLLING PLACE</strong>. They carry a banner that reads <strong>WE DECIDE FOR EVERYONE</strong>.</p>",
-      "source": "Original cartoon description written for this test"
-    },
-    {
-      "id": "s8",
-      "title": "Marbury v. Madison (1803)",
-      "html": "<p>It is emphatically the province and duty of the judicial department to say what the law is. . . .</p><p>. . . Thus, the particular phraseology of the constitution of the United States confirms and strengthens the principle, supposed to be essential to all written constitutions, that a law repugnant to the constitution is void, and that courts, as well as other departments, are bound by that instrument.</p>",
-      "source": "Excerpts from the opinion of Chief Justice John Marshall, Marbury v. Madison, U.S. Supreme Court, 1803"
-    },
-    {
-      "id": "s9",
-      "title": "Letter to the Editor",
-      "html": "<p>To the Editor:</p><p>The Electoral College is an outdated system that no longer serves our democracy. Today, a candidate must win at least 270 of the 538 electoral votes to become president. Candidates spend far too much time in a handful of swing states. Every voter deserves to feel that his or her ballot truly counts. The fairest solution would be to elect the president by national popular vote. Congress should begin work on this change immediately.</p><p>— A reader</p>",
-      "source": "Original letter written for this test"
-    },
-    {
-      "id": "s10",
-      "title": "Constitutional Amendments That Expanded Voting Rights",
-      "html": "<table><thead><tr><th>Amendment</th><th>Year ratified</th><th>What it says about voting</th></tr></thead><tbody><tr><td>Fifteenth</td><td>1870</td><td>The right to vote cannot be denied because of race, color, or previous condition of servitude.</td></tr><tr><td>Nineteenth</td><td>1920</td><td>The right to vote cannot be denied on account of sex.</td></tr><tr><td>Twenty-fourth</td><td>1964</td><td>The right to vote in federal elections cannot be denied for failure to pay a poll tax or other tax.</td></tr><tr><td>Twenty-sixth</td><td>1971</td><td>The right to vote cannot be denied on account of age to citizens who are 18 years of age or older.</td></tr></tbody></table>",
-      "source": "Summarized from the Constitution of the United States"
-    },
-    {
-      "id": "s11",
-      "title": "\"Join, or Die\" (1754)",
-      "html": "<p>This famous woodcut cartoon was printed by Benjamin Franklin in his newspaper, the <em>Pennsylvania Gazette</em>, in May 1754. It shows a snake cut into eight separate pieces. Each piece is labeled with the initials of a colony or region: S.C., N.C., V. (Virginia), M. (Maryland), P. (Pennsylvania), N.J., N.Y., and N.E. (New England). Beneath the snake are the words <strong>JOIN, or DIE.</strong> At the time, the British colonies faced a growing conflict with France and its Native American allies on the western frontier, and colonial delegates were preparing to meet in Albany, New York, to discuss a plan for cooperation.</p>",
-      "source": "Description of a cartoon published by Benjamin Franklin, Pennsylvania Gazette, May 9, 1754"
-    },
-    {
-      "id": "s12",
-      "title": "The Emancipation Proclamation (1863)",
-      "html": "<p>That on the first day of January, in the year of our Lord one thousand eight hundred and sixty-three, all persons held as slaves within any State or designated part of a State, the people whereof shall then be in rebellion against the United States, shall be then, thenceforward, and forever free; and the Executive Government of the United States, including the military and naval authority thereof, will recognize and maintain the freedom of such persons . . .</p>",
-      "source": "Excerpt from the Emancipation Proclamation, President Abraham Lincoln, January 1, 1863"
-    },
-    {
-      "id": "s13",
-      "title": "Timeline: The Civil Rights Movement",
-      "html": "<table><thead><tr><th>Year</th><th>Event</th></tr></thead><tbody><tr><td>1954</td><td><em>Brown v. Board of Education</em>: the Supreme Court rules that segregated public schools are unconstitutional.</td></tr><tr><td>1955–1956</td><td>Montgomery bus boycott: Black residents of Montgomery, Alabama, refuse to ride segregated city buses for more than a year.</td></tr><tr><td>1963</td><td>March on Washington for Jobs and Freedom: more than 200,000 people gather in the nation's capital.</td></tr><tr><td>1964</td><td>Congress passes the Civil Rights Act, outlawing segregation in public places and banning job discrimination.</td></tr><tr><td>1965</td><td>Congress passes the Voting Rights Act, suspending literacy tests in many areas and allowing federal officials to oversee voter registration.</td></tr></tbody></table>",
-      "source": "Timeline compiled for this test"
-    },
-    {
-      "id": "s14",
-      "title": "First Inaugural Address (1933)",
-      "html": "<p>This great Nation will endure as it has endured, will revive and will prosper. So, first of all, let me assert my firm belief that the only thing we have to fear is fear itself—nameless, unreasoning, unjustified terror which paralyzes needed efforts to convert retreat into advance.</p>",
-      "source": "Excerpt from President Franklin D. Roosevelt's First Inaugural Address, March 4, 1933"
-    },
-    {
-      "id": "s15",
-      "title": "U.S. Unemployment Rate, 1929–1941",
-      "html": "<p>The graph shows the percentage of the civilian labor force that was unemployed in selected years.</p>",
-      "figure": {
-        "type": "line",
-        "title": "U.S. Unemployment Rate, Selected Years",
-        "xLabel": "Year",
-        "yLabel": "Percent unemployed",
-        "labels": ["1929", "1931", "1933", "1935", "1937", "1941"],
-        "series": [
-          {"name": "Unemployment rate", "values": [3.2, 15.9, 24.9, 20.1, 14.3, 9.9]}
-        ]
-      },
-      "source": "U.S. Bureau of the Census, Historical Statistics of the United States, Colonial Times to 1970"
-    },
-    {
-      "id": "s16",
-      "title": "Plessy v. Ferguson (1896), Dissenting Opinion",
-      "html": "<p>In 1896, the Supreme Court ruled in <em>Plessy v. Ferguson</em> that a Louisiana law requiring separate railroad cars for Black and white passengers did not violate the Constitution, as long as the separate facilities were equal. Justice John Marshall Harlan was the only justice who disagreed. He wrote:</p><p>But in view of the Constitution, in the eye of the law, there is in this country no superior, dominant, ruling class of citizens. There is no caste here. Our Constitution is color-blind, and neither knows nor tolerates classes among citizens. In respect of civil rights, all citizens are equal before the law.</p>",
-      "source": "Excerpt from Justice John Marshall Harlan's dissent, Plessy v. Ferguson, U.S. Supreme Court, 1896"
-    },
-    {
-      "id": "s17",
-      "title": "Rebuilding Europe",
-      "html": "<p>When World War II ended in 1945, much of Europe lay in ruins. Factories, railroads, and bridges had been destroyed, food was scarce, and millions of people were out of work. In this difficult climate, Communist parties were gaining support in several Western European countries, including France and Italy. At the same time, the Soviet Union was tightening its control over the nations of Eastern Europe.</p><p>In June 1947, Secretary of State George C. Marshall proposed that the United States help Europe rebuild. Congress approved the European Recovery Program, better known as the Marshall Plan, in 1948. Over the next four years, the United States provided more than $13 billion in aid to Western European nations. American leaders believed that people with jobs, food, and hope for the future would be far less likely to turn to communism. The Soviet Union refused to take part and pressured the countries it controlled to refuse as well.</p>",
-      "source": "Original reading written for this test"
-    },
-    {
-      "id": "s18",
-      "title": "Strawberries at a Farmers Market",
-      "html": "<p>The table shows how many quarts of strawberries buyers want to buy (quantity demanded) and sellers want to sell (quantity supplied) each week at different prices.</p><table><thead><tr><th>Price per quart</th><th>Quantity demanded (quarts)</th><th>Quantity supplied (quarts)</th></tr></thead><tbody><tr><td>$2</td><td>300</td><td>100</td></tr><tr><td>$3</td><td>260</td><td>160</td></tr><tr><td>$4</td><td>220</td><td>220</td></tr><tr><td>$5</td><td>180</td><td>280</td></tr><tr><td>$6</td><td>140</td><td>340</td></tr></tbody></table>",
-      "source": "Data created for this test"
-    },
-    {
-      "id": "s19",
-      "title": "Two Kinds of Economic Policy",
-      "html": "<p>The U.S. government has two main ways to influence the overall economy.</p><p><strong>Monetary policy</strong> is managed by the Federal Reserve, the nation's central bank, which Congress created in 1913. Congress has directed the Federal Reserve to pursue maximum employment and stable prices. Its main tool is a target for short-term interest rates. When the Federal Reserve raises its target, borrowing becomes more expensive, so businesses and households tend to borrow and spend less, which slows the growth of prices. When it lowers its target, borrowing becomes cheaper, which encourages spending and hiring.</p><p><strong>Fiscal policy</strong> is decided by Congress and the President. It is made up of decisions about taxes and government spending. Cutting taxes leaves people with more money to spend, and increasing government spending puts more money directly into the economy. Raising taxes or cutting spending has the opposite effect.</p>",
-      "source": "Original reading written for this test"
-    },
-    {
-      "id": "s20",
-      "title": "Locations of Selected World Cities",
-      "html": "<p>The table gives the approximate location of six cities, rounded to the nearest degree.</p><table><thead><tr><th>City</th><th>Latitude</th><th>Longitude</th></tr></thead><tbody><tr><td>Cairo, Egypt</td><td>30° N</td><td>31° E</td></tr><tr><td>Sydney, Australia</td><td>34° S</td><td>151° E</td></tr><tr><td>Lima, Peru</td><td>12° S</td><td>77° W</td></tr><tr><td>Chicago, United States</td><td>42° N</td><td>88° W</td></tr><tr><td>Tokyo, Japan</td><td>36° N</td><td>140° E</td></tr><tr><td>London, United Kingdom</td><td>52° N</td><td>0° (Prime Meridian)</td></tr></tbody></table><p>Latitude measures distance north (N) or south (S) of the equator (0°). Longitude measures distance east (E) or west (W) of the Prime Meridian (0°).</p>",
-      "source": "Table compiled for this test"
-    },
-    {
-      "id": "s21",
-      "title": "Taming the Nile",
-      "html": "<p>For thousands of years, the Nile River flooded every late summer. The floodwaters spread a fresh layer of dark, nutrient-rich silt across the fields of Egypt, and farmers planted their crops in this soil once the water drained away. The flood was a gift, but it was also unpredictable: a low flood could bring hunger, and a high flood could wash away villages.</p><p>To gain control of the river, Egypt began building the Aswan High Dam in 1960 and completed it in 1970. Behind the dam, the river backed up to form Lake Nasser, one of the largest artificial lakes in the world. The dam brought major changes to life along the Nile.</p><p>The dam now holds back the yearly flood, protecting towns and fields from destructive high water. Water stored in Lake Nasser lets farmers irrigate year-round, so many fields produce more than one harvest each year. Turbines inside the dam generate hydroelectric power for homes and industry. However, the silt that once washed onto the fields now settles to the bottom of Lake Nasser instead. As a result, many farmers now buy chemical fertilizers to keep their soil productive. Along the Mediterranean coast, the Nile Delta is also wearing away, because less sediment reaches the sea to rebuild it.</p>",
-      "source": "Original reading written for this test"
-    }
-  ],
-  "parts": [
-    {
-      "name": "Social Studies",
-      "items": [
-        {
-          "id": "q1",
-          "type": "mc",
-          "skill": "Civics: founding principles",
-          "difficulty": 1,
-          "stim": "s1",
-          "prompt": "<p>The phrase \"deriving their just powers from the consent of the governed\" best expresses which principle of American government?</p>",
-          "options": ["Popular sovereignty", "Federalism", "Separation of powers", "Judicial review"],
-          "answer": 0,
-          "explain": "<p>Popular sovereignty is the idea that a government's authority comes from the people. The Declaration says governments get their \"just powers from the consent of the governed\"—that is, from the people's agreement. Federalism (dividing power between national and state governments) and separation of powers (dividing power among branches) are both about how power is divided, not where it comes from. Judicial review is the power of courts to strike down laws.</p>"
-        },
-        {
-          "id": "q2",
-          "type": "mc",
-          "skill": "Civics: evidence from a document",
-          "difficulty": 2,
-          "stim": "s1",
-          "prompt": "<p>According to the excerpt, when do the people have the right to alter or abolish a government?</p>",
-          "options": ["Whenever a majority of people disagree with a single law", "Whenever the government raises taxes without a vote of the people", "When the government becomes destructive of the people's rights to life, liberty, and the pursuit of happiness", "When the government fails to declare independence from a foreign power"],
-          "answer": 2,
-          "explain": "<p>The Declaration states that governments exist \"to secure these rights\" and that \"whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it.\" \"These ends\" refers to protecting life, liberty, and the pursuit of happiness. Taxation without representation was a real colonial complaint, but it is not what this excerpt names as the condition, and the excerpt does not say that disagreeing with one law is enough.</p>"
-        },
-        {
-          "id": "q3",
-          "type": "mc",
-          "skill": "Civics: main idea of a primary source",
-          "difficulty": 2,
-          "stim": "s2",
-          "prompt": "<p>Which statement best summarizes Madison's main idea in the excerpt?</p>",
-          "options": ["Government is unnecessary because most people are naturally good.", "Because people are not angels, government must be strong enough to govern the people but also be controlled so it cannot abuse its own power.", "The people should elect only honest leaders so that limits on government will not be needed.", "The states, not the national government, should hold most political power."],
-          "answer": 1,
-          "explain": "<p>Madison argues that government is needed because people are not angels, but since government is also run by imperfect people, it must \"control the governed\" and also be obliged \"to control itself.\" The idea that electing only honest leaders would remove the need for limits is the opposite of his point: he says controls are needed precisely because leaders cannot be trusted to be angels. The excerpt does not discuss state versus national power.</p>"
-        },
-        {
-          "id": "q4",
-          "type": "dropdown",
-          "skill": "Civics: checks and balances",
-          "difficulty": 2,
-          "stim": "s2",
-          "prompt": "<p>Complete the statement.</p><p>Madison's statement \"Ambition must be made to counteract ambition\" supports the system of {{0}}, in which each branch can limit the others. One example of this system is the power of the {{1}} to veto bills passed by Congress.</p>",
-          "blanks": [
-            {"options": ["checks and balances", "popular sovereignty", "federalism", "direct democracy"], "answer": 0},
-            {"options": ["Supreme Court", "President", "Speaker of the House", "Senate"], "answer": 1}
-          ],
-          "explain": "<p>\"Ambition must be made to counteract ambition\" means each branch should have the means and the motive to resist the others. That is the system of <strong>checks and balances</strong>. The <strong>President</strong> checks Congress by vetoing bills (Article I, Section 7). The Supreme Court checks Congress through judicial review, not a veto, and the Senate and Speaker are parts of Congress itself. Federalism divides power between national and state governments, not among branches.</p>"
-        },
-        {
-          "id": "q5",
-          "type": "multi",
-          "skill": "Civics: enumerated powers",
-          "difficulty": 1,
-          "stim": "s3",
-          "prompt": "<p>Based on the excerpt, which actions does the Constitution give Congress the power to take? Select <strong>two</strong> answers.</p>",
-          "options": ["Declare war on another nation", "Issue driver's licenses to residents", "Coin money and set its value", "Veto a bill it disagrees with", "Appoint justices to the Supreme Court"],
-          "answer": [0, 2],
-          "explain": "<p>The excerpt lists \"To declare War\" and \"To coin Money, regulate the Value thereof\" as powers of Congress. Driver's licenses are issued by the states (a reserved power). The veto belongs to the President, and the President appoints Supreme Court justices with the Senate's consent—Congress as a whole does not appoint them.</p>"
-        },
-        {
-          "id": "q6",
-          "type": "mc",
-          "skill": "Civics: implied powers",
-          "difficulty": 3,
-          "stim": "s3",
-          "prompt": "<p>In the early 1790s, Congress created a national bank, even though the Constitution does not list the power to create a bank. Supporters argued that a bank would help the government borrow money and collect taxes. Which clause in the excerpt did supporters most likely rely on?</p>",
-          "options": ["\"To regulate Commerce with foreign Nations\"", "\"fix the Standard of Weights and Measures\"", "\"To declare War, grant Letters of Marque and Reprisal\"", "\"To make all Laws which shall be necessary and proper for carrying into Execution the foregoing Powers\""],
-          "answer": 3,
-          "explain": "<p>The Necessary and Proper Clause (sometimes called the \"elastic clause\") lets Congress make laws needed to carry out its listed powers, such as borrowing money. Powers that come from this clause are called <strong>implied powers</strong>. The Supreme Court upheld this reasoning for the Second Bank of the United States in <em>McCulloch v. Maryland</em> (1819). The Commerce Clause is a listed power about trade, but supporters' argument connected the bank to borrowing and taxing, which points to the Necessary and Proper Clause.</p>"
-        },
-        {
-          "id": "q7",
-          "type": "drag",
-          "skill": "Civics: federalism",
-          "difficulty": 2,
-          "stim": "s4",
-          "prompt": "<p>Under federalism, some powers belong to the national government, some are reserved to the states, and some are shared. Drag each power into the correct category.</p>",
-          "choices": ["Make treaties with other nations", "Issue marriage licenses", "Collect taxes", "Regulate trade between states", "Create county and city governments", "Borrow money"],
-          "bins": ["Federal government only (delegated)", "State governments only (reserved)", "Both levels (concurrent)"],
-          "answer": [0, 1, 2, 0, 1, 2],
-          "explain": "<p><strong>Federal only:</strong> making treaties (states are forbidden to make treaties in Article I, Section 10) and regulating trade between states (the Commerce Clause). <strong>States only:</strong> issuing marriage licenses and creating local governments are not delegated to the national government, so under the Tenth Amendment they are reserved to the states. <strong>Both:</strong> collecting taxes and borrowing money are concurrent powers—the national government and the state governments both exercise them. A common mistake is placing \"collect taxes\" under federal only; states and cities collect sales and property taxes, too.</p>"
-        },
-        {
-          "id": "q8",
-          "type": "mc",
-          "skill": "Civics: civil liberties",
-          "difficulty": 2,
-          "stim": "s5",
-          "prompt": "<p>A resident collects signatures online from 2,000 neighbors on a written request asking the city government to add a traffic light at a dangerous intersection. She mails the request and the list of signatures to the city council. Which right in the First Amendment most directly protects her action?</p>",
-          "options": ["Freedom of the press", "The right to peaceably assemble", "The right to petition the government for a redress of grievances", "Free exercise of religion"],
-          "answer": 2,
-          "explain": "<p>A petition is a formal request asking the government to take action or fix a problem (a \"grievance\"). Sending a signed written request to the city council is a petition. The right to assemble protects people gathering together in person, which she did not do. Freedom of the press protects publishing news and opinions, and free exercise protects religious practice.</p>"
-        },
-        {
-          "id": "q9",
-          "type": "drag",
-          "skill": "Civics: how a bill becomes a law",
-          "difficulty": 2,
-          "prompt": "<p>A bill to improve safety standards for school buses begins in the House of Representatives and eventually becomes law. Drag each step into the order in which it happened.</p>",
-          "choices": ["The full House debates and passes the bill.", "The President signs the bill into law.", "A representative introduces the bill in the House.", "The Senate passes the identical bill.", "A House committee studies the bill and votes to send it to the full House."],
-          "bins": ["1st", "2nd", "3rd", "4th", "5th"],
-          "answer": [2, 4, 0, 3, 1],
-          "explain": "<p>Correct order: (1) a representative introduces the bill; (2) a committee studies it and votes to send it forward; (3) the full House debates and passes it; (4) the Senate passes the identical version (both chambers must pass the same text); (5) the President signs it into law. A common mistake is putting the full House vote before the committee step—bills go to committee first, and most bills never leave committee.</p>"
-        },
-        {
-          "id": "q10",
-          "type": "mc",
-          "skill": "Civics: reading a bar graph",
-          "difficulty": 2,
-          "stim": "s6",
-          "prompt": "<p>Which conclusion is best supported by the graph?</p>",
-          "options": ["Turnout rose in every age group from 2016 to 2020, and the largest increase was among citizens ages 18–34.", "Citizens ages 18–34 voted at a higher rate than citizens 65 and older in 2020.", "Turnout among citizens 65 and older fell from 2016 to 2020.", "The increase in turnout was the same for every age group."],
-          "answer": 0,
-          "explain": "<p>Compare each pair of bars. Ages 18–34: 57 &minus; 49 = 8 points. Ages 35–64: 69 &minus; 65 = 4 points. Ages 65 and older: 74 &minus; 71 = 3 points. Every group rose, and the largest increase (8 points) was among ages 18–34. Even after that increase, the 18–34 group (57%) still voted at a lower rate than the 65-and-older group (74%), so the claim that this group out-voted the 65-and-older group in 2020 is wrong.</p>"
-        },
-        {
-          "id": "q11",
-          "type": "fill",
-          "skill": "Civics: calculating from data",
-          "difficulty": 2,
-          "stim": "s6",
-          "prompt": "<p>In 2020, how many percentage points higher was the turnout of citizens 65 and older than the turnout of citizens ages 18–34?</p>",
-          "answer": ["17", "17%"],
-          "value": 17,
-          "tol": 0.001,
-          "suffix": "percentage points",
-          "explain": "<p>2020 turnout, 65 and older: 74%.<br>2020 turnout, ages 18–34: 57%.<br>74 &minus; 57 = <strong>17</strong> percentage points. A common error is using the 2016 bars (71 &minus; 49 = 22) instead of the 2020 bars.</p>"
-        },
-        {
-          "id": "q12",
-          "type": "mc",
-          "skill": "Civics: interpreting a political cartoon",
-          "difficulty": 2,
-          "stim": "s7",
-          "prompt": "<p>What is the main message of the cartoon?</p>",
-          "options": ["Television news coverage of elections is unfair.", "Polling places should stay open later so more people can vote.", "Only a small number of citizens are legally allowed to vote.", "When eligible citizens do not vote, a small group ends up making decisions for everyone."],
-          "answer": 3,
-          "explain": "<p>The cartoonist contrasts the eligible voter who stays home (\"My one vote won't make a difference\") with the small group that does vote and carries the banner \"WE DECIDE FOR EVERYONE.\" The point is that not voting hands power to the few who do. The man is labeled \"ELIGIBLE VOTER,\" so the cartoon is not claiming that only a few people are allowed to vote; the problem it shows is a choice not to vote.</p>"
-        },
-        {
-          "id": "q13",
-          "type": "mc",
-          "skill": "Civics: judicial review",
-          "difficulty": 2,
-          "stim": "s8",
-          "prompt": "<p>The principle Chief Justice Marshall describes in this excerpt is known as</p>",
-          "options": ["executive privilege.", "judicial review.", "popular sovereignty.", "the separation of church and state."],
-          "answer": 1,
-          "explain": "<p>Marshall states that \"a law repugnant to the constitution is void\" and that it is the duty of the judicial department \"to say what the law is.\" Together these establish <strong>judicial review</strong>: the power of courts to strike down laws that conflict with the Constitution. Popular sovereignty is about government getting its power from the people, which the excerpt does not discuss.</p>"
-        },
-        {
-          "id": "q14",
-          "type": "mc",
-          "skill": "Civics: checks and balances",
-          "difficulty": 2,
-          "stim": "s8",
-          "prompt": "<p>When the Supreme Court uses the principle described in the excerpt to strike down a law passed by Congress, which check is being used?</p>",
-          "options": ["The legislative branch is checking the judicial branch.", "The executive branch is checking the legislative branch.", "The judicial branch is checking the legislative branch.", "The states are checking the national government."],
-          "answer": 2,
-          "explain": "<p>The Supreme Court is part of the judicial branch, and Congress is the legislative branch. Striking down an unconstitutional law passed by Congress is the judicial branch checking the legislative branch. The legislative branch does check the courts (for example, through the Senate's approval of judges or impeachment), but that is the reverse direction.</p>"
-        },
-        {
-          "id": "q15",
-          "type": "mc",
-          "skill": "Civics: point of view",
-          "difficulty": 2,
-          "stim": "s9",
-          "prompt": "<p>Which change would the writer of the letter most likely support?</p>",
-          "options": ["Electing the president by nationwide popular vote", "Giving swing states additional electoral votes", "Allowing Congress to choose the president", "Raising the number of electoral votes needed to win above 270"],
-          "answer": 0,
-          "explain": "<p>The writer says, \"The fairest solution would be to elect the president by national popular vote.\" The writer complains that candidates already focus too much on swing states, so giving those states more electoral votes would make the problem worse. Nothing in the letter suggests Congress should choose the president or that the 270-vote threshold should change.</p>"
-        },
-        {
-          "id": "q16",
-          "type": "hotspot",
-          "skill": "Civics: fact vs. opinion",
-          "difficulty": 2,
-          "stim": "s9",
-          "prompt": "<p>Most of this letter is the writer's personal judgment. Only one sentence could be proved true using a reliable reference source. Click that <strong>factual</strong> sentence.</p>",
-          "spans": ["The Electoral College is an outdated system that no longer serves our democracy.", "Today, a candidate must win at least 270 of the 538 electoral votes to become president.", "Candidates spend far too much time in a handful of swing states.", "Every voter deserves to feel that his or her ballot truly counts.", "The fairest solution would be to elect the president by national popular vote.", "Congress should begin work on this change immediately."],
-          "answer": 1,
-          "explain": "<p>There are 538 electors, and winning the presidency through the Electoral College requires a majority—at least 270. This can be verified. Every other sentence contains a judgment: \"outdated,\" \"far too much,\" \"deserves,\" \"fairest,\" and \"should\" signal opinions. Note that \"Candidates spend far too much time in a handful of swing states\" mixes a checkable idea (where candidates campaign) with an opinion (\"far too much\"), so it is not a pure statement of fact.</p>"
-        },
-        {
-          "id": "q17",
-          "type": "mc",
-          "skill": "Civics: identifying trends",
-          "difficulty": 1,
-          "stim": "s10",
-          "prompt": "<p>Which statement best describes the trend shown in the table?</p>",
-          "options": ["Voting rights have been limited to fewer groups over time.", "Most amendments about voting were ratified before the Civil War.", "Each amendment allowed states to set new voting requirements.", "Over time, amendments have extended voting rights to more groups of Americans."],
-          "answer": 3,
-          "explain": "<p>Each amendment in the table removes a reason for denying the vote—race, sex, failure to pay a poll tax, and age for citizens 18 and older—so more Americans became eligible over time. The amendments were ratified from 1870 to 1971, all after the Civil War (1861–1865), and they limit, rather than expand, states' power to deny the vote.</p>"
-        },
-        {
-          "id": "q18",
-          "type": "mc",
-          "skill": "Civics: civil rights",
-          "difficulty": 3,
-          "stim": "s10",
-          "prompt": "<p>The Fifteenth Amendment was ratified in 1870, yet Congress still passed the Voting Rights Act in 1965. Which statement best explains why the 1965 law was considered necessary?</p>",
-          "options": ["The Fifteenth Amendment had been repealed by Congress in the early 1900s.", "Some states used literacy tests and other barriers that kept many Black citizens from voting despite the Fifteenth Amendment.", "The Fifteenth Amendment applied only to federal elections, not state elections.", "The Fifteenth Amendment protected only the voting rights of women."],
-          "answer": 1,
-          "explain": "<p>After Reconstruction, many Southern states used literacy tests, poll taxes, intimidation, and other methods to keep Black citizens from voting, even though the Fifteenth Amendment forbade denying the vote because of race. The Voting Rights Act of 1965 suspended literacy tests in many areas and gave the federal government tools to enforce the amendment. The Fifteenth Amendment was never repealed, and the \"federal elections only\" limit belongs to the Twenty-fourth Amendment, not the Fifteenth.</p>"
-        },
-        {
-          "id": "q19",
-          "type": "mc",
-          "skill": "U.S. history: colonial era",
-          "difficulty": 2,
-          "stim": "s11",
-          "prompt": "<p>What was Franklin's main purpose in publishing the \"Join, or Die\" cartoon in 1754?</p>",
-          "options": ["To call on the colonies to declare independence from Great Britain", "To celebrate a British victory over France", "To urge the colonies to unite for their common defense", "To warn colonists about the dangers of frontier wildlife"],
-          "answer": 2,
-          "explain": "<p>The cut-up snake represents colonies acting separately; the caption warns that unless they join together, they will be destroyed. In 1754, the threat was the conflict with France and its allies (the start of the French and Indian War), and delegates were meeting in Albany to discuss a plan of union. The cartoon was later reused during the Revolution, but in 1754 it was not a call for independence—that came more than 20 years later, in 1776.</p>"
-        },
-        {
-          "id": "q20",
-          "type": "mc",
-          "skill": "U.S. history: Civil War",
-          "difficulty": 3,
-          "stim": "s12",
-          "prompt": "<p>Based on the excerpt, which statement describes a limitation of the Emancipation Proclamation?</p>",
-          "options": ["It applied only to areas in rebellion, so it did not free enslaved people in slave states that remained loyal to the Union.", "It freed enslaved people only in Northern states such as New York and Massachusetts.", "It was a constitutional amendment that took years for the states to ratify.", "It ended slavery everywhere in the United States, but only after the war was over."],
-          "answer": 0,
-          "explain": "<p>The proclamation freed enslaved people only \"within any State or designated part of a State, the people whereof shall then be in rebellion against the United States.\" Border slave states loyal to the Union, such as Kentucky and Maryland, were not covered. It was an executive order by the President, not an amendment; slavery was abolished throughout the nation by the Thirteenth Amendment in 1865.</p>"
-        },
-        {
-          "id": "q21",
-          "type": "mc",
-          "skill": "U.S. history: civil rights movement",
-          "difficulty": 2,
-          "stim": "s13",
-          "prompt": "<p>Which conclusion is best supported by the timeline?</p>",
-          "options": ["The civil rights movement achieved all of its goals with the 1954 Supreme Court decision.", "Congress passed civil rights laws before any protests or court decisions took place.", "The movement focused only on desegregating public transportation.", "Court decisions and public protests were followed by new federal laws protecting civil rights."],
-          "answer": 3,
-          "explain": "<p>The timeline shows a court ruling (1954), protests (1955–1956 and 1963), and then federal laws (1964 and 1965). Congress acted after—not before—the court decision and protests. The movement addressed schools, buses, jobs, public places, and voting, so it was not limited to transportation, and the need for later laws shows that the 1954 decision did not achieve every goal.</p>"
-        },
-        {
-          "id": "q22",
-          "type": "mc",
-          "skill": "U.S. history: Great Depression",
-          "difficulty": 2,
-          "stim": "s14",
-          "prompt": "<p>Roosevelt gave this address during the Great Depression. What was his main purpose in this part of the speech?</p>",
-          "options": ["To announce that the United States was entering a war", "To calm public fear and build confidence that the nation could recover", "To blame foreign nations for the country's economic problems", "To argue that the government should not take action on the economy"],
-          "answer": 1,
-          "explain": "<p>In March 1933, unemployment was near its peak and banks were failing. Roosevelt says the nation \"will revive and will prosper\" and that \"the only thing we have to fear is fear itself,\" meaning panic was blocking \"needed efforts\" to recover. He was trying to restore confidence. His call for \"needed efforts\" points toward government action (the New Deal), not away from it.</p>"
-        },
-        {
-          "id": "q23",
-          "type": "mc",
-          "skill": "U.S. history: reading a line graph",
-          "difficulty": 2,
-          "stim": "s15",
-          "prompt": "<p>Which statement is supported by the graph?</p>",
-          "options": ["Unemployment rose in every year shown on the graph.", "Unemployment had returned to its 1929 level by 1937.", "Unemployment peaked in 1933 and then declined, but it remained well above the 1929 level in 1941.", "Unemployment was highest in 1929, before the stock market crash."],
-          "answer": 2,
-          "explain": "<p>The highest point is 24.9% in 1933. After that the rate falls (20.1% in 1935, 14.3% in 1937, 9.9% in 1941), but 9.9% is still about three times the 1929 rate of 3.2%. In 1937 the rate was 14.3%, far above 3.2%, so it had not returned to the 1929 level.</p>"
-        },
-        {
-          "id": "q24",
-          "type": "mc",
-          "skill": "U.S. history: Supreme Court and civil rights",
-          "difficulty": 3,
-          "stim": "s16",
-          "prompt": "<p>Harlan's view that the Constitution \"neither knows nor tolerates classes among citizens\" was most closely reflected in which later Supreme Court decision?</p>",
-          "options": ["<em>Brown v. Board of Education</em> (1954), which ruled that segregated public schools were unconstitutional", "<em>Dred Scott v. Sandford</em> (1857), which ruled that Black Americans could not be U.S. citizens", "<em>Marbury v. Madison</em> (1803), which established judicial review", "<em>McCulloch v. Maryland</em> (1819), which upheld Congress's power to create a national bank"],
-          "answer": 0,
-          "explain": "<p>Harlan argued that laws separating citizens by race violated the Constitution. In 1954, <em>Brown v. Board of Education</em> rejected the \"separate but equal\" idea from <em>Plessy</em> in public education, agreeing in spirit with Harlan. <em>Dred Scott</em> came before <em>Plessy</em> and denied citizenship to Black Americans—the opposite of Harlan's view. <em>Marbury</em> and <em>McCulloch</em> dealt with government powers, not racial equality.</p>"
-        },
-        {
-          "id": "q25",
-          "type": "mc",
-          "skill": "U.S. history: Cold War",
-          "difficulty": 2,
-          "stim": "s17",
-          "prompt": "<p>Based on the passage, what was a main goal of the Marshall Plan?</p>",
-          "options": ["To punish Germany for starting World War II", "To repay the Soviet Union for its losses during the war", "To create a single government for all of Europe", "To help Western European economies recover so that communism would have less appeal"],
-          "answer": 3,
-          "explain": "<p>The passage says American leaders believed that \"people with jobs, food, and hope for the future would be far less likely to turn to communism.\" Rebuilding economies was a way to contain the spread of communism during the early Cold War. The Soviet Union refused to take part, so the plan did not repay it, and the passage says nothing about punishing Germany or creating one European government.</p>"
-        },
-        {
-          "id": "q26",
-          "type": "fill",
-          "skill": "Economics: equilibrium",
-          "difficulty": 1,
-          "stim": "s18",
-          "prompt": "<p>At what price per quart is the strawberry market in equilibrium? Enter the price in dollars.</p>",
-          "answer": ["4", "$4", "4.00", "$4.00"],
-          "value": 4,
-          "tol": 0.001,
-          "suffix": "dollars per quart",
-          "explain": "<p>Equilibrium is the price at which quantity demanded equals quantity supplied. At $4, buyers want 220 quarts and sellers offer 220 quarts. At every other price the two amounts are different, so the equilibrium price is <strong>$4</strong>.</p>"
-        },
-        {
-          "id": "q27",
-          "type": "mc",
-          "skill": "Economics: shortage and surplus",
-          "difficulty": 2,
-          "stim": "s18",
-          "prompt": "<p>Suppose the market sets the price of strawberries at $3 per quart. What will result?</p>",
-          "options": ["A surplus of 100 quarts", "A shortage of 100 quarts", "A shortage of 160 quarts", "A surplus of 40 quarts"],
-          "answer": 1,
-          "explain": "<p>At $3: quantity demanded = 260 quarts; quantity supplied = 160 quarts.<br>260 &minus; 160 = 100.<br>Buyers want 100 more quarts than sellers offer, which is a <strong>shortage of 100 quarts</strong>. A surplus happens only when the price is above equilibrium (for example, at $5 there is a surplus of 280 &minus; 180 = 100 quarts). \"A shortage of 160\" uses the quantity supplied by mistake.</p>"
-        },
-        {
-          "id": "q28",
-          "type": "dropdown",
-          "skill": "Economics: supply and demand shifts",
-          "difficulty": 2,
-          "stim": "s18",
-          "prompt": "<p>A late frost destroys part of the strawberry crop in the region. Complete the statement.</p><p>The frost causes the {{0}} curve for strawberries to shift to the left, so the equilibrium price of strawberries will most likely {{1}}.</p>",
-          "blanks": [
-            {"options": ["supply", "demand", "income"], "answer": 0},
-            {"options": ["rise", "fall", "stay the same"], "answer": 0}
-          ],
-          "explain": "<p>The frost reduces the amount of strawberries sellers can offer at every price, so <strong>supply</strong> decreases (the supply curve shifts left). Buyers still want strawberries as much as before, so demand has not changed. With fewer strawberries available, the equilibrium price will <strong>rise</strong>. A common mistake is choosing \"demand\"—the frost affects growers, not buyers' wants.</p>"
-        },
-        {
-          "id": "q29",
-          "type": "mc",
-          "skill": "Economics: monetary policy",
-          "difficulty": 2,
-          "stim": "s19",
-          "prompt": "<p>Prices across the economy are rising quickly. Based on the passage, what action would the Federal Reserve most likely take?</p>",
-          "options": ["Raise its target for short-term interest rates to slow borrowing and spending", "Lower its target for short-term interest rates to encourage more borrowing", "Cut federal income taxes to give people more money to spend", "Increase government spending on new highways"],
-          "answer": 0,
-          "explain": "<p>The passage says that when the Federal Reserve raises its interest rate target, people and businesses borrow and spend less, \"which slows the growth of prices.\" Lowering rates would encourage more spending and push prices higher. Cutting taxes and increasing highway spending are fiscal policy tools controlled by Congress and the President, not the Federal Reserve.</p>"
-        },
-        {
-          "id": "q30",
-          "type": "multi",
-          "skill": "Economics: fiscal policy",
-          "difficulty": 2,
-          "stim": "s19",
-          "prompt": "<p>Which actions are examples of <strong>fiscal</strong> policy? Select <strong>two</strong> answers.</p>",
-          "options": ["Congress passes a law that cuts income tax rates.", "The Federal Reserve lowers its target interest rate.", "Congress approves new spending to repair highways and bridges.", "The Federal Reserve buys government bonds from banks.", "A private bank raises the interest rate it charges on car loans."],
-          "answer": [0, 2],
-          "explain": "<p>Fiscal policy is government decisions about taxes and spending, made by Congress and the President. Cutting income tax rates and funding highway repairs both qualify. Actions by the Federal Reserve (changing interest rate targets, buying bonds) are monetary policy. A private bank's loan rate is a business decision, not government policy.</p>"
-        },
-        {
-          "id": "q31",
-          "type": "multi",
-          "skill": "Geography: hemispheres",
-          "difficulty": 1,
-          "stim": "s20",
-          "prompt": "<p>Which cities are located in the Western Hemisphere? Select <strong>two</strong> answers.</p>",
-          "options": ["Cairo", "Sydney", "Lima", "Chicago", "Tokyo"],
-          "answer": [2, 3],
-          "explain": "<p>The Western Hemisphere is the half of Earth west of the Prime Meridian, so its cities have longitudes marked W. Lima (77° W) and Chicago (88° W) are the only cities in the list with W longitudes. Cairo (31° E), Sydney (151° E), and Tokyo (140° E) are in the Eastern Hemisphere. Do not confuse longitude with latitude: Lima is in the Southern Hemisphere, but its W longitude also places it in the Western Hemisphere.</p>"
-        },
-        {
-          "id": "q32",
-          "type": "mc",
-          "skill": "Geography: latitude and longitude",
-          "difficulty": 2,
-          "stim": "s20",
-          "prompt": "<p>Which city is located in both the Southern Hemisphere and the Eastern Hemisphere?</p>",
-          "options": ["Lima", "Cairo", "Sydney", "Tokyo"],
-          "answer": 2,
-          "explain": "<p>Southern Hemisphere means a latitude marked S; Eastern Hemisphere means a longitude marked E. Sydney is at 34° S, 151° E, so it meets both conditions. Lima (12° S) is in the Southern Hemisphere but is at 77° W, which is the Western Hemisphere. Cairo and Tokyo are east but north of the equator.</p>"
-        },
-        {
-          "id": "q33",
-          "type": "fill",
-          "skill": "Geography: using coordinates",
-          "difficulty": 3,
-          "stim": "s20",
-          "prompt": "<p>How many degrees of latitude separate Chicago and Lima?</p>",
-          "answer": ["54", "54°", "54degrees"],
-          "value": 54,
-          "tol": 0.001,
-          "suffix": "degrees",
-          "explain": "<p>Chicago is 42° <strong>north</strong> of the equator, and Lima is 12° <strong>south</strong> of the equator. Because they are on opposite sides of the equator, add the distances:<br>42 + 12 = <strong>54 degrees</strong>.<br>A common error is subtracting (42 &minus; 12 = 30), which would be correct only if both cities were on the same side of the equator.</p>"
-        },
-        {
-          "id": "q34",
-          "type": "mc",
-          "skill": "Geography: human-environment interaction",
-          "difficulty": 2,
-          "stim": "s21",
-          "prompt": "<p>Which statement best expresses the central idea of the passage?</p>",
-          "options": ["The Aswan High Dam was a failure that brought no benefits to Egypt.", "The Nile River no longer plays an important role in Egyptian life.", "Egypt built the Aswan High Dam mainly to create a large lake for tourism.", "Changing the Nile's natural flow brought Egypt important benefits but also created new environmental problems."],
-          "answer": 3,
-          "explain": "<p>The passage describes benefits (flood control, year-round irrigation, hydroelectric power) and then, beginning with \"However,\" describes costs (silt trapped in the lake, more fertilizer use, a shrinking delta). The central idea is this trade-off, a classic example of human-environment interaction. Calling the dam \"a failure that brought no benefits\" ignores the whole paragraph of benefits.</p>"
-        },
-        {
-          "id": "q35",
-          "type": "hotspot",
-          "skill": "Geography: cause and effect",
-          "difficulty": 3,
-          "stim": "s21",
-          "prompt": "<p>The sentences below come from the last paragraph of the passage. Click the sentence that identifies the change in the river that <strong>caused</strong> many farmers to need chemical fertilizers.</p>",
-          "spans": ["The dam now holds back the yearly flood, protecting towns and fields from destructive high water.", "Water stored in Lake Nasser lets farmers irrigate year-round, so many fields produce more than one harvest each year.", "Turbines inside the dam generate hydroelectric power for homes and industry.", "However, the silt that once washed onto the fields now settles to the bottom of Lake Nasser instead.", "As a result, many farmers now buy chemical fertilizers to keep their soil productive.", "Along the Mediterranean coast, the Nile Delta is also wearing away, because less sediment reaches the sea to rebuild it."],
-          "answer": 3,
-          "explain": "<p>The cause is that the nutrient-rich silt no longer reaches the fields because it settles in Lake Nasser. The next sentence (\"As a result, many farmers now buy chemical fertilizers . . .\") describes the <em>effect</em>, not the cause; the signal words \"As a result\" show this. The delta sentence describes a different effect of the same change.</p>"
-        }
-      ]
-    }
-  ]
+"form": 1,
+"subject": "ss",
+"title": "Practice GED Form 1 — Social Studies",
+"minutes": 70,
+"stimuli": [
+{
+"id": "s1",
+"title": "The Declaration of Independence (1776)",
+"html": "<p>We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.—That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed,—That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness.</p>",
+"source": "Excerpt from the Declaration of Independence, adopted by the Second Continental Congress, July 4, 1776"
+},
+{
+"id": "s2",
+"title": "The Federalist No. 51 (1788)",
+"html": "<p>Ambition must be made to counteract ambition. . . .</p><p>. . . But what is government itself, but the greatest of all reflections on human nature? If men were angels, no government would be necessary. If angels were to govern men, neither external nor internal controls on government would be necessary. In framing a government which is to be administered by men over men, the great difficulty lies in this: you must first enable the government to control the governed; and in the next place oblige it to control itself.</p>",
+"source": "Excerpt from The Federalist No. 51, by James Madison (published under the pen name \"Publius\"), 1788"
+},
+{
+"id": "s3",
+"title": "U.S. Constitution, Article I, Section 8 (selected clauses)",
+"html": "<p>The Congress shall have Power . . .</p><p>To borrow Money on the credit of the United States;</p><p>To regulate Commerce with foreign Nations, and among the several States, and with the Indian Tribes; . . .</p><p>To coin Money, regulate the Value thereof, and of foreign Coin, and fix the Standard of Weights and Measures; . . .</p><p>To declare War, grant Letters of Marque and Reprisal, and make Rules concerning Captures on Land and Water; . . .</p><p>To make all Laws which shall be necessary and proper for carrying into Execution the foregoing Powers, and all other Powers vested by this Constitution in the Government of the United States, or in any Department or Officer thereof.</p>",
+"source": "Excerpt from the Constitution of the United States, Article I, Section 8 (1787)"
+},
+{
+"id": "s4",
+"title": "The Tenth Amendment (1791)",
+"html": "<p>The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.</p>",
+"source": "Amendment X, Constitution of the United States, ratified 1791"
+},
+{
+"id": "s5",
+"title": "The First Amendment (1791)",
+"html": "<p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.</p>",
+"source": "Amendment I, Constitution of the United States, ratified 1791"
+},
+{
+"id": "s6",
+"title": "Voter Turnout by Age Group, 2016 and 2020 Presidential Elections",
+"html": "<p>The graph shows the percentage of U.S. citizens in each age group who reported voting in the 2016 and 2020 presidential elections.</p>",
+"figure": {
+"type": "bar",
+"title": "Percent of Citizens Who Voted, by Age Group",
+"xLabel": "Age group",
+"yLabel": "Percent who voted",
+"labels": [
+"18–34",
+"35–64",
+"65 and older"
+],
+"series": [
+{
+"name": "2016",
+"values": [
+49,
+65,
+71
+]
+},
+{
+"name": "2020",
+"values": [
+57,
+69,
+74
+]
+}
+]
+},
+"source": "U.S. Census Bureau, Current Population Survey, November 2016 and November 2020 (approximate; age groups combined and rounded)"
+},
+{
+"id": "s7",
+"title": "Political Cartoon (described)",
+"html": "<p>The cartoon shows a wall calendar with one date circled and labeled <strong>ELECTION DAY</strong>. Below it, a man labeled <strong>ELIGIBLE VOTER</strong> is stretched out on a couch with a bag of chips, watching television. A speech bubble shows him saying, \"My one vote won't make a difference.\" Through the window behind him, a very small group of people walks toward a building marked <strong>POLLING PLACE</strong>. They carry a banner that reads <strong>WE DECIDE FOR EVERYONE</strong>.</p>",
+"source": "Original cartoon description written for this test"
+},
+{
+"id": "s8",
+"title": "Marbury v. Madison (1803)",
+"html": "<p>It is emphatically the province and duty of the judicial department to say what the law is. . . .</p><p>. . . Thus, the particular phraseology of the constitution of the United States confirms and strengthens the principle, supposed to be essential to all written constitutions, that a law repugnant to the constitution is void, and that courts, as well as other departments, are bound by that instrument.</p>",
+"source": "Excerpts from the opinion of Chief Justice John Marshall, Marbury v. Madison, U.S. Supreme Court, 1803"
+},
+{
+"id": "s9",
+"title": "Letter to the Editor",
+"html": "<p>To the Editor:</p><p>The Electoral College is an outdated system that no longer serves our democracy. Today, a candidate must win at least 270 of the 538 electoral votes to become president. Candidates spend far too much time in a handful of swing states. Every voter deserves to feel that his or her ballot truly counts. The fairest solution would be to elect the president by national popular vote. Congress should begin work on this change immediately.</p><p>— A reader</p>",
+"source": "Original letter written for this test"
+},
+{
+"id": "s10",
+"title": "Constitutional Amendments That Expanded Voting Rights",
+"html": "<table><thead><tr><th>Amendment</th><th>Year ratified</th><th>What it says about voting</th></tr></thead><tbody><tr><td>Fifteenth</td><td>1870</td><td>The right to vote cannot be denied because of race, color, or previous condition of servitude.</td></tr><tr><td>Nineteenth</td><td>1920</td><td>The right to vote cannot be denied on account of sex.</td></tr><tr><td>Twenty-fourth</td><td>1964</td><td>The right to vote in federal elections cannot be denied for failure to pay a poll tax or other tax.</td></tr><tr><td>Twenty-sixth</td><td>1971</td><td>The right to vote cannot be denied on account of age to citizens who are 18 years of age or older.</td></tr></tbody></table>",
+"source": "Summarized from the Constitution of the United States"
+},
+{
+"id": "s11",
+"title": "\"Join, or Die\" (1754)",
+"html": "<p>This famous woodcut cartoon was printed by Benjamin Franklin in his newspaper, the <em>Pennsylvania Gazette</em>, in May 1754. It shows a snake cut into eight separate pieces. Each piece is labeled with the initials of a colony or region: S.C., N.C., V. (Virginia), M. (Maryland), P. (Pennsylvania), N.J., N.Y., and N.E. (New England). Beneath the snake are the words <strong>JOIN, or DIE.</strong> At the time, the British colonies faced a growing conflict with France and its Native American allies on the western frontier, and colonial delegates were preparing to meet in Albany, New York, to discuss a plan for cooperation.</p>",
+"source": "Description of a cartoon published by Benjamin Franklin, Pennsylvania Gazette, May 9, 1754"
+},
+{
+"id": "s12",
+"title": "The Emancipation Proclamation (1863)",
+"html": "<p>That on the first day of January, in the year of our Lord one thousand eight hundred and sixty-three, all persons held as slaves within any State or designated part of a State, the people whereof shall then be in rebellion against the United States, shall be then, thenceforward, and forever free; and the Executive Government of the United States, including the military and naval authority thereof, will recognize and maintain the freedom of such persons . . .</p>",
+"source": "Excerpt from the Emancipation Proclamation, President Abraham Lincoln, January 1, 1863"
+},
+{
+"id": "s13",
+"title": "Timeline: The Civil Rights Movement",
+"html": "<table><thead><tr><th>Year</th><th>Event</th></tr></thead><tbody><tr><td>1954</td><td><em>Brown v. Board of Education</em>: the Supreme Court rules that segregated public schools are unconstitutional.</td></tr><tr><td>1955–1956</td><td>Montgomery bus boycott: Black residents of Montgomery, Alabama, refuse to ride segregated city buses for more than a year.</td></tr><tr><td>1963</td><td>March on Washington for Jobs and Freedom: more than 200,000 people gather in the nation's capital.</td></tr><tr><td>1964</td><td>Congress passes the Civil Rights Act, outlawing segregation in public places and banning job discrimination.</td></tr><tr><td>1965</td><td>Congress passes the Voting Rights Act, suspending literacy tests in many areas and allowing federal officials to oversee voter registration.</td></tr></tbody></table>",
+"source": "Timeline compiled for this test"
+},
+{
+"id": "s14",
+"title": "First Inaugural Address (1933)",
+"html": "<p>This great Nation will endure as it has endured, will revive and will prosper. So, first of all, let me assert my firm belief that the only thing we have to fear is fear itself—nameless, unreasoning, unjustified terror which paralyzes needed efforts to convert retreat into advance.</p>",
+"source": "Excerpt from President Franklin D. Roosevelt's First Inaugural Address, March 4, 1933"
+},
+{
+"id": "s15",
+"title": "U.S. Unemployment Rate, 1929–1941",
+"html": "<p>The graph shows the percentage of the civilian labor force that was unemployed in selected years.</p>",
+"figure": {
+"type": "line",
+"title": "U.S. Unemployment Rate, Selected Years",
+"xLabel": "Year",
+"yLabel": "Percent unemployed",
+"labels": [
+"1929",
+"1931",
+"1933",
+"1935",
+"1937",
+"1941"
+],
+"series": [
+{
+"name": "Unemployment rate",
+"values": [
+3.2,
+15.9,
+24.9,
+20.1,
+14.3,
+9.9
+]
+}
+]
+},
+"source": "U.S. Bureau of the Census, Historical Statistics of the United States, Colonial Times to 1970"
+},
+{
+"id": "s16",
+"title": "Plessy v. Ferguson (1896), Dissenting Opinion",
+"html": "<p>In 1896, the Supreme Court ruled in <em>Plessy v. Ferguson</em> that a Louisiana law requiring separate railroad cars for Black and white passengers did not violate the Constitution, as long as the separate facilities were equal. Justice John Marshall Harlan was the only justice who disagreed. He wrote:</p><p>But in view of the Constitution, in the eye of the law, there is in this country no superior, dominant, ruling class of citizens. There is no caste here. Our Constitution is color-blind, and neither knows nor tolerates classes among citizens. In respect of civil rights, all citizens are equal before the law.</p>",
+"source": "Excerpt from Justice John Marshall Harlan's dissent, Plessy v. Ferguson, U.S. Supreme Court, 1896"
+},
+{
+"id": "s17",
+"title": "Rebuilding Europe",
+"html": "<p>When World War II ended in 1945, much of Europe lay in ruins. Factories, railroads, and bridges had been destroyed, food was scarce, and millions of people were out of work. In this difficult climate, Communist parties were gaining support in several Western European countries, including France and Italy. At the same time, the Soviet Union was tightening its control over the nations of Eastern Europe.</p><p>In June 1947, Secretary of State George C. Marshall proposed that the United States help Europe rebuild. Congress approved the European Recovery Program, better known as the Marshall Plan, in 1948. Over the next four years, the United States provided more than $13 billion in aid to Western European nations. American leaders believed that people with jobs, food, and hope for the future would be far less likely to turn to communism. The Soviet Union refused to take part and pressured the countries it controlled to refuse as well.</p>",
+"source": "Original reading written for this test"
+},
+{
+"id": "s18",
+"title": "Strawberries at a Farmers Market",
+"html": "<p>The table shows how many quarts of strawberries buyers want to buy (quantity demanded) and sellers want to sell (quantity supplied) each week at different prices.</p><table><thead><tr><th>Price per quart</th><th>Quantity demanded (quarts)</th><th>Quantity supplied (quarts)</th></tr></thead><tbody><tr><td>$2</td><td>300</td><td>100</td></tr><tr><td>$3</td><td>260</td><td>160</td></tr><tr><td>$4</td><td>220</td><td>220</td></tr><tr><td>$5</td><td>180</td><td>280</td></tr><tr><td>$6</td><td>140</td><td>340</td></tr></tbody></table>",
+"source": "Data created for this test"
+},
+{
+"id": "s19",
+"title": "Two Kinds of Economic Policy",
+"html": "<p>The U.S. government has two main ways to influence the overall economy.</p><p><strong>Monetary policy</strong> is managed by the Federal Reserve, the nation's central bank, which Congress created in 1913. Congress has directed the Federal Reserve to pursue maximum employment and stable prices. Its main tool is a target for short-term interest rates. When the Federal Reserve raises its target, borrowing becomes more expensive, so businesses and households tend to borrow and spend less, which slows the growth of prices. When it lowers its target, borrowing becomes cheaper, which encourages spending and hiring.</p><p><strong>Fiscal policy</strong> is decided by Congress and the President. It is made up of decisions about taxes and government spending. Cutting taxes leaves people with more money to spend, and increasing government spending puts more money directly into the economy. Raising taxes or cutting spending has the opposite effect.</p>",
+"source": "Original reading written for this test"
+},
+{
+"id": "s20",
+"title": "Locations of Selected World Cities",
+"html": "<p>The table gives the approximate location of six cities, rounded to the nearest degree.</p><table><thead><tr><th>City</th><th>Latitude</th><th>Longitude</th></tr></thead><tbody><tr><td>Cairo, Egypt</td><td>30° N</td><td>31° E</td></tr><tr><td>Sydney, Australia</td><td>34° S</td><td>151° E</td></tr><tr><td>Lima, Peru</td><td>12° S</td><td>77° W</td></tr><tr><td>Chicago, United States</td><td>42° N</td><td>88° W</td></tr><tr><td>Tokyo, Japan</td><td>36° N</td><td>140° E</td></tr><tr><td>London, United Kingdom</td><td>52° N</td><td>0° (Prime Meridian)</td></tr></tbody></table><p>Latitude measures distance north (N) or south (S) of the equator (0°). Longitude measures distance east (E) or west (W) of the Prime Meridian (0°).</p>",
+"source": "Table compiled for this test"
+},
+{
+"id": "s21",
+"title": "Taming the Nile",
+"html": "<p>For thousands of years, the Nile River flooded every late summer. The floodwaters spread a fresh layer of dark, nutrient-rich silt across the fields of Egypt, and farmers planted their crops in this soil once the water drained away. The flood was a gift, but it was also unpredictable: a low flood could bring hunger, and a high flood could wash away villages.</p><p>To gain control of the river, Egypt began building the Aswan High Dam in 1960 and completed it in 1970. Behind the dam, the river backed up to form Lake Nasser, one of the largest artificial lakes in the world. The dam brought major changes to life along the Nile.</p><p>The dam now holds back the yearly flood, protecting towns and fields from destructive high water. Water stored in Lake Nasser lets farmers irrigate year-round, so many fields produce more than one harvest each year. Turbines inside the dam generate hydroelectric power for homes and industry. However, the silt that once washed onto the fields now settles to the bottom of Lake Nasser instead. As a result, many farmers now buy chemical fertilizers to keep their soil productive. Along the Mediterranean coast, the Nile Delta is also wearing away, because less sediment reaches the sea to rebuild it.</p>",
+"source": "Original reading written for this test"
+}
+],
+"parts": [
+{
+"name": "Social Studies",
+"items": [
+{
+"id": "q1",
+"type": "mc",
+"skill": "Civics: founding principles",
+"difficulty": 1,
+"stim": "s1",
+"prompt": "<p>The phrase \"deriving their just powers from the consent of the governed\" best expresses which principle of American government?</p>",
+"options": [
+"Popular sovereignty",
+"Federalism",
+"Separation of powers",
+"Judicial review"
+],
+"answer": 0,
+"explain": "<p>Popular sovereignty is the idea that a government's authority comes from the people. The Declaration says governments get their \"just powers from the consent of the governed\"—that is, from the people's agreement. Federalism (dividing power between national and state governments) and separation of powers (dividing power among branches) are both about how power is divided, not where it comes from. Judicial review is the power of courts to strike down laws.</p>",
+"why": [
+"",
+"Federalism is about dividing power between national and state governments. The phrase is about where government's power comes from: the consent of the people.",
+"Separation of powers divides power among branches. &ldquo;Consent of the governed&rdquo; is about the source of power, the people, which is popular sovereignty.",
+"Judicial review is the courts' power to strike down laws. The phrase says government's power comes from the people, which is popular sovereignty."
+]
+},
+{
+"id": "q2",
+"type": "mc",
+"skill": "Civics: evidence from a document",
+"difficulty": 2,
+"stim": "s1",
+"prompt": "<p>According to the excerpt, when do the people have the right to alter or abolish a government?</p>",
+"options": [
+"Whenever a majority of people disagree with a single law",
+"Whenever the government raises taxes without a vote of the people",
+"When the government becomes destructive of the people's rights to life, liberty, and the pursuit of happiness",
+"When the government fails to declare independence from a foreign power"
+],
+"answer": 2,
+"explain": "<p>The Declaration states that governments exist \"to secure these rights\" and that \"whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it.\" \"These ends\" refers to protecting life, liberty, and the pursuit of happiness. Taxation without representation was a real colonial complaint, but it is not what this excerpt names as the condition, and the excerpt does not say that disagreeing with one law is enough.</p>",
+"why": [
+"The excerpt never says disagreeing with one law is enough. It names the condition: when government &ldquo;becomes destructive of these ends,&rdquo; meaning life, liberty, and the pursuit of happiness.",
+"Taxation without representation was a real colonial complaint, but this excerpt does not mention taxes. The condition it names is a government destroying the people's rights.",
+"",
+"The excerpt does not tie the right to declaring independence from a foreign power. It says people may alter or abolish a government that becomes destructive of their rights."
+]
+},
+{
+"id": "q3",
+"type": "mc",
+"skill": "Civics: main idea of a primary source",
+"difficulty": 2,
+"stim": "s2",
+"prompt": "<p>Which statement best summarizes Madison's main idea in the excerpt?</p>",
+"options": [
+"Government is unnecessary because most people are naturally good.",
+"Because people are not angels, government must be strong enough to govern the people but also be controlled so it cannot abuse its own power.",
+"The people should elect only honest leaders so that limits on government will not be needed.",
+"The states, not the national government, should hold most political power."
+],
+"answer": 1,
+"explain": "<p>Madison argues that government is needed because people are not angels, but since government is also run by imperfect people, it must \"control the governed\" and also be obliged \"to control itself.\" The idea that electing only honest leaders would remove the need for limits is the opposite of his point: he says controls are needed precisely because leaders cannot be trusted to be angels. The excerpt does not discuss state versus national power.</p>",
+"why": [
+"Madison says the opposite: &ldquo;If men were angels, no government would be necessary.&rdquo; Because people are not angels, government is needed.",
+"",
+"Madison argues that controls are needed precisely because leaders are not angels. Electing honest leaders would not remove the need to &ldquo;oblige it to control itself.&rdquo;",
+"The excerpt does not discuss state versus national power. It is about government controlling the people and also controlling itself."
+]
+},
+{
+"id": "q4",
+"type": "dropdown",
+"skill": "Civics: checks and balances",
+"difficulty": 2,
+"stim": "s2",
+"prompt": "<p>Complete the statement.</p><p>Madison's statement \"Ambition must be made to counteract ambition\" supports the system of {{0}}, in which each branch can limit the others. One example of this system is the power of the {{1}} to veto bills passed by Congress.</p>",
+"blanks": [
+{
+"options": [
+"checks and balances",
+"popular sovereignty",
+"federalism",
+"direct democracy"
+],
+"answer": 0,
+"why": [
+"",
+"Popular sovereignty is about power coming from the people. &ldquo;Ambition must be made to counteract ambition&rdquo; is about branches limiting each other: checks and balances.",
+"Federalism divides power between national and state governments, not among branches. Branches limiting each other is checks and balances.",
+"Direct democracy means citizens vote on laws themselves. Madison is describing branches checking one another: checks and balances."
+]
+},
+{
+"options": [
+"Supreme Court",
+"President",
+"Speaker of the House",
+"Senate"
+],
+"answer": 1,
+"why": [
+"The Supreme Court checks Congress through judicial review, not a veto. The veto belongs to the President.",
+"",
+"The Speaker of the House is part of Congress, so the Speaker cannot veto Congress's bills. The President holds the veto.",
+"The Senate is part of Congress itself, so it does not veto bills Congress passes. The President holds the veto."
+]
+}
+],
+"explain": "<p>\"Ambition must be made to counteract ambition\" means each branch should have the means and the motive to resist the others. That is the system of <strong>checks and balances</strong>. The <strong>President</strong> checks Congress by vetoing bills (Article I, Section 7). The Supreme Court checks Congress through judicial review, not a veto, and the Senate and Speaker are parts of Congress itself. Federalism divides power between national and state governments, not among branches.</p>"
+},
+{
+"id": "q5",
+"type": "multi",
+"skill": "Civics: enumerated powers",
+"difficulty": 1,
+"stim": "s3",
+"prompt": "<p>Based on the excerpt, which actions does the Constitution give Congress the power to take? Select <strong>two</strong> answers.</p>",
+"options": [
+"Declare war on another nation",
+"Issue driver's licenses to residents",
+"Coin money and set its value",
+"Veto a bill it disagrees with",
+"Appoint justices to the Supreme Court"
+],
+"answer": [
+0,
+2
+],
+"explain": "<p>The excerpt lists \"To declare War\" and \"To coin Money, regulate the Value thereof\" as powers of Congress. Driver's licenses are issued by the states (a reserved power). The veto belongs to the President, and the President appoints Supreme Court justices with the Senate's consent—Congress as a whole does not appoint them.</p>",
+"why": [
+"",
+"Driver's licenses are not in the excerpt; they are issued by the states as a reserved power.",
+"",
+"The veto is a power of the President, not Congress. The excerpt lists declaring war and coining money as powers of Congress.",
+"The President appoints Supreme Court justices with the Senate's consent; Congress as a whole does not. This power is not in the excerpt."
+]
+},
+{
+"id": "q6",
+"type": "mc",
+"skill": "Civics: implied powers",
+"difficulty": 3,
+"stim": "s3",
+"prompt": "<p>In the early 1790s, Congress created a national bank, even though the Constitution does not list the power to create a bank. Supporters argued that a bank would help the government borrow money and collect taxes. Which clause in the excerpt did supporters most likely rely on?</p>",
+"options": [
+"\"To regulate Commerce with foreign Nations\"",
+"\"fix the Standard of Weights and Measures\"",
+"\"To declare War, grant Letters of Marque and Reprisal\"",
+"\"To make all Laws which shall be necessary and proper for carrying into Execution the foregoing Powers\""
+],
+"answer": 3,
+"explain": "<p>The Necessary and Proper Clause (sometimes called the \"elastic clause\") lets Congress make laws needed to carry out its listed powers, such as borrowing money. Powers that come from this clause are called <strong>implied powers</strong>. The Supreme Court upheld this reasoning for the Second Bank of the United States in <em>McCulloch v. Maryland</em> (1819). The Commerce Clause is a listed power about trade, but supporters' argument connected the bank to borrowing and taxing, which points to the Necessary and Proper Clause.</p>",
+"why": [
+"The Commerce Clause is a listed power about trade. Supporters tied the bank to borrowing and collecting taxes, which points to the clause that lets Congress make laws needed to carry out its listed powers.",
+"Weights and measures have nothing to do with a bank. Creating a bank to carry out borrowing relies on the Necessary and Proper Clause.",
+"Declaring war is unrelated to the argument for a bank. Supporters argued the bank was needed to carry out other powers, which is the Necessary and Proper Clause.",
+""
+]
+},
+{
+"id": "q7",
+"type": "drag",
+"skill": "Civics: federalism",
+"difficulty": 2,
+"stim": "s4",
+"prompt": "<p>Under federalism, some powers belong to the national government, some are reserved to the states, and some are shared. Drag each power into the correct category.</p>",
+"choices": [
+"Make treaties with other nations",
+"Issue marriage licenses",
+"Collect taxes",
+"Regulate trade between states",
+"Create county and city governments",
+"Borrow money"
+],
+"bins": [
+"Federal government only (delegated)",
+"State governments only (reserved)",
+"Both levels (concurrent)"
+],
+"answer": [
+0,
+1,
+2,
+0,
+1,
+2
+],
+"explain": "<p><strong>Federal only:</strong> making treaties (states are forbidden to make treaties in Article I, Section 10) and regulating trade between states (the Commerce Clause). <strong>States only:</strong> issuing marriage licenses and creating local governments are not delegated to the national government, so under the Tenth Amendment they are reserved to the states. <strong>Both:</strong> collecting taxes and borrowing money are concurrent powers—the national government and the state governments both exercise them. A common mistake is placing \"collect taxes\" under federal only; states and cities collect sales and property taxes, too.</p>",
+"why": "The most common error is putting &ldquo;Collect taxes&rdquo; or &ldquo;Borrow money&rdquo; under federal only because Congress has those powers. States also collect taxes and borrow money, so they are concurrent powers; making treaties and regulating trade between states belong only to the federal government."
+},
+{
+"id": "q8",
+"type": "mc",
+"skill": "Civics: civil liberties",
+"difficulty": 2,
+"stim": "s5",
+"prompt": "<p>A resident collects signatures online from 2,000 neighbors on a written request asking the city government to add a traffic light at a dangerous intersection. She mails the request and the list of signatures to the city council. Which right in the First Amendment most directly protects her action?</p>",
+"options": [
+"Freedom of the press",
+"The right to peaceably assemble",
+"The right to petition the government for a redress of grievances",
+"Free exercise of religion"
+],
+"answer": 2,
+"explain": "<p>A petition is a formal request asking the government to take action or fix a problem (a \"grievance\"). Sending a signed written request to the city council is a petition. The right to assemble protects people gathering together in person, which she did not do. Freedom of the press protects publishing news and opinions, and free exercise protects religious practice.</p>",
+"why": [
+"Freedom of the press protects publishing news and opinions. She sent a signed written request to the government, which is a petition.",
+"The right to assemble protects people gathering together in person, which she did not do. Mailing a signed request to the council is a petition.",
+"",
+"Free exercise protects religious practice, which is not involved here. A written request to the government to fix a problem is a petition."
+]
+},
+{
+"id": "q9",
+"type": "drag",
+"skill": "Civics: how a bill becomes a law",
+"difficulty": 2,
+"prompt": "<p>A bill to improve safety standards for school buses begins in the House of Representatives and eventually becomes law. Drag each step into the order in which it happened.</p>",
+"choices": [
+"The full House debates and passes the bill.",
+"The President signs the bill into law.",
+"A representative introduces the bill in the House.",
+"The Senate passes the identical bill.",
+"A House committee studies the bill and votes to send it to the full House."
+],
+"bins": [
+"1st",
+"2nd",
+"3rd",
+"4th",
+"5th"
+],
+"answer": [
+2,
+4,
+0,
+3,
+1
+],
+"explain": "<p>Correct order: (1) a representative introduces the bill; (2) a committee studies it and votes to send it forward; (3) the full House debates and passes it; (4) the Senate passes the identical version (both chambers must pass the same text); (5) the President signs it into law. A common mistake is putting the full House vote before the committee step—bills go to committee first, and most bills never leave committee.</p>",
+"why": "The most common error is putting the full House vote before the committee step. A bill goes to committee first; only after the committee votes to send it forward does the full House debate it, then the Senate passes the same bill, and the President signs it last."
+},
+{
+"id": "q10",
+"type": "mc",
+"skill": "Civics: reading a bar graph",
+"difficulty": 2,
+"stim": "s6",
+"prompt": "<p>Which conclusion is best supported by the graph?</p>",
+"options": [
+"Turnout rose in every age group from 2016 to 2020, and the largest increase was among citizens ages 18–34.",
+"Citizens ages 18–34 voted at a higher rate than citizens 65 and older in 2020.",
+"Turnout among citizens 65 and older fell from 2016 to 2020.",
+"The increase in turnout was the same for every age group."
+],
+"answer": 0,
+"explain": "<p>Compare each pair of bars. Ages 18–34: 57 &minus; 49 = 8 points. Ages 35–64: 69 &minus; 65 = 4 points. Ages 65 and older: 74 &minus; 71 = 3 points. Every group rose, and the largest increase (8 points) was among ages 18–34. Even after that increase, the 18–34 group (57%) still voted at a lower rate than the 65-and-older group (74%), so the claim that this group out-voted the 65-and-older group in 2020 is wrong.</p>",
+"why": [
+"",
+"In 2020 the 18&ndash;34 group voted at 57%, below the 65-and-older group's 74%. Their rate grew the most, but it was still lower.",
+"The 65-and-older bar rose from 71% to 74%, so turnout went up, not down.",
+"The increases differed: 8 points for ages 18&ndash;34, 4 points for 35&ndash;64, and 3 points for 65 and older."
+]
+},
+{
+"id": "q11",
+"type": "fill",
+"skill": "Civics: calculating from data",
+"difficulty": 2,
+"stim": "s6",
+"prompt": "<p>In 2020, how many percentage points higher was the turnout of citizens 65 and older than the turnout of citizens ages 18–34?</p>",
+"answer": [
+"17",
+"17%"
+],
+"value": 17,
+"tol": 0.001,
+"suffix": "percentage points",
+"explain": "<p>2020 turnout, 65 and older: 74%.<br>2020 turnout, ages 18–34: 57%.<br>74 &minus; 57 = <strong>17</strong> percentage points. A common error is using the 2016 bars (71 &minus; 49 = 22) instead of the 2020 bars.</p>",
+"mistakes": [
+{
+"answer": [
+"22",
+"22%"
+],
+"why": "You used the 2016 bars (71 &minus; 49). The question asks about 2020: 74 &minus; 57 = 17."
+},
+{
+"answer": [
+"8",
+"8%"
+],
+"why": "8 is how much the 18&ndash;34 group rose from 2016 to 2020. Compare the two 2020 bars: 74 &minus; 57 = 17."
+},
+{
+"answer": [
+"3",
+"3%"
+],
+"why": "3 is how much the 65-and-older group rose from 2016 to 2020. Compare the two age groups in 2020: 74 &minus; 57 = 17."
+}
+]
+},
+{
+"id": "q12",
+"type": "mc",
+"skill": "Civics: interpreting a political cartoon",
+"difficulty": 2,
+"stim": "s7",
+"prompt": "<p>What is the main message of the cartoon?</p>",
+"options": [
+"Television news coverage of elections is unfair.",
+"Polling places should stay open later so more people can vote.",
+"Only a small number of citizens are legally allowed to vote.",
+"When eligible citizens do not vote, a small group ends up making decisions for everyone."
+],
+"answer": 3,
+"explain": "<p>The cartoonist contrasts the eligible voter who stays home (\"My one vote won't make a difference\") with the small group that does vote and carries the banner \"WE DECIDE FOR EVERYONE.\" The point is that not voting hands power to the few who do. The man is labeled \"ELIGIBLE VOTER,\" so the cartoon is not claiming that only a few people are allowed to vote; the problem it shows is a choice not to vote.</p>",
+"why": [
+"The man is watching television, but nothing in the cartoon criticizes news coverage. The banner &ldquo;WE DECIDE FOR EVERYONE&rdquo; shows the point: non-voters let a few decide.",
+"The cartoon does not mention polling hours. It shows an eligible voter choosing to stay home while a small group decides for everyone.",
+"The man is labeled &ldquo;ELIGIBLE VOTER,&rdquo; so the cartoon is not about legal limits. The small group is small because others chose not to vote.",
+""
+]
+},
+{
+"id": "q13",
+"type": "mc",
+"skill": "Civics: judicial review",
+"difficulty": 2,
+"stim": "s8",
+"prompt": "<p>The principle Chief Justice Marshall describes in this excerpt is known as</p>",
+"options": [
+"executive privilege.",
+"judicial review.",
+"popular sovereignty.",
+"the separation of church and state."
+],
+"answer": 1,
+"explain": "<p>Marshall states that \"a law repugnant to the constitution is void\" and that it is the duty of the judicial department \"to say what the law is.\" Together these establish <strong>judicial review</strong>: the power of courts to strike down laws that conflict with the Constitution. Popular sovereignty is about government getting its power from the people, which the excerpt does not discuss.</p>",
+"why": [
+"Executive privilege is the President's claim to keep some communications private. Marshall says courts decide what the law is and that a law against the Constitution is void: judicial review.",
+"",
+"Popular sovereignty is about power coming from the people, which the excerpt does not discuss. Marshall describes courts striking down unconstitutional laws: judicial review.",
+"Separation of church and state comes from the First Amendment. Marshall's excerpt is about courts declaring laws void, which is judicial review."
+]
+},
+{
+"id": "q14",
+"type": "mc",
+"skill": "Civics: checks and balances",
+"difficulty": 2,
+"stim": "s8",
+"prompt": "<p>When the Supreme Court uses the principle described in the excerpt to strike down a law passed by Congress, which check is being used?</p>",
+"options": [
+"The legislative branch is checking the judicial branch.",
+"The executive branch is checking the legislative branch.",
+"The judicial branch is checking the legislative branch.",
+"The states are checking the national government."
+],
+"answer": 2,
+"explain": "<p>The Supreme Court is part of the judicial branch, and Congress is the legislative branch. Striking down an unconstitutional law passed by Congress is the judicial branch checking the legislative branch. The legislative branch does check the courts (for example, through the Senate's approval of judges or impeachment), but that is the reverse direction.</p>",
+"why": [
+"That is the reverse direction. The Supreme Court is the judicial branch, and it is striking down a law made by Congress, the legislative branch.",
+"The executive branch is not involved when the Court strikes down a law. The judicial branch is checking the legislative branch.",
+"",
+"The Supreme Court is part of the national government, not the states. Here the judicial branch is checking the legislative branch."
+]
+},
+{
+"id": "q15",
+"type": "mc",
+"skill": "Civics: point of view",
+"difficulty": 2,
+"stim": "s9",
+"prompt": "<p>Which change would the writer of the letter most likely support?</p>",
+"options": [
+"Electing the president by nationwide popular vote",
+"Giving swing states additional electoral votes",
+"Allowing Congress to choose the president",
+"Raising the number of electoral votes needed to win above 270"
+],
+"answer": 0,
+"explain": "<p>The writer says, \"The fairest solution would be to elect the president by national popular vote.\" The writer complains that candidates already focus too much on swing states, so giving those states more electoral votes would make the problem worse. Nothing in the letter suggests Congress should choose the president or that the 270-vote threshold should change.</p>",
+"why": [
+"",
+"The writer already complains that candidates spend too much time in swing states. Giving those states more votes would make the problem worse.",
+"The letter never suggests Congress should choose the president. It calls for a national popular vote.",
+"The letter does not ask to change the 270-vote threshold. It wants to replace the Electoral College with a national popular vote."
+]
+},
+{
+"id": "q16",
+"type": "hotspot",
+"skill": "Civics: fact vs. opinion",
+"difficulty": 2,
+"stim": "s9",
+"prompt": "<p>Most of this letter is the writer's personal judgment. Only one sentence could be proved true using a reliable reference source. Click that <strong>factual</strong> sentence.</p>",
+"spans": [
+"The Electoral College is an outdated system that no longer serves our democracy.",
+"Today, a candidate must win at least 270 of the 538 electoral votes to become president.",
+"Candidates spend far too much time in a handful of swing states.",
+"Every voter deserves to feel that his or her ballot truly counts.",
+"The fairest solution would be to elect the president by national popular vote.",
+"Congress should begin work on this change immediately."
+],
+"answer": 1,
+"explain": "<p>There are 538 electors, and winning the presidency through the Electoral College requires a majority—at least 270. This can be verified. Every other sentence contains a judgment: \"outdated,\" \"far too much,\" \"deserves,\" \"fairest,\" and \"should\" signal opinions. Note that \"Candidates spend far too much time in a handful of swing states\" mixes a checkable idea (where candidates campaign) with an opinion (\"far too much\"), so it is not a pure statement of fact.</p>",
+"why": "The most common wrong click is the swing-state sentence, because where candidates campaign can be checked. The words &ldquo;far too much&rdquo; make it a judgment; only the sentence about needing 270 of 538 electoral votes can be fully verified in a reference source."
+},
+{
+"id": "q17",
+"type": "mc",
+"skill": "Civics: identifying trends",
+"difficulty": 1,
+"stim": "s10",
+"prompt": "<p>Which statement best describes the trend shown in the table?</p>",
+"options": [
+"Voting rights have been limited to fewer groups over time.",
+"Most amendments about voting were ratified before the Civil War.",
+"Each amendment allowed states to set new voting requirements.",
+"Over time, amendments have extended voting rights to more groups of Americans."
+],
+"answer": 3,
+"explain": "<p>Each amendment in the table removes a reason for denying the vote—race, sex, failure to pay a poll tax, and age for citizens 18 and older—so more Americans became eligible over time. The amendments were ratified from 1870 to 1971, all after the Civil War (1861–1865), and they limit, rather than expand, states' power to deny the vote.</p>",
+"why": [
+"You reversed the trend. Each amendment removed a reason to deny the vote (race, sex, poll tax, age), so more groups gained the right.",
+"The table shows ratification dates from 1870 to 1971, all after the Civil War (1861&ndash;1865).",
+"Each amendment says the right to vote &ldquo;cannot be denied&rdquo; for a certain reason. They limit the states' power to deny the vote rather than letting states add requirements.",
+""
+]
+},
+{
+"id": "q18",
+"type": "mc",
+"skill": "Civics: civil rights",
+"difficulty": 3,
+"stim": "s10",
+"prompt": "<p>The Fifteenth Amendment was ratified in 1870, yet Congress still passed the Voting Rights Act in 1965. Which statement best explains why the 1965 law was considered necessary?</p>",
+"options": [
+"The Fifteenth Amendment had been repealed by Congress in the early 1900s.",
+"Some states used literacy tests and other barriers that kept many Black citizens from voting despite the Fifteenth Amendment.",
+"The Fifteenth Amendment applied only to federal elections, not state elections.",
+"The Fifteenth Amendment protected only the voting rights of women."
+],
+"answer": 1,
+"explain": "<p>After Reconstruction, many Southern states used literacy tests, poll taxes, intimidation, and other methods to keep Black citizens from voting, even though the Fifteenth Amendment forbade denying the vote because of race. The Voting Rights Act of 1965 suspended literacy tests in many areas and gave the federal government tools to enforce the amendment. The Fifteenth Amendment was never repealed, and the \"federal elections only\" limit belongs to the Twenty-fourth Amendment, not the Fifteenth.</p>",
+"why": [
+"The Fifteenth Amendment was never repealed; it is still in the table. The problem was that states used barriers such as literacy tests to get around it.",
+"",
+"The &ldquo;federal elections&rdquo; limit belongs to the Twenty-fourth Amendment, not the Fifteenth. The 1965 law was needed because states used literacy tests and other barriers.",
+"The Nineteenth Amendment protected women's voting rights. The table shows the Fifteenth is about race, color, or previous servitude."
+]
+},
+{
+"id": "q19",
+"type": "mc",
+"skill": "U.S. history: colonial era",
+"difficulty": 2,
+"stim": "s11",
+"prompt": "<p>What was Franklin's main purpose in publishing the \"Join, or Die\" cartoon in 1754?</p>",
+"options": [
+"To call on the colonies to declare independence from Great Britain",
+"To celebrate a British victory over France",
+"To urge the colonies to unite for their common defense",
+"To warn colonists about the dangers of frontier wildlife"
+],
+"answer": 2,
+"explain": "<p>The cut-up snake represents colonies acting separately; the caption warns that unless they join together, they will be destroyed. In 1754, the threat was the conflict with France and its allies (the start of the French and Indian War), and delegates were meeting in Albany to discuss a plan of union. The cartoon was later reused during the Revolution, but in 1754 it was not a call for independence—that came more than 20 years later, in 1776.</p>",
+"why": [
+"In 1754 the colonies were not seeking independence; that came in 1776. The passage says delegates were meeting to plan cooperation against France and its allies.",
+"The passage describes a growing conflict with France, not a British victory. The divided snake warns the colonies to unite.",
+"",
+"The snake is a symbol, not a warning about animals. Its eight pieces stand for colonies acting separately, and the caption urges them to join."
+]
+},
+{
+"id": "q20",
+"type": "mc",
+"skill": "U.S. history: Civil War",
+"difficulty": 3,
+"stim": "s12",
+"prompt": "<p>Based on the excerpt, which statement describes a limitation of the Emancipation Proclamation?</p>",
+"options": [
+"It applied only to areas in rebellion, so it did not free enslaved people in slave states that remained loyal to the Union.",
+"It freed enslaved people only in Northern states such as New York and Massachusetts.",
+"It was a constitutional amendment that took years for the states to ratify.",
+"It ended slavery everywhere in the United States, but only after the war was over."
+],
+"answer": 0,
+"explain": "<p>The proclamation freed enslaved people only \"within any State or designated part of a State, the people whereof shall then be in rebellion against the United States.\" Border slave states loyal to the Union, such as Kentucky and Maryland, were not covered. It was an executive order by the President, not an amendment; slavery was abolished throughout the nation by the Thirteenth Amendment in 1865.</p>",
+"why": [
+"",
+"The excerpt applies to states &ldquo;in rebellion against the United States,&rdquo; not to Northern states. Its limit was that loyal slave states were not covered.",
+"The Emancipation Proclamation was an executive order by the President, not an amendment. The Thirteenth Amendment later abolished slavery.",
+"The excerpt applies only to areas in rebellion, so it did not end slavery everywhere. That came with the Thirteenth Amendment in 1865."
+]
+},
+{
+"id": "q21",
+"type": "mc",
+"skill": "U.S. history: civil rights movement",
+"difficulty": 2,
+"stim": "s13",
+"prompt": "<p>Which conclusion is best supported by the timeline?</p>",
+"options": [
+"The civil rights movement achieved all of its goals with the 1954 Supreme Court decision.",
+"Congress passed civil rights laws before any protests or court decisions took place.",
+"The movement focused only on desegregating public transportation.",
+"Court decisions and public protests were followed by new federal laws protecting civil rights."
+],
+"answer": 3,
+"explain": "<p>The timeline shows a court ruling (1954), protests (1955–1956 and 1963), and then federal laws (1964 and 1965). Congress acted after—not before—the court decision and protests. The movement addressed schools, buses, jobs, public places, and voting, so it was not limited to transportation, and the need for later laws shows that the 1954 decision did not achieve every goal.</p>",
+"why": [
+"The timeline shows Congress passing new laws in 1964 and 1965, after the 1954 decision. The movement still had goals to reach.",
+"You reversed the order. The court ruling (1954) and protests (1955&ndash;1963) came before the federal laws (1964 and 1965).",
+"The timeline covers schools, buses, jobs, public places, and voting, not only transportation.",
+""
+]
+},
+{
+"id": "q22",
+"type": "mc",
+"skill": "U.S. history: Great Depression",
+"difficulty": 2,
+"stim": "s14",
+"prompt": "<p>Roosevelt gave this address during the Great Depression. What was his main purpose in this part of the speech?</p>",
+"options": [
+"To announce that the United States was entering a war",
+"To calm public fear and build confidence that the nation could recover",
+"To blame foreign nations for the country's economic problems",
+"To argue that the government should not take action on the economy"
+],
+"answer": 1,
+"explain": "<p>In March 1933, unemployment was near its peak and banks were failing. Roosevelt says the nation \"will revive and will prosper\" and that \"the only thing we have to fear is fear itself,\" meaning panic was blocking \"needed efforts\" to recover. He was trying to restore confidence. His call for \"needed efforts\" points toward government action (the New Deal), not away from it.</p>",
+"why": [
+"The excerpt does not mention war. Roosevelt says the nation &ldquo;will revive and will prosper,&rdquo; which is about recovering from the Depression.",
+"",
+"The excerpt does not blame any foreign nation. Its target is &ldquo;fear itself,&rdquo; which he says blocks needed efforts to recover.",
+"Roosevelt complains that fear &ldquo;paralyzes needed efforts,&rdquo; which points toward action, not away from it."
+]
+},
+{
+"id": "q23",
+"type": "mc",
+"skill": "U.S. history: reading a line graph",
+"difficulty": 2,
+"stim": "s15",
+"prompt": "<p>Which statement is supported by the graph?</p>",
+"options": [
+"Unemployment rose in every year shown on the graph.",
+"Unemployment had returned to its 1929 level by 1937.",
+"Unemployment peaked in 1933 and then declined, but it remained well above the 1929 level in 1941.",
+"Unemployment was highest in 1929, before the stock market crash."
+],
+"answer": 2,
+"explain": "<p>The highest point is 24.9% in 1933. After that the rate falls (20.1% in 1935, 14.3% in 1937, 9.9% in 1941), but 9.9% is still about three times the 1929 rate of 3.2%. In 1937 the rate was 14.3%, far above 3.2%, so it had not returned to the 1929 level.</p>",
+"why": [
+"The rate rose only until 1933 (24.9%), then fell to 20.1%, 14.3%, and 9.9%.",
+"In 1937 the rate was 14.3%, far above the 1929 rate of 3.2%.",
+"",
+"1929 was the lowest point on the graph (3.2%). The highest was 24.9% in 1933."
+]
+},
+{
+"id": "q24",
+"type": "mc",
+"skill": "U.S. history: Supreme Court and civil rights",
+"difficulty": 3,
+"stim": "s16",
+"prompt": "<p>Harlan's view that the Constitution \"neither knows nor tolerates classes among citizens\" was most closely reflected in which later Supreme Court decision?</p>",
+"options": [
+"<em>Brown v. Board of Education</em> (1954), which ruled that segregated public schools were unconstitutional",
+"<em>Dred Scott v. Sandford</em> (1857), which ruled that Black Americans could not be U.S. citizens",
+"<em>Marbury v. Madison</em> (1803), which established judicial review",
+"<em>McCulloch v. Maryland</em> (1819), which upheld Congress's power to create a national bank"
+],
+"answer": 0,
+"explain": "<p>Harlan argued that laws separating citizens by race violated the Constitution. In 1954, <em>Brown v. Board of Education</em> rejected the \"separate but equal\" idea from <em>Plessy</em> in public education, agreeing in spirit with Harlan. <em>Dred Scott</em> came before <em>Plessy</em> and denied citizenship to Black Americans—the opposite of Harlan's view. <em>Marbury</em> and <em>McCulloch</em> dealt with government powers, not racial equality.</p>",
+"why": [
+"",
+"Dred Scott came before Plessy and denied citizenship to Black Americans, the opposite of Harlan's view that there are no classes among citizens.",
+"Marbury v. Madison established judicial review; it was not about racial equality. Brown v. Board rejected &ldquo;separate but equal,&rdquo; matching Harlan's dissent.",
+"McCulloch v. Maryland was about Congress's power to create a bank, not racial equality. Brown v. Board reflected Harlan's color-blind view."
+]
+},
+{
+"id": "q25",
+"type": "mc",
+"skill": "U.S. history: Cold War",
+"difficulty": 2,
+"stim": "s17",
+"prompt": "<p>Based on the passage, what was a main goal of the Marshall Plan?</p>",
+"options": [
+"To punish Germany for starting World War II",
+"To repay the Soviet Union for its losses during the war",
+"To create a single government for all of Europe",
+"To help Western European economies recover so that communism would have less appeal"
+],
+"answer": 3,
+"explain": "<p>The passage says American leaders believed that \"people with jobs, food, and hope for the future would be far less likely to turn to communism.\" Rebuilding economies was a way to contain the spread of communism during the early Cold War. The Soviet Union refused to take part, so the plan did not repay it, and the passage says nothing about punishing Germany or creating one European government.</p>",
+"why": [
+"The passage says nothing about punishing Germany. It says leaders believed people with jobs and food would be less likely to turn to communism.",
+"The passage says the Soviet Union refused to take part, so the plan did not repay it.",
+"The passage never mentions a single European government. The aid was meant to rebuild economies so communism would have less appeal.",
+""
+]
+},
+{
+"id": "q26",
+"type": "fill",
+"skill": "Economics: equilibrium",
+"difficulty": 1,
+"stim": "s18",
+"prompt": "<p>At what price per quart is the strawberry market in equilibrium? Enter the price in dollars.</p>",
+"answer": [
+"4",
+"$4",
+"4.00",
+"$4.00"
+],
+"value": 4,
+"tol": 0.001,
+"suffix": "dollars per quart",
+"explain": "<p>Equilibrium is the price at which quantity demanded equals quantity supplied. At $4, buyers want 220 quarts and sellers offer 220 quarts. At every other price the two amounts are different, so the equilibrium price is <strong>$4</strong>.</p>",
+"mistakes": [
+{
+"answer": [
+"220"
+],
+"why": "220 is the quantity in quarts at equilibrium, not the price. The question asks for the price where demand equals supply: $4."
+},
+{
+"answer": [
+"3",
+"$3"
+],
+"why": "At $3, buyers want 260 quarts but sellers offer only 160, so the market is not balanced. The two quantities are equal (220) at $4."
+},
+{
+"answer": [
+"5",
+"$5"
+],
+"why": "At $5, sellers offer 280 quarts but buyers want only 180, a surplus. Equilibrium is where they match: $4."
+}
+]
+},
+{
+"id": "q27",
+"type": "mc",
+"skill": "Economics: shortage and surplus",
+"difficulty": 2,
+"stim": "s18",
+"prompt": "<p>Suppose the market sets the price of strawberries at $3 per quart. What will result?</p>",
+"options": [
+"A surplus of 100 quarts",
+"A shortage of 100 quarts",
+"A shortage of 160 quarts",
+"A surplus of 40 quarts"
+],
+"answer": 1,
+"explain": "<p>At $3: quantity demanded = 260 quarts; quantity supplied = 160 quarts.<br>260 &minus; 160 = 100.<br>Buyers want 100 more quarts than sellers offer, which is a <strong>shortage of 100 quarts</strong>. A surplus happens only when the price is above equilibrium (for example, at $5 there is a surplus of 280 &minus; 180 = 100 quarts). \"A shortage of 160\" uses the quantity supplied by mistake.</p>",
+"why": [
+"You subtracted correctly but reversed the label. At $3 buyers want more (260) than sellers offer (160), which is a shortage, not a surplus.",
+"",
+"160 is the quantity supplied at $3, not the shortage. The shortage is the gap: 260 &minus; 160 = 100.",
+"A surplus happens only above the equilibrium price. At $3 demand (260) is greater than supply (160), a shortage of 100."
+]
+},
+{
+"id": "q28",
+"type": "dropdown",
+"skill": "Economics: supply and demand shifts",
+"difficulty": 2,
+"stim": "s18",
+"prompt": "<p>A late frost destroys part of the strawberry crop in the region. Complete the statement.</p><p>The frost causes the {{0}} curve for strawberries to shift to the left, so the equilibrium price of strawberries will most likely {{1}}.</p>",
+"blanks": [
+{
+"options": [
+"supply",
+"demand",
+"income"
+],
+"answer": 0,
+"why": [
+"",
+"The frost hurts growers, not buyers' wants. Fewer strawberries to sell is a decrease in supply.",
+"Income is not a market curve. The frost reduces how much growers can sell, which shifts supply left."
+]
+},
+{
+"options": [
+"rise",
+"fall",
+"stay the same"
+],
+"answer": 0,
+"why": [
+"",
+"A price falls when supply rises or demand drops. Here supply decreased while demand stayed the same, so the price rises.",
+"When the supply curve shifts left and demand does not change, the equilibrium price changes; with fewer strawberries available, it rises."
+]
+}
+],
+"explain": "<p>The frost reduces the amount of strawberries sellers can offer at every price, so <strong>supply</strong> decreases (the supply curve shifts left). Buyers still want strawberries as much as before, so demand has not changed. With fewer strawberries available, the equilibrium price will <strong>rise</strong>. A common mistake is choosing \"demand\"—the frost affects growers, not buyers' wants.</p>"
+},
+{
+"id": "q29",
+"type": "mc",
+"skill": "Economics: monetary policy",
+"difficulty": 2,
+"stim": "s19",
+"prompt": "<p>Prices across the economy are rising quickly. Based on the passage, what action would the Federal Reserve most likely take?</p>",
+"options": [
+"Raise its target for short-term interest rates to slow borrowing and spending",
+"Lower its target for short-term interest rates to encourage more borrowing",
+"Cut federal income taxes to give people more money to spend",
+"Increase government spending on new highways"
+],
+"answer": 0,
+"explain": "<p>The passage says that when the Federal Reserve raises its interest rate target, people and businesses borrow and spend less, \"which slows the growth of prices.\" Lowering rates would encourage more spending and push prices higher. Cutting taxes and increasing highway spending are fiscal policy tools controlled by Congress and the President, not the Federal Reserve.</p>",
+"why": [
+"",
+"The passage says lowering rates encourages spending, which would push prices even higher. To slow rising prices, the Fed raises its target.",
+"Cutting taxes is fiscal policy, decided by Congress and the President, not the Federal Reserve. It would also add spending, not slow prices.",
+"Highway spending is fiscal policy, decided by Congress and the President. The Federal Reserve's tool is the interest rate target."
+]
+},
+{
+"id": "q30",
+"type": "multi",
+"skill": "Economics: fiscal policy",
+"difficulty": 2,
+"stim": "s19",
+"prompt": "<p>Which actions are examples of <strong>fiscal</strong> policy? Select <strong>two</strong> answers.</p>",
+"options": [
+"Congress passes a law that cuts income tax rates.",
+"The Federal Reserve lowers its target interest rate.",
+"Congress approves new spending to repair highways and bridges.",
+"The Federal Reserve buys government bonds from banks.",
+"A private bank raises the interest rate it charges on car loans."
+],
+"answer": [
+0,
+2
+],
+"explain": "<p>Fiscal policy is government decisions about taxes and spending, made by Congress and the President. Cutting income tax rates and funding highway repairs both qualify. Actions by the Federal Reserve (changing interest rate targets, buying bonds) are monetary policy. A private bank's loan rate is a business decision, not government policy.</p>",
+"why": [
+"",
+"The Federal Reserve sets interest rate targets, which the passage calls monetary policy. Fiscal policy is taxes and spending by Congress and the President.",
+"",
+"Buying bonds is an action of the Federal Reserve, which is monetary policy. Fiscal policy is taxes and government spending.",
+"A private bank's loan rate is a business decision, not government policy. Fiscal policy is taxes and spending by Congress and the President."
+]
+},
+{
+"id": "q31",
+"type": "multi",
+"skill": "Geography: hemispheres",
+"difficulty": 1,
+"stim": "s20",
+"prompt": "<p>Which cities are located in the Western Hemisphere? Select <strong>two</strong> answers.</p>",
+"options": [
+"Cairo",
+"Sydney",
+"Lima",
+"Chicago",
+"Tokyo"
+],
+"answer": [
+2,
+3
+],
+"explain": "<p>The Western Hemisphere is the half of Earth west of the Prime Meridian, so its cities have longitudes marked W. Lima (77° W) and Chicago (88° W) are the only cities in the list with W longitudes. Cairo (31° E), Sydney (151° E), and Tokyo (140° E) are in the Eastern Hemisphere. Do not confuse longitude with latitude: Lima is in the Southern Hemisphere, but its W longitude also places it in the Western Hemisphere.</p>",
+"why": [
+"Cairo is at 31&deg; E, so it is in the Eastern Hemisphere. Western Hemisphere cities have longitudes marked W.",
+"Sydney is at 151&deg; E, east of the Prime Meridian. Its S latitude places it in the Southern Hemisphere, not the Western.",
+"",
+"",
+"Tokyo is at 140&deg; E, so it is in the Eastern Hemisphere. Only Lima and Chicago have W longitudes."
+]
+},
+{
+"id": "q32",
+"type": "mc",
+"skill": "Geography: latitude and longitude",
+"difficulty": 2,
+"stim": "s20",
+"prompt": "<p>Which city is located in both the Southern Hemisphere and the Eastern Hemisphere?</p>",
+"options": [
+"Lima",
+"Cairo",
+"Sydney",
+"Tokyo"
+],
+"answer": 2,
+"explain": "<p>Southern Hemisphere means a latitude marked S; Eastern Hemisphere means a longitude marked E. Sydney is at 34° S, 151° E, so it meets both conditions. Lima (12° S) is in the Southern Hemisphere but is at 77° W, which is the Western Hemisphere. Cairo and Tokyo are east but north of the equator.</p>",
+"why": [
+"Lima is in the Southern Hemisphere (12&deg; S), but its longitude, 77&deg; W, puts it in the Western Hemisphere.",
+"Cairo is east (31&deg; E) but north of the equator (30&deg; N), so it is in the Northern Hemisphere.",
+"",
+"Tokyo is east (140&deg; E) but north of the equator (36&deg; N), so it is in the Northern Hemisphere."
+]
+},
+{
+"id": "q33",
+"type": "fill",
+"skill": "Geography: using coordinates",
+"difficulty": 3,
+"stim": "s20",
+"prompt": "<p>How many degrees of latitude separate Chicago and Lima?</p>",
+"answer": [
+"54",
+"54°",
+"54degrees"
+],
+"value": 54,
+"tol": 0.001,
+"suffix": "degrees",
+"explain": "<p>Chicago is 42° <strong>north</strong> of the equator, and Lima is 12° <strong>south</strong> of the equator. Because they are on opposite sides of the equator, add the distances:<br>42 + 12 = <strong>54 degrees</strong>.<br>A common error is subtracting (42 &minus; 12 = 30), which would be correct only if both cities were on the same side of the equator.</p>",
+"mistakes": [
+{
+"answer": [
+"30"
+],
+"why": "You subtracted 12 from 42, which works only when both cities are on the same side of the equator. Chicago is north and Lima is south, so add: 42 + 12 = 54."
+},
+{
+"answer": [
+"11"
+],
+"why": "11 is the difference in longitude (88 &minus; 77). The question asks about latitude: 42&deg; N and 12&deg; S are 42 + 12 = 54 degrees apart."
+},
+{
+"answer": [
+"165"
+],
+"why": "You added the longitudes (88 + 77). Latitude is the north-south measure: 42&deg; N to 12&deg; S is 54 degrees."
+}
+]
+},
+{
+"id": "q34",
+"type": "mc",
+"skill": "Geography: human-environment interaction",
+"difficulty": 2,
+"stim": "s21",
+"prompt": "<p>Which statement best expresses the central idea of the passage?</p>",
+"options": [
+"The Aswan High Dam was a failure that brought no benefits to Egypt.",
+"The Nile River no longer plays an important role in Egyptian life.",
+"Egypt built the Aswan High Dam mainly to create a large lake for tourism.",
+"Changing the Nile's natural flow brought Egypt important benefits but also created new environmental problems."
+],
+"answer": 3,
+"explain": "<p>The passage describes benefits (flood control, year-round irrigation, hydroelectric power) and then, beginning with \"However,\" describes costs (silt trapped in the lake, more fertilizer use, a shrinking delta). The central idea is this trade-off, a classic example of human-environment interaction. Calling the dam \"a failure that brought no benefits\" ignores the whole paragraph of benefits.</p>",
+"why": [
+"This ignores the benefits the passage lists: flood control, year-round irrigation, and hydroelectric power.",
+"The passage shows the Nile still supplies irrigation water and power. It describes changes, not a river that no longer matters.",
+"The passage says the dam was built to gain control of the floods, not for tourism. Lake Nasser formed behind the dam as a result.",
+""
+]
+},
+{
+"id": "q35",
+"type": "hotspot",
+"skill": "Geography: cause and effect",
+"difficulty": 3,
+"stim": "s21",
+"prompt": "<p>The sentences below come from the last paragraph of the passage. Click the sentence that identifies the change in the river that <strong>caused</strong> many farmers to need chemical fertilizers.</p>",
+"spans": [
+"The dam now holds back the yearly flood, protecting towns and fields from destructive high water.",
+"Water stored in Lake Nasser lets farmers irrigate year-round, so many fields produce more than one harvest each year.",
+"Turbines inside the dam generate hydroelectric power for homes and industry.",
+"However, the silt that once washed onto the fields now settles to the bottom of Lake Nasser instead.",
+"As a result, many farmers now buy chemical fertilizers to keep their soil productive.",
+"Along the Mediterranean coast, the Nile Delta is also wearing away, because less sediment reaches the sea to rebuild it."
+],
+"answer": 3,
+"explain": "<p>The cause is that the nutrient-rich silt no longer reaches the fields because it settles in Lake Nasser. The next sentence (\"As a result, many farmers now buy chemical fertilizers . . .\") describes the <em>effect</em>, not the cause; the signal words \"As a result\" show this. The delta sentence describes a different effect of the same change.</p>",
+"why": "The most common wrong click is the fertilizer sentence itself. &ldquo;As a result&rdquo; signals that it is the effect; the cause is the sentence before it, which says the silt now settles to the bottom of Lake Nasser instead of reaching the fields."
+}
+]
+}
+]
 }

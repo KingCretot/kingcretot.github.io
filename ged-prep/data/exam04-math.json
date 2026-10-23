@@ -4,203 +4,1188 @@
 "title": "Practice GED Form 4 — Mathematical Reasoning",
 "minutes": 115,
 "stimuli": [
-{"id": "s1", "title": "Pitching Machine",
- "html": "<p>A pitching machine at a batting cage launches a ball straight up into the air to test its power. The ball leaves the machine 6 feet above the ground. The height h of the ball, in feet, t seconds after it is launched is modeled by the function below.</p><p><strong>h(t) = &minus;16t<sup>2</sup> + 48t + 6</strong></p><p>Use this information to answer the questions that follow.</p>"}
+{
+"id": "s1",
+"title": "Pitching Machine",
+"html": "<p>A pitching machine at a batting cage launches a ball straight up into the air to test its power. The ball leaves the machine 6 feet above the ground. The height h of the ball, in feet, t seconds after it is launched is modeled by the function below.</p><p><strong>h(t) = &minus;16t<sup>2</sup> + 48t + 6</strong></p><p>Use this information to answer the questions that follow.</p>"
+}
 ],
 "parts": [
-{"name": "Part 1", "calculator": false, "items": [
-{"id": "m01", "type": "mc", "skill": "Order of operations with integers", "difficulty": 1,
- "prompt": "<p>What is the value of the expression below?</p><p>24 &divide; (2 &minus; 6) + 3 &times; 2<sup>3</sup></p>",
- "options": ["30", "210", "18", "&minus;30"], "answer": 2,
- "explain": "<p>Work inside the parentheses first: 2 &minus; 6 = &minus;4.</p><p>Exponent: 2<sup>3</sup> = 8.</p><p>Multiply and divide from left to right: 24 &divide; (&minus;4) = &minus;6 and 3 &times; 8 = 24.</p><p>Add: &minus;6 + 24 = <strong>18</strong>.</p><p>30 comes from treating 24 &divide; (&minus;4) as +6. 210 comes from multiplying 3 &times; 2 before applying the exponent: 6<sup>3</sup> = 216, and &minus;6 + 216 = 210. The exponent applies only to the 2.</p>"},
-{"id": "m02", "type": "fill", "skill": "Adding mixed numbers", "difficulty": 1,
- "prompt": "<p>On a weekend trip, Jamal hiked 3&frac12; miles in the morning and 2&frac34; miles in the afternoon. How many miles did he hike in all?</p><p>Write your answer as a fraction or a decimal.</p>",
- "answer": ["25/4", "6.25"], "value": 6.25, "tol": 0.001, "suffix": "miles",
- "explain": "<p>Use a common denominator of 4: 3&frac12; = 3&frac24;.</p><p>Add the whole numbers: 3 + 2 = 5.</p><p>Add the fractions: 2/4 + 3/4 = 5/4 = 1&frac14;.</p><p>Total: 5 + 1&frac14; = <strong>6&frac14; miles</strong> (25/4 or 6.25).</p><p>A common error is to add the numerators and denominators separately: 1/2 + 3/4 is not 4/6. The fractions need a common denominator first.</p>"},
-{"id": "m03", "type": "mc", "skill": "Exponent rules", "difficulty": 2,
- "prompt": "<p>Which expression is equivalent to (x<sup>4</sup>)<sup>3</sup> &divide; x<sup>5</sup> for x &ne; 0?</p>",
- "options": ["x<sup>7</sup>", "x<sup>2</sup>", "x<sup>17</sup>", "x<sup>60</sup>"], "answer": 0,
- "explain": "<p>Power of a power: multiply the exponents. (x<sup>4</sup>)<sup>3</sup> = x<sup>4 &times; 3</sup> = x<sup>12</sup>.</p><p>Dividing powers with the same base: subtract the exponents. x<sup>12</sup> &divide; x<sup>5</sup> = x<sup>12 &minus; 5</sup> = <strong>x<sup>7</sup></strong>.</p><p>x<sup>2</sup> comes from adding 4 + 3 instead of multiplying, then subtracting 5. x<sup>17</sup> adds the exponents when it should subtract them.</p>"},
-{"id": "m04", "type": "mc", "skill": "Solving equations with fractions", "difficulty": 2,
- "prompt": "<p>What value of x makes the equation true?</p><p>(2/3)x &minus; 4 = 10</p>",
- "options": ["9", "28/3", "&minus;21", "21"], "answer": 3,
- "explain": "<p>Add 4 to both sides: (2/3)x = 14.</p><p>Multiply both sides by the reciprocal, 3/2: x = 14 &times; 3/2 = 42/2 = <strong>21</strong>.</p><p>Check: (2/3)(21) &minus; 4 = 14 &minus; 4 = 10.</p><p>28/3 comes from multiplying 14 by 2/3 instead of dividing by 2/3. 9 comes from subtracting 4 instead of adding it (10 &minus; 4 = 6, and 6 &times; 3/2 = 9).</p>"},
-{"id": "m05", "type": "mc", "skill": "Distributive property and like terms", "difficulty": 1,
- "prompt": "<p>Which expression is equivalent to &minus;2(3x &minus; 5) + 4x?</p>",
- "options": ["&minus;2x &minus; 10", "&minus;2x + 10", "&minus;2x &minus; 5", "&minus;10x + 10"], "answer": 1,
- "explain": "<p>Distribute &minus;2 to both terms in the parentheses: &minus;2(3x) = &minus;6x and &minus;2(&minus;5) = +10.</p><p>&minus;6x + 10 + 4x</p><p>Combine like terms: &minus;6x + 4x = &minus;2x.</p><p>Result: <strong>&minus;2x + 10</strong>.</p><p>&minus;2x &minus; 10 forgets that a negative times a negative is positive. &minus;2x &minus; 5 distributes the &minus;2 to the 3x only: &minus;6x &minus; 5 + 4x. &minus;10x + 10 subtracts 4x instead of adding it.</p>"}
-]},
-{"name": "Part 2", "calculator": true, "items": [
-{"id": "m06", "type": "mc", "skill": "Unit rates", "difficulty": 1,
- "prompt": "<p>A cyclist rode 54 miles in 3.6 hours at a steady pace. What was her average speed?</p>",
- "options": ["18 miles per hour", "15 miles per hour", "194.4 miles per hour", "0.07 mile per hour"], "answer": 1,
- "explain": "<p>Speed = distance &divide; time.</p><p>54 &divide; 3.6 = <strong>15 miles per hour</strong>.</p><p>Check: 15 &times; 3.6 = 54 miles.</p><p>194.4 multiplies instead of dividing. 0.07 divides time by distance (3.6 &divide; 54), which gives hours per mile, not miles per hour. 18 rounds the time down to 3 hours.</p>"},
-{"id": "m07", "type": "mc", "skill": "Percent increase", "difficulty": 2,
- "prompt": "<p>A fitness center raised its monthly membership fee from $40 to $46. By what percent did the fee increase?</p>",
- "options": ["6%", "13%", "115%", "15%"], "answer": 3,
- "explain": "<p>Amount of increase: 46 &minus; 40 = $6.</p><p>Percent increase = increase &divide; original amount = 6 &divide; 40 = 0.15 = <strong>15%</strong>.</p><p>13% comes from dividing by the new fee (6 &divide; 46 &asymp; 0.13). 6% treats the $6 increase as a percent. 115% is the new fee as a percent of the old fee, not the increase.</p>"},
-{"id": "m08", "type": "fill", "skill": "Scale and proportions", "difficulty": 1,
- "prompt": "<p>On a park trail map, 1 inch represents 0.75 mile. A loop trail measures 5.2 inches on the map. What is the actual length of the trail, in miles?</p>",
- "answer": ["3.9"], "value": 3.9, "tol": 0.001, "suffix": "miles",
- "explain": "<p>Each inch stands for 0.75 mile, so multiply:</p><p>5.2 &times; 0.75 = <strong>3.9 miles</strong>.</p><p>As a proportion: 1/0.75 = 5.2/m, so m = 5.2 &times; 0.75 = 3.9.</p><p>Dividing (5.2 &divide; 0.75 &asymp; 6.9) would make the real trail longer per inch than the scale allows.</p>"},
-{"id": "m09", "type": "mc", "skill": "Ratios", "difficulty": 2,
- "prompt": "<p>A softball team has played 30 games and has no ties. The ratio of its wins to its losses is 7 : 3. How many more games has the team won than lost?</p>",
- "options": ["12", "4", "21", "9"], "answer": 0,
- "explain": "<p>The ratio 7 : 3 has 7 + 3 = 10 parts.</p><p>Each part: 30 &divide; 10 = 3 games.</p><p>Wins: 7 &times; 3 = 21. Losses: 3 &times; 3 = 9.</p><p>Difference: 21 &minus; 9 = <strong>12</strong> more wins than losses.</p><p>4 is the difference in the ratio (7 &minus; 3) but not in actual games. 21 and 9 are the numbers of wins and losses, not the difference.</p>"},
-{"id": "m10", "type": "mc", "skill": "Scientific notation", "difficulty": 2,
- "prompt": "<p>A football stadium has 6.5 &times; 10<sup>4</sup> seats. Every seat was filled for each of the team's 8 home games this season. What was the total home attendance for the season?</p>",
- "options": ["5.2 &times; 10<sup>4</sup>", "5.2 &times; 10<sup>6</sup>", "5.2 &times; 10<sup>5</sup>", "8.125 &times; 10<sup>3</sup>"], "answer": 2,
- "explain": "<p>Multiply: 8 &times; (6.5 &times; 10<sup>4</sup>) = 52 &times; 10<sup>4</sup>.</p><p>Rewrite in scientific notation: 52 &times; 10<sup>4</sup> = 5.2 &times; 10<sup>1</sup> &times; 10<sup>4</sup> = <strong>5.2 &times; 10<sup>5</sup></strong> (520,000 people).</p><p>5.2 &times; 10<sup>4</sup> forgets to raise the exponent when 52 becomes 5.2. 8.125 &times; 10<sup>3</sup> divides by 8 instead of multiplying.</p>"},
-{"id": "m11", "type": "fill", "skill": "Mean from a frequency table", "difficulty": 3,
- "prompt": "<p>A youth soccer coach recorded how many goals her team scored in each game of the season.</p><table><thead><tr><th>Goals scored in a game</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead><tbody><tr><td>Number of games</td><td>2</td><td>5</td><td>6</td><td>4</td><td>3</td></tr></tbody></table><p>What was the mean number of goals the team scored per game? Write your answer as a decimal.</p>",
- "answer": ["2.05"], "value": 2.05, "tol": 0.001, "suffix": "goals per game",
- "explain": "<p>Total number of games: 2 + 5 + 6 + 4 + 3 = 20.</p><p>Total goals (goals &times; games for each column):</p><p>0 &times; 2 = 0; 1 &times; 5 = 5; 2 &times; 6 = 12; 3 &times; 4 = 12; 4 &times; 3 = 12</p><p>0 + 5 + 12 + 12 + 12 = 41 goals.</p><p>Mean = 41 &divide; 20 = <strong>2.05 goals per game</strong>.</p><p>A common error is to average only the column headings, (0 + 1 + 2 + 3 + 4) &divide; 5 = 2, which ignores how many games each score happened.</p>"},
-{"id": "m12", "type": "dropdown", "skill": "Median and range", "difficulty": 2,
- "prompt": "<p>Seven swimmers recorded these times, in seconds, in a 100-meter freestyle race.</p><p>58.4, 61.2, 57.9, 60.5, 59.3, 62.0, 58.8</p><p>The median time is {{0}}.</p><p>The range of the times is {{1}}.</p>",
- "blanks": [{"options": ["60.5 seconds", "59.3 seconds", "59.7 seconds", "58.8 seconds"], "answer": 1}, {"options": ["4.1 seconds", "0.4 seconds", "3.6 seconds", "62.0 seconds"], "answer": 0}],
- "explain": "<p>Put the times in order: 57.9, 58.4, 58.8, 59.3, 60.5, 61.2, 62.0.</p><p>With 7 values, the median is the 4th value: <strong>59.3 seconds</strong>.</p><p>Range = greatest &minus; least = 62.0 &minus; 57.9 = <strong>4.1 seconds</strong>.</p><p>60.5 is the middle of the list <em>before</em> it is put in order. 59.7 is the mean (418.1 &divide; 7 &asymp; 59.73), not the median. 3.6 subtracts the first time listed (58.4) instead of the least time.</p>"},
-{"id": "m13", "type": "mc", "skill": "Probability of independent events", "difficulty": 2,
- "prompt": "<p>A basketball player makes 80% of her free throws. She shoots two free throws, and the results of the two shots are independent. What is the probability that she makes both free throws?</p>",
- "options": ["0.80", "0.16", "1.60", "0.64"], "answer": 3,
- "explain": "<p>For independent events, multiply the probabilities:</p><p>P(make both) = 0.80 &times; 0.80 = <strong>0.64</strong> (64%).</p><p>1.60 adds the probabilities; a probability can never be greater than 1. 0.16 is 0.80 &times; 0.20, the probability of making the first shot and missing the second. 0.80 is the probability for just one shot.</p>"},
-{"id": "m14", "type": "mc", "skill": "Counting arrangements", "difficulty": 2,
- "prompt": "<p>A climbing team has 9 members. The coach will choose one member to be captain and a different member to be co-captain. How many different ways can the coach fill the two positions?</p>",
- "options": ["36", "72", "81", "18"], "answer": 1,
- "explain": "<p>There are 9 choices for captain. Once the captain is chosen, 8 members remain for co-captain.</p><p>9 &times; 8 = <strong>72</strong> ways.</p><p>The order matters here: Ana as captain with Ben as co-captain is different from Ben as captain with Ana as co-captain.</p><p>81 (9 &times; 9) lets the same person hold both positions. 36 (72 &divide; 2) would be correct only if the two positions were the same, so order did not matter. 18 adds 9 + 9.</p>"},
-{"id": "m15", "type": "mc", "skill": "Circumference", "difficulty": 3,
- "prompt": "<p>A bicycle wheel has a diameter of 26 inches. One mile is 63,360 inches. About how many complete turns does the wheel make when the bicycle travels 1 mile? Round to the nearest whole number. Use the formula sheet if needed.</p>",
- "options": ["2,437", "1,551", "776", "119"], "answer": 2,
- "explain": "<p>In one turn, the wheel rolls a distance equal to its circumference.</p><p>C = &pi;d = &pi;(26) &asymp; 81.68 inches.</p><p>Number of turns = 63,360 &divide; 81.68 &asymp; 775.7, which rounds to <strong>776 turns</strong>.</p><p>2,437 divides by the diameter instead of the circumference. 1,551 uses &pi;r = &pi;(13), which is only half the circumference. 119 divides by the area of the wheel, &pi;(13)<sup>2</sup>, which is not a distance.</p>"},
-{"id": "m16", "type": "mc", "skill": "Area of composite figures", "difficulty": 3,
- "prompt": "<p>The infield of a running track is shaped like a rectangle with a semicircle on each end, as shown. The rectangle is 100 meters long and 64 meters wide, and the diameter of each semicircle is 64 meters. To the nearest square meter, what is the area of the infield?</p>",
- "figure": {"type": "svg", "svg": "<svg viewBox='0 0 320 190' xmlns='http://www.w3.org/2000/svg'><path d='M80,40 L240,40 A51,51 0 0 1 240,142 L80,142 A51,51 0 0 1 80,40 Z' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='80' y1='40' x2='80' y2='142' stroke='#0A1F3D' stroke-dasharray='5,4'/><line x1='240' y1='40' x2='240' y2='142' stroke='#0A1F3D' stroke-dasharray='5,4'/><text x='140' y='30' font-size='14' fill='#0A1F3D'>100 m</text><text x='246' y='96' font-size='14' fill='#0A1F3D'>64 m</text></svg>", "alt": "A track infield made of a rectangle 100 meters long and 64 meters wide, with a semicircle attached to each 64-meter end. Dashed lines separate the semicircles from the rectangle."},
- "options": ["9,617", "8,008", "19,268", "6,601"], "answer": 0,
- "explain": "<p>Rectangle: 100 &times; 64 = 6,400 square meters.</p><p>The two semicircles together make one full circle with diameter 64 m, so the radius is 32 m.</p><p>Circle area: &pi;r<sup>2</sup> = &pi;(32)<sup>2</sup> = 1,024&pi; &asymp; 3,216.99 square meters.</p><p>Total: 6,400 + 3,216.99 &asymp; <strong>9,617 square meters</strong>.</p><p>8,008 counts only one semicircle. 19,268 uses 64 as the radius. 6,601 adds the circumference of the circle (2&pi; &times; 32 &asymp; 201) instead of its area.</p>"},
-{"id": "m17", "type": "fill", "skill": "Pythagorean theorem", "difficulty": 2,
- "prompt": "<p>A baseball diamond is a square with sides of 90 feet. A catcher throws the ball in a straight line from home plate to second base, which is the opposite corner of the square. How far is the throw, in feet? Round your answer to the nearest tenth.</p>",
- "answer": ["127.3"], "value": 127.3, "tol": 0.05, "suffix": "feet",
- "explain": "<p>The path from home plate to second base is the diagonal of the square. It is the hypotenuse of a right triangle with two legs of 90 feet.</p><p>c<sup>2</sup> = 90<sup>2</sup> + 90<sup>2</sup> = 8,100 + 8,100 = 16,200</p><p>c = &radic;16,200 &asymp; 127.279</p><p>Rounded to the nearest tenth: <strong>127.3 feet</strong>.</p><p>Adding the two sides (180 feet) gives the distance running along the base paths, not the straight throw.</p>"},
-{"id": "m18", "type": "mc", "skill": "Volume of a cylinder with unit conversion", "difficulty": 3,
- "prompt": "<p>A round above-ground swimming pool is shaped like a cylinder with a diameter of 18 feet. It is filled with water to a depth of 4 feet. One cubic foot holds about 7.48 gallons of water. About how many gallons of water are in the pool? Use the formula sheet if needed.</p>",
- "options": ["7,614", "1,018", "30,455", "136"], "answer": 0,
- "explain": "<p>Volume of a cylinder: V = &pi;r<sup>2</sup>h. The radius is 18 &divide; 2 = 9 feet.</p><p>V = &pi;(9)<sup>2</sup>(4) = &pi;(81)(4) = 324&pi; &asymp; 1,017.88 cubic feet.</p><p>Convert to gallons: 1,017.88 &times; 7.48 &asymp; <strong>7,614 gallons</strong>.</p><p>1,018 is the volume in cubic feet, before converting to gallons. 30,455 uses the diameter, 18, as the radius. 136 divides by 7.48 instead of multiplying.</p>"},
-{"id": "m19", "type": "mc", "skill": "Volume of a sphere", "difficulty": 2,
- "prompt": "<p>A basketball has a diameter of 9.4 inches. To the nearest tenth of a cubic inch, what is the volume of the ball? Use the formula sheet if needed.</p>",
- "options": ["3,479.1", "277.6", "434.9", "1,304.7"], "answer": 2,
- "explain": "<p>Volume of a sphere: V = (4/3)&pi;r<sup>3</sup>. The radius is 9.4 &divide; 2 = 4.7 inches.</p><p>r<sup>3</sup> = 4.7 &times; 4.7 &times; 4.7 = 103.823</p><p>V = (4/3)&pi;(103.823) &asymp; <strong>434.9 cubic inches</strong>.</p><p>3,479.1 uses the diameter as the radius. 1,304.7 leaves out the division by 3 (4&pi;r<sup>3</sup>). 277.6 is 4&pi;r<sup>2</sup>, the surface area, not the volume.</p>"},
-{"id": "m20", "type": "fill", "skill": "Surface area of a rectangular prism", "difficulty": 2,
- "prompt": "<p>A closed storage box for gym equipment is a rectangular prism 4 feet long, 2 feet wide, and 1.5 feet tall. The outside of the box, including the lid and bottom, will be covered with vinyl. How many square feet of vinyl are needed? Use the formula sheet if needed.</p>",
- "answer": ["34"], "value": 34, "tol": 0.001, "suffix": "square feet",
- "explain": "<p>Surface area of a rectangular prism: SA = 2lw + 2lh + 2wh.</p><p>2lw = 2(4)(2) = 16</p><p>2lh = 2(4)(1.5) = 12</p><p>2wh = 2(2)(1.5) = 6</p><p>SA = 16 + 12 + 6 = <strong>34 square feet</strong>.</p><p>A common error is to find the volume instead: 4 &times; 2 &times; 1.5 = 12 cubic feet. Covering the outside is a surface area question.</p>"},
-{"id": "m21", "type": "mc", "skill": "Successive discounts", "difficulty": 2,
- "prompt": "<p>A pair of running shoes is regularly priced at $120. The store takes 30% off the regular price. At the register, a coupon takes an additional 10% off the sale price. What is the final price of the shoes, before tax?</p>",
- "options": ["$72.00", "$84.00", "$108.00", "$75.60"], "answer": 3,
- "explain": "<p>First discount: 30% of $120 = 0.30 &times; 120 = $36, so the sale price is 120 &minus; 36 = $84.00.</p><p>Second discount: 10% of $84 = $8.40, so the final price is 84.00 &minus; 8.40 = <strong>$75.60</strong>.</p><p>Shortcut: 120 &times; 0.70 &times; 0.90 = 75.60.</p><p>$72.00 adds the discounts to get 40% off the regular price. That is wrong because the 10% is taken from the lower sale price, not from $120. $84.00 applies only the first discount.</p>"},
-{"id": "m22", "type": "mc", "skill": "Rates with time units", "difficulty": 3,
- "prompt": "<p>Lena finished a 6.2-mile race in 52 minutes 42 seconds. What was her average pace, in time per mile?</p>",
- "options": ["8 minutes 27 seconds", "8 minutes 30 seconds", "8 minutes 5 seconds", "8 minutes 47 seconds"], "answer": 1,
- "explain": "<p>Change the time to minutes: 42 seconds = 42/60 = 0.7 minute, so the time is 52.7 minutes.</p><p>Pace = time &divide; distance = 52.7 &divide; 6.2 = 8.5 minutes per mile.</p><p>Change 0.5 minute to seconds: 0.5 &times; 60 = 30 seconds. The pace is <strong>8 minutes 30 seconds per mile</strong>.</p><p>8 minutes 27 seconds comes from writing 52 minutes 42 seconds as 52.42 minutes. 8 minutes 5 seconds misreads 8.5 minutes as 8 minutes 5 seconds. 8 minutes 47 seconds divides by 6 miles instead of 6.2.</p>"},
-{"id": "m23", "type": "mc", "skill": "Square roots and perimeter", "difficulty": 2,
- "prompt": "<p>A square boxing ring has an area of 484 square feet. Three rows of rope run around all four sides of the ring. What is the total length of rope needed, in feet?</p>",
- "options": ["88", "66", "264", "1,452"], "answer": 2,
- "explain": "<p>Side length of the square: s = &radic;484 = 22 feet.</p><p>Perimeter of the ring: 4 &times; 22 = 88 feet.</p><p>Three rows of rope: 3 &times; 88 = <strong>264 feet</strong>.</p><p>88 is the length of only one row. 66 is three sides&rsquo; worth of one row (3 &times; 22). 1,452 multiplies the area by 3, which mixes square feet with feet.</p>"},
-{"id": "m24", "type": "drag", "skill": "Comparing and ordering rational numbers", "difficulty": 3,
- "prompt": "<p>Drag each number into the correct position to order the numbers from least to greatest.</p>",
- "choices": ["0.3", "1/30", "3.2 &times; 10<sup>&minus;2</sup>", "3/100", "2.9 &times; 10<sup>&minus;1</sup>"],
- "bins": ["1st (least)", "2nd", "3rd", "4th", "5th (greatest)"],
- "answer": [4, 2, 1, 0, 3],
- "explain": "<p>Write each number as a decimal:</p><p>3/100 = 0.03; 3.2 &times; 10<sup>&minus;2</sup> = 0.032; 1/30 &asymp; 0.0333; 2.9 &times; 10<sup>&minus;1</sup> = 0.29; 0.3</p><p>Order from least to greatest: <strong>3/100, 3.2 &times; 10<sup>&minus;2</sup>, 1/30, 2.9 &times; 10<sup>&minus;1</sup>, 0.3</strong>.</p><p>A negative exponent moves the decimal point to the left, so 3.2 &times; 10<sup>&minus;2</sup> is small (0.032), not 320. Also, 1/30 is about 0.0333, slightly greater than 0.032.</p>"},
-{"id": "m25", "type": "fill", "skill": "Linear equation word problem", "difficulty": 2,
- "prompt": "<p>Gym A charges a $50 joining fee plus $25 per month. Gym B has no joining fee and charges $35 per month. After how many months will the total cost be the same at both gyms?</p>",
- "answer": ["5"], "value": 5, "tol": 0.001, "suffix": "months",
- "explain": "<p>Let m be the number of months.</p><p>Gym A: 50 + 25m. Gym B: 35m.</p><p>Set the costs equal: 50 + 25m = 35m</p><p>Subtract 25m from both sides: 50 = 10m</p><p>m = <strong>5 months</strong></p><p>Check: Gym A costs 50 + 25(5) = $175, and Gym B costs 35(5) = $175.</p><p>Dividing 50 by 35 (about 1.4) ignores the monthly fee at Gym A. The costs become equal because Gym B costs $10 more each month, and that makes up the $50 fee after 5 months.</p>"},
-{"id": "m26", "type": "mc", "skill": "Evaluating formulas", "difficulty": 1,
- "prompt": "<p>A trainer uses the formula T = 0.7(220 &minus; a) to estimate a target heart rate T, in beats per minute, for a person who is a years old. What is the target heart rate for a 40-year-old?</p>",
- "options": ["114 beats per minute", "126 beats per minute", "154 beats per minute", "180 beats per minute"], "answer": 1,
- "explain": "<p>Substitute a = 40:</p><p>T = 0.7(220 &minus; 40) = 0.7(180) = <strong>126 beats per minute</strong>.</p><p>114 comes from multiplying 0.7 &times; 220 = 154 first and then subtracting 40. The subtraction inside the parentheses must be done first. 180 forgets to multiply by 0.7.</p>"},
-{"id": "m27", "type": "mc", "skill": "Solving literal equations", "difficulty": 3,
- "prompt": "<p>The distance around a running track with straight sides of length l and semicircular ends of diameter d is given by P = 2l + &pi;d. Which equation correctly solves this formula for l?</p>",
- "options": ["l = P/2 &minus; &pi;d", "l = (P + &pi;d) / 2", "l = P &minus; &pi;d/2", "l = (P &minus; &pi;d) / 2"], "answer": 3,
- "explain": "<p>Start with P = 2l + &pi;d.</p><p>Subtract &pi;d from both sides: P &minus; &pi;d = 2l.</p><p>Divide both sides by 2: <strong>l = (P &minus; &pi;d) / 2</strong>.</p><p>l = P/2 &minus; &pi;d divides only P by 2; the &pi;d term must also be divided by 2. l = (P + &pi;d) / 2 adds &pi;d instead of subtracting it.</p>"},
-{"id": "m28", "type": "mc", "skill": "Multiplying polynomials", "difficulty": 3,
- "prompt": "<p>Which expression is equivalent to (x + 4)(x<sup>2</sup> &minus; 2x + 3)?</p>",
- "options": ["x<sup>3</sup> + 2x<sup>2</sup> &minus; 5x + 12", "x<sup>3</sup> + 2x<sup>2</sup> + 11x + 12", "x<sup>3</sup> &minus; 2x<sup>2</sup> + 3x + 12", "x<sup>3</sup> + 6x<sup>2</sup> &minus; 5x + 12"], "answer": 0,
- "explain": "<p>Multiply each term of (x + 4) by each term of the trinomial.</p><p>x(x<sup>2</sup> &minus; 2x + 3) = x<sup>3</sup> &minus; 2x<sup>2</sup> + 3x</p><p>4(x<sup>2</sup> &minus; 2x + 3) = 4x<sup>2</sup> &minus; 8x + 12</p><p>Combine like terms: x<sup>3</sup> + (&minus;2x<sup>2</sup> + 4x<sup>2</sup>) + (3x &minus; 8x) + 12 = <strong>x<sup>3</sup> + 2x<sup>2</sup> &minus; 5x + 12</strong>.</p><p>x<sup>3</sup> + 2x<sup>2</sup> + 11x + 12 uses +8x instead of 4(&minus;2x) = &minus;8x. x<sup>3</sup> &minus; 2x<sup>2</sup> + 3x + 12 leaves out the middle products 4x<sup>2</sup> and &minus;8x.</p>"},
-{"id": "m29", "type": "mc", "skill": "Factoring trinomials", "difficulty": 1,
- "prompt": "<p>Which expression is equivalent to x<sup>2</sup> &minus; 10x + 21?</p>",
- "options": ["(x + 3)(x + 7)", "(x &minus; 3)(x &minus; 7)", "(x &minus; 3)(x + 7)", "(x + 3)(x &minus; 7)"], "answer": 1,
- "explain": "<p>Find two numbers that multiply to +21 and add to &minus;10. Both numbers must be negative: &minus;3 and &minus;7, because (&minus;3)(&minus;7) = 21 and &minus;3 + (&minus;7) = &minus;10.</p><p>x<sup>2</sup> &minus; 10x + 21 = <strong>(x &minus; 3)(x &minus; 7)</strong>.</p><p>Check: (x &minus; 3)(x &minus; 7) = x<sup>2</sup> &minus; 7x &minus; 3x + 21 = x<sup>2</sup> &minus; 10x + 21.</p><p>(x + 3)(x + 7) gives x<sup>2</sup> + 10x + 21, which has the wrong sign on the middle term. (x &minus; 3)(x + 7) gives a constant of &minus;21.</p>"},
-{"id": "m30", "type": "multi", "skill": "Factoring completely", "difficulty": 3,
- "prompt": "<p>The expression 3x<sup>2</sup> &minus; 48 can be factored completely as 3 times two binomials. Which binomials are factors of 3x<sup>2</sup> &minus; 48? Select <strong>two</strong> answers.</p>",
- "options": ["x &minus; 4", "x + 4", "x &minus; 16", "x + 16", "3x &minus; 16", "x &minus; 8"], "answer": [0, 1],
- "explain": "<p>First factor out the greatest common factor, 3: 3x<sup>2</sup> &minus; 48 = 3(x<sup>2</sup> &minus; 16).</p><p>x<sup>2</sup> &minus; 16 is a difference of squares: x<sup>2</sup> &minus; 4<sup>2</sup> = (x &minus; 4)(x + 4).</p><p>So 3x<sup>2</sup> &minus; 48 = <strong>3(x &minus; 4)(x + 4)</strong>.</p><p>Check: 3(x<sup>2</sup> + 4x &minus; 4x &minus; 16) = 3(x<sup>2</sup> &minus; 16) = 3x<sup>2</sup> &minus; 48.</p><p>x &minus; 16 and x + 16 forget to take the square root of 16. 3x &minus; 16 divides only one term by 3.</p>"},
-{"id": "m31", "type": "mc", "skill": "Inequality word problem", "difficulty": 2,
- "prompt": "<p>Rosa is planning a family reunion with a budget of $520. She has already paid $140 to rent a park pavilion. Each catered food tray costs $45. What is the greatest number of food trays she can order and stay within her budget?</p>",
- "options": ["9", "11", "3", "8"], "answer": 3,
- "explain": "<p>Let t be the number of trays: 140 + 45t &le; 520.</p><p>Subtract 140: 45t &le; 380.</p><p>Divide by 45: t &le; 8.44&hellip;</p><p>She cannot order part of a tray, and rounding up would go over budget, so the greatest number is <strong>8 trays</strong>.</p><p>Check: 140 + 45(8) = $500, which is within budget; 140 + 45(9) = $545, which is over.</p><p>9 rounds 8.44 up. 11 ignores the $140 already spent (520 &divide; 45 &asymp; 11.6).</p>"},
-{"id": "m32", "type": "mc", "skill": "Solving linear inequalities", "difficulty": 2,
- "prompt": "<p>Which inequality is equivalent to 5 &minus; 2x &le; 3x + 20?</p>",
- "options": ["x &ge; &minus;3", "x &le; &minus;3", "x &ge; 3", "x &ge; 5"], "answer": 0,
- "explain": "<p>Subtract 3x from both sides: 5 &minus; 5x &le; 20.</p><p>Subtract 5 from both sides: &minus;5x &le; 15.</p><p>Divide both sides by &minus;5 and reverse the inequality sign: <strong>x &ge; &minus;3</strong>.</p><p>Check with x = 0: 5 &minus; 0 = 5 and 3(0) + 20 = 20, and 5 &le; 20 is true. Since 0 &ge; &minus;3, this agrees.</p><p>x &le; &minus;3 forgets to reverse the sign when dividing by a negative number.</p>"},
-{"id": "m33", "type": "mc", "skill": "Systems of equations word problem", "difficulty": 3,
- "prompt": "<p>At a high school basketball game, the concession stand sold hot dogs for $4 each and soft pretzels for $3 each. The stand sold 85 items in all and collected $295. How many pretzels were sold?</p>",
- "options": ["40", "50", "45", "74"], "answer": 2,
- "explain": "<p>Let h = hot dogs and p = pretzels.</p><p>h + p = 85</p><p>4h + 3p = 295</p><p>From the first equation, h = 85 &minus; p. Substitute:</p><p>4(85 &minus; p) + 3p = 295</p><p>340 &minus; 4p + 3p = 295</p><p>340 &minus; p = 295, so p = <strong>45 pretzels</strong> (and h = 40 hot dogs).</p><p>Check: 4(40) + 3(45) = 160 + 135 = $295.</p><p>40 is the number of hot dogs. 74 comes from 295 &divide; 4, which assumes every item was a hot dog.</p>"},
-{"id": "m34", "type": "hotspot", "skill": "Solving systems by graphing", "difficulty": 1,
- "prompt": "<p>The graphs of y = &minus;x + 3 and y = 2x &minus; 6 are shown on the coordinate plane. Click the point that represents the solution to the system of equations.</p>",
- "figure": {"type": "plane", "xmin": -6, "xmax": 6, "ymin": -8, "ymax": 8, "lines": [{"m": -1, "b": 3, "label": "y = −x + 3"}, {"m": 2, "b": -6, "label": "y = 2x − 6"}]},
- "plane": {"xmin": -6, "xmax": 6, "ymin": -8, "ymax": 8}, "answer": [3, 0],
- "explain": "<p>The solution is the point where the two lines cross. Set the expressions equal:</p><p>&minus;x + 3 = 2x &minus; 6</p><p>9 = 3x, so x = 3</p><p>y = &minus;3 + 3 = 0</p><p>The solution is <strong>(3, 0)</strong>. Check in the second equation: 2(3) &minus; 6 = 0.</p><p>The y-intercepts (0, 3) and (0, &minus;6) each lie on only one of the lines, so they are not solutions to the system.</p>"},
-{"id": "m35", "type": "hotspot", "skill": "Vertex of a parabola", "difficulty": 3,
- "prompt": "<p>Click the point on the coordinate plane that is the vertex of the graph of y = x<sup>2</sup> &minus; 4x + 1.</p>",
- "plane": {"xmin": -6, "xmax": 6, "ymin": -6, "ymax": 6}, "answer": [2, -3],
- "explain": "<p>For y = ax<sup>2</sup> + bx + c, the x-coordinate of the vertex is x = &minus;b / (2a).</p><p>Here a = 1 and b = &minus;4, so x = &minus;(&minus;4) / (2 &times; 1) = 4/2 = 2.</p><p>Find y: y = (2)<sup>2</sup> &minus; 4(2) + 1 = 4 &minus; 8 + 1 = &minus;3.</p><p>The vertex is <strong>(2, &minus;3)</strong>.</p><p>Another way: complete the square. x<sup>2</sup> &minus; 4x + 1 = (x &minus; 2)<sup>2</sup> &minus; 4 + 1 = (x &minus; 2)<sup>2</sup> &minus; 3, so the vertex is (2, &minus;3).</p><p>The point (0, 1) is the y-intercept, not the vertex. Using x = b / (2a) = &minus;2 gives the wrong side of the graph.</p>"},
-{"id": "m36", "type": "dropdown", "skill": "Rate of change from a table", "difficulty": 2,
- "prompt": "<p>A hiking group climbs a mountain trail at a steady rate. The table shows the group&rsquo;s elevation E, in feet, t hours after starting.</p><table><thead><tr><th>Time t (hours)</th><th>0</th><th>2</th><th>4</th><th>6</th></tr></thead><tbody><tr><td>Elevation E (feet)</td><td>2,400</td><td>3,300</td><td>4,200</td><td>5,100</td></tr></tbody></table><p>The group climbs at a rate of {{0}} feet per hour.</p><p>The group started at an elevation of {{1}} feet.</p><p>After 5 hours, the group&rsquo;s elevation is {{2}} feet.</p>",
- "blanks": [{"options": ["225", "450", "900", "2,400"], "answer": 1}, {"options": ["0", "450", "2,400", "3,300"], "answer": 2}, {"options": ["2,250", "4,500", "4,650", "4,750"], "answer": 2}],
- "explain": "<p>Rate of change: the elevation rises 900 feet every 2 hours (2,400 to 3,300). 900 &divide; 2 = <strong>450 feet per hour</strong>. Choosing 900 forgets that each step in the table is 2 hours, not 1.</p><p>Starting elevation: the value when t = 0 is <strong>2,400 feet</strong>.</p><p>The model is E = 2,400 + 450t. After 5 hours: E = 2,400 + 450(5) = 2,400 + 2,250 = <strong>4,650 feet</strong>.</p><p>2,250 is only the height gained in 5 hours; it leaves out the starting elevation.</p>"},
-{"id": "m37", "type": "mc", "skill": "Equation of a line through two points", "difficulty": 3,
- "prompt": "<p>Which equation represents the line that passes through the points (&minus;2, 7) and (4, &minus;2)?</p>",
- "options": ["y = &minus;(3/2)x + 4", "y = (3/2)x + 10", "y = &minus;(2/3)x + 17/3", "y = &minus;(3/2)x + 10"], "answer": 0,
- "explain": "<p>Slope: m = (&minus;2 &minus; 7) / (4 &minus; (&minus;2)) = &minus;9/6 = &minus;3/2.</p><p>Find b using (&minus;2, 7): 7 = (&minus;3/2)(&minus;2) + b, so 7 = 3 + b and b = 4.</p><p>The equation is <strong>y = &minus;(3/2)x + 4</strong>.</p><p>Check with (4, &minus;2): &minus;(3/2)(4) + 4 = &minus;6 + 4 = &minus;2.</p><p>y = &minus;(3/2)x + 10 comes from a sign error: (&minus;3/2)(&minus;2) is +3, not &minus;3. y = (3/2)x + 10 loses the negative sign on the slope. y = &minus;(2/3)x + 17/3 uses change in x over change in y for the slope.</p>"},
-{"id": "m38", "type": "mc", "skill": "Interpreting slope and intercept", "difficulty": 1,
- "prompt": "<p>A lake rental shop uses the equation C = 15 + 8h to find the cost C, in dollars, of renting a kayak for h hours. What does the number 8 represent?</p>",
- "options": ["The one-time fee charged for every rental", "The total cost of a 1-hour rental", "The cost for each hour of the rental", "The number of hours the kayak is rented"], "answer": 2,
- "explain": "<p>In C = 15 + 8h, the number 8 is multiplied by h, the number of hours. Each additional hour adds $8 to the cost, so 8 is the <strong>cost for each hour</strong> (the slope, or rate of change).</p><p>The 15 is the one-time fee (the y-intercept), because it is charged even when h = 0.</p><p>The total cost of a 1-hour rental is 15 + 8(1) = $23, not $8.</p>"},
-{"id": "m39", "type": "fill", "skill": "Function notation", "difficulty": 1,
- "prompt": "<p>The function f is defined as f(x) = 4x &minus; 9. For what value of x is f(x) = 15?</p>",
- "answer": ["6"], "value": 6, "tol": 0.001,
- "explain": "<p>Set the function equal to 15: 4x &minus; 9 = 15.</p><p>Add 9 to both sides: 4x = 24.</p><p>Divide by 4: x = <strong>6</strong>.</p><p>Check: f(6) = 4(6) &minus; 9 = 24 &minus; 9 = 15.</p><p>A common error is to find f(15) instead: 4(15) &minus; 9 = 51. The question gives the output, 15, and asks for the input.</p>"},
-{"id": "m40", "type": "dropdown", "skill": "Comparing linear functions", "difficulty": 3,
- "prompt": "<p>Two cyclists ride on the same road in the same direction at steady speeds.</p><p>Cyclist A&rsquo;s distance from the starting line, in miles, after t hours is d = 14t.</p><p>Cyclist B&rsquo;s distance from the starting line is shown in the table.</p><table><thead><tr><th>Time t (hours)</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead><tbody><tr><td>Distance d (miles)</td><td>5</td><td>17</td><td>29</td><td>41</td></tr></tbody></table><p>The faster rider is {{0}}.</p><p>At t = 0, Cyclist B is {{1}} ahead of the starting line.</p><p>Cyclist A catches up to Cyclist B after {{2}}.</p>",
- "blanks": [{"options": ["Cyclist A", "Cyclist B", "neither; they ride at the same speed"], "answer": 0}, {"options": ["0 miles", "5 miles", "12 miles", "17 miles"], "answer": 1}, {"options": ["0.5 hour", "2 hours", "2.5 hours", "5 hours"], "answer": 2}],
- "explain": "<p>Cyclist A&rsquo;s speed is the slope of d = 14t: 14 miles per hour.</p><p>Cyclist B&rsquo;s speed is the rate of change in the table: 17 &minus; 5 = 12 miles each hour. So <strong>Cyclist A</strong> is faster.</p><p>At t = 0, Cyclist B&rsquo;s distance is <strong>5 miles</strong>, so B has a 5-mile head start. B&rsquo;s equation is d = 12t + 5.</p><p>Set the distances equal: 14t = 12t + 5, so 2t = 5 and t = <strong>2.5 hours</strong>.</p><p>Check: A: 14(2.5) = 35 miles. B: 12(2.5) + 5 = 35 miles.</p><p>Choosing Cyclist B because its table numbers are larger confuses distance with speed; B is ahead only because of its head start.</p>"},
-{"id": "m41", "type": "mc", "skill": "Quadratic formula in context", "stim": "s1", "difficulty": 3,
- "prompt": "<p>To the nearest hundredth of a second, how long after it is launched does the ball hit the ground? Use the formula sheet if needed.</p>",
- "options": ["1.50 seconds", "3.12 seconds", "3.00 seconds", "0.12 second"], "answer": 1,
- "explain": "<p>The ball hits the ground when h(t) = 0: &minus;16t<sup>2</sup> + 48t + 6 = 0.</p><p>Use the quadratic formula with a = &minus;16, b = 48, c = 6.</p><p>b<sup>2</sup> &minus; 4ac = 48<sup>2</sup> &minus; 4(&minus;16)(6) = 2,304 + 384 = 2,688</p><p>&radic;2,688 &asymp; 51.846</p><p>t = (&minus;48 &plusmn; 51.846) / (2 &times; &minus;16) = (&minus;48 &plusmn; 51.846) / (&minus;32)</p><p>t = (&minus;48 &minus; 51.846) / (&minus;32) = &minus;99.846 / &minus;32 &asymp; <strong>3.12 seconds</strong></p><p>The other solution, (&minus;48 + 51.846) / (&minus;32) &asymp; &minus;0.12, is negative, so it does not make sense for time. 3.00 seconds is when h = 6 (the ball returns to launch height), not ground level. 1.50 seconds is when the ball reaches its highest point.</p>"},
-{"id": "m42", "type": "mc", "skill": "Maximum of a quadratic function", "stim": "s1", "difficulty": 3,
- "prompt": "<p>What is the maximum height the ball reaches?</p>",
- "options": ["54 feet", "6 feet", "78 feet", "42 feet"], "answer": 3,
- "explain": "<p>The maximum occurs at the vertex, t = &minus;b / (2a) = &minus;48 / (2 &times; &minus;16) = &minus;48 / &minus;32 = 1.5 seconds.</p><p>h(1.5) = &minus;16(1.5)<sup>2</sup> + 48(1.5) + 6</p><p>(1.5)<sup>2</sup> = 2.25, and &minus;16(2.25) = &minus;36</p><p>48(1.5) = 72</p><p>h(1.5) = &minus;36 + 72 + 6 = <strong>42 feet</strong></p><p>54 feet comes from forgetting to square 1.5 (&minus;16 &times; 1.5 = &minus;24). 78 feet comes from leaving out the &minus;16t<sup>2</sup> term (72 + 6). 6 feet is the launch height.</p>"},
-{"id": "m43", "type": "mc", "skill": "Adding rational expressions", "difficulty": 3,
- "prompt": "<p>Which expression is equivalent to 3/x + 2/(x + 1) for all values of x where the expression is defined?</p>",
- "options": ["5/(2x + 1)", "5/(x<sup>2</sup> + x)", "(5x + 1)/(x<sup>2</sup> + x)", "(5x + 3)/(x<sup>2</sup> + x)"], "answer": 3,
- "explain": "<p>The common denominator is x(x + 1) = x<sup>2</sup> + x.</p><p>Rewrite each fraction: 3/x = 3(x + 1) / [x(x + 1)] = (3x + 3) / [x(x + 1)] and 2/(x + 1) = 2x / [x(x + 1)].</p><p>Add the numerators: (3x + 3 + 2x) / [x(x + 1)] = <strong>(5x + 3)/(x<sup>2</sup> + x)</strong>.</p><p>Check with x = 1: 3/1 + 2/2 = 4, and (5 + 3)/(1 + 1) = 8/2 = 4.</p><p>5/(2x + 1) adds the numerators and the denominators separately, which is never allowed. (5x + 1)/(x<sup>2</sup> + x) multiplies only the x by 3 in 3(x + 1).</p>"},
-{"id": "m44", "type": "drag", "skill": "Slope of a line from its equation", "difficulty": 2,
- "prompt": "<p>Drag each equation into the category that describes the slope of its graph.</p>",
- "choices": ["y = 4", "x = &minus;2", "y = &minus;3x + 1", "2x &minus; y = 5", "3x + 4y = 8", "y &minus; 6 = 2x"],
- "bins": ["Positive slope", "Negative slope", "Zero slope", "Undefined slope"],
- "answer": [2, 3, 1, 0, 1, 0],
- "explain": "<p><strong>y = 4</strong> is a horizontal line: zero slope.</p><p><strong>x = &minus;2</strong> is a vertical line: undefined slope.</p><p><strong>y = &minus;3x + 1</strong> has slope &minus;3: negative.</p><p><strong>2x &minus; y = 5</strong> becomes y = 2x &minus; 5, slope 2: positive.</p><p><strong>3x + 4y = 8</strong> becomes 4y = &minus;3x + 8, so y = &minus;(3/4)x + 2, slope &minus;3/4: negative.</p><p><strong>y &minus; 6 = 2x</strong> becomes y = 2x + 6, slope 2: positive.</p><p>A common mistake is to read the slope of 2x &minus; y = 5 as &minus;2 without solving for y first; the &minus;y flips the sign.</p>"},
-{"id": "m45", "type": "multi", "skill": "Parallel lines", "difficulty": 3,
- "prompt": "<p>Which equations represent lines that are parallel to the line y = (2/3)x &minus; 4? Select <strong>two</strong> answers.</p>",
- "options": ["y = (2/3)x + 5", "2x &minus; 3y = 9", "3x &minus; 2y = 4", "y = &minus;(3/2)x + 1", "2x + 3y = 6", "y = 3x &minus; 2"], "answer": [0, 1],
- "explain": "<p>Parallel lines have the same slope, 2/3, and different y-intercepts.</p><p>y = (2/3)x + 5 has slope 2/3 and y-intercept 5: <strong>parallel</strong>.</p><p>2x &minus; 3y = 9: &minus;3y = &minus;2x + 9, so y = (2/3)x &minus; 3. Slope 2/3, different intercept: <strong>parallel</strong>.</p><p>3x &minus; 2y = 4 gives y = (3/2)x &minus; 2 (slope 3/2). y = &minus;(3/2)x + 1 has the negative reciprocal slope, so it is perpendicular. 2x + 3y = 6 gives y = &minus;(2/3)x + 2 (slope &minus;2/3). y = 3x &minus; 2 has slope 3. None of these are parallel.</p>"},
-{"id": "m46", "type": "mc", "skill": "Exponent rules with variables", "difficulty": 2,
- "prompt": "<p>Which expression is equivalent to (6x<sup>5</sup>y<sup>&minus;2</sup>) / (2x<sup>2</sup>y<sup>3</sup>) for x &ne; 0 and y &ne; 0?</p>",
- "options": ["3x<sup>3</sup> / y<sup>5</sup>", "3x<sup>3</sup>y", "4x<sup>3</sup> / y<sup>5</sup>", "12x<sup>7</sup>y"], "answer": 0,
- "explain": "<p>Divide the coefficients: 6 &divide; 2 = 3.</p><p>Subtract exponents for x: x<sup>5 &minus; 2</sup> = x<sup>3</sup>.</p><p>Subtract exponents for y: y<sup>&minus;2 &minus; 3</sup> = y<sup>&minus;5</sup> = 1/y<sup>5</sup>.</p><p>Result: <strong>3x<sup>3</sup> / y<sup>5</sup></strong>.</p><p>3x<sup>3</sup>y comes from treating the y exponent as &minus;2 &minus; (&minus;3) = 1, a sign error. 4x<sup>3</sup>/y<sup>5</sup> subtracts the coefficients instead of dividing them. 12x<sup>7</sup>y multiplies instead of dividing.</p>"}
-]}
+{
+"name": "Part 1",
+"calculator": false,
+"items": [
+{
+"id": "m01",
+"type": "mc",
+"skill": "Order of operations with integers",
+"difficulty": 1,
+"prompt": "<p>What is the value of the expression below?</p><p>24 &divide; (2 &minus; 6) + 3 &times; 2<sup>3</sup></p>",
+"options": [
+"30",
+"210",
+"18",
+"&minus;30"
+],
+"answer": 2,
+"explain": "<p>Work inside the parentheses first: 2 &minus; 6 = &minus;4.</p><p>Exponent: 2<sup>3</sup> = 8.</p><p>Multiply and divide from left to right: 24 &divide; (&minus;4) = &minus;6 and 3 &times; 8 = 24.</p><p>Add: &minus;6 + 24 = <strong>18</strong>.</p><p>30 comes from treating 24 &divide; (&minus;4) as +6. 210 comes from multiplying 3 &times; 2 before applying the exponent: 6<sup>3</sup> = 216, and &minus;6 + 216 = 210. The exponent applies only to the 2.</p>",
+"why": [
+"You treated 24 &divide; (&minus;4) as +6. A positive divided by a negative is negative: &minus;6 + 24 = 18.",
+"You multiplied 3 &times; 2 before applying the exponent, getting 6<sup>3</sup> = 216. The exponent belongs only to the 2: 3 &times; 8 = 24, and &minus;6 + 24 = 18.",
+"",
+"You made both parts negative (&minus;6 &minus; 24). Only the division gives a negative; 3 &times; 2<sup>3</sup> = +24, so &minus;6 + 24 = 18."
+]
+},
+{
+"id": "m02",
+"type": "fill",
+"skill": "Adding mixed numbers",
+"difficulty": 1,
+"prompt": "<p>On a weekend trip, Jamal hiked 3&frac12; miles in the morning and 2&frac34; miles in the afternoon. How many miles did he hike in all?</p><p>Write your answer as a fraction or a decimal.</p>",
+"answer": [
+"25/4",
+"6.25"
+],
+"value": 6.25,
+"tol": 0.001,
+"suffix": "miles",
+"explain": "<p>Use a common denominator of 4: 3&frac12; = 3&frac24;.</p><p>Add the whole numbers: 3 + 2 = 5.</p><p>Add the fractions: 2/4 + 3/4 = 5/4 = 1&frac14;.</p><p>Total: 5 + 1&frac14; = <strong>6&frac14; miles</strong> (25/4 or 6.25).</p><p>A common error is to add the numerators and denominators separately: 1/2 + 3/4 is not 4/6. The fractions need a common denominator first.</p>",
+"mistakes": [
+{
+"answer": [
+"5.25",
+"21/4",
+"5 1/4"
+],
+"why": "You added 2/4 + 3/4 = 5/4 but kept only the 1/4 and did not carry the extra whole. 5/4 = 1&frac14;, so the total is 5 + 1&frac14; = 6&frac14;."
+},
+{
+"answer": [
+"5 4/6",
+"34/6",
+"5.67"
+],
+"why": "You added the numerators and the denominators separately (1/2 + 3/4 = 4/6). Use a common denominator: 2/4 + 3/4 = 5/4, so the total is 6&frac14;."
+}
+]
+},
+{
+"id": "m03",
+"type": "mc",
+"skill": "Exponent rules",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to (x<sup>4</sup>)<sup>3</sup> &divide; x<sup>5</sup> for x &ne; 0?</p>",
+"options": [
+"x<sup>7</sup>",
+"x<sup>2</sup>",
+"x<sup>17</sup>",
+"x<sup>60</sup>"
+],
+"answer": 0,
+"explain": "<p>Power of a power: multiply the exponents. (x<sup>4</sup>)<sup>3</sup> = x<sup>4 &times; 3</sup> = x<sup>12</sup>.</p><p>Dividing powers with the same base: subtract the exponents. x<sup>12</sup> &divide; x<sup>5</sup> = x<sup>12 &minus; 5</sup> = <strong>x<sup>7</sup></strong>.</p><p>x<sup>2</sup> comes from adding 4 + 3 instead of multiplying, then subtracting 5. x<sup>17</sup> adds the exponents when it should subtract them.</p>",
+"why": [
+"",
+"You added 4 + 3 instead of multiplying when raising a power to a power, then subtracted 5. (x<sup>4</sup>)<sup>3</sup> = x<sup>12</sup>, and x<sup>12</sup> &divide; x<sup>5</sup> = x<sup>7</sup>.",
+"You added the exponents 12 + 5 when dividing. Dividing powers with the same base means subtracting: 12 &minus; 5 = 7.",
+"You multiplied all the exponents (4 &times; 3 &times; 5). Multiply only for the power of a power, then subtract for the division: x<sup>12 &minus; 5</sup> = x<sup>7</sup>."
+]
+},
+{
+"id": "m04",
+"type": "mc",
+"skill": "Solving equations with fractions",
+"difficulty": 2,
+"prompt": "<p>What value of x makes the equation true?</p><p>(2/3)x &minus; 4 = 10</p>",
+"options": [
+"9",
+"28/3",
+"&minus;21",
+"21"
+],
+"answer": 3,
+"explain": "<p>Add 4 to both sides: (2/3)x = 14.</p><p>Multiply both sides by the reciprocal, 3/2: x = 14 &times; 3/2 = 42/2 = <strong>21</strong>.</p><p>Check: (2/3)(21) &minus; 4 = 14 &minus; 4 = 10.</p><p>28/3 comes from multiplying 14 by 2/3 instead of dividing by 2/3. 9 comes from subtracting 4 instead of adding it (10 &minus; 4 = 6, and 6 &times; 3/2 = 9).</p>",
+"why": [
+"You subtracted 4 instead of adding it (10 &minus; 4 = 6), then 6 &times; 3/2 = 9. Undo &minus;4 by adding 4: (2/3)x = 14, so x = 21.",
+"You multiplied 14 by 2/3 instead of dividing by 2/3. Multiply by the reciprocal, 3/2: 14 &times; 3/2 = 21.",
+"You got the sign wrong; nothing in the equation makes x negative. (2/3)x = 14 and 14 &times; 3/2 = 21.",
+""
+]
+},
+{
+"id": "m05",
+"type": "mc",
+"skill": "Distributive property and like terms",
+"difficulty": 1,
+"prompt": "<p>Which expression is equivalent to &minus;2(3x &minus; 5) + 4x?</p>",
+"options": [
+"&minus;2x &minus; 10",
+"&minus;2x + 10",
+"&minus;2x &minus; 5",
+"&minus;10x + 10"
+],
+"answer": 1,
+"explain": "<p>Distribute &minus;2 to both terms in the parentheses: &minus;2(3x) = &minus;6x and &minus;2(&minus;5) = +10.</p><p>&minus;6x + 10 + 4x</p><p>Combine like terms: &minus;6x + 4x = &minus;2x.</p><p>Result: <strong>&minus;2x + 10</strong>.</p><p>&minus;2x &minus; 10 forgets that a negative times a negative is positive. &minus;2x &minus; 5 distributes the &minus;2 to the 3x only: &minus;6x &minus; 5 + 4x. &minus;10x + 10 subtracts 4x instead of adding it.</p>",
+"why": [
+"You forgot that a negative times a negative is positive: &minus;2 &times; &minus;5 = +10, not &minus;10.",
+"",
+"You distributed &minus;2 only to 3x and left &minus;5 alone. The &minus;2 multiplies both terms: &minus;6x + 10.",
+"You subtracted 4x instead of adding it (&minus;6x &minus; 4x). The expression adds 4x: &minus;6x + 4x = &minus;2x."
+]
+}
+]
+},
+{
+"name": "Part 2",
+"calculator": true,
+"items": [
+{
+"id": "m06",
+"type": "mc",
+"skill": "Unit rates",
+"difficulty": 1,
+"prompt": "<p>A cyclist rode 54 miles in 3.6 hours at a steady pace. What was her average speed?</p>",
+"options": [
+"18 miles per hour",
+"15 miles per hour",
+"194.4 miles per hour",
+"0.07 mile per hour"
+],
+"answer": 1,
+"explain": "<p>Speed = distance &divide; time.</p><p>54 &divide; 3.6 = <strong>15 miles per hour</strong>.</p><p>Check: 15 &times; 3.6 = 54 miles.</p><p>194.4 multiplies instead of dividing. 0.07 divides time by distance (3.6 &divide; 54), which gives hours per mile, not miles per hour. 18 rounds the time down to 3 hours.</p>",
+"why": [
+"You rounded the time down to 3 hours (54 &divide; 3 = 18). Use the full time: 54 &divide; 3.6 = 15 miles per hour.",
+"",
+"You multiplied 54 &times; 3.6 instead of dividing. Speed is distance &divide; time: 54 &divide; 3.6 = 15.",
+"You divided time by distance (3.6 &divide; 54), which is hours per mile. Miles per hour is distance &divide; time: 15."
+]
+},
+{
+"id": "m07",
+"type": "mc",
+"skill": "Percent increase",
+"difficulty": 2,
+"prompt": "<p>A fitness center raised its monthly membership fee from $40 to $46. By what percent did the fee increase?</p>",
+"options": [
+"6%",
+"13%",
+"115%",
+"15%"
+],
+"answer": 3,
+"explain": "<p>Amount of increase: 46 &minus; 40 = $6.</p><p>Percent increase = increase &divide; original amount = 6 &divide; 40 = 0.15 = <strong>15%</strong>.</p><p>13% comes from dividing by the new fee (6 &divide; 46 &asymp; 0.13). 6% treats the $6 increase as a percent. 115% is the new fee as a percent of the old fee, not the increase.</p>",
+"why": [
+"You treated the $6 increase as 6%. Compare it to the original fee: 6 &divide; 40 = 0.15 = 15%.",
+"You divided by the new fee (6 &divide; 46 &asymp; 13%). Percent change uses the original amount: 6 &divide; 40 = 15%.",
+"115% is the new fee as a percent of the old fee (46 &divide; 40). The increase is the part above 100%: 15%.",
+""
+]
+},
+{
+"id": "m08",
+"type": "fill",
+"skill": "Scale and proportions",
+"difficulty": 1,
+"prompt": "<p>On a park trail map, 1 inch represents 0.75 mile. A loop trail measures 5.2 inches on the map. What is the actual length of the trail, in miles?</p>",
+"answer": [
+"3.9"
+],
+"value": 3.9,
+"tol": 0.001,
+"suffix": "miles",
+"explain": "<p>Each inch stands for 0.75 mile, so multiply:</p><p>5.2 &times; 0.75 = <strong>3.9 miles</strong>.</p><p>As a proportion: 1/0.75 = 5.2/m, so m = 5.2 &times; 0.75 = 3.9.</p><p>Dividing (5.2 &divide; 0.75 &asymp; 6.9) would make the real trail longer per inch than the scale allows.</p>",
+"mistakes": [
+{
+"answer": [
+"6.9",
+"6.93",
+"6.933"
+],
+"why": "You divided 5.2 by 0.75. Each inch stands for 0.75 mile, so multiply: 5.2 &times; 0.75 = 3.9 miles."
+},
+{
+"answer": [
+"5.95"
+],
+"why": "You added 5.2 and 0.75. The scale is a rate per inch, so multiply: 5.2 &times; 0.75 = 3.9 miles."
+}
+]
+},
+{
+"id": "m09",
+"type": "mc",
+"skill": "Ratios",
+"difficulty": 2,
+"prompt": "<p>A softball team has played 30 games and has no ties. The ratio of its wins to its losses is 7 : 3. How many more games has the team won than lost?</p>",
+"options": [
+"12",
+"4",
+"21",
+"9"
+],
+"answer": 0,
+"explain": "<p>The ratio 7 : 3 has 7 + 3 = 10 parts.</p><p>Each part: 30 &divide; 10 = 3 games.</p><p>Wins: 7 &times; 3 = 21. Losses: 3 &times; 3 = 9.</p><p>Difference: 21 &minus; 9 = <strong>12</strong> more wins than losses.</p><p>4 is the difference in the ratio (7 &minus; 3) but not in actual games. 21 and 9 are the numbers of wins and losses, not the difference.</p>",
+"why": [
+"",
+"4 is the difference in the ratio (7 &minus; 3), not in actual games. Each ratio part is 30 &divide; 10 = 3 games, so the difference is 4 &times; 3 = 12.",
+"21 is the number of wins. The question asks how many more wins than losses: 21 &minus; 9 = 12.",
+"9 is the number of losses. Subtract it from the 21 wins: 12 more wins."
+]
+},
+{
+"id": "m10",
+"type": "mc",
+"skill": "Scientific notation",
+"difficulty": 2,
+"prompt": "<p>A football stadium has 6.5 &times; 10<sup>4</sup> seats. Every seat was filled for each of the team's 8 home games this season. What was the total home attendance for the season?</p>",
+"options": [
+"5.2 &times; 10<sup>4</sup>",
+"5.2 &times; 10<sup>6</sup>",
+"5.2 &times; 10<sup>5</sup>",
+"8.125 &times; 10<sup>3</sup>"
+],
+"answer": 2,
+"explain": "<p>Multiply: 8 &times; (6.5 &times; 10<sup>4</sup>) = 52 &times; 10<sup>4</sup>.</p><p>Rewrite in scientific notation: 52 &times; 10<sup>4</sup> = 5.2 &times; 10<sup>1</sup> &times; 10<sup>4</sup> = <strong>5.2 &times; 10<sup>5</sup></strong> (520,000 people).</p><p>5.2 &times; 10<sup>4</sup> forgets to raise the exponent when 52 becomes 5.2. 8.125 &times; 10<sup>3</sup> divides by 8 instead of multiplying.</p>",
+"why": [
+"You wrote 52 &times; 10<sup>4</sup> as 5.2 &times; 10<sup>4</sup> without raising the exponent. Moving the decimal one place left adds 1 to the exponent: 5.2 &times; 10<sup>5</sup>.",
+"You raised the exponent by 2 instead of 1. 52 = 5.2 &times; 10<sup>1</sup>, so 52 &times; 10<sup>4</sup> = 5.2 &times; 10<sup>5</sup> (520,000).",
+"",
+"You divided by 8 instead of multiplying. The total for 8 full games is 8 &times; 65,000 = 520,000."
+]
+},
+{
+"id": "m11",
+"type": "fill",
+"skill": "Mean from a frequency table",
+"difficulty": 3,
+"prompt": "<p>A youth soccer coach recorded how many goals her team scored in each game of the season.</p><table><thead><tr><th>Goals scored in a game</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead><tbody><tr><td>Number of games</td><td>2</td><td>5</td><td>6</td><td>4</td><td>3</td></tr></tbody></table><p>What was the mean number of goals the team scored per game? Write your answer as a decimal.</p>",
+"answer": [
+"2.05"
+],
+"value": 2.05,
+"tol": 0.001,
+"suffix": "goals per game",
+"explain": "<p>Total number of games: 2 + 5 + 6 + 4 + 3 = 20.</p><p>Total goals (goals &times; games for each column):</p><p>0 &times; 2 = 0; 1 &times; 5 = 5; 2 &times; 6 = 12; 3 &times; 4 = 12; 4 &times; 3 = 12</p><p>0 + 5 + 12 + 12 + 12 = 41 goals.</p><p>Mean = 41 &divide; 20 = <strong>2.05 goals per game</strong>.</p><p>A common error is to average only the column headings, (0 + 1 + 2 + 3 + 4) &divide; 5 = 2, which ignores how many games each score happened.</p>",
+"mistakes": [
+{
+"answer": [
+"2"
+],
+"why": "You averaged the column headings, (0 + 1 + 2 + 3 + 4) &divide; 5. Each score must be weighted by the number of games: 41 goals &divide; 20 games = 2.05."
+},
+{
+"answer": [
+"8.2"
+],
+"why": "You divided the 41 total goals by 5 columns. Divide by the number of games, 20: 41 &divide; 20 = 2.05."
+}
+]
+},
+{
+"id": "m12",
+"type": "dropdown",
+"skill": "Median and range",
+"difficulty": 2,
+"prompt": "<p>Seven swimmers recorded these times, in seconds, in a 100-meter freestyle race.</p><p>58.4, 61.2, 57.9, 60.5, 59.3, 62.0, 58.8</p><p>The median time is {{0}}.</p><p>The range of the times is {{1}}.</p>",
+"blanks": [
+{
+"options": [
+"60.5 seconds",
+"59.3 seconds",
+"59.7 seconds",
+"58.8 seconds"
+],
+"answer": 1,
+"why": [
+"60.5 is the middle of the list before it is put in order. Order the times first; the 4th value is 59.3.",
+"",
+"59.7 is the mean (418.1 &divide; 7), not the median. The median is the middle value of the ordered list: 59.3.",
+"58.8 is the 3rd value in the ordered list, one place before the middle. With 7 values, the median is the 4th: 59.3."
+]
+},
+{
+"options": [
+"4.1 seconds",
+"0.4 seconds",
+"3.6 seconds",
+"62.0 seconds"
+],
+"answer": 0,
+"why": [
+"",
+"You subtracted the first listed time from the last listed time (58.8 &minus; 58.4). Range uses the greatest and least values: 62.0 &minus; 57.9 = 4.1.",
+"You subtracted the first time listed (58.4) instead of the least time. 62.0 &minus; 57.9 = 4.1.",
+"62.0 is the greatest time, not the range. Subtract the least time: 62.0 &minus; 57.9 = 4.1."
+]
+}
+],
+"explain": "<p>Put the times in order: 57.9, 58.4, 58.8, 59.3, 60.5, 61.2, 62.0.</p><p>With 7 values, the median is the 4th value: <strong>59.3 seconds</strong>.</p><p>Range = greatest &minus; least = 62.0 &minus; 57.9 = <strong>4.1 seconds</strong>.</p><p>60.5 is the middle of the list <em>before</em> it is put in order. 59.7 is the mean (418.1 &divide; 7 &asymp; 59.73), not the median. 3.6 subtracts the first time listed (58.4) instead of the least time.</p>"
+},
+{
+"id": "m13",
+"type": "mc",
+"skill": "Probability of independent events",
+"difficulty": 2,
+"prompt": "<p>A basketball player makes 80% of her free throws. She shoots two free throws, and the results of the two shots are independent. What is the probability that she makes both free throws?</p>",
+"options": [
+"0.80",
+"0.16",
+"1.60",
+"0.64"
+],
+"answer": 3,
+"explain": "<p>For independent events, multiply the probabilities:</p><p>P(make both) = 0.80 &times; 0.80 = <strong>0.64</strong> (64%).</p><p>1.60 adds the probabilities; a probability can never be greater than 1. 0.16 is 0.80 &times; 0.20, the probability of making the first shot and missing the second. 0.80 is the probability for just one shot.</p>",
+"why": [
+"0.80 is the chance of making just one shot. Both shots must go in, so multiply: 0.80 &times; 0.80 = 0.64.",
+"0.16 is 0.80 &times; 0.20, the chance of making one and missing the other. Making both is 0.80 &times; 0.80 = 0.64.",
+"You added the probabilities. A probability can never be greater than 1; for both events, multiply: 0.64.",
+""
+]
+},
+{
+"id": "m14",
+"type": "mc",
+"skill": "Counting arrangements",
+"difficulty": 2,
+"prompt": "<p>A climbing team has 9 members. The coach will choose one member to be captain and a different member to be co-captain. How many different ways can the coach fill the two positions?</p>",
+"options": [
+"36",
+"72",
+"81",
+"18"
+],
+"answer": 1,
+"explain": "<p>There are 9 choices for captain. Once the captain is chosen, 8 members remain for co-captain.</p><p>9 &times; 8 = <strong>72</strong> ways.</p><p>The order matters here: Ana as captain with Ben as co-captain is different from Ben as captain with Ana as co-captain.</p><p>81 (9 &times; 9) lets the same person hold both positions. 36 (72 &divide; 2) would be correct only if the two positions were the same, so order did not matter. 18 adds 9 + 9.</p>",
+"why": [
+"You divided 72 by 2, treating the two positions as the same. Captain and co-captain are different jobs, so order matters: 9 &times; 8 = 72.",
+"",
+"9 &times; 9 lets the same person be both captain and co-captain. After the captain is picked, only 8 members remain: 9 &times; 8 = 72.",
+"You added 9 + 9. When filling one position and then another, multiply the choices: 9 &times; 8 = 72."
+]
+},
+{
+"id": "m15",
+"type": "mc",
+"skill": "Circumference",
+"difficulty": 3,
+"prompt": "<p>A bicycle wheel has a diameter of 26 inches. One mile is 63,360 inches. About how many complete turns does the wheel make when the bicycle travels 1 mile? Round to the nearest whole number. Use the formula sheet if needed.</p>",
+"options": [
+"2,437",
+"1,551",
+"776",
+"119"
+],
+"answer": 2,
+"explain": "<p>In one turn, the wheel rolls a distance equal to its circumference.</p><p>C = &pi;d = &pi;(26) &asymp; 81.68 inches.</p><p>Number of turns = 63,360 &divide; 81.68 &asymp; 775.7, which rounds to <strong>776 turns</strong>.</p><p>2,437 divides by the diameter instead of the circumference. 1,551 uses &pi;r = &pi;(13), which is only half the circumference. 119 divides by the area of the wheel, &pi;(13)<sup>2</sup>, which is not a distance.</p>",
+"why": [
+"You divided by the diameter (63,360 &divide; 26). One turn rolls one circumference, &pi; &times; 26 &asymp; 81.68 inches, so divide by that.",
+"You used &pi;r = &pi;(13), which is only half the circumference. One turn covers &pi;d &asymp; 81.68 inches.",
+"",
+"You divided by the area of the wheel, &pi;(13)<sup>2</sup>. Area is not a distance; one turn rolls the circumference, &pi;d."
+]
+},
+{
+"id": "m16",
+"type": "mc",
+"skill": "Area of composite figures",
+"difficulty": 3,
+"prompt": "<p>The infield of a running track is shaped like a rectangle with a semicircle on each end, as shown. The rectangle is 100 meters long and 64 meters wide, and the diameter of each semicircle is 64 meters. To the nearest square meter, what is the area of the infield?</p>",
+"figure": {
+"type": "svg",
+"svg": "<svg viewBox='0 0 320 190' xmlns='http://www.w3.org/2000/svg'><path d='M80,40 L240,40 A51,51 0 0 1 240,142 L80,142 A51,51 0 0 1 80,40 Z' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><line x1='80' y1='40' x2='80' y2='142' stroke='#0A1F3D' stroke-dasharray='5,4'/><line x1='240' y1='40' x2='240' y2='142' stroke='#0A1F3D' stroke-dasharray='5,4'/><text x='140' y='30' font-size='14' fill='#0A1F3D'>100 m</text><text x='246' y='96' font-size='14' fill='#0A1F3D'>64 m</text></svg>",
+"alt": "A track infield made of a rectangle 100 meters long and 64 meters wide, with a semicircle attached to each 64-meter end. Dashed lines separate the semicircles from the rectangle."
+},
+"options": [
+"9,617",
+"8,008",
+"19,268",
+"6,601"
+],
+"answer": 0,
+"explain": "<p>Rectangle: 100 &times; 64 = 6,400 square meters.</p><p>The two semicircles together make one full circle with diameter 64 m, so the radius is 32 m.</p><p>Circle area: &pi;r<sup>2</sup> = &pi;(32)<sup>2</sup> = 1,024&pi; &asymp; 3,216.99 square meters.</p><p>Total: 6,400 + 3,216.99 &asymp; <strong>9,617 square meters</strong>.</p><p>8,008 counts only one semicircle. 19,268 uses 64 as the radius. 6,601 adds the circumference of the circle (2&pi; &times; 32 &asymp; 201) instead of its area.</p>",
+"why": [
+"",
+"You counted only one semicircle. The two semicircles together make a full circle: 6,400 + &pi;(32)<sup>2</sup> &asymp; 9,617.",
+"You used 64 as the radius. 64 m is the diameter, so the radius is 32 m: &pi;(32)<sup>2</sup> &asymp; 3,217.",
+"You added the circumference (2&pi; &times; 32 &asymp; 201) instead of the area. Area of the circle is &pi;r<sup>2</sup> &asymp; 3,217, for a total of about 9,617."
+]
+},
+{
+"id": "m17",
+"type": "fill",
+"skill": "Pythagorean theorem",
+"difficulty": 2,
+"prompt": "<p>A baseball diamond is a square with sides of 90 feet. A catcher throws the ball in a straight line from home plate to second base, which is the opposite corner of the square. How far is the throw, in feet? Round your answer to the nearest tenth.</p>",
+"answer": [
+"127.3"
+],
+"value": 127.3,
+"tol": 0.05,
+"suffix": "feet",
+"explain": "<p>The path from home plate to second base is the diagonal of the square. It is the hypotenuse of a right triangle with two legs of 90 feet.</p><p>c<sup>2</sup> = 90<sup>2</sup> + 90<sup>2</sup> = 8,100 + 8,100 = 16,200</p><p>c = &radic;16,200 &asymp; 127.279</p><p>Rounded to the nearest tenth: <strong>127.3 feet</strong>.</p><p>Adding the two sides (180 feet) gives the distance running along the base paths, not the straight throw.</p>",
+"mistakes": [
+{
+"answer": [
+"180"
+],
+"why": "You added two sides (90 + 90), which is the path along the base lines. The straight throw is the diagonal: &radic;(90<sup>2</sup> + 90<sup>2</sup>) &asymp; 127.3."
+},
+{
+"answer": [
+"16200",
+"16,200"
+],
+"why": "You found c<sup>2</sup> = 16,200 but did not take the square root. &radic;16,200 &asymp; 127.3 feet."
+}
+]
+},
+{
+"id": "m18",
+"type": "mc",
+"skill": "Volume of a cylinder with unit conversion",
+"difficulty": 3,
+"prompt": "<p>A round above-ground swimming pool is shaped like a cylinder with a diameter of 18 feet. It is filled with water to a depth of 4 feet. One cubic foot holds about 7.48 gallons of water. About how many gallons of water are in the pool? Use the formula sheet if needed.</p>",
+"options": [
+"7,614",
+"1,018",
+"30,455",
+"136"
+],
+"answer": 0,
+"explain": "<p>Volume of a cylinder: V = &pi;r<sup>2</sup>h. The radius is 18 &divide; 2 = 9 feet.</p><p>V = &pi;(9)<sup>2</sup>(4) = &pi;(81)(4) = 324&pi; &asymp; 1,017.88 cubic feet.</p><p>Convert to gallons: 1,017.88 &times; 7.48 &asymp; <strong>7,614 gallons</strong>.</p><p>1,018 is the volume in cubic feet, before converting to gallons. 30,455 uses the diameter, 18, as the radius. 136 divides by 7.48 instead of multiplying.</p>",
+"why": [
+"",
+"1,018 is the volume in cubic feet. Convert to gallons: 1,017.88 &times; 7.48 &asymp; 7,614.",
+"You used the diameter, 18, as the radius. The radius is 9 feet: &pi;(9)<sup>2</sup>(4) &asymp; 1,018 cubic feet, about 7,614 gallons.",
+"You divided by 7.48 instead of multiplying. Each cubic foot holds 7.48 gallons, so there are more gallons than cubic feet."
+]
+},
+{
+"id": "m19",
+"type": "mc",
+"skill": "Volume of a sphere",
+"difficulty": 2,
+"prompt": "<p>A basketball has a diameter of 9.4 inches. To the nearest tenth of a cubic inch, what is the volume of the ball? Use the formula sheet if needed.</p>",
+"options": [
+"3,479.1",
+"277.6",
+"434.9",
+"1,304.7"
+],
+"answer": 2,
+"explain": "<p>Volume of a sphere: V = (4/3)&pi;r<sup>3</sup>. The radius is 9.4 &divide; 2 = 4.7 inches.</p><p>r<sup>3</sup> = 4.7 &times; 4.7 &times; 4.7 = 103.823</p><p>V = (4/3)&pi;(103.823) &asymp; <strong>434.9 cubic inches</strong>.</p><p>3,479.1 uses the diameter as the radius. 1,304.7 leaves out the division by 3 (4&pi;r<sup>3</sup>). 277.6 is 4&pi;r<sup>2</sup>, the surface area, not the volume.</p>",
+"why": [
+"You used the diameter, 9.4, as the radius. The radius is 4.7: (4/3)&pi;(4.7)<sup>3</sup> &asymp; 434.9.",
+"277.6 is 4&pi;r<sup>2</sup>, the surface area. Volume is (4/3)&pi;r<sup>3</sup> &asymp; 434.9.",
+"",
+"You left out the division by 3 (4&pi;r<sup>3</sup>). V = (4/3)&pi;r<sup>3</sup> &asymp; 434.9."
+]
+},
+{
+"id": "m20",
+"type": "fill",
+"skill": "Surface area of a rectangular prism",
+"difficulty": 2,
+"prompt": "<p>A closed storage box for gym equipment is a rectangular prism 4 feet long, 2 feet wide, and 1.5 feet tall. The outside of the box, including the lid and bottom, will be covered with vinyl. How many square feet of vinyl are needed? Use the formula sheet if needed.</p>",
+"answer": [
+"34"
+],
+"value": 34,
+"tol": 0.001,
+"suffix": "square feet",
+"explain": "<p>Surface area of a rectangular prism: SA = 2lw + 2lh + 2wh.</p><p>2lw = 2(4)(2) = 16</p><p>2lh = 2(4)(1.5) = 12</p><p>2wh = 2(2)(1.5) = 6</p><p>SA = 16 + 12 + 6 = <strong>34 square feet</strong>.</p><p>A common error is to find the volume instead: 4 &times; 2 &times; 1.5 = 12 cubic feet. Covering the outside is a surface area question.</p>",
+"mistakes": [
+{
+"answer": [
+"12"
+],
+"why": "You found the volume (4 &times; 2 &times; 1.5). Covering the outside is surface area: 2(8) + 2(6) + 2(3) = 34."
+},
+{
+"answer": [
+"17"
+],
+"why": "You counted each face only once (8 + 6 + 3). A box has two of each face: 2(8 + 6 + 3) = 34."
+}
+]
+},
+{
+"id": "m21",
+"type": "mc",
+"skill": "Successive discounts",
+"difficulty": 2,
+"prompt": "<p>A pair of running shoes is regularly priced at $120. The store takes 30% off the regular price. At the register, a coupon takes an additional 10% off the sale price. What is the final price of the shoes, before tax?</p>",
+"options": [
+"$72.00",
+"$84.00",
+"$108.00",
+"$75.60"
+],
+"answer": 3,
+"explain": "<p>First discount: 30% of $120 = 0.30 &times; 120 = $36, so the sale price is 120 &minus; 36 = $84.00.</p><p>Second discount: 10% of $84 = $8.40, so the final price is 84.00 &minus; 8.40 = <strong>$75.60</strong>.</p><p>Shortcut: 120 &times; 0.70 &times; 0.90 = 75.60.</p><p>$72.00 adds the discounts to get 40% off the regular price. That is wrong because the 10% is taken from the lower sale price, not from $120. $84.00 applies only the first discount.</p>",
+"why": [
+"You added the discounts to get 40% off $120. The 10% is taken from the sale price of $84, not from $120: 84 &minus; 8.40 = $75.60.",
+"$84.00 is the price after only the first discount. Take another 10% off $84: $75.60.",
+"You applied only the 10% coupon to $120. First take 30% off ($84), then 10% off that: $75.60.",
+""
+]
+},
+{
+"id": "m22",
+"type": "mc",
+"skill": "Rates with time units",
+"difficulty": 3,
+"prompt": "<p>Lena finished a 6.2-mile race in 52 minutes 42 seconds. What was her average pace, in time per mile?</p>",
+"options": [
+"8 minutes 27 seconds",
+"8 minutes 30 seconds",
+"8 minutes 5 seconds",
+"8 minutes 47 seconds"
+],
+"answer": 1,
+"explain": "<p>Change the time to minutes: 42 seconds = 42/60 = 0.7 minute, so the time is 52.7 minutes.</p><p>Pace = time &divide; distance = 52.7 &divide; 6.2 = 8.5 minutes per mile.</p><p>Change 0.5 minute to seconds: 0.5 &times; 60 = 30 seconds. The pace is <strong>8 minutes 30 seconds per mile</strong>.</p><p>8 minutes 27 seconds comes from writing 52 minutes 42 seconds as 52.42 minutes. 8 minutes 5 seconds misreads 8.5 minutes as 8 minutes 5 seconds. 8 minutes 47 seconds divides by 6 miles instead of 6.2.</p>",
+"why": [
+"You wrote 52 minutes 42 seconds as 52.42 minutes. 42 seconds is 42/60 = 0.7 minute, so the time is 52.7 minutes and the pace is 8.5 minutes.",
+"",
+"You read 8.5 minutes as 8 minutes 5 seconds. 0.5 minute is 0.5 &times; 60 = 30 seconds.",
+"You divided by 6 miles instead of 6.2. 52.7 &divide; 6.2 = 8.5 minutes = 8 minutes 30 seconds."
+]
+},
+{
+"id": "m23",
+"type": "mc",
+"skill": "Square roots and perimeter",
+"difficulty": 2,
+"prompt": "<p>A square boxing ring has an area of 484 square feet. Three rows of rope run around all four sides of the ring. What is the total length of rope needed, in feet?</p>",
+"options": [
+"88",
+"66",
+"264",
+"1,452"
+],
+"answer": 2,
+"explain": "<p>Side length of the square: s = &radic;484 = 22 feet.</p><p>Perimeter of the ring: 4 &times; 22 = 88 feet.</p><p>Three rows of rope: 3 &times; 88 = <strong>264 feet</strong>.</p><p>88 is the length of only one row. 66 is three sides&rsquo; worth of one row (3 &times; 22). 1,452 multiplies the area by 3, which mixes square feet with feet.</p>",
+"why": [
+"88 feet is the perimeter, enough for only one row of rope. There are three rows: 3 &times; 88 = 264.",
+"66 is 3 &times; 22, three sides of one row. Each row goes around all four sides (88 feet), and there are three rows: 264.",
+"",
+"You multiplied the area by 3, which mixes square feet with feet. Find the side, &radic;484 = 22, then the perimeter, 88, then 3 &times; 88 = 264."
+]
+},
+{
+"id": "m24",
+"type": "drag",
+"skill": "Comparing and ordering rational numbers",
+"difficulty": 3,
+"prompt": "<p>Drag each number into the correct position to order the numbers from least to greatest.</p>",
+"choices": [
+"0.3",
+"1/30",
+"3.2 &times; 10<sup>&minus;2</sup>",
+"3/100",
+"2.9 &times; 10<sup>&minus;1</sup>"
+],
+"bins": [
+"1st (least)",
+"2nd",
+"3rd",
+"4th",
+"5th (greatest)"
+],
+"answer": [
+4,
+2,
+1,
+0,
+3
+],
+"explain": "<p>Write each number as a decimal:</p><p>3/100 = 0.03; 3.2 &times; 10<sup>&minus;2</sup> = 0.032; 1/30 &asymp; 0.0333; 2.9 &times; 10<sup>&minus;1</sup> = 0.29; 0.3</p><p>Order from least to greatest: <strong>3/100, 3.2 &times; 10<sup>&minus;2</sup>, 1/30, 2.9 &times; 10<sup>&minus;1</sup>, 0.3</strong>.</p><p>A negative exponent moves the decimal point to the left, so 3.2 &times; 10<sup>&minus;2</sup> is small (0.032), not 320. Also, 1/30 is about 0.0333, slightly greater than 0.032.</p>",
+"why": "The most common mistake is treating 3.2 &times; 10<sup>&minus;2</sup> as a large number or putting 1/30 before 3.2 &times; 10<sup>&minus;2</sup>. Convert everything to decimals: 0.03, 0.032, 0.0333&hellip;, 0.29, 0.3."
+},
+{
+"id": "m25",
+"type": "fill",
+"skill": "Linear equation word problem",
+"difficulty": 2,
+"prompt": "<p>Gym A charges a $50 joining fee plus $25 per month. Gym B has no joining fee and charges $35 per month. After how many months will the total cost be the same at both gyms?</p>",
+"answer": [
+"5"
+],
+"value": 5,
+"tol": 0.001,
+"suffix": "months",
+"explain": "<p>Let m be the number of months.</p><p>Gym A: 50 + 25m. Gym B: 35m.</p><p>Set the costs equal: 50 + 25m = 35m</p><p>Subtract 25m from both sides: 50 = 10m</p><p>m = <strong>5 months</strong></p><p>Check: Gym A costs 50 + 25(5) = $175, and Gym B costs 35(5) = $175.</p><p>Dividing 50 by 35 (about 1.4) ignores the monthly fee at Gym A. The costs become equal because Gym B costs $10 more each month, and that makes up the $50 fee after 5 months.</p>",
+"mistakes": [
+{
+"answer": [
+"1.4",
+"1.43",
+"10/7"
+],
+"why": "You divided the $50 fee by $35 and ignored Gym A's monthly charge. Set 50 + 25m = 35m; the $10 monthly difference covers the $50 fee in 5 months."
+},
+{
+"answer": [
+"2"
+],
+"why": "You divided the $50 fee by $25. The gap closes by the difference in monthly prices, 35 &minus; 25 = $10, so it takes 50 &divide; 10 = 5 months."
+}
+]
+},
+{
+"id": "m26",
+"type": "mc",
+"skill": "Evaluating formulas",
+"difficulty": 1,
+"prompt": "<p>A trainer uses the formula T = 0.7(220 &minus; a) to estimate a target heart rate T, in beats per minute, for a person who is a years old. What is the target heart rate for a 40-year-old?</p>",
+"options": [
+"114 beats per minute",
+"126 beats per minute",
+"154 beats per minute",
+"180 beats per minute"
+],
+"answer": 1,
+"explain": "<p>Substitute a = 40:</p><p>T = 0.7(220 &minus; 40) = 0.7(180) = <strong>126 beats per minute</strong>.</p><p>114 comes from multiplying 0.7 &times; 220 = 154 first and then subtracting 40. The subtraction inside the parentheses must be done first. 180 forgets to multiply by 0.7.</p>",
+"why": [
+"You multiplied 0.7 &times; 220 = 154 first and then subtracted 40. Do the parentheses first: 220 &minus; 40 = 180, then 0.7 &times; 180 = 126.",
+"",
+"154 is 0.7 &times; 220, which leaves out the age. Subtract the age first: 0.7(220 &minus; 40) = 126.",
+"You found 220 &minus; 40 = 180 but forgot to multiply by 0.7. 0.7 &times; 180 = 126."
+]
+},
+{
+"id": "m27",
+"type": "mc",
+"skill": "Solving literal equations",
+"difficulty": 3,
+"prompt": "<p>The distance around a running track with straight sides of length l and semicircular ends of diameter d is given by P = 2l + &pi;d. Which equation correctly solves this formula for l?</p>",
+"options": [
+"l = P/2 &minus; &pi;d",
+"l = (P + &pi;d) / 2",
+"l = P &minus; &pi;d/2",
+"l = (P &minus; &pi;d) / 2"
+],
+"answer": 3,
+"explain": "<p>Start with P = 2l + &pi;d.</p><p>Subtract &pi;d from both sides: P &minus; &pi;d = 2l.</p><p>Divide both sides by 2: <strong>l = (P &minus; &pi;d) / 2</strong>.</p><p>l = P/2 &minus; &pi;d divides only P by 2; the &pi;d term must also be divided by 2. l = (P + &pi;d) / 2 adds &pi;d instead of subtracting it.</p>",
+"why": [
+"You divided only P by 2. After subtracting &pi;d, the whole difference is divided by 2: l = (P &minus; &pi;d)/2.",
+"You added &pi;d instead of subtracting it. To undo + &pi;d, subtract &pi;d from both sides.",
+"You divided only &pi;d by 2. Both P and &pi;d must be divided by 2: l = (P &minus; &pi;d)/2.",
+""
+]
+},
+{
+"id": "m28",
+"type": "mc",
+"skill": "Multiplying polynomials",
+"difficulty": 3,
+"prompt": "<p>Which expression is equivalent to (x + 4)(x<sup>2</sup> &minus; 2x + 3)?</p>",
+"options": [
+"x<sup>3</sup> + 2x<sup>2</sup> &minus; 5x + 12",
+"x<sup>3</sup> + 2x<sup>2</sup> + 11x + 12",
+"x<sup>3</sup> &minus; 2x<sup>2</sup> + 3x + 12",
+"x<sup>3</sup> + 6x<sup>2</sup> &minus; 5x + 12"
+],
+"answer": 0,
+"explain": "<p>Multiply each term of (x + 4) by each term of the trinomial.</p><p>x(x<sup>2</sup> &minus; 2x + 3) = x<sup>3</sup> &minus; 2x<sup>2</sup> + 3x</p><p>4(x<sup>2</sup> &minus; 2x + 3) = 4x<sup>2</sup> &minus; 8x + 12</p><p>Combine like terms: x<sup>3</sup> + (&minus;2x<sup>2</sup> + 4x<sup>2</sup>) + (3x &minus; 8x) + 12 = <strong>x<sup>3</sup> + 2x<sup>2</sup> &minus; 5x + 12</strong>.</p><p>x<sup>3</sup> + 2x<sup>2</sup> + 11x + 12 uses +8x instead of 4(&minus;2x) = &minus;8x. x<sup>3</sup> &minus; 2x<sup>2</sup> + 3x + 12 leaves out the middle products 4x<sup>2</sup> and &minus;8x.</p>",
+"why": [
+"",
+"You used +8x instead of 4(&minus;2x) = &minus;8x. Then 3x &minus; 8x = &minus;5x.",
+"You multiplied by x but left out the middle products from the 4 (4x<sup>2</sup> and &minus;8x). Multiply every term by both x and 4.",
+"You made the x(&minus;2x) product positive (+2x<sup>2</sup>). x(&minus;2x) = &minus;2x<sup>2</sup>, and &minus;2x<sup>2</sup> + 4x<sup>2</sup> = 2x<sup>2</sup>."
+]
+},
+{
+"id": "m29",
+"type": "mc",
+"skill": "Factoring trinomials",
+"difficulty": 1,
+"prompt": "<p>Which expression is equivalent to x<sup>2</sup> &minus; 10x + 21?</p>",
+"options": [
+"(x + 3)(x + 7)",
+"(x &minus; 3)(x &minus; 7)",
+"(x &minus; 3)(x + 7)",
+"(x + 3)(x &minus; 7)"
+],
+"answer": 1,
+"explain": "<p>Find two numbers that multiply to +21 and add to &minus;10. Both numbers must be negative: &minus;3 and &minus;7, because (&minus;3)(&minus;7) = 21 and &minus;3 + (&minus;7) = &minus;10.</p><p>x<sup>2</sup> &minus; 10x + 21 = <strong>(x &minus; 3)(x &minus; 7)</strong>.</p><p>Check: (x &minus; 3)(x &minus; 7) = x<sup>2</sup> &minus; 7x &minus; 3x + 21 = x<sup>2</sup> &minus; 10x + 21.</p><p>(x + 3)(x + 7) gives x<sup>2</sup> + 10x + 21, which has the wrong sign on the middle term. (x &minus; 3)(x + 7) gives a constant of &minus;21.</p>",
+"why": [
+"(x + 3)(x + 7) gives x<sup>2</sup> + 10x + 21; the middle sign is wrong. You need two numbers that multiply to +21 and add to &minus;10: &minus;3 and &minus;7.",
+"",
+"(x &minus; 3)(x + 7) gives a constant of &minus;21 and a middle term of +4x. Both numbers must be negative to multiply to +21 and add to &minus;10.",
+"(x + 3)(x &minus; 7) gives x<sup>2</sup> &minus; 4x &minus; 21. To get +21 and &minus;10x, both numbers must be negative."
+]
+},
+{
+"id": "m30",
+"type": "multi",
+"skill": "Factoring completely",
+"difficulty": 3,
+"prompt": "<p>The expression 3x<sup>2</sup> &minus; 48 can be factored completely as 3 times two binomials. Which binomials are factors of 3x<sup>2</sup> &minus; 48? Select <strong>two</strong> answers.</p>",
+"options": [
+"x &minus; 4",
+"x + 4",
+"x &minus; 16",
+"x + 16",
+"3x &minus; 16",
+"x &minus; 8"
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>First factor out the greatest common factor, 3: 3x<sup>2</sup> &minus; 48 = 3(x<sup>2</sup> &minus; 16).</p><p>x<sup>2</sup> &minus; 16 is a difference of squares: x<sup>2</sup> &minus; 4<sup>2</sup> = (x &minus; 4)(x + 4).</p><p>So 3x<sup>2</sup> &minus; 48 = <strong>3(x &minus; 4)(x + 4)</strong>.</p><p>Check: 3(x<sup>2</sup> + 4x &minus; 4x &minus; 16) = 3(x<sup>2</sup> &minus; 16) = 3x<sup>2</sup> &minus; 48.</p><p>x &minus; 16 and x + 16 forget to take the square root of 16. 3x &minus; 16 divides only one term by 3.</p>",
+"why": [
+"",
+"",
+"You forgot to take the square root of 16. x<sup>2</sup> &minus; 16 = (x &minus; 4)(x + 4), since 4<sup>2</sup> = 16.",
+"You forgot to take the square root of 16, and (x + 16) does not multiply back to x<sup>2</sup> &minus; 16. The factors are (x &minus; 4)(x + 4).",
+"You divided only one term by 3. Factor 3 out of both terms first: 3(x<sup>2</sup> &minus; 16).",
+"You divided 16 by 2 instead of taking its square root. &radic;16 = 4, so the factors are (x &minus; 4)(x + 4)."
+]
+},
+{
+"id": "m31",
+"type": "mc",
+"skill": "Inequality word problem",
+"difficulty": 2,
+"prompt": "<p>Rosa is planning a family reunion with a budget of $520. She has already paid $140 to rent a park pavilion. Each catered food tray costs $45. What is the greatest number of food trays she can order and stay within her budget?</p>",
+"options": [
+"9",
+"11",
+"3",
+"8"
+],
+"answer": 3,
+"explain": "<p>Let t be the number of trays: 140 + 45t &le; 520.</p><p>Subtract 140: 45t &le; 380.</p><p>Divide by 45: t &le; 8.44&hellip;</p><p>She cannot order part of a tray, and rounding up would go over budget, so the greatest number is <strong>8 trays</strong>.</p><p>Check: 140 + 45(8) = $500, which is within budget; 140 + 45(9) = $545, which is over.</p><p>9 rounds 8.44 up. 11 ignores the $140 already spent (520 &divide; 45 &asymp; 11.6).</p>",
+"why": [
+"You rounded 8.44 up to 9. Nine trays cost 140 + 405 = $545, which is over budget, so round down to 8.",
+"You divided $520 by $45 and ignored the $140 already spent. Subtract it first: 380 &divide; 45 &asymp; 8.4, so 8 trays.",
+"You divided the $140 pavilion cost by $45. The trays must fit in the money left over: (520 &minus; 140) &divide; 45 &asymp; 8.4, so 8.",
+""
+]
+},
+{
+"id": "m32",
+"type": "mc",
+"skill": "Solving linear inequalities",
+"difficulty": 2,
+"prompt": "<p>Which inequality is equivalent to 5 &minus; 2x &le; 3x + 20?</p>",
+"options": [
+"x &ge; &minus;3",
+"x &le; &minus;3",
+"x &ge; 3",
+"x &ge; 5"
+],
+"answer": 0,
+"explain": "<p>Subtract 3x from both sides: 5 &minus; 5x &le; 20.</p><p>Subtract 5 from both sides: &minus;5x &le; 15.</p><p>Divide both sides by &minus;5 and reverse the inequality sign: <strong>x &ge; &minus;3</strong>.</p><p>Check with x = 0: 5 &minus; 0 = 5 and 3(0) + 20 = 20, and 5 &le; 20 is true. Since 0 &ge; &minus;3, this agrees.</p><p>x &le; &minus;3 forgets to reverse the sign when dividing by a negative number.</p>",
+"why": [
+"",
+"You forgot to reverse the inequality sign when dividing by &minus;5. &minus;5x &le; 15 becomes x &ge; &minus;3.",
+"You lost the negative sign: 15 &divide; (&minus;5) = &minus;3, not 3. The answer is x &ge; &minus;3.",
+"You combined the constants incorrectly (20 + 5 instead of 20 &minus; 5) and dropped a sign. Test x = 0: 5 &le; 20 is true, but 0 is not &ge; 5, so this cannot be right."
+]
+},
+{
+"id": "m33",
+"type": "mc",
+"skill": "Systems of equations word problem",
+"difficulty": 3,
+"prompt": "<p>At a high school basketball game, the concession stand sold hot dogs for $4 each and soft pretzels for $3 each. The stand sold 85 items in all and collected $295. How many pretzels were sold?</p>",
+"options": [
+"40",
+"50",
+"45",
+"74"
+],
+"answer": 2,
+"explain": "<p>Let h = hot dogs and p = pretzels.</p><p>h + p = 85</p><p>4h + 3p = 295</p><p>From the first equation, h = 85 &minus; p. Substitute:</p><p>4(85 &minus; p) + 3p = 295</p><p>340 &minus; 4p + 3p = 295</p><p>340 &minus; p = 295, so p = <strong>45 pretzels</strong> (and h = 40 hot dogs).</p><p>Check: 4(40) + 3(45) = 160 + 135 = $295.</p><p>40 is the number of hot dogs. 74 comes from 295 &divide; 4, which assumes every item was a hot dog.</p>",
+"why": [
+"40 is the number of hot dogs. The question asks for pretzels: 85 &minus; 40 = 45.",
+"Check it: 50 pretzels and 35 hot dogs bring in 150 + 140 = $290, not $295. Solving the system gives 45 pretzels.",
+"",
+"You divided $295 by $4, as if every item were a hot dog. Use both equations, h + p = 85 and 4h + 3p = 295, to get p = 45."
+]
+},
+{
+"id": "m34",
+"type": "hotspot",
+"skill": "Solving systems by graphing",
+"difficulty": 1,
+"prompt": "<p>The graphs of y = &minus;x + 3 and y = 2x &minus; 6 are shown on the coordinate plane. Click the point that represents the solution to the system of equations.</p>",
+"figure": {
+"type": "plane",
+"xmin": -6,
+"xmax": 6,
+"ymin": -8,
+"ymax": 8,
+"lines": [
+{
+"m": -1,
+"b": 3,
+"label": "y = −x + 3"
+},
+{
+"m": 2,
+"b": -6,
+"label": "y = 2x − 6"
+}
+]
+},
+"plane": {
+"xmin": -6,
+"xmax": 6,
+"ymin": -8,
+"ymax": 8
+},
+"answer": [
+3,
+0
+],
+"explain": "<p>The solution is the point where the two lines cross. Set the expressions equal:</p><p>&minus;x + 3 = 2x &minus; 6</p><p>9 = 3x, so x = 3</p><p>y = &minus;3 + 3 = 0</p><p>The solution is <strong>(3, 0)</strong>. Check in the second equation: 2(3) &minus; 6 = 0.</p><p>The y-intercepts (0, 3) and (0, &minus;6) each lie on only one of the lines, so they are not solutions to the system.</p>",
+"why": "The most common wrong click is a y-intercept, (0, 3) or (0, &minus;6), which lies on only one line. The solution of a system is where the lines cross: &minus;x + 3 = 2x &minus; 6 gives x = 3 and y = 0, so click (3, 0)."
+},
+{
+"id": "m35",
+"type": "hotspot",
+"skill": "Vertex of a parabola",
+"difficulty": 3,
+"prompt": "<p>Click the point on the coordinate plane that is the vertex of the graph of y = x<sup>2</sup> &minus; 4x + 1.</p>",
+"plane": {
+"xmin": -6,
+"xmax": 6,
+"ymin": -6,
+"ymax": 6
+},
+"answer": [
+2,
+-3
+],
+"explain": "<p>For y = ax<sup>2</sup> + bx + c, the x-coordinate of the vertex is x = &minus;b / (2a).</p><p>Here a = 1 and b = &minus;4, so x = &minus;(&minus;4) / (2 &times; 1) = 4/2 = 2.</p><p>Find y: y = (2)<sup>2</sup> &minus; 4(2) + 1 = 4 &minus; 8 + 1 = &minus;3.</p><p>The vertex is <strong>(2, &minus;3)</strong>.</p><p>Another way: complete the square. x<sup>2</sup> &minus; 4x + 1 = (x &minus; 2)<sup>2</sup> &minus; 4 + 1 = (x &minus; 2)<sup>2</sup> &minus; 3, so the vertex is (2, &minus;3).</p><p>The point (0, 1) is the y-intercept, not the vertex. Using x = b / (2a) = &minus;2 gives the wrong side of the graph.</p>",
+"why": "The most common wrong click is the y-intercept (0, 1), or (&minus;2, 13) from using x = b/(2a) without the negative sign, which is off the grid. The vertex is at x = &minus;(&minus;4)/2 = 2 and y = 4 &minus; 8 + 1 = &minus;3, so click (2, &minus;3)."
+},
+{
+"id": "m36",
+"type": "dropdown",
+"skill": "Rate of change from a table",
+"difficulty": 2,
+"prompt": "<p>A hiking group climbs a mountain trail at a steady rate. The table shows the group&rsquo;s elevation E, in feet, t hours after starting.</p><table><thead><tr><th>Time t (hours)</th><th>0</th><th>2</th><th>4</th><th>6</th></tr></thead><tbody><tr><td>Elevation E (feet)</td><td>2,400</td><td>3,300</td><td>4,200</td><td>5,100</td></tr></tbody></table><p>The group climbs at a rate of {{0}} feet per hour.</p><p>The group started at an elevation of {{1}} feet.</p><p>After 5 hours, the group&rsquo;s elevation is {{2}} feet.</p>",
+"blanks": [
+{
+"options": [
+"225",
+"450",
+"900",
+"2,400"
+],
+"answer": 1,
+"why": [
+"You divided 900 by 4. The elevation rises 900 feet every 2 hours, so the rate is 900 &divide; 2 = 450.",
+"",
+"900 feet is the rise for each 2-hour step in the table, not for one hour. 900 &divide; 2 = 450 feet per hour.",
+"2,400 is the starting elevation, not the rate. The rate is the change per hour: 450."
+]
+},
+{
+"options": [
+"0",
+"450",
+"2,400",
+"3,300"
+],
+"answer": 2,
+"why": [
+"You assumed the group started at ground level. The table gives the elevation at t = 0: 2,400 feet.",
+"450 is the climbing rate, not the starting elevation. Read the table at t = 0: 2,400.",
+"",
+"3,300 is the elevation after 2 hours. The start is t = 0: 2,400 feet."
+]
+},
+{
+"options": [
+"2,250",
+"4,500",
+"4,650",
+"4,750"
+],
+"answer": 2,
+"why": [
+"2,250 is only the height gained in 5 hours (450 &times; 5). Add the starting elevation: 2,400 + 2,250 = 4,650.",
+"4,500 is 450 &times; 10, not the model's value at t = 5. Use E = 2,400 + 450t: 2,400 + 450(5) = 4,650.",
+"",
+"4,750 does not fit the steady rate. From 4,200 feet at 4 hours, one more hour adds 450 feet: 4,650."
+]
+}
+],
+"explain": "<p>Rate of change: the elevation rises 900 feet every 2 hours (2,400 to 3,300). 900 &divide; 2 = <strong>450 feet per hour</strong>. Choosing 900 forgets that each step in the table is 2 hours, not 1.</p><p>Starting elevation: the value when t = 0 is <strong>2,400 feet</strong>.</p><p>The model is E = 2,400 + 450t. After 5 hours: E = 2,400 + 450(5) = 2,400 + 2,250 = <strong>4,650 feet</strong>.</p><p>2,250 is only the height gained in 5 hours; it leaves out the starting elevation.</p>"
+},
+{
+"id": "m37",
+"type": "mc",
+"skill": "Equation of a line through two points",
+"difficulty": 3,
+"prompt": "<p>Which equation represents the line that passes through the points (&minus;2, 7) and (4, &minus;2)?</p>",
+"options": [
+"y = &minus;(3/2)x + 4",
+"y = (3/2)x + 10",
+"y = &minus;(2/3)x + 17/3",
+"y = &minus;(3/2)x + 10"
+],
+"answer": 0,
+"explain": "<p>Slope: m = (&minus;2 &minus; 7) / (4 &minus; (&minus;2)) = &minus;9/6 = &minus;3/2.</p><p>Find b using (&minus;2, 7): 7 = (&minus;3/2)(&minus;2) + b, so 7 = 3 + b and b = 4.</p><p>The equation is <strong>y = &minus;(3/2)x + 4</strong>.</p><p>Check with (4, &minus;2): &minus;(3/2)(4) + 4 = &minus;6 + 4 = &minus;2.</p><p>y = &minus;(3/2)x + 10 comes from a sign error: (&minus;3/2)(&minus;2) is +3, not &minus;3. y = (3/2)x + 10 loses the negative sign on the slope. y = &minus;(2/3)x + 17/3 uses change in x over change in y for the slope.</p>",
+"why": [
+"",
+"You lost the negative sign on the slope. The line falls from (&minus;2, 7) to (4, &minus;2), so the slope is &minus;9/6 = &minus;3/2.",
+"You put the change in x over the change in y. Slope is rise over run: (&minus;2 &minus; 7)/(4 &minus; (&minus;2)) = &minus;3/2.",
+"You made a sign error finding b: (&minus;3/2)(&minus;2) is +3, so 7 = 3 + b and b = 4."
+]
+},
+{
+"id": "m38",
+"type": "mc",
+"skill": "Interpreting slope and intercept",
+"difficulty": 1,
+"prompt": "<p>A lake rental shop uses the equation C = 15 + 8h to find the cost C, in dollars, of renting a kayak for h hours. What does the number 8 represent?</p>",
+"options": [
+"The one-time fee charged for every rental",
+"The total cost of a 1-hour rental",
+"The cost for each hour of the rental",
+"The number of hours the kayak is rented"
+],
+"answer": 2,
+"explain": "<p>In C = 15 + 8h, the number 8 is multiplied by h, the number of hours. Each additional hour adds $8 to the cost, so 8 is the <strong>cost for each hour</strong> (the slope, or rate of change).</p><p>The 15 is the one-time fee (the y-intercept), because it is charged even when h = 0.</p><p>The total cost of a 1-hour rental is 15 + 8(1) = $23, not $8.</p>",
+"why": [
+"The one-time fee is 15, the number that is added even when h = 0. The 8 is multiplied by h, so it repeats each hour.",
+"A 1-hour rental costs 15 + 8(1) = $23, not $8. The 8 is the extra cost each hour adds.",
+"",
+"The number of hours is the variable h. The 8 is the number multiplied by h: the cost for each hour."
+]
+},
+{
+"id": "m39",
+"type": "fill",
+"skill": "Function notation",
+"difficulty": 1,
+"prompt": "<p>The function f is defined as f(x) = 4x &minus; 9. For what value of x is f(x) = 15?</p>",
+"answer": [
+"6"
+],
+"value": 6,
+"tol": 0.001,
+"explain": "<p>Set the function equal to 15: 4x &minus; 9 = 15.</p><p>Add 9 to both sides: 4x = 24.</p><p>Divide by 4: x = <strong>6</strong>.</p><p>Check: f(6) = 4(6) &minus; 9 = 24 &minus; 9 = 15.</p><p>A common error is to find f(15) instead: 4(15) &minus; 9 = 51. The question gives the output, 15, and asks for the input.</p>",
+"mistakes": [
+{
+"answer": [
+"51"
+],
+"why": "You found f(15) = 4(15) &minus; 9. The question gives the output, 15, and asks for the input: 4x &minus; 9 = 15, so x = 6."
+},
+{
+"answer": [
+"1.5"
+],
+"why": "You subtracted 9 instead of adding it (15 &minus; 9 = 6, then 6 &divide; 4). Undo &minus;9 by adding: 4x = 24, x = 6."
+}
+]
+},
+{
+"id": "m40",
+"type": "dropdown",
+"skill": "Comparing linear functions",
+"difficulty": 3,
+"prompt": "<p>Two cyclists ride on the same road in the same direction at steady speeds.</p><p>Cyclist A&rsquo;s distance from the starting line, in miles, after t hours is d = 14t.</p><p>Cyclist B&rsquo;s distance from the starting line is shown in the table.</p><table><thead><tr><th>Time t (hours)</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead><tbody><tr><td>Distance d (miles)</td><td>5</td><td>17</td><td>29</td><td>41</td></tr></tbody></table><p>The faster rider is {{0}}.</p><p>At t = 0, Cyclist B is {{1}} ahead of the starting line.</p><p>Cyclist A catches up to Cyclist B after {{2}}.</p>",
+"blanks": [
+{
+"options": [
+"Cyclist A",
+"Cyclist B",
+"neither; they ride at the same speed"
+],
+"answer": 0,
+"why": [
+"",
+"Cyclist B's table numbers are larger only because of a 5-mile head start. B's speed is 17 &minus; 5 = 12 mph, which is less than A's 14 mph.",
+"The speeds are 14 mph and 12 mph, which are not equal. Compare the rate of change in the table to the slope of d = 14t."
+]
+},
+{
+"options": [
+"0 miles",
+"5 miles",
+"12 miles",
+"17 miles"
+],
+"answer": 1,
+"why": [
+"You assumed B starts at the line like A. The table shows d = 5 at t = 0.",
+"",
+"12 is Cyclist B's speed, not the starting position. Read the table at t = 0: 5 miles.",
+"17 miles is B's distance after 1 hour. At t = 0, B is 5 miles ahead."
+]
+},
+{
+"options": [
+"0.5 hour",
+"2 hours",
+"2.5 hours",
+"5 hours"
+],
+"answer": 2,
+"why": [
+"After 0.5 hour, A has gone 7 miles while B is at 11 miles, so A has not caught up. Solve 14t = 12t + 5: t = 2.5.",
+"After 2 hours, A is at 28 miles and B is at 29, so A is still behind. Solve 14t = 12t + 5 to get t = 2.5.",
+"",
+"You divided the 5-mile head start by 1 instead of by the 2 mph difference in speeds. 5 &divide; 2 = 2.5 hours."
+]
+}
+],
+"explain": "<p>Cyclist A&rsquo;s speed is the slope of d = 14t: 14 miles per hour.</p><p>Cyclist B&rsquo;s speed is the rate of change in the table: 17 &minus; 5 = 12 miles each hour. So <strong>Cyclist A</strong> is faster.</p><p>At t = 0, Cyclist B&rsquo;s distance is <strong>5 miles</strong>, so B has a 5-mile head start. B&rsquo;s equation is d = 12t + 5.</p><p>Set the distances equal: 14t = 12t + 5, so 2t = 5 and t = <strong>2.5 hours</strong>.</p><p>Check: A: 14(2.5) = 35 miles. B: 12(2.5) + 5 = 35 miles.</p><p>Choosing Cyclist B because its table numbers are larger confuses distance with speed; B is ahead only because of its head start.</p>"
+},
+{
+"id": "m41",
+"type": "mc",
+"skill": "Quadratic formula in context",
+"stim": "s1",
+"difficulty": 3,
+"prompt": "<p>To the nearest hundredth of a second, how long after it is launched does the ball hit the ground? Use the formula sheet if needed.</p>",
+"options": [
+"1.50 seconds",
+"3.12 seconds",
+"3.00 seconds",
+"0.12 second"
+],
+"answer": 1,
+"explain": "<p>The ball hits the ground when h(t) = 0: &minus;16t<sup>2</sup> + 48t + 6 = 0.</p><p>Use the quadratic formula with a = &minus;16, b = 48, c = 6.</p><p>b<sup>2</sup> &minus; 4ac = 48<sup>2</sup> &minus; 4(&minus;16)(6) = 2,304 + 384 = 2,688</p><p>&radic;2,688 &asymp; 51.846</p><p>t = (&minus;48 &plusmn; 51.846) / (2 &times; &minus;16) = (&minus;48 &plusmn; 51.846) / (&minus;32)</p><p>t = (&minus;48 &minus; 51.846) / (&minus;32) = &minus;99.846 / &minus;32 &asymp; <strong>3.12 seconds</strong></p><p>The other solution, (&minus;48 + 51.846) / (&minus;32) &asymp; &minus;0.12, is negative, so it does not make sense for time. 3.00 seconds is when h = 6 (the ball returns to launch height), not ground level. 1.50 seconds is when the ball reaches its highest point.</p>",
+"why": [
+"1.50 seconds is when the ball is at its highest point (the vertex), not when it lands. Set h(t) = 0 and use the quadratic formula: t &asymp; 3.12.",
+"",
+"3.00 seconds is when the ball falls back to 6 feet, its launch height. It still has 6 feet to fall; h(t) = 0 at t &asymp; 3.12.",
+"0.12 is the size of the negative solution, which happens before launch and makes no sense for time. Use the positive root: about 3.12 seconds."
+]
+},
+{
+"id": "m42",
+"type": "mc",
+"skill": "Maximum of a quadratic function",
+"stim": "s1",
+"difficulty": 3,
+"prompt": "<p>What is the maximum height the ball reaches?</p>",
+"options": [
+"54 feet",
+"6 feet",
+"78 feet",
+"42 feet"
+],
+"answer": 3,
+"explain": "<p>The maximum occurs at the vertex, t = &minus;b / (2a) = &minus;48 / (2 &times; &minus;16) = &minus;48 / &minus;32 = 1.5 seconds.</p><p>h(1.5) = &minus;16(1.5)<sup>2</sup> + 48(1.5) + 6</p><p>(1.5)<sup>2</sup> = 2.25, and &minus;16(2.25) = &minus;36</p><p>48(1.5) = 72</p><p>h(1.5) = &minus;36 + 72 + 6 = <strong>42 feet</strong></p><p>54 feet comes from forgetting to square 1.5 (&minus;16 &times; 1.5 = &minus;24). 78 feet comes from leaving out the &minus;16t<sup>2</sup> term (72 + 6). 6 feet is the launch height.</p>",
+"why": [
+"You forgot to square 1.5, using &minus;16 &times; 1.5 = &minus;24. (1.5)<sup>2</sup> = 2.25, so &minus;16(2.25) = &minus;36 and h = 42.",
+"6 feet is the launch height at t = 0. The maximum is at the vertex, t = 1.5: h(1.5) = 42.",
+"You left out the &minus;16t<sup>2</sup> term (72 + 6). Include it: &minus;36 + 72 + 6 = 42.",
+""
+]
+},
+{
+"id": "m43",
+"type": "mc",
+"skill": "Adding rational expressions",
+"difficulty": 3,
+"prompt": "<p>Which expression is equivalent to 3/x + 2/(x + 1) for all values of x where the expression is defined?</p>",
+"options": [
+"5/(2x + 1)",
+"5/(x<sup>2</sup> + x)",
+"(5x + 1)/(x<sup>2</sup> + x)",
+"(5x + 3)/(x<sup>2</sup> + x)"
+],
+"answer": 3,
+"explain": "<p>The common denominator is x(x + 1) = x<sup>2</sup> + x.</p><p>Rewrite each fraction: 3/x = 3(x + 1) / [x(x + 1)] = (3x + 3) / [x(x + 1)] and 2/(x + 1) = 2x / [x(x + 1)].</p><p>Add the numerators: (3x + 3 + 2x) / [x(x + 1)] = <strong>(5x + 3)/(x<sup>2</sup> + x)</strong>.</p><p>Check with x = 1: 3/1 + 2/2 = 4, and (5 + 3)/(1 + 1) = 8/2 = 4.</p><p>5/(2x + 1) adds the numerators and the denominators separately, which is never allowed. (5x + 1)/(x<sup>2</sup> + x) multiplies only the x by 3 in 3(x + 1).</p>",
+"why": [
+"You added the numerators and the denominators separately, which is never allowed. Use the common denominator x(x + 1).",
+"You used the common denominator but did not rewrite the numerators. 3/x becomes (3x + 3)/[x(x + 1)] and 2/(x + 1) becomes 2x/[x(x + 1)].",
+"You multiplied only the x by 3 in 3(x + 1). 3(x + 1) = 3x + 3, so the numerator is 5x + 3.",
+""
+]
+},
+{
+"id": "m44",
+"type": "drag",
+"skill": "Slope of a line from its equation",
+"difficulty": 2,
+"prompt": "<p>Drag each equation into the category that describes the slope of its graph.</p>",
+"choices": [
+"y = 4",
+"x = &minus;2",
+"y = &minus;3x + 1",
+"2x &minus; y = 5",
+"3x + 4y = 8",
+"y &minus; 6 = 2x"
+],
+"bins": [
+"Positive slope",
+"Negative slope",
+"Zero slope",
+"Undefined slope"
+],
+"answer": [
+2,
+3,
+1,
+0,
+1,
+0
+],
+"explain": "<p><strong>y = 4</strong> is a horizontal line: zero slope.</p><p><strong>x = &minus;2</strong> is a vertical line: undefined slope.</p><p><strong>y = &minus;3x + 1</strong> has slope &minus;3: negative.</p><p><strong>2x &minus; y = 5</strong> becomes y = 2x &minus; 5, slope 2: positive.</p><p><strong>3x + 4y = 8</strong> becomes 4y = &minus;3x + 8, so y = &minus;(3/4)x + 2, slope &minus;3/4: negative.</p><p><strong>y &minus; 6 = 2x</strong> becomes y = 2x + 6, slope 2: positive.</p><p>A common mistake is to read the slope of 2x &minus; y = 5 as &minus;2 without solving for y first; the &minus;y flips the sign.</p>",
+"why": "The most common mistake is reading the slope of 2x &minus; y = 5 as &minus;2 without solving for y (y = 2x &minus; 5, slope 2), or mixing up y = 4 (horizontal, zero slope) with x = &minus;2 (vertical, undefined slope)."
+},
+{
+"id": "m45",
+"type": "multi",
+"skill": "Parallel lines",
+"difficulty": 3,
+"prompt": "<p>Which equations represent lines that are parallel to the line y = (2/3)x &minus; 4? Select <strong>two</strong> answers.</p>",
+"options": [
+"y = (2/3)x + 5",
+"2x &minus; 3y = 9",
+"3x &minus; 2y = 4",
+"y = &minus;(3/2)x + 1",
+"2x + 3y = 6",
+"y = 3x &minus; 2"
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>Parallel lines have the same slope, 2/3, and different y-intercepts.</p><p>y = (2/3)x + 5 has slope 2/3 and y-intercept 5: <strong>parallel</strong>.</p><p>2x &minus; 3y = 9: &minus;3y = &minus;2x + 9, so y = (2/3)x &minus; 3. Slope 2/3, different intercept: <strong>parallel</strong>.</p><p>3x &minus; 2y = 4 gives y = (3/2)x &minus; 2 (slope 3/2). y = &minus;(3/2)x + 1 has the negative reciprocal slope, so it is perpendicular. 2x + 3y = 6 gives y = &minus;(2/3)x + 2 (slope &minus;2/3). y = 3x &minus; 2 has slope 3. None of these are parallel.</p>",
+"why": [
+"",
+"",
+"3x &minus; 2y = 4 becomes y = (3/2)x &minus; 2, with slope 3/2. That is the reciprocal of 2/3, not the same slope.",
+"Slope &minus;3/2 is the negative reciprocal of 2/3, so this line is perpendicular, not parallel.",
+"2x + 3y = 6 becomes y = &minus;(2/3)x + 2. The slope &minus;2/3 has the opposite sign, so the lines are not parallel.",
+"Slope 3 is not 2/3. Parallel lines must have exactly the same slope."
+]
+},
+{
+"id": "m46",
+"type": "mc",
+"skill": "Exponent rules with variables",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to (6x<sup>5</sup>y<sup>&minus;2</sup>) / (2x<sup>2</sup>y<sup>3</sup>) for x &ne; 0 and y &ne; 0?</p>",
+"options": [
+"3x<sup>3</sup> / y<sup>5</sup>",
+"3x<sup>3</sup>y",
+"4x<sup>3</sup> / y<sup>5</sup>",
+"12x<sup>7</sup>y"
+],
+"answer": 0,
+"explain": "<p>Divide the coefficients: 6 &divide; 2 = 3.</p><p>Subtract exponents for x: x<sup>5 &minus; 2</sup> = x<sup>3</sup>.</p><p>Subtract exponents for y: y<sup>&minus;2 &minus; 3</sup> = y<sup>&minus;5</sup> = 1/y<sup>5</sup>.</p><p>Result: <strong>3x<sup>3</sup> / y<sup>5</sup></strong>.</p><p>3x<sup>3</sup>y comes from treating the y exponent as &minus;2 &minus; (&minus;3) = 1, a sign error. 4x<sup>3</sup>/y<sup>5</sup> subtracts the coefficients instead of dividing them. 12x<sup>7</sup>y multiplies instead of dividing.</p>",
+"why": [
+"",
+"You made a sign error with the y exponents: &minus;2 &minus; 3 = &minus;5, not 1. y<sup>&minus;5</sup> = 1/y<sup>5</sup>.",
+"You subtracted the coefficients (6 &minus; 2) instead of dividing. 6 &divide; 2 = 3.",
+"You multiplied instead of dividing (6 &times; 2 and adding exponents). Divide the coefficients and subtract the exponents."
+]
+}
+]
+}
 ]
 }

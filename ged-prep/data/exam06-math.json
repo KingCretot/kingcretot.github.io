@@ -1,847 +1,1215 @@
 {
- "form": 6,
- "subject": "math",
- "title": "Practice GED Form 6 — Mathematical Reasoning",
- "minutes": 115,
- "stimuli": [],
- "parts": [
-  {
-   "name": "Part 1",
-   "calculator": false,
-   "items": [
-    {
-     "id": "m01",
-     "type": "mc",
-     "skill": "Order of operations with integers",
-     "difficulty": 1,
-     "prompt": "<p>Following the order of operations, find the value of &minus;6 + 24 &divide; (&minus;3) &times; 2 &minus; (&minus;5).</p>",
-     "options": [
-      "&minus;5",
-      "&minus;27",
-      "&minus;17",
-      "15"
-     ],
-     "answer": 2,
-     "explain": "<p>Do multiplication and division from left to right first, then addition and subtraction.</p><p>24 &divide; (&minus;3) = &minus;8</p><p>&minus;8 &times; 2 = &minus;16</p><p>&minus;6 + (&minus;16) &minus; (&minus;5) = &minus;6 &minus; 16 + 5 = <strong>&minus;17</strong></p><p>&minus;5 comes from multiplying (&minus;3) &times; 2 before dividing, which breaks the left-to-right rule: 24 &divide; (&minus;6) = &minus;4, then &minus;6 &minus; 4 + 5 = &minus;5. &minus;27 comes from treating &minus;(&minus;5) as &minus;5 instead of +5.</p>"
-    },
-    {
-     "id": "m02",
-     "type": "fill",
-     "skill": "Dividing mixed numbers",
-     "difficulty": 2,
-     "prompt": "<p>A carpenter cuts blocking pieces that are each 1&frac14; feet long from a board that is 8&frac34; feet long. If there is no waste, how many pieces can she cut from the board?</p>",
-     "answer": [
-      "7"
-     ],
-     "value": 7,
-     "tol": 0.001,
-     "suffix": "pieces",
-     "explain": "<p>Divide the board length by the piece length.</p><p>8&frac34; = 35/4 and 1&frac14; = 5/4</p><p>35/4 &divide; 5/4 = 35/4 &times; 4/5 = 140/20 = <strong>7</strong></p><p>Check: 7 &times; 1&frac14; = 7 + 7/4 = 7 + 1&frac34; = 8&frac34; feet.</p><p>A common error is to divide only the whole numbers, 8 &divide; 1 = 8. The fractional parts must be included.</p>"
-    },
-    {
-     "id": "m03",
-     "type": "mc",
-     "skill": "Exponent rules with variables",
-     "difficulty": 2,
-     "prompt": "<p>Which expression is equivalent to the expression below for all x &ne; 0?</p><p>(2x<sup>3</sup>)<sup>2</sup> &middot; x<sup>4</sup> &divide; (4x<sup>5</sup>)</p>",
-     "options": [
-      "x<sup>5</sup>",
-      "x<sup>4</sup>",
-      "(1/2)x<sup>5</sup>",
-      "x<sup>19</sup>"
-     ],
-     "answer": 0,
-     "explain": "<p>Power of a product: (2x<sup>3</sup>)<sup>2</sup> = 2<sup>2</sup> &middot; x<sup>3&times;2</sup> = 4x<sup>6</sup></p><p>Multiply by x<sup>4</sup> (add exponents): 4x<sup>6</sup> &middot; x<sup>4</sup> = 4x<sup>10</sup></p><p>Divide by 4x<sup>5</sup> (divide coefficients, subtract exponents): 4x<sup>10</sup> &divide; 4x<sup>5</sup> = <strong>x<sup>5</sup></strong></p><p>(1/2)x<sup>5</sup> comes from forgetting to square the 2, so the numerator becomes 2x<sup>10</sup>. x<sup>4</sup> comes from adding the exponents 3 + 2 instead of multiplying them.</p>"
-    },
-    {
-     "id": "m04",
-     "type": "mc",
-     "skill": "Solving equations with fractions",
-     "difficulty": 2,
-     "prompt": "<p>Solve for x: (2x + 1)/5 = (x &minus; 4)/2</p>",
-     "options": [
-      "21",
-      "6",
-      "&minus;22",
-      "22"
-     ],
-     "answer": 3,
-     "explain": "<p>Multiply both sides by 10, the least common denominator:</p><p>10 &times; (2x + 1)/5 = 10 &times; (x &minus; 4)/2</p><p>2(2x + 1) = 5(x &minus; 4)</p><p>4x + 2 = 5x &minus; 20</p><p>Subtract 4x from both sides: 2 = x &minus; 20</p><p>Add 20: x = <strong>22</strong></p><p>Check: (2(22) + 1)/5 = 45/5 = 9 and (22 &minus; 4)/2 = 18/2 = 9.</p><p>21 comes from multiplying only the 2x by 2 on the left (4x + 1). 6 comes from multiplying only the x by 5 on the right (5x &minus; 4).</p>"
-    },
-    {
-     "id": "m05",
-     "type": "mc",
-     "skill": "Estimating square roots",
-     "difficulty": 1,
-     "prompt": "<p>Which number is between 7 and 8 on the number line?</p>",
-     "options": [
-      "&radic;48",
-      "&radic;50",
-      "&radic;65",
-      "&radic;70"
-     ],
-     "answer": 1,
-     "explain": "<p>Square the endpoints: 7<sup>2</sup> = 49 and 8<sup>2</sup> = 64. A square root lies between 7 and 8 only if the number under the root is between 49 and 64.</p><p>50 is between 49 and 64, so <strong>&radic;50</strong> is between 7 and 8 (about 7.07).</p><p>&radic;48 is just under 7 because 48 &lt; 49. &radic;65 and &radic;70 are greater than 8 because 65 and 70 are greater than 64.</p>"
-    }
-   ]
-  },
-  {
-   "name": "Part 2",
-   "calculator": true,
-   "items": [
-    {
-     "id": "m06",
-     "type": "mc",
-     "skill": "Percent change",
-     "difficulty": 2,
-     "prompt": "<p>A contractor bid $8,600 to build a backyard patio. Because material prices rose, the final bill was $9,890. By what percent did the final bill exceed the bid?</p>",
-     "options": [
-      "13%",
-      "15%",
-      "115%",
-      "1.29%"
-     ],
-     "answer": 1,
-     "explain": "<p>Amount over the bid: 9,890 &minus; 8,600 = $1,290.</p><p>Percent change = change &divide; original = 1,290 &divide; 8,600 = 0.15 = <strong>15%</strong>.</p><p>13% comes from dividing by the final bill (1,290 &divide; 9,890 &asymp; 0.13). Percent change always divides by the original amount, which here is the bid. 115% compares the whole final bill to the bid instead of only the increase.</p>"
-    },
-    {
-     "id": "m07",
-     "type": "fill",
-     "skill": "Unit rates",
-     "difficulty": 1,
-     "prompt": "<p>A landscaping supplier sells sod at a price of $147 for 350 square feet. At this rate, how much will 1,250 square feet of sod cost, in dollars?</p>",
-     "answer": [
-      "525",
-      "525.00",
-      "$525"
-     ],
-     "value": 525,
-     "tol": 0.001,
-     "suffix": "dollars",
-     "explain": "<p>Find the unit price: 147 &divide; 350 = $0.42 per square foot.</p><p>Multiply by the area needed: 0.42 &times; 1,250 = <strong>$525</strong>.</p><p>You can also use a proportion: 147/350 = c/1,250, so 350c = 147 &times; 1,250 = 183,750 and c = 525.</p>"
-    },
-    {
-     "id": "m08",
-     "type": "mc",
-     "skill": "Area of composite figures",
-     "difficulty": 2,
-     "prompt": "<p>A crew is laying pavers for the L-shaped patio shown below. All corners are right angles. What is the area of the patio?</p>",
-     "figure": {
-      "type": "svg",
-      "svg": "<svg viewBox='0 0 300 210' xmlns='http://www.w3.org/2000/svg'><polygon points='40,30 160,30 160,90 240,90 240,170 40,170' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='85' y='22' font-size='14' fill='#0A1F3D'>12 ft</text><text x='166' y='65' font-size='14' fill='#0A1F3D'>6 ft</text><text x='186' y='84' font-size='14' fill='#0A1F3D'>8 ft</text><text x='246' y='135' font-size='14' fill='#0A1F3D'>8 ft</text><text x='122' y='190' font-size='14' fill='#0A1F3D'>20 ft</text><text x='2' y='105' font-size='14' fill='#0A1F3D'>14 ft</text></svg>",
-      "alt": "An L-shaped patio. The bottom side is 20 ft and the left side is 14 ft. The top side is 12 ft. A notch is cut from the top right corner: it goes down 6 ft and then across 8 ft. The remaining right side is 8 ft."
-     },
-     "options": [
-      "280 square feet",
-      "328 square feet",
-      "68 square feet",
-      "232 square feet"
-     ],
-     "answer": 3,
-     "explain": "<p>Think of the patio as a 20 ft by 14 ft rectangle with an 8 ft by 6 ft corner removed.</p><p>Large rectangle: 20 &times; 14 = 280 square feet</p><p>Missing corner: 8 &times; 6 = 48 square feet</p><p>Patio: 280 &minus; 48 = <strong>232 square feet</strong></p><p>Check another way: split into a 12 ft by 14 ft piece (168) and an 8 ft by 8 ft piece (64): 168 + 64 = 232.</p><p>280 ignores the missing corner, 328 adds the corner instead of subtracting it, and 68 feet is the perimeter, not the area.</p>"
-    },
-    {
-     "id": "m09",
-     "type": "mc",
-     "skill": "Volume and unit conversion",
-     "difficulty": 3,
-     "prompt": "<p>A concrete slab for a shed will be 24 feet long, 18 feet wide, and 4 inches thick. Concrete is ordered in cubic yards (1 cubic yard = 27 cubic feet). About how many cubic yards of concrete are needed for the slab?</p>",
-     "options": [
-      "5.3 cubic yards",
-      "16 cubic yards",
-      "64 cubic yards",
-      "144 cubic yards"
-     ],
-     "answer": 0,
-     "explain": "<p>Change the thickness to feet: 4 inches = 4/12 = 1/3 foot.</p><p>Volume in cubic feet: 24 &times; 18 &times; 1/3 = 432 &times; 1/3 = 144 cubic feet.</p><p>Change to cubic yards: 144 &divide; 27 &asymp; <strong>5.3 cubic yards</strong>.</p><p>64 comes from leaving the thickness as 4 (inches) with the other sides in feet: 24 &times; 18 &times; 4 = 1,728, and 1,728 &divide; 27 = 64. 16 comes from dividing by 9, which converts square feet, not cubic feet. 144 is the volume in cubic feet.</p>"
-    },
-    {
-     "id": "m10",
-     "type": "mc",
-     "skill": "Volume of a cylinder",
-     "difficulty": 2,
-     "prompt": "<p>A fence post will be set in a hole shaped like a cylinder. The hole has a diameter of 12 inches and a depth of 4 feet. What is the volume of the hole, to the nearest hundredth of a cubic foot?</p>",
-     "options": [
-      "12.57 cubic feet",
-      "6.28 cubic feet",
-      "3.14 cubic feet",
-      "452.39 cubic feet"
-     ],
-     "answer": 2,
-     "explain": "<p>Use the formula sheet: V = &pi;r<sup>2</sup>h.</p><p>Use feet for every measure. Diameter = 12 inches = 1 foot, so the radius r = 0.5 foot. Depth h = 4 feet.</p><p>V = &pi;(0.5)<sup>2</sup>(4) = &pi;(0.25)(4) = &pi; &asymp; <strong>3.14 cubic feet</strong></p><p>12.57 comes from using the 1-foot diameter as the radius: &pi;(1)<sup>2</sup>(4) = 4&pi;. 452.39 comes from mixing units, using r = 6 inches with h = 4 feet: &pi;(36)(4).</p>"
-    },
-    {
-     "id": "m11",
-     "type": "fill",
-     "skill": "Volume of a cone",
-     "difficulty": 2,
-     "prompt": "<p>A delivered pile of mulch is shaped like a cone. The base of the pile has a diameter of 10 feet, and the pile is 6 feet tall. What is the volume of the pile, to the nearest cubic foot?</p>",
-     "answer": [
-      "157"
-     ],
-     "value": 157,
-     "tol": 0.5,
-     "suffix": "cubic feet",
-     "explain": "<p>Use the formula sheet: V = (1/3)&pi;r<sup>2</sup>h.</p><p>The radius is half the diameter: r = 10 &divide; 2 = 5 feet.</p><p>V = (1/3)&pi;(5)<sup>2</sup>(6) = (1/3)&pi;(25)(6) = 50&pi; &asymp; 157.08</p><p>To the nearest cubic foot: <strong>157 cubic feet</strong>.</p><p>Leaving out the 1/3 gives 150&pi; &asymp; 471, which is the volume of a cylinder, not a cone. Using 10 as the radius gives 200&pi; &asymp; 628.</p>"
-    },
-    {
-     "id": "m12",
-     "type": "mc",
-     "skill": "Surface area of a cylinder",
-     "difficulty": 3,
-     "prompt": "<p>A closed cylindrical water tank has a radius of 2 feet and a height of 5 feet. The entire outside of the tank, including the top and bottom, will be painted. What is the surface area to be painted, to the nearest tenth of a square foot?</p>",
-     "options": [
-      "62.8 square feet",
-      "75.4 square feet",
-      "226.2 square feet",
-      "88.0 square feet"
-     ],
-     "answer": 3,
-     "explain": "<p>Use the formula sheet: SA = 2&pi;rh + 2&pi;r<sup>2</sup>.</p><p>Side (lateral area): 2&pi;(2)(5) = 20&pi;</p><p>Top and bottom: 2&pi;(2)<sup>2</sup> = 8&pi;</p><p>Total: 20&pi; + 8&pi; = 28&pi; &asymp; <strong>88.0 square feet</strong></p><p>62.8 is only the side (20&pi;). 75.4 includes only one circular end (20&pi; + 4&pi; = 24&pi;). 226.2 comes from using the diameter, 4, as the radius.</p>"
-    },
-    {
-     "id": "m13",
-     "type": "mc",
-     "skill": "Pythagorean theorem",
-     "difficulty": 2,
-     "prompt": "<p>A roof rafter forms the slanted side of a right triangle. The rise of the roof is 6 feet and the horizontal run is 14 feet. To the nearest tenth of a foot, how long is the rafter?</p>",
-     "options": [
-      "20.0 feet",
-      "12.6 feet",
-      "15.2 feet",
-      "232.0 feet"
-     ],
-     "answer": 2,
-     "explain": "<p>The rafter is the hypotenuse c, and the rise and run are the legs.</p><p>c<sup>2</sup> = 6<sup>2</sup> + 14<sup>2</sup> = 36 + 196 = 232</p><p>c = &radic;232 &asymp; <strong>15.2 feet</strong></p><p>20.0 adds the legs (6 + 14) without squaring. 12.6 subtracts the squares (&radic;160), which finds a leg, not the hypotenuse. 232 is c<sup>2</sup>; the square root was not taken.</p>"
-    },
-    {
-     "id": "m14",
-     "type": "mc",
-     "skill": "Circumference and area of circles",
-     "difficulty": 3,
-     "prompt": "<p>A circular stone patio has a circumference of 47.1 feet. Using 3.14 for &pi;, what is the area of the patio, to the nearest tenth of a square foot?</p>",
-     "options": [
-      "706.5 square feet",
-      "176.6 square feet",
-      "353.3 square feet",
-      "23.6 square feet"
-     ],
-     "answer": 1,
-     "explain": "<p>Find the radius from the circumference: C = 2&pi;r, so 47.1 = 2(3.14)r = 6.28r and r = 47.1 &divide; 6.28 = 7.5 feet.</p><p>Area: A = &pi;r<sup>2</sup> = 3.14 &times; 7.5<sup>2</sup> = 3.14 &times; 56.25 = 176.625 &asymp; <strong>176.6 square feet</strong>.</p><p>706.5 uses the diameter, 15, as the radius (3.14 &times; 225). 353.3 multiplies the circumference by the radius (47.1 &times; 7.5) instead of taking half of that product. 23.6 is &pi;r, which is not squared.</p>"
-    },
-    {
-     "id": "m15",
-     "type": "mc",
-     "skill": "Scale drawings",
-     "difficulty": 2,
-     "prompt": "<p>On a landscape plan, the scale is &frac14; inch = 2 feet. A garden bed is 3&frac34; inches long on the plan. What is the actual length of the garden bed?</p>",
-     "options": [
-      "30 feet",
-      "7.5 feet",
-      "15 feet",
-      "60 feet"
-     ],
-     "answer": 0,
-     "explain": "<p>Find how many &frac14;-inch units are in 3&frac34; inches: 3.75 &divide; 0.25 = 15.</p><p>Each &frac14; inch stands for 2 feet: 15 &times; 2 = <strong>30 feet</strong>.</p><p>Another way: &frac14; inch = 2 feet means 1 inch = 8 feet, and 3.75 &times; 8 = 30.</p><p>7.5 feet comes from multiplying 3.75 by 2 as if 1 inch = 2 feet. 15 is the number of quarter inches, not feet.</p>"
-    },
-    {
-     "id": "m16",
-     "type": "fill",
-     "skill": "Mean",
-     "difficulty": 1,
-     "prompt": "<p>A concrete crew recorded the amount of concrete it poured each day for five days, in cubic yards:</p><p>6.5, 8, 7.25, 9, 8.25</p><p>What is the mean amount poured per day, in cubic yards?</p>",
-     "answer": [
-      "7.8"
-     ],
-     "value": 7.8,
-     "tol": 0.001,
-     "suffix": "cubic yards",
-     "explain": "<p>Add the values: 6.5 + 8 + 7.25 + 9 + 8.25 = 39.</p><p>Divide by the number of days: 39 &divide; 5 = <strong>7.8 cubic yards</strong>.</p><p>The median of these values is 8, so be careful not to confuse the two measures.</p>"
-    },
-    {
-     "id": "m17",
-     "type": "mc",
-     "skill": "Median and range",
-     "difficulty": 2,
-     "prompt": "<p>A carpenter has seven boards with these lengths, in feet:</p><p>12, 8, 16, 10, 14, 8, 20</p><p>Which statement about the board lengths is true?</p>",
-     "options": [
-      "The median is 12 feet and the range is 12 feet.",
-      "The median is 10 feet and the range is 12 feet.",
-      "The median is 12 feet and the range is 20 feet.",
-      "The median is 12.6 feet and the range is 12 feet."
-     ],
-     "answer": 0,
-     "explain": "<p>Put the lengths in order: 8, 8, 10, 12, 14, 16, 20.</p><p>Median: with 7 values, the middle (4th) value is <strong>12 feet</strong>.</p><p>Range: greatest &minus; least = 20 &minus; 8 = <strong>12 feet</strong>.</p><p>10 feet is the middle of the list before it is put in order. A range of 20 uses only the greatest value. 12.6 is about the mean (88 &divide; 7 &asymp; 12.57), not the median.</p>"
-    },
-    {
-     "id": "m18",
-     "type": "mc",
-     "skill": "Probability of dependent events",
-     "difficulty": 3,
-     "prompt": "<p>A bin holds 40 bolts: 25 are zinc, 10 are stainless steel, and 5 are brass. A worker takes one bolt at random, keeps it, and then takes a second bolt at random. What is the probability that both bolts are stainless steel?</p>",
-     "options": [
-      "1/16",
-      "3/52",
-      "1/4",
-      "1/2"
-     ],
-     "answer": 1,
-     "explain": "<p>First bolt: P(stainless) = 10/40.</p><p>The first bolt is not replaced, so 9 stainless bolts remain among 39. Second bolt: P(stainless) = 9/39.</p><p>P(both) = 10/40 &times; 9/39 = 90/1,560 = <strong>3/52</strong> (about 0.058).</p><p>1/16 is (10/40)<sup>2</sup>, the answer if the first bolt were put back. 1/4 is the probability for only one bolt. 1/2 adds the two probabilities 1/4 + 1/4 instead of multiplying.</p>"
-    },
-    {
-     "id": "m19",
-     "type": "mc",
-     "skill": "Counting principle",
-     "difficulty": 1,
-     "prompt": "<p>For each front yard in a new development, the builder lets buyers choose 1 of 4 kinds of trees, 1 of 3 kinds of shrubs, and 1 of 5 kinds of ground cover. How many different yard designs are possible?</p>",
-     "options": [
-      "12",
-      "20",
-      "60",
-      "15"
-     ],
-     "answer": 2,
-     "explain": "<p>Use the counting principle: multiply the number of choices at each step.</p><p>4 &times; 3 &times; 5 = <strong>60</strong> designs.</p><p>12 adds the choices (4 + 3 + 5) instead of multiplying. 20 and 15 multiply only two of the three choices.</p>"
-    },
-    {
-     "id": "m20",
-     "type": "mc",
-     "skill": "Scientific notation",
-     "difficulty": 3,
-     "prompt": "<p>A grain of sand has a mass of about 6.7 &times; 10<sup>&minus;4</sup> gram. A truckload of sand has a mass of about 2.2 &times; 10<sup>7</sup> grams. About how many grains of sand are in the truckload?</p>",
-     "options": [
-      "3.3 &times; 10<sup>3</sup>",
-      "1.5 &times; 10<sup>4</sup>",
-      "3.3 &times; 10<sup>11</sup>",
-      "3.3 &times; 10<sup>10</sup>"
-     ],
-     "answer": 3,
-     "explain": "<p>Divide the total mass by the mass of one grain:</p><p>(2.2 &times; 10<sup>7</sup>) &divide; (6.7 &times; 10<sup>&minus;4</sup>) = (2.2 &divide; 6.7) &times; 10<sup>7 &minus; (&minus;4)</sup> &asymp; 0.328 &times; 10<sup>11</sup></p><p>Rewrite in scientific notation: 0.328 &times; 10<sup>11</sup> = <strong>3.3 &times; 10<sup>10</sup></strong> (about 33 billion grains).</p><p>3.3 &times; 10<sup>3</sup> subtracts the exponents as 7 &minus; 4 instead of 7 &minus; (&minus;4). 1.5 &times; 10<sup>4</sup> multiplies the two numbers instead of dividing. 3.3 &times; 10<sup>11</sup> forgets to lower the exponent when 0.328 is changed to 3.28.</p>"
-    },
-    {
-     "id": "m21",
-     "type": "fill",
-     "skill": "Ratios",
-     "difficulty": 2,
-     "prompt": "<p>A concrete mix uses cement, sand, and gravel in the ratio 1 : 2 : 3 by volume. A worker needs 18 cubic feet of mix in all. How many cubic feet of sand are needed?</p>",
-     "answer": [
-      "6"
-     ],
-     "value": 6,
-     "tol": 0.001,
-     "suffix": "cubic feet",
-     "explain": "<p>Add the parts of the ratio: 1 + 2 + 3 = 6 parts.</p><p>Each part is 18 &divide; 6 = 3 cubic feet.</p><p>Sand is 2 parts: 2 &times; 3 = <strong>6 cubic feet</strong>.</p><p>Check: cement 3 + sand 6 + gravel 9 = 18 cubic feet. A common error is to use 18 &times; 2/3 = 12, treating sand as 2 out of 3 parts instead of 2 out of 6.</p>"
-    },
-    {
-     "id": "m22",
-     "type": "mc",
-     "skill": "Simple interest",
-     "difficulty": 2,
-     "prompt": "<p>Marisol borrows $4,500 to buy a used car. The loan charges 6% simple interest per year, and she repays it in 3 years. What is the total amount she repays, including interest?</p>",
-     "options": [
-      "$810",
-      "$4,770",
-      "$5,310",
-      "$5,359.57"
-     ],
-     "answer": 2,
-     "explain": "<p>Use I = Prt: I = 4,500 &times; 0.06 &times; 3 = $810.</p><p>Total repaid = principal + interest = 4,500 + 810 = <strong>$5,310</strong>.</p><p>$810 is only the interest. $4,770 includes just one year of interest (4,500 &times; 0.06 = 270). $5,359.57 uses compound interest (4,500 &times; 1.06<sup>3</sup>), but this loan uses simple interest.</p>"
-    },
-    {
-     "id": "m23",
-     "type": "drag",
-     "skill": "Comparing and ordering real numbers",
-     "difficulty": 2,
-     "prompt": "<p>Arrange the five numbers below in order. Place the smallest value in the first box and the largest value in the last box.</p>",
-     "choices": [
-      "(1/2)<sup>2</sup>",
-      "0.1",
-      "&radic;0.09",
-      "2<sup>&minus;3</sup>",
-      "3/20"
-     ],
-     "bins": [
-      "1st (least)",
-      "2nd",
-      "3rd",
-      "4th",
-      "5th (greatest)"
-     ],
-     "answer": [
-      3,
-      0,
-      4,
-      1,
-      2
-     ],
-     "explain": "<p>Write each number as a decimal:</p><p>(1/2)<sup>2</sup> = 1/4 = 0.25</p><p>2<sup>&minus;3</sup> = 1/2<sup>3</sup> = 1/8 = 0.125</p><p>3/20 = 0.15</p><p>&radic;0.09 = 0.3, because 0.3 &times; 0.3 = 0.09</p><p>Order from least to greatest: <strong>0.1, 2<sup>&minus;3</sup>, 3/20, (1/2)<sup>2</sup>, &radic;0.09</strong>.</p><p>A negative exponent does not make a number negative: 2<sup>&minus;3</sup> is a small positive number. Also, &radic;0.09 is 0.3, not 0.03.</p>"
-    },
-    {
-     "id": "m24",
-     "type": "mc",
-     "skill": "Writing expressions",
-     "difficulty": 1,
-     "prompt": "<p>A tree service charges $85 for each tree it removes and $40 for each stump it grinds. Which expression gives the total charge, in dollars, for removing t trees and grinding s stumps?</p>",
-     "options": [
-      "85s + 40t",
-      "125(t + s)",
-      "125ts",
-      "85t + 40s"
-     ],
-     "answer": 3,
-     "explain": "<p>Each tree costs $85, so t trees cost 85t. Each stump costs $40, so s stumps cost 40s.</p><p>Total = <strong>85t + 40s</strong>.</p><p>Check: 3 trees and 2 stumps cost 85(3) + 40(2) = 255 + 80 = $335.</p><p>85s + 40t switches the prices. 125(t + s) charges $125 for every tree and every stump, which overcharges: for 3 trees and 2 stumps it gives 125(5) = $625 instead of $335.</p>"
-    },
-    {
-     "id": "m25",
-     "type": "fill",
-     "skill": "Linear equation word problem",
-     "difficulty": 2,
-     "prompt": "<p>A fencing company charges $28 per foot of fence plus $350 for each gate. A customer paid a total of $5,250 for a fence with 2 gates. How many feet of fence were installed?</p>",
-     "answer": [
-      "162.5",
-      "162 1/2",
-      "325/2"
-     ],
-     "value": 162.5,
-     "tol": 0.001,
-     "suffix": "feet",
-     "explain": "<p>Let f be the number of feet of fence.</p><p>28f + 350(2) = 5,250</p><p>28f + 700 = 5,250</p><p>28f = 4,550</p><p>f = 4,550 &divide; 28 = <strong>162.5 feet</strong></p><p>Check: 28(162.5) + 700 = 4,550 + 700 = $5,250.</p><p>Forgetting that there are 2 gates gives 28f + 350 = 5,250 and f = 175, which is too long.</p>"
-    },
-    {
-     "id": "m26",
-     "type": "mc",
-     "skill": "Systems of equations word problem",
-     "difficulty": 2,
-     "prompt": "<p>A garden center sold 40 plants to a landscaper. Shrubs cost $18 each and perennials cost $7 each. The landscaper paid $445 in all. How many perennials did the landscaper buy?</p>",
-     "options": [
-      "25",
-      "15",
-      "20",
-      "30"
-     ],
-     "answer": 0,
-     "explain": "<p>Let s = number of shrubs and p = number of perennials.</p><p>s + p = 40</p><p>18s + 7p = 445</p><p>Substitute p = 40 &minus; s: 18s + 7(40 &minus; s) = 445, so 18s + 280 &minus; 7s = 445.</p><p>11s = 165, so s = 15 shrubs and p = 40 &minus; 15 = <strong>25 perennials</strong>.</p><p>Check: 18(15) + 7(25) = 270 + 175 = $445.</p><p>15 is the number of shrubs, not perennials. 20 assumes the plants were split evenly, which gives 18(20) + 7(20) = $500, not $445.</p>"
-    },
-    {
-     "id": "m27",
-     "type": "mc",
-     "skill": "Solving systems of equations",
-     "difficulty": 2,
-     "prompt": "<p>Which ordered pair (x, y) satisfies both of these equations?</p><p>5x &minus; 3y = 1<br>2x + y = 7</p>",
-     "options": [
-      "(3, 2)",
-      "(2, 3)",
-      "(1, 5)",
-      "(2, &minus;3)"
-     ],
-     "answer": 1,
-     "explain": "<p>Multiply the second equation by 3 so the y-terms cancel: 6x + 3y = 21.</p><p>Add it to the first equation: (5x &minus; 3y) + (6x + 3y) = 1 + 21, so 11x = 22 and x = 2.</p><p>Substitute into 2x + y = 7: 2(2) + y = 7, so y = 3.</p><p>The solution is <strong>(2, 3)</strong>.</p><p>Check in the first equation: 5(2) &minus; 3(3) = 10 &minus; 9 = 1.</p><p>(3, 2) switches x and y: it fails the first equation because 5(3) &minus; 3(2) = 9, not 1. (1, 5) satisfies only the second equation.</p>"
-    },
-    {
-     "id": "m28",
-     "type": "hotspot",
-     "skill": "Intercepts of a line",
-     "difficulty": 3,
-     "prompt": "<p>A line passes through point A(&minus;2, 5), shown on the coordinate plane, and has a slope of &minus;1/2. Click the point where this line crosses the x-axis.</p>",
-     "figure": {
-      "type": "plane",
-      "xmin": -10,
-      "xmax": 10,
-      "ymin": -10,
-      "ymax": 10,
-      "points": [
-       [
-        -2,
-        5,
-        "A"
-       ]
-      ]
-     },
-     "plane": {
-      "xmin": -10,
-      "xmax": 10,
-      "ymin": -10,
-      "ymax": 10
-     },
-     "answer": [
-      8,
-      0
-     ],
-     "explain": "<p>Write the equation of the line with point-slope form: y &minus; 5 = &minus;1/2(x + 2).</p><p>Simplify: y = &minus;(1/2)x &minus; 1 + 5 = &minus;(1/2)x + 4.</p><p>The x-intercept is where y = 0: 0 = &minus;(1/2)x + 4, so (1/2)x = 4 and x = 8.</p><p>The point is <strong>(8, 0)</strong>.</p><p>Check with the slope: from A(&minus;2, 5), going down 5 units means going right 10 units (slope &minus;1/2), which lands at (8, 0).</p><p>The point (0, 4) is the y-intercept, not the x-intercept.</p>"
-    },
-    {
-     "id": "m29",
-     "type": "hotspot",
-     "skill": "Vertex of a parabola",
-     "difficulty": 3,
-     "prompt": "<p>The graph of y = x<sup>2</sup> &minus; 6x + 5 is a parabola. On the coordinate plane, click the point that is the vertex of the parabola.</p>",
-     "plane": {
-      "xmin": -2,
-      "xmax": 8,
-      "ymin": -6,
-      "ymax": 8
-     },
-     "answer": [
-      3,
-      -4
-     ],
-     "explain": "<p>For y = ax<sup>2</sup> + bx + c, the vertex has x = &minus;b/(2a).</p><p>Here a = 1 and b = &minus;6, so x = &minus;(&minus;6)/(2 &times; 1) = 6/2 = 3.</p><p>Find y: y = 3<sup>2</sup> &minus; 6(3) + 5 = 9 &minus; 18 + 5 = &minus;4.</p><p>The vertex is <strong>(3, &minus;4)</strong>.</p><p>Check with the x-intercepts: x<sup>2</sup> &minus; 6x + 5 = (x &minus; 1)(x &minus; 5), so the parabola crosses the x-axis at 1 and 5. The vertex is halfway between them, at x = 3.</p><p>The point (0, 5) is the y-intercept, not the vertex.</p>"
-    },
-    {
-     "id": "m30",
-     "type": "dropdown",
-     "skill": "Linear functions from a table",
-     "difficulty": 2,
-     "prompt": "<p>An equipment rental company charges a fixed delivery fee plus an hourly rate to rent a mini excavator. The table shows the total cost for several rental times.</p><table><thead><tr><th>Hours</th><th>2</th><th>5</th><th>9</th></tr></thead><tbody><tr><td>Total cost ($)</td><td>230</td><td>440</td><td>720</td></tr></tbody></table><p>The hourly rate is {{0}} dollars per hour.</p><p>The delivery fee is {{1}} dollars.</p><p>The total cost to rent the excavator for 12 hours is {{2}} dollars.</p>",
-     "blanks": [
-      {
-       "options": [
-        "70",
-        "80",
-        "105",
-        "115"
-       ],
-       "answer": 0
-      },
-      {
-       "options": [
-        "50",
-        "90",
-        "110",
-        "230"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "840",
-        "930",
-        "1,000",
-        "1,380"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Hourly rate (slope): (440 &minus; 230) &divide; (5 &minus; 2) = 210 &divide; 3 = <strong>70</strong>. Check with the next pair: (720 &minus; 440) &divide; (9 &minus; 5) = 280 &divide; 4 = 70.</p><p>Delivery fee (y-intercept): 2 hours cost 70 &times; 2 = $140 in hourly charges, so the fee is 230 &minus; 140 = <strong>$90</strong>.</p><p>The cost is C = 70h + 90. For 12 hours: 70(12) + 90 = 840 + 90 = <strong>$930</strong>.</p><p>115 comes from dividing 230 by 2, which counts the delivery fee as part of the hourly rate. 840 leaves out the delivery fee.</p>"
-    },
-    {
-     "id": "m31",
-     "type": "dropdown",
-     "skill": "Inequality word problem",
-     "difficulty": 2,
-     "prompt": "<p>A trailer can safely carry at most 2,800 pounds. A landscaper has already loaded a 650-pound mower. Each pallet of pavers weighs 180 pounds. Let p be the number of pallets loaded.</p><p>The inequality that represents this situation is 650 + 180p {{0}} 2,800.</p><p>The greatest number of pallets that can be loaded is {{1}}.</p>",
-     "blanks": [
-      {
-       "options": [
-        "&lt;",
-        "&le;",
-        "&gt;",
-        "&ge;"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "11",
-        "12",
-        "15",
-        "16"
-       ],
-       "answer": 0
-      }
-     ],
-     "explain": "<p>\"At most 2,800 pounds\" means the total weight can equal 2,800 or be less, so the symbol is <strong>&le;</strong>.</p><p>Solve: 180p &le; 2,800 &minus; 650 = 2,150, so p &le; 2,150 &divide; 180 &asymp; 11.94.</p><p>The number of pallets must be a whole number, so the greatest is <strong>11</strong>.</p><p>Check: 650 + 180(11) = 2,630 pounds, which is allowed. 12 pallets give 650 + 2,160 = 2,810 pounds, which is too much. 15 comes from ignoring the mower: 2,800 &divide; 180 &asymp; 15.6.</p>"
-    },
-    {
-     "id": "m32",
-     "type": "dropdown",
-     "skill": "Quadratic functions in context",
-     "difficulty": 3,
-     "prompt": "<p>A worker on a scaffold tosses a small bag of sand upward. Its height, in feet, after t seconds is given by h(t) = &minus;16t<sup>2</sup> + 64t + 80.</p><p>The bag reaches its maximum height at t = {{0}} seconds.</p><p>The maximum height of the bag is {{1}} feet.</p><p>The bag hits the ground at t = {{2}} seconds.</p>",
-     "blanks": [
-      {
-       "options": [
-        "1",
-        "2",
-        "4",
-        "5"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "80",
-        "128",
-        "144",
-        "160"
-       ],
-       "answer": 2
-      },
-      {
-       "options": [
-        "4",
-        "5",
-        "6",
-        "10"
-       ],
-       "answer": 1
-      }
-     ],
-     "explain": "<p>Time of maximum height (the vertex): t = &minus;b/(2a) = &minus;64/(2 &times; &minus;16) = &minus;64/&minus;32 = <strong>2 seconds</strong>.</p><p>Maximum height: h(2) = &minus;16(4) + 64(2) + 80 = &minus;64 + 128 + 80 = <strong>144 feet</strong>.</p><p>The bag hits the ground when h(t) = 0:</p><p>&minus;16t<sup>2</sup> + 64t + 80 = 0. Divide by &minus;16: t<sup>2</sup> &minus; 4t &minus; 5 = 0.</p><p>Factor: (t &minus; 5)(t + 1) = 0, so t = 5 or t = &minus;1. Time cannot be negative, so the bag lands at <strong>t = 5 seconds</strong>.</p><p>80 feet is the starting height, h(0), not the maximum.</p>"
-    },
-    {
-     "id": "m33",
-     "type": "mc",
-     "skill": "Quadratic formula",
-     "difficulty": 3,
-     "prompt": "<p>What are the solutions of 2x<sup>2</sup> &minus; 4x &minus; 3 = 0?</p>",
-     "options": [
-      "x = (&minus;2 &plusmn; &radic;10)/2",
-      "x = (2 &plusmn; &radic;10)/2",
-      "x = (2 &plusmn; &radic;2)/2",
-      "x = 2 &plusmn; &radic;10"
-     ],
-     "answer": 1,
-     "explain": "<p>Use the quadratic formula from the formula sheet with a = 2, b = &minus;4, c = &minus;3:</p><p>x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a)</p><p>b<sup>2</sup> &minus; 4ac = (&minus;4)<sup>2</sup> &minus; 4(2)(&minus;3) = 16 + 24 = 40</p><p>x = (4 &plusmn; &radic;40)/4. Since &radic;40 = 2&radic;10, x = (4 &plusmn; 2&radic;10)/4 = <strong>(2 &plusmn; &radic;10)/2</strong>.</p><p>(&minus;2 &plusmn; &radic;10)/2 uses b instead of &minus;b. (2 &plusmn; &radic;2)/2 equals (4 &plusmn; &radic;8)/4, which comes from an error in b<sup>2</sup> &minus; 4ac (getting 8 instead of 40; with c = &minus;3, the product &minus;4ac is +24, so it must be added to 16). 2 &plusmn; &radic;10 divides only part of the numerator by 2.</p>"
-    },
-    {
-     "id": "m34",
-     "type": "mc",
-     "skill": "Factoring completely",
-     "difficulty": 2,
-     "prompt": "<p>Which shows 3x<sup>2</sup> &minus; 48 factored completely?</p>",
-     "options": [
-      "3(x &minus; 4)(x + 4)",
-      "3(x &minus; 4)<sup>2</sup>",
-      "(3x &minus; 12)(x + 4)",
-      "3(x &minus; 8)(x + 8)"
-     ],
-     "answer": 0,
-     "explain": "<p>Factor out the greatest common factor, 3: 3x<sup>2</sup> &minus; 48 = 3(x<sup>2</sup> &minus; 16).</p><p>x<sup>2</sup> &minus; 16 is a difference of squares: x<sup>2</sup> &minus; 4<sup>2</sup> = (x &minus; 4)(x + 4).</p><p>Factored completely: <strong>3(x &minus; 4)(x + 4)</strong>.</p><p>(3x &minus; 12)(x + 4) equals the expression, but it is not factored completely, because 3x &minus; 12 still has a common factor of 3. 3(x &minus; 4)<sup>2</sup> = 3x<sup>2</sup> &minus; 24x + 48, which has a middle term.</p>"
-    },
-    {
-     "id": "m35",
-     "type": "mc",
-     "skill": "Solving quadratics by factoring",
-     "difficulty": 2,
-     "prompt": "<p>A rectangular vegetable garden has an area of 96 square feet. Its length is 4 feet more than its width. What is the width of the garden?</p>",
-     "options": [
-      "12 feet",
-      "24 feet",
-      "10 feet",
-      "8 feet"
-     ],
-     "answer": 3,
-     "explain": "<p>Let w be the width. Then the length is w + 4.</p><p>w(w + 4) = 96</p><p>w<sup>2</sup> + 4w &minus; 96 = 0</p><p>Factor: find two numbers that multiply to &minus;96 and add to 4: 12 and &minus;8. So (w + 12)(w &minus; 8) = 0.</p><p>w = &minus;12 or w = 8. A width cannot be negative, so the width is <strong>8 feet</strong> (and the length is 12 feet).</p><p>Check: 8 &times; 12 = 96. 12 feet is the length, not the width. 24 comes from dividing 96 by 4.</p>"
-    },
-    {
-     "id": "m36",
-     "type": "multi",
-     "skill": "Equivalent expressions",
-     "difficulty": 2,
-     "prompt": "<p>Which expressions are equivalent to 4(2x &minus; 3) &minus; 2(x &minus; 5)? Select <strong>two</strong> answers.</p>",
-     "options": [
-      "6x &minus; 2",
-      "2(3x &minus; 1)",
-      "6x &minus; 22",
-      "10x &minus; 22",
-      "2(3x + 1)"
-     ],
-     "answer": [
-      0,
-      1
-     ],
-     "explain": "<p>Distribute: 4(2x &minus; 3) = 8x &minus; 12 and &minus;2(x &minus; 5) = &minus;2x + 10.</p><p>Combine like terms: 8x &minus; 2x = 6x and &minus;12 + 10 = &minus;2. The expression equals <strong>6x &minus; 2</strong>.</p><p>Factor out 2: 6x &minus; 2 = <strong>2(3x &minus; 1)</strong>.</p><p>6x &minus; 22 comes from a sign error: writing &minus;2(x &minus; 5) as &minus;2x &minus; 10 instead of &minus;2x + 10. 10x &minus; 22 makes the same sign error and also adds 2x instead of subtracting it. 2(3x + 1) = 6x + 2, which has the wrong sign on the constant.</p>"
-    },
-    {
-     "id": "m37",
-     "type": "mc",
-     "skill": "Function notation",
-     "difficulty": 2,
-     "prompt": "<p>The function g is defined as g(x) = 3x &minus; 7. Which expression is equal to g(a + 2)?</p>",
-     "options": [
-      "3a &minus; 5",
-      "a &minus; 5",
-      "3a &minus; 1",
-      "3a &minus; 13"
-     ],
-     "answer": 2,
-     "explain": "<p>Replace x with (a + 2):</p><p>g(a + 2) = 3(a + 2) &minus; 7 = 3a + 6 &minus; 7 = <strong>3a &minus; 1</strong></p><p>Check with a = 1: g(3) = 3(3) &minus; 7 = 2, and 3(1) &minus; 1 = 2.</p><p>3a &minus; 5 comes from multiplying only the a by 3 (3a + 2 &minus; 7). a &minus; 5 adds 2 to a and subtracts 7 without multiplying by 3.</p>"
-    },
-    {
-     "id": "m38",
-     "type": "mc",
-     "skill": "Identifying functions",
-     "difficulty": 1,
-     "prompt": "<p>Which set of ordered pairs does <strong>not</strong> represent a function?</p>",
-     "options": [
-      "{(&minus;2, 3), (0, 3), (2, 3), (4, 3)}",
-      "{(1, 5), (2, 7), (3, 9), (4, 11)}",
-      "{(0, 0), (1, 1), (&minus;1, 1), (2, 4)}",
-      "{(3, 1), (3, 4), (5, 2), (6, 0)}"
-     ],
-     "answer": 3,
-     "explain": "<p>A relation is a function when each input (x-value) has exactly one output (y-value).</p><p>In <strong>{(3, 1), (3, 4), (5, 2), (6, 0)}</strong>, the input 3 has two different outputs, 1 and 4. So it is not a function.</p><p>The other sets are functions. Repeated outputs are allowed: in {(&minus;2, 3), (0, 3), (2, 3), (4, 3)} every input still has only one output, and in {(0, 0), (1, 1), (&minus;1, 1), (2, 4)} the inputs 1 and &minus;1 share an output, which is fine.</p>"
-    },
-    {
-     "id": "m39",
-     "type": "mc",
-     "skill": "Equation of a parallel line",
-     "difficulty": 3,
-     "prompt": "<p>Which equation describes the line that passes through the point (3, 1) and is parallel to the line 2x &minus; 3y = 12?</p>",
-     "options": [
-      "y = &minus;(3/2)x + 11/2",
-      "y = (2/3)x &minus; 1",
-      "y = &minus;(2/3)x + 3",
-      "y = (2/3)x &minus; 4"
-     ],
-     "answer": 1,
-     "explain": "<p>Find the slope of 2x &minus; 3y = 12 by solving for y: &minus;3y = &minus;2x + 12, so y = (2/3)x &minus; 4. The slope is 2/3.</p><p>Parallel lines have the same slope, so the new line is y = (2/3)x + b.</p><p>Use the point (3, 1): 1 = (2/3)(3) + b = 2 + b, so b = &minus;1.</p><p>The equation is <strong>y = (2/3)x &minus; 1</strong>.</p><p>y = &minus;(3/2)x + 11/2 passes through (3, 1) but is perpendicular, not parallel. y = &minus;(2/3)x + 3 has the wrong sign on the slope. y = (2/3)x &minus; 4 is the original line, which does not pass through (3, 1).</p>"
-    },
-    {
-     "id": "m40",
-     "type": "mc",
-     "skill": "Simplifying rational expressions",
-     "difficulty": 3,
-     "prompt": "<p>Simplify the rational expression (x<sup>2</sup> &minus; 4x &minus; 12)/(x<sup>2</sup> &minus; 36). Assume no denominator equals zero.</p>",
-     "options": [
-      "(x + 2)/(x &minus; 6)",
-      "(x &minus; 2)/(x + 6)",
-      "(x + 2)/(x + 6)",
-      "(x + 3)/9"
-     ],
-     "answer": 2,
-     "explain": "<p>Factor the numerator: x<sup>2</sup> &minus; 4x &minus; 12 = (x &minus; 6)(x + 2), because (&minus;6)(2) = &minus;12 and &minus;6 + 2 = &minus;4.</p><p>Factor the denominator (difference of squares): x<sup>2</sup> &minus; 36 = (x &minus; 6)(x + 6).</p><p>Cancel the common factor (x &minus; 6): <strong>(x + 2)/(x + 6)</strong>.</p><p>Check with x = 0: the original gives &minus;12/&minus;36 = 1/3, and (0 + 2)/(0 + 6) = 2/6 = 1/3.</p><p>(x + 3)/9 comes from canceling the x<sup>2</sup> terms, which is not allowed because x<sup>2</sup> is a term, not a factor. (x + 2)/(x &minus; 6) cancels the wrong factor.</p>"
-    },
-    {
-     "id": "m41",
-     "type": "mc",
-     "skill": "Multiplying polynomials",
-     "difficulty": 2,
-     "prompt": "<p>Which expression is equivalent to (x + 4)(2x<sup>2</sup> &minus; x + 3)?</p>",
-     "options": [
-      "2x<sup>3</sup> + 7x<sup>2</sup> &minus; x + 12",
-      "2x<sup>3</sup> &minus; x<sup>2</sup> + 3x + 12",
-      "2x<sup>3</sup> + 9x<sup>2</sup> &minus; x + 12",
-      "2x<sup>3</sup> + 7x<sup>2</sup> + 7x + 12"
-     ],
-     "answer": 0,
-     "explain": "<p>Multiply each term of (x + 4) by each term of the trinomial:</p><p>x(2x<sup>2</sup> &minus; x + 3) = 2x<sup>3</sup> &minus; x<sup>2</sup> + 3x</p><p>4(2x<sup>2</sup> &minus; x + 3) = 8x<sup>2</sup> &minus; 4x + 12</p><p>Combine like terms: 2x<sup>3</sup> + (&minus;x<sup>2</sup> + 8x<sup>2</sup>) + (3x &minus; 4x) + 12 = <strong>2x<sup>3</sup> + 7x<sup>2</sup> &minus; x + 12</strong>.</p><p>2x<sup>3</sup> &minus; x<sup>2</sup> + 3x + 12 multiplies by x but uses 4 only on the constant. 2x<sup>3</sup> + 7x<sup>2</sup> + 7x + 12 adds 3x and 4x instead of 3x and &minus;4x.</p>"
-    },
-    {
-     "id": "m42",
-     "type": "mc",
-     "skill": "Solving literal equations",
-     "difficulty": 2,
-     "prompt": "<p>The volume of a cone is V = (1/3)&pi;r<sup>2</sup>h. Which equation correctly gives the height h in terms of V and r?</p>",
-     "options": [
-      "h = 3V/(&pi;r<sup>2</sup>)",
-      "h = V/(3&pi;r<sup>2</sup>)",
-      "h = 3V&pi;r<sup>2</sup>",
-      "h = 3V &minus; &pi;r<sup>2</sup>"
-     ],
-     "answer": 0,
-     "explain": "<p>Multiply both sides by 3: 3V = &pi;r<sup>2</sup>h.</p><p>Divide both sides by &pi;r<sup>2</sup>: <strong>h = 3V/(&pi;r<sup>2</sup>)</strong>.</p><p>Check with r = 3 and h = 4: V = (1/3)&pi;(9)(4) = 12&pi;. Then 3(12&pi;)/(&pi; &times; 9) = 36&pi;/9&pi; = 4.</p><p>h = V/(3&pi;r<sup>2</sup>) divides by 3 instead of multiplying, undoing the 1/3 the wrong way. h = 3V &minus; &pi;r<sup>2</sup> subtracts when the formula multiplies.</p>"
-    },
-    {
-     "id": "m43",
-     "type": "fill",
-     "skill": "Slope from two points",
-     "difficulty": 1,
-     "prompt": "<p>A line passes through the points (&minus;3, 7) and (5, &minus;5). What is the slope of the line?</p><p>Write your answer as a fraction or a decimal.</p>",
-     "answer": [
-      "-3/2",
-      "-1.5"
-     ],
-     "value": -1.5,
-     "tol": 0.001,
-     "explain": "<p>Use the slope formula from the formula sheet: m = (y<sub>2</sub> &minus; y<sub>1</sub>)/(x<sub>2</sub> &minus; x<sub>1</sub>).</p><p>m = (&minus;5 &minus; 7)/(5 &minus; (&minus;3)) = &minus;12/8 = <strong>&minus;3/2</strong> (or &minus;1.5).</p><p>The line falls from left to right, so a negative slope makes sense. Writing &minus;8/12 = &minus;2/3 puts the run over the rise, which is upside down.</p>"
-    },
-    {
-     "id": "m44",
-     "type": "mc",
-     "skill": "Comparing linear functions",
-     "difficulty": 3,
-     "prompt": "<p>Two companies rent out a stump grinder. Company A charges according to the equation C = 45h + 60, where C is the total cost in dollars for h hours. Company B's charges are shown in the table.</p><table><thead><tr><th>Hours (h)</th><th>1</th><th>3</th><th>5</th></tr></thead><tbody><tr><td>Cost at Company B ($)</td><td>95</td><td>205</td><td>315</td></tr></tbody></table><p>Both companies charge at a constant hourly rate plus a fixed fee. For which rental times is Company A less expensive than Company B?</p>",
-     "options": [
-      "For rentals shorter than 2 hours",
-      "For all rental times",
-      "For rentals longer than 2 hours",
-      "For no rental times"
-     ],
-     "answer": 2,
-     "explain": "<p>Find Company B's equation. Rate: (205 &minus; 95) &divide; (3 &minus; 1) = 110 &divide; 2 = $55 per hour. Fee: 95 &minus; 55 = $40. So B: C = 55h + 40.</p><p>Company A is less expensive when 45h + 60 &lt; 55h + 40.</p><p>Subtract 45h: 60 &lt; 10h + 40. Subtract 40: 20 &lt; 10h. Divide by 10: h &gt; 2.</p><p>Company A is cheaper <strong>for rentals longer than 2 hours</strong>.</p><p>Check: at 2 hours both cost $150. At 4 hours, A costs 45(4) + 60 = $240 and B costs 55(4) + 40 = $260.</p><p>Choosing \"shorter than 2 hours\" reverses the inequality. Company A has the higher fee but the lower hourly rate, so it becomes cheaper only for longer rentals; it is not cheaper for all rental times (at 1 hour, A costs $105 and B costs $95).</p>"
-    },
-    {
-     "id": "m45",
-     "type": "mc",
-     "skill": "Writing a linear equation from a graph",
-     "difficulty": 2,
-     "prompt": "<p>A landscaper fills a sprayer tank and then uses it at a constant rate. The graph shows the number of gallons, W, left in the tank t minutes after spraying begins. Which equation represents the relationship?</p>",
-     "figure": {
-      "type": "line",
-      "title": "Water Left in Sprayer Tank",
-      "xLabel": "Time (minutes)",
-      "yLabel": "Water (gallons)",
-      "labels": [
-       "0",
-       "2",
-       "4",
-       "6",
-       "8"
-      ],
-      "series": [
-       {
-        "name": "Gallons left",
-        "values": [
-         320,
-         240,
-         160,
-         80,
-         0
-        ]
-       }
-      ]
-     },
-     "options": [
-      "W = 320 &minus; 80t",
-      "W = 320 &minus; 40t",
-      "W = 40t + 320",
-      "W = 8 &minus; 40t"
-     ],
-     "answer": 1,
-     "explain": "<p>The starting amount (when t = 0) is 320 gallons, so the y-intercept is 320.</p><p>Rate of change: from t = 0 to t = 2, W falls from 320 to 240, a change of &minus;80 gallons in 2 minutes. &minus;80 &divide; 2 = &minus;40 gallons per minute.</p><p>The equation is <strong>W = 320 &minus; 40t</strong>.</p><p>Check: at t = 8, W = 320 &minus; 320 = 0, which matches the graph.</p><p>W = 320 &minus; 80t uses the change between labeled points without dividing by the 2 minutes between them. W = 40t + 320 has a positive slope, but the amount of water is going down.</p>"
-    },
-    {
-     "id": "m46",
-     "type": "drag",
-     "skill": "Number of solutions of linear equations",
-     "difficulty": 3,
-     "prompt": "<p>Sort the six linear equations below according to whether each one has exactly one solution, no solution, or infinitely many solutions.</p>",
-     "choices": [
-      "2(x + 3) = 2x + 6",
-      "3x &minus; 4 = 3x + 1",
-      "4x + 2 = 2x &minus; 8",
-      "5(x &minus; 1) = 5x &minus; 5",
-      "6x + 1 = 6(x + 1)",
-      "7 &minus; x = x + 7"
-     ],
-     "bins": [
-      "Exactly one solution",
-      "No solution",
-      "Infinitely many solutions"
-     ],
-     "answer": [
-      2,
-      1,
-      0,
-      2,
-      1,
-      0
-     ],
-     "explain": "<p>Simplify each side and compare.</p><p>2(x + 3) = 2x + 6 becomes 2x + 6 = 2x + 6. Both sides are identical, so there are <strong>infinitely many solutions</strong>. The same is true for 5(x &minus; 1) = 5x &minus; 5, which becomes 5x &minus; 5 = 5x &minus; 5.</p><p>3x &minus; 4 = 3x + 1: subtracting 3x gives &minus;4 = 1, which is false, so there is <strong>no solution</strong>. 6x + 1 = 6(x + 1) becomes 6x + 1 = 6x + 6, which gives 1 = 6, also <strong>no solution</strong>.</p><p>4x + 2 = 2x &minus; 8: 2x = &minus;10, so x = &minus;5, <strong>exactly one solution</strong>. 7 &minus; x = x + 7: &minus;2x = 0, so x = 0, also <strong>exactly one solution</strong>. A solution of 0 is still a solution; it does not mean \"no solution.\"</p>"
-    }
-   ]
-  }
- ]
+"form": 6,
+"subject": "math",
+"title": "Practice GED Form 6 — Mathematical Reasoning",
+"minutes": 115,
+"stimuli": [],
+"parts": [
+{
+"name": "Part 1",
+"calculator": false,
+"items": [
+{
+"id": "m01",
+"type": "mc",
+"skill": "Order of operations with integers",
+"difficulty": 1,
+"prompt": "<p>Following the order of operations, find the value of &minus;6 + 24 &divide; (&minus;3) &times; 2 &minus; (&minus;5).</p>",
+"options": [
+"&minus;5",
+"&minus;27",
+"&minus;17",
+"15"
+],
+"answer": 2,
+"explain": "<p>Do multiplication and division from left to right first, then addition and subtraction.</p><p>24 &divide; (&minus;3) = &minus;8</p><p>&minus;8 &times; 2 = &minus;16</p><p>&minus;6 + (&minus;16) &minus; (&minus;5) = &minus;6 &minus; 16 + 5 = <strong>&minus;17</strong></p><p>&minus;5 comes from multiplying (&minus;3) &times; 2 before dividing, which breaks the left-to-right rule: 24 &divide; (&minus;6) = &minus;4, then &minus;6 &minus; 4 + 5 = &minus;5. &minus;27 comes from treating &minus;(&minus;5) as &minus;5 instead of +5.</p>",
+"why": [
+"You multiplied (&minus;3) &times; 2 before dividing: 24 &divide; (&minus;6) = &minus;4. Multiplication and division go left to right, so 24 &divide; (&minus;3) = &minus;8 comes first.",
+"You treated &minus;(&minus;5) as &minus;5. Subtracting a negative adds: &minus;6 &minus; 16 + 5 = &minus;17.",
+"",
+"You treated 24 &divide; (&minus;3) as +8. A positive divided by a negative is negative: &minus;8 &times; 2 = &minus;16."
+]
+},
+{
+"id": "m02",
+"type": "fill",
+"skill": "Dividing mixed numbers",
+"difficulty": 2,
+"prompt": "<p>A carpenter cuts blocking pieces that are each 1&frac14; feet long from a board that is 8&frac34; feet long. If there is no waste, how many pieces can she cut from the board?</p>",
+"answer": [
+"7"
+],
+"value": 7,
+"tol": 0.001,
+"suffix": "pieces",
+"explain": "<p>Divide the board length by the piece length.</p><p>8&frac34; = 35/4 and 1&frac14; = 5/4</p><p>35/4 &divide; 5/4 = 35/4 &times; 4/5 = 140/20 = <strong>7</strong></p><p>Check: 7 &times; 1&frac14; = 7 + 7/4 = 7 + 1&frac34; = 8&frac34; feet.</p><p>A common error is to divide only the whole numbers, 8 &divide; 1 = 8. The fractional parts must be included.</p>",
+"mistakes": [
+{
+"answer": [
+"8"
+],
+"why": "You divided only the whole numbers (8 &divide; 1). Include the fractions: 35/4 &divide; 5/4 = 7."
+},
+{
+"answer": [
+"10.9375",
+"10.94",
+"10.9"
+],
+"why": "You multiplied the lengths. To find how many pieces fit, divide the board length by the piece length: 8.75 &divide; 1.25 = 7."
+}
+]
+},
+{
+"id": "m03",
+"type": "mc",
+"skill": "Exponent rules with variables",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to the expression below for all x &ne; 0?</p><p>(2x<sup>3</sup>)<sup>2</sup> &middot; x<sup>4</sup> &divide; (4x<sup>5</sup>)</p>",
+"options": [
+"x<sup>5</sup>",
+"x<sup>4</sup>",
+"(1/2)x<sup>5</sup>",
+"x<sup>19</sup>"
+],
+"answer": 0,
+"explain": "<p>Power of a product: (2x<sup>3</sup>)<sup>2</sup> = 2<sup>2</sup> &middot; x<sup>3&times;2</sup> = 4x<sup>6</sup></p><p>Multiply by x<sup>4</sup> (add exponents): 4x<sup>6</sup> &middot; x<sup>4</sup> = 4x<sup>10</sup></p><p>Divide by 4x<sup>5</sup> (divide coefficients, subtract exponents): 4x<sup>10</sup> &divide; 4x<sup>5</sup> = <strong>x<sup>5</sup></strong></p><p>(1/2)x<sup>5</sup> comes from forgetting to square the 2, so the numerator becomes 2x<sup>10</sup>. x<sup>4</sup> comes from adding the exponents 3 + 2 instead of multiplying them.</p>",
+"why": [
+"",
+"You added the exponents 3 + 2 instead of multiplying them. (x<sup>3</sup>)<sup>2</sup> = x<sup>6</sup>, so the result is x<sup>6 + 4 &minus; 5</sup> = x<sup>5</sup>.",
+"You forgot to square the 2, so the numerator became 2x<sup>10</sup>. (2x<sup>3</sup>)<sup>2</sup> = 4x<sup>6</sup>, and 4 &divide; 4 = 1.",
+"You multiplied the exponents when multiplying x<sup>6</sup> &middot; x<sup>4</sup> (6 &times; 4 = 24). When multiplying powers with the same base, add the exponents: x<sup>10</sup>."
+]
+},
+{
+"id": "m04",
+"type": "mc",
+"skill": "Solving equations with fractions",
+"difficulty": 2,
+"prompt": "<p>Solve for x: (2x + 1)/5 = (x &minus; 4)/2</p>",
+"options": [
+"21",
+"6",
+"&minus;22",
+"22"
+],
+"answer": 3,
+"explain": "<p>Multiply both sides by 10, the least common denominator:</p><p>10 &times; (2x + 1)/5 = 10 &times; (x &minus; 4)/2</p><p>2(2x + 1) = 5(x &minus; 4)</p><p>4x + 2 = 5x &minus; 20</p><p>Subtract 4x from both sides: 2 = x &minus; 20</p><p>Add 20: x = <strong>22</strong></p><p>Check: (2(22) + 1)/5 = 45/5 = 9 and (22 &minus; 4)/2 = 18/2 = 9.</p><p>21 comes from multiplying only the 2x by 2 on the left (4x + 1). 6 comes from multiplying only the x by 5 on the right (5x &minus; 4).</p>",
+"why": [
+"You multiplied only the 2x by 2 on the left, getting 4x + 1. Distribute to every term: 2(2x + 1) = 4x + 2.",
+"You multiplied only the x by 5 on the right, getting 5x &minus; 4. Distribute: 5(x &minus; 4) = 5x &minus; 20.",
+"You reached &minus;x = &minus;22 and stopped. Divide both sides by &minus;1 to get x = 22.",
+""
+]
+},
+{
+"id": "m05",
+"type": "mc",
+"skill": "Estimating square roots",
+"difficulty": 1,
+"prompt": "<p>Which number is between 7 and 8 on the number line?</p>",
+"options": [
+"&radic;48",
+"&radic;50",
+"&radic;65",
+"&radic;70"
+],
+"answer": 1,
+"explain": "<p>Square the endpoints: 7<sup>2</sup> = 49 and 8<sup>2</sup> = 64. A square root lies between 7 and 8 only if the number under the root is between 49 and 64.</p><p>50 is between 49 and 64, so <strong>&radic;50</strong> is between 7 and 8 (about 7.07).</p><p>&radic;48 is just under 7 because 48 &lt; 49. &radic;65 and &radic;70 are greater than 8 because 65 and 70 are greater than 64.</p>",
+"why": [
+"48 is less than 49 = 7<sup>2</sup>, so &radic;48 is just under 7, not between 7 and 8.",
+"",
+"65 is greater than 64 = 8<sup>2</sup>, so &radic;65 is a little more than 8.",
+"70 is greater than 64 = 8<sup>2</sup>, so &radic;70 is about 8.4, more than 8."
+]
+}
+]
+},
+{
+"name": "Part 2",
+"calculator": true,
+"items": [
+{
+"id": "m06",
+"type": "mc",
+"skill": "Percent change",
+"difficulty": 2,
+"prompt": "<p>A contractor bid $8,600 to build a backyard patio. Because material prices rose, the final bill was $9,890. By what percent did the final bill exceed the bid?</p>",
+"options": [
+"13%",
+"15%",
+"115%",
+"1.29%"
+],
+"answer": 1,
+"explain": "<p>Amount over the bid: 9,890 &minus; 8,600 = $1,290.</p><p>Percent change = change &divide; original = 1,290 &divide; 8,600 = 0.15 = <strong>15%</strong>.</p><p>13% comes from dividing by the final bill (1,290 &divide; 9,890 &asymp; 0.13). Percent change always divides by the original amount, which here is the bid. 115% compares the whole final bill to the bid instead of only the increase.</p>",
+"why": [
+"You divided the increase by the final bill (1,290 &divide; 9,890). Percent change divides by the original amount, the bid: 1,290 &divide; 8,600.",
+"",
+"115% compares the whole final bill to the bid. The increase is 115% &minus; 100% = 15%.",
+"You wrote the $1,290 increase as 1.29% without dividing by the bid. Percent change = 1,290 &divide; 8,600 = 0.15."
+]
+},
+{
+"id": "m07",
+"type": "fill",
+"skill": "Unit rates",
+"difficulty": 1,
+"prompt": "<p>A landscaping supplier sells sod at a price of $147 for 350 square feet. At this rate, how much will 1,250 square feet of sod cost, in dollars?</p>",
+"answer": [
+"525",
+"525.00",
+"$525"
+],
+"value": 525,
+"tol": 0.001,
+"suffix": "dollars",
+"explain": "<p>Find the unit price: 147 &divide; 350 = $0.42 per square foot.</p><p>Multiply by the area needed: 0.42 &times; 1,250 = <strong>$525</strong>.</p><p>You can also use a proportion: 147/350 = c/1,250, so 350c = 147 &times; 1,250 = 183,750 and c = 525.</p>",
+"mistakes": [
+{
+"answer": [
+"0.42"
+],
+"why": "$0.42 is the price for one square foot. Multiply by the 1,250 square feet needed: 0.42 &times; 1,250 = $525."
+},
+{
+"answer": [
+"2976.19",
+"2976.2",
+"2976"
+],
+"why": "You set up the proportion upside down (350/147 = c/1,250). Keep dollars over square feet on both sides: 147/350 = c/1,250."
+}
+]
+},
+{
+"id": "m08",
+"type": "mc",
+"skill": "Area of composite figures",
+"difficulty": 2,
+"prompt": "<p>A crew is laying pavers for the L-shaped patio shown below. All corners are right angles. What is the area of the patio?</p>",
+"figure": {
+"type": "svg",
+"svg": "<svg viewBox='0 0 300 210' xmlns='http://www.w3.org/2000/svg'><polygon points='40,30 160,30 160,90 240,90 240,170 40,170' fill='#F3E9C9' stroke='#0A1F3D' stroke-width='2'/><text x='85' y='22' font-size='14' fill='#0A1F3D'>12 ft</text><text x='166' y='65' font-size='14' fill='#0A1F3D'>6 ft</text><text x='186' y='84' font-size='14' fill='#0A1F3D'>8 ft</text><text x='246' y='135' font-size='14' fill='#0A1F3D'>8 ft</text><text x='122' y='190' font-size='14' fill='#0A1F3D'>20 ft</text><text x='2' y='105' font-size='14' fill='#0A1F3D'>14 ft</text></svg>",
+"alt": "An L-shaped patio. The bottom side is 20 ft and the left side is 14 ft. The top side is 12 ft. A notch is cut from the top right corner: it goes down 6 ft and then across 8 ft. The remaining right side is 8 ft."
+},
+"options": [
+"280 square feet",
+"328 square feet",
+"68 square feet",
+"232 square feet"
+],
+"answer": 3,
+"explain": "<p>Think of the patio as a 20 ft by 14 ft rectangle with an 8 ft by 6 ft corner removed.</p><p>Large rectangle: 20 &times; 14 = 280 square feet</p><p>Missing corner: 8 &times; 6 = 48 square feet</p><p>Patio: 280 &minus; 48 = <strong>232 square feet</strong></p><p>Check another way: split into a 12 ft by 14 ft piece (168) and an 8 ft by 8 ft piece (64): 168 + 64 = 232.</p><p>280 ignores the missing corner, 328 adds the corner instead of subtracting it, and 68 feet is the perimeter, not the area.</p>",
+"why": [
+"280 is the full 20 ft by 14 ft rectangle. Subtract the missing 8 ft by 6 ft corner: 280 &minus; 48 = 232.",
+"You added the 48-square-foot corner instead of subtracting it. The corner is cut out of the rectangle.",
+"68 feet is the perimeter, the distance around. Area counts square feet inside.",
+""
+]
+},
+{
+"id": "m09",
+"type": "mc",
+"skill": "Volume and unit conversion",
+"difficulty": 3,
+"prompt": "<p>A concrete slab for a shed will be 24 feet long, 18 feet wide, and 4 inches thick. Concrete is ordered in cubic yards (1 cubic yard = 27 cubic feet). About how many cubic yards of concrete are needed for the slab?</p>",
+"options": [
+"5.3 cubic yards",
+"16 cubic yards",
+"64 cubic yards",
+"144 cubic yards"
+],
+"answer": 0,
+"explain": "<p>Change the thickness to feet: 4 inches = 4/12 = 1/3 foot.</p><p>Volume in cubic feet: 24 &times; 18 &times; 1/3 = 432 &times; 1/3 = 144 cubic feet.</p><p>Change to cubic yards: 144 &divide; 27 &asymp; <strong>5.3 cubic yards</strong>.</p><p>64 comes from leaving the thickness as 4 (inches) with the other sides in feet: 24 &times; 18 &times; 4 = 1,728, and 1,728 &divide; 27 = 64. 16 comes from dividing by 9, which converts square feet, not cubic feet. 144 is the volume in cubic feet.</p>",
+"why": [
+"",
+"You divided 144 cubic feet by 9. Nine converts square feet to square yards; for cubic feet to cubic yards, divide by 27.",
+"You left the thickness as 4 (inches) while the other sides were in feet. Change 4 inches to 1/3 foot first.",
+"144 is the volume in cubic feet. Divide by 27 to get cubic yards: 144 &divide; 27 &asymp; 5.3."
+]
+},
+{
+"id": "m10",
+"type": "mc",
+"skill": "Volume of a cylinder",
+"difficulty": 2,
+"prompt": "<p>A fence post will be set in a hole shaped like a cylinder. The hole has a diameter of 12 inches and a depth of 4 feet. What is the volume of the hole, to the nearest hundredth of a cubic foot?</p>",
+"options": [
+"12.57 cubic feet",
+"6.28 cubic feet",
+"3.14 cubic feet",
+"452.39 cubic feet"
+],
+"answer": 2,
+"explain": "<p>Use the formula sheet: V = &pi;r<sup>2</sup>h.</p><p>Use feet for every measure. Diameter = 12 inches = 1 foot, so the radius r = 0.5 foot. Depth h = 4 feet.</p><p>V = &pi;(0.5)<sup>2</sup>(4) = &pi;(0.25)(4) = &pi; &asymp; <strong>3.14 cubic feet</strong></p><p>12.57 comes from using the 1-foot diameter as the radius: &pi;(1)<sup>2</sup>(4) = 4&pi;. 452.39 comes from mixing units, using r = 6 inches with h = 4 feet: &pi;(36)(4).</p>",
+"why": [
+"You used the 1-foot diameter as the radius: &pi;(1)<sup>2</sup>(4) = 4&pi;. The radius is half the diameter, 0.5 foot.",
+"You forgot to square the radius: &pi;(0.5)(4) = 2&pi;. Use r<sup>2</sup> = 0.25.",
+"",
+"You mixed units, using r = 6 inches with h = 4 feet. Change all measures to feet first: r = 0.5 foot."
+]
+},
+{
+"id": "m11",
+"type": "fill",
+"skill": "Volume of a cone",
+"difficulty": 2,
+"prompt": "<p>A delivered pile of mulch is shaped like a cone. The base of the pile has a diameter of 10 feet, and the pile is 6 feet tall. What is the volume of the pile, to the nearest cubic foot?</p>",
+"answer": [
+"157"
+],
+"value": 157,
+"tol": 0.5,
+"suffix": "cubic feet",
+"explain": "<p>Use the formula sheet: V = (1/3)&pi;r<sup>2</sup>h.</p><p>The radius is half the diameter: r = 10 &divide; 2 = 5 feet.</p><p>V = (1/3)&pi;(5)<sup>2</sup>(6) = (1/3)&pi;(25)(6) = 50&pi; &asymp; 157.08</p><p>To the nearest cubic foot: <strong>157 cubic feet</strong>.</p><p>Leaving out the 1/3 gives 150&pi; &asymp; 471, which is the volume of a cylinder, not a cone. Using 10 as the radius gives 200&pi; &asymp; 628.</p>",
+"mistakes": [
+{
+"answer": [
+"471"
+],
+"why": "You left out the 1/3, which gives the volume of a cylinder. A cone is (1/3)&pi;r<sup>2</sup>h = 50&pi; &asymp; 157."
+},
+{
+"answer": [
+"628"
+],
+"why": "You used the 10-foot diameter as the radius. The radius is 5 feet: (1/3)&pi;(25)(6) = 50&pi;."
+},
+{
+"answer": [
+"50"
+],
+"why": "50 is the coefficient of &pi; (50&pi;). Multiply by &pi; to get the volume: 50&pi; &asymp; 157 cubic feet."
+}
+]
+},
+{
+"id": "m12",
+"type": "mc",
+"skill": "Surface area of a cylinder",
+"difficulty": 3,
+"prompt": "<p>A closed cylindrical water tank has a radius of 2 feet and a height of 5 feet. The entire outside of the tank, including the top and bottom, will be painted. What is the surface area to be painted, to the nearest tenth of a square foot?</p>",
+"options": [
+"62.8 square feet",
+"75.4 square feet",
+"226.2 square feet",
+"88.0 square feet"
+],
+"answer": 3,
+"explain": "<p>Use the formula sheet: SA = 2&pi;rh + 2&pi;r<sup>2</sup>.</p><p>Side (lateral area): 2&pi;(2)(5) = 20&pi;</p><p>Top and bottom: 2&pi;(2)<sup>2</sup> = 8&pi;</p><p>Total: 20&pi; + 8&pi; = 28&pi; &asymp; <strong>88.0 square feet</strong></p><p>62.8 is only the side (20&pi;). 75.4 includes only one circular end (20&pi; + 4&pi; = 24&pi;). 226.2 comes from using the diameter, 4, as the radius.</p>",
+"why": [
+"62.8 is only the side (2&pi;rh = 20&pi;). A closed tank also has a top and a bottom: add 2&pi;r<sup>2</sup> = 8&pi;.",
+"75.4 includes only one circular end (20&pi; + 4&pi;). The tank has both a top and a bottom.",
+"You used the diameter, 4, as the radius. With r = 2, SA = 20&pi; + 8&pi; = 28&pi;.",
+""
+]
+},
+{
+"id": "m13",
+"type": "mc",
+"skill": "Pythagorean theorem",
+"difficulty": 2,
+"prompt": "<p>A roof rafter forms the slanted side of a right triangle. The rise of the roof is 6 feet and the horizontal run is 14 feet. To the nearest tenth of a foot, how long is the rafter?</p>",
+"options": [
+"20.0 feet",
+"12.6 feet",
+"15.2 feet",
+"232.0 feet"
+],
+"answer": 2,
+"explain": "<p>The rafter is the hypotenuse c, and the rise and run are the legs.</p><p>c<sup>2</sup> = 6<sup>2</sup> + 14<sup>2</sup> = 36 + 196 = 232</p><p>c = &radic;232 &asymp; <strong>15.2 feet</strong></p><p>20.0 adds the legs (6 + 14) without squaring. 12.6 subtracts the squares (&radic;160), which finds a leg, not the hypotenuse. 232 is c<sup>2</sup>; the square root was not taken.</p>",
+"why": [
+"You added the legs (6 + 14) without squaring. Use c<sup>2</sup> = 6<sup>2</sup> + 14<sup>2</sup>.",
+"You subtracted the squares (&radic;160), which finds a leg. The rafter is the hypotenuse, so add the squares.",
+"",
+"232 is c<sup>2</sup>. Take the square root: &radic;232 &asymp; 15.2 feet."
+]
+},
+{
+"id": "m14",
+"type": "mc",
+"skill": "Circumference and area of circles",
+"difficulty": 3,
+"prompt": "<p>A circular stone patio has a circumference of 47.1 feet. Using 3.14 for &pi;, what is the area of the patio, to the nearest tenth of a square foot?</p>",
+"options": [
+"706.5 square feet",
+"176.6 square feet",
+"353.3 square feet",
+"23.6 square feet"
+],
+"answer": 1,
+"explain": "<p>Find the radius from the circumference: C = 2&pi;r, so 47.1 = 2(3.14)r = 6.28r and r = 47.1 &divide; 6.28 = 7.5 feet.</p><p>Area: A = &pi;r<sup>2</sup> = 3.14 &times; 7.5<sup>2</sup> = 3.14 &times; 56.25 = 176.625 &asymp; <strong>176.6 square feet</strong>.</p><p>706.5 uses the diameter, 15, as the radius (3.14 &times; 225). 353.3 multiplies the circumference by the radius (47.1 &times; 7.5) instead of taking half of that product. 23.6 is &pi;r, which is not squared.</p>",
+"why": [
+"You used the diameter, 15, as the radius (3.14 &times; 225). The radius is 47.1 &divide; 6.28 = 7.5.",
+"",
+"You multiplied the circumference by the radius (47.1 &times; 7.5). Area is &pi;r<sup>2</sup> = 3.14 &times; 56.25.",
+"23.6 is &pi;r (3.14 &times; 7.5). The radius must be squared: 3.14 &times; 7.5<sup>2</sup>."
+]
+},
+{
+"id": "m15",
+"type": "mc",
+"skill": "Scale drawings",
+"difficulty": 2,
+"prompt": "<p>On a landscape plan, the scale is &frac14; inch = 2 feet. A garden bed is 3&frac34; inches long on the plan. What is the actual length of the garden bed?</p>",
+"options": [
+"30 feet",
+"7.5 feet",
+"15 feet",
+"60 feet"
+],
+"answer": 0,
+"explain": "<p>Find how many &frac14;-inch units are in 3&frac34; inches: 3.75 &divide; 0.25 = 15.</p><p>Each &frac14; inch stands for 2 feet: 15 &times; 2 = <strong>30 feet</strong>.</p><p>Another way: &frac14; inch = 2 feet means 1 inch = 8 feet, and 3.75 &times; 8 = 30.</p><p>7.5 feet comes from multiplying 3.75 by 2 as if 1 inch = 2 feet. 15 is the number of quarter inches, not feet.</p>",
+"why": [
+"",
+"You multiplied 3.75 by 2, as if 1 inch = 2 feet. The scale is 1/4 inch = 2 feet, so 1 inch = 8 feet.",
+"15 is the number of quarter inches, not feet. Each quarter inch stands for 2 feet: 15 &times; 2 = 30.",
+"You multiplied the 15 quarter inches by 4 instead of by 2. Each quarter inch stands for 2 feet."
+]
+},
+{
+"id": "m16",
+"type": "fill",
+"skill": "Mean",
+"difficulty": 1,
+"prompt": "<p>A concrete crew recorded the amount of concrete it poured each day for five days, in cubic yards:</p><p>6.5, 8, 7.25, 9, 8.25</p><p>What is the mean amount poured per day, in cubic yards?</p>",
+"answer": [
+"7.8"
+],
+"value": 7.8,
+"tol": 0.001,
+"suffix": "cubic yards",
+"explain": "<p>Add the values: 6.5 + 8 + 7.25 + 9 + 8.25 = 39.</p><p>Divide by the number of days: 39 &divide; 5 = <strong>7.8 cubic yards</strong>.</p><p>The median of these values is 8, so be careful not to confuse the two measures.</p>",
+"mistakes": [
+{
+"answer": [
+"8"
+],
+"why": "8 is the median (middle value). The mean is the sum divided by the count: 39 &divide; 5 = 7.8."
+},
+{
+"answer": [
+"39"
+],
+"why": "39 is the total for all five days. Divide by 5 days to get the mean: 7.8."
+},
+{
+"answer": [
+"9.75"
+],
+"why": "You divided by 4 instead of 5. There are five days of data: 39 &divide; 5 = 7.8."
+}
+]
+},
+{
+"id": "m17",
+"type": "mc",
+"skill": "Median and range",
+"difficulty": 2,
+"prompt": "<p>A carpenter has seven boards with these lengths, in feet:</p><p>12, 8, 16, 10, 14, 8, 20</p><p>Which statement about the board lengths is true?</p>",
+"options": [
+"The median is 12 feet and the range is 12 feet.",
+"The median is 10 feet and the range is 12 feet.",
+"The median is 12 feet and the range is 20 feet.",
+"The median is 12.6 feet and the range is 12 feet."
+],
+"answer": 0,
+"explain": "<p>Put the lengths in order: 8, 8, 10, 12, 14, 16, 20.</p><p>Median: with 7 values, the middle (4th) value is <strong>12 feet</strong>.</p><p>Range: greatest &minus; least = 20 &minus; 8 = <strong>12 feet</strong>.</p><p>10 feet is the middle of the list before it is put in order. A range of 20 uses only the greatest value. 12.6 is about the mean (88 &divide; 7 &asymp; 12.57), not the median.</p>",
+"why": [
+"",
+"10 is the middle of the list before it is sorted. Order the values first: 8, 8, 10, 12, 14, 16, 20, so the median is 12.",
+"20 is the greatest value, not the range. Range = 20 &minus; 8 = 12.",
+"12.6 is about the mean (88 &divide; 7), not the median. The median is the middle value, 12."
+]
+},
+{
+"id": "m18",
+"type": "mc",
+"skill": "Probability of dependent events",
+"difficulty": 3,
+"prompt": "<p>A bin holds 40 bolts: 25 are zinc, 10 are stainless steel, and 5 are brass. A worker takes one bolt at random, keeps it, and then takes a second bolt at random. What is the probability that both bolts are stainless steel?</p>",
+"options": [
+"1/16",
+"3/52",
+"1/4",
+"1/2"
+],
+"answer": 1,
+"explain": "<p>First bolt: P(stainless) = 10/40.</p><p>The first bolt is not replaced, so 9 stainless bolts remain among 39. Second bolt: P(stainless) = 9/39.</p><p>P(both) = 10/40 &times; 9/39 = 90/1,560 = <strong>3/52</strong> (about 0.058).</p><p>1/16 is (10/40)<sup>2</sup>, the answer if the first bolt were put back. 1/4 is the probability for only one bolt. 1/2 adds the two probabilities 1/4 + 1/4 instead of multiplying.</p>",
+"why": [
+"1/16 = (10/40)<sup>2</sup> assumes the first bolt is put back. It is kept, so the second draw is 9/39.",
+"",
+"1/4 is the chance for one bolt only. Both bolts must be stainless: 10/40 &times; 9/39.",
+"You added the probabilities. For two events that both must happen, multiply them."
+]
+},
+{
+"id": "m19",
+"type": "mc",
+"skill": "Counting principle",
+"difficulty": 1,
+"prompt": "<p>For each front yard in a new development, the builder lets buyers choose 1 of 4 kinds of trees, 1 of 3 kinds of shrubs, and 1 of 5 kinds of ground cover. How many different yard designs are possible?</p>",
+"options": [
+"12",
+"20",
+"60",
+"15"
+],
+"answer": 2,
+"explain": "<p>Use the counting principle: multiply the number of choices at each step.</p><p>4 &times; 3 &times; 5 = <strong>60</strong> designs.</p><p>12 adds the choices (4 + 3 + 5) instead of multiplying. 20 and 15 multiply only two of the three choices.</p>",
+"why": [
+"You added the choices (4 + 3 + 5). For a choice at each step, multiply: 4 &times; 3 &times; 5.",
+"20 = 4 &times; 5 leaves out the 3 shrub choices.",
+"",
+"15 = 3 &times; 5 leaves out the 4 tree choices."
+]
+},
+{
+"id": "m20",
+"type": "mc",
+"skill": "Scientific notation",
+"difficulty": 3,
+"prompt": "<p>A grain of sand has a mass of about 6.7 &times; 10<sup>&minus;4</sup> gram. A truckload of sand has a mass of about 2.2 &times; 10<sup>7</sup> grams. About how many grains of sand are in the truckload?</p>",
+"options": [
+"3.3 &times; 10<sup>3</sup>",
+"1.5 &times; 10<sup>4</sup>",
+"3.3 &times; 10<sup>11</sup>",
+"3.3 &times; 10<sup>10</sup>"
+],
+"answer": 3,
+"explain": "<p>Divide the total mass by the mass of one grain:</p><p>(2.2 &times; 10<sup>7</sup>) &divide; (6.7 &times; 10<sup>&minus;4</sup>) = (2.2 &divide; 6.7) &times; 10<sup>7 &minus; (&minus;4)</sup> &asymp; 0.328 &times; 10<sup>11</sup></p><p>Rewrite in scientific notation: 0.328 &times; 10<sup>11</sup> = <strong>3.3 &times; 10<sup>10</sup></strong> (about 33 billion grains).</p><p>3.3 &times; 10<sup>3</sup> subtracts the exponents as 7 &minus; 4 instead of 7 &minus; (&minus;4). 1.5 &times; 10<sup>4</sup> multiplies the two numbers instead of dividing. 3.3 &times; 10<sup>11</sup> forgets to lower the exponent when 0.328 is changed to 3.28.</p>",
+"why": [
+"You subtracted the exponents as 7 &minus; 4. The exponent is &minus;4, so 7 &minus; (&minus;4) = 11.",
+"You multiplied the masses instead of dividing. Number of grains = total mass &divide; mass of one grain.",
+"You did not lower the exponent when changing 0.328 to 3.28. 0.328 &times; 10<sup>11</sup> = 3.28 &times; 10<sup>10</sup>.",
+""
+]
+},
+{
+"id": "m21",
+"type": "fill",
+"skill": "Ratios",
+"difficulty": 2,
+"prompt": "<p>A concrete mix uses cement, sand, and gravel in the ratio 1 : 2 : 3 by volume. A worker needs 18 cubic feet of mix in all. How many cubic feet of sand are needed?</p>",
+"answer": [
+"6"
+],
+"value": 6,
+"tol": 0.001,
+"suffix": "cubic feet",
+"explain": "<p>Add the parts of the ratio: 1 + 2 + 3 = 6 parts.</p><p>Each part is 18 &divide; 6 = 3 cubic feet.</p><p>Sand is 2 parts: 2 &times; 3 = <strong>6 cubic feet</strong>.</p><p>Check: cement 3 + sand 6 + gravel 9 = 18 cubic feet. A common error is to use 18 &times; 2/3 = 12, treating sand as 2 out of 3 parts instead of 2 out of 6.</p>",
+"mistakes": [
+{
+"answer": [
+"12"
+],
+"why": "You treated sand as 2 of 3 parts. The ratio 1 : 2 : 3 has 6 parts in all, so sand is 2/6 of 18 = 6."
+},
+{
+"answer": [
+"9"
+],
+"why": "9 cubic feet is the gravel (3 parts). Sand is 2 parts: 2 &times; 3 = 6."
+},
+{
+"answer": [
+"3"
+],
+"why": "3 cubic feet is one part (the cement). Sand is 2 parts: 2 &times; 3 = 6."
+}
+]
+},
+{
+"id": "m22",
+"type": "mc",
+"skill": "Simple interest",
+"difficulty": 2,
+"prompt": "<p>Marisol borrows $4,500 to buy a used car. The loan charges 6% simple interest per year, and she repays it in 3 years. What is the total amount she repays, including interest?</p>",
+"options": [
+"$810",
+"$4,770",
+"$5,310",
+"$5,359.57"
+],
+"answer": 2,
+"explain": "<p>Use I = Prt: I = 4,500 &times; 0.06 &times; 3 = $810.</p><p>Total repaid = principal + interest = 4,500 + 810 = <strong>$5,310</strong>.</p><p>$810 is only the interest. $4,770 includes just one year of interest (4,500 &times; 0.06 = 270). $5,359.57 uses compound interest (4,500 &times; 1.06<sup>3</sup>), but this loan uses simple interest.</p>",
+"why": [
+"$810 is only the interest. Add the $4,500 principal: $5,310.",
+"$4,770 includes just one year of interest ($270). The loan lasts 3 years: 4,500 &times; 0.06 &times; 3 = $810.",
+"",
+"This uses compound interest (4,500 &times; 1.06<sup>3</sup>). Simple interest uses I = Prt on the original principal only."
+]
+},
+{
+"id": "m23",
+"type": "drag",
+"skill": "Comparing and ordering real numbers",
+"difficulty": 2,
+"prompt": "<p>Arrange the five numbers below in order. Place the smallest value in the first box and the largest value in the last box.</p>",
+"choices": [
+"(1/2)<sup>2</sup>",
+"0.1",
+"&radic;0.09",
+"2<sup>&minus;3</sup>",
+"3/20"
+],
+"bins": [
+"1st (least)",
+"2nd",
+"3rd",
+"4th",
+"5th (greatest)"
+],
+"answer": [
+3,
+0,
+4,
+1,
+2
+],
+"explain": "<p>Write each number as a decimal:</p><p>(1/2)<sup>2</sup> = 1/4 = 0.25</p><p>2<sup>&minus;3</sup> = 1/2<sup>3</sup> = 1/8 = 0.125</p><p>3/20 = 0.15</p><p>&radic;0.09 = 0.3, because 0.3 &times; 0.3 = 0.09</p><p>Order from least to greatest: <strong>0.1, 2<sup>&minus;3</sup>, 3/20, (1/2)<sup>2</sup>, &radic;0.09</strong>.</p><p>A negative exponent does not make a number negative: 2<sup>&minus;3</sup> is a small positive number. Also, &radic;0.09 is 0.3, not 0.03.</p>",
+"why": "The most common errors are putting 2<sup>&minus;3</sup> first because the exponent is negative, or treating &radic;0.09 as 0.03. 2<sup>&minus;3</sup> = 1/8 = 0.125 (positive) and &radic;0.09 = 0.3, so the order is 0.1, 2<sup>&minus;3</sup>, 3/20, (1/2)<sup>2</sup>, &radic;0.09."
+},
+{
+"id": "m24",
+"type": "mc",
+"skill": "Writing expressions",
+"difficulty": 1,
+"prompt": "<p>A tree service charges $85 for each tree it removes and $40 for each stump it grinds. Which expression gives the total charge, in dollars, for removing t trees and grinding s stumps?</p>",
+"options": [
+"85s + 40t",
+"125(t + s)",
+"125ts",
+"85t + 40s"
+],
+"answer": 3,
+"explain": "<p>Each tree costs $85, so t trees cost 85t. Each stump costs $40, so s stumps cost 40s.</p><p>Total = <strong>85t + 40s</strong>.</p><p>Check: 3 trees and 2 stumps cost 85(3) + 40(2) = 255 + 80 = $335.</p><p>85s + 40t switches the prices. 125(t + s) charges $125 for every tree and every stump, which overcharges: for 3 trees and 2 stumps it gives 125(5) = $625 instead of $335.</p>",
+"why": [
+"This switches the prices: trees cost $85, so 85 goes with t.",
+"This charges $125 for every tree and every stump. Each kind has its own price: 85t for trees plus 40s for stumps.",
+"This multiplies the counts together. The charges are added: 85t + 40s.",
+""
+]
+},
+{
+"id": "m25",
+"type": "fill",
+"skill": "Linear equation word problem",
+"difficulty": 2,
+"prompt": "<p>A fencing company charges $28 per foot of fence plus $350 for each gate. A customer paid a total of $5,250 for a fence with 2 gates. How many feet of fence were installed?</p>",
+"answer": [
+"162.5",
+"162 1/2",
+"325/2"
+],
+"value": 162.5,
+"tol": 0.001,
+"suffix": "feet",
+"explain": "<p>Let f be the number of feet of fence.</p><p>28f + 350(2) = 5,250</p><p>28f + 700 = 5,250</p><p>28f = 4,550</p><p>f = 4,550 &divide; 28 = <strong>162.5 feet</strong></p><p>Check: 28(162.5) + 700 = 4,550 + 700 = $5,250.</p><p>Forgetting that there are 2 gates gives 28f + 350 = 5,250 and f = 175, which is too long.</p>",
+"mistakes": [
+{
+"answer": [
+"175"
+],
+"why": "You counted only one gate. There are 2 gates: 5,250 &minus; 700 = 4,550, and 4,550 &divide; 28 = 162.5 feet."
+},
+{
+"answer": [
+"187.5"
+],
+"why": "You left out the gates. Subtract 2 &times; $350 = $700 first: 4,550 &divide; 28 = 162.5."
+}
+]
+},
+{
+"id": "m26",
+"type": "mc",
+"skill": "Systems of equations word problem",
+"difficulty": 2,
+"prompt": "<p>A garden center sold 40 plants to a landscaper. Shrubs cost $18 each and perennials cost $7 each. The landscaper paid $445 in all. How many perennials did the landscaper buy?</p>",
+"options": [
+"25",
+"15",
+"20",
+"30"
+],
+"answer": 0,
+"explain": "<p>Let s = number of shrubs and p = number of perennials.</p><p>s + p = 40</p><p>18s + 7p = 445</p><p>Substitute p = 40 &minus; s: 18s + 7(40 &minus; s) = 445, so 18s + 280 &minus; 7s = 445.</p><p>11s = 165, so s = 15 shrubs and p = 40 &minus; 15 = <strong>25 perennials</strong>.</p><p>Check: 18(15) + 7(25) = 270 + 175 = $445.</p><p>15 is the number of shrubs, not perennials. 20 assumes the plants were split evenly, which gives 18(20) + 7(20) = $500, not $445.</p>",
+"why": [
+"",
+"15 is the number of shrubs. The question asks for perennials: 40 &minus; 15 = 25.",
+"20 assumes an even split, which costs 18(20) + 7(20) = $500, not $445. Solve the system 18s + 7(40 &minus; s) = 445.",
+"30 perennials leaves 10 shrubs: 18(10) + 7(30) = $390, not $445. Solve the system to find s = 15 and p = 25."
+]
+},
+{
+"id": "m27",
+"type": "mc",
+"skill": "Solving systems of equations",
+"difficulty": 2,
+"prompt": "<p>Which ordered pair (x, y) satisfies both of these equations?</p><p>5x &minus; 3y = 1<br>2x + y = 7</p>",
+"options": [
+"(3, 2)",
+"(2, 3)",
+"(1, 5)",
+"(2, &minus;3)"
+],
+"answer": 1,
+"explain": "<p>Multiply the second equation by 3 so the y-terms cancel: 6x + 3y = 21.</p><p>Add it to the first equation: (5x &minus; 3y) + (6x + 3y) = 1 + 21, so 11x = 22 and x = 2.</p><p>Substitute into 2x + y = 7: 2(2) + y = 7, so y = 3.</p><p>The solution is <strong>(2, 3)</strong>.</p><p>Check in the first equation: 5(2) &minus; 3(3) = 10 &minus; 9 = 1.</p><p>(3, 2) switches x and y: it fails the first equation because 5(3) &minus; 3(2) = 9, not 1. (1, 5) satisfies only the second equation.</p>",
+"why": [
+"You switched x and y. (3, 2) fails the first equation: 5(3) &minus; 3(2) = 9, not 1.",
+"",
+"(1, 5) satisfies only the second equation: 5(1) &minus; 3(5) = &minus;10, not 1. A solution must work in both.",
+"You made a sign error on y. From 2(2) + y = 7, y = +3; check: 5(2) &minus; 3(3) = 1."
+]
+},
+{
+"id": "m28",
+"type": "hotspot",
+"skill": "Intercepts of a line",
+"difficulty": 3,
+"prompt": "<p>A line passes through point A(&minus;2, 5), shown on the coordinate plane, and has a slope of &minus;1/2. Click the point where this line crosses the x-axis.</p>",
+"figure": {
+"type": "plane",
+"xmin": -10,
+"xmax": 10,
+"ymin": -10,
+"ymax": 10,
+"points": [
+[
+-2,
+5,
+"A"
+]
+]
+},
+"plane": {
+"xmin": -10,
+"xmax": 10,
+"ymin": -10,
+"ymax": 10
+},
+"answer": [
+8,
+0
+],
+"explain": "<p>Write the equation of the line with point-slope form: y &minus; 5 = &minus;1/2(x + 2).</p><p>Simplify: y = &minus;(1/2)x &minus; 1 + 5 = &minus;(1/2)x + 4.</p><p>The x-intercept is where y = 0: 0 = &minus;(1/2)x + 4, so (1/2)x = 4 and x = 8.</p><p>The point is <strong>(8, 0)</strong>.</p><p>Check with the slope: from A(&minus;2, 5), going down 5 units means going right 10 units (slope &minus;1/2), which lands at (8, 0).</p><p>The point (0, 4) is the y-intercept, not the x-intercept.</p>",
+"why": "The most common wrong click is (0, 4), the y-intercept. The x-intercept is where y = 0: from A(&minus;2, 5), go down 5 and right 10 (slope &minus;1/2) to reach (8, 0)."
+},
+{
+"id": "m29",
+"type": "hotspot",
+"skill": "Vertex of a parabola",
+"difficulty": 3,
+"prompt": "<p>The graph of y = x<sup>2</sup> &minus; 6x + 5 is a parabola. On the coordinate plane, click the point that is the vertex of the parabola.</p>",
+"plane": {
+"xmin": -2,
+"xmax": 8,
+"ymin": -6,
+"ymax": 8
+},
+"answer": [
+3,
+-4
+],
+"explain": "<p>For y = ax<sup>2</sup> + bx + c, the vertex has x = &minus;b/(2a).</p><p>Here a = 1 and b = &minus;6, so x = &minus;(&minus;6)/(2 &times; 1) = 6/2 = 3.</p><p>Find y: y = 3<sup>2</sup> &minus; 6(3) + 5 = 9 &minus; 18 + 5 = &minus;4.</p><p>The vertex is <strong>(3, &minus;4)</strong>.</p><p>Check with the x-intercepts: x<sup>2</sup> &minus; 6x + 5 = (x &minus; 1)(x &minus; 5), so the parabola crosses the x-axis at 1 and 5. The vertex is halfway between them, at x = 3.</p><p>The point (0, 5) is the y-intercept, not the vertex.</p>",
+"why": "The most common wrong clicks are (0, 5), the y-intercept, and (&minus;3, &minus;4), from forgetting the negative in x = &minus;b/(2a). With b = &minus;6, x = 6/2 = 3 and y = 9 &minus; 18 + 5 = &minus;4, so click (3, &minus;4)."
+},
+{
+"id": "m30",
+"type": "dropdown",
+"skill": "Linear functions from a table",
+"difficulty": 2,
+"prompt": "<p>An equipment rental company charges a fixed delivery fee plus an hourly rate to rent a mini excavator. The table shows the total cost for several rental times.</p><table><thead><tr><th>Hours</th><th>2</th><th>5</th><th>9</th></tr></thead><tbody><tr><td>Total cost ($)</td><td>230</td><td>440</td><td>720</td></tr></tbody></table><p>The hourly rate is {{0}} dollars per hour.</p><p>The delivery fee is {{1}} dollars.</p><p>The total cost to rent the excavator for 12 hours is {{2}} dollars.</p>",
+"blanks": [
+{
+"options": [
+"70",
+"80",
+"105",
+"115"
+],
+"answer": 0,
+"why": [
+"",
+"80 is 720 &divide; 9, which counts the fixed fee as hourly charges. Use the change in cost over the change in hours: 210 &divide; 3 = 70.",
+"You divided the $210 change by 2 instead of by the 3-hour change (5 &minus; 2). Rate = 210 &divide; 3 = 70.",
+"115 is 230 &divide; 2, which counts the delivery fee as part of the hourly rate. Use the change between two rows."
+]
+},
+{
+"options": [
+"50",
+"90",
+"110",
+"230"
+],
+"answer": 1,
+"why": [
+"$50 does not fit: 70(2) + 50 = $190, not $230. Subtract 2 hours of charges from the 2-hour cost: 230 &minus; 140 = 90.",
+"",
+"$110 does not fit: 70(2) + 110 = $250, not $230. The fee is 230 &minus; 70(2) = 90.",
+"$230 is the total for 2 hours, which includes $140 of hourly charges. The fee alone is 230 &minus; 140 = 90."
+]
+},
+{
+"options": [
+"840",
+"930",
+"1,000",
+"1,380"
+],
+"answer": 1,
+"why": [
+"$840 is only the hourly charges, 70 &times; 12. Add the $90 delivery fee.",
+"",
+"You added $280 to the 9-hour cost, but 9 to 12 hours is only 3 more hours, or $210: 720 + 210 = $930.",
+"You used $115 as the hourly rate (115 &times; 12). The rate is $70, so 70(12) + 90 = $930."
+]
+}
+],
+"explain": "<p>Hourly rate (slope): (440 &minus; 230) &divide; (5 &minus; 2) = 210 &divide; 3 = <strong>70</strong>. Check with the next pair: (720 &minus; 440) &divide; (9 &minus; 5) = 280 &divide; 4 = 70.</p><p>Delivery fee (y-intercept): 2 hours cost 70 &times; 2 = $140 in hourly charges, so the fee is 230 &minus; 140 = <strong>$90</strong>.</p><p>The cost is C = 70h + 90. For 12 hours: 70(12) + 90 = 840 + 90 = <strong>$930</strong>.</p><p>115 comes from dividing 230 by 2, which counts the delivery fee as part of the hourly rate. 840 leaves out the delivery fee.</p>"
+},
+{
+"id": "m31",
+"type": "dropdown",
+"skill": "Inequality word problem",
+"difficulty": 2,
+"prompt": "<p>A trailer can safely carry at most 2,800 pounds. A landscaper has already loaded a 650-pound mower. Each pallet of pavers weighs 180 pounds. Let p be the number of pallets loaded.</p><p>The inequality that represents this situation is 650 + 180p {{0}} 2,800.</p><p>The greatest number of pallets that can be loaded is {{1}}.</p>",
+"blanks": [
+{
+"options": [
+"&lt;",
+"&le;",
+"&gt;",
+"&ge;"
+],
+"answer": 1,
+"why": [
+"&lt; leaves out exactly 2,800 pounds, which &quot;at most&quot; allows. Use &le;.",
+"",
+"&gt; means more than 2,800 pounds, the opposite of a safe load. &quot;At most&quot; means &le;.",
+"&ge; means at least 2,800 pounds. A weight limit is a maximum: &le;."
+]
+},
+{
+"options": [
+"11",
+"12",
+"15",
+"16"
+],
+"answer": 0,
+"why": [
+"",
+"You rounded 11.94 up. Twelve pallets make 650 + 2,160 = 2,810 pounds, over the limit, so round down.",
+"You ignored the mower: 2,800 &divide; 180 &asymp; 15.6. Subtract the 650 pounds first: 2,150 &divide; 180.",
+"You ignored the mower and rounded 15.6 up. Subtract 650 first, then round down: 11."
+]
+}
+],
+"explain": "<p>\"At most 2,800 pounds\" means the total weight can equal 2,800 or be less, so the symbol is <strong>&le;</strong>.</p><p>Solve: 180p &le; 2,800 &minus; 650 = 2,150, so p &le; 2,150 &divide; 180 &asymp; 11.94.</p><p>The number of pallets must be a whole number, so the greatest is <strong>11</strong>.</p><p>Check: 650 + 180(11) = 2,630 pounds, which is allowed. 12 pallets give 650 + 2,160 = 2,810 pounds, which is too much. 15 comes from ignoring the mower: 2,800 &divide; 180 &asymp; 15.6.</p>"
+},
+{
+"id": "m32",
+"type": "dropdown",
+"skill": "Quadratic functions in context",
+"difficulty": 3,
+"prompt": "<p>A worker on a scaffold tosses a small bag of sand upward. Its height, in feet, after t seconds is given by h(t) = &minus;16t<sup>2</sup> + 64t + 80.</p><p>The bag reaches its maximum height at t = {{0}} seconds.</p><p>The maximum height of the bag is {{1}} feet.</p><p>The bag hits the ground at t = {{2}} seconds.</p>",
+"blanks": [
+{
+"options": [
+"1",
+"2",
+"4",
+"5"
+],
+"answer": 1,
+"why": [
+"At t = 1 the height is 128 feet, but at t = 2 it is 144, so the top comes later. Use t = &minus;b/(2a) = &minus;64/(&minus;32) = 2.",
+"",
+"You divided 64 by 16 and dropped the 2 in 2a. t = &minus;b/(2a) = &minus;64/(2 &times; &minus;16) = 2.",
+"5 seconds is when the bag hits the ground, not when it is highest."
+]
+},
+{
+"options": [
+"80",
+"128",
+"144",
+"160"
+],
+"answer": 2,
+"why": [
+"80 feet is the starting height, h(0). The maximum is at t = 2: h(2) = 144.",
+"128 feet is h(1). The bag is still rising then; the maximum is h(2) = 144.",
+"",
+"160 does not come from the function. Substitute t = 2: &minus;16(4) + 64(2) + 80 = &minus;64 + 128 + 80 = 144."
+]
+},
+{
+"options": [
+"4",
+"5",
+"6",
+"10"
+],
+"answer": 1,
+"why": [
+"At t = 4 the bag is back at its starting height, 80 feet, not on the ground. Solve h(t) = 0: t = 5.",
+"",
+"h(6) = &minus;576 + 384 + 80 = &minus;112, below the ground. Solve (t &minus; 5)(t + 1) = 0 to get t = 5.",
+"You doubled 5. Setting h(t) = 0 and factoring gives (t &minus; 5)(t + 1) = 0, so t = 5."
+]
+}
+],
+"explain": "<p>Time of maximum height (the vertex): t = &minus;b/(2a) = &minus;64/(2 &times; &minus;16) = &minus;64/&minus;32 = <strong>2 seconds</strong>.</p><p>Maximum height: h(2) = &minus;16(4) + 64(2) + 80 = &minus;64 + 128 + 80 = <strong>144 feet</strong>.</p><p>The bag hits the ground when h(t) = 0:</p><p>&minus;16t<sup>2</sup> + 64t + 80 = 0. Divide by &minus;16: t<sup>2</sup> &minus; 4t &minus; 5 = 0.</p><p>Factor: (t &minus; 5)(t + 1) = 0, so t = 5 or t = &minus;1. Time cannot be negative, so the bag lands at <strong>t = 5 seconds</strong>.</p><p>80 feet is the starting height, h(0), not the maximum.</p>"
+},
+{
+"id": "m33",
+"type": "mc",
+"skill": "Quadratic formula",
+"difficulty": 3,
+"prompt": "<p>What are the solutions of 2x<sup>2</sup> &minus; 4x &minus; 3 = 0?</p>",
+"options": [
+"x = (&minus;2 &plusmn; &radic;10)/2",
+"x = (2 &plusmn; &radic;10)/2",
+"x = (2 &plusmn; &radic;2)/2",
+"x = 2 &plusmn; &radic;10"
+],
+"answer": 1,
+"explain": "<p>Use the quadratic formula from the formula sheet with a = 2, b = &minus;4, c = &minus;3:</p><p>x = (&minus;b &plusmn; &radic;(b<sup>2</sup> &minus; 4ac)) / (2a)</p><p>b<sup>2</sup> &minus; 4ac = (&minus;4)<sup>2</sup> &minus; 4(2)(&minus;3) = 16 + 24 = 40</p><p>x = (4 &plusmn; &radic;40)/4. Since &radic;40 = 2&radic;10, x = (4 &plusmn; 2&radic;10)/4 = <strong>(2 &plusmn; &radic;10)/2</strong>.</p><p>(&minus;2 &plusmn; &radic;10)/2 uses b instead of &minus;b. (2 &plusmn; &radic;2)/2 equals (4 &plusmn; &radic;8)/4, which comes from an error in b<sup>2</sup> &minus; 4ac (getting 8 instead of 40; with c = &minus;3, the product &minus;4ac is +24, so it must be added to 16). 2 &plusmn; &radic;10 divides only part of the numerator by 2.</p>",
+"why": [
+"You used b instead of &minus;b in the formula. With b = &minus;4, &minus;b = 4, which leads to (2 &plusmn; &radic;10)/2.",
+"",
+"You got 8 instead of 40 for b<sup>2</sup> &minus; 4ac. With c = &minus;3, &minus;4ac = +24, so 16 + 24 = 40.",
+"You divided only part of the numerator by 2. In (4 &plusmn; 2&radic;10)/4, both terms are divided by 4: (2 &plusmn; &radic;10)/2."
+]
+},
+{
+"id": "m34",
+"type": "mc",
+"skill": "Factoring completely",
+"difficulty": 2,
+"prompt": "<p>Which shows 3x<sup>2</sup> &minus; 48 factored completely?</p>",
+"options": [
+"3(x &minus; 4)(x + 4)",
+"3(x &minus; 4)<sup>2</sup>",
+"(3x &minus; 12)(x + 4)",
+"3(x &minus; 8)(x + 8)"
+],
+"answer": 0,
+"explain": "<p>Factor out the greatest common factor, 3: 3x<sup>2</sup> &minus; 48 = 3(x<sup>2</sup> &minus; 16).</p><p>x<sup>2</sup> &minus; 16 is a difference of squares: x<sup>2</sup> &minus; 4<sup>2</sup> = (x &minus; 4)(x + 4).</p><p>Factored completely: <strong>3(x &minus; 4)(x + 4)</strong>.</p><p>(3x &minus; 12)(x + 4) equals the expression, but it is not factored completely, because 3x &minus; 12 still has a common factor of 3. 3(x &minus; 4)<sup>2</sup> = 3x<sup>2</sup> &minus; 24x + 48, which has a middle term.</p>",
+"why": [
+"",
+"3(x &minus; 4)<sup>2</sup> = 3x<sup>2</sup> &minus; 24x + 48, which has a middle term and the wrong sign on 48. A difference of squares factors as (x &minus; 4)(x + 4).",
+"This multiplies out correctly but is not factored completely: 3x &minus; 12 still has a common factor of 3.",
+"Multiplying back gives 3x<sup>2</sup> &minus; 192, not 3x<sup>2</sup> &minus; 48. After factoring out 3, the inside is x<sup>2</sup> &minus; 16, and &radic;16 = 4."
+]
+},
+{
+"id": "m35",
+"type": "mc",
+"skill": "Solving quadratics by factoring",
+"difficulty": 2,
+"prompt": "<p>A rectangular vegetable garden has an area of 96 square feet. Its length is 4 feet more than its width. What is the width of the garden?</p>",
+"options": [
+"12 feet",
+"24 feet",
+"10 feet",
+"8 feet"
+],
+"answer": 3,
+"explain": "<p>Let w be the width. Then the length is w + 4.</p><p>w(w + 4) = 96</p><p>w<sup>2</sup> + 4w &minus; 96 = 0</p><p>Factor: find two numbers that multiply to &minus;96 and add to 4: 12 and &minus;8. So (w + 12)(w &minus; 8) = 0.</p><p>w = &minus;12 or w = 8. A width cannot be negative, so the width is <strong>8 feet</strong> (and the length is 12 feet).</p><p>Check: 8 &times; 12 = 96. 12 feet is the length, not the width. 24 comes from dividing 96 by 4.</p>",
+"why": [
+"12 feet is the length (w + 4), not the width.",
+"You divided 96 by 4. The 4 is how much longer the length is; solve w(w + 4) = 96.",
+"You estimated &radic;96 &asymp; 10, as if the garden were a square. 10 &times; 14 = 140, not 96; solve w(w + 4) = 96 to get w = 8.",
+""
+]
+},
+{
+"id": "m36",
+"type": "multi",
+"skill": "Equivalent expressions",
+"difficulty": 2,
+"prompt": "<p>Which expressions are equivalent to 4(2x &minus; 3) &minus; 2(x &minus; 5)? Select <strong>two</strong> answers.</p>",
+"options": [
+"6x &minus; 2",
+"2(3x &minus; 1)",
+"6x &minus; 22",
+"10x &minus; 22",
+"2(3x + 1)"
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>Distribute: 4(2x &minus; 3) = 8x &minus; 12 and &minus;2(x &minus; 5) = &minus;2x + 10.</p><p>Combine like terms: 8x &minus; 2x = 6x and &minus;12 + 10 = &minus;2. The expression equals <strong>6x &minus; 2</strong>.</p><p>Factor out 2: 6x &minus; 2 = <strong>2(3x &minus; 1)</strong>.</p><p>6x &minus; 22 comes from a sign error: writing &minus;2(x &minus; 5) as &minus;2x &minus; 10 instead of &minus;2x + 10. 10x &minus; 22 makes the same sign error and also adds 2x instead of subtracting it. 2(3x + 1) = 6x + 2, which has the wrong sign on the constant.</p>",
+"why": [
+"",
+"",
+"You wrote &minus;2(x &minus; 5) as &minus;2x &minus; 10. A negative times a negative is positive: &minus;2 &times; &minus;5 = +10.",
+"You made the same sign error on &minus;10 and also added 2x instead of subtracting it: 8x &minus; 2x = 6x.",
+"2(3x + 1) = 6x + 2, which has the wrong sign on the constant. &minus;12 + 10 = &minus;2."
+]
+},
+{
+"id": "m37",
+"type": "mc",
+"skill": "Function notation",
+"difficulty": 2,
+"prompt": "<p>The function g is defined as g(x) = 3x &minus; 7. Which expression is equal to g(a + 2)?</p>",
+"options": [
+"3a &minus; 5",
+"a &minus; 5",
+"3a &minus; 1",
+"3a &minus; 13"
+],
+"answer": 2,
+"explain": "<p>Replace x with (a + 2):</p><p>g(a + 2) = 3(a + 2) &minus; 7 = 3a + 6 &minus; 7 = <strong>3a &minus; 1</strong></p><p>Check with a = 1: g(3) = 3(3) &minus; 7 = 2, and 3(1) &minus; 1 = 2.</p><p>3a &minus; 5 comes from multiplying only the a by 3 (3a + 2 &minus; 7). a &minus; 5 adds 2 to a and subtracts 7 without multiplying by 3.</p>",
+"why": [
+"You multiplied only the a by 3 (3a + 2 &minus; 7). The 3 multiplies the whole input: 3(a + 2) = 3a + 6.",
+"You forgot to multiply by 3 at all. g multiplies its input by 3 first.",
+"",
+"You made a sign error, writing 3(a + 2) as 3a &minus; 6. It is 3a + 6, so 3a + 6 &minus; 7 = 3a &minus; 1."
+]
+},
+{
+"id": "m38",
+"type": "mc",
+"skill": "Identifying functions",
+"difficulty": 1,
+"prompt": "<p>Which set of ordered pairs does <strong>not</strong> represent a function?</p>",
+"options": [
+"{(&minus;2, 3), (0, 3), (2, 3), (4, 3)}",
+"{(1, 5), (2, 7), (3, 9), (4, 11)}",
+"{(0, 0), (1, 1), (&minus;1, 1), (2, 4)}",
+"{(3, 1), (3, 4), (5, 2), (6, 0)}"
+],
+"answer": 3,
+"explain": "<p>A relation is a function when each input (x-value) has exactly one output (y-value).</p><p>In <strong>{(3, 1), (3, 4), (5, 2), (6, 0)}</strong>, the input 3 has two different outputs, 1 and 4. So it is not a function.</p><p>The other sets are functions. Repeated outputs are allowed: in {(&minus;2, 3), (0, 3), (2, 3), (4, 3)} every input still has only one output, and in {(0, 0), (1, 1), (&minus;1, 1), (2, 4)} the inputs 1 and &minus;1 share an output, which is fine.</p>",
+"why": [
+"This is a function: each input has only one output. Repeating the same output (3) is allowed.",
+"This is a function: every input 1, 2, 3, 4 appears once with one output.",
+"This is a function: 1 and &minus;1 share the output 1, but no input has two outputs.",
+""
+]
+},
+{
+"id": "m39",
+"type": "mc",
+"skill": "Equation of a parallel line",
+"difficulty": 3,
+"prompt": "<p>Which equation describes the line that passes through the point (3, 1) and is parallel to the line 2x &minus; 3y = 12?</p>",
+"options": [
+"y = &minus;(3/2)x + 11/2",
+"y = (2/3)x &minus; 1",
+"y = &minus;(2/3)x + 3",
+"y = (2/3)x &minus; 4"
+],
+"answer": 1,
+"explain": "<p>Find the slope of 2x &minus; 3y = 12 by solving for y: &minus;3y = &minus;2x + 12, so y = (2/3)x &minus; 4. The slope is 2/3.</p><p>Parallel lines have the same slope, so the new line is y = (2/3)x + b.</p><p>Use the point (3, 1): 1 = (2/3)(3) + b = 2 + b, so b = &minus;1.</p><p>The equation is <strong>y = (2/3)x &minus; 1</strong>.</p><p>y = &minus;(3/2)x + 11/2 passes through (3, 1) but is perpendicular, not parallel. y = &minus;(2/3)x + 3 has the wrong sign on the slope. y = (2/3)x &minus; 4 is the original line, which does not pass through (3, 1).</p>",
+"why": [
+"This line is perpendicular to 2x &minus; 3y = 12 (slope &minus;3/2). Parallel lines have the same slope, 2/3.",
+"",
+"This has the wrong sign on the slope. Solving 2x &minus; 3y = 12 for y gives y = (2/3)x &minus; 4, so the slope is +2/3.",
+"This is the original line; it does not pass through (3, 1). Keep the slope 2/3 and find b from the point: b = &minus;1."
+]
+},
+{
+"id": "m40",
+"type": "mc",
+"skill": "Simplifying rational expressions",
+"difficulty": 3,
+"prompt": "<p>Simplify the rational expression (x<sup>2</sup> &minus; 4x &minus; 12)/(x<sup>2</sup> &minus; 36). Assume no denominator equals zero.</p>",
+"options": [
+"(x + 2)/(x &minus; 6)",
+"(x &minus; 2)/(x + 6)",
+"(x + 2)/(x + 6)",
+"(x + 3)/9"
+],
+"answer": 2,
+"explain": "<p>Factor the numerator: x<sup>2</sup> &minus; 4x &minus; 12 = (x &minus; 6)(x + 2), because (&minus;6)(2) = &minus;12 and &minus;6 + 2 = &minus;4.</p><p>Factor the denominator (difference of squares): x<sup>2</sup> &minus; 36 = (x &minus; 6)(x + 6).</p><p>Cancel the common factor (x &minus; 6): <strong>(x + 2)/(x + 6)</strong>.</p><p>Check with x = 0: the original gives &minus;12/&minus;36 = 1/3, and (0 + 2)/(0 + 6) = 2/6 = 1/3.</p><p>(x + 3)/9 comes from canceling the x<sup>2</sup> terms, which is not allowed because x<sup>2</sup> is a term, not a factor. (x + 2)/(x &minus; 6) cancels the wrong factor.</p>",
+"why": [
+"You canceled the wrong factor. Both the numerator and denominator contain (x &minus; 6), so that is the factor that cancels, leaving (x + 2)/(x + 6).",
+"You factored the numerator with the wrong signs, (x + 6)(x &minus; 2), which gives +4x. The correct factors are (x &minus; 6)(x + 2).",
+"",
+"You canceled the x<sup>2</sup> terms. Only common factors cancel, not terms; factor both parts first."
+]
+},
+{
+"id": "m41",
+"type": "mc",
+"skill": "Multiplying polynomials",
+"difficulty": 2,
+"prompt": "<p>Which expression is equivalent to (x + 4)(2x<sup>2</sup> &minus; x + 3)?</p>",
+"options": [
+"2x<sup>3</sup> + 7x<sup>2</sup> &minus; x + 12",
+"2x<sup>3</sup> &minus; x<sup>2</sup> + 3x + 12",
+"2x<sup>3</sup> + 9x<sup>2</sup> &minus; x + 12",
+"2x<sup>3</sup> + 7x<sup>2</sup> + 7x + 12"
+],
+"answer": 0,
+"explain": "<p>Multiply each term of (x + 4) by each term of the trinomial:</p><p>x(2x<sup>2</sup> &minus; x + 3) = 2x<sup>3</sup> &minus; x<sup>2</sup> + 3x</p><p>4(2x<sup>2</sup> &minus; x + 3) = 8x<sup>2</sup> &minus; 4x + 12</p><p>Combine like terms: 2x<sup>3</sup> + (&minus;x<sup>2</sup> + 8x<sup>2</sup>) + (3x &minus; 4x) + 12 = <strong>2x<sup>3</sup> + 7x<sup>2</sup> &minus; x + 12</strong>.</p><p>2x<sup>3</sup> &minus; x<sup>2</sup> + 3x + 12 multiplies by x but uses 4 only on the constant. 2x<sup>3</sup> + 7x<sup>2</sup> + 7x + 12 adds 3x and 4x instead of 3x and &minus;4x.</p>",
+"why": [
+"",
+"You multiplied by x but used 4 only on the constant. The 4 multiplies every term: 8x<sup>2</sup> &minus; 4x + 12.",
+"You wrote x &times; (&minus;x) as +x<sup>2</sup>. It is &minus;x<sup>2</sup>, so &minus;x<sup>2</sup> + 8x<sup>2</sup> = 7x<sup>2</sup>.",
+"You added 3x and 4x. The term from 4(&minus;x) is &minus;4x, so 3x &minus; 4x = &minus;x."
+]
+},
+{
+"id": "m42",
+"type": "mc",
+"skill": "Solving literal equations",
+"difficulty": 2,
+"prompt": "<p>The volume of a cone is V = (1/3)&pi;r<sup>2</sup>h. Which equation correctly gives the height h in terms of V and r?</p>",
+"options": [
+"h = 3V/(&pi;r<sup>2</sup>)",
+"h = V/(3&pi;r<sup>2</sup>)",
+"h = 3V&pi;r<sup>2</sup>",
+"h = 3V &minus; &pi;r<sup>2</sup>"
+],
+"answer": 0,
+"explain": "<p>Multiply both sides by 3: 3V = &pi;r<sup>2</sup>h.</p><p>Divide both sides by &pi;r<sup>2</sup>: <strong>h = 3V/(&pi;r<sup>2</sup>)</strong>.</p><p>Check with r = 3 and h = 4: V = (1/3)&pi;(9)(4) = 12&pi;. Then 3(12&pi;)/(&pi; &times; 9) = 36&pi;/9&pi; = 4.</p><p>h = V/(3&pi;r<sup>2</sup>) divides by 3 instead of multiplying, undoing the 1/3 the wrong way. h = 3V &minus; &pi;r<sup>2</sup> subtracts when the formula multiplies.</p>",
+"why": [
+"",
+"You divided by 3 instead of multiplying. To undo multiplying by 1/3, multiply both sides by 3.",
+"You multiplied by &pi;r<sup>2</sup> instead of dividing. Since &pi;r<sup>2</sup> multiplies h, divide both sides by it.",
+"You subtracted &pi;r<sup>2</sup>, but in the formula &pi;r<sup>2</sup> multiplies h. Undo multiplication with division."
+]
+},
+{
+"id": "m43",
+"type": "fill",
+"skill": "Slope from two points",
+"difficulty": 1,
+"prompt": "<p>A line passes through the points (&minus;3, 7) and (5, &minus;5). What is the slope of the line?</p><p>Write your answer as a fraction or a decimal.</p>",
+"answer": [
+"-3/2",
+"-1.5"
+],
+"value": -1.5,
+"tol": 0.001,
+"explain": "<p>Use the slope formula from the formula sheet: m = (y<sub>2</sub> &minus; y<sub>1</sub>)/(x<sub>2</sub> &minus; x<sub>1</sub>).</p><p>m = (&minus;5 &minus; 7)/(5 &minus; (&minus;3)) = &minus;12/8 = <strong>&minus;3/2</strong> (or &minus;1.5).</p><p>The line falls from left to right, so a negative slope makes sense. Writing &minus;8/12 = &minus;2/3 puts the run over the rise, which is upside down.</p>",
+"mistakes": [
+{
+"answer": [
+"-2/3",
+"-0.67",
+"-0.667"
+],
+"why": "You put the change in x over the change in y. Slope is rise over run: &minus;12/8 = &minus;3/2."
+},
+{
+"answer": [
+"3/2",
+"1.5"
+],
+"why": "You dropped the negative sign. The y-value falls from 7 to &minus;5 as x increases, so the slope is negative: &minus;3/2."
+}
+]
+},
+{
+"id": "m44",
+"type": "mc",
+"skill": "Comparing linear functions",
+"difficulty": 3,
+"prompt": "<p>Two companies rent out a stump grinder. Company A charges according to the equation C = 45h + 60, where C is the total cost in dollars for h hours. Company B's charges are shown in the table.</p><table><thead><tr><th>Hours (h)</th><th>1</th><th>3</th><th>5</th></tr></thead><tbody><tr><td>Cost at Company B ($)</td><td>95</td><td>205</td><td>315</td></tr></tbody></table><p>Both companies charge at a constant hourly rate plus a fixed fee. For which rental times is Company A less expensive than Company B?</p>",
+"options": [
+"For rentals shorter than 2 hours",
+"For all rental times",
+"For rentals longer than 2 hours",
+"For no rental times"
+],
+"answer": 2,
+"explain": "<p>Find Company B's equation. Rate: (205 &minus; 95) &divide; (3 &minus; 1) = 110 &divide; 2 = $55 per hour. Fee: 95 &minus; 55 = $40. So B: C = 55h + 40.</p><p>Company A is less expensive when 45h + 60 &lt; 55h + 40.</p><p>Subtract 45h: 60 &lt; 10h + 40. Subtract 40: 20 &lt; 10h. Divide by 10: h &gt; 2.</p><p>Company A is cheaper <strong>for rentals longer than 2 hours</strong>.</p><p>Check: at 2 hours both cost $150. At 4 hours, A costs 45(4) + 60 = $240 and B costs 55(4) + 40 = $260.</p><p>Choosing \"shorter than 2 hours\" reverses the inequality. Company A has the higher fee but the lower hourly rate, so it becomes cheaper only for longer rentals; it is not cheaper for all rental times (at 1 hour, A costs $105 and B costs $95).</p>",
+"why": [
+"This reverses the inequality. 45h + 60 &lt; 55h + 40 gives h &gt; 2; at 1 hour, A costs $105 and B costs $95.",
+"At 1 hour A costs $105 and B only $95, so A is not cheaper for every rental time.",
+"",
+"The lines cross at 2 hours. After that, A's lower hourly rate makes it cheaper: at 4 hours A is $240 and B is $260."
+]
+},
+{
+"id": "m45",
+"type": "mc",
+"skill": "Writing a linear equation from a graph",
+"difficulty": 2,
+"prompt": "<p>A landscaper fills a sprayer tank and then uses it at a constant rate. The graph shows the number of gallons, W, left in the tank t minutes after spraying begins. Which equation represents the relationship?</p>",
+"figure": {
+"type": "line",
+"title": "Water Left in Sprayer Tank",
+"xLabel": "Time (minutes)",
+"yLabel": "Water (gallons)",
+"labels": [
+"0",
+"2",
+"4",
+"6",
+"8"
+],
+"series": [
+{
+"name": "Gallons left",
+"values": [
+320,
+240,
+160,
+80,
+0
+]
+}
+]
+},
+"options": [
+"W = 320 &minus; 80t",
+"W = 320 &minus; 40t",
+"W = 40t + 320",
+"W = 8 &minus; 40t"
+],
+"answer": 1,
+"explain": "<p>The starting amount (when t = 0) is 320 gallons, so the y-intercept is 320.</p><p>Rate of change: from t = 0 to t = 2, W falls from 320 to 240, a change of &minus;80 gallons in 2 minutes. &minus;80 &divide; 2 = &minus;40 gallons per minute.</p><p>The equation is <strong>W = 320 &minus; 40t</strong>.</p><p>Check: at t = 8, W = 320 &minus; 320 = 0, which matches the graph.</p><p>W = 320 &minus; 80t uses the change between labeled points without dividing by the 2 minutes between them. W = 40t + 320 has a positive slope, but the amount of water is going down.</p>",
+"why": [
+"You used the change between labeled points, &minus;80, without dividing by the 2 minutes between them. Rate = &minus;80 &divide; 2 = &minus;40 per minute.",
+"",
+"This has a positive slope, but the water is going down. The rate is &minus;40 gallons per minute.",
+"You used 8, the last time on the graph, as the starting amount. The starting amount is the value at t = 0: 320 gallons."
+]
+},
+{
+"id": "m46",
+"type": "drag",
+"skill": "Number of solutions of linear equations",
+"difficulty": 3,
+"prompt": "<p>Sort the six linear equations below according to whether each one has exactly one solution, no solution, or infinitely many solutions.</p>",
+"choices": [
+"2(x + 3) = 2x + 6",
+"3x &minus; 4 = 3x + 1",
+"4x + 2 = 2x &minus; 8",
+"5(x &minus; 1) = 5x &minus; 5",
+"6x + 1 = 6(x + 1)",
+"7 &minus; x = x + 7"
+],
+"bins": [
+"Exactly one solution",
+"No solution",
+"Infinitely many solutions"
+],
+"answer": [
+2,
+1,
+0,
+2,
+1,
+0
+],
+"explain": "<p>Simplify each side and compare.</p><p>2(x + 3) = 2x + 6 becomes 2x + 6 = 2x + 6. Both sides are identical, so there are <strong>infinitely many solutions</strong>. The same is true for 5(x &minus; 1) = 5x &minus; 5, which becomes 5x &minus; 5 = 5x &minus; 5.</p><p>3x &minus; 4 = 3x + 1: subtracting 3x gives &minus;4 = 1, which is false, so there is <strong>no solution</strong>. 6x + 1 = 6(x + 1) becomes 6x + 1 = 6x + 6, which gives 1 = 6, also <strong>no solution</strong>.</p><p>4x + 2 = 2x &minus; 8: 2x = &minus;10, so x = &minus;5, <strong>exactly one solution</strong>. 7 &minus; x = x + 7: &minus;2x = 0, so x = 0, also <strong>exactly one solution</strong>. A solution of 0 is still a solution; it does not mean \"no solution.\"</p>",
+"why": "The most common error is putting 7 &minus; x = x + 7 under No solution or Infinitely many because the answer is x = 0. Zero is a real solution, so it has exactly one solution; only a false statement (like &minus;4 = 1) means no solution."
+}
+]
+}
+]
 }

@@ -1,6 +1,6 @@
 /* KCE GED Prep course engine — KingCretot Experience.
-   One page: Intro, Diagnostic, Weeks 1-10 (Teaching Lesson, Student Lesson, Post Lesson, Practice,
-   Vocabulary & Notes per subject) and a timed Practice GED (4 subject tests) at the end of each week.
+   One page: Intro, Diagnostic, Weeks 1-10. Each subject lesson: Teaching Lesson (slide deck with instructor notes),
+   Student Lesson (screens with checks), Practice (Set A/B), Exit Check (Form A/B), Study Sheet, instructor Answer Key.
    Results go to Formspree with every question, the answer chosen and the correct answer. */
 (function(){
 'use strict';
@@ -12,7 +12,6 @@ var SUBJ = {
   sci:{name:'Science', short:'Science', min:90}
 };
 var ORDER = ['math','rla','ss','sci'];
-var TABS = [['teach','Teaching Lesson'],['student','Student Lesson'],['post','Post Lesson'],['practice','Practice'],['vocab','Vocabulary & Notes']];
 var MAP = [null,
  {math:'Number Sense',rla:'Main Idea & Details',ss:'Foundations of Democracy',sci:'Science Practices'},
  {math:'Ratios, Rates & Percents',rla:'Inference & Evidence',ss:'The Constitution',sci:'Working with Data'},
@@ -50,18 +49,14 @@ function shuffled(n,seed){var a=[];for(var i=0;i<n;i++)a.push(i);var x=hash(seed
 var LET='ABCDEF';
 
 /* ---------- nav ---------- */
-function renderNav(active){
-  var p=prog(), h='<div class="wrap">';
-  if (active==='home'){$('#cnav').innerHTML='';$('#cnav').style.display='none';return}
-  $('#cnav').style.display='';
-  h+='<a href="#home" class="home">← All Weeks</a>';
-  h+='<a href="#intro" class="'+(active==='intro'?'on':'')+'">Start Here</a>';
-  h+='<a href="#diagnostic" class="'+(active==='diagnostic'?'on':'')+'">Diagnostic'+(p.diagnostic?' <span class="ck">✓</span>':'')+'</a>';
-  for (var w=1;w<=10;w++){
-    var done=ORDER.every(function(s){return p['exam'+pad(w)+'-'+s]});
-    h+='<a href="#week-'+w+'" class="'+(active==='week-'+w?'on':'')+'">Week '+w+(done?' <span class="ck">✓</span>':'')+'</a>';
-  }
-  $('#cnav').innerHTML=h+'</div>';
+function renderNav(active, crumbs){
+  var nav=$('#cnav');
+  if (active==='home'){nav.innerHTML='';nav.style.display='none';return}
+  nav.style.display='';
+  if (!crumbs){ var m=/^week-(\d+)$/.exec(active||''); crumbs=active==='intro'?[['#intro','Start Here']]:active==='diagnostic'?[['#diagnostic','Diagnostic']]:m?[['#week-'+m[1],'Week '+m[1]]]:[]; }
+  var h='<div class="wrap crumbs"><a href="#home" class="home">← All Weeks</a>';
+  crumbs.forEach(function(c,i){h+='<span class="sep">›</span>'+(i===crumbs.length-1?'<span class="cur">'+esc(c[1])+'</span>':'<a href="'+c[0]+'">'+esc(c[1])+'</a>')});
+  nav.innerHTML=h+'</div>';
 }
 
 /* ---------- router ---------- */
@@ -76,9 +71,18 @@ function route(){
   if (h[0]==='diagnostic'){renderNav('diagnostic');return h[1]==='take'?runTest('diagnostic'):diagHub()}
   var m=h[0].match(/^week-(\d+)$/);
   if (m){var w=+m[1]; if(w<1||w>10){location.hash='#home';return}
-    renderNav('week-'+w);
-    if (h[1]==='exam') return h[2]&&SUBJ[h[2]]?runTest('exam'+pad(w)+'-'+h[2],w):examHub(w);
-    return weekView(w, SUBJ[h[1]]?h[1]:'math', h[2]||'student');
+    if (h[1]==='exam'){renderNav('week-'+w,[['#week-'+w,'Week '+w],['#week-'+w+'/exam','Practice GED']]); return h[2]&&SUBJ[h[2]]?runTest('exam'+pad(w)+'-'+h[2],w):examHub(w);}
+    if (!h[1]) return weekPage(w);
+    if (!SUBJ[h[1]]){location.hash='#week-'+w;return}
+    var s=h[1], v=h[2]||'';
+    if (v==='teach') return deckView(w,s);
+    if (v==='presenter') return presenterView(w,s);
+    if (v==='learn') return learnView(w,s);
+    if (v==='practice'||v==='exit') return quizView(w,s,v);
+    if (v==='notes') return notesView(w,s);
+    if (v==='key') return keyView(w,s);
+    if (v){location.hash='#week-'+w+'/'+s;return}
+    return subjHub(w,s);
   }
   location.hash='#home';
 }
@@ -94,12 +98,13 @@ function renderHome(){
   h+='<article class="hcard"><div class="wk">Step 1</div><h3>The GED and This Course</h3><p class="hsub">The four tests, how they are timed and scored, question types, the calculator and test-day tips.</p><div class="tags"><span class="tag t-lesson">Read first</span></div><div class="links"><a class="hbtn" href="#intro">Open Start Here</a></div></article>';
   var d=p.diagnostic;
   h+='<article class="hcard milestone"><div class="wk">Step 2</div><h3>Diagnostic</h3><p class="hsub">50 questions across all four subjects plus a short writing sample. Not timed. Your answers go to your instructor.</p><div class="tags"><span class="tag t-diag">Diagnostic</span></div>'+(d?'<div class="hdone">✓ Sent '+esc(d.when)+'</div>':'')+'<div class="links"><a class="hbtn" href="#diagnostic">'+(d?'Open the Diagnostic':'Start the Diagnostic')+'</a></div></article></div>';
-  h+='<section class="hblock"><div class="fl"></div><h2>Your 10 weeks</h2><p>Each week has its own card: four subject lessons and a timed Practice GED.</p></section><div class="wgrid">';
+  h+='<section class="hblock"><div class="fl"></div><h2>Your 10 weeks</h2><p>Each week has its own card: four subject lessons and a timed Practice GED. A check mark means that lesson&rsquo;s Exit Check is passed.</p></section><div class="wgrid">';
   for (var w2=1;w2<=10;w2++){ (function(w){
     var t=MAP[w], n=ORDER.filter(function(s){return p['exam'+pad(w)+'-'+s]}).length;
     h+='<article class="wcard"><div class="whead"><div class="wk">Week '+w+' of 10</div><h3>Week '+w+'</h3></div><ul class="wsubs">';
     ORDER.forEach(function(s){
-      h+='<li><a href="#week-'+w+'/'+s+'/student"><span class="ws">'+SUBJ[s].short+'</span><span class="wt">'+esc(t[s])+'</span><span class="wgo">'+(p['exam'+pad(w)+'-'+s]?'<i class="ok">✓</i>':'')+'Open →</span></a></li>';
+      var X=p['exit-'+lkey(w,s)];
+      h+='<li><a href="#week-'+w+'/'+s+'"><span class="ws">'+SUBJ[s].short+'</span><span class="wt">'+esc(t[s])+'</span><span class="wgo">'+(X&&X.passed?'<i class="ok" title="Exit Check passed">✓</i>':'')+'Open →</span></a></li>';
     });
     h+='</ul><a class="wexam" href="#week-'+w+'/exam"><span><b>Week '+w+' Practice GED</b><small>Four timed tests · '+(n?n+' of 4 sent':'Math, Language Arts, Social Studies, Science')+'</small></span><span class="wgo">Open →</span></a></article>';
   })(w2) }
@@ -107,34 +112,6 @@ function renderHome(){
   app.innerHTML=h;
 }
 
-/* ---------- week view ---------- */
-function weekView(w, subj, tab){
-  var t=MAP[w];
-  var h='<div class="pagehead card"><div class="eyebrow">Week '+w+' of 10</div><h2>Week '+w+'</h2><p>'+ORDER.map(function(s){return '<strong>'+SUBJ[s].short+':</strong> '+esc(t[s])}).join(' &nbsp;·&nbsp; ')+'</p></div>';
-  h+='<div class="pills subj">'+ORDER.map(function(s){return '<a class="pill'+(s===subj?' on':'')+'" href="#week-'+w+'/'+s+'/'+tab+'">'+SUBJ[s].short+'</a>'}).join('')+'<a class="pill exam" href="#week-'+w+'/exam">Week '+w+' Practice GED</a></div>';
-  h+='<div class="pills tabs">'+TABS.map(function(x){return '<a class="pill'+(x[0]===tab?' on':'')+'" href="#week-'+w+'/'+subj+'/'+x[0]+'">'+x[1]+'</a>'}).join('')+'</div>';
-  h+='<div class="card" id="panel"><p>Loading…</p></div>';
-  app.innerHTML=h;
-  var panel=$('#panel');
-  load('w'+pad(w)+'-'+subj).then(function(d){
-    var label=TABS.filter(function(x){return x[0]===tab})[0]; label=label?label[1]:'';
-    var ph='<div class="printhead"><div class="pb">KingCretot Experience<small>KCE GED PREP · EDUCATE. EMPOWER. EXCEL.</small></div><div class="pt">Week '+w+' · '+SUBJ[subj].short+'<br>'+esc(label)+'</div></div>';
-    var tool='<div class="toolrow"><span class="who">'+(tab==='teach'?'For the instructor':tab==='practice'?'Practice · two tries per question':'For the student')+'</span>'+(tab!=='practice'?'<button class="btn ghost small noprint" id="printbtn" type="button">Print this page</button>':'')+'</div>';
-    var title='<h3>'+esc(d.title)+'</h3>';
-    var body='';
-    if (tab==='teach'||tab==='student'){
-      body=(tab==='student'?'':'')+'<div class="objectives"><h4>Objectives</h4><ul>'+(d.objectives||[]).map(function(o){return '<li>'+o+'</li>'}).join('')+'</ul></div>'+'<div class="content">'+d[tab]+'</div>';
-    } else if (tab==='post'){ body='<div class="content">'+d.post+'</div>'; }
-    else if (tab==='vocab'){
-      body='<div class="content"><h3>Vocabulary</h3></div><div class="vocab">'+(d.vocab||[]).map(function(v){return '<div class="v"><div class="t">'+esc(v.term)+'</div><div class="d">'+v.def+(v.example?'<br><em>Example: '+v.example+'</em>':'')+'</div></div>'}).join('')+'</div><div class="content notesprint">'+(/^\s*<h3/i.test(d.notes)?'':'<h3>Study Notes</h3>')+d.notes+'</div>';
-    } else if (tab==='practice'){ body='<div id="practice"></div>'; }
-    panel.innerHTML=ph+tool+'<div class="content">'+title+'</div>'+body;
-    if (tab==='practice') renderPractice($('#practice'), d.practice, 'w'+pad(w)+subj);
-    var pb=$('#printbtn'); if(pb) pb.onclick=function(){window.print()};
-  }).catch(function(){
-    panel.innerHTML='<div class="content"><h3>'+esc(MAP[w][subj])+'</h3><p>This lesson is being finalized and will appear here soon.</p></div>';
-  });
-}
 /* open <details> for printing so answers print */
 var openedForPrint=[];
 window.addEventListener('beforeprint',function(){openedForPrint=$$('details:not([open])');openedForPrint.forEach(function(d){d.open=true})});
@@ -309,34 +286,340 @@ function correctText(it){
 }
 function stimHTML(st){if(!st)return '';return '<div class="stim">'+(st.title?'<h4>'+esc(st.title)+'</h4>':'')+(st.html||'')+figureHTML(st.figure)+(st.source?'<div class="src">'+esc(st.source)+'</div>':'')+'</div>'}
 
-/* ---------- practice ---------- */
-function renderPractice(root, P, key){
-  var stims={};(P.stimuli||[]).forEach(function(s){stims[s.id]=s});
-  var store=sget('kce_ged_prac_'+key,{}), lastStim=null;
-  var h='<div class="scorebar card" style="padding:12px 16px"><strong>Your practice score:</strong> <span id="pscore"></span><button class="btn ghost small" id="preset" type="button">Start over</button></div>';
-  P.items.forEach(function(it,i){
-    if (it.stim&&it.stim!==lastStim){h+=stimHTML(stims[it.stim]);} lastStim=it.stim||lastStim;
-    h+='<div class="q" id="pq-'+i+'"><div class="qh"><span class="qn">Question '+(i+1)+'</span><span class="tag">'+esc(it.skill)+'</span></div><div class="body"></div><div class="qbtns"><button class="btn small chk" type="button">Check answer</button>'+(it.hint?'<button class="btn ghost small hnt" type="button">Hint</button>':'')+'</div><div class="fb"></div></div>';
+/* ---------- lessons (v2): subject page, teaching deck, student lesson, practice, exit check, study sheet, answer key ---------- */
+var STEPS=[
+ ['teach','Teaching Lesson','The live lesson your instructor teaches on Zoom, one slide at a time.','Live lesson'],
+ ['learn','Student Lesson','Step by step, one screen at a time, with a check on every new skill.','Self-paced'],
+ ['practice','Practice','30 GED-style questions in two sets of 15. Three tries per question, with the reason behind every wrong answer.','Practice'],
+ ['exit','Exit Check','8 GED-style questions that close out the topic. Pass with 6 of 8.','Mastery check'],
+ ['notes','Study Sheet','Vocabulary and a one-page study sheet you can print.','Print']];
+var KIND={title:'Today’s Lesson',warmup:'Warm-Up',teach:'Learn',example:'Worked Example',wedo:'We Do Together',youdo:'Your Turn',gedq:'GED-Style Question',strategy:'Test Strategy',recap:'Recap'};
+function lkey(w,s){return 'w'+pad(w)+'-'+s}
+function isTeacher(){return sget('kce_ged_teacher',false)===true}
+function teacherGate(cb){
+  if (isTeacher()) return cb();
+  var m=modal('<h3>Instructor code</h3><p>Enter the instructor code to open the teaching notes and answer key.</p><p><input class="fill" id="tcode" inputmode="numeric" autocomplete="off" style="width:100%" aria-label="Instructor code"></p><p id="tmsg" style="color:#DB2F30;margin:0"></p>',[{t:'Cancel',ghost:true}]);
+  var b=document.createElement('button');b.className='btn';b.type='button';b.textContent='Open';$('.mb',m).appendChild(b);
+  var inp=$('#tcode',m);inp.focus();
+  function go(){if(inp.value.trim()==='9110'){sset('kce_ged_teacher',true);m.remove();cb()}else $('#tmsg',m).textContent='That code is not correct.'}
+  b.onclick=go; inp.onkeydown=function(e){if(e.key==='Enter')go()};
+}
+function lessonMissing(w,s){app.innerHTML='<div class="card content"><h3>'+esc(MAP[w][s])+'</h3><p>This lesson is being finalized and will appear here soon.</p><p><a class="btn ghost" href="#week-'+w+'">Back to Week '+w+'</a></p></div>'}
+function isV2(d){return d&&d.version===2}
+function needMsg(it){return 'Answer the question first'+(it.type==='multi'?' (select '+it.answer.length+')':it.type==='drag'?' (place every item)':it.type==='dropdown'?' (choose from every menu)':'')+'.'}
+function whyFor(it,val){
+  if (val==null||val==='') return '';
+  switch(it.type){
+    case 'mc': return (it.why&&it.why[val])||'';
+    case 'multi': return (val||[]).filter(function(v){return it.answer.indexOf(v)<0}).map(function(v){return it.why&&it.why[v]?'<span class="wopt">'+esc(txt(it.options[v]))+':</span> '+it.why[v]:''}).filter(Boolean).join('<br>');
+    case 'dropdown': return it.blanks.map(function(b,i){return val[i]!=null&&val[i]!==b.answer&&b.why&&b.why[val[i]]?'<span class="wopt">'+esc(txt(b.options[val[i]]))+':</span> '+b.why[val[i]]:''}).filter(Boolean).join('<br>');
+    case 'fill':
+      var n=normFill(val), v=parseNum(val);
+      var m=(it.mistakes||[]).filter(function(mm){return (mm.answer||[]).some(function(a){var av=parseNum(a);return normFill(a)===n||(!isNaN(v)&&!isNaN(av)&&Math.abs(av-v)<1e-9)})})[0];
+      return m?m.why:'';
+    case 'drag': case 'hotspot': return it.why||'';
+  }
+  return '';
+}
+/* one question with up to `tries` attempts; wrong attempt clears the answer and shows that answer's logic */
+function askItem(root,it,cfg){
+  var rec=cfg.get(it.id)||{tries:0}, val=null, maxT=cfg.tries||3;
+  root.innerHTML='<div class="body"></div><div class="qbtns"><button class="btn small chk" type="button">Check answer</button>'+(it.hint?'<button class="btn ghost small hnt" type="button">Hint</button>':'')+'<span class="tries"></span></div><div class="fb" aria-live="polite"></div>';
+  var body=$('.body',root), fb=$('.fb',root);
+  function draw(review){body.innerHTML=renderItem(it,review?rec.val:val,{name:(cfg.name||'q')+it.id,review:review}); if(!review) bindItem(body,it,function(){return val},function(v){val=v})}
+  function triesTxt(){var t=$('.tries',root); t.textContent=rec.done?'':(maxT-rec.tries)+(maxT-rec.tries===1?' try left':' tries left')}
+  function showDone(why){
+    draw(true); $('.chk',root).style.display='none'; var hb=$('.hnt',root); if(hb) hb.style.display='none';
+    fb.className='fb show '+(rec.ok?'ok':'no');
+    fb.innerHTML=(why?'<div class="whyline"><strong>Why that answer is not right:</strong> '+why+'</div>':'')+'<strong>'+(rec.ok?(rec.first?'Correct on the first try!':'Correct!'):'The correct answer: '+esc(correctText(it)))+'</strong><div class="content expl">'+it.explain+'</div>';
+    triesTxt();
+  }
+  if (rec.done) showDone(rec.ok?'':whyFor(it,rec.val)); else {draw(false);triesTxt()}
+  $('.chk',root).onclick=function(){
+    if (!answered(it,val)){fb.className='fb show info';fb.innerHTML=needMsg(it);return}
+    if (rec.tries===0) rec.firstVal=val;
+    if (scoreItem(it,val)){rec.ok=true;rec.done=true;rec.first=rec.tries===0;rec.val=val;cfg.save(it.id,rec);showDone('');cfg.onDone&&cfg.onDone(rec);return}
+    rec.tries++; var why=whyFor(it,val);
+    if (rec.tries>=maxT){rec.done=true;rec.ok=false;rec.first=false;rec.val=val;cfg.save(it.id,rec);showDone(why);cfg.onDone&&cfg.onDone(rec);return}
+    cfg.save(it.id,rec);
+    fb.className='fb show no';
+    fb.innerHTML='<strong>Not quite.</strong> '+(why||'Look at your work again.')+(it.hint?'<div class="hintline"><strong>Hint:</strong> '+it.hint+'</div>':'')+'<div class="again">Your answer was cleared. Try again.</div>';
+    val=null; draw(false); triesTxt();
+  };
+  var hb=$('.hnt',root); if(hb) hb.onclick=function(){fb.className='fb show info';fb.innerHTML='<strong>Hint:</strong> '+it.hint};
+}
+function toolBtns(s){return (s==='math'?'<button type="button" class="tbtn" id="xcalc">Calculator</button><button type="button" class="tbtn" id="xform">Formula Sheet</button>':(s==='sci'||s==='ss')?'<button type="button" class="tbtn" id="xcalc">Calculator</button>':'')}
+function wireToolBtns(s){calcEnabled=(s==='math'||s==='sci'||s==='ss');var c=$('#xcalc');if(c)c.onclick=function(){$('#calc').classList.contains('on')?closeCalc():openCalc()};var f=$('#xform');if(f)f.onclick=function(){modal(FORMULAS)}}
+
+/* ---------- week page ---------- */
+function weekPage(w){
+  renderNav('week-'+w,[['#week-'+w,'Week '+w]]);
+  var p=prog(), t=MAP[w];
+  var h='<div class="pagehead card"><div class="eyebrow">Week '+w+' of 10</div><h2>Week '+w+'</h2><p>Work through each subject in order: the teaching lesson, the student lesson, practice and the exit check. Finish the week with the Practice GED.</p></div><div class="hgrid">';
+  ORDER.forEach(function(s){var k=lkey(w,s), X=p['exit-'+k];
+    h+='<article class="hcard"><div class="wk">Week '+w+' · '+SUBJ[s].short+'</div><h3>'+esc(t[s])+'</h3><p class="hsub">Teaching lesson, student lesson, 30 practice questions and an exit check.</p>'+(X&&X.passed?'<div class="hdone">✓ Exit Check passed</div>':'')+'<div class="links"><a class="hbtn" href="#week-'+w+'/'+s+'">Open '+SUBJ[s].short+'</a></div></article>'});
+  var n=ORDER.filter(function(s){return p['exam'+pad(w)+'-'+s]}).length;
+  h+='<article class="hcard milestone"><div class="wk">Week '+w+' Practice GED</div><h3>Full-Length Practice GED</h3><p class="hsub">Four timed tests on the real GED clocks.</p>'+(n?'<div class="hdone">✓ '+n+' of 4 sent</div>':'')+'<div class="links"><a class="hbtn" href="#week-'+w+'/exam">Open Practice GED</a></div></article></div>';
+  app.innerHTML=h;
+}
+
+/* ---------- subject page: the five steps of one lesson ---------- */
+function subjHub(w,s){
+  renderNav('week-'+w,[['#week-'+w,'Week '+w],['#week-'+w+'/'+s,SUBJ[s].short]]);
+  var k=lkey(w,s);
+  app.innerHTML='<div class="card"><p>Loading…</p></div>';
+  load(k).then(function(d){
+    if (!isV2(d)) return lessonMissing(w,s);
+    var p=prog(), L=p['learn-'+k], P=p['prac-'+k]||{}, X=p['exit-'+k]||{};
+    var stat={teach:'',learn:L?'✓ Finished'+(L.of?' · '+L.first+' of '+L.of+' checks right on the first try':''):'',
+      practice:(P.A||P.B)?['A','B'].filter(function(x){return P[x]}).map(function(x){return 'Set '+x+': '+P[x].score+' ('+P[x].pct+'%)'}).join(' · '):'',
+      exit:X.passed?'✓ Passed'+(X.best?' · '+X.best:''):(X.last?'Last try: '+X.last+' · not passed yet':''),notes:''};
+    var meta={teach:d.deck.slides.length+' slides · about '+(d.deck.minutes||60)+' minutes',learn:d.learn.screens.length+' screens · '+d.learn.screens.filter(function(x){return x.check}).length+' checks',practice:'Set A and Set B · 15 questions each',exit:'Form A and Form B · 8 questions each',notes:(d.vocab||[]).length+' vocabulary words · printable'};
+    var h='<div class="pagehead card"><div class="eyebrow">Week '+w+' · '+SUBJ[s].name+'</div><h2>'+esc(d.title)+'</h2><div class="objectives"><h4>In this lesson</h4><ul>'+d.objectives.map(function(o){return '<li>'+o+'</li>'}).join('')+'</ul></div></div>';
+    h+='<div class="stepgrid">'+STEPS.map(function(x,i){
+      return '<article class="hcard step'+(x[0]==='teach'?' milestone':'')+'"><div class="wk">Step '+(i+1)+' · '+x[3]+'</div><h3>'+x[1]+'</h3><p class="hsub">'+x[2]+'</p><div class="smeta">'+meta[x[0]]+'</div>'+(stat[x[0]]?'<div class="hdone">'+stat[x[0]]+'</div>':'')+'<div class="links"><a class="hbtn" href="#week-'+w+'/'+s+'/'+x[0]+'">'+(x[0]==='teach'?'Open the slides':x[0]==='notes'?'Open the study sheet':'Start '+x[1])+'</a></div></article>'}).join('')+'</div>';
+    var i=ORDER.indexOf(s), nx=i<3?['#week-'+w+'/'+ORDER[i+1],'Next: Week '+w+' '+SUBJ[ORDER[i+1]].short+' →']:['#week-'+w+'/exam','Next: Week '+w+' Practice GED →'];
+    h+='<div class="lnav"><a class="btn ghost" href="#week-'+w+'">← Week '+w+'</a><a class="btn" href="'+nx[0]+'">'+nx[1]+'</a></div>';
+    h+='<p class="tlink"><a href="#week-'+w+'/'+s+'/key">Instructor answer key</a></p>';
+    app.innerHTML=h;
+  }).catch(function(){lessonMissing(w,s)});
+}
+
+/* ---------- teaching deck (presented by the instructor on Zoom) ---------- */
+function deckPos(k){return sget('kce_ged_deck_'+k,{i:0,r:0})}
+function deckView(w,s){
+  var k=lkey(w,s);
+  document.body.classList.add('testing');
+  app.innerHTML='<div class="card"><p>Loading…</p></div>';
+  load(k).then(function(d){
+    if (!isV2(d)) {document.body.classList.remove('testing');return lessonMissing(w,s)}
+    var S=d.deck.slides, pos=deckPos(k), notesOn=false;
+    if (pos.i>=S.length) pos={i:0,r:0};
+    function nsteps(i){return (S[i].steps||[]).length}
+    function next(){if(pos.r<nsteps(pos.i))pos.r++;else if(pos.i<S.length-1){pos.i++;pos.r=0}draw()}
+    function prev(){if(pos.r>0)pos.r--;else if(pos.i>0){pos.i--;pos.r=nsteps(pos.i)}draw()}
+    function go(i){pos.i=Math.max(0,Math.min(S.length-1,i));pos.r=0;draw()}
+    function draw(){
+      var sl=S[pos.i], st=sl.steps||[], more=pos.r<st.length;
+      sset('kce_ged_deck_'+k,pos); sset('kce_ged_deckbc',{k:k,i:pos.i,r:pos.r,t:Date.now()});
+      var h='<div class="xbar"><div class="in"><div class="tt">Week '+w+' · '+SUBJ[s].short+' · Teaching Lesson<small>'+esc(d.title)+' · Slide '+(pos.i+1)+' of '+S.length+'</small></div>'+toolBtns(s)+'<button type="button" id="dnotes">'+(notesOn?'Hide notes':'Instructor notes')+'</button><button type="button" id="dwin">Notes window</button><button type="button" id="dfull">Full screen</button><a class="xlink" href="#week-'+w+'/'+s+'">Exit</a></div></div>';
+      h+='<div class="deckwrap"><div class="slide k-'+sl.kind+'"><div class="skind">'+KIND[sl.kind]+'</div><h2>'+esc(sl.title)+'</h2><div class="board content">'+sl.board+'</div>'+(st.length?'<div class="dsteps">'+st.slice(0,pos.r).map(function(x,j){return '<div class="dstep"><span class="sn">'+(j+1)+'</span><div class="content">'+x+'</div></div>'}).join('')+'</div>':'')+'</div>';
+      h+='<div class="dfoot"><button class="btn ghost" id="dprev" type="button"'+(pos.i===0&&pos.r===0?' disabled':'')+'>← Back</button><div class="dots">'+S.map(function(x,j){return '<button type="button" data-j="'+j+'" class="'+(j===pos.i?'on':'')+'" aria-label="Slide '+(j+1)+'"></button>'}).join('')+'</div><button class="btn'+(more?' gold':'')+'" id="dnext" type="button"'+(!more&&pos.i===S.length-1?' disabled':'')+'>'+(more?'Reveal step '+(pos.r+1)+' of '+st.length:'Next slide →')+'</button></div>';
+      if (notesOn) h+='<div class="dnotes">'+notesHTML(sl)+'</div>';
+      h+='</div>';
+      app.innerHTML=h;
+      $('#dnext').onclick=next; $('#dprev').onclick=prev;
+      $$('.dots button').forEach(function(b){b.onclick=function(){go(+b.dataset.j)}});
+      $('#dnotes').onclick=function(){if(notesOn){notesOn=false;draw()}else teacherGate(function(){notesOn=true;draw()})};
+      $('#dwin').onclick=function(){teacherGate(function(){window.open(location.href.split('#')[0]+'#week-'+w+'/'+s+'/presenter','kcenotes','width=760,height=860')})};
+      $('#dfull').onclick=function(){var el=document.documentElement;try{if(!document.fullscreenElement)(el.requestFullscreen||el.webkitRequestFullscreen).call(el);else document.exitFullscreen()}catch(e){}};
+      wireToolBtns(s);
+    }
+    function key(e){if(/input|textarea|select/i.test((document.activeElement||{}).tagName||''))return;if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();next()}else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}}
+    function cmd(e){if(e.key!=='kce_ged_deckcmd'||!e.newValue)return;try{var c=JSON.parse(e.newValue);if(c.k!==k)return;if(c.c==='next')next();else if(c.c==='prev')prev();else if(c.c==='go')go(c.i)}catch(x){}}
+    document.addEventListener('keydown',key); window.addEventListener('storage',cmd);
+    stopRunner=function(){document.removeEventListener('keydown',key);window.removeEventListener('storage',cmd);document.body.classList.remove('testing');closeCalc()};
+    draw();
+  }).catch(function(){document.body.classList.remove('testing');lessonMissing(w,s)});
+}
+function notesHTML(sl){
+  var n=sl.notes||{};
+  return '<div class="nh">Instructor notes · '+KIND[sl.kind]+'</div>'+
+    '<div class="nsec"><h5>Say</h5><div class="content">'+(n.say||'')+'</div></div>'+
+    (n.ask&&n.ask.length?'<div class="nsec"><h5>Ask</h5><ul>'+n.ask.map(function(a){return '<li>'+a+'</li>'}).join('')+'</ul></div>':'')+
+    (n.answer?'<div class="nsec ans"><h5>Answer key</h5><div class="content">'+n.answer+'</div></div>':'')+
+    (n.watch?'<div class="nsec watch"><h5>Watch for</h5><div class="content">'+n.watch+'</div></div>':'');
+}
+/* separate presenter window: follows the slides and can drive them */
+function presenterView(w,s){
+  var k=lkey(w,s); document.body.classList.add('testing');
+  teacherGate(function(){
+    load(k).then(function(d){
+      var S=d.deck.slides;
+      function draw(){
+        var p=deckPos(k), sl=S[Math.min(p.i,S.length-1)], st=sl.steps||[];
+        app.innerHTML='<div class="xbar"><div class="in"><div class="tt">Instructor notes · Week '+w+' '+SUBJ[s].short+'<small>Slide '+(p.i+1)+' of '+S.length+' · '+esc(sl.title)+' · step '+p.r+' of '+st.length+' shown</small></div><button type="button" id="pp">← Back</button><button type="button" id="pn">Next →</button></div></div><div class="xwrap"><div class="dnotes solo">'+notesHTML(sl)+(st.length?'<div class="nsec"><h5>Steps on this slide</h5><ol>'+st.map(function(x,j){return '<li class="'+(j<p.r?'shown':'')+'">'+x+'</li>'}).join('')+'</ol></div>':'')+(S[p.i+1]?'<div class="nsec nextup"><h5>Next slide</h5><p>'+esc(KIND[S[p.i+1].kind])+': '+esc(S[p.i+1].title)+'</p></div>':'')+'</div></div>';
+        $('#pp').onclick=function(){sset('kce_ged_deckcmd',{k:k,c:'prev',t:Date.now()})};
+        $('#pn').onclick=function(){sset('kce_ged_deckcmd',{k:k,c:'next',t:Date.now()})};
+      }
+      function onS(e){if(e.key==='kce_ged_deckbc'||e.key==='kce_ged_deck_'+k)draw()}
+      window.addEventListener('storage',onS);
+      stopRunner=function(){window.removeEventListener('storage',onS);document.body.classList.remove('testing')};
+      draw();
+    }).catch(function(){lessonMissing(w,s)});
   });
-  root.innerHTML=h;
-  function upd(){var done=0,right=0;P.items.forEach(function(it){var s=store[it.id];if(s&&s.done){done++;if(s.ok)right++}});$('#pscore').textContent=right+' correct out of '+done+' finished ('+P.items.length+' questions)'}
-  P.items.forEach(function(it,i){
-    var q=$('#pq-'+i), body=$('.body',q), fb=$('.fb',q), st=store[it.id]||{tries:0}, val=st.val;
-    function draw(review){body.innerHTML=renderItem(it,val,{name:'p'+key+i,review:review}); if(!review) bindItem(body,it,function(){return val},function(v){val=v})}
-    function finish(ok){st.done=true;st.ok=ok;st.val=val;store[it.id]=st;sset('kce_ged_prac_'+key,store);draw(true);fb.className='fb show '+(ok?'ok':'no');fb.innerHTML='<strong>'+(ok?'Correct!':'The correct answer: '+esc(correctText(it)))+'</strong><div class="content" style="margin-top:6px">'+it.explain+'</div>';$('.chk',q).disabled=true;var hb=$('.hnt',q);if(hb)hb.disabled=true;upd()}
-    if (st.done){draw(true);fb.className='fb show '+(st.ok?'ok':'no');fb.innerHTML='<strong>'+(st.ok?'Correct!':'The correct answer: '+esc(correctText(it)))+'</strong><div class="content" style="margin-top:6px">'+it.explain+'</div>';$('.chk',q).disabled=true;var hb0=$('.hnt',q);if(hb0)hb0.disabled=true}
-    else draw(false);
-    $('.chk',q).onclick=function(){
-      if (!answered(it,val)){fb.className='fb show info';fb.innerHTML='Answer the question first'+(it.type==='multi'?' (select '+it.answer.length+')':it.type==='drag'?' (place every item)':it.type==='dropdown'?' (choose from every menu)':'')+'.';return}
-      if (scoreItem(it,val)) return finish(true);
-      st.tries=(st.tries||0)+1; store[it.id]=st; sset('kce_ged_prac_'+key,store);
-      if (st.tries>=2) return finish(false);
-      fb.className='fb show no';fb.innerHTML='<strong>Not quite. Try once more.</strong>'+(it.hint?' Hint: '+it.hint:'');
-    };
-    var hb=$('.hnt',q); if(hb) hb.onclick=function(){fb.className='fb show info';fb.innerHTML='<strong>Hint:</strong> '+it.hint};
+}
+
+/* ---------- student lesson: one screen at a time ---------- */
+function learnView(w,s){
+  var k=lkey(w,s);
+  renderNav('week-'+w,[['#week-'+w,'Week '+w],['#week-'+w+'/'+s,SUBJ[s].short],['#week-'+w+'/'+s+'/learn','Student Lesson']]);
+  app.innerHTML='<div class="card"><p>Loading…</p></div>';
+  load(k).then(function(d){
+    if (!isV2(d)) return lessonMissing(w,s);
+    var Sc=d.learn.screens, sk='kce_ged_learn_'+k, st=sget(sk,{i:0,res:{}});
+    if (st.i>=Sc.length) st.i=0;
+    function save(){sset(sk,st)}
+    function draw(){
+      var sc=Sc[st.i], last=st.i===Sc.length-1, ck=sc.check, done=!ck||(st.res[ck.id]&&st.res[ck.id].done);
+      var h='<div class="lhead card"><div class="lrow"><span class="eyebrow">Student Lesson · Week '+w+' '+SUBJ[s].short+'</span><span class="lcount">Screen '+(st.i+1)+' of '+Sc.length+'</span>'+toolBtns(s)+'</div><div class="pbar"><i style="width:'+Math.round((st.i+1)/Sc.length*100)+'%"></i></div></div>';
+      h+='<div class="card lscreen"><h2>'+esc(sc.title)+'</h2><div class="content">'+sc.html+'</div>';
+      if (sc.example){h+='<div class="lex"><div class="lexh">Worked example</div><div class="content">'+sc.example.prompt+'</div><div class="lexsteps"></div><button class="btn ghost small" type="button" id="exnext">Show the first step</button></div>'}
+      if (ck){h+='<div class="q lcheck"><div class="qh"><span class="qn">Check your understanding</span><span class="tag">'+esc(ck.skill||'')+'</span></div><div id="ckbox"></div></div>'}
+      h+='</div><div class="lnav"><button class="btn ghost" id="lprev" type="button"'+(st.i===0?' disabled':'')+'>← Back</button><span class="lhint" id="lhint">'+(done?'':'Answer the check to continue.')+'</span><button class="btn'+(last?' gold':'')+'" id="lnext" type="button"'+(done?'':' disabled')+'>'+(last?'Finish and go to Practice →':'Next →')+'</button></div>';
+      app.innerHTML=h; window.scrollTo(0,0); wireToolBtns(s);
+      if (sc.example){var exn=0,ex=sc.example,box=$('.lexsteps'),b=$('#exnext');
+        b.onclick=function(){if(exn<ex.steps.length){box.insertAdjacentHTML('beforeend','<div class="dstep"><span class="sn">'+(exn+1)+'</span><div class="content">'+ex.steps[exn]+'</div></div>');exn++;b.textContent=exn<ex.steps.length?'Show the next step':'Show the answer'}else{box.insertAdjacentHTML('beforeend','<div class="lexans"><strong>Answer:</strong> '+ex.answer+'</div>');b.remove()}}}
+      if (ck) askItem($('#ckbox'),ck,{name:'l'+k,tries:3,get:function(id){return st.res[id]},save:function(id,r){st.res[id]=r;save()},onDone:function(){$('#lnext').disabled=false;$('#lhint').textContent=''}});
+      $('#lprev').onclick=function(){if(st.i>0){st.i--;save();draw()}};
+      $('#lnext').onclick=function(){
+        if (!last){st.i++;save();draw();return}
+        var checks=Sc.filter(function(x){return x.check}), first=checks.filter(function(x){var r=st.res[x.check.id];return r&&r.first}).length;
+        setProg('learn-'+k,{when:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'}),first:first,of:checks.length});
+        location.hash='#week-'+w+'/'+s+'/practice';
+      };
+    }
+    draw();
+  }).catch(function(){lessonMissing(w,s)});
+}
+
+/* ---------- practice and exit check: one question per screen ---------- */
+function quizView(w,s,mode){
+  var k=lkey(w,s), isX=mode==='exit', label=isX?'Exit Check':'Practice';
+  renderNav('week-'+w,[['#week-'+w,'Week '+w],['#week-'+w+'/'+s,SUBJ[s].short],['#week-'+w+'/'+s+'/'+mode,label]]);
+  app.innerHTML='<div class="card"><p>Loading…</p></div>';
+  load(k).then(function(d){
+    if (!isV2(d)) return lessonMissing(w,s);
+    var B=isX?d.exit:d.practice, stims={}; (B.stimuli||[]).forEach(function(x){stims[x.id]=x});
+    var pk=(isX?'exit-':'prac-')+k, rk='kce_ged_'+(isX?'x_':'p_')+k;
+    var run=sget(rk,null);
+    if (!run) return pick();
+    show();
+    function pick(){
+      var p=prog()[pk]||{};
+      var suggest=isX?(p.A&&!p.passed?'B':'A'):(p.A&&p.A.pct<80&&!p.B?'B':'A');
+      var h='<div class="pagehead card"><div class="eyebrow">Week '+w+' · '+SUBJ[s].short+' · '+label+'</div><h2>'+esc(d.title)+'</h2>'+(isX?'<p>8 GED-style questions on everything in this lesson. One try per question; you see your results and the reasons behind each answer at the end. Pass with 6 of 8. Your results go to your instructor.</p>':'<p>15 GED-style questions per set, one at a time. You get three tries on each question. If an answer is wrong, you see why, and the question resets. Only your first try counts toward your score. Score 80% or higher to master this practice; if you score lower, take Set B, which has different questions on the same skills. Your results go to your instructor.</p>')+'</div><div class="hgrid">';
+      ['A','B'].forEach(function(x){var r=p[x];
+        h+='<article class="hcard'+(x===suggest?' sg':'')+'">'+(x===suggest?'<span class="upnext">Up next</span>':'')+'<div class="wk">'+(isX?'Form ':'Set ')+x+'</div><h3>'+label+' '+(isX?'Form ':'Set ')+x+'</h3><p class="hsub">'+(isX?'8':'15')+' questions'+(x==='B'?(isX?' · use if Form A is not passed':' · different questions, same skills'):'')+'.</p>'+(r?'<div class="hdone">Last result: '+r.score+' ('+r.pct+'%)'+(r.when?' · '+r.when:'')+'</div>':'')+'<div class="links"><button class="hbtn" type="button" data-set="'+x+'">'+(r?'Take again':'Start')+'</button></div></article>'});
+      h+='</div><div class="lnav"><a class="btn ghost" href="#week-'+w+'/'+s+'">← Back to '+SUBJ[s].short+'</a></div>';
+      app.innerHTML=h;
+      $$('[data-set]').forEach(function(b){b.onclick=function(){var set=b.dataset.set;studentName(function(name){run={set:set,i:0,res:{},ans:{},name:name,start:Date.now()};sset(rk,run);show()})}});
+    }
+    function items(){return B.items.filter(function(x){return x.set===run.set})}
+    function show(){
+      var I=items(); if (run.i>=I.length) return finish();
+      var it=I[run.i], st=it.stim?stims[it.stim]:null, last=run.i===I.length-1;
+      var rec=run.res[it.id], done=isX?answered(it,run.ans[it.id]):(rec&&rec.done);
+      var h='<div class="lhead card"><div class="lrow"><span class="eyebrow">'+label+' '+(isX?'Form ':'Set ')+run.set+' · Week '+w+' '+SUBJ[s].short+'</span><span class="lcount">Question '+(run.i+1)+' of '+I.length+'</span>'+toolBtns(s)+'</div><div class="pbar"><i style="width:'+Math.round((run.i+1)/I.length*100)+'%"></i></div></div>';
+      h+='<div class="xsplit'+(st?'':' solo')+'">'+(st?'<div class="left">'+stimHTML(st)+'</div>':'')+'<div><div class="q"><div class="qh"><span class="qn">Question '+(run.i+1)+'</span><span class="tag">'+esc(it.skill||'')+'</span></div><div id="qbox"></div></div>';
+      h+='<div class="lnav"><button class="btn ghost" id="qprev" type="button"'+(run.i===0?' disabled':'')+'>← Back</button><span class="lhint" id="lhint"></span><button class="btn'+(last?' gold':'')+'" id="qnext" type="button"'+(done?'':' disabled')+'>'+(last?(isX?'Submit the Exit Check':'See my results'):'Next →')+'</button></div></div></div>';
+      app.innerHTML=h; window.scrollTo(0,0); wireToolBtns(s);
+      if (isX){
+        var box=$('#qbox'); box.innerHTML='<div class="body"></div>'; var body=$('.body',box);
+        body.innerHTML=renderItem(it,run.ans[it.id],{name:'x'+k+it.id});
+        bindItem(body,it,function(){return run.ans[it.id]},function(v){run.ans[it.id]=v;sset(rk,run);$('#qnext').disabled=!answered(it,v)});
+        $('#lhint').textContent='One try. Answers are reviewed at the end.';
+      } else {
+        askItem($('#qbox'),it,{name:'p'+k,tries:3,get:function(id){return run.res[id]},save:function(id,r){run.res[id]=r;sset(rk,run)},onDone:function(){$('#qnext').disabled=false}});
+      }
+      $('#qprev').onclick=function(){if(run.i>0){run.i--;sset(rk,run);show()}};
+      $('#qnext').onclick=function(){
+        if (!last){run.i++;sset(rk,run);show();return}
+        if (isX) confirmBox('Submit the Exit Check?','Your answers will be scored and sent to your instructor.','Submit',function(){run.i=I.length;sset(rk,run);finish()});
+        else {run.i=I.length;sset(rk,run);finish()}
+      };
+    }
+    function finish(){
+      var I=items(), right=0, lines=[], missed=[];
+      I.forEach(function(it,n){
+        var v=isX?run.ans[it.id]:(run.res[it.id]||{}).firstVal, ok=isX?scoreItem(it,v):!!(run.res[it.id]&&run.res[it.id].first);
+        if (ok) right++;
+        var line=(n+1)+'. ['+it.skill+'] '+(ok?'✓ '+(isX?'CORRECT':'CORRECT ON FIRST TRY'):'✗ '+(isX?'WRONG':'MISSED FIRST TRY'))+' | Student'+(isX?'':' (first try)')+': '+ansText(it,v)+' | Correct: '+correctText(it);
+        lines.push(line); if(!ok) missed.push(line);
+      });
+      var pct=Math.round(right/I.length*100), pass=isX?right>=6:pct>=80;
+      var when=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'});
+      var p=prog()[pk]||{}; p[run.set]={score:right+' of '+I.length,pct:pct,when:when};
+      if (isX){p.last=right+' of 8';if(pass){p.passed=true;p.best=right+' of 8'}}
+      setProg(pk,p);
+      var payload=null;
+      if (!run.sent){
+        payload={_subject:'GED Week '+w+' '+label+' '+(isX?'Form ':'Set ')+run.set+' — '+SUBJ[s].short+' — '+run.name+' — '+right+'/'+I.length+' ('+pct+'%)',
+          student:run.name,test:'Week '+w+' '+SUBJ[s].name+' — '+label+' '+(isX?'Form ':'Set ')+run.set+' ('+d.title+')',score:right+' of '+I.length,percent:pct+'%',
+          result:isX?(pass?'Passed (6 of 8 needed)':'Not passed yet (6 of 8 needed)'):(pass?'Mastered (80% or higher on first tries)':'Below 80% on first tries'),
+          scoring:isX?'One try per question.':'Only the first try counts. Students get three tries per question.',
+          missed_count:String(missed.length),missed_questions:missed.join('\n')||'None — every question right'+(isX?'.':' on the first try.'),all_questions:lines.join('\n')};
+        run.sent=true; sset(rk,run);
+      }
+      var h='<div class="card res"><div class="eyebrow">Week '+w+' · '+SUBJ[s].short+' · '+label+' '+(isX?'Form ':'Set ')+run.set+' · Results</div><h2>'+esc(d.title)+'</h2><div class="big">'+right+' / '+I.length+' &nbsp;·&nbsp; '+pct+'%</div>';
+      h+='<p><strong>'+(isX?(pass?'Passed. You have mastered this lesson.':'Not passed yet. You need 6 of 8.'):(pass?'Mastered. 80% or higher on first tries.':'Keep practicing. You need 80% on first tries.'))+'</strong>'+(isX?'':' Only first tries count.')+'</p>';
+      if (payload) h+='<div id="sendmsg" class="sendmsg"></div>';
+      var other=run.set==='A'?'B':'A';
+      h+='<div class="lnav wrap">'+(pass?'':'<button class="btn gold" type="button" id="again">'+(isX?'Take Form ':'Practice with Set ')+other+'</button>')+(!isX&&pass?'<a class="btn gold" href="#week-'+w+'/'+s+'/exit">Go to the Exit Check →</a>':'')+(isX&&pass?'<a class="btn gold" href="'+(ORDER.indexOf(s)<3?'#week-'+w+'/'+ORDER[ORDER.indexOf(s)+1]:'#week-'+w+'/exam')+'">'+(ORDER.indexOf(s)<3?'Next: Week '+w+' '+SUBJ[ORDER[ORDER.indexOf(s)+1]].short:'Next: Week '+w+' Practice GED')+' →</a>':'')+'<a class="btn ghost" href="#week-'+w+'/'+s+'">Back to '+SUBJ[s].short+'</a></div></div>';
+      h+='<h3 class="revh">Review every question</h3><div class="review">';
+      var last=null;
+      I.forEach(function(it,n){
+        var r=run.res[it.id]||{}, v=isX?run.ans[it.id]:(r.first?r.val:r.firstVal), ok=isX?scoreItem(it,v):!!r.first;
+        if (it.stim&&it.stim!==last) h+=stimHTML(stims[it.stim]); last=it.stim||last;
+        var why=ok?'':whyFor(it,v);
+        h+='<div class="q '+(ok?'right':'wrong')+'"><div class="qh"><span class="qn">Question '+(n+1)+' · '+(ok?'<span class="okc">Correct'+(isX?'':' on the first try')+'</span>':'<span class="noc">'+(isX?'Incorrect':'Missed on the first try')+'</span>')+'</span><span class="tag">'+esc(it.skill||'')+'</span></div>'+renderItem(it,v,{name:'rv'+k+it.id,review:true})+'<div class="fb show '+(ok?'ok':'no')+'">'+(why?'<div class="whyline"><strong>Why '+(isX?'your':'your first')+' answer is not right:</strong> '+why+'</div>':'')+'<strong>Correct answer: '+esc(correctText(it))+'</strong><div class="content expl">'+it.explain+'</div></div></div>';
+      });
+      h+='</div>';
+      app.innerHTML=h; window.scrollTo(0,0);
+      if (payload) send(payload,$('#sendmsg'),pk+'-'+run.set);
+      var ag=$('#again'); if(ag) ag.onclick=function(){var name=run.name;run={set:other,i:0,res:{},ans:{},name:name,start:Date.now()};sset(rk,run);show()};
+      // finished runs restart from the set picker next time
+      var keep=run; sdel(rk); run=keep;
+    }
+  }).catch(function(){lessonMissing(w,s)});
+}
+
+/* ---------- study sheet ---------- */
+function notesView(w,s){
+  var k=lkey(w,s);
+  renderNav('week-'+w,[['#week-'+w,'Week '+w],['#week-'+w+'/'+s,SUBJ[s].short],['#week-'+w+'/'+s+'/notes','Study Sheet']]);
+  load(k).then(function(d){
+    if (!isV2(d)) return lessonMissing(w,s);
+    var ph='<div class="printhead"><div class="pb">KingCretot Experience<small>KCE GED PREP · EDUCATE. EMPOWER. EXCEL.</small></div><div class="pt">Week '+w+' · '+SUBJ[s].short+'<br>Study Sheet</div></div>';
+    app.innerHTML='<div class="card">'+ph+'<div class="toolrow"><span class="who">Study Sheet · '+esc(d.title)+'</span><button class="btn ghost small noprint" id="printbtn" type="button">Print this page</button></div><div class="content notesprint">'+(/^\s*<h3/i.test(d.notes)?'':'<h3>Study Notes</h3>')+d.notes+'</div><div class="content"><h3>Vocabulary</h3></div><div class="vocab">'+(d.vocab||[]).map(function(v){return '<div class="v"><div class="t">'+esc(v.term)+'</div><div class="d">'+v.def+(v.example?'<br><em>Example: '+v.example+'</em>':'')+'</div></div>'}).join('')+'</div></div><div class="lnav noprint"><a class="btn ghost" href="#week-'+w+'/'+s+'">← Back to '+SUBJ[s].short+'</a></div>';
+    $('#printbtn').onclick=function(){window.print()};
+  }).catch(function(){lessonMissing(w,s)});
+}
+
+/* ---------- instructor answer key ---------- */
+function keyItem(it,stims,tag){
+  var h='<div class="kitem"><div class="kh"><span class="kid">'+esc(tag)+'</span><span class="tag">'+esc(it.skill||'')+'</span>'+(it.difficulty?'<span class="tag">Level '+it.difficulty+'</span>':'')+'</div>';
+  if (it.stim&&stims[it.stim]) h+='<p class="kstim">Uses: '+esc(stims[it.stim].title||it.stim)+'</p>';
+  h+='<div class="content">'+renderItem(it,null,{name:'k'+it.id,review:true}).replace(/<input /g,'<input disabled ').replace(/<select /g,'<select disabled ')+'</div>';
+  h+='<p class="kans"><strong>Answer:</strong> '+esc(correctText(it))+'</p>';
+  var wl='';
+  if ((it.type==='mc'||it.type==='multi')&&it.why){var ord=optOrder(it);ord.forEach(function(oi,pos){if(it.why[oi])wl+='<li><strong>'+LET[pos]+'. '+esc(txt(it.options[oi]))+'</strong> — '+it.why[oi]+'</li>'})}
+  if (it.type==='dropdown') it.blanks.forEach(function(b,bi){(b.why||[]).forEach(function(x,i){if(x)wl+='<li><strong>Blank '+(bi+1)+': '+esc(txt(b.options[i]))+'</strong> — '+x+'</li>'})});
+  if (it.type==='fill') (it.mistakes||[]).forEach(function(m){wl+='<li><strong>'+esc(m.answer.join(' / '))+'</strong> — '+m.why+'</li>'});
+  if ((it.type==='drag'||it.type==='hotspot')&&it.why) wl+='<li>'+it.why+'</li>';
+  if (wl) h+='<div class="kwhy"><h5>Wrong-answer logic</h5><ul>'+wl+'</ul></div>';
+  h+='<div class="kexp"><h5>Explanation</h5><div class="content">'+it.explain+'</div></div></div>';
+  return h;
+}
+function keyView(w,s){
+  var k=lkey(w,s);
+  renderNav('week-'+w,[['#week-'+w,'Week '+w],['#week-'+w+'/'+s,SUBJ[s].short],['#week-'+w+'/'+s+'/key','Answer Key']]);
+  teacherGate(function(){
+    load(k).then(function(d){
+      if (!isV2(d)) return lessonMissing(w,s);
+      var ps={},xs={};(d.practice.stimuli||[]).forEach(function(x){ps[x.id]=x});(d.exit.stimuli||[]).forEach(function(x){xs[x.id]=x});
+      var ph='<div class="printhead"><div class="pb">KingCretot Experience<small>KCE GED PREP · INSTRUCTOR ANSWER KEY</small></div><div class="pt">Week '+w+' · '+SUBJ[s].short+'<br>'+esc(d.title)+'</div></div>';
+      var h='<div class="card key">'+ph+'<div class="toolrow"><span class="who">Instructor Answer Key · Week '+w+' '+SUBJ[s].short+' · '+esc(d.title)+'</span><button class="btn ghost small noprint" id="printbtn" type="button">Print</button></div>';
+      h+='<div class="keytoc noprint"><a href="#" data-k="kt">Teaching Lesson</a><a href="#" data-k="kl">Student Lesson checks</a><a href="#" data-k="kpa">Practice Set A</a><a href="#" data-k="kpb">Practice Set B</a><a href="#" data-k="kxa">Exit Form A</a><a href="#" data-k="kxb">Exit Form B</a></div>';
+      h+='<h3 id="kt">Teaching Lesson answers</h3>'+d.deck.slides.map(function(sl,i){var n=sl.notes||{};if(!n.answer&&!(sl.steps&&sl.steps.length&&sl.kind!=='teach'))return '';return '<div class="kitem"><div class="kh"><span class="kid">Slide '+(i+1)+'</span><span class="tag">'+KIND[sl.kind]+'</span><strong>'+esc(sl.title)+'</strong></div>'+(n.answer?'<div class="content">'+n.answer+'</div>':'<ol class="content">'+(sl.steps||[]).map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol>')+(n.watch?'<p class="kwatch"><strong>Watch for:</strong> '+n.watch+'</p>':'')+'</div>'}).join('');
+      h+='<h3 id="kl">Student Lesson checks</h3>'+d.learn.screens.map(function(sc,i){return sc.check?keyItem(sc.check,{},'Screen '+(i+1)+': '+txt(sc.title)):''}).join('');
+      [['A','kpa','Practice Set A'],['B','kpb','Practice Set B']].forEach(function(x){h+='<h3 id="'+x[1]+'">'+x[2]+'</h3>'+d.practice.items.filter(function(it){return it.set===x[0]}).map(function(it,n){return keyItem(it,ps,x[2]+' · Q'+(n+1))}).join('')});
+      [['A','kxa','Exit Form A'],['B','kxb','Exit Form B']].forEach(function(x){h+='<h3 id="'+x[1]+'">'+x[2]+'</h3>'+d.exit.items.filter(function(it){return it.set===x[0]}).map(function(it,n){return keyItem(it,xs,x[2]+' · Q'+(n+1))}).join('')});
+      app.innerHTML=h+'</div>';
+      $('#printbtn').onclick=function(){window.print()};
+      $$('.keytoc a').forEach(function(a){a.onclick=function(e){e.preventDefault();var t=document.getElementById(a.dataset.k);if(t)t.scrollIntoView({behavior:'smooth'})}});
+    }).catch(function(){lessonMissing(w,s)});
   });
-  $('#preset').onclick=function(){confirmBox('Start this practice over?','Your answers on this practice set will be cleared.','Start over',function(){sdel('kce_ged_prac_'+key);renderPractice(root,P,key)})};
-  upd();
 }
 
 /* ---------- modal ---------- */
@@ -410,7 +693,7 @@ function diagHub(){
   var p=prog().diagnostic, run=sget('kce_ged_run_diagnostic',null);
   var h='<div class="pagehead card"><div class="eyebrow">Step 2</div><h2>Diagnostic</h2><p>A baseline across all four GED subjects. It is not timed and it does not count against you. Your instructor uses your answers to plan your lessons.</p></div>';
   h+='<div class="card content"><h3>What to Expect</h3><ul><li>50 questions: 15 Math, 15 Language Arts, 10 Social Studies, 10 Science.</li><li>A short Writing Sample: read two short articles and write a response.</li><li>No time limit. The page keeps track of how long you take. Plan for about 2 hours; you can pause and come back on the same device.</li><li>The calculator and formula sheet are available on the Math section.</li><li>Answer every question, even if you have to guess. A blank tells us less than a guess.</li><li>When you submit, every question and your answer are sent to your instructor.</li></ul>';
-  if (p) h+='<p class="done" style="color:#1E7A46;font-weight:bold">✓ Diagnostic sent '+esc(p.when)+(p.pct!=null?' · '+p.pct+'% correct':'')+'</p>';
+  if (p) h+='<p class="done" style="color:#1E7A46;font-weight:bold">✓ Diagnostic sent to your instructor '+esc(p.when)+'</p>';
   h+='<p style="margin-top:14px"><a class="btn gold" href="#diagnostic/take">'+(run&&!run.done?'Continue the Diagnostic →':p?'Retake the Diagnostic →':'Begin the Diagnostic →')+'</a></p></div>';
   app.innerHTML=h;
 }
@@ -418,7 +701,7 @@ function diagHub(){
 function examHub(w){
   var p=prog();
   var h='<div class="pagehead card"><div class="eyebrow">Week '+w+' · Practice GED (Form '+w+')</div><h2>Week '+w+' Practice GED</h2><p>A full-length replica of all four GED tests. Take each subject test in one sitting.</p></div>';
-  h+='<div class="pills subj">'+ORDER.map(function(s){return '<a class="pill" href="#week-'+w+'/'+s+'/student">'+SUBJ[s].short+'</a>'}).join('')+'<a class="pill exam on" href="#week-'+w+'/exam">Week '+w+' Practice GED</a></div>';
+  
   h+='<div class="rules"><strong>Read before you start: these are timed like the real GED.</strong><ul><li>Each test has the same time limit as the real GED. The timer starts when you press Start.</li><li><strong>When time runs out, the test ends and submits automatically</strong> with the answers you have given. Unanswered questions are marked wrong.</li><li>Refreshing, closing the page or going to another page does <strong>not</strong> stop the clock.</li><li>Math: Part 1 has no calculator, and once you move to Part 2 you cannot go back. Language Arts: each part has its own clock, with a 10-minute break before Part 3.</li><li>Your results, every question and your answers are sent to your instructor when the test ends.</li></ul></div>';
   h+='<div class="examgrid">'+ORDER.map(function(s){var key='exam'+pad(w)+'-'+s, r=p[key], run=sget('kce_ged_run_'+key,null);
     return '<div class="ecard"><h4>'+SUBJ[s].name+'</h4><div class="meta">'+SUBJ[s].min+' minutes'+(s==='math'?' · 46 questions · calculator after Part 1':s==='rla'?' · 46 questions + essay':s==='ss'?' · 35 questions':' · 34 questions')+'</div>'+(r?'<div class="done">✓ Sent '+esc(r.when)+' · '+r.pct+'%</div>':'')+'<div style="margin-top:auto"><a class="btn '+(run&&!run.done?'gold':'')+' small" href="#week-'+w+'/exam/'+s+'">'+(run&&!run.done?'Resume (timer running)':r?'Review or retake':'Start')+'</a></div></div>'}).join('')+'</div>';
@@ -444,7 +727,7 @@ function runTest(key, week){
     if (!run){
       // intro screen
       var info=isDiag?'<p>50 questions and a writing sample. No time limit.</p>':'<p><strong>'+D.minutes+' minutes.</strong> The timer starts when you press Start and cannot be paused. When time runs out the test submits automatically.</p>'+(subj==='rla'?'<p>Part 1: 35 minutes · Part 2 (essay): 45 minutes · 10-minute break · Part 3: 60 minutes.</p>':'')+(subj==='math'?'<p>Part 1 (5 questions): no calculator. Part 2: on-screen calculator. Formula sheet available throughout.</p>':'');
-      app.innerHTML='<div class="pagehead card"><div class="eyebrow">'+(isDiag?'Diagnostic':'Week '+week+' Practice GED')+'</div><h2>'+esc(D.title)+'</h2>'+info+(prior?'<p style="color:#1E7A46;font-weight:bold">You already sent this test ('+prior.pct+'%). '+(prior.review?'<a href="#" id="seerev">Review your answers</a>':'')+' Starting again sends a new set of results.</p>':'')+'<p><button class="btn gold" id="startx" type="button">'+(isDiag?'Begin':'Start the timer')+'</button> <a class="btn ghost" href="'+(isDiag?'#diagnostic':'#week-'+week+'/exam')+'">Back</a></p></div>';
+      app.innerHTML='<div class="pagehead card"><div class="eyebrow">'+(isDiag?'Diagnostic':'Week '+week+' Practice GED')+'</div><h2>'+esc(D.title)+'</h2>'+info+(prior?(isDiag?'<p style="color:#1E7A46;font-weight:bold">You already sent the Diagnostic. Starting again sends a new set of answers.</p>':'<p style="color:#1E7A46;font-weight:bold">You already sent this test ('+prior.pct+'%). '+(prior.review?'<a href="#" id="seerev">Review your answers</a>':'')+' Starting again sends a new set of results.</p>'):'')+'<p><button class="btn gold" id="startx" type="button">'+(isDiag?'Begin':'Start the timer')+'</button> <a class="btn ghost" href="'+(isDiag?'#diagnostic':'#week-'+week+'/exam')+'">Back</a></p></div>';
       $('#startx').onclick=function(){studentName(function(name){
         var now=Date.now(); run={start:now,part:0,q:0,ans:{},flags:{},essay:'',name:name,phase:'part'};
         if (!isDiag){ if (subj==='rla') run.partEnd=now+D.parts[0].minutes*60000; else run.end=now+D.minutes*60000; }
@@ -584,6 +867,10 @@ function send(payload, el, key){
 }
 function showResults(D, R, key, week, reviewOnly, payload){
   var isDiag=key==='diagnostic';
+  if (isDiag){
+    app.innerHTML='<div class="card res center"><div class="eyebrow">Diagnostic</div><h2>Thank you. Your Diagnostic is complete.</h2><p>Your answers'+(D.parts.some(function(P){return P.essay})?' and your writing sample':'')+' go to your instructor, who will use them to plan your lessons. You do not need to do anything else.</p>'+(payload?'<div id="sendmsg" class="sendmsg"></div>':'')+'<p><a class="btn gold" href="#week-1">Go to Week 1 →</a> <a class="btn ghost" href="#home">All weeks</a></p></div>';
+    window.scrollTo(0,0); if (payload) send(payload,$('#sendmsg'),key); return;
+  }
   var stims={};(D.stimuli||[]).forEach(function(s){stims[s.id]=s});
   var items=[];D.parts.forEach(function(P){(P.items||[]).forEach(function(it){items.push({it:it,part:P})})});
   var skills={};items.forEach(function(o){var k=(o.part.subject?SUBJ[o.part.subject].short+': ':'')+o.it.skill;skills[k]=skills[k]||[0,0];skills[k][1]++;if(scoreItem(o.it,R.ans[o.it.id]))skills[k][0]++});
@@ -597,7 +884,7 @@ function showResults(D, R, key, week, reviewOnly, payload){
     var last=null,out='';
     items.forEach(function(o,n){var it=o.it,v=R.ans[it.id],ok=scoreItem(it,v);
       if (it.stim&&it.stim!==last) out+=stimHTML(stims[it.stim]); last=it.stim||last;
-      out+='<div class="q '+(ok?'right':'wrong')+'"><div class="qh"><span class="qn">Question '+(n+1)+' · '+(ok?'<span style="color:#1E7A46">Correct</span>':'<span style="color:#DB2F30">Incorrect</span>')+'</span><span class="tag">'+esc(it.skill)+'</span></div>'+renderItem(it,v,{name:'r'+it.id,review:true})+'<div class="fb show '+(ok?'ok':'no')+'"><strong>Correct answer: '+esc(correctText(it))+'</strong><div class="content" style="margin-top:6px">'+it.explain+'</div></div></div>'});
+      out+='<div class="q '+(ok?'right':'wrong')+'"><div class="qh"><span class="qn">Question '+(n+1)+' · '+(ok?'<span style="color:#1E7A46">Correct</span>':'<span style="color:#DB2F30">Incorrect</span>')+'</span><span class="tag">'+esc(it.skill)+'</span></div>'+renderItem(it,v,{name:'r'+it.id,review:true})+'<div class="fb show '+(ok?'ok':'no')+'">'+(!ok&&whyFor(it,v)?'<div class="whyline"><strong>Why your answer is not right:</strong> '+whyFor(it,v)+'</div>':'')+'<strong>Correct answer: '+esc(correctText(it))+'</strong><div class="content" style="margin-top:6px">'+it.explain+'</div></div></div>'});
     $('#rev').innerHTML=out; this.disabled=true;
   };
 }

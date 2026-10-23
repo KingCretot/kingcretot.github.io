@@ -1,695 +1,1009 @@
 {
- "form": 7,
- "subject": "sci",
- "title": "Practice GED Form 7 — Science",
- "minutes": 90,
- "stimuli": [
-  {
-   "id": "s1",
-   "title": "Coat Color in Labrador Retrievers",
-   "html": "<p>In Labrador retrievers, one gene controls whether a dog's coat is black or chocolate (brown). The allele for black coat (<strong>B</strong>) is dominant over the allele for chocolate coat (<strong>b</strong>). Yellow Labs are controlled by a different gene and are not part of this cross.</p><p>A breeder crosses a black female whose genotype is <strong>Bb</strong> with a chocolate male. The Punnett square below sets up the cross.</p><table><thead><tr><th></th><th>B (from female)</th><th>b (from female)</th></tr></thead><tbody><tr><th>b (from male)</th><td>?</td><td>?</td></tr><tr><th>b (from male)</th><td>?</td><td>?</td></tr></tbody></table>"
-  },
-  {
-   "id": "s2",
-   "title": "A Rancher Tests a Polled Bull",
-   "html": "<p>In many breeds of beef cattle, some animals are born without horns. These cattle are called <em>polled</em>. The allele for the polled trait (<strong>P</strong>) is dominant over the allele for horns (<strong>p</strong>).</p><p>A rancher buys a polled bull. Because a polled animal could have either two dominant alleles or one dominant and one recessive allele, she cannot tell the bull's genotype just by looking at him. To find out, she breeds the bull with 20 horned cows, all with genotype <strong>pp</strong>. Each cow has one calf. The results are shown below.</p><table><thead><tr><th>Calf phenotype</th><th>Number of calves</th></tr></thead><tbody><tr><td>Polled</td><td>11</td></tr><tr><td>Horned</td><td>9</td></tr></tbody></table>"
-  },
-  {
-   "id": "s3",
-   "title": "Roan Shorthorn Cattle",
-   "html": "<p>In Shorthorn cattle, coat color is controlled by two alleles: <strong>R</strong> for red hair and <strong>W</strong> for white hair. An animal with genotype <strong>RR</strong> has a solid red coat, and an animal with genotype <strong>WW</strong> has a solid white coat. An animal with genotype <strong>RW</strong> has a <em>roan</em> coat. Looked at closely, a roan coat is not pink: it is a mix of individual red hairs and individual white hairs growing side by side.</p>"
-  },
-  {
-   "id": "s4",
-   "title": "Tortoiseshell and Calico Cats",
-   "html": "<p>In domestic cats, a gene that controls orange fur color is located on the X chromosome. One allele (<strong>X<sup>O</sup></strong>) produces orange fur, and another allele (<strong>X<sup>B</sup></strong>) produces black fur. The Y chromosome does not carry this gene. Female cats have two X chromosomes (XX), and male cats normally have one X and one Y chromosome (XY).</p><p>Early in the development of a female embryo, one of the two X chromosomes in each cell is randomly switched off. All of the cells that come from that cell keep the same X switched off. In a female with genotype X<sup>O</sup>X<sup>B</sup>, some patches of skin grow orange fur and other patches grow black fur. A cat with this patchy orange-and-black coat is called <em>tortoiseshell</em>. If the cat also has white patches (controlled by a separate gene), it is called <em>calico</em>.</p>"
-  },
-  {
-   "id": "s5",
-   "title": "Milk Production in a Dairy Herd",
-   "html": "<p>A dairy farm kept records of the average amount of milk each cow in its herd produced per year. Beginning in 1985, the farm bred its cows only with bulls whose daughters were known to produce large amounts of milk. During the same 40 years, the farm also switched to a more nutritious feed and built new barns with better ventilation and cooling. The graph shows the herd's average yearly milk production.</p>",
-   "figure": {
-    "type": "line",
-    "title": "Average Milk Production per Cow",
-    "xLabel": "Year",
-    "yLabel": "Milk per cow (kg per year)",
-    "labels": [
-     "1985",
-     "1995",
-     "2005",
-     "2015",
-     "2025"
-    ],
-    "series": [
-     {
-      "name": "Milk per cow (kg per year)",
-      "values": [
-       6000,
-       7100,
-       8300,
-       9300,
-       10200
-      ]
-     }
-    ]
-   }
-  },
-  {
-   "id": "s6",
-   "title": "Astronaut Bones in Microgravity",
-   "html": "<p>Bone is living tissue that is constantly broken down and rebuilt. On Earth, the pull of gravity and the impact of walking and lifting signal bone-building cells to keep bones strong. In the near-weightless conditions of an orbiting space station, those signals are much weaker, and astronauts can lose bone mass, especially in the hips and legs. Calcium released from broken-down bone enters the blood and is filtered out by the kidneys, which raises the risk of painful kidney stones.</p><p>Researchers studied 10 astronauts during 6-month missions. Five astronauts (Group A) exercised daily on a resistance machine that lets them lift heavy loads using vacuum cylinders. The other five (Group B) flew on earlier missions and exercised daily using only a treadmill and an exercise bicycle. Hip bone mineral density was measured before launch and after landing.</p><table><thead><tr><th>Group</th><th>Average hip bone density before flight (g/cm<sup>2</sup>)</th><th>Average hip bone density after flight (g/cm<sup>2</sup>)</th><th>Percent change</th></tr></thead><tbody><tr><td>A: resistance machine</td><td>1.200</td><td>1.182</td><td>&minus;1.5%</td></tr><tr><td>B: treadmill and bicycle only</td><td>1.200</td><td>1.134</td><td>&minus;5.5%</td></tr></tbody></table>"
-  },
-  {
-   "id": "s7",
-   "title": "Launching Water Rockets",
-   "html": "<p>A science club built a rocket from an empty 2-liter plastic bottle with cardboard fins. For each launch, they poured a measured volume of water into the bottle, attached it to a launcher pointing straight up, and pumped air into the bottle to the same pressure. When released, the compressed air forced the water out through the bottle's opening, and the rocket shot upward. An altimeter inside the nose cone recorded the maximum height. The club used the same bottle, fins, and launcher for every launch and made three launches at each water volume.</p><table><thead><tr><th>Volume of water (mL)</th><th>Launch 1 (m)</th><th>Launch 2 (m)</th><th>Launch 3 (m)</th><th>Mean maximum height (m)</th></tr></thead><tbody><tr><td>0</td><td>8</td><td>9</td><td>7</td><td>8</td></tr><tr><td>300</td><td>30</td><td>34</td><td>32</td><td>32</td></tr><tr><td>600</td><td>44</td><td>40</td><td>42</td><td>?</td></tr><tr><td>900</td><td>35</td><td>37</td><td>36</td><td>36</td></tr><tr><td>1,200</td><td>22</td><td>20</td><td>24</td><td>22</td></tr></tbody></table>"
-  },
-  {
-   "id": "s8",
-   "title": "Hydrogen and Oxygen Rocket Fuel",
-   "html": "<p>Some large rocket engines burn liquid hydrogen with liquid oxygen. The reaction produces water vapor and releases a large amount of energy as heat. The hot gas rushes out of the engine nozzle and pushes the rocket upward. The balanced equation for the reaction is:</p><p><strong>2H<sub>2</sub> + O<sub>2</sub> &rarr; 2H<sub>2</sub>O</strong></p><p>During one engine test, 4,000 kg of hydrogen reacted completely with 32,000 kg of oxygen. No hydrogen or oxygen was left over.</p>"
-  },
-  {
-   "id": "s9",
-   "title": "Weight on Other Worlds",
-   "html": "<p>Mass is the amount of matter in an object and is measured in kilograms (kg). Weight is the force of gravity pulling on an object and is measured in newtons (N). An object's weight can be found with the formula:</p><p><strong>Weight = mass &times; gravitational field strength</strong></p><p>The table shows the gravitational field strength at the surface of several places astronauts and robotic explorers have visited or may visit.</p><table><thead><tr><th>Location</th><th>Gravitational field strength (N/kg)</th></tr></thead><tbody><tr><td>Earth</td><td>9.8</td></tr><tr><td>Earth's Moon</td><td>1.6</td></tr><tr><td>Mars</td><td>3.7</td></tr><tr><td>Titan (a moon of Saturn)</td><td>1.4</td></tr></tbody></table><p>An astronaut wearing a spacesuit has a total mass of 120 kg.</p>"
-  },
-  {
-   "id": "s10",
-   "title": "Testing Heat Shield Materials",
-   "html": "<p>A spacecraft returning to Earth is heated to very high temperatures as it plunges through the atmosphere, so it needs a heat shield. A student modeled a heat shield by testing three tiles, each 1 cm thick and the same size. She held each tile 5 cm above the same burner flame for 60 seconds and used a thermometer taped to the back face of the tile (the side away from the flame) to measure the temperature. Every tile started at room temperature, 22 &deg;C.</p><table><thead><tr><th>Tile material</th><th>Back-face temperature after 60 s (&deg;C)</th><th>Temperature increase (&deg;C)</th></tr></thead><tbody><tr><td>Aluminum</td><td>95</td><td>73</td></tr><tr><td>Cork composite</td><td>31</td><td>9</td></tr><tr><td>Ceramic foam</td><td>26</td><td>4</td></tr></tbody></table>"
-  },
-  {
-   "id": "s11",
-   "title": "The Large Moons of Jupiter",
-   "html": "<p>Jupiter has four large moons that were first seen through a telescope in 1610. Several spacecraft have since studied them up close. The table lists each moon's average distance from Jupiter and its orbital period, the time it takes to travel once around Jupiter.</p><table><thead><tr><th>Moon</th><th>Average distance from Jupiter (km)</th><th>Orbital period (Earth days)</th></tr></thead><tbody><tr><td>Io</td><td>422,000</td><td>1.77</td></tr><tr><td>Europa</td><td>671,000</td><td>3.55</td></tr><tr><td>Ganymede</td><td>1,070,000</td><td>7.15</td></tr><tr><td>Callisto</td><td>1,883,000</td><td>16.69</td></tr></tbody></table>"
-  }
- ],
- "parts": [
-  {
-   "name": "Science",
-   "items": [
-    {
-     "id": "q1",
-     "type": "fill",
-     "skill": "Punnett square probability",
-     "difficulty": 1,
-     "stim": "s1",
-     "prompt": "<p>The breeder fills in the four boxes of the Punnett square for this black-by-chocolate mating. Out of every 100 puppies such a pairing could produce, how many would you expect to have chocolate coats? Enter a whole number (this equals the percent).</p>",
-     "answer": [
-      "50",
-      "50%"
-     ],
-     "value": 50,
-     "tol": 0.001,
-     "suffix": "percent",
-     "explain": "<p>The female (Bb) gives B or b; the male (bb) can give only b. The four boxes are <strong>Bb, Bb, bb, bb</strong>.</p><p>Only <strong>bb</strong> puppies are chocolate, because chocolate is recessive. That is 2 of 4 boxes: 2 &divide; 4 = 0.5 = <strong>50%</strong>.</p><p>Answering 25% is a common error that comes from treating this like a cross of two heterozygous dogs (Bb &times; Bb). Here the male is bb, so half of the boxes are bb.</p>"
-    },
-    {
-     "id": "q2",
-     "type": "mc",
-     "skill": "Predicting outcomes from ratios",
-     "difficulty": 1,
-     "stim": "s1",
-     "noShuffle": true,
-     "prompt": "<p>The black female has a litter of 8 puppies with the chocolate male. Based on the Punnett square, how many of the puppies would be expected to be chocolate?</p>",
-     "options": [
-      "0",
-      "2",
-      "4",
-      "6"
-     ],
-     "answer": 2,
-     "explain": "<p>The Punnett square predicts that 2 of every 4 puppies (one half) will be chocolate.</p><p>8 &times; 1/2 = <strong>4</strong> chocolate puppies are expected.</p><p>Choosing 2 comes from using a 1/4 probability, which would be correct only for a Bb &times; Bb cross. Remember that a Punnett square gives expected results; a real litter may differ by chance.</p>"
-    },
-    {
-     "id": "q3",
-     "type": "mc",
-     "skill": "Inferring parent genotypes",
-     "difficulty": 3,
-     "stim": "s1",
-     "prompt": "<p>At another kennel, two black Labrador retrievers produce a litter that includes one chocolate puppy. Which statement about the parents' genotypes must be true?</p>",
-     "options": [
-      "Both parents are heterozygous (Bb), each carrying one chocolate allele.",
-      "Both parents are homozygous dominant (BB), with no chocolate allele.",
-      "One parent is homozygous dominant (BB) and the other is heterozygous (Bb).",
-      "At least one parent is homozygous recessive (bb), with two chocolate alleles."
-     ],
-     "answer": 0,
-     "explain": "<p>A chocolate puppy has genotype <strong>bb</strong>, so it received one <strong>b</strong> allele from each parent. Both parents are black, so each must also carry a dominant <strong>B</strong>. The only genotype that is black and can pass on <strong>b</strong> is <strong>Bb</strong>. So <strong>both parents are heterozygous</strong>.</p><p>If either parent were BB, every puppy would get a B and be black. A bb parent would be chocolate, not black, so that choice contradicts the information given.</p>"
-    },
-    {
-     "id": "q4",
-     "type": "mc",
-     "skill": "Controlled variables",
-     "difficulty": 1,
-     "stim": "s7",
-     "prompt": "<p>Which of the following was a <strong>controlled</strong> variable (kept the same) in the water rocket investigation?</p>",
-     "options": [
-      "The air pressure pumped into the bottle",
-      "The volume of water in the bottle",
-      "The maximum height the rocket reached",
-      "The number of the launch (1, 2, or 3)"
-     ],
-     "answer": 0,
-     "explain": "<p>The passage says the club pumped air into the bottle <strong>to the same pressure</strong> each time, and also kept the bottle, fins, and launcher the same. These are controlled variables.</p><p>The volume of water is the <em>independent</em> variable, the factor the club deliberately changed. The maximum height is the <em>dependent</em> variable, the result they measured.</p>"
-    },
-    {
-     "id": "q5",
-     "type": "fill",
-     "skill": "Calculating the mean",
-     "difficulty": 1,
-     "stim": "s7",
-     "prompt": "<p>What is the mean maximum height, in meters, for the launches with 600 mL of water? Enter a whole number.</p>",
-     "answer": [
-      "42"
-     ],
-     "value": 42,
-     "tol": 0.001,
-     "suffix": "meters",
-     "explain": "<p>Mean = sum of the values &divide; number of values.</p><p>44 + 40 + 42 = 126<br>126 &divide; 3 = <strong>42 m</strong></p><p>Divide by 3 (the number of launches at 600 mL), not by 5 (the number of water volumes tested).</p>"
-    },
-    {
-     "id": "q6",
-     "type": "mc",
-     "skill": "Drawing conclusions from data",
-     "difficulty": 2,
-     "stim": "s7",
-     "prompt": "<p>Which conclusion is best supported by the data?</p>",
-     "options": [
-      "The more water in the bottle, the higher the rocket flew.",
-      "The rocket flew highest with an empty bottle because it had the least mass.",
-      "Maximum height increased as water volume increased up to about 600 mL and then decreased.",
-      "The volume of water had no clear effect on the maximum height."
-     ],
-     "answer": 2,
-     "explain": "<p>The mean heights are 8 m (0 mL), 32 m (300 mL), 42 m (600 mL), 36 m (900 mL), and 22 m (1,200 mL). Height <strong>rises up to 600 mL and then falls</strong>, so the best volume tested was about 600 mL.</p><p>&ldquo;More water is always better&rdquo; ignores the drop at 900 and 1,200 mL. The empty bottle actually flew the lowest, because with no water there was almost nothing to push out of the nozzle. The large differences between volumes show water volume clearly mattered.</p>"
-    },
-    {
-     "id": "q7",
-     "type": "dropdown",
-     "skill": "Newton's third law",
-     "difficulty": 2,
-     "stim": "s7",
-     "prompt": "<p>Complete the explanation of how the water rocket launches.</p><p>The compressed air pushes the water {{0}} out of the bottle's opening. At the same time, the water pushes the rocket {{1}}. The force the water exerts on the rocket is {{2}} the force the rocket exerts on the water.</p>",
-     "blanks": [
-      {
-       "options": [
-        "upward",
-        "downward",
-        "sideways"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "upward",
-        "downward",
-        "sideways"
-       ],
-       "answer": 0
-      },
-      {
-       "options": [
-        "greater than",
-        "less than",
-        "equal in size to"
-       ],
-       "answer": 2
-      }
-     ],
-     "explain": "<p>Newton's third law states that for every action force there is an equal and opposite reaction force. The rocket points straight up, so the water is forced <strong>downward</strong> out of the opening. The reaction force from the water pushes the rocket <strong>upward</strong>.</p><p>Action-reaction forces are always <strong>equal in size</strong> and opposite in direction. The rocket accelerates upward because this push is larger than the rocket's weight, not because the reaction force is larger than the action force.</p>"
-    },
-    {
-     "id": "q8",
-     "type": "mc",
-     "skill": "Test crosses",
-     "difficulty": 2,
-     "stim": "s2",
-     "prompt": "<p>Why did the rancher breed the polled bull with <strong>horned</strong> cows instead of polled cows?</p>",
-     "options": [
-      "Horned cows carry only the recessive allele, so any horned calf must have received a recessive allele from the bull.",
-      "Horned cows have more calves than polled cows, which gives a larger sample.",
-      "Polled cows carry only the recessive allele, so all of their calves would be horned.",
-      "The horned allele is dominant, so it would show which allele the bull passed on."
-     ],
-     "answer": 0,
-     "explain": "<p>A horned cow is <strong>pp</strong>, so she can pass on only <strong>p</strong>. A calf's phenotype then depends on the allele it gets from the bull: a <strong>P</strong> from the bull makes a polled calf (Pp), and a <strong>p</strong> from the bull makes a horned calf (pp). This kind of cross, called a test cross, reveals whether the bull carries a hidden recessive allele.</p><p>Polled cows could be PP or Pp themselves, which would hide the bull's contribution. The horned allele is recessive, not dominant.</p>"
-    },
-    {
-     "id": "q9",
-     "type": "mc",
-     "skill": "Interpreting genetic data",
-     "difficulty": 2,
-     "stim": "s2",
-     "prompt": "<p>Which conclusion about the bull is best supported by the calf data?</p>",
-     "options": [
-      "The bull is homozygous dominant (PP), because more than half of the calves were polled.",
-      "The bull is heterozygous (Pp), because some of the calves were horned.",
-      "The bull is homozygous recessive (pp), because he passed on the horned allele.",
-      "The bull's genotype cannot be determined without breeding him to polled cows."
-     ],
-     "answer": 1,
-     "explain": "<p>Each horned calf (pp) received a <strong>p</strong> allele from its father, so the bull must carry <strong>p</strong>. Since he is polled, he also has <strong>P</strong>. He is <strong>heterozygous (Pp)</strong>.</p><p>A Pp &times; pp cross predicts about half polled and half horned calves. The result of 11 polled and 9 horned is close to that 1 : 1 ratio. A PP bull would have produced only polled calves. A pp bull would be horned himself.</p>"
-    },
-    {
-     "id": "q10",
-     "type": "fill",
-     "skill": "Calculating weight",
-     "difficulty": 2,
-     "stim": "s9",
-     "prompt": "<p>What is the weight, in newtons, of the astronaut in the spacesuit when standing on Mars? Enter a whole number.</p>",
-     "answer": [
-      "444"
-     ],
-     "value": 444,
-     "tol": 0.001,
-     "suffix": "N",
-     "explain": "<p>Weight = mass &times; gravitational field strength</p><p>Weight = 120 kg &times; 3.7 N/kg = <strong>444 N</strong></p><p>Using Earth's value instead (120 &times; 9.8 = 1,176 N) gives the astronaut's weight on Earth, not on Mars.</p>"
-    },
-    {
-     "id": "q11",
-     "type": "mc",
-     "skill": "Mass versus weight",
-     "difficulty": 2,
-     "stim": "s9",
-     "prompt": "<p>The astronaut in the spacesuit travels from Earth to the Moon. What is the total mass of the astronaut and suit on the Moon?</p>",
-     "options": [
-      "120 kg, because the amount of matter does not change when gravity changes",
-      "192 kg, because 120 &times; 1.6 = 192",
-      "About 20 kg, because the Moon's gravity is about one-sixth of Earth's",
-      "0 kg, because the Moon has almost no atmosphere"
-     ],
-     "answer": 0,
-     "explain": "<p>Mass is the amount of matter in an object. Traveling to the Moon does not add or remove matter, so the mass stays <strong>120 kg</strong>.</p><p>What changes is <em>weight</em>: on the Moon the weight is 120 &times; 1.6 = 192 <strong>N</strong> (newtons), not 192 kg. Dividing by six describes the change in weight, not mass. Air has nothing to do with mass.</p>"
-    },
-    {
-     "id": "q12",
-     "type": "mc",
-     "skill": "Using F = ma",
-     "difficulty": 2,
-     "noShuffle": true,
-     "prompt": "<p>A lunar lander has a mass of 2,000 kg. As it lifts off from the Moon, the net (overall) upward force on it is 4,000 N. Using Newton's second law, <strong>F = ma</strong>, what is the lander's acceleration?</p>",
-     "options": [
-      "0.5 m/s<sup>2</sup>",
-      "2 m/s<sup>2</sup>",
-      "6,000 m/s<sup>2</sup>",
-      "8,000,000 m/s<sup>2</sup>"
-     ],
-     "answer": 1,
-     "explain": "<p>Solve F = ma for acceleration: a = F &divide; m.</p><p>a = 4,000 N &divide; 2,000 kg = <strong>2 m/s<sup>2</sup></strong></p><p>Dividing the other way (2,000 &divide; 4,000 = 0.5) is a common error. Adding (6,000) or multiplying (8,000,000) the two numbers does not follow the formula.</p>"
-    },
-    {
-     "id": "q13",
-     "type": "mc",
-     "skill": "Punnett square probability",
-     "difficulty": 2,
-     "stim": "s3",
-     "noShuffle": true,
-     "prompt": "<p>A rancher crosses a roan bull (RW) with a roan cow (RW). What is the probability that a calf from this cross will have a solid <strong>red</strong> coat?</p>",
-     "options": [
-      "0%",
-      "25%",
-      "50%",
-      "75%"
-     ],
-     "answer": 1,
-     "explain": "<p>Each parent can pass on R or W. The Punnett square gives <strong>RR, RW, RW, WW</strong>.</p><p>Only RR calves are solid red: 1 of 4 boxes = <strong>25%</strong>. RW calves (50%) are roan, and WW calves (25%) are white.</p><p>Answering 75% treats red as if it were dominant over white. In Shorthorns, neither allele hides the other, so RW calves are roan rather than red.</p>"
-    },
-    {
-     "id": "q14",
-     "type": "dropdown",
-     "skill": "Patterns of inheritance",
-     "difficulty": 2,
-     "stim": "s3",
-     "prompt": "<p>Complete the statements about roan cattle.</p><p>A roan animal's coat contains {{0}}. This inheritance pattern is called {{1}}, because {{2}}.</p>",
-     "blanks": [
-      {
-       "options": [
-        "only pink hairs",
-        "both red hairs and white hairs",
-        "only red hairs"
-       ],
-       "answer": 1
-      },
-      {
-       "options": [
-        "complete dominance",
-        "incomplete dominance",
-        "codominance"
-       ],
-       "answer": 2
-      },
-      {
-       "options": [
-        "both alleles are fully expressed at the same time",
-        "one allele completely hides the other",
-        "the two alleles blend into an in-between color"
-       ],
-       "answer": 0
-      }
-     ],
-     "explain": "<p>The passage says a roan coat is <strong>a mix of individual red hairs and individual white hairs</strong>, not pink hairs. When both alleles show up fully and side by side in a heterozygous animal, the pattern is <strong>codominance</strong>, because <strong>both alleles are fully expressed at the same time</strong>.</p><p>Incomplete dominance would produce a blended, in-between color such as pink hairs. Complete dominance would make RW cattle look exactly like one of the parents.</p>"
-    },
-    {
-     "id": "q15",
-     "type": "fill",
-     "skill": "Conservation of mass",
-     "difficulty": 2,
-     "stim": "s8",
-     "prompt": "<p>Based on the law of conservation of mass, how many kilograms of water were produced during the engine test? Enter a whole number.</p>",
-     "answer": [
-      "36000",
-      "36,000"
-     ],
-     "value": 36000,
-     "tol": 0.001,
-     "suffix": "kg",
-     "explain": "<p>In a chemical reaction, atoms are rearranged but not created or destroyed, so the total mass of the products equals the total mass of the reactants.</p><p>4,000 kg + 32,000 kg = <strong>36,000 kg</strong> of water</p><p>The coefficient 2 in front of H<sub>2</sub>O counts molecules, not kilograms, so it should not be used to double or halve the mass.</p>"
-    },
-    {
-     "id": "q16",
-     "type": "mc",
-     "skill": "Exothermic and endothermic reactions",
-     "difficulty": 1,
-     "stim": "s8",
-     "prompt": "<p>Which statement correctly describes the reaction between hydrogen and oxygen in the rocket engine?</p>",
-     "options": [
-      "It is endothermic, because the engine must absorb energy from the flame to keep running.",
-      "It is neither exothermic nor endothermic, because energy cannot be created or destroyed.",
-      "It is endothermic, because the water produced is colder than the fuel.",
-      "It is exothermic, because it releases energy as heat to its surroundings."
-     ],
-     "answer": 3,
-     "explain": "<p>An <strong>exothermic</strong> reaction releases energy to its surroundings. The passage says the reaction releases a large amount of energy as heat, which heats the gas that pushes the rocket.</p><p>Energy is conserved, but it is converted from chemical energy in the fuel to thermal energy, so the reaction is still classified as exothermic. Liquid hydrogen and oxygen are extremely cold, and the water vapor produced is very hot, so the claim that the water is colder than the fuel reverses the facts.</p>"
-    },
-    {
-     "id": "q17",
-     "type": "mc",
-     "skill": "Identifying patterns in data",
-     "difficulty": 2,
-     "stim": "s11",
-     "prompt": "<p>Which statement best describes the pattern in the data?</p>",
-     "options": [
-      "Moons farther from Jupiter complete their orbits in less time.",
-      "Moons farther from Jupiter take longer to complete one orbit.",
-      "Each moon's orbital period is exactly twice the period of the moon just inside it.",
-      "All four moons have about the same orbital period."
-     ],
-     "answer": 1,
-     "explain": "<p>As distance increases (Io &rarr; Europa &rarr; Ganymede &rarr; Callisto), the orbital period increases: 1.77 &rarr; 3.55 &rarr; 7.15 &rarr; 16.69 days. So <strong>moons farther from Jupiter take longer to orbit</strong>.</p><p>The &ldquo;exactly twice&rdquo; pattern almost fits the first three moons, but Callisto's period is 16.69 &divide; 7.15 &asymp; 2.3 times Ganymede's, so the rule does not hold for all four.</p>"
-    },
-    {
-     "id": "q18",
-     "type": "mc",
-     "skill": "Predicting from data",
-     "difficulty": 3,
-     "stim": "s11",
-     "noShuffle": true,
-     "prompt": "<p>A small moon of Jupiter named Amalthea orbits at an average distance of about 181,000 km from Jupiter. Based on the pattern in the table, which is the best prediction of Amalthea's orbital period?</p>",
-     "options": [
-      "Less than 1.77 days",
-      "Between 1.77 and 3.55 days",
-      "Between 7.15 and 16.69 days",
-      "More than 16.69 days"
-     ],
-     "answer": 0,
-     "explain": "<p>Amalthea's distance, 181,000 km, is <strong>less than Io's</strong> distance of 422,000 km. Since closer moons have shorter orbital periods, Amalthea's period should be shorter than Io's 1.77 days: <strong>less than 1.77 days</strong>. (Its measured period is about half a day.)</p><p>Choosing a longer period reverses the trend. A moon's size is not part of the pattern, so being small does not make the orbit slower.</p>"
-    },
-    {
-     "id": "q19",
-     "type": "mc",
-     "skill": "Sex-linked traits",
-     "difficulty": 2,
-     "stim": "s4",
-     "prompt": "<p>Based on the passage, which statement best explains why nearly all tortoiseshell and calico cats are female?</p>",
-     "options": [
-      "The orange and black alleles are both on the Y chromosome, which only males inherit.",
-      "Male cats switch off both of their X chromosomes, so they cannot show orange fur.",
-      "A cat needs two X chromosomes to carry both the orange and black alleles, and males normally have only one X.",
-      "The black allele is dominant in females but recessive in males."
-     ],
-     "answer": 2,
-     "explain": "<p>A tortoiseshell coat needs both alleles, X<sup>O</sup> and X<sup>B</sup>, in different patches of skin. Each allele sits on an X chromosome, so a cat needs <strong>two X chromosomes</strong> to carry both. Females (XX) can; males (XY) normally have only one X, so they are either orange or black.</p><p>The passage states the Y chromosome does not carry this gene. Random X inactivation happens in females, which have two X chromosomes; it does not switch off a male's only X.</p>"
-    },
-    {
-     "id": "q20",
-     "type": "mc",
-     "skill": "Sex-linked crosses",
-     "difficulty": 3,
-     "stim": "s4",
-     "prompt": "<p>An orange female cat (X<sup>O</sup>X<sup>O</sup>) mates with a black male cat (X<sup>B</sup>Y). Which prediction about their kittens is correct?</p>",
-     "options": [
-      "All female kittens will be orange, and all male kittens will be black.",
-      "All female kittens will be tortoiseshell, and all male kittens will be black.",
-      "Half of the kittens will be orange and half will be black, regardless of sex.",
-      "All female kittens will be tortoiseshell, and all male kittens will be orange."
-     ],
-     "answer": 3,
-     "explain": "<p>Every kitten gets an X<sup>O</sup> from the mother, because she has only X<sup>O</sup> chromosomes.</p><p><strong>Daughters</strong> get the father's X<sup>B</sup>: X<sup>O</sup>X<sup>B</sup>, which is <strong>tortoiseshell</strong>.<br><strong>Sons</strong> get the father's Y, which has no color allele: X<sup>O</sup>Y, which is <strong>orange</strong>.</p><p>A common error is giving the sons the father's color. A male kitten receives his X chromosome from his mother, so his fur color comes from her.</p>"
-    },
-    {
-     "id": "q21",
-     "type": "mc",
-     "skill": "Interpreting data",
-     "difficulty": 1,
-     "stim": "s10",
-     "prompt": "<p>Based on the data, which tile material would make the best heat shield for a returning spacecraft?</p>",
-     "options": [
-      "Aluminum, because its temperature rose the most",
-      "Cork composite, because its back face reached 31 &deg;C",
-      "Ceramic foam, because its back face warmed the least",
-      "All three materials work equally well, because each started at 22 &deg;C"
-     ],
-     "answer": 2,
-     "explain": "<p>A heat shield should keep heat from reaching the spacecraft behind it. The best material is the one whose back face warmed the least. <strong>Ceramic foam</strong> rose only 4 &deg;C (22 &rarr; 26 &deg;C), less than cork composite (9 &deg;C) or aluminum (73 &deg;C).</p><p>Aluminum's large rise shows that heat passed through it easily, which is the opposite of what a heat shield needs. The tiles all started at the same temperature, but they did not end the same.</p>"
-    },
-    {
-     "id": "q22",
-     "type": "mc",
-     "skill": "Heat transfer",
-     "difficulty": 2,
-     "stim": "s10",
-     "prompt": "<p>During the test, by which process did heat mainly travel from the flame-heated front face of each tile through the solid material to its back face?</p>",
-     "options": [
-      "Convection",
-      "Radiation",
-      "Evaporation",
-      "Conduction"
-     ],
-     "answer": 3,
-     "explain": "<p><strong>Conduction</strong> is the transfer of heat through a material by direct contact between particles. Heat moving through a solid tile, from the hot front face to the cooler back face, is conduction. Aluminum, a metal, is a good conductor; ceramic foam is a poor conductor (a good insulator).</p><p>Convection moves heat through flowing liquids or gases, such as the rising hot air above the flame, but particles in a solid tile cannot flow. Radiation carries energy as electromagnetic waves across space, not through the inside of a solid.</p>"
-    },
-    {
-     "id": "q23",
-     "type": "drag",
-     "skill": "Elements, compounds, and mixtures",
-     "difficulty": 2,
-     "prompt": "<p>A spacecraft's life-support system handles many substances. Classify each substance. Drag each one into the correct category.</p>",
-     "choices": [
-      "Oxygen gas",
-      "Iron",
-      "Water",
-      "Carbon dioxide",
-      "Air",
-      "Salt water"
-     ],
-     "bins": [
-      "Element",
-      "Compound",
-      "Mixture"
-     ],
-     "answer": [
-      0,
-      0,
-      1,
-      1,
-      2,
-      2
-     ],
-     "explain": "<p><strong>Elements</strong> contain only one kind of atom: oxygen gas (O<sub>2</sub>) and iron (Fe).</p><p><strong>Compounds</strong> are two or more elements chemically bonded in a fixed ratio: water (H<sub>2</sub>O) and carbon dioxide (CO<sub>2</sub>).</p><p><strong>Mixtures</strong> are substances physically combined in amounts that can vary: air (mostly nitrogen and oxygen, plus other gases) and salt water (salt dissolved in water).</p><p>A common mistake is calling oxygen gas a compound because its molecule has two atoms. Both atoms are oxygen, so it is still an element.</p>"
-    },
-    {
-     "id": "q24",
-     "type": "fill",
-     "skill": "Percent change",
-     "difficulty": 2,
-     "stim": "s5",
-     "prompt": "<p>By what percent did the herd's average milk production per cow increase from 1985 to 2025? Enter a whole number.</p>",
-     "answer": [
-      "70",
-      "70%"
-     ],
-     "value": 70,
-     "tol": 0.001,
-     "suffix": "percent",
-     "explain": "<p>Percent change = (new value &minus; original value) &divide; original value &times; 100</p><p>10,200 &minus; 6,000 = 4,200<br>4,200 &divide; 6,000 = 0.7<br>0.7 &times; 100 = <strong>70%</strong></p><p>Dividing by the new value instead (4,200 &divide; 10,200 &asymp; 41%) is a common error. Percent change is always measured from the starting value.</p>"
-    },
-    {
-     "id": "q25",
-     "type": "mc",
-     "skill": "Evaluating a claim",
-     "difficulty": 3,
-     "stim": "s5",
-     "prompt": "<p>A student says, &ldquo;These data prove that selective breeding alone caused the increase in milk production.&rdquo; Why is this claim <strong>not</strong> supported by the information given?</p>",
-     "options": [
-      "Milk production went down in some years, so there is no clear trend.",
-      "The feed and the barns also changed during the same years, so the effect of breeding cannot be separated from these other factors.",
-      "Selective breeding can only change physical traits such as coat color, not milk production.",
-      "The graph shows that milk production increased by the same amount every year."
-     ],
-     "answer": 1,
-     "explain": "<p>The passage says the farm changed <strong>three things at once</strong>: the bulls used for breeding, the feed, and the barns. Any of these could have raised milk production, so the data cannot show how much was caused by breeding alone. These other factors are uncontrolled (confounding) variables.</p><p>Production rose in every interval shown, so the trend is clear. Selective breeding can change any inherited trait, including milk yield. The increases were not equal (1,100, 1,200, 1,000, and 900 kg per decade), and equal increases would not prove the cause anyway.</p>"
-    },
-    {
-     "id": "q26",
-     "type": "fill",
-     "skill": "Calculating with wave speed",
-     "difficulty": 3,
-     "prompt": "<p>Mission controllers send radio commands to a rover on Mars. Radio waves travel at about 300,000 km per second. On a day when Mars is 225,000,000 km from Earth, how many <strong>minutes</strong> does it take a command to reach the rover? Enter your answer as a decimal.</p>",
-     "answer": [
-      "12.5"
-     ],
-     "value": 12.5,
-     "tol": 0.001,
-     "suffix": "minutes",
-     "explain": "<p>Time = distance &divide; speed</p><p>225,000,000 km &divide; 300,000 km/s = 750 s<br>750 s &divide; 60 s per minute = <strong>12.5 minutes</strong></p><p>Stopping at 750 gives the answer in seconds, not minutes. This delay is why a Mars rover cannot be driven in real time like a remote-control car.</p>"
-    },
-    {
-     "id": "q27",
-     "type": "hotspot",
-     "skill": "Hypotheses and predictions",
-     "difficulty": 3,
-     "prompt": "<p>The sentences below come from a description of a spacecraft mission to Europa, one of Jupiter's moons. Click the sentence that states a <strong>prediction</strong>, meaning a specific result the spacecraft's instruments could observe if an idea is correct.</p>",
-     "spans": [
-      "Europa is one of the four large moons of Jupiter and is slightly smaller than Earth's Moon.",
-      "Its surface is a bright shell of water ice crossed by long, dark cracks.",
-      "Very few impact craters are visible, which suggests the surface is young and is renewed over time.",
-      "Many scientists think that Jupiter's gravity squeezes and flexes Europa, producing enough heat to keep an ocean of liquid water under the ice.",
-      "If such a salty ocean exists, the spacecraft's magnetometer should detect a magnetic field around Europa that changes as the moon moves through Jupiter's magnetic field.",
-      "The mission team also hopes to send a lander to Europa's surface in the future."
-     ],
-     "answer": 4,
-     "explain": "<p>A prediction states what <strong>should be observed if</strong> an idea is true. The sentence beginning &ldquo;If such a salty ocean exists, the spacecraft's magnetometer should detect&hellip;&rdquo; names a specific measurement the spacecraft can make to test the idea of a hidden ocean.</p><p>The sentence about Jupiter's gravity heating Europa is the hypothesis (the proposed explanation) being tested, not the observable result. The sentences about size, ice, and cracks are observations, and the sentence about craters is an inference drawn from an observation.</p>"
-    },
-    {
-     "id": "q28",
-     "type": "mc",
-     "skill": "Identifying a hypothesis",
-     "difficulty": 1,
-     "stim": "s6",
-     "prompt": "<p>Which hypothesis were the researchers most likely testing?</p>",
-     "options": [
-      "Astronauts in Group B exercised for fewer hours than astronauts in Group A.",
-      "Bone density increases during spaceflight in astronauts who exercise every day.",
-      "Astronauts who fly on longer missions have more kidney stones.",
-      "Exercising with heavy resistance during a long mission reduces the loss of hip bone density."
-     ],
-     "answer": 3,
-     "explain": "<p>The groups differed in the <strong>type of exercise</strong> (resistance machine versus treadmill and bicycle), and the researchers measured <strong>hip bone density</strong>. So the hypothesis connects these: heavy resistance exercise reduces bone loss in space.</p><p>The passage gives no information about hours of exercise, and it compares exercise types, not mission lengths. The data show bone density decreased in both groups, so the idea that it increases is contradicted.</p>"
-    },
-    {
-     "id": "q29",
-     "type": "mc",
-     "skill": "Body systems",
-     "difficulty": 2,
-     "stim": "s6",
-     "prompt": "<p>The passage describes calcium from broken-down bone being filtered out of the blood and raising the risk of kidney stones. Which pair of body systems does this connect?</p>",
-     "options": [
-      "Skeletal system and excretory (urinary) system",
-      "Skeletal system and digestive system",
-      "Muscular system and respiratory system",
-      "Nervous system and endocrine system"
-     ],
-     "answer": 0,
-     "explain": "<p>Bones belong to the <strong>skeletal system</strong>. The kidneys, which filter wastes and extra minerals from the blood to make urine, belong to the <strong>excretory (urinary) system</strong>. Calcium lost from bone is carried to the kidneys, where it can form stones.</p><p>The digestive system absorbs calcium from food, but the passage describes calcium leaving bone and being filtered by the kidneys, not absorbed from the intestines.</p>"
-    },
-    {
-     "id": "q30",
-     "type": "multi",
-     "skill": "Improving an investigation",
-     "difficulty": 3,
-     "stim": "s6",
-     "prompt": "<p>Which changes to the study would make its conclusion about the resistance machine more reliable?</p><p>Select <strong>two</strong> answers.</p>",
-     "options": [
-      "Include many more astronauts in each group",
-      "Randomly assign astronauts on the same missions to the two exercise groups",
-      "Measure bone density only after landing instead of before and after the flight",
-      "Let each astronaut choose which exercise equipment to use",
-      "Feed Group A a calcium-rich diet and Group B a normal diet"
-     ],
-     "answer": [
-      0,
-      1
-     ],
-     "explain": "<p>With only five astronauts per group, one unusual person could change the averages, so a <strong>larger sample</strong> makes the results more trustworthy. Group B also flew on earlier missions, so other differences (food, equipment, length of stay) could explain the results; <strong>random assignment within the same missions</strong> spreads those differences evenly between the groups.</p><p>Measuring only after landing would remove the starting values needed to find the change. Letting astronauts choose, or giving the groups different diets, would add new uncontrolled variables.</p>"
-    },
-    {
-     "id": "q31",
-     "type": "mc",
-     "skill": "Energy transformations",
-     "difficulty": 2,
-     "prompt": "<p>A satellite's solar panels charge its batteries in sunlight. Later, the batteries power a transmitter that sends radio waves back to Earth. Which sequence of energy transformations is correct?</p>",
-     "options": [
-      "Chemical &rarr; light &rarr; electrical &rarr; mechanical",
-      "Light &rarr; chemical &rarr; nuclear &rarr; electrical",
-      "Electrical &rarr; light &rarr; chemical &rarr; thermal",
-      "Light &rarr; electrical &rarr; chemical &rarr; electrical &rarr; electromagnetic (radio)"
-     ],
-     "answer": 3,
-     "explain": "<p>Follow the energy step by step:</p><p>1. Solar panels change <strong>light</strong> into <strong>electrical</strong> energy.<br>2. Charging stores that energy as <strong>chemical</strong> energy in the batteries.<br>3. The batteries release it as <strong>electrical</strong> energy.<br>4. The transmitter sends it out as radio waves, a form of <strong>electromagnetic</strong> energy.</p><p>The other sequences start in the wrong place or include steps (such as nuclear or mechanical energy) that do not occur in this system.</p>"
-    },
-    {
-     "id": "q32",
-     "type": "multi",
-     "skill": "Evaluating evidence",
-     "difficulty": 2,
-     "prompt": "<p>A planetary scientist claims that liquid water once flowed on the surface of Mars. Which observations from spacecraft and rovers support this claim?</p><p>Select <strong>two</strong> answers.</p>",
-     "options": [
-      "Rovers found clay minerals that form when rock is altered by water over long periods.",
-      "Orbiters photographed fan-shaped deltas where ancient channels empty into craters.",
-      "Mars has a thin atmosphere made mostly of carbon dioxide.",
-      "Mars has the tallest known volcano in the solar system.",
-      "Mars has two small, irregularly shaped moons."
-     ],
-     "answer": [
-      0,
-      1
-     ],
-     "explain": "<p>Evidence for past water must be something that water produces. <strong>Clay minerals</strong> form when water chemically changes rock over long periods. <strong>Deltas</strong> are deposits of sediment that form where flowing water slows down as it enters a lake or a basin.</p><p>A thin carbon dioxide atmosphere describes Mars today and does not show water once flowed. Volcanoes form from molten rock, and the moons tell us nothing about surface water.</p>"
-    },
-    {
-     "id": "q33",
-     "type": "mc",
-     "skill": "Radiometric dating",
-     "difficulty": 3,
-     "noShuffle": true,
-     "prompt": "<p>A rock sample brought back from the Moon contains a radioactive isotope with a half-life of 1.3 billion years. Measurements show that 1/8 of the original amount of the isotope remains in the rock. About how old is the rock?</p>",
-     "options": [
-      "1.3 billion years",
-      "2.6 billion years",
-      "3.9 billion years",
-      "10.4 billion years"
-     ],
-     "answer": 2,
-     "explain": "<p>After each half-life, half of the remaining isotope is left:</p><p>1 &rarr; 1/2 (1 half-life) &rarr; 1/4 (2 half-lives) &rarr; 1/8 (3 half-lives)</p><p>3 half-lives &times; 1.3 billion years = <strong>3.9 billion years</strong></p><p>Multiplying by 8 (8 &times; 1.3 = 10.4) confuses the fraction remaining with the number of half-lives; that age would also be older than the solar system itself.</p>"
-    },
-    {
-     "id": "q34",
-     "type": "mc",
-     "skill": "Eclipses",
-     "difficulty": 1,
-     "prompt": "<p>During a total solar eclipse, people in a narrow path on Earth see the Sun completely blocked for a few minutes. Which arrangement of the Sun, Earth, and Moon causes a solar eclipse?</p>",
-     "options": [
-      "Sun, then Earth, then Moon in a straight line, with Earth in the middle",
-      "Sun, then Moon, then Earth in a straight line, with the Moon in the middle",
-      "The Moon at a right angle to the line between the Sun and Earth",
-      "Earth, then Sun, then Moon in a straight line, with the Sun in the middle"
-     ],
-     "answer": 1,
-     "explain": "<p>In a solar eclipse, the <strong>Moon passes between the Sun and Earth</strong>, and the Moon's shadow falls on part of Earth. This can happen only at new moon.</p><p>When Earth is in the middle, Earth's shadow falls on the Moon, causing a <em>lunar</em> eclipse. A right-angle arrangement produces a first- or third-quarter moon, not an eclipse.</p>"
-    }
-   ]
-  }
- ]
+"form": 7,
+"subject": "sci",
+"title": "Practice GED Form 7 — Science",
+"minutes": 90,
+"stimuli": [
+{
+"id": "s1",
+"title": "Coat Color in Labrador Retrievers",
+"html": "<p>In Labrador retrievers, one gene controls whether a dog's coat is black or chocolate (brown). The allele for black coat (<strong>B</strong>) is dominant over the allele for chocolate coat (<strong>b</strong>). Yellow Labs are controlled by a different gene and are not part of this cross.</p><p>A breeder crosses a black female whose genotype is <strong>Bb</strong> with a chocolate male. The Punnett square below sets up the cross.</p><table><thead><tr><th></th><th>B (from female)</th><th>b (from female)</th></tr></thead><tbody><tr><th>b (from male)</th><td>?</td><td>?</td></tr><tr><th>b (from male)</th><td>?</td><td>?</td></tr></tbody></table>"
+},
+{
+"id": "s2",
+"title": "A Rancher Tests a Polled Bull",
+"html": "<p>In many breeds of beef cattle, some animals are born without horns. These cattle are called <em>polled</em>. The allele for the polled trait (<strong>P</strong>) is dominant over the allele for horns (<strong>p</strong>).</p><p>A rancher buys a polled bull. Because a polled animal could have either two dominant alleles or one dominant and one recessive allele, she cannot tell the bull's genotype just by looking at him. To find out, she breeds the bull with 20 horned cows, all with genotype <strong>pp</strong>. Each cow has one calf. The results are shown below.</p><table><thead><tr><th>Calf phenotype</th><th>Number of calves</th></tr></thead><tbody><tr><td>Polled</td><td>11</td></tr><tr><td>Horned</td><td>9</td></tr></tbody></table>"
+},
+{
+"id": "s3",
+"title": "Roan Shorthorn Cattle",
+"html": "<p>In Shorthorn cattle, coat color is controlled by two alleles: <strong>R</strong> for red hair and <strong>W</strong> for white hair. An animal with genotype <strong>RR</strong> has a solid red coat, and an animal with genotype <strong>WW</strong> has a solid white coat. An animal with genotype <strong>RW</strong> has a <em>roan</em> coat. Looked at closely, a roan coat is not pink: it is a mix of individual red hairs and individual white hairs growing side by side.</p>"
+},
+{
+"id": "s4",
+"title": "Tortoiseshell and Calico Cats",
+"html": "<p>In domestic cats, a gene that controls orange fur color is located on the X chromosome. One allele (<strong>X<sup>O</sup></strong>) produces orange fur, and another allele (<strong>X<sup>B</sup></strong>) produces black fur. The Y chromosome does not carry this gene. Female cats have two X chromosomes (XX), and male cats normally have one X and one Y chromosome (XY).</p><p>Early in the development of a female embryo, one of the two X chromosomes in each cell is randomly switched off. All of the cells that come from that cell keep the same X switched off. In a female with genotype X<sup>O</sup>X<sup>B</sup>, some patches of skin grow orange fur and other patches grow black fur. A cat with this patchy orange-and-black coat is called <em>tortoiseshell</em>. If the cat also has white patches (controlled by a separate gene), it is called <em>calico</em>.</p>"
+},
+{
+"id": "s5",
+"title": "Milk Production in a Dairy Herd",
+"html": "<p>A dairy farm kept records of the average amount of milk each cow in its herd produced per year. Beginning in 1985, the farm bred its cows only with bulls whose daughters were known to produce large amounts of milk. During the same 40 years, the farm also switched to a more nutritious feed and built new barns with better ventilation and cooling. The graph shows the herd's average yearly milk production.</p>",
+"figure": {
+"type": "line",
+"title": "Average Milk Production per Cow",
+"xLabel": "Year",
+"yLabel": "Milk per cow (kg per year)",
+"labels": [
+"1985",
+"1995",
+"2005",
+"2015",
+"2025"
+],
+"series": [
+{
+"name": "Milk per cow (kg per year)",
+"values": [
+6000,
+7100,
+8300,
+9300,
+10200
+]
+}
+]
+}
+},
+{
+"id": "s6",
+"title": "Astronaut Bones in Microgravity",
+"html": "<p>Bone is living tissue that is constantly broken down and rebuilt. On Earth, the pull of gravity and the impact of walking and lifting signal bone-building cells to keep bones strong. In the near-weightless conditions of an orbiting space station, those signals are much weaker, and astronauts can lose bone mass, especially in the hips and legs. Calcium released from broken-down bone enters the blood and is filtered out by the kidneys, which raises the risk of painful kidney stones.</p><p>Researchers studied 10 astronauts during 6-month missions. Five astronauts (Group A) exercised daily on a resistance machine that lets them lift heavy loads using vacuum cylinders. The other five (Group B) flew on earlier missions and exercised daily using only a treadmill and an exercise bicycle. Hip bone mineral density was measured before launch and after landing.</p><table><thead><tr><th>Group</th><th>Average hip bone density before flight (g/cm<sup>2</sup>)</th><th>Average hip bone density after flight (g/cm<sup>2</sup>)</th><th>Percent change</th></tr></thead><tbody><tr><td>A: resistance machine</td><td>1.200</td><td>1.182</td><td>&minus;1.5%</td></tr><tr><td>B: treadmill and bicycle only</td><td>1.200</td><td>1.134</td><td>&minus;5.5%</td></tr></tbody></table>"
+},
+{
+"id": "s7",
+"title": "Launching Water Rockets",
+"html": "<p>A science club built a rocket from an empty 2-liter plastic bottle with cardboard fins. For each launch, they poured a measured volume of water into the bottle, attached it to a launcher pointing straight up, and pumped air into the bottle to the same pressure. When released, the compressed air forced the water out through the bottle's opening, and the rocket shot upward. An altimeter inside the nose cone recorded the maximum height. The club used the same bottle, fins, and launcher for every launch and made three launches at each water volume.</p><table><thead><tr><th>Volume of water (mL)</th><th>Launch 1 (m)</th><th>Launch 2 (m)</th><th>Launch 3 (m)</th><th>Mean maximum height (m)</th></tr></thead><tbody><tr><td>0</td><td>8</td><td>9</td><td>7</td><td>8</td></tr><tr><td>300</td><td>30</td><td>34</td><td>32</td><td>32</td></tr><tr><td>600</td><td>44</td><td>40</td><td>42</td><td>?</td></tr><tr><td>900</td><td>35</td><td>37</td><td>36</td><td>36</td></tr><tr><td>1,200</td><td>22</td><td>20</td><td>24</td><td>22</td></tr></tbody></table>"
+},
+{
+"id": "s8",
+"title": "Hydrogen and Oxygen Rocket Fuel",
+"html": "<p>Some large rocket engines burn liquid hydrogen with liquid oxygen. The reaction produces water vapor and releases a large amount of energy as heat. The hot gas rushes out of the engine nozzle and pushes the rocket upward. The balanced equation for the reaction is:</p><p><strong>2H<sub>2</sub> + O<sub>2</sub> &rarr; 2H<sub>2</sub>O</strong></p><p>During one engine test, 4,000 kg of hydrogen reacted completely with 32,000 kg of oxygen. No hydrogen or oxygen was left over.</p>"
+},
+{
+"id": "s9",
+"title": "Weight on Other Worlds",
+"html": "<p>Mass is the amount of matter in an object and is measured in kilograms (kg). Weight is the force of gravity pulling on an object and is measured in newtons (N). An object's weight can be found with the formula:</p><p><strong>Weight = mass &times; gravitational field strength</strong></p><p>The table shows the gravitational field strength at the surface of several places astronauts and robotic explorers have visited or may visit.</p><table><thead><tr><th>Location</th><th>Gravitational field strength (N/kg)</th></tr></thead><tbody><tr><td>Earth</td><td>9.8</td></tr><tr><td>Earth's Moon</td><td>1.6</td></tr><tr><td>Mars</td><td>3.7</td></tr><tr><td>Titan (a moon of Saturn)</td><td>1.4</td></tr></tbody></table><p>An astronaut wearing a spacesuit has a total mass of 120 kg.</p>"
+},
+{
+"id": "s10",
+"title": "Testing Heat Shield Materials",
+"html": "<p>A spacecraft returning to Earth is heated to very high temperatures as it plunges through the atmosphere, so it needs a heat shield. A student modeled a heat shield by testing three tiles, each 1 cm thick and the same size. She held each tile 5 cm above the same burner flame for 60 seconds and used a thermometer taped to the back face of the tile (the side away from the flame) to measure the temperature. Every tile started at room temperature, 22 &deg;C.</p><table><thead><tr><th>Tile material</th><th>Back-face temperature after 60 s (&deg;C)</th><th>Temperature increase (&deg;C)</th></tr></thead><tbody><tr><td>Aluminum</td><td>95</td><td>73</td></tr><tr><td>Cork composite</td><td>31</td><td>9</td></tr><tr><td>Ceramic foam</td><td>26</td><td>4</td></tr></tbody></table>"
+},
+{
+"id": "s11",
+"title": "The Large Moons of Jupiter",
+"html": "<p>Jupiter has four large moons that were first seen through a telescope in 1610. Several spacecraft have since studied them up close. The table lists each moon's average distance from Jupiter and its orbital period, the time it takes to travel once around Jupiter.</p><table><thead><tr><th>Moon</th><th>Average distance from Jupiter (km)</th><th>Orbital period (Earth days)</th></tr></thead><tbody><tr><td>Io</td><td>422,000</td><td>1.77</td></tr><tr><td>Europa</td><td>671,000</td><td>3.55</td></tr><tr><td>Ganymede</td><td>1,070,000</td><td>7.15</td></tr><tr><td>Callisto</td><td>1,883,000</td><td>16.69</td></tr></tbody></table>"
+}
+],
+"parts": [
+{
+"name": "Science",
+"items": [
+{
+"id": "q1",
+"type": "fill",
+"skill": "Punnett square probability",
+"difficulty": 1,
+"stim": "s1",
+"prompt": "<p>The breeder fills in the four boxes of the Punnett square for this black-by-chocolate mating. Out of every 100 puppies such a pairing could produce, how many would you expect to have chocolate coats? Enter a whole number (this equals the percent).</p>",
+"answer": [
+"50",
+"50%"
+],
+"value": 50,
+"tol": 0.001,
+"suffix": "percent",
+"explain": "<p>The female (Bb) gives B or b; the male (bb) can give only b. The four boxes are <strong>Bb, Bb, bb, bb</strong>.</p><p>Only <strong>bb</strong> puppies are chocolate, because chocolate is recessive. That is 2 of 4 boxes: 2 &divide; 4 = 0.5 = <strong>50%</strong>.</p><p>Answering 25% is a common error that comes from treating this like a cross of two heterozygous dogs (Bb &times; Bb). Here the male is bb, so half of the boxes are bb.</p>",
+"mistakes": [
+{
+"answer": [
+"25",
+"25%"
+],
+"why": "25% is the result for a Bb &times; Bb cross. Here the male is chocolate (bb), so every box gets a b from him, and 2 of the 4 boxes are bb: 50%."
+},
+{
+"answer": [
+"75",
+"75%"
+],
+"why": "75% is the share of black puppies in a Bb &times; Bb cross. In this cross the boxes are Bb, Bb, bb, bb, so half are chocolate: 50%."
+},
+{
+"answer": [
+"2"
+],
+"why": "2 is the number of chocolate boxes out of 4, not out of 100. 2 of 4 is 50 of 100."
+}
+]
+},
+{
+"id": "q2",
+"type": "mc",
+"skill": "Predicting outcomes from ratios",
+"difficulty": 1,
+"stim": "s1",
+"noShuffle": true,
+"prompt": "<p>The black female has a litter of 8 puppies with the chocolate male. Based on the Punnett square, how many of the puppies would be expected to be chocolate?</p>",
+"options": [
+"0",
+"2",
+"4",
+"6"
+],
+"answer": 2,
+"explain": "<p>The Punnett square predicts that 2 of every 4 puppies (one half) will be chocolate.</p><p>8 &times; 1/2 = <strong>4</strong> chocolate puppies are expected.</p><p>Choosing 2 comes from using a 1/4 probability, which would be correct only for a Bb &times; Bb cross. Remember that a Punnett square gives expected results; a real litter may differ by chance.</p>",
+"why": [
+"You may have assumed black is dominant so no puppies can be chocolate. The male is bb and the female carries b, so half the boxes are bb.",
+"2 uses a 1/4 chance, which fits only a Bb &times; Bb cross. Here 2 of 4 boxes are bb, so 8 &times; 1/2 = 4.",
+"",
+"6 is the number expected to be black in a Bb &times; Bb cross (3/4 of 8). This cross gives 1/2 chocolate: 4."
+]
+},
+{
+"id": "q3",
+"type": "mc",
+"skill": "Inferring parent genotypes",
+"difficulty": 3,
+"stim": "s1",
+"prompt": "<p>At another kennel, two black Labrador retrievers produce a litter that includes one chocolate puppy. Which statement about the parents' genotypes must be true?</p>",
+"options": [
+"Both parents are heterozygous (Bb), each carrying one chocolate allele.",
+"Both parents are homozygous dominant (BB), with no chocolate allele.",
+"One parent is homozygous dominant (BB) and the other is heterozygous (Bb).",
+"At least one parent is homozygous recessive (bb), with two chocolate alleles."
+],
+"answer": 0,
+"explain": "<p>A chocolate puppy has genotype <strong>bb</strong>, so it received one <strong>b</strong> allele from each parent. Both parents are black, so each must also carry a dominant <strong>B</strong>. The only genotype that is black and can pass on <strong>b</strong> is <strong>Bb</strong>. So <strong>both parents are heterozygous</strong>.</p><p>If either parent were BB, every puppy would get a B and be black. A bb parent would be chocolate, not black, so that choice contradicts the information given.</p>",
+"why": [
+"",
+"A BB parent can pass on only B, so every puppy would be black. A chocolate puppy needs a b from each parent.",
+"If one parent were BB, every puppy would get a B from it and be black. Both parents must pass a b.",
+"A bb parent would be chocolate, but both parents are black. Each must be Bb to be black and still pass on b."
+]
+},
+{
+"id": "q4",
+"type": "mc",
+"skill": "Controlled variables",
+"difficulty": 1,
+"stim": "s7",
+"prompt": "<p>Which of the following was a <strong>controlled</strong> variable (kept the same) in the water rocket investigation?</p>",
+"options": [
+"The air pressure pumped into the bottle",
+"The volume of water in the bottle",
+"The maximum height the rocket reached",
+"The number of the launch (1, 2, or 3)"
+],
+"answer": 0,
+"explain": "<p>The passage says the club pumped air into the bottle <strong>to the same pressure</strong> each time, and also kept the bottle, fins, and launcher the same. These are controlled variables.</p><p>The volume of water is the <em>independent</em> variable, the factor the club deliberately changed. The maximum height is the <em>dependent</em> variable, the result they measured.</p>",
+"why": [
+"",
+"The volume of water is what the club deliberately changed (0 to 1,200 mL), so it is the independent variable, not a controlled one.",
+"The maximum height is what the altimeter measured, the dependent variable. It changed with the water volume.",
+"The launch number only labels the three trials at each volume. It is a repetition, not a condition kept the same."
+]
+},
+{
+"id": "q5",
+"type": "fill",
+"skill": "Calculating the mean",
+"difficulty": 1,
+"stim": "s7",
+"prompt": "<p>What is the mean maximum height, in meters, for the launches with 600 mL of water? Enter a whole number.</p>",
+"answer": [
+"42"
+],
+"value": 42,
+"tol": 0.001,
+"suffix": "meters",
+"explain": "<p>Mean = sum of the values &divide; number of values.</p><p>44 + 40 + 42 = 126<br>126 &divide; 3 = <strong>42 m</strong></p><p>Divide by 3 (the number of launches at 600 mL), not by 5 (the number of water volumes tested).</p>",
+"mistakes": [
+{
+"answer": [
+"25.2",
+"25"
+],
+"why": "You divided by 5, the number of water volumes. The mean at 600 mL uses its 3 launches: 126 &divide; 3 = 42."
+},
+{
+"answer": [
+"126"
+],
+"why": "126 is the sum of the three launches. Divide by the number of launches: 126 &divide; 3 = 42."
+},
+{
+"answer": [
+"40",
+"44"
+],
+"why": "That is one launch, not the mean. Add all three (44 + 40 + 42 = 126) and divide by 3."
+}
+]
+},
+{
+"id": "q6",
+"type": "mc",
+"skill": "Drawing conclusions from data",
+"difficulty": 2,
+"stim": "s7",
+"prompt": "<p>Which conclusion is best supported by the data?</p>",
+"options": [
+"The more water in the bottle, the higher the rocket flew.",
+"The rocket flew highest with an empty bottle because it had the least mass.",
+"Maximum height increased as water volume increased up to about 600 mL and then decreased.",
+"The volume of water had no clear effect on the maximum height."
+],
+"answer": 2,
+"explain": "<p>The mean heights are 8 m (0 mL), 32 m (300 mL), 42 m (600 mL), 36 m (900 mL), and 22 m (1,200 mL). Height <strong>rises up to 600 mL and then falls</strong>, so the best volume tested was about 600 mL.</p><p>&ldquo;More water is always better&rdquo; ignores the drop at 900 and 1,200 mL. The empty bottle actually flew the lowest, because with no water there was almost nothing to push out of the nozzle. The large differences between volumes show water volume clearly mattered.</p>",
+"why": [
+"Heights rise only to 600 mL (42 m) and then fall to 36 m and 22 m, so more water is not always better.",
+"The empty bottle flew lowest (8 m). With no water there was almost nothing to push out of the nozzle.",
+"",
+"The means range from 8 m to 42 m, a large difference, so water volume clearly affected height."
+]
+},
+{
+"id": "q7",
+"type": "dropdown",
+"skill": "Newton's third law",
+"difficulty": 2,
+"stim": "s7",
+"prompt": "<p>Complete the explanation of how the water rocket launches.</p><p>The compressed air pushes the water {{0}} out of the bottle's opening. At the same time, the water pushes the rocket {{1}}. The force the water exerts on the rocket is {{2}} the force the rocket exerts on the water.</p>",
+"blanks": [
+{
+"options": [
+"upward",
+"downward",
+"sideways"
+],
+"answer": 1,
+"why": [
+"The rocket points straight up and its opening faces down, so the water is pushed downward.",
+"",
+"The bottle points straight up, so the water leaves straight down through the opening, not sideways."
+]
+},
+{
+"options": [
+"upward",
+"downward",
+"sideways"
+],
+"answer": 0,
+"why": [
+"",
+"Downward is the direction the water moves. The reaction force on the rocket is opposite: upward.",
+"The push on the water is straight down, so the reaction on the rocket is straight up, not sideways."
+]
+},
+{
+"options": [
+"greater than",
+"less than",
+"equal in size to"
+],
+"answer": 2,
+"why": [
+"Action and reaction forces are always equal in size. The rocket rises because the push exceeds its weight, not because one paired force is bigger.",
+"Newton's third law says the paired forces are equal in size and opposite in direction, never one smaller than the other.",
+""
+]
+}
+],
+"explain": "<p>Newton's third law states that for every action force there is an equal and opposite reaction force. The rocket points straight up, so the water is forced <strong>downward</strong> out of the opening. The reaction force from the water pushes the rocket <strong>upward</strong>.</p><p>Action-reaction forces are always <strong>equal in size</strong> and opposite in direction. The rocket accelerates upward because this push is larger than the rocket's weight, not because the reaction force is larger than the action force.</p>"
+},
+{
+"id": "q8",
+"type": "mc",
+"skill": "Test crosses",
+"difficulty": 2,
+"stim": "s2",
+"prompt": "<p>Why did the rancher breed the polled bull with <strong>horned</strong> cows instead of polled cows?</p>",
+"options": [
+"Horned cows carry only the recessive allele, so any horned calf must have received a recessive allele from the bull.",
+"Horned cows have more calves than polled cows, which gives a larger sample.",
+"Polled cows carry only the recessive allele, so all of their calves would be horned.",
+"The horned allele is dominant, so it would show which allele the bull passed on."
+],
+"answer": 0,
+"explain": "<p>A horned cow is <strong>pp</strong>, so she can pass on only <strong>p</strong>. A calf's phenotype then depends on the allele it gets from the bull: a <strong>P</strong> from the bull makes a polled calf (Pp), and a <strong>p</strong> from the bull makes a horned calf (pp). This kind of cross, called a test cross, reveals whether the bull carries a hidden recessive allele.</p><p>Polled cows could be PP or Pp themselves, which would hide the bull's contribution. The horned allele is recessive, not dominant.</p>",
+"why": [
+"",
+"The passage says nothing about horned cows having more calves. Horned cows are chosen because they pass on only p, revealing the bull's allele.",
+"Polled cows have the dominant allele P, not only the recessive one. They could be PP or Pp, which would hide what the bull passed on.",
+"The passage says the polled allele (P) is dominant and the horned allele (p) is recessive."
+]
+},
+{
+"id": "q9",
+"type": "mc",
+"skill": "Interpreting genetic data",
+"difficulty": 2,
+"stim": "s2",
+"prompt": "<p>Which conclusion about the bull is best supported by the calf data?</p>",
+"options": [
+"The bull is homozygous dominant (PP), because more than half of the calves were polled.",
+"The bull is heterozygous (Pp), because some of the calves were horned.",
+"The bull is homozygous recessive (pp), because he passed on the horned allele.",
+"The bull's genotype cannot be determined without breeding him to polled cows."
+],
+"answer": 1,
+"explain": "<p>Each horned calf (pp) received a <strong>p</strong> allele from its father, so the bull must carry <strong>p</strong>. Since he is polled, he also has <strong>P</strong>. He is <strong>heterozygous (Pp)</strong>.</p><p>A Pp &times; pp cross predicts about half polled and half horned calves. The result of 11 polled and 9 horned is close to that 1 : 1 ratio. A PP bull would have produced only polled calves. A pp bull would be horned himself.</p>",
+"why": [
+"A PP bull can pass on only P, so every calf would be polled. The 9 horned calves show he carries p.",
+"",
+"A pp bull would be horned himself, but this bull is polled. He must have one P and one p.",
+"The test cross with horned cows already reveals the genotype: horned calves can appear only if the bull carries p."
+]
+},
+{
+"id": "q10",
+"type": "fill",
+"skill": "Calculating weight",
+"difficulty": 2,
+"stim": "s9",
+"prompt": "<p>What is the weight, in newtons, of the astronaut in the spacesuit when standing on Mars? Enter a whole number.</p>",
+"answer": [
+"444"
+],
+"value": 444,
+"tol": 0.001,
+"suffix": "N",
+"explain": "<p>Weight = mass &times; gravitational field strength</p><p>Weight = 120 kg &times; 3.7 N/kg = <strong>444 N</strong></p><p>Using Earth's value instead (120 &times; 9.8 = 1,176 N) gives the astronaut's weight on Earth, not on Mars.</p>",
+"mistakes": [
+{
+"answer": [
+"1176",
+"1,176"
+],
+"why": "You used Earth's value, 9.8 N/kg. On Mars use 3.7 N/kg: 120 &times; 3.7 = 444 N."
+},
+{
+"answer": [
+"120"
+],
+"why": "120 kg is the mass, not the weight. Weight = mass &times; gravitational field strength: 120 &times; 3.7 = 444 N."
+},
+{
+"answer": [
+"32.4",
+"32"
+],
+"why": "You divided 120 by 3.7. Weight is mass multiplied by field strength: 120 &times; 3.7 = 444 N."
+}
+]
+},
+{
+"id": "q11",
+"type": "mc",
+"skill": "Mass versus weight",
+"difficulty": 2,
+"stim": "s9",
+"prompt": "<p>The astronaut in the spacesuit travels from Earth to the Moon. What is the total mass of the astronaut and suit on the Moon?</p>",
+"options": [
+"120 kg, because the amount of matter does not change when gravity changes",
+"192 kg, because 120 &times; 1.6 = 192",
+"About 20 kg, because the Moon's gravity is about one-sixth of Earth's",
+"0 kg, because the Moon has almost no atmosphere"
+],
+"answer": 0,
+"explain": "<p>Mass is the amount of matter in an object. Traveling to the Moon does not add or remove matter, so the mass stays <strong>120 kg</strong>.</p><p>What changes is <em>weight</em>: on the Moon the weight is 120 &times; 1.6 = 192 <strong>N</strong> (newtons), not 192 kg. Dividing by six describes the change in weight, not mass. Air has nothing to do with mass.</p>",
+"why": [
+"",
+"120 &times; 1.6 = 192 gives the weight in newtons on the Moon, not the mass. Mass stays 120 kg.",
+"Dividing by about six describes how weight changes on the Moon. Mass, the amount of matter, does not change.",
+"Air has nothing to do with mass. The astronaut and suit contain the same matter anywhere: 120 kg."
+]
+},
+{
+"id": "q12",
+"type": "mc",
+"skill": "Using F = ma",
+"difficulty": 2,
+"noShuffle": true,
+"prompt": "<p>A lunar lander has a mass of 2,000 kg. As it lifts off from the Moon, the net (overall) upward force on it is 4,000 N. Using Newton's second law, <strong>F = ma</strong>, what is the lander's acceleration?</p>",
+"options": [
+"0.5 m/s<sup>2</sup>",
+"2 m/s<sup>2</sup>",
+"6,000 m/s<sup>2</sup>",
+"8,000,000 m/s<sup>2</sup>"
+],
+"answer": 1,
+"explain": "<p>Solve F = ma for acceleration: a = F &divide; m.</p><p>a = 4,000 N &divide; 2,000 kg = <strong>2 m/s<sup>2</sup></strong></p><p>Dividing the other way (2,000 &divide; 4,000 = 0.5) is a common error. Adding (6,000) or multiplying (8,000,000) the two numbers does not follow the formula.</p>",
+"why": [
+"You divided mass by force (2,000 &divide; 4,000). Solve F = ma for a: a = F &divide; m = 4,000 &divide; 2,000.",
+"",
+"You added the force and mass. The formula divides: a = F &divide; m = 2 m/s<sup>2</sup>.",
+"You multiplied force by mass. Acceleration is force divided by mass: 4,000 &divide; 2,000 = 2 m/s<sup>2</sup>."
+]
+},
+{
+"id": "q13",
+"type": "mc",
+"skill": "Punnett square probability",
+"difficulty": 2,
+"stim": "s3",
+"noShuffle": true,
+"prompt": "<p>A rancher crosses a roan bull (RW) with a roan cow (RW). What is the probability that a calf from this cross will have a solid <strong>red</strong> coat?</p>",
+"options": [
+"0%",
+"25%",
+"50%",
+"75%"
+],
+"answer": 1,
+"explain": "<p>Each parent can pass on R or W. The Punnett square gives <strong>RR, RW, RW, WW</strong>.</p><p>Only RR calves are solid red: 1 of 4 boxes = <strong>25%</strong>. RW calves (50%) are roan, and WW calves (25%) are white.</p><p>Answering 75% treats red as if it were dominant over white. In Shorthorns, neither allele hides the other, so RW calves are roan rather than red.</p>",
+"why": [
+"Each RW parent can pass on R, so an RR calf is possible: 1 of 4 boxes.",
+"",
+"50% is the chance of a roan (RW) calf, which has two of the four boxes. Solid red needs RR: 1 of 4.",
+"75% treats red as dominant. In Shorthorns RW calves are roan, so only RR (25%) is solid red."
+]
+},
+{
+"id": "q14",
+"type": "dropdown",
+"skill": "Patterns of inheritance",
+"difficulty": 2,
+"stim": "s3",
+"prompt": "<p>Complete the statements about roan cattle.</p><p>A roan animal's coat contains {{0}}. This inheritance pattern is called {{1}}, because {{2}}.</p>",
+"blanks": [
+{
+"options": [
+"only pink hairs",
+"both red hairs and white hairs",
+"only red hairs"
+],
+"answer": 1,
+"why": [
+"The passage says a roan coat &ldquo;is not pink&rdquo;; it is a mix of red hairs and white hairs.",
+"",
+"Only RR cattle have all red hairs. A roan coat has both red and white hairs."
+]
+},
+{
+"options": [
+"complete dominance",
+"incomplete dominance",
+"codominance"
+],
+"answer": 2,
+"why": [
+"Complete dominance would make RW cattle look exactly like one parent, either red or white, but roan cattle show both colors.",
+"Incomplete dominance blends the traits into an in-between color such as pink, but roan coats have separate red and white hairs.",
+""
+]
+},
+{
+"options": [
+"both alleles are fully expressed at the same time",
+"one allele completely hides the other",
+"the two alleles blend into an in-between color"
+],
+"answer": 0,
+"why": [
+"",
+"If one allele completely hid the other, RW cattle would be solid red or solid white. Roan cattle show both colors.",
+"Blending into an in-between color describes incomplete dominance. Roan hairs are each fully red or fully white."
+]
+}
+],
+"explain": "<p>The passage says a roan coat is <strong>a mix of individual red hairs and individual white hairs</strong>, not pink hairs. When both alleles show up fully and side by side in a heterozygous animal, the pattern is <strong>codominance</strong>, because <strong>both alleles are fully expressed at the same time</strong>.</p><p>Incomplete dominance would produce a blended, in-between color such as pink hairs. Complete dominance would make RW cattle look exactly like one of the parents.</p>"
+},
+{
+"id": "q15",
+"type": "fill",
+"skill": "Conservation of mass",
+"difficulty": 2,
+"stim": "s8",
+"prompt": "<p>Based on the law of conservation of mass, how many kilograms of water were produced during the engine test? Enter a whole number.</p>",
+"answer": [
+"36000",
+"36,000"
+],
+"value": 36000,
+"tol": 0.001,
+"suffix": "kg",
+"explain": "<p>In a chemical reaction, atoms are rearranged but not created or destroyed, so the total mass of the products equals the total mass of the reactants.</p><p>4,000 kg + 32,000 kg = <strong>36,000 kg</strong> of water</p><p>The coefficient 2 in front of H<sub>2</sub>O counts molecules, not kilograms, so it should not be used to double or halve the mass.</p>",
+"mistakes": [
+{
+"answer": [
+"72000",
+"72,000"
+],
+"why": "You doubled the mass because of the 2 in front of H<sub>2</sub>O. Coefficients count molecules, not kilograms; total mass in equals total mass out: 4,000 + 32,000 = 36,000 kg."
+},
+{
+"answer": [
+"28000",
+"28,000"
+],
+"why": "You subtracted the masses. Conservation of mass means the products weigh the same as all the reactants combined: 4,000 + 32,000 = 36,000 kg."
+},
+{
+"answer": [
+"18000",
+"18,000"
+],
+"why": "You halved the total. All 36,000 kg of reactants became water, with nothing left over."
+}
+]
+},
+{
+"id": "q16",
+"type": "mc",
+"skill": "Exothermic and endothermic reactions",
+"difficulty": 1,
+"stim": "s8",
+"prompt": "<p>Which statement correctly describes the reaction between hydrogen and oxygen in the rocket engine?</p>",
+"options": [
+"It is endothermic, because the engine must absorb energy from the flame to keep running.",
+"It is neither exothermic nor endothermic, because energy cannot be created or destroyed.",
+"It is endothermic, because the water produced is colder than the fuel.",
+"It is exothermic, because it releases energy as heat to its surroundings."
+],
+"answer": 3,
+"explain": "<p>An <strong>exothermic</strong> reaction releases energy to its surroundings. The passage says the reaction releases a large amount of energy as heat, which heats the gas that pushes the rocket.</p><p>Energy is conserved, but it is converted from chemical energy in the fuel to thermal energy, so the reaction is still classified as exothermic. Liquid hydrogen and oxygen are extremely cold, and the water vapor produced is very hot, so the claim that the water is colder than the fuel reverses the facts.</p>",
+"why": [
+"The passage says the reaction &ldquo;releases a large amount of energy as heat,&rdquo; which is exothermic. Endothermic reactions absorb energy.",
+"Energy is conserved, but it changes form: chemical energy becomes heat released to the surroundings, so the reaction is exothermic.",
+"This reverses the facts: liquid hydrogen and oxygen are extremely cold, and the water vapor produced is very hot.",
+""
+]
+},
+{
+"id": "q17",
+"type": "mc",
+"skill": "Identifying patterns in data",
+"difficulty": 2,
+"stim": "s11",
+"prompt": "<p>Which statement best describes the pattern in the data?</p>",
+"options": [
+"Moons farther from Jupiter complete their orbits in less time.",
+"Moons farther from Jupiter take longer to complete one orbit.",
+"Each moon's orbital period is exactly twice the period of the moon just inside it.",
+"All four moons have about the same orbital period."
+],
+"answer": 1,
+"explain": "<p>As distance increases (Io &rarr; Europa &rarr; Ganymede &rarr; Callisto), the orbital period increases: 1.77 &rarr; 3.55 &rarr; 7.15 &rarr; 16.69 days. So <strong>moons farther from Jupiter take longer to orbit</strong>.</p><p>The &ldquo;exactly twice&rdquo; pattern almost fits the first three moons, but Callisto's period is 16.69 &divide; 7.15 &asymp; 2.3 times Ganymede's, so the rule does not hold for all four.</p>",
+"why": [
+"This reverses the trend. Callisto, the farthest, takes 16.69 days, the longest period.",
+"",
+"The doubling almost fits the first three moons, but Callisto's period is 16.69 &divide; 7.15 &asymp; 2.3 times Ganymede's.",
+"The periods range from 1.77 to 16.69 days, so they are far from equal."
+]
+},
+{
+"id": "q18",
+"type": "mc",
+"skill": "Predicting from data",
+"difficulty": 3,
+"stim": "s11",
+"noShuffle": true,
+"prompt": "<p>A small moon of Jupiter named Amalthea orbits at an average distance of about 181,000 km from Jupiter. Based on the pattern in the table, which is the best prediction of Amalthea's orbital period?</p>",
+"options": [
+"Less than 1.77 days",
+"Between 1.77 and 3.55 days",
+"Between 7.15 and 16.69 days",
+"More than 16.69 days"
+],
+"answer": 0,
+"explain": "<p>Amalthea's distance, 181,000 km, is <strong>less than Io's</strong> distance of 422,000 km. Since closer moons have shorter orbital periods, Amalthea's period should be shorter than Io's 1.77 days: <strong>less than 1.77 days</strong>. (Its measured period is about half a day.)</p><p>Choosing a longer period reverses the trend. A moon's size is not part of the pattern, so being small does not make the orbit slower.</p>",
+"why": [
+"",
+"1.77 to 3.55 days fits a moon between Io and Europa (422,000 to 671,000 km). Amalthea is closer than Io, so its period is shorter than 1.77 days.",
+"That range fits a moon between Ganymede and Callisto. Amalthea, at 181,000 km, is closer than all four moons.",
+"A longer period reverses the trend. Amalthea is closer than Io, and closer moons orbit faster."
+]
+},
+{
+"id": "q19",
+"type": "mc",
+"skill": "Sex-linked traits",
+"difficulty": 2,
+"stim": "s4",
+"prompt": "<p>Based on the passage, which statement best explains why nearly all tortoiseshell and calico cats are female?</p>",
+"options": [
+"The orange and black alleles are both on the Y chromosome, which only males inherit.",
+"Male cats switch off both of their X chromosomes, so they cannot show orange fur.",
+"A cat needs two X chromosomes to carry both the orange and black alleles, and males normally have only one X.",
+"The black allele is dominant in females but recessive in males."
+],
+"answer": 2,
+"explain": "<p>A tortoiseshell coat needs both alleles, X<sup>O</sup> and X<sup>B</sup>, in different patches of skin. Each allele sits on an X chromosome, so a cat needs <strong>two X chromosomes</strong> to carry both. Females (XX) can; males (XY) normally have only one X, so they are either orange or black.</p><p>The passage states the Y chromosome does not carry this gene. Random X inactivation happens in females, which have two X chromosomes; it does not switch off a male's only X.</p>",
+"why": [
+"The passage says the Y chromosome does not carry this gene; the color alleles are on the X.",
+"Random X inactivation happens in females with two X chromosomes. A male's only X is not switched off, which is why he is fully orange or black.",
+"",
+"The passage does not say the alleles are dominant or recessive by sex. Patches appear because each female cell switches off one X."
+]
+},
+{
+"id": "q20",
+"type": "mc",
+"skill": "Sex-linked crosses",
+"difficulty": 3,
+"stim": "s4",
+"prompt": "<p>An orange female cat (X<sup>O</sup>X<sup>O</sup>) mates with a black male cat (X<sup>B</sup>Y). Which prediction about their kittens is correct?</p>",
+"options": [
+"All female kittens will be orange, and all male kittens will be black.",
+"All female kittens will be tortoiseshell, and all male kittens will be black.",
+"Half of the kittens will be orange and half will be black, regardless of sex.",
+"All female kittens will be tortoiseshell, and all male kittens will be orange."
+],
+"answer": 3,
+"explain": "<p>Every kitten gets an X<sup>O</sup> from the mother, because she has only X<sup>O</sup> chromosomes.</p><p><strong>Daughters</strong> get the father's X<sup>B</sup>: X<sup>O</sup>X<sup>B</sup>, which is <strong>tortoiseshell</strong>.<br><strong>Sons</strong> get the father's Y, which has no color allele: X<sup>O</sup>Y, which is <strong>orange</strong>.</p><p>A common error is giving the sons the father's color. A male kitten receives his X chromosome from his mother, so his fur color comes from her.</p>",
+"why": [
+"Daughters get X<sup>O</sup> from the mother and X<sup>B</sup> from the father, so they are tortoiseshell, not orange. Sons get only the mother's X, so they are orange.",
+"The sons do get a Y from the father, but the Y carries no color allele. Their only X comes from the mother: X<sup>O</sup>Y, orange.",
+"Color depends on sex here. Every daughter is X<sup>O</sup>X<sup>B</sup> (tortoiseshell) and every son is X<sup>O</sup>Y (orange).",
+""
+]
+},
+{
+"id": "q21",
+"type": "mc",
+"skill": "Interpreting data",
+"difficulty": 1,
+"stim": "s10",
+"prompt": "<p>Based on the data, which tile material would make the best heat shield for a returning spacecraft?</p>",
+"options": [
+"Aluminum, because its temperature rose the most",
+"Cork composite, because its back face reached 31 &deg;C",
+"Ceramic foam, because its back face warmed the least",
+"All three materials work equally well, because each started at 22 &deg;C"
+],
+"answer": 2,
+"explain": "<p>A heat shield should keep heat from reaching the spacecraft behind it. The best material is the one whose back face warmed the least. <strong>Ceramic foam</strong> rose only 4 &deg;C (22 &rarr; 26 &deg;C), less than cork composite (9 &deg;C) or aluminum (73 &deg;C).</p><p>Aluminum's large rise shows that heat passed through it easily, which is the opposite of what a heat shield needs. The tiles all started at the same temperature, but they did not end the same.</p>",
+"why": [
+"A big rise means heat passed through aluminum easily, the opposite of what a shield should do.",
+"Cork's back face rose 9 &deg;C, more than ceramic foam's 4 &deg;C, so cork let more heat through.",
+"",
+"All tiles started at 22 &deg;C, but they ended at very different temperatures, so they did not perform equally."
+]
+},
+{
+"id": "q22",
+"type": "mc",
+"skill": "Heat transfer",
+"difficulty": 2,
+"stim": "s10",
+"prompt": "<p>During the test, by which process did heat mainly travel from the flame-heated front face of each tile through the solid material to its back face?</p>",
+"options": [
+"Convection",
+"Radiation",
+"Evaporation",
+"Conduction"
+],
+"answer": 3,
+"explain": "<p><strong>Conduction</strong> is the transfer of heat through a material by direct contact between particles. Heat moving through a solid tile, from the hot front face to the cooler back face, is conduction. Aluminum, a metal, is a good conductor; ceramic foam is a poor conductor (a good insulator).</p><p>Convection moves heat through flowing liquids or gases, such as the rising hot air above the flame, but particles in a solid tile cannot flow. Radiation carries energy as electromagnetic waves across space, not through the inside of a solid.</p>",
+"why": [
+"Convection needs a flowing liquid or gas. Particles in a solid tile cannot flow, so heat moves through it by conduction.",
+"Radiation carries energy as waves across space, such as from the flame to the front face, but heat moves through the solid by particle contact.",
+"Evaporation is a liquid turning into a gas; it does not move heat through a solid tile.",
+""
+]
+},
+{
+"id": "q23",
+"type": "drag",
+"skill": "Elements, compounds, and mixtures",
+"difficulty": 2,
+"prompt": "<p>A spacecraft's life-support system handles many substances. Classify each substance. Drag each one into the correct category.</p>",
+"choices": [
+"Oxygen gas",
+"Iron",
+"Water",
+"Carbon dioxide",
+"Air",
+"Salt water"
+],
+"bins": [
+"Element",
+"Compound",
+"Mixture"
+],
+"answer": [
+0,
+0,
+1,
+1,
+2,
+2
+],
+"explain": "<p><strong>Elements</strong> contain only one kind of atom: oxygen gas (O<sub>2</sub>) and iron (Fe).</p><p><strong>Compounds</strong> are two or more elements chemically bonded in a fixed ratio: water (H<sub>2</sub>O) and carbon dioxide (CO<sub>2</sub>).</p><p><strong>Mixtures</strong> are substances physically combined in amounts that can vary: air (mostly nitrogen and oxygen, plus other gases) and salt water (salt dissolved in water).</p><p>A common mistake is calling oxygen gas a compound because its molecule has two atoms. Both atoms are oxygen, so it is still an element.</p>",
+"why": "The most common mistake is placing oxygen gas under Compound because its molecule (O<sub>2</sub>) has two atoms. Both atoms are oxygen, so it is an element; a compound bonds different elements, like H<sub>2</sub>O and CO<sub>2</sub>, while air and salt water are mixtures."
+},
+{
+"id": "q24",
+"type": "fill",
+"skill": "Percent change",
+"difficulty": 2,
+"stim": "s5",
+"prompt": "<p>By what percent did the herd's average milk production per cow increase from 1985 to 2025? Enter a whole number.</p>",
+"answer": [
+"70",
+"70%"
+],
+"value": 70,
+"tol": 0.001,
+"suffix": "percent",
+"explain": "<p>Percent change = (new value &minus; original value) &divide; original value &times; 100</p><p>10,200 &minus; 6,000 = 4,200<br>4,200 &divide; 6,000 = 0.7<br>0.7 &times; 100 = <strong>70%</strong></p><p>Dividing by the new value instead (4,200 &divide; 10,200 &asymp; 41%) is a common error. Percent change is always measured from the starting value.</p>",
+"mistakes": [
+{
+"answer": [
+"41",
+"41%",
+"41.2"
+],
+"why": "You divided by the new value (4,200 &divide; 10,200). Percent change is measured from the starting value: 4,200 &divide; 6,000 = 70%."
+},
+{
+"answer": [
+"170",
+"170%"
+],
+"why": "170% is 10,200 &divide; 6,000, the new value as a percent of the old. The increase is 170% &minus; 100% = 70%."
+},
+{
+"answer": [
+"4200",
+"4,200"
+],
+"why": "4,200 kg is the amount of the increase, not the percent. Divide by the original: 4,200 &divide; 6,000 = 70%."
+}
+]
+},
+{
+"id": "q25",
+"type": "mc",
+"skill": "Evaluating a claim",
+"difficulty": 3,
+"stim": "s5",
+"prompt": "<p>A student says, &ldquo;These data prove that selective breeding alone caused the increase in milk production.&rdquo; Why is this claim <strong>not</strong> supported by the information given?</p>",
+"options": [
+"Milk production went down in some years, so there is no clear trend.",
+"The feed and the barns also changed during the same years, so the effect of breeding cannot be separated from these other factors.",
+"Selective breeding can only change physical traits such as coat color, not milk production.",
+"The graph shows that milk production increased by the same amount every year."
+],
+"answer": 1,
+"explain": "<p>The passage says the farm changed <strong>three things at once</strong>: the bulls used for breeding, the feed, and the barns. Any of these could have raised milk production, so the data cannot show how much was caused by breeding alone. These other factors are uncontrolled (confounding) variables.</p><p>Production rose in every interval shown, so the trend is clear. Selective breeding can change any inherited trait, including milk yield. The increases were not equal (1,100, 1,200, 1,000, and 900 kg per decade), and equal increases would not prove the cause anyway.</p>",
+"why": [
+"The graph rises in every interval (6,000 to 10,200 kg), so it never went down and the trend is clear.",
+"",
+"Selective breeding can change any inherited trait, including milk yield. The problem is that feed and barns also changed.",
+"The increases were 1,100, 1,200, 1,000, and 900 kg per decade, not equal, and equal increases would not prove the cause anyway."
+]
+},
+{
+"id": "q26",
+"type": "fill",
+"skill": "Calculating with wave speed",
+"difficulty": 3,
+"prompt": "<p>Mission controllers send radio commands to a rover on Mars. Radio waves travel at about 300,000 km per second. On a day when Mars is 225,000,000 km from Earth, how many <strong>minutes</strong> does it take a command to reach the rover? Enter your answer as a decimal.</p>",
+"answer": [
+"12.5"
+],
+"value": 12.5,
+"tol": 0.001,
+"suffix": "minutes",
+"explain": "<p>Time = distance &divide; speed</p><p>225,000,000 km &divide; 300,000 km/s = 750 s<br>750 s &divide; 60 s per minute = <strong>12.5 minutes</strong></p><p>Stopping at 750 gives the answer in seconds, not minutes. This delay is why a Mars rover cannot be driven in real time like a remote-control car.</p>",
+"mistakes": [
+{
+"answer": [
+"750"
+],
+"why": "750 is the time in seconds. Divide by 60 to get minutes: 750 &divide; 60 = 12.5."
+},
+{
+"answer": [
+"45000",
+"45,000"
+],
+"why": "You multiplied 750 by 60. Seconds to minutes means dividing by 60: 12.5 minutes."
+},
+{
+"answer": [
+"0.2083",
+"0.21",
+"0.208"
+],
+"why": "You converted seconds to hours or divided twice. 750 seconds &divide; 60 = 12.5 minutes."
+}
+]
+},
+{
+"id": "q27",
+"type": "hotspot",
+"skill": "Hypotheses and predictions",
+"difficulty": 3,
+"prompt": "<p>The sentences below come from a description of a spacecraft mission to Europa, one of Jupiter's moons. Click the sentence that states a <strong>prediction</strong>, meaning a specific result the spacecraft's instruments could observe if an idea is correct.</p>",
+"spans": [
+"Europa is one of the four large moons of Jupiter and is slightly smaller than Earth's Moon.",
+"Its surface is a bright shell of water ice crossed by long, dark cracks.",
+"Very few impact craters are visible, which suggests the surface is young and is renewed over time.",
+"Many scientists think that Jupiter's gravity squeezes and flexes Europa, producing enough heat to keep an ocean of liquid water under the ice.",
+"If such a salty ocean exists, the spacecraft's magnetometer should detect a magnetic field around Europa that changes as the moon moves through Jupiter's magnetic field.",
+"The mission team also hopes to send a lander to Europa's surface in the future."
+],
+"answer": 4,
+"explain": "<p>A prediction states what <strong>should be observed if</strong> an idea is true. The sentence beginning &ldquo;If such a salty ocean exists, the spacecraft's magnetometer should detect&hellip;&rdquo; names a specific measurement the spacecraft can make to test the idea of a hidden ocean.</p><p>The sentence about Jupiter's gravity heating Europa is the hypothesis (the proposed explanation) being tested, not the observable result. The sentences about size, ice, and cracks are observations, and the sentence about craters is an inference drawn from an observation.</p>",
+"why": "Many students click the sentence about Jupiter's gravity keeping an ocean liquid, but that is the hypothesis, the proposed explanation. The prediction is the &ldquo;If &hellip; should detect&rdquo; sentence, which names a result the magnetometer can actually observe."
+},
+{
+"id": "q28",
+"type": "mc",
+"skill": "Identifying a hypothesis",
+"difficulty": 1,
+"stim": "s6",
+"prompt": "<p>Which hypothesis were the researchers most likely testing?</p>",
+"options": [
+"Astronauts in Group B exercised for fewer hours than astronauts in Group A.",
+"Bone density increases during spaceflight in astronauts who exercise every day.",
+"Astronauts who fly on longer missions have more kidney stones.",
+"Exercising with heavy resistance during a long mission reduces the loss of hip bone density."
+],
+"answer": 3,
+"explain": "<p>The groups differed in the <strong>type of exercise</strong> (resistance machine versus treadmill and bicycle), and the researchers measured <strong>hip bone density</strong>. So the hypothesis connects these: heavy resistance exercise reduces bone loss in space.</p><p>The passage gives no information about hours of exercise, and it compares exercise types, not mission lengths. The data show bone density decreased in both groups, so the idea that it increases is contradicted.</p>",
+"why": [
+"The passage gives no information about hours of exercise; the groups differed in the type of equipment.",
+"Both groups lost bone density (&minus;1.5% and &minus;5.5%), so the study was not testing whether density increases.",
+"All missions were 6 months, and kidney stones were not measured. The study compared exercise types and bone density.",
+""
+]
+},
+{
+"id": "q29",
+"type": "mc",
+"skill": "Body systems",
+"difficulty": 2,
+"stim": "s6",
+"prompt": "<p>The passage describes calcium from broken-down bone being filtered out of the blood and raising the risk of kidney stones. Which pair of body systems does this connect?</p>",
+"options": [
+"Skeletal system and excretory (urinary) system",
+"Skeletal system and digestive system",
+"Muscular system and respiratory system",
+"Nervous system and endocrine system"
+],
+"answer": 0,
+"explain": "<p>Bones belong to the <strong>skeletal system</strong>. The kidneys, which filter wastes and extra minerals from the blood to make urine, belong to the <strong>excretory (urinary) system</strong>. Calcium lost from bone is carried to the kidneys, where it can form stones.</p><p>The digestive system absorbs calcium from food, but the passage describes calcium leaving bone and being filtered by the kidneys, not absorbed from the intestines.</p>",
+"why": [
+"",
+"The digestive system absorbs calcium from food, but the passage describes calcium leaving bone and being filtered by the kidneys.",
+"Bones are skeletal, not muscular, and the kidneys are excretory, not respiratory.",
+"Neither the nervous nor the endocrine system is described; the passage connects bone with the kidneys."
+]
+},
+{
+"id": "q30",
+"type": "multi",
+"skill": "Improving an investigation",
+"difficulty": 3,
+"stim": "s6",
+"prompt": "<p>Which changes to the study would make its conclusion about the resistance machine more reliable?</p><p>Select <strong>two</strong> answers.</p>",
+"options": [
+"Include many more astronauts in each group",
+"Randomly assign astronauts on the same missions to the two exercise groups",
+"Measure bone density only after landing instead of before and after the flight",
+"Let each astronaut choose which exercise equipment to use",
+"Feed Group A a calcium-rich diet and Group B a normal diet"
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>With only five astronauts per group, one unusual person could change the averages, so a <strong>larger sample</strong> makes the results more trustworthy. Group B also flew on earlier missions, so other differences (food, equipment, length of stay) could explain the results; <strong>random assignment within the same missions</strong> spreads those differences evenly between the groups.</p><p>Measuring only after landing would remove the starting values needed to find the change. Letting astronauts choose, or giving the groups different diets, would add new uncontrolled variables.</p>",
+"why": [
+"",
+"",
+"Measuring only after landing removes the starting value, so the change in density could not be found.",
+"Letting astronauts choose adds a new difference between groups (who chooses what), which could bias the results.",
+"Giving the groups different diets adds a second variable, so a difference in bone loss could come from the diet instead of the machine."
+]
+},
+{
+"id": "q31",
+"type": "mc",
+"skill": "Energy transformations",
+"difficulty": 2,
+"prompt": "<p>A satellite's solar panels charge its batteries in sunlight. Later, the batteries power a transmitter that sends radio waves back to Earth. Which sequence of energy transformations is correct?</p>",
+"options": [
+"Chemical &rarr; light &rarr; electrical &rarr; mechanical",
+"Light &rarr; chemical &rarr; nuclear &rarr; electrical",
+"Electrical &rarr; light &rarr; chemical &rarr; thermal",
+"Light &rarr; electrical &rarr; chemical &rarr; electrical &rarr; electromagnetic (radio)"
+],
+"answer": 3,
+"explain": "<p>Follow the energy step by step:</p><p>1. Solar panels change <strong>light</strong> into <strong>electrical</strong> energy.<br>2. Charging stores that energy as <strong>chemical</strong> energy in the batteries.<br>3. The batteries release it as <strong>electrical</strong> energy.<br>4. The transmitter sends it out as radio waves, a form of <strong>electromagnetic</strong> energy.</p><p>The other sequences start in the wrong place or include steps (such as nuclear or mechanical energy) that do not occur in this system.</p>",
+"why": [
+"The energy starts as sunlight, not chemical energy, and a radio transmitter sends out electromagnetic waves, not mechanical energy.",
+"Nothing nuclear happens in a satellite's batteries or transmitter. The batteries change chemical energy back to electrical energy.",
+"The solar panels receive light first and turn it into electricity, so the chain starts with light, not electrical energy.",
+""
+]
+},
+{
+"id": "q32",
+"type": "multi",
+"skill": "Evaluating evidence",
+"difficulty": 2,
+"prompt": "<p>A planetary scientist claims that liquid water once flowed on the surface of Mars. Which observations from spacecraft and rovers support this claim?</p><p>Select <strong>two</strong> answers.</p>",
+"options": [
+"Rovers found clay minerals that form when rock is altered by water over long periods.",
+"Orbiters photographed fan-shaped deltas where ancient channels empty into craters.",
+"Mars has a thin atmosphere made mostly of carbon dioxide.",
+"Mars has the tallest known volcano in the solar system.",
+"Mars has two small, irregularly shaped moons."
+],
+"answer": [
+0,
+1
+],
+"explain": "<p>Evidence for past water must be something that water produces. <strong>Clay minerals</strong> form when water chemically changes rock over long periods. <strong>Deltas</strong> are deposits of sediment that form where flowing water slows down as it enters a lake or a basin.</p><p>A thin carbon dioxide atmosphere describes Mars today and does not show water once flowed. Volcanoes form from molten rock, and the moons tell us nothing about surface water.</p>",
+"why": [
+"",
+"",
+"A thin carbon dioxide atmosphere describes Mars today and is not something flowing water produces.",
+"Volcanoes form from molten rock, so a tall volcano says nothing about liquid water.",
+"The size and shape of the moons tell nothing about water on the surface."
+]
+},
+{
+"id": "q33",
+"type": "mc",
+"skill": "Radiometric dating",
+"difficulty": 3,
+"noShuffle": true,
+"prompt": "<p>A rock sample brought back from the Moon contains a radioactive isotope with a half-life of 1.3 billion years. Measurements show that 1/8 of the original amount of the isotope remains in the rock. About how old is the rock?</p>",
+"options": [
+"1.3 billion years",
+"2.6 billion years",
+"3.9 billion years",
+"10.4 billion years"
+],
+"answer": 2,
+"explain": "<p>After each half-life, half of the remaining isotope is left:</p><p>1 &rarr; 1/2 (1 half-life) &rarr; 1/4 (2 half-lives) &rarr; 1/8 (3 half-lives)</p><p>3 half-lives &times; 1.3 billion years = <strong>3.9 billion years</strong></p><p>Multiplying by 8 (8 &times; 1.3 = 10.4) confuses the fraction remaining with the number of half-lives; that age would also be older than the solar system itself.</p>",
+"why": [
+"1.3 billion years is one half-life, which leaves 1/2. Getting to 1/8 takes three halvings.",
+"2.6 billion years is two half-lives, which leaves 1/4. One more half-life is needed to reach 1/8.",
+"",
+"You multiplied by 8, confusing the fraction left with the number of half-lives. 1/8 = (1/2)<sup>3</sup>, so 3 half-lives."
+]
+},
+{
+"id": "q34",
+"type": "mc",
+"skill": "Eclipses",
+"difficulty": 1,
+"prompt": "<p>During a total solar eclipse, people in a narrow path on Earth see the Sun completely blocked for a few minutes. Which arrangement of the Sun, Earth, and Moon causes a solar eclipse?</p>",
+"options": [
+"Sun, then Earth, then Moon in a straight line, with Earth in the middle",
+"Sun, then Moon, then Earth in a straight line, with the Moon in the middle",
+"The Moon at a right angle to the line between the Sun and Earth",
+"Earth, then Sun, then Moon in a straight line, with the Sun in the middle"
+],
+"answer": 1,
+"explain": "<p>In a solar eclipse, the <strong>Moon passes between the Sun and Earth</strong>, and the Moon's shadow falls on part of Earth. This can happen only at new moon.</p><p>When Earth is in the middle, Earth's shadow falls on the Moon, causing a <em>lunar</em> eclipse. A right-angle arrangement produces a first- or third-quarter moon, not an eclipse.</p>",
+"why": [
+"With Earth in the middle, Earth's shadow falls on the Moon. That is a lunar eclipse, not a solar eclipse.",
+"",
+"A right-angle arrangement gives a first- or third-quarter moon, not an eclipse.",
+"The Sun cannot be between Earth and the Moon; the Moon orbits Earth. A solar eclipse needs the Moon between the Sun and Earth."
+]
+}
+]
+}
+]
 }

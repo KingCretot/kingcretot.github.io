@@ -1,314 +1,1024 @@
 {
-  "form": 4,
-  "subject": "sci",
-  "title": "Practice GED Form 4 — Science",
-  "minutes": 90,
-  "stimuli": [
-    {
-      "id": "s1",
-      "title": "Testing a New Vaccine",
-      "html": "<p>Researchers tested a new vaccine against a respiratory virus. They recruited 4,000 healthy adult volunteers and randomly assigned each person to one of two groups of 2,000. One group received the vaccine. The other group received a placebo, an injection of salt water that looks exactly like the vaccine. The trial was <strong>double-blind</strong>: neither the volunteers nor the researchers who examined them knew who had received which injection.</p><p>For six months, every volunteer who developed symptoms was tested, and the researchers counted the lab-confirmed cases of illness caused by the virus.</p><table><thead><tr><th>Group</th><th>Number of volunteers</th><th>Lab-confirmed cases of illness</th></tr></thead><tbody><tr><td>Vaccine</td><td>2,000</td><td>12</td></tr><tr><td>Placebo</td><td>2,000</td><td>80</td></tr></tbody></table><p>Researchers report how well a vaccine works as its <strong>efficacy</strong>:</p><p>Efficacy = (percent ill in placebo group &minus; percent ill in vaccine group) &divide; percent ill in placebo group &times; 100</p>"
-    },
-    {
-      "id": "s2",
-      "title": "How Vaccines Train the Immune System",
-      "html": "<p>When a virus enters the body, the immune system recognizes certain molecules on the virus's surface. A molecule that triggers an immune response is called an <strong>antigen</strong>. White blood cells called B cells respond by making <strong>antibodies</strong>, proteins that attach to the antigen and help the body destroy the virus. This first response is slow, so a person can become sick before it is strong enough. After the infection is cleared, some B cells remain in the body as <strong>memory cells</strong>. If the same virus enters the body again, the memory cells recognize it and produce antibodies much faster.</p><p>A vaccine contains a harmless form or piece of a virus, such as an inactivated virus or a single surface protein. It cannot cause the disease, but it carries the antigen, so the immune system responds and forms memory cells without the person getting sick. Many vaccines are given in two or more doses. The graph shows the average antibody level in a group of volunteers who received a first dose on day 0 and a second dose on day 28.</p><p>Vaccines also protect people who are not vaccinated. When a large share of a community is immune, an infected person is unlikely to meet someone the virus can infect, so the virus has trouble spreading. This indirect protection, called <strong>herd immunity</strong>, helps protect people who cannot be vaccinated, such as newborn babies and some people whose immune systems are weakened by illness or medical treatment. The share of people who must be immune depends on how contagious the disease is.</p>",
-      "figure": {"type": "line", "title": "Average Antibody Level After Two Vaccine Doses", "xLabel": "Day (first dose on day 0, second dose on day 28)", "yLabel": "Antibody level (units)", "labels": ["0", "7", "14", "21", "28", "35", "42", "49", "56"], "series": [{"name": "Antibody level", "values": [0, 5, 20, 25, 18, 120, 160, 150, 140]}]}
-    },
-    {
-      "id": "s3",
-      "title": "Sickle Cell Disease and Malaria",
-      "html": "<p>Hemoglobin is the protein in red blood cells that carries oxygen. One gene controls the type of hemoglobin a person makes. The allele <strong>A</strong> produces normal hemoglobin. The allele <strong>S</strong> produces sickle hemoglobin, which can cause red blood cells to bend into a stiff, curved (sickle) shape. Sickle-shaped cells can block small blood vessels, causing pain and organ damage.</p><p>A person with two S alleles (<strong>SS</strong>) has sickle cell disease. A person with one A allele and one S allele (<strong>AS</strong>) has sickle cell trait. People with sickle cell trait are <em>carriers</em>: they usually have no symptoms, but they can pass the S allele to their children. A person with two A alleles (<strong>AA</strong>) neither has the disease nor carries the S allele.</p><p>Malaria is a disease caused by a parasite that spreads through mosquito bites. Studies have found that people with sickle cell trait (AS) are less likely to die from severe malaria than people with two A alleles (AA). In regions of Africa where malaria has been common for thousands of years, the S allele is much more common than in places where malaria is rare.</p>"
-    },
-    {
-      "id": "s4",
-      "title": "Life Returns to a Lava Flow",
-      "html": "<p>When lava cools, it forms bare rock with no soil and no living things. Over time, living things move in, a process called <strong>primary succession</strong>. The first organisms to grow on the bare rock are called <strong>pioneer species</strong>. On many lava flows, these are lichens and mosses, which arrive as tiny spores carried by the wind. Lichens release acids that slowly break rock down into small particles. When lichens and mosses die, their remains decay and mix with the rock particles, forming a thin layer of soil. As the soil deepens, grasses and ferns can take root, followed by shrubs and finally trees.</p><p>Scientists surveyed lava flows of different ages on one volcanic island. Rainfall and elevation were similar at every site.</p><table><thead><tr><th>Age of lava flow (years)</th><th>Number of plant species</th><th>Average soil depth (cm)</th><th>Most common plants</th></tr></thead><tbody><tr><td>5</td><td>2</td><td>0</td><td>Lichens, mosses</td></tr><tr><td>50</td><td>14</td><td>1</td><td>Mosses, ferns, grasses</td></tr><tr><td>200</td><td>31</td><td>6</td><td>Grasses, shrubs</td></tr><tr><td>1,000</td><td>48</td><td>22</td><td>Shrubs, trees</td></tr></tbody></table>"
-    },
-    {
-      "id": "s5",
-      "title": "A Radioactive Tracer in Medicine",
-      "html": "<p>Doctors use small amounts of radioactive substances, called tracers, to make images of organs such as the heart and bones. One of the most common tracers is technetium-99m. The tracer is injected into the patient, and a special camera detects the radiation it gives off.</p><p>Technetium-99m has a <strong>half-life</strong> of about 6 hours: every 6 hours, half of the remaining radioactive material decays. The short half-life gives doctors enough time to complete a scan while keeping the patient's total exposure to radiation low.</p><p>The table shows the activity of one dose of the tracer over time. Activity is measured in megabecquerels (MBq), a unit for how much radiation a sample gives off.</p><table><thead><tr><th>Time after preparation (hours)</th><th>0</th><th>6</th><th>12</th><th>18</th><th>24</th></tr></thead><tbody><tr><td>Activity (MBq)</td><td>800</td><td>400</td><td>200</td><td>?</td><td>?</td></tr></tbody></table>"
-    },
-    {
-      "id": "s6",
-      "title": "Volcanic Gases and Acid Rain",
-      "html": "<p>Gases dissolved in magma escape when a volcano erupts or when magma rises close to the surface. The most abundant volcanic gas is water vapor, followed by carbon dioxide and sulfur gases such as sulfur dioxide (SO<sub>2</sub>) and hydrogen sulfide (H<sub>2</sub>S). Hydrogen sulfide, which smells like rotten eggs, reacts with oxygen in the air to form sulfur dioxide and water. Sulfur dioxide then reacts with water droplets in clouds to form acids, mainly sulfuric acid, which can fall as acid rain.</p><p>Scientists collected rainwater at several distances downwind of an active volcano. Rainwater that is not affected by pollution or volcanic gases has a pH of about 5.6. On the pH scale, each decrease of 1 unit means the solution is 10 times more acidic.</p><table><thead><tr><th>Distance downwind of volcano (km)</th><th>pH of rainwater</th></tr></thead><tbody><tr><td>5</td><td>3.6</td></tr><tr><td>10</td><td>4.6</td></tr><tr><td>20</td><td>5.1</td></tr><tr><td>40</td><td>5.6</td></tr></tbody></table>"
-    },
-    {
-      "id": "s7",
-      "title": "How an Instant Cold Pack Works",
-      "html": "<p>Athletic trainers and first-aid kits use instant cold packs to reduce swelling from injuries. A typical cold pack is a plastic pouch of water that also holds a smaller sealed bag of solid ammonium nitrate. Squeezing the pack breaks the inner bag, the solid dissolves in the water, and within seconds the pack feels cold.</p><p>A student investigated this process. In each trial, she placed 100 mL of water at 22.0 &deg;C in an insulated foam cup, stirred in a measured mass of ammonium nitrate, and recorded the lowest temperature the water reached.</p><table><thead><tr><th>Mass of ammonium nitrate (g)</th><th>Lowest temperature reached (&deg;C)</th></tr></thead><tbody><tr><td>0</td><td>22.0</td></tr><tr><td>10</td><td>15.2</td></tr><tr><td>20</td><td>8.9</td></tr><tr><td>30</td><td>3.1</td></tr></tbody></table>"
-    },
-    {
-      "id": "s8",
-      "title": "An Ambulance Run",
-      "html": "<p>An ambulance drove from its station to the scene of an emergency along a straight road. A GPS unit recorded the ambulance's distance from the station every 2 minutes. The data are shown in the table and graph.</p><table><thead><tr><th>Time (min)</th><th>0</th><th>2</th><th>4</th><th>6</th><th>8</th><th>10</th></tr></thead><tbody><tr><td>Distance from station (km)</td><td>0</td><td>1.6</td><td>3.2</td><td>3.2</td><td>5.6</td><td>8.0</td></tr></tbody></table>",
-      "figure": {"type": "line", "title": "Ambulance Distance from Station", "xLabel": "Time (min)", "yLabel": "Distance from station (km)", "labels": ["0", "2", "4", "6", "8", "10"], "series": [{"name": "Distance (km)", "values": [0, 1.6, 3.2, 3.2, 5.6, 8.0]}]}
-    },
-    {
-      "id": "s9",
-      "title": "Three Kinds of Lava",
-      "html": "<p>Magma and lava differ in their silica (silicon dioxide) content. Silica makes molten rock more <strong>viscous</strong>, meaning thicker and more resistant to flowing. Gas bubbles rise and escape easily from runny magma, so pressure does not build up much. In thick magma, gas is trapped; pressure builds until the magma bursts apart, blasting out ash and rock fragments.</p><table><thead><tr><th>Type of lava</th><th>Silica content (approximate %)</th><th>Eruption temperature (&deg;C)</th><th>Viscosity</th><th>Typical eruption style</th></tr></thead><tbody><tr><td>Basaltic</td><td>50</td><td>1,000&ndash;1,200</td><td>Low (runny)</td><td>Gentle; lava flows that can travel many kilometers</td></tr><tr><td>Andesitic</td><td>60</td><td>800&ndash;1,000</td><td>Medium</td><td>Moderately explosive; ash and thick lava flows</td></tr><tr><td>Rhyolitic</td><td>70</td><td>650&ndash;800</td><td>High (very thick)</td><td>Very explosive; huge ash clouds; short, thick lava flows</td></tr></tbody></table>"
-    },
-    {
-      "id": "s10",
-      "title": "Watching a Volcano Wake Up",
-      "html": "<p>Scientists monitor volcanoes for warning signs. As magma rises beneath a volcano, it pushes the ground upward and cracks the surrounding rock, producing many small earthquakes. The table and graph show weekly data collected at one volcano. The volcano erupted during week 7.</p><table><thead><tr><th>Week</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead><tbody><tr><td>Average earthquakes per day</td><td>3</td><td>4</td><td>9</td><td>22</td><td>48</td><td>110</td></tr><tr><td>Total ground uplift since start of week 1 (cm)</td><td>0.0</td><td>0.5</td><td>1.5</td><td>4.0</td><td>8.0</td><td>14.0</td></tr></tbody></table>",
-      "figure": {"type": "bar", "title": "Average Earthquakes per Day Before the Eruption", "xLabel": "Week", "yLabel": "Earthquakes per day", "labels": ["1", "2", "3", "4", "5", "6"], "series": [{"name": "Earthquakes per day", "values": [3, 4, 9, 22, 48, 110]}]}
-    },
-    {
-      "id": "s11",
-      "title": "The Hawaiian Island Chain",
-      "html": "<p>The Hawaiian Islands formed over a <strong>hotspot</strong>, a place where a plume of hot material rises from deep in the mantle and melts through the plate above it. Scientists think the hotspot stays in about the same place while the Pacific plate moves over it. The main islands lie in a line running from southeast to northwest. Kilauea, one of the most active volcanoes on Earth, is on the island of Hawaii at the southeast end of the chain.</p><table><thead><tr><th>Island</th><th>Position in chain (southeast to northwest)</th><th>Approximate age of main lava flows (million years)</th></tr></thead><tbody><tr><td>Hawaii</td><td>1st</td><td>less than 0.7</td></tr><tr><td>Maui</td><td>2nd</td><td>0.8&ndash;1.3</td></tr><tr><td>Oahu</td><td>3rd</td><td>2.2&ndash;3.4</td></tr><tr><td>Kauai</td><td>4th</td><td>3.8&ndash;5.6</td></tr></tbody></table>"
-    }
-  ],
-  "parts": [
-    {
-      "name": "Science",
-      "items": [
-        {
-          "id": "q1", "type": "mc", "skill": "Control group", "difficulty": 1, "stim": "s1",
-          "prompt": "<p>What is the main purpose of the placebo group in this trial?</p>",
-          "options": ["To give some volunteers a smaller dose of the vaccine", "To test whether salt water can prevent the illness", "To show how many similar people get sick without the vaccine, so the results can be compared", "To make sure every volunteer receives some protection from the virus"],
-          "answer": 2,
-          "explain": "<p>The placebo group is the <strong>control group</strong>. It is treated the same way as the vaccine group except that it does not get the vaccine. It shows how many similar people become ill without the vaccine, so researchers can compare and tell whether the vaccine made a difference.</p><p>The placebo is salt water, not a smaller vaccine dose, and it is not expected to protect anyone. The trial is not testing salt water; salt water is used only so both groups receive an injection that looks the same.</p>"
-        },
-        {
-          "id": "q2", "type": "fill", "skill": "Calculating percent", "difficulty": 1, "stim": "s1",
-          "prompt": "<p>What percent of the volunteers in the placebo group became ill with the virus? Enter a number.</p>",
-          "answer": ["4", "4%", "4.0"], "value": 4, "tol": 0.001, "suffix": "percent",
-          "explain": "<p>Percent = part &divide; whole &times; 100.</p><p>80 &divide; 2,000 = 0.04<br>0.04 &times; 100 = <strong>4%</strong></p><p>A common error is dividing by all 4,000 volunteers (80 &divide; 4,000 = 2%). The question asks only about the placebo group, which had 2,000 people.</p>"
-        },
-        {
-          "id": "q3", "type": "mc", "skill": "Using a formula with data", "difficulty": 3, "stim": "s1", "noShuffle": true,
-          "prompt": "<p>Use the formula in the passage. What was the efficacy of the vaccine in this trial?</p>",
-          "options": ["3.4%", "15%", "68%", "85%"],
-          "answer": 3,
-          "explain": "<p>Percent ill in vaccine group: 12 &divide; 2,000 = 0.006 = 0.6%<br>Percent ill in placebo group: 80 &divide; 2,000 = 0.04 = 4.0%</p><p>Efficacy = (4.0 &minus; 0.6) &divide; 4.0 &times; 100 = 3.4 &divide; 4.0 &times; 100 = 0.85 &times; 100 = <strong>85%</strong></p><p>3.4% is only the difference between the two percents (the formula's top line) before dividing. 15% is the vaccine group's rate divided by the placebo group's rate (0.6 &divide; 4.0), which is the share of illness that remained, not the share prevented. 68 is simply 80 &minus; 12 cases.</p>"
-        },
-        {
-          "id": "q4", "type": "mc", "skill": "Experimental design", "difficulty": 2, "stim": "s1",
-          "prompt": "<p>The trial was double-blind. Which statement best explains why this design makes the results more reliable?</p>",
-          "options": ["It doubles the number of volunteers, so the results are twice as accurate.", "It keeps expectations from affecting how volunteers report symptoms or how researchers judge them.", "It makes sure every volunteer receives the real vaccine at some point during the trial.", "It allows each volunteer to choose the group that will help him or her the most."],
-          "answer": 1,
-          "explain": "<p>If volunteers knew they had the vaccine, they might ignore mild symptoms and skip testing; if researchers knew, they might judge cases differently. Because <strong>no one knows who got which injection</strong>, these expectations cannot bias the results in one group.</p><p>Double-blind refers to who knows the group assignments, not to the number of volunteers. The placebo group did not receive the vaccine during the trial, and volunteers were randomly assigned rather than choosing their group.</p>"
-        },
-        {
-          "id": "q5", "type": "dropdown", "skill": "Immune response vocabulary", "difficulty": 1, "stim": "s2",
-          "prompt": "<p>Complete the statements based on the passage.</p><p>A vaccine contains a molecule from the virus, called a(n) {{0}}, that the immune system can recognize. After the first dose, the body keeps {{1}} cells that can make antibodies quickly if the real virus enters the body later.</p>",
-          "blanks": [
-            {"options": ["antibody", "antigen", "antibiotic", "enzyme"], "answer": 1},
-            {"options": ["red blood", "nerve", "memory", "skin"], "answer": 2}
-          ],
-          "explain": "<p>The passage defines an <strong>antigen</strong> as a molecule that triggers an immune response; the vaccine carries the antigen. Antibodies are the proteins the body makes in response, so they are not what the vaccine contains. Antibiotics are medicines that kill bacteria.</p><p>Some B cells remain as <strong>memory</strong> cells, which recognize the virus later and make antibodies much faster. Red blood cells carry oxygen and are not part of this response.</p>"
-        },
-        {
-          "id": "q6", "type": "mc", "skill": "Interpreting a line graph", "difficulty": 2, "stim": "s2",
-          "prompt": "<p>Which statement is best supported by the graph?</p>",
-          "options": ["The second dose produced a faster and larger rise in antibodies than the first dose.", "The antibody level kept rising during all 56 days shown.", "The first dose did not cause the body to make any antibodies.", "The antibody level was highest on day 28, when the second dose was given."],
-          "answer": 0,
-          "explain": "<p>In the 7 days after the first dose, the level rose from 0 to 5 units, and it peaked at only 25 units (day 21). In the 7 days after the second dose, it rose from 18 to 120 units and peaked at 160 units (day 42). So <strong>the second dose produced a faster and larger response</strong>, as expected when memory cells are present.</p><p>The level fell after day 42 (160 &rarr; 150 &rarr; 140), so it did not rise the whole time. The first dose did produce antibodies (up to 25 units). On day 28 the level was 18 units, lower than on day 21.</p>"
-        },
-        {
-          "id": "q7", "type": "multi", "skill": "Using evidence from a text", "difficulty": 2, "stim": "s2",
-          "prompt": "<p>Which statements are supported by the passage?</p><p>Select <strong>two</strong> answers.</p>",
-          "options": ["Vaccinating most people in a community can help protect babies who are too young to be vaccinated.", "Vaccines work by killing viruses directly in the blood, the same way antibiotics kill bacteria.", "When most people in a community are immune, the virus has fewer people it can infect and spread to.", "Herd immunity works only if every single person in a community is vaccinated.", "Once antibodies reach their highest level, they stay at that level for life."],
-          "answer": [0, 2],
-          "explain": "<p>The passage says that when a large share of people are immune, an infected person is unlikely to meet someone the virus can infect, so <strong>the virus has trouble spreading</strong>, and that herd immunity protects people who cannot be vaccinated, <strong>such as newborn babies</strong>.</p><p>Vaccines do not kill viruses directly; they train the immune system by supplying an antigen. Herd immunity requires a large share of the community, not every person. The graph shows antibody levels falling after day 42, so they do not stay at their peak.</p>"
-        },
-        {
-          "id": "q8", "type": "fill", "skill": "Punnett square probability", "difficulty": 2, "stim": "s3",
-          "prompt": "<p>Two parents both have sickle cell trait (<strong>AS</strong>). What is the probability, as a percent, that any one of their children will have sickle cell disease?</p>",
-          "answer": ["25", "25%"], "value": 25, "tol": 0.001, "suffix": "percent",
-          "explain": "<p>Cross AS &times; AS:</p><table><thead><tr><th></th><th>A</th><th>S</th></tr></thead><tbody><tr><th>A</th><td>AA</td><td>AS</td></tr><tr><th>S</th><td>AS</td><td>SS</td></tr></tbody></table><p>Only <strong>SS</strong> children have sickle cell disease. That is 1 of 4 boxes: 1 &divide; 4 = 0.25 = <strong>25%</strong>.</p><p>A common error is answering 50% by counting the two AS boxes. AS children have sickle cell trait (carriers), not the disease.</p>"
-        },
-        {
-          "id": "q9", "type": "mc", "skill": "Punnett square reasoning", "difficulty": 3, "stim": "s3", "noShuffle": true,
-          "prompt": "<p>The same two parents (AS &times; AS) have a child who does <strong>not</strong> have sickle cell disease. What is the probability that this child is a carrier (AS)?</p>",
-          "options": ["1/4", "1/2", "2/3", "3/4"],
-          "answer": 2,
-          "explain": "<p>The four equally likely outcomes are AA, AS, AS, and SS. We already know the child does not have the disease, so SS is ruled out. That leaves three equally likely possibilities: AA, AS, AS.</p><p>Two of those three are carriers: <strong>2/3</strong>.</p><p>1/2 is the chance that a child is AS <em>before</em> we know anything about the child (2 of 4 boxes). 3/4 is the chance that a child does not have the disease, not the chance of being a carrier.</p>"
-        },
-        {
-          "id": "q10", "type": "mc", "skill": "Natural selection", "difficulty": 2, "stim": "s3",
-          "prompt": "<p>Which statement best explains why the S allele is more common in regions where malaria has been common for a long time?</p>",
-          "options": ["Malaria causes the hemoglobin genes of people who catch it to mutate into the S allele.", "People with sickle cell disease (SS) stay completely healthy in regions with malaria.", "People in these regions choose partners who carry the S allele.", "Carriers (AS) are more likely to survive malaria and have children, so the S allele is passed on more often."],
-          "answer": 3,
-          "explain": "<p>This is natural selection. The passage says people with sickle cell trait (AS) are less likely to die from severe malaria. Where malaria is common, <strong>carriers survive and reproduce more often than AA individuals</strong>, so over many generations the S allele becomes more common.</p><p>Malaria does not cause the S mutation; it affects which people survive. SS individuals have sickle cell disease, which causes pain and organ damage, so they are not completely healthy. The passage gives no evidence that people choose partners based on this gene.</p>"
-        },
-        {
-          "id": "q11", "type": "hotspot", "skill": "Identifying a hypothesis", "difficulty": 1,
-          "prompt": "<p>A student wrote these sentences in a lab notebook about an investigation of hand sanitizer. Click the sentence that states the student's <strong>hypothesis</strong>.</p>",
-          "spans": ["I wondered whether hand sanitizer reduces the number of bacteria on people's hands.", "If people use hand sanitizer, then fewer bacteria colonies will grow from their fingertip prints.", "Ten volunteers pressed their fingertips onto one agar plate before using sanitizer and onto a second plate after using it.", "All plates were kept at 37 &deg;C for 48 hours.", "The before plates averaged 46 colonies, and the after plates averaged 7 colonies.", "These results support the idea that sanitizer reduces bacteria on hands."],
-          "answer": 1,
-          "explain": "<p>A hypothesis is a testable prediction, often written as an <em>if&hellip; then&hellip;</em> statement. <strong>If people use hand sanitizer, then fewer bacteria colonies will grow</strong> is the prediction the experiment tests.</p><p>The first sentence is the question that led to the investigation, not a prediction. The middle sentences describe the procedure and results, and the last sentence is the conclusion drawn after the data were collected.</p>"
-        },
-        {
-          "id": "q12", "type": "drag", "skill": "Body systems", "difficulty": 1,
-          "prompt": "<p>During a checkup, a doctor examines several organs. Drag each organ into the body system it belongs to.</p>",
-          "choices": ["Heart", "Lungs", "Stomach", "Arteries", "Trachea (windpipe)", "Small intestine"],
-          "bins": ["Circulatory system", "Respiratory system", "Digestive system"],
-          "answer": [0, 1, 2, 0, 1, 2],
-          "explain": "<p><strong>Circulatory system:</strong> the heart pumps blood, and arteries carry blood away from the heart.</p><p><strong>Respiratory system:</strong> air travels through the trachea to the lungs, where oxygen enters the blood and carbon dioxide leaves it.</p><p><strong>Digestive system:</strong> the stomach breaks down food, and the small intestine finishes digestion and absorbs nutrients.</p><p>A common mistake is placing the lungs in the circulatory system because blood passes through them; their job is gas exchange, which is a respiratory function.</p>"
-        },
-        {
-          "id": "q13", "type": "mc", "skill": "Ecological succession", "difficulty": 2, "stim": "s4",
-          "prompt": "<p>Based on the passage, why are lichens and mosses important in the early stages of succession on a lava flow?</p>",
-          "options": ["They shade the bare rock so that no other plants can grow there.", "They begin breaking the rock down and adding organic matter, forming the soil that later plants need.", "They are the largest plants found on the oldest lava flows.", "They are the only living things that can survive on lava flows of any age."],
-          "answer": 1,
-          "explain": "<p>The passage says lichens release acids that break rock into small particles, and their remains, along with those of mosses, decay and mix with the particles to <strong>form soil</strong>. Grasses, shrubs, and trees need that soil to take root.</p><p>Lichens and mosses do not prevent other plants from growing; they make it possible. The table shows that shrubs and trees, not lichens, are most common on the oldest flows, and many other species live on older flows.</p>"
-        },
-        {
-          "id": "q14", "type": "mc", "skill": "Drawing conclusions from data", "difficulty": 2, "stim": "s4",
-          "prompt": "<p>Which conclusion is best supported by the data in the table?</p>",
-          "options": ["Soil depth stopped increasing after the flows were 200 years old.", "The number of plant species doubled every 50 years.", "Older flows have fewer plant species because trees crowd out other plants.", "The number of plant species and the depth of the soil both increase as lava flows get older."],
-          "answer": 3,
-          "explain": "<p>As flow age increases from 5 to 1,000 years, the number of species rises (2 &rarr; 14 &rarr; 31 &rarr; 48) and soil depth rises (0 &rarr; 1 &rarr; 6 &rarr; 22 cm). So <strong>both increase as flows get older</strong>.</p><p>Soil kept deepening after 200 years (6 cm to 22 cm). The number of species did not double every 50 years; it went from 31 to only 48 over 800 years. The oldest flow has the most species, not the fewest.</p>"
-        },
-        {
-          "id": "q15", "type": "fill", "skill": "Half-life calculations", "difficulty": 2, "stim": "s5",
-          "prompt": "<p>What will the activity of the dose be 24 hours after preparation? Enter a number in MBq.</p>",
-          "answer": ["50"], "value": 50, "tol": 0.001, "suffix": "MBq",
-          "explain": "<p>24 hours &divide; 6 hours per half-life = 4 half-lives. Halve the activity four times:</p><p>800 &rarr; 400 (6 h) &rarr; 200 (12 h) &rarr; 100 (18 h) &rarr; <strong>50 MBq</strong> (24 h)</p><p>A common error is subtracting the same amount each time (800 &minus; 400 &minus; 400 = 0). In radioactive decay, the activity is cut in half each half-life; it does not fall by a fixed amount.</p>"
-        },
-        {
-          "id": "q16", "type": "mc", "skill": "Half-life calculations", "difficulty": 2, "stim": "s5", "noShuffle": true,
-          "prompt": "<p>About how many hours after preparation will the activity of the dose fall to 25 MBq?</p>",
-          "options": ["24 hours", "30 hours", "32 hours", "192 hours"],
-          "answer": 1,
-          "explain": "<p>Count the halvings from 800 MBq:</p><p>800 &rarr; 400 &rarr; 200 &rarr; 100 &rarr; 50 &rarr; 25 is 5 half-lives.<br>5 &times; 6 hours = <strong>30 hours</strong></p><p>24 hours is when the activity reaches 50 MBq, one half-life too early. 32 comes from 800 &divide; 25, which is how many times smaller the activity becomes, not a number of hours. 192 multiplies that 32 by 6 hours.</p>"
-        },
-        {
-          "id": "q17", "type": "mc", "skill": "Atomic structure", "difficulty": 1, "noShuffle": true,
-          "prompt": "<p>Technetium has an atomic number of 43. The isotope technetium-99 has a mass number of 99. How many <strong>neutrons</strong> are in the nucleus of a technetium-99 atom?</p>",
-          "options": ["43", "56", "99", "142"],
-          "answer": 1,
-          "explain": "<p>The atomic number is the number of protons (43). The mass number is protons + neutrons (99).</p><p>Neutrons = mass number &minus; atomic number = 99 &minus; 43 = <strong>56</strong></p><p>43 is the number of protons, and 99 is the total number of particles in the nucleus. 142 comes from adding the two numbers instead of subtracting.</p>"
-        },
-        {
-          "id": "q18", "type": "dropdown", "skill": "Balancing chemical equations", "difficulty": 3, "stim": "s6",
-          "prompt": "<p>Hydrogen sulfide reacts with oxygen to form sulfur dioxide and water. Choose the coefficients that balance the equation.</p><p>{{0}} H<sub>2</sub>S + {{1}} O<sub>2</sub> &rarr; 2 SO<sub>2</sub> + {{2}} H<sub>2</sub>O</p>",
-          "blanks": [
-            {"options": ["1", "2", "3", "4"], "answer": 1},
-            {"options": ["1", "2", "3", "4"], "answer": 2},
-            {"options": ["1", "2", "3", "4"], "answer": 1}
-          ],
-          "explain": "<p><strong>Sulfur:</strong> 2 SO<sub>2</sub> has 2 S atoms, so the left side needs <strong>2</strong> H<sub>2</sub>S.</p><p><strong>Hydrogen:</strong> 2 H<sub>2</sub>S has 4 H atoms, so the right side needs <strong>2</strong> H<sub>2</sub>O (4 H atoms).</p><p><strong>Oxygen:</strong> the right side now has 2 &times; 2 = 4 O in SO<sub>2</sub> plus 2 O in water = 6 O atoms. The left side needs <strong>3</strong> O<sub>2</sub> (6 O atoms).</p><p>Check: 2H<sub>2</sub>S + 3O<sub>2</sub> &rarr; 2SO<sub>2</sub> + 2H<sub>2</sub>O has 4 H, 2 S, and 6 O on each side. A common error is choosing 2 O<sub>2</sub>, which counts the oxygen in SO<sub>2</sub> but forgets the oxygen in the water.</p>"
-        },
-        {
-          "id": "q19", "type": "mc", "skill": "The pH scale", "difficulty": 2, "stim": "s6", "noShuffle": true,
-          "prompt": "<p>How many times more acidic is the rainwater collected 5 km from the volcano than the rainwater collected 40 km away?</p>",
-          "options": ["2 times", "20 times", "100 times", "1,000 times"],
-          "answer": 2,
-          "explain": "<p>The pH at 5 km is 3.6, and at 40 km it is 5.6. The difference is 5.6 &minus; 3.6 = 2 pH units.</p><p>Each unit is a factor of 10: 10 &times; 10 = <strong>100 times</strong> more acidic.</p><p>2 times treats the pH scale as if each unit were a simple step rather than a factor of 10. 20 times multiplies 2 &times; 10 instead of multiplying by 10 twice. 1,000 times would require a difference of 3 units.</p>"
-        },
-        {
-          "id": "q20", "type": "mc", "skill": "Calculating density", "difficulty": 2,
-          "prompt": "<p>Pumice is a volcanic rock full of tiny holes left by gas bubbles. A student measures a piece of pumice with a mass of 24 g and a volume of 40 cm<sup>3</sup>. The density of water is 1.0 g/cm<sup>3</sup>. Which choice gives the density of the pumice and correctly predicts whether it will float in water?</p>",
-          "options": ["0.6 g/cm<sup>3</sup>, so it will sink", "1.7 g/cm<sup>3</sup>, so it will float", "1.7 g/cm<sup>3</sup>, so it will sink", "0.6 g/cm<sup>3</sup>, so it will float"],
-          "answer": 3,
-          "explain": "<p>Density = mass &divide; volume = 24 g &divide; 40 cm<sup>3</sup> = <strong>0.6 g/cm<sup>3</sup></strong>.</p><p>An object less dense than water floats, and 0.6 is less than 1.0, so <strong>the pumice floats</strong>.</p><p>1.7 g/cm<sup>3</sup> comes from dividing volume by mass (40 &divide; 24 &asymp; 1.7), which is upside down. Pairing 0.6 g/cm<sup>3</sup> with sinking reverses the rule: only objects denser than water sink.</p>"
-        },
-        {
-          "id": "q21", "type": "mc", "skill": "Endothermic processes", "difficulty": 2, "stim": "s7",
-          "prompt": "<p>Which conclusion is best supported by the student's results?</p>",
-          "options": ["Dissolving ammonium nitrate releases cold into the water.", "Dissolving ammonium nitrate releases heat energy, which makes the water colder.", "The drop in temperature does not depend on how much ammonium nitrate is dissolved.", "Dissolving ammonium nitrate absorbs heat energy from the water, and more solid causes a larger temperature drop."],
-          "answer": 3,
-          "explain": "<p>The water got colder, which means energy left the water: <strong>dissolving ammonium nitrate absorbs heat energy</strong> (an endothermic process). More solid caused a bigger drop: 6.8 &deg;C for 10 g (22.0 &minus; 15.2), 13.1 &deg;C for 20 g (22.0 &minus; 8.9), and 18.9 &deg;C for 30 g (22.0 &minus; 3.1).</p><p>Cold is not a substance that can be released; a temperature drop means heat was absorbed. A process that releases heat would warm the water. The table clearly shows the temperature drop depends on the mass dissolved.</p>"
-        },
-        {
-          "id": "q22", "type": "drag", "skill": "Exothermic and endothermic changes", "difficulty": 2,
-          "prompt": "<p>Classify each change by whether it releases energy to its surroundings or absorbs energy from its surroundings. Drag each change into the correct category.</p>",
-          "choices": ["A hand warmer heats up as iron in it reacts with oxygen", "Ice melts in a glass of lemonade", "Wood burns in a campfire", "Water boils in a pot on a stove", "Steam condenses into droplets on a cold bathroom mirror"],
-          "bins": ["Releases energy (exothermic)", "Absorbs energy (endothermic)"],
-          "answer": [0, 1, 0, 1, 0],
-          "explain": "<p><strong>Releases energy:</strong> the hand warmer and the burning wood give off heat from chemical reactions. Condensing steam also releases energy: water vapor gives off heat as it turns back into liquid, and that heat passes into the mirror.</p><p><strong>Absorbs energy:</strong> melting ice and boiling water both take in heat to change state.</p><p>A common mistake is calling condensation endothermic because the mirror is cold. The mirror is cold, but the steam releases heat to it as it condenses; condensation is the reverse of boiling.</p>"
-        },
-        {
-          "id": "q23", "type": "fill", "skill": "Calculating average speed", "difficulty": 3, "stim": "s8",
-          "prompt": "<p>What was the ambulance's average speed for the whole 10-minute trip, in kilometers per hour? Enter a number.</p>",
-          "answer": ["48"], "value": 48, "tol": 0.001, "suffix": "km/h",
-          "explain": "<p>Average speed = total distance &divide; total time.</p><p>8.0 km &divide; 10 min = 0.8 km per minute<br>There are 60 minutes in an hour: 0.8 &times; 60 = <strong>48 km/h</strong></p><p>Answering 0.8 forgets to convert minutes to hours. Answering 60 km/h comes from leaving out the 2 minutes when the ambulance was not moving (8.0 km &divide; 8 min = 1.0 km/min). Average speed for a whole trip uses the total time, including stops.</p>"
-        },
-        {
-          "id": "q24", "type": "mc", "skill": "Interpreting a motion graph", "difficulty": 2, "stim": "s8",
-          "prompt": "<p>During which part of the trip was the ambulance moving the fastest?</p>",
-          "options": ["From 0 to 4 minutes", "From 4 to 6 minutes", "From 6 to 10 minutes", "The speed was the same for the whole trip."],
-          "answer": 2,
-          "explain": "<p>Compare the distance covered in each part:</p><p>0 to 4 min: 3.2 km &divide; 4 min = 0.8 km/min<br>4 to 6 min: 3.2 &minus; 3.2 = 0 km, so the ambulance was stopped<br>6 to 10 min: 8.0 &minus; 3.2 = 4.8 km &divide; 4 min = <strong>1.2 km/min</strong></p><p>The steepest part of the distance-time graph is <strong>from 6 to 10 minutes</strong>. The flat part from 4 to 6 minutes shows no movement at all, and the changing slopes show the speed was not constant.</p>"
-        },
-        {
-          "id": "q25", "type": "mc", "skill": "Using F = ma", "difficulty": 1, "noShuffle": true,
-          "prompt": "<p>An ambulance with a mass of 4,000 kg brakes and slows down at a rate of 5 m/s<sup>2</sup>. Using <strong>F = ma</strong>, what is the size of the braking force?</p>",
-          "options": ["800 N", "3,995 N", "4,005 N", "20,000 N"],
-          "answer": 3,
-          "explain": "<p>F = m &times; a<br>F = 4,000 kg &times; 5 m/s<sup>2</sup> = <strong>20,000 N</strong></p><p>800 N comes from dividing mass by acceleration. 3,995 N and 4,005 N come from subtracting or adding the two numbers instead of multiplying.</p>"
-        },
-        {
-          "id": "q26", "type": "mc", "skill": "Sound waves and the Doppler effect", "difficulty": 2,
-          "prompt": "<p>An ambulance with its siren on drives toward a person standing on a sidewalk, passes her, and drives away. The siren itself produces the same sound the whole time. Which statement best describes what the person hears and why?</p>",
-          "options": ["The pitch sounds lower as the ambulance approaches and higher after it passes, because sound travels faster toward the listener.", "The pitch sounds higher as the ambulance approaches and lower after it passes, because the sound waves are squeezed together in front of the ambulance and spread out behind it.", "The pitch stays exactly the same the whole time, because the siren always produces the same sound.", "The pitch sounds higher after the ambulance passes, because the sound waves bounce off nearby buildings."],
-          "answer": 1,
-          "explain": "<p>This is the <strong>Doppler effect</strong>. As the ambulance moves toward the listener, each wave is sent out a little closer to her than the last, so the waves are squeezed together: shorter wavelength, higher frequency, <strong>higher pitch</strong>. After it passes, the waves are stretched out: longer wavelength, lower frequency, <strong>lower pitch</strong>.</p><p>The siren's own sound does not change, but the frequency the listener receives does. The speed of sound in air does not depend on the motion of the source, and echoes do not explain the steady change in pitch.</p>"
-        },
-        {
-          "id": "q27", "type": "mc", "skill": "Electromagnetic spectrum", "difficulty": 2,
-          "prompt": "<p>X-rays can pass through skin and muscle but are mostly absorbed by bone, which is why they are used to look for broken bones. Visible light cannot pass through skin. Compared with visible light, X-rays have</p>",
-          "options": ["shorter wavelengths, higher frequencies, and more energy.", "longer wavelengths, higher frequencies, and more energy.", "shorter wavelengths, lower frequencies, and less energy.", "longer wavelengths, lower frequencies, and less energy."],
-          "answer": 0,
-          "explain": "<p>On the electromagnetic spectrum, X-rays lie beyond ultraviolet light, on the high-energy side of visible light. They have <strong>shorter wavelengths, higher frequencies, and more energy</strong>, which lets them pass through soft tissue.</p><p>For all electromagnetic waves, a shorter wavelength goes with a higher frequency and more energy, so a wave cannot have both a longer wavelength and a higher frequency. Radio waves and microwaves, not X-rays, have longer wavelengths and less energy than visible light.</p>"
-        },
-        {
-          "id": "q28", "type": "mc", "skill": "Electric power and energy", "difficulty": 3, "noShuffle": true,
-          "prompt": "<p>A home oxygen machine plugs into a 120-volt outlet and draws a current of 2.5 amperes. Power is found with <strong>P = VI</strong> (power in watts = voltage &times; current). How much electrical energy does the machine use if it runs for 8 hours? (1 kilowatt = 1,000 watts)</p>",
-          "options": ["0.3 kWh", "0.96 kWh", "2.4 kWh", "2,400 kWh"],
-          "answer": 2,
-          "explain": "<p>Step 1, power: P = 120 V &times; 2.5 A = 300 W = 0.3 kW</p><p>Step 2, energy: energy = power &times; time = 0.3 kW &times; 8 h = <strong>2.4 kWh</strong></p><p>0.3 kWh leaves out the 8 hours. 2,400 kWh uses watts (300 &times; 8 = 2,400 Wh) but labels the answer as kilowatt-hours without dividing by 1,000. 0.96 kWh multiplies the voltage by the time (120 &times; 8 = 960) and leaves out the current.</p>"
-        },
-        {
-          "id": "q29", "type": "mc", "skill": "Volcanoes and magma", "difficulty": 1, "stim": "s9",
-          "prompt": "<p>Which relationship is shown in the table?</p>",
-          "options": ["As silica content increases, lava becomes more viscous and eruptions tend to be more explosive.", "As silica content increases, lava becomes runnier and eruptions tend to be gentler.", "As eruption temperature increases, eruptions tend to become more explosive.", "Silica content has no clear connection to how a volcano erupts."],
-          "answer": 0,
-          "explain": "<p>Reading down the table, silica rises from about 50% to 60% to 70%, viscosity rises from low to medium to high, and the eruption style changes from gentle to moderately explosive to very explosive. So <strong>more silica means thicker lava and more explosive eruptions</strong>.</p><p>The hottest lava (basaltic, 1,000&ndash;1,200 &deg;C) has the gentlest eruptions, so higher temperature does not go with more explosive eruptions here. The table shows a clear pattern, so silica content is connected to eruption style.</p>"
-        },
-        {
-          "id": "q30", "type": "multi", "skill": "Using evidence from data", "difficulty": 2, "stim": "s9",
-          "prompt": "<p>Which statements are supported by the passage and table?</p><p>Select <strong>two</strong> answers.</p>",
-          "options": ["Basaltic lava erupts at the highest temperatures of the three types.", "Rhyolitic lava flows travel the farthest because they contain the most silica.", "Gas escapes more easily from runny, low-silica magma, so pressure does not build up as much.", "Most very explosive eruptions involve basaltic magma.", "Lava temperature and silica content are not related in the table."],
-          "answer": [0, 2],
-          "explain": "<p><strong>Basaltic lava</strong> erupts at 1,000&ndash;1,200 &deg;C, the highest range in the table. The passage states that <strong>gas escapes easily from runny magma, so pressure does not build up much</strong>.</p><p>Rhyolitic lava forms short, thick flows; basaltic flows travel many kilometers. Very explosive eruptions are linked to rhyolitic, high-silica magma, not basaltic. Temperature and silica are related: as silica goes up, eruption temperature goes down.</p>"
-        },
-        {
-          "id": "q31", "type": "mc", "skill": "Interpreting data trends", "difficulty": 2, "stim": "s10",
-          "prompt": "<p>Which conclusion is best supported by the monitoring data?</p>",
-          "options": ["Earthquake activity and ground uplift both increased more and more rapidly in the weeks before the eruption.", "The number of earthquakes per day stayed about the same until the eruption began.", "The ground sank steadily as the eruption approached.", "The earthquakes were caused by the eruption, because they happened at the same time as it."],
-          "answer": 0,
-          "explain": "<p>Earthquakes per day rose by 1, 5, 13, 26, and then 62 from week to week, and uplift grew by 0.5, 1.0, 2.5, 4.0, and then 6.0 cm. Both measurements <strong>increased faster and faster</strong> before the eruption in week 7, consistent with magma rising beneath the volcano.</p><p>The number of earthquakes rose from 3 to 110 per day, so it did not stay the same. The ground rose (uplift), not sank. The earthquakes happened in weeks 1 through 6, before the eruption, so the eruption could not have caused them.</p>"
-        },
-        {
-          "id": "q32", "type": "mc", "skill": "Calculating a rate of change", "difficulty": 3, "stim": "s10", "noShuffle": true,
-          "prompt": "<p>What was the average rate of ground uplift from week 4 to week 6?</p>",
-          "options": ["2.3 cm per week", "3.3 cm per week", "5.0 cm per week", "10 cm per week"],
-          "answer": 2,
-          "explain": "<p>Rate = change in uplift &divide; change in time.</p><p>14.0 &minus; 4.0 = 10.0 cm<br>Week 6 &minus; week 4 = 2 weeks<br>10.0 &divide; 2 = <strong>5.0 cm per week</strong></p><p>3.3 comes from dividing by 3 by counting weeks 4, 5, and 6 as three weeks; the time that passes from week 4 to week 6 is 2 weeks. 2.3 is the average over all six weeks (14.0 &divide; 6). 10 is the total change, not divided by time.</p>"
-        },
-        {
-          "id": "q33", "type": "mc", "skill": "Volcanoes and climate", "difficulty": 2,
-          "prompt": "<p>In 1991, Mount Pinatubo in the Philippines erupted and sent roughly 15 to 20 million metric tons of sulfur dioxide high into the stratosphere. There, the gas formed tiny droplets of sulfuric acid that spread around the globe and remained for more than a year. Over the next year or so, Earth's average surface temperature dropped by about 0.5 &deg;C. Which statement best explains this cooling?</p>",
-          "options": ["The sulfuric acid droplets high in the atmosphere reflected some incoming sunlight back into space.", "The eruption released carbon dioxide, which trapped heat and cooled Earth's surface.", "Heat from the eruption escaped into space and carried heat away from the rest of Earth.", "Volcanic ash stayed over the Philippines for two years and blocked sunlight everywhere on Earth."],
-          "answer": 0,
-          "explain": "<p>The droplets formed from sulfur dioxide spread worldwide and stayed in the stratosphere for more than a year. They <strong>reflected some sunlight back into space</strong>, so less solar energy reached Earth's surface, and average temperatures dropped.</p><p>Carbon dioxide traps heat and causes warming, not cooling. The heat of one eruption is tiny compared with the energy Earth receives from the Sun. Ash over one region could not block sunlight everywhere on Earth, and heavy ash particles fall out of the air within days to weeks; the passage credits the long-lasting droplets.</p>"
-        },
-        {
-          "id": "q34", "type": "mc", "skill": "Plate motion and hotspots", "difficulty": 3, "stim": "s11",
-          "prompt": "<p>Which explanation best accounts for the pattern of island ages in the table?</p>",
-          "options": ["The Pacific plate is moving northwest over a hotspot that stays in place, so older volcanoes are carried away from it.", "The Pacific plate is moving southeast over a hotspot that stays in place, so the newest islands form at the northwest end.", "The islands formed at a subduction zone where the Pacific plate sinks beneath a continental plate.", "All the islands formed at the same time, but erosion has made the northwestern islands appear older."],
-          "answer": 0,
-          "explain": "<p>The youngest island (Hawaii, less than 0.7 million years old and still growing) is at the southeast end, over the hotspot, and the islands get older toward the northwest (Maui 0.8&ndash;1.3, Oahu 2.2&ndash;3.4, Kauai 3.8&ndash;5.6 million years). Each volcano formed over the fixed hotspot and was then carried away as <strong>the plate moved northwest</strong>, while a new volcano formed over the hotspot.</p><p>If the plate moved southeast, the oldest islands would lie to the southeast, which is the opposite of the data. The passage says the islands formed over a hotspot, not at a subduction zone. The rock ages show the islands formed millions of years apart, not at the same time.</p>"
-        }
-      ]
-    }
-  ]
+"form": 4,
+"subject": "sci",
+"title": "Practice GED Form 4 — Science",
+"minutes": 90,
+"stimuli": [
+{
+"id": "s1",
+"title": "Testing a New Vaccine",
+"html": "<p>Researchers tested a new vaccine against a respiratory virus. They recruited 4,000 healthy adult volunteers and randomly assigned each person to one of two groups of 2,000. One group received the vaccine. The other group received a placebo, an injection of salt water that looks exactly like the vaccine. The trial was <strong>double-blind</strong>: neither the volunteers nor the researchers who examined them knew who had received which injection.</p><p>For six months, every volunteer who developed symptoms was tested, and the researchers counted the lab-confirmed cases of illness caused by the virus.</p><table><thead><tr><th>Group</th><th>Number of volunteers</th><th>Lab-confirmed cases of illness</th></tr></thead><tbody><tr><td>Vaccine</td><td>2,000</td><td>12</td></tr><tr><td>Placebo</td><td>2,000</td><td>80</td></tr></tbody></table><p>Researchers report how well a vaccine works as its <strong>efficacy</strong>:</p><p>Efficacy = (percent ill in placebo group &minus; percent ill in vaccine group) &divide; percent ill in placebo group &times; 100</p>"
+},
+{
+"id": "s2",
+"title": "How Vaccines Train the Immune System",
+"html": "<p>When a virus enters the body, the immune system recognizes certain molecules on the virus's surface. A molecule that triggers an immune response is called an <strong>antigen</strong>. White blood cells called B cells respond by making <strong>antibodies</strong>, proteins that attach to the antigen and help the body destroy the virus. This first response is slow, so a person can become sick before it is strong enough. After the infection is cleared, some B cells remain in the body as <strong>memory cells</strong>. If the same virus enters the body again, the memory cells recognize it and produce antibodies much faster.</p><p>A vaccine contains a harmless form or piece of a virus, such as an inactivated virus or a single surface protein. It cannot cause the disease, but it carries the antigen, so the immune system responds and forms memory cells without the person getting sick. Many vaccines are given in two or more doses. The graph shows the average antibody level in a group of volunteers who received a first dose on day 0 and a second dose on day 28.</p><p>Vaccines also protect people who are not vaccinated. When a large share of a community is immune, an infected person is unlikely to meet someone the virus can infect, so the virus has trouble spreading. This indirect protection, called <strong>herd immunity</strong>, helps protect people who cannot be vaccinated, such as newborn babies and some people whose immune systems are weakened by illness or medical treatment. The share of people who must be immune depends on how contagious the disease is.</p>",
+"figure": {
+"type": "line",
+"title": "Average Antibody Level After Two Vaccine Doses",
+"xLabel": "Day (first dose on day 0, second dose on day 28)",
+"yLabel": "Antibody level (units)",
+"labels": [
+"0",
+"7",
+"14",
+"21",
+"28",
+"35",
+"42",
+"49",
+"56"
+],
+"series": [
+{
+"name": "Antibody level",
+"values": [
+0,
+5,
+20,
+25,
+18,
+120,
+160,
+150,
+140
+]
+}
+]
+}
+},
+{
+"id": "s3",
+"title": "Sickle Cell Disease and Malaria",
+"html": "<p>Hemoglobin is the protein in red blood cells that carries oxygen. One gene controls the type of hemoglobin a person makes. The allele <strong>A</strong> produces normal hemoglobin. The allele <strong>S</strong> produces sickle hemoglobin, which can cause red blood cells to bend into a stiff, curved (sickle) shape. Sickle-shaped cells can block small blood vessels, causing pain and organ damage.</p><p>A person with two S alleles (<strong>SS</strong>) has sickle cell disease. A person with one A allele and one S allele (<strong>AS</strong>) has sickle cell trait. People with sickle cell trait are <em>carriers</em>: they usually have no symptoms, but they can pass the S allele to their children. A person with two A alleles (<strong>AA</strong>) neither has the disease nor carries the S allele.</p><p>Malaria is a disease caused by a parasite that spreads through mosquito bites. Studies have found that people with sickle cell trait (AS) are less likely to die from severe malaria than people with two A alleles (AA). In regions of Africa where malaria has been common for thousands of years, the S allele is much more common than in places where malaria is rare.</p>"
+},
+{
+"id": "s4",
+"title": "Life Returns to a Lava Flow",
+"html": "<p>When lava cools, it forms bare rock with no soil and no living things. Over time, living things move in, a process called <strong>primary succession</strong>. The first organisms to grow on the bare rock are called <strong>pioneer species</strong>. On many lava flows, these are lichens and mosses, which arrive as tiny spores carried by the wind. Lichens release acids that slowly break rock down into small particles. When lichens and mosses die, their remains decay and mix with the rock particles, forming a thin layer of soil. As the soil deepens, grasses and ferns can take root, followed by shrubs and finally trees.</p><p>Scientists surveyed lava flows of different ages on one volcanic island. Rainfall and elevation were similar at every site.</p><table><thead><tr><th>Age of lava flow (years)</th><th>Number of plant species</th><th>Average soil depth (cm)</th><th>Most common plants</th></tr></thead><tbody><tr><td>5</td><td>2</td><td>0</td><td>Lichens, mosses</td></tr><tr><td>50</td><td>14</td><td>1</td><td>Mosses, ferns, grasses</td></tr><tr><td>200</td><td>31</td><td>6</td><td>Grasses, shrubs</td></tr><tr><td>1,000</td><td>48</td><td>22</td><td>Shrubs, trees</td></tr></tbody></table>"
+},
+{
+"id": "s5",
+"title": "A Radioactive Tracer in Medicine",
+"html": "<p>Doctors use small amounts of radioactive substances, called tracers, to make images of organs such as the heart and bones. One of the most common tracers is technetium-99m. The tracer is injected into the patient, and a special camera detects the radiation it gives off.</p><p>Technetium-99m has a <strong>half-life</strong> of about 6 hours: every 6 hours, half of the remaining radioactive material decays. The short half-life gives doctors enough time to complete a scan while keeping the patient's total exposure to radiation low.</p><p>The table shows the activity of one dose of the tracer over time. Activity is measured in megabecquerels (MBq), a unit for how much radiation a sample gives off.</p><table><thead><tr><th>Time after preparation (hours)</th><th>0</th><th>6</th><th>12</th><th>18</th><th>24</th></tr></thead><tbody><tr><td>Activity (MBq)</td><td>800</td><td>400</td><td>200</td><td>?</td><td>?</td></tr></tbody></table>"
+},
+{
+"id": "s6",
+"title": "Volcanic Gases and Acid Rain",
+"html": "<p>Gases dissolved in magma escape when a volcano erupts or when magma rises close to the surface. The most abundant volcanic gas is water vapor, followed by carbon dioxide and sulfur gases such as sulfur dioxide (SO<sub>2</sub>) and hydrogen sulfide (H<sub>2</sub>S). Hydrogen sulfide, which smells like rotten eggs, reacts with oxygen in the air to form sulfur dioxide and water. Sulfur dioxide then reacts with water droplets in clouds to form acids, mainly sulfuric acid, which can fall as acid rain.</p><p>Scientists collected rainwater at several distances downwind of an active volcano. Rainwater that is not affected by pollution or volcanic gases has a pH of about 5.6. On the pH scale, each decrease of 1 unit means the solution is 10 times more acidic.</p><table><thead><tr><th>Distance downwind of volcano (km)</th><th>pH of rainwater</th></tr></thead><tbody><tr><td>5</td><td>3.6</td></tr><tr><td>10</td><td>4.6</td></tr><tr><td>20</td><td>5.1</td></tr><tr><td>40</td><td>5.6</td></tr></tbody></table>"
+},
+{
+"id": "s7",
+"title": "How an Instant Cold Pack Works",
+"html": "<p>Athletic trainers and first-aid kits use instant cold packs to reduce swelling from injuries. A typical cold pack is a plastic pouch of water that also holds a smaller sealed bag of solid ammonium nitrate. Squeezing the pack breaks the inner bag, the solid dissolves in the water, and within seconds the pack feels cold.</p><p>A student investigated this process. In each trial, she placed 100 mL of water at 22.0 &deg;C in an insulated foam cup, stirred in a measured mass of ammonium nitrate, and recorded the lowest temperature the water reached.</p><table><thead><tr><th>Mass of ammonium nitrate (g)</th><th>Lowest temperature reached (&deg;C)</th></tr></thead><tbody><tr><td>0</td><td>22.0</td></tr><tr><td>10</td><td>15.2</td></tr><tr><td>20</td><td>8.9</td></tr><tr><td>30</td><td>3.1</td></tr></tbody></table>"
+},
+{
+"id": "s8",
+"title": "An Ambulance Run",
+"html": "<p>An ambulance drove from its station to the scene of an emergency along a straight road. A GPS unit recorded the ambulance's distance from the station every 2 minutes. The data are shown in the table and graph.</p><table><thead><tr><th>Time (min)</th><th>0</th><th>2</th><th>4</th><th>6</th><th>8</th><th>10</th></tr></thead><tbody><tr><td>Distance from station (km)</td><td>0</td><td>1.6</td><td>3.2</td><td>3.2</td><td>5.6</td><td>8.0</td></tr></tbody></table>",
+"figure": {
+"type": "line",
+"title": "Ambulance Distance from Station",
+"xLabel": "Time (min)",
+"yLabel": "Distance from station (km)",
+"labels": [
+"0",
+"2",
+"4",
+"6",
+"8",
+"10"
+],
+"series": [
+{
+"name": "Distance (km)",
+"values": [
+0,
+1.6,
+3.2,
+3.2,
+5.6,
+8.0
+]
+}
+]
+}
+},
+{
+"id": "s9",
+"title": "Three Kinds of Lava",
+"html": "<p>Magma and lava differ in their silica (silicon dioxide) content. Silica makes molten rock more <strong>viscous</strong>, meaning thicker and more resistant to flowing. Gas bubbles rise and escape easily from runny magma, so pressure does not build up much. In thick magma, gas is trapped; pressure builds until the magma bursts apart, blasting out ash and rock fragments.</p><table><thead><tr><th>Type of lava</th><th>Silica content (approximate %)</th><th>Eruption temperature (&deg;C)</th><th>Viscosity</th><th>Typical eruption style</th></tr></thead><tbody><tr><td>Basaltic</td><td>50</td><td>1,000&ndash;1,200</td><td>Low (runny)</td><td>Gentle; lava flows that can travel many kilometers</td></tr><tr><td>Andesitic</td><td>60</td><td>800&ndash;1,000</td><td>Medium</td><td>Moderately explosive; ash and thick lava flows</td></tr><tr><td>Rhyolitic</td><td>70</td><td>650&ndash;800</td><td>High (very thick)</td><td>Very explosive; huge ash clouds; short, thick lava flows</td></tr></tbody></table>"
+},
+{
+"id": "s10",
+"title": "Watching a Volcano Wake Up",
+"html": "<p>Scientists monitor volcanoes for warning signs. As magma rises beneath a volcano, it pushes the ground upward and cracks the surrounding rock, producing many small earthquakes. The table and graph show weekly data collected at one volcano. The volcano erupted during week 7.</p><table><thead><tr><th>Week</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead><tbody><tr><td>Average earthquakes per day</td><td>3</td><td>4</td><td>9</td><td>22</td><td>48</td><td>110</td></tr><tr><td>Total ground uplift since start of week 1 (cm)</td><td>0.0</td><td>0.5</td><td>1.5</td><td>4.0</td><td>8.0</td><td>14.0</td></tr></tbody></table>",
+"figure": {
+"type": "bar",
+"title": "Average Earthquakes per Day Before the Eruption",
+"xLabel": "Week",
+"yLabel": "Earthquakes per day",
+"labels": [
+"1",
+"2",
+"3",
+"4",
+"5",
+"6"
+],
+"series": [
+{
+"name": "Earthquakes per day",
+"values": [
+3,
+4,
+9,
+22,
+48,
+110
+]
+}
+]
+}
+},
+{
+"id": "s11",
+"title": "The Hawaiian Island Chain",
+"html": "<p>The Hawaiian Islands formed over a <strong>hotspot</strong>, a place where a plume of hot material rises from deep in the mantle and melts through the plate above it. Scientists think the hotspot stays in about the same place while the Pacific plate moves over it. The main islands lie in a line running from southeast to northwest. Kilauea, one of the most active volcanoes on Earth, is on the island of Hawaii at the southeast end of the chain.</p><table><thead><tr><th>Island</th><th>Position in chain (southeast to northwest)</th><th>Approximate age of main lava flows (million years)</th></tr></thead><tbody><tr><td>Hawaii</td><td>1st</td><td>less than 0.7</td></tr><tr><td>Maui</td><td>2nd</td><td>0.8&ndash;1.3</td></tr><tr><td>Oahu</td><td>3rd</td><td>2.2&ndash;3.4</td></tr><tr><td>Kauai</td><td>4th</td><td>3.8&ndash;5.6</td></tr></tbody></table>"
+}
+],
+"parts": [
+{
+"name": "Science",
+"items": [
+{
+"id": "q1",
+"type": "mc",
+"skill": "Control group",
+"difficulty": 1,
+"stim": "s1",
+"prompt": "<p>What is the main purpose of the placebo group in this trial?</p>",
+"options": [
+"To give some volunteers a smaller dose of the vaccine",
+"To test whether salt water can prevent the illness",
+"To show how many similar people get sick without the vaccine, so the results can be compared",
+"To make sure every volunteer receives some protection from the virus"
+],
+"answer": 2,
+"explain": "<p>The placebo group is the <strong>control group</strong>. It is treated the same way as the vaccine group except that it does not get the vaccine. It shows how many similar people become ill without the vaccine, so researchers can compare and tell whether the vaccine made a difference.</p><p>The placebo is salt water, not a smaller vaccine dose, and it is not expected to protect anyone. The trial is not testing salt water; salt water is used only so both groups receive an injection that looks the same.</p>",
+"why": [
+"The placebo is salt water, not a smaller vaccine dose. It contains no vaccine at all, so it can show what happens without the vaccine.",
+"The trial is not testing salt water. Salt water is used only so both groups get an injection that looks the same; the placebo group shows how many people get sick without the vaccine.",
+"",
+"The placebo group gets no protection; that is the point. It is the control group that shows the illness rate without the vaccine."
+]
+},
+{
+"id": "q2",
+"type": "fill",
+"skill": "Calculating percent",
+"difficulty": 1,
+"stim": "s1",
+"prompt": "<p>What percent of the volunteers in the placebo group became ill with the virus? Enter a number.</p>",
+"answer": [
+"4",
+"4%",
+"4.0"
+],
+"value": 4,
+"tol": 0.001,
+"suffix": "percent",
+"explain": "<p>Percent = part &divide; whole &times; 100.</p><p>80 &divide; 2,000 = 0.04<br>0.04 &times; 100 = <strong>4%</strong></p><p>A common error is dividing by all 4,000 volunteers (80 &divide; 4,000 = 2%). The question asks only about the placebo group, which had 2,000 people.</p>",
+"mistakes": [
+{
+"answer": [
+"2",
+"2%"
+],
+"why": "You divided by all 4,000 volunteers. The question asks only about the placebo group of 2,000: 80 &divide; 2,000 = 4%."
+},
+{
+"answer": [
+"0.04"
+],
+"why": "0.04 is the decimal form. Multiply by 100 to write it as a percent: 4%."
+}
+]
+},
+{
+"id": "q3",
+"type": "mc",
+"skill": "Using a formula with data",
+"difficulty": 3,
+"stim": "s1",
+"noShuffle": true,
+"prompt": "<p>Use the formula in the passage. What was the efficacy of the vaccine in this trial?</p>",
+"options": [
+"3.4%",
+"15%",
+"68%",
+"85%"
+],
+"answer": 3,
+"explain": "<p>Percent ill in vaccine group: 12 &divide; 2,000 = 0.006 = 0.6%<br>Percent ill in placebo group: 80 &divide; 2,000 = 0.04 = 4.0%</p><p>Efficacy = (4.0 &minus; 0.6) &divide; 4.0 &times; 100 = 3.4 &divide; 4.0 &times; 100 = 0.85 &times; 100 = <strong>85%</strong></p><p>3.4% is only the difference between the two percents (the formula's top line) before dividing. 15% is the vaccine group's rate divided by the placebo group's rate (0.6 &divide; 4.0), which is the share of illness that remained, not the share prevented. 68 is simply 80 &minus; 12 cases.</p>",
+"why": [
+"3.4 is only the difference between the two percents (4.0 &minus; 0.6), the top of the formula. Divide by 4.0 and multiply by 100: 85%.",
+"15% is 0.6 &divide; 4.0, the share of illness that still happened with the vaccine. Efficacy is the share prevented: 100% &minus; 15% = 85%.",
+"68 is just 80 &minus; 12 cases. Efficacy uses the percents ill in each group: (4.0 &minus; 0.6) &divide; 4.0 &times; 100 = 85%.",
+""
+]
+},
+{
+"id": "q4",
+"type": "mc",
+"skill": "Experimental design",
+"difficulty": 2,
+"stim": "s1",
+"prompt": "<p>The trial was double-blind. Which statement best explains why this design makes the results more reliable?</p>",
+"options": [
+"It doubles the number of volunteers, so the results are twice as accurate.",
+"It keeps expectations from affecting how volunteers report symptoms or how researchers judge them.",
+"It makes sure every volunteer receives the real vaccine at some point during the trial.",
+"It allows each volunteer to choose the group that will help him or her the most."
+],
+"answer": 1,
+"explain": "<p>If volunteers knew they had the vaccine, they might ignore mild symptoms and skip testing; if researchers knew, they might judge cases differently. Because <strong>no one knows who got which injection</strong>, these expectations cannot bias the results in one group.</p><p>Double-blind refers to who knows the group assignments, not to the number of volunteers. The placebo group did not receive the vaccine during the trial, and volunteers were randomly assigned rather than choosing their group.</p>",
+"why": [
+"Double-blind describes who knows the group assignments, not the number of volunteers.",
+"",
+"The placebo group did not get the vaccine during the trial. Double-blind means no one knew who got which injection.",
+"Volunteers were randomly assigned; they did not choose. Double-blind means neither volunteers nor examiners knew the assignments."
+]
+},
+{
+"id": "q5",
+"type": "dropdown",
+"skill": "Immune response vocabulary",
+"difficulty": 1,
+"stim": "s2",
+"prompt": "<p>Complete the statements based on the passage.</p><p>A vaccine contains a molecule from the virus, called a(n) {{0}}, that the immune system can recognize. After the first dose, the body keeps {{1}} cells that can make antibodies quickly if the real virus enters the body later.</p>",
+"blanks": [
+{
+"options": [
+"antibody",
+"antigen",
+"antibiotic",
+"enzyme"
+],
+"answer": 1,
+"why": [
+"Antibodies are the proteins the body makes in response; the vaccine does not contain them. The molecule that triggers the response is an antigen.",
+"",
+"Antibiotics are medicines that kill bacteria. The passage calls the virus molecule the immune system recognizes an antigen.",
+"Enzymes speed up chemical reactions in the body. The passage defines the molecule that triggers an immune response as an antigen."
+]
+},
+{
+"options": [
+"red blood",
+"nerve",
+"memory",
+"skin"
+],
+"answer": 2,
+"why": [
+"Red blood cells carry oxygen and do not make antibodies. The passage says some B cells remain as memory cells.",
+"Nerve cells carry signals; they are not part of the antibody response. The cells kept after the first dose are memory cells.",
+"",
+"Skin cells form a barrier but do not make antibodies. Memory cells are the B cells that remember the antigen."
+]
+}
+],
+"explain": "<p>The passage defines an <strong>antigen</strong> as a molecule that triggers an immune response; the vaccine carries the antigen. Antibodies are the proteins the body makes in response, so they are not what the vaccine contains. Antibiotics are medicines that kill bacteria.</p><p>Some B cells remain as <strong>memory</strong> cells, which recognize the virus later and make antibodies much faster. Red blood cells carry oxygen and are not part of this response.</p>"
+},
+{
+"id": "q6",
+"type": "mc",
+"skill": "Interpreting a line graph",
+"difficulty": 2,
+"stim": "s2",
+"prompt": "<p>Which statement is best supported by the graph?</p>",
+"options": [
+"The second dose produced a faster and larger rise in antibodies than the first dose.",
+"The antibody level kept rising during all 56 days shown.",
+"The first dose did not cause the body to make any antibodies.",
+"The antibody level was highest on day 28, when the second dose was given."
+],
+"answer": 0,
+"explain": "<p>In the 7 days after the first dose, the level rose from 0 to 5 units, and it peaked at only 25 units (day 21). In the 7 days after the second dose, it rose from 18 to 120 units and peaked at 160 units (day 42). So <strong>the second dose produced a faster and larger response</strong>, as expected when memory cells are present.</p><p>The level fell after day 42 (160 &rarr; 150 &rarr; 140), so it did not rise the whole time. The first dose did produce antibodies (up to 25 units). On day 28 the level was 18 units, lower than on day 21.</p>",
+"why": [
+"",
+"The level fell after day 42 (160 &rarr; 150 &rarr; 140), so it did not keep rising for all 56 days.",
+"The first dose did produce antibodies; the level rose to 25 units by day 21.",
+"On day 28 the level was 18 units, lower than the 25 units on day 21. The highest level was 160 units on day 42."
+]
+},
+{
+"id": "q7",
+"type": "multi",
+"skill": "Using evidence from a text",
+"difficulty": 2,
+"stim": "s2",
+"prompt": "<p>Which statements are supported by the passage?</p><p>Select <strong>two</strong> answers.</p>",
+"options": [
+"Vaccinating most people in a community can help protect babies who are too young to be vaccinated.",
+"Vaccines work by killing viruses directly in the blood, the same way antibiotics kill bacteria.",
+"When most people in a community are immune, the virus has fewer people it can infect and spread to.",
+"Herd immunity works only if every single person in a community is vaccinated.",
+"Once antibodies reach their highest level, they stay at that level for life."
+],
+"answer": [
+0,
+2
+],
+"explain": "<p>The passage says that when a large share of people are immune, an infected person is unlikely to meet someone the virus can infect, so <strong>the virus has trouble spreading</strong>, and that herd immunity protects people who cannot be vaccinated, <strong>such as newborn babies</strong>.</p><p>Vaccines do not kill viruses directly; they train the immune system by supplying an antigen. Herd immunity requires a large share of the community, not every person. The graph shows antibody levels falling after day 42, so they do not stay at their peak.</p>",
+"why": [
+"",
+"The passage says vaccines work by supplying an antigen that trains the immune system, not by killing viruses directly. Killing bacteria is what antibiotics do.",
+"",
+"The passage says herd immunity needs a large share of the community to be immune, not every single person. It even protects people who cannot be vaccinated.",
+"The graph shows antibody levels falling after day 42, so they do not stay at their peak for life."
+]
+},
+{
+"id": "q8",
+"type": "fill",
+"skill": "Punnett square probability",
+"difficulty": 2,
+"stim": "s3",
+"prompt": "<p>Two parents both have sickle cell trait (<strong>AS</strong>). What is the probability, as a percent, that any one of their children will have sickle cell disease?</p>",
+"answer": [
+"25",
+"25%"
+],
+"value": 25,
+"tol": 0.001,
+"suffix": "percent",
+"explain": "<p>Cross AS &times; AS:</p><table><thead><tr><th></th><th>A</th><th>S</th></tr></thead><tbody><tr><th>A</th><td>AA</td><td>AS</td></tr><tr><th>S</th><td>AS</td><td>SS</td></tr></tbody></table><p>Only <strong>SS</strong> children have sickle cell disease. That is 1 of 4 boxes: 1 &divide; 4 = 0.25 = <strong>25%</strong>.</p><p>A common error is answering 50% by counting the two AS boxes. AS children have sickle cell trait (carriers), not the disease.</p>",
+"mistakes": [
+{
+"answer": [
+"50",
+"50%"
+],
+"why": "You counted the two AS boxes. AS children have sickle cell trait (carriers), not the disease. Only SS has the disease: 1 of 4 boxes = 25%."
+},
+{
+"answer": [
+"75",
+"75%"
+],
+"why": "You counted every box with an S allele. Only SS children have sickle cell disease, which is 1 of 4 boxes: 25%."
+}
+]
+},
+{
+"id": "q9",
+"type": "mc",
+"skill": "Punnett square reasoning",
+"difficulty": 3,
+"stim": "s3",
+"noShuffle": true,
+"prompt": "<p>The same two parents (AS &times; AS) have a child who does <strong>not</strong> have sickle cell disease. What is the probability that this child is a carrier (AS)?</p>",
+"options": [
+"1/4",
+"1/2",
+"2/3",
+"3/4"
+],
+"answer": 2,
+"explain": "<p>The four equally likely outcomes are AA, AS, AS, and SS. We already know the child does not have the disease, so SS is ruled out. That leaves three equally likely possibilities: AA, AS, AS.</p><p>Two of those three are carriers: <strong>2/3</strong>.</p><p>1/2 is the chance that a child is AS <em>before</em> we know anything about the child (2 of 4 boxes). 3/4 is the chance that a child does not have the disease, not the chance of being a carrier.</p>",
+"why": [
+"1/4 is the chance of AA or of SS in the full square. Once SS is ruled out, three outcomes remain (AA, AS, AS), and two are carriers: 2/3.",
+"1/2 is the chance of AS before you know anything about the child (2 of 4 boxes). Knowing the child is not SS leaves 3 outcomes, so 2/3.",
+"",
+"3/4 is the chance that a child does not have the disease, not the chance of being a carrier. Among those 3 outcomes, 2 are AS: 2/3."
+]
+},
+{
+"id": "q10",
+"type": "mc",
+"skill": "Natural selection",
+"difficulty": 2,
+"stim": "s3",
+"prompt": "<p>Which statement best explains why the S allele is more common in regions where malaria has been common for a long time?</p>",
+"options": [
+"Malaria causes the hemoglobin genes of people who catch it to mutate into the S allele.",
+"People with sickle cell disease (SS) stay completely healthy in regions with malaria.",
+"People in these regions choose partners who carry the S allele.",
+"Carriers (AS) are more likely to survive malaria and have children, so the S allele is passed on more often."
+],
+"answer": 3,
+"explain": "<p>This is natural selection. The passage says people with sickle cell trait (AS) are less likely to die from severe malaria. Where malaria is common, <strong>carriers survive and reproduce more often than AA individuals</strong>, so over many generations the S allele becomes more common.</p><p>Malaria does not cause the S mutation; it affects which people survive. SS individuals have sickle cell disease, which causes pain and organ damage, so they are not completely healthy. The passage gives no evidence that people choose partners based on this gene.</p>",
+"why": [
+"Malaria does not change people's genes. It affects which people survive; carriers survive more often and pass on the S allele.",
+"The passage says SS causes sickle cell disease, with pain and organ damage, so SS people are not completely healthy. The advantage belongs to AS carriers.",
+"The passage gives no evidence that people choose partners based on this gene. The allele spreads because carriers survive malaria more often.",
+""
+]
+},
+{
+"id": "q11",
+"type": "hotspot",
+"skill": "Identifying a hypothesis",
+"difficulty": 1,
+"prompt": "<p>A student wrote these sentences in a lab notebook about an investigation of hand sanitizer. Click the sentence that states the student's <strong>hypothesis</strong>.</p>",
+"spans": [
+"I wondered whether hand sanitizer reduces the number of bacteria on people's hands.",
+"If people use hand sanitizer, then fewer bacteria colonies will grow from their fingertip prints.",
+"Ten volunteers pressed their fingertips onto one agar plate before using sanitizer and onto a second plate after using it.",
+"All plates were kept at 37 &deg;C for 48 hours.",
+"The before plates averaged 46 colonies, and the after plates averaged 7 colonies.",
+"These results support the idea that sanitizer reduces bacteria on hands."
+],
+"answer": 1,
+"explain": "<p>A hypothesis is a testable prediction, often written as an <em>if&hellip; then&hellip;</em> statement. <strong>If people use hand sanitizer, then fewer bacteria colonies will grow</strong> is the prediction the experiment tests.</p><p>The first sentence is the question that led to the investigation, not a prediction. The middle sentences describe the procedure and results, and the last sentence is the conclusion drawn after the data were collected.</p>",
+"why": "The most common wrong click is the first sentence, which is the question that started the investigation. A hypothesis is a testable prediction, usually written as if&hellip; then&hellip;: If people use hand sanitizer, then fewer bacteria colonies will grow."
+},
+{
+"id": "q12",
+"type": "drag",
+"skill": "Body systems",
+"difficulty": 1,
+"prompt": "<p>During a checkup, a doctor examines several organs. Drag each organ into the body system it belongs to.</p>",
+"choices": [
+"Heart",
+"Lungs",
+"Stomach",
+"Arteries",
+"Trachea (windpipe)",
+"Small intestine"
+],
+"bins": [
+"Circulatory system",
+"Respiratory system",
+"Digestive system"
+],
+"answer": [
+0,
+1,
+2,
+0,
+1,
+2
+],
+"explain": "<p><strong>Circulatory system:</strong> the heart pumps blood, and arteries carry blood away from the heart.</p><p><strong>Respiratory system:</strong> air travels through the trachea to the lungs, where oxygen enters the blood and carbon dioxide leaves it.</p><p><strong>Digestive system:</strong> the stomach breaks down food, and the small intestine finishes digestion and absorbs nutrients.</p><p>A common mistake is placing the lungs in the circulatory system because blood passes through them; their job is gas exchange, which is a respiratory function.</p>",
+"why": "The most common mistake is placing the lungs in the circulatory system because blood passes through them. The lungs and trachea handle gas exchange and breathing, so they belong to the respiratory system; the heart and arteries move blood."
+},
+{
+"id": "q13",
+"type": "mc",
+"skill": "Ecological succession",
+"difficulty": 2,
+"stim": "s4",
+"prompt": "<p>Based on the passage, why are lichens and mosses important in the early stages of succession on a lava flow?</p>",
+"options": [
+"They shade the bare rock so that no other plants can grow there.",
+"They begin breaking the rock down and adding organic matter, forming the soil that later plants need.",
+"They are the largest plants found on the oldest lava flows.",
+"They are the only living things that can survive on lava flows of any age."
+],
+"answer": 1,
+"explain": "<p>The passage says lichens release acids that break rock into small particles, and their remains, along with those of mosses, decay and mix with the particles to <strong>form soil</strong>. Grasses, shrubs, and trees need that soil to take root.</p><p>Lichens and mosses do not prevent other plants from growing; they make it possible. The table shows that shrubs and trees, not lichens, are most common on the oldest flows, and many other species live on older flows.</p>",
+"why": [
+"The passage says lichens and mosses make it possible for other plants to grow by forming soil, not that they keep plants out.",
+"",
+"The table shows shrubs and trees are most common on the oldest flows. Lichens and mosses are small pioneer species.",
+"The table shows many other plant species living on older flows. Lichens and mosses are simply the first to arrive."
+]
+},
+{
+"id": "q14",
+"type": "mc",
+"skill": "Drawing conclusions from data",
+"difficulty": 2,
+"stim": "s4",
+"prompt": "<p>Which conclusion is best supported by the data in the table?</p>",
+"options": [
+"Soil depth stopped increasing after the flows were 200 years old.",
+"The number of plant species doubled every 50 years.",
+"Older flows have fewer plant species because trees crowd out other plants.",
+"The number of plant species and the depth of the soil both increase as lava flows get older."
+],
+"answer": 3,
+"explain": "<p>As flow age increases from 5 to 1,000 years, the number of species rises (2 &rarr; 14 &rarr; 31 &rarr; 48) and soil depth rises (0 &rarr; 1 &rarr; 6 &rarr; 22 cm). So <strong>both increase as flows get older</strong>.</p><p>Soil kept deepening after 200 years (6 cm to 22 cm). The number of species did not double every 50 years; it went from 31 to only 48 over 800 years. The oldest flow has the most species, not the fewest.</p>",
+"why": [
+"Soil kept deepening after 200 years, from 6 cm to 22 cm at 1,000 years.",
+"The species count did not double every 50 years; from 200 to 1,000 years it rose only from 31 to 48.",
+"The oldest flow has the most species (48), not the fewest. The data do not show trees crowding out other plants.",
+""
+]
+},
+{
+"id": "q15",
+"type": "fill",
+"skill": "Half-life calculations",
+"difficulty": 2,
+"stim": "s5",
+"prompt": "<p>What will the activity of the dose be 24 hours after preparation? Enter a number in MBq.</p>",
+"answer": [
+"50"
+],
+"value": 50,
+"tol": 0.001,
+"suffix": "MBq",
+"explain": "<p>24 hours &divide; 6 hours per half-life = 4 half-lives. Halve the activity four times:</p><p>800 &rarr; 400 (6 h) &rarr; 200 (12 h) &rarr; 100 (18 h) &rarr; <strong>50 MBq</strong> (24 h)</p><p>A common error is subtracting the same amount each time (800 &minus; 400 &minus; 400 = 0). In radioactive decay, the activity is cut in half each half-life; it does not fall by a fixed amount.</p>",
+"mistakes": [
+{
+"answer": [
+"0"
+],
+"why": "You subtracted 400 MBq each time, as if the activity dropped by a fixed amount. Each half-life cuts the activity in half: 800 &rarr; 400 &rarr; 200 &rarr; 100 &rarr; 50."
+},
+{
+"answer": [
+"100"
+],
+"why": "100 MBq is the activity at 18 hours (3 half-lives). 24 hours is 4 half-lives, so halve once more: 50 MBq."
+},
+{
+"answer": [
+"200"
+],
+"why": "You divided 800 by 4 half-lives. Halving four times means dividing by 2 &times; 2 &times; 2 &times; 2 = 16: 800 &divide; 16 = 50."
+}
+]
+},
+{
+"id": "q16",
+"type": "mc",
+"skill": "Half-life calculations",
+"difficulty": 2,
+"stim": "s5",
+"noShuffle": true,
+"prompt": "<p>About how many hours after preparation will the activity of the dose fall to 25 MBq?</p>",
+"options": [
+"24 hours",
+"30 hours",
+"32 hours",
+"192 hours"
+],
+"answer": 1,
+"explain": "<p>Count the halvings from 800 MBq:</p><p>800 &rarr; 400 &rarr; 200 &rarr; 100 &rarr; 50 &rarr; 25 is 5 half-lives.<br>5 &times; 6 hours = <strong>30 hours</strong></p><p>24 hours is when the activity reaches 50 MBq, one half-life too early. 32 comes from 800 &divide; 25, which is how many times smaller the activity becomes, not a number of hours. 192 multiplies that 32 by 6 hours.</p>",
+"why": [
+"At 24 hours the activity is 50 MBq, one half-life too early. It takes one more 6-hour half-life to reach 25: 30 hours.",
+"",
+"32 is 800 &divide; 25, how many times smaller the activity becomes, not a number of hours. Count halvings: 5 half-lives &times; 6 hours = 30.",
+"You multiplied 32 by 6 hours. The activity becomes 32 times smaller after 5 halvings (2<sup>5</sup> = 32), so the time is 5 &times; 6 = 30 hours."
+]
+},
+{
+"id": "q17",
+"type": "mc",
+"skill": "Atomic structure",
+"difficulty": 1,
+"noShuffle": true,
+"prompt": "<p>Technetium has an atomic number of 43. The isotope technetium-99 has a mass number of 99. How many <strong>neutrons</strong> are in the nucleus of a technetium-99 atom?</p>",
+"options": [
+"43",
+"56",
+"99",
+"142"
+],
+"answer": 1,
+"explain": "<p>The atomic number is the number of protons (43). The mass number is protons + neutrons (99).</p><p>Neutrons = mass number &minus; atomic number = 99 &minus; 43 = <strong>56</strong></p><p>43 is the number of protons, and 99 is the total number of particles in the nucleus. 142 comes from adding the two numbers instead of subtracting.</p>",
+"why": [
+"43 is the atomic number, the number of protons. Neutrons = mass number &minus; atomic number = 99 &minus; 43 = 56.",
+"",
+"99 is the mass number, the total of protons and neutrons. Subtract the 43 protons: 56 neutrons.",
+"You added the atomic number and mass number. Subtract instead: 99 &minus; 43 = 56."
+]
+},
+{
+"id": "q18",
+"type": "dropdown",
+"skill": "Balancing chemical equations",
+"difficulty": 3,
+"stim": "s6",
+"prompt": "<p>Hydrogen sulfide reacts with oxygen to form sulfur dioxide and water. Choose the coefficients that balance the equation.</p><p>{{0}} H<sub>2</sub>S + {{1}} O<sub>2</sub> &rarr; 2 SO<sub>2</sub> + {{2}} H<sub>2</sub>O</p>",
+"blanks": [
+{
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": 1,
+"why": [
+"1 H<sub>2</sub>S has only 1 sulfur atom, but 2 SO<sub>2</sub> has 2. Use 2 H<sub>2</sub>S.",
+"",
+"3 H<sub>2</sub>S gives 3 sulfur atoms, but the right side has only 2 in 2 SO<sub>2</sub>.",
+"4 H<sub>2</sub>S gives 4 sulfur atoms, twice the 2 on the right side."
+]
+},
+{
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": 2,
+"why": [
+"1 O<sub>2</sub> gives only 2 oxygen atoms. The right side has 4 O in SO<sub>2</sub> plus 2 O in water, for 6, so use 3 O<sub>2</sub>.",
+"You counted the oxygen in 2 SO<sub>2</sub> (4 atoms) but forgot the 2 oxygen atoms in the water. 6 O atoms need 3 O<sub>2</sub>.",
+"",
+"4 O<sub>2</sub> gives 8 oxygen atoms, but the right side has only 6. Use 3 O<sub>2</sub>."
+]
+},
+{
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": 1,
+"why": [
+"1 H<sub>2</sub>O has only 2 hydrogen atoms, but 2 H<sub>2</sub>S has 4. Use 2 H<sub>2</sub>O.",
+"",
+"3 H<sub>2</sub>O gives 6 hydrogen atoms, more than the 4 in 2 H<sub>2</sub>S.",
+"4 H<sub>2</sub>O gives 8 hydrogen atoms, twice the 4 in 2 H<sub>2</sub>S."
+]
+}
+],
+"explain": "<p><strong>Sulfur:</strong> 2 SO<sub>2</sub> has 2 S atoms, so the left side needs <strong>2</strong> H<sub>2</sub>S.</p><p><strong>Hydrogen:</strong> 2 H<sub>2</sub>S has 4 H atoms, so the right side needs <strong>2</strong> H<sub>2</sub>O (4 H atoms).</p><p><strong>Oxygen:</strong> the right side now has 2 &times; 2 = 4 O in SO<sub>2</sub> plus 2 O in water = 6 O atoms. The left side needs <strong>3</strong> O<sub>2</sub> (6 O atoms).</p><p>Check: 2H<sub>2</sub>S + 3O<sub>2</sub> &rarr; 2SO<sub>2</sub> + 2H<sub>2</sub>O has 4 H, 2 S, and 6 O on each side. A common error is choosing 2 O<sub>2</sub>, which counts the oxygen in SO<sub>2</sub> but forgets the oxygen in the water.</p>"
+},
+{
+"id": "q19",
+"type": "mc",
+"skill": "The pH scale",
+"difficulty": 2,
+"stim": "s6",
+"noShuffle": true,
+"prompt": "<p>How many times more acidic is the rainwater collected 5 km from the volcano than the rainwater collected 40 km away?</p>",
+"options": [
+"2 times",
+"20 times",
+"100 times",
+"1,000 times"
+],
+"answer": 2,
+"explain": "<p>The pH at 5 km is 3.6, and at 40 km it is 5.6. The difference is 5.6 &minus; 3.6 = 2 pH units.</p><p>Each unit is a factor of 10: 10 &times; 10 = <strong>100 times</strong> more acidic.</p><p>2 times treats the pH scale as if each unit were a simple step rather than a factor of 10. 20 times multiplies 2 &times; 10 instead of multiplying by 10 twice. 1,000 times would require a difference of 3 units.</p>",
+"why": [
+"You treated each pH unit as a simple step. Each unit is a factor of 10, and the difference is 2 units: 10 &times; 10 = 100.",
+"You multiplied 2 &times; 10. A 2-unit difference means multiplying by 10 twice: 10 &times; 10 = 100.",
+"",
+"1,000 times would require a 3-unit difference. 5.6 &minus; 3.6 = 2 units, so 10 &times; 10 = 100."
+]
+},
+{
+"id": "q20",
+"type": "mc",
+"skill": "Calculating density",
+"difficulty": 2,
+"prompt": "<p>Pumice is a volcanic rock full of tiny holes left by gas bubbles. A student measures a piece of pumice with a mass of 24 g and a volume of 40 cm<sup>3</sup>. The density of water is 1.0 g/cm<sup>3</sup>. Which choice gives the density of the pumice and correctly predicts whether it will float in water?</p>",
+"options": [
+"0.6 g/cm<sup>3</sup>, so it will sink",
+"1.7 g/cm<sup>3</sup>, so it will float",
+"1.7 g/cm<sup>3</sup>, so it will sink",
+"0.6 g/cm<sup>3</sup>, so it will float"
+],
+"answer": 3,
+"explain": "<p>Density = mass &divide; volume = 24 g &divide; 40 cm<sup>3</sup> = <strong>0.6 g/cm<sup>3</sup></strong>.</p><p>An object less dense than water floats, and 0.6 is less than 1.0, so <strong>the pumice floats</strong>.</p><p>1.7 g/cm<sup>3</sup> comes from dividing volume by mass (40 &divide; 24 &asymp; 1.7), which is upside down. Pairing 0.6 g/cm<sup>3</sup> with sinking reverses the rule: only objects denser than water sink.</p>",
+"why": [
+"The density 0.6 g/cm<sup>3</sup> is right, but the prediction is reversed. Objects less dense than water (1.0) float.",
+"You divided volume by mass (40 &divide; 24). Density is mass &divide; volume: 24 &divide; 40 = 0.6 g/cm<sup>3</sup>.",
+"You divided volume by mass (40 &divide; 24). Density is 24 &divide; 40 = 0.6 g/cm<sup>3</sup>, which is less than water, so the pumice floats.",
+""
+]
+},
+{
+"id": "q21",
+"type": "mc",
+"skill": "Endothermic processes",
+"difficulty": 2,
+"stim": "s7",
+"prompt": "<p>Which conclusion is best supported by the student's results?</p>",
+"options": [
+"Dissolving ammonium nitrate releases cold into the water.",
+"Dissolving ammonium nitrate releases heat energy, which makes the water colder.",
+"The drop in temperature does not depend on how much ammonium nitrate is dissolved.",
+"Dissolving ammonium nitrate absorbs heat energy from the water, and more solid causes a larger temperature drop."
+],
+"answer": 3,
+"explain": "<p>The water got colder, which means energy left the water: <strong>dissolving ammonium nitrate absorbs heat energy</strong> (an endothermic process). More solid caused a bigger drop: 6.8 &deg;C for 10 g (22.0 &minus; 15.2), 13.1 &deg;C for 20 g (22.0 &minus; 8.9), and 18.9 &deg;C for 30 g (22.0 &minus; 3.1).</p><p>Cold is not a substance that can be released; a temperature drop means heat was absorbed. A process that releases heat would warm the water. The table clearly shows the temperature drop depends on the mass dissolved.</p>",
+"why": [
+"Cold is not a substance that can be released. A temperature drop means heat energy was absorbed from the water.",
+"Releasing heat would make the water warmer, not colder. The water cooled, so the process absorbed heat.",
+"The drop grew with more solid: 6.8 &deg;C for 10 g, 13.1 &deg;C for 20 g, and 18.9 &deg;C for 30 g.",
+""
+]
+},
+{
+"id": "q22",
+"type": "drag",
+"skill": "Exothermic and endothermic changes",
+"difficulty": 2,
+"prompt": "<p>Classify each change by whether it releases energy to its surroundings or absorbs energy from its surroundings. Drag each change into the correct category.</p>",
+"choices": [
+"A hand warmer heats up as iron in it reacts with oxygen",
+"Ice melts in a glass of lemonade",
+"Wood burns in a campfire",
+"Water boils in a pot on a stove",
+"Steam condenses into droplets on a cold bathroom mirror"
+],
+"bins": [
+"Releases energy (exothermic)",
+"Absorbs energy (endothermic)"
+],
+"answer": [
+0,
+1,
+0,
+1,
+0
+],
+"explain": "<p><strong>Releases energy:</strong> the hand warmer and the burning wood give off heat from chemical reactions. Condensing steam also releases energy: water vapor gives off heat as it turns back into liquid, and that heat passes into the mirror.</p><p><strong>Absorbs energy:</strong> melting ice and boiling water both take in heat to change state.</p><p>A common mistake is calling condensation endothermic because the mirror is cold. The mirror is cold, but the steam releases heat to it as it condenses; condensation is the reverse of boiling.</p>",
+"why": "The most common mistake is calling condensation endothermic because the mirror is cold. Steam releases heat to the mirror as it turns back into liquid, so condensation is exothermic, the reverse of boiling."
+},
+{
+"id": "q23",
+"type": "fill",
+"skill": "Calculating average speed",
+"difficulty": 3,
+"stim": "s8",
+"prompt": "<p>What was the ambulance's average speed for the whole 10-minute trip, in kilometers per hour? Enter a number.</p>",
+"answer": [
+"48"
+],
+"value": 48,
+"tol": 0.001,
+"suffix": "km/h",
+"explain": "<p>Average speed = total distance &divide; total time.</p><p>8.0 km &divide; 10 min = 0.8 km per minute<br>There are 60 minutes in an hour: 0.8 &times; 60 = <strong>48 km/h</strong></p><p>Answering 0.8 forgets to convert minutes to hours. Answering 60 km/h comes from leaving out the 2 minutes when the ambulance was not moving (8.0 km &divide; 8 min = 1.0 km/min). Average speed for a whole trip uses the total time, including stops.</p>",
+"mistakes": [
+{
+"answer": [
+"0.8"
+],
+"why": "0.8 is the speed in kilometers per minute. Multiply by 60 minutes per hour: 0.8 &times; 60 = 48 km/h."
+},
+{
+"answer": [
+"60"
+],
+"why": "You left out the 2 minutes the ambulance was stopped (8.0 &divide; 8 min). Average speed for the whole trip uses the total time, 10 minutes: 48 km/h."
+},
+{
+"answer": [
+"80"
+],
+"why": "You divided 8.0 km by 10 minutes and then multiplied by 100 instead of 60. There are 60 minutes in an hour: 0.8 &times; 60 = 48 km/h."
+}
+]
+},
+{
+"id": "q24",
+"type": "mc",
+"skill": "Interpreting a motion graph",
+"difficulty": 2,
+"stim": "s8",
+"prompt": "<p>During which part of the trip was the ambulance moving the fastest?</p>",
+"options": [
+"From 0 to 4 minutes",
+"From 4 to 6 minutes",
+"From 6 to 10 minutes",
+"The speed was the same for the whole trip."
+],
+"answer": 2,
+"explain": "<p>Compare the distance covered in each part:</p><p>0 to 4 min: 3.2 km &divide; 4 min = 0.8 km/min<br>4 to 6 min: 3.2 &minus; 3.2 = 0 km, so the ambulance was stopped<br>6 to 10 min: 8.0 &minus; 3.2 = 4.8 km &divide; 4 min = <strong>1.2 km/min</strong></p><p>The steepest part of the distance-time graph is <strong>from 6 to 10 minutes</strong>. The flat part from 4 to 6 minutes shows no movement at all, and the changing slopes show the speed was not constant.</p>",
+"why": [
+"From 0 to 4 minutes the ambulance went 3.2 km in 4 minutes, 0.8 km/min. From 6 to 10 minutes it went 4.8 km in 4 minutes, 1.2 km/min, which is faster.",
+"From 4 to 6 minutes the distance stayed at 3.2 km, so the ambulance was stopped. A flat part of a distance-time graph means no motion.",
+"",
+"The graph has different slopes, including a flat part where the ambulance stopped, so the speed was not constant."
+]
+},
+{
+"id": "q25",
+"type": "mc",
+"skill": "Using F = ma",
+"difficulty": 1,
+"noShuffle": true,
+"prompt": "<p>An ambulance with a mass of 4,000 kg brakes and slows down at a rate of 5 m/s<sup>2</sup>. Using <strong>F = ma</strong>, what is the size of the braking force?</p>",
+"options": [
+"800 N",
+"3,995 N",
+"4,005 N",
+"20,000 N"
+],
+"answer": 3,
+"explain": "<p>F = m &times; a<br>F = 4,000 kg &times; 5 m/s<sup>2</sup> = <strong>20,000 N</strong></p><p>800 N comes from dividing mass by acceleration. 3,995 N and 4,005 N come from subtracting or adding the two numbers instead of multiplying.</p>",
+"why": [
+"You divided mass by acceleration (4,000 &divide; 5). F = ma means multiply: 4,000 &times; 5 = 20,000 N.",
+"You subtracted the acceleration from the mass. Force is mass times acceleration: 20,000 N.",
+"You added the mass and the acceleration. Force is their product: 4,000 &times; 5 = 20,000 N.",
+""
+]
+},
+{
+"id": "q26",
+"type": "mc",
+"skill": "Sound waves and the Doppler effect",
+"difficulty": 2,
+"prompt": "<p>An ambulance with its siren on drives toward a person standing on a sidewalk, passes her, and drives away. The siren itself produces the same sound the whole time. Which statement best describes what the person hears and why?</p>",
+"options": [
+"The pitch sounds lower as the ambulance approaches and higher after it passes, because sound travels faster toward the listener.",
+"The pitch sounds higher as the ambulance approaches and lower after it passes, because the sound waves are squeezed together in front of the ambulance and spread out behind it.",
+"The pitch stays exactly the same the whole time, because the siren always produces the same sound.",
+"The pitch sounds higher after the ambulance passes, because the sound waves bounce off nearby buildings."
+],
+"answer": 1,
+"explain": "<p>This is the <strong>Doppler effect</strong>. As the ambulance moves toward the listener, each wave is sent out a little closer to her than the last, so the waves are squeezed together: shorter wavelength, higher frequency, <strong>higher pitch</strong>. After it passes, the waves are stretched out: longer wavelength, lower frequency, <strong>lower pitch</strong>.</p><p>The siren's own sound does not change, but the frequency the listener receives does. The speed of sound in air does not depend on the motion of the source, and echoes do not explain the steady change in pitch.</p>",
+"why": [
+"You reversed the pitch change. As the ambulance approaches, its waves are squeezed together, so the pitch is higher; the speed of sound does not change with the source's motion.",
+"",
+"The siren's own sound stays the same, but the frequency reaching the listener changes as the ambulance moves toward and then away from her (the Doppler effect).",
+"Echoes do not explain the steady change. The pitch drops after the ambulance passes because the waves behind it are stretched out."
+]
+},
+{
+"id": "q27",
+"type": "mc",
+"skill": "Electromagnetic spectrum",
+"difficulty": 2,
+"prompt": "<p>X-rays can pass through skin and muscle but are mostly absorbed by bone, which is why they are used to look for broken bones. Visible light cannot pass through skin. Compared with visible light, X-rays have</p>",
+"options": [
+"shorter wavelengths, higher frequencies, and more energy.",
+"longer wavelengths, higher frequencies, and more energy.",
+"shorter wavelengths, lower frequencies, and less energy.",
+"longer wavelengths, lower frequencies, and less energy."
+],
+"answer": 0,
+"explain": "<p>On the electromagnetic spectrum, X-rays lie beyond ultraviolet light, on the high-energy side of visible light. They have <strong>shorter wavelengths, higher frequencies, and more energy</strong>, which lets them pass through soft tissue.</p><p>For all electromagnetic waves, a shorter wavelength goes with a higher frequency and more energy, so a wave cannot have both a longer wavelength and a higher frequency. Radio waves and microwaves, not X-rays, have longer wavelengths and less energy than visible light.</p>",
+"why": [
+"",
+"A longer wavelength always goes with a lower frequency for electromagnetic waves, so this pairing is impossible. X-rays have shorter wavelengths.",
+"Shorter wavelengths go with higher frequencies and more energy, not lower. X-rays are high-energy waves.",
+"These describe radio waves and microwaves, not X-rays. X-rays pass through skin because they carry more energy than visible light."
+]
+},
+{
+"id": "q28",
+"type": "mc",
+"skill": "Electric power and energy",
+"difficulty": 3,
+"noShuffle": true,
+"prompt": "<p>A home oxygen machine plugs into a 120-volt outlet and draws a current of 2.5 amperes. Power is found with <strong>P = VI</strong> (power in watts = voltage &times; current). How much electrical energy does the machine use if it runs for 8 hours? (1 kilowatt = 1,000 watts)</p>",
+"options": [
+"0.3 kWh",
+"0.96 kWh",
+"2.4 kWh",
+"2,400 kWh"
+],
+"answer": 2,
+"explain": "<p>Step 1, power: P = 120 V &times; 2.5 A = 300 W = 0.3 kW</p><p>Step 2, energy: energy = power &times; time = 0.3 kW &times; 8 h = <strong>2.4 kWh</strong></p><p>0.3 kWh leaves out the 8 hours. 2,400 kWh uses watts (300 &times; 8 = 2,400 Wh) but labels the answer as kilowatt-hours without dividing by 1,000. 0.96 kWh multiplies the voltage by the time (120 &times; 8 = 960) and leaves out the current.</p>",
+"why": [
+"0.3 kW is the power. Energy also depends on time: 0.3 kW &times; 8 h = 2.4 kWh.",
+"You multiplied the voltage by the time (120 &times; 8) and left out the current. Find power first: 120 &times; 2.5 = 300 W.",
+"",
+"300 W &times; 8 h = 2,400 watt-hours, not kilowatt-hours. Divide by 1,000: 2.4 kWh."
+]
+},
+{
+"id": "q29",
+"type": "mc",
+"skill": "Volcanoes and magma",
+"difficulty": 1,
+"stim": "s9",
+"prompt": "<p>Which relationship is shown in the table?</p>",
+"options": [
+"As silica content increases, lava becomes more viscous and eruptions tend to be more explosive.",
+"As silica content increases, lava becomes runnier and eruptions tend to be gentler.",
+"As eruption temperature increases, eruptions tend to become more explosive.",
+"Silica content has no clear connection to how a volcano erupts."
+],
+"answer": 0,
+"explain": "<p>Reading down the table, silica rises from about 50% to 60% to 70%, viscosity rises from low to medium to high, and the eruption style changes from gentle to moderately explosive to very explosive. So <strong>more silica means thicker lava and more explosive eruptions</strong>.</p><p>The hottest lava (basaltic, 1,000&ndash;1,200 &deg;C) has the gentlest eruptions, so higher temperature does not go with more explosive eruptions here. The table shows a clear pattern, so silica content is connected to eruption style.</p>",
+"why": [
+"",
+"You reversed the pattern. The table shows more silica goes with higher viscosity (thicker lava) and more explosive eruptions.",
+"The hottest lava (basaltic) has the gentlest eruptions, so higher temperature does not go with more explosive eruptions here.",
+"The table shows a clear pattern: as silica rises from 50% to 70%, eruptions change from gentle to very explosive."
+]
+},
+{
+"id": "q30",
+"type": "multi",
+"skill": "Using evidence from data",
+"difficulty": 2,
+"stim": "s9",
+"prompt": "<p>Which statements are supported by the passage and table?</p><p>Select <strong>two</strong> answers.</p>",
+"options": [
+"Basaltic lava erupts at the highest temperatures of the three types.",
+"Rhyolitic lava flows travel the farthest because they contain the most silica.",
+"Gas escapes more easily from runny, low-silica magma, so pressure does not build up as much.",
+"Most very explosive eruptions involve basaltic magma.",
+"Lava temperature and silica content are not related in the table."
+],
+"answer": [
+0,
+2
+],
+"explain": "<p><strong>Basaltic lava</strong> erupts at 1,000&ndash;1,200 &deg;C, the highest range in the table. The passage states that <strong>gas escapes easily from runny magma, so pressure does not build up much</strong>.</p><p>Rhyolitic lava forms short, thick flows; basaltic flows travel many kilometers. Very explosive eruptions are linked to rhyolitic, high-silica magma, not basaltic. Temperature and silica are related: as silica goes up, eruption temperature goes down.</p>",
+"why": [
+"",
+"The table says rhyolitic lava forms short, thick flows. Basaltic, low-silica lava is the kind that travels many kilometers.",
+"",
+"Very explosive eruptions go with rhyolitic, high-silica magma. Basaltic eruptions are gentle.",
+"They are related: as silica content goes up, eruption temperature goes down."
+]
+},
+{
+"id": "q31",
+"type": "mc",
+"skill": "Interpreting data trends",
+"difficulty": 2,
+"stim": "s10",
+"prompt": "<p>Which conclusion is best supported by the monitoring data?</p>",
+"options": [
+"Earthquake activity and ground uplift both increased more and more rapidly in the weeks before the eruption.",
+"The number of earthquakes per day stayed about the same until the eruption began.",
+"The ground sank steadily as the eruption approached.",
+"The earthquakes were caused by the eruption, because they happened at the same time as it."
+],
+"answer": 0,
+"explain": "<p>Earthquakes per day rose by 1, 5, 13, 26, and then 62 from week to week, and uplift grew by 0.5, 1.0, 2.5, 4.0, and then 6.0 cm. Both measurements <strong>increased faster and faster</strong> before the eruption in week 7, consistent with magma rising beneath the volcano.</p><p>The number of earthquakes rose from 3 to 110 per day, so it did not stay the same. The ground rose (uplift), not sank. The earthquakes happened in weeks 1 through 6, before the eruption, so the eruption could not have caused them.</p>",
+"why": [
+"",
+"Earthquakes rose from 3 to 110 per day, so they did not stay about the same.",
+"The ground rose (uplift grew from 0 to 14 cm); it did not sink.",
+"The earthquakes happened in weeks 1 through 6, before the eruption in week 7, so the eruption could not have caused them."
+]
+},
+{
+"id": "q32",
+"type": "mc",
+"skill": "Calculating a rate of change",
+"difficulty": 3,
+"stim": "s10",
+"noShuffle": true,
+"prompt": "<p>What was the average rate of ground uplift from week 4 to week 6?</p>",
+"options": [
+"2.3 cm per week",
+"3.3 cm per week",
+"5.0 cm per week",
+"10 cm per week"
+],
+"answer": 2,
+"explain": "<p>Rate = change in uplift &divide; change in time.</p><p>14.0 &minus; 4.0 = 10.0 cm<br>Week 6 &minus; week 4 = 2 weeks<br>10.0 &divide; 2 = <strong>5.0 cm per week</strong></p><p>3.3 comes from dividing by 3 by counting weeks 4, 5, and 6 as three weeks; the time that passes from week 4 to week 6 is 2 weeks. 2.3 is the average over all six weeks (14.0 &divide; 6). 10 is the total change, not divided by time.</p>",
+"why": [
+"2.3 cm per week is the average over all six weeks (14.0 &divide; 6). The question asks only about week 4 to week 6: 10.0 &divide; 2 = 5.0.",
+"You divided by 3 by counting weeks 4, 5, and 6. The time that passes from week 4 to week 6 is 2 weeks: 10.0 &divide; 2 = 5.0.",
+"",
+"10 cm is the total change from week 4 to week 6. Divide by the 2 weeks that passed: 5.0 cm per week."
+]
+},
+{
+"id": "q33",
+"type": "mc",
+"skill": "Volcanoes and climate",
+"difficulty": 2,
+"prompt": "<p>In 1991, Mount Pinatubo in the Philippines erupted and sent roughly 15 to 20 million metric tons of sulfur dioxide high into the stratosphere. There, the gas formed tiny droplets of sulfuric acid that spread around the globe and remained for more than a year. Over the next year or so, Earth's average surface temperature dropped by about 0.5 &deg;C. Which statement best explains this cooling?</p>",
+"options": [
+"The sulfuric acid droplets high in the atmosphere reflected some incoming sunlight back into space.",
+"The eruption released carbon dioxide, which trapped heat and cooled Earth's surface.",
+"Heat from the eruption escaped into space and carried heat away from the rest of Earth.",
+"Volcanic ash stayed over the Philippines for two years and blocked sunlight everywhere on Earth."
+],
+"answer": 0,
+"explain": "<p>The droplets formed from sulfur dioxide spread worldwide and stayed in the stratosphere for more than a year. They <strong>reflected some sunlight back into space</strong>, so less solar energy reached Earth's surface, and average temperatures dropped.</p><p>Carbon dioxide traps heat and causes warming, not cooling. The heat of one eruption is tiny compared with the energy Earth receives from the Sun. Ash over one region could not block sunlight everywhere on Earth, and heavy ash particles fall out of the air within days to weeks; the passage credits the long-lasting droplets.</p>",
+"why": [
+"",
+"Carbon dioxide traps heat and causes warming, not cooling. The passage credits sulfuric acid droplets that reflected sunlight.",
+"The heat of one eruption is tiny compared with the energy Earth receives from the Sun. The cooling came from droplets reflecting sunlight.",
+"Ash over one region could not block sunlight everywhere, and heavy ash falls out within weeks. The passage describes droplets that spread worldwide and lasted over a year."
+]
+},
+{
+"id": "q34",
+"type": "mc",
+"skill": "Plate motion and hotspots",
+"difficulty": 3,
+"stim": "s11",
+"prompt": "<p>Which explanation best accounts for the pattern of island ages in the table?</p>",
+"options": [
+"The Pacific plate is moving northwest over a hotspot that stays in place, so older volcanoes are carried away from it.",
+"The Pacific plate is moving southeast over a hotspot that stays in place, so the newest islands form at the northwest end.",
+"The islands formed at a subduction zone where the Pacific plate sinks beneath a continental plate.",
+"All the islands formed at the same time, but erosion has made the northwestern islands appear older."
+],
+"answer": 0,
+"explain": "<p>The youngest island (Hawaii, less than 0.7 million years old and still growing) is at the southeast end, over the hotspot, and the islands get older toward the northwest (Maui 0.8&ndash;1.3, Oahu 2.2&ndash;3.4, Kauai 3.8&ndash;5.6 million years). Each volcano formed over the fixed hotspot and was then carried away as <strong>the plate moved northwest</strong>, while a new volcano formed over the hotspot.</p><p>If the plate moved southeast, the oldest islands would lie to the southeast, which is the opposite of the data. The passage says the islands formed over a hotspot, not at a subduction zone. The rock ages show the islands formed millions of years apart, not at the same time.</p>",
+"why": [
+"",
+"If the plate moved southeast, the oldest islands would lie to the southeast. The data show the youngest island is at the southeast end.",
+"The passage says the islands formed over a hotspot, not at a subduction zone.",
+"The rock ages differ by millions of years (under 0.7 to 5.6), so the islands did not form at the same time."
+]
+}
+]
+}
+]
 }
