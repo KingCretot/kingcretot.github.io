@@ -477,8 +477,7 @@
         4
        ]
       }
-     ],
-     "pointLabels": false
+     ]
     },
     "steps": [
      "<strong>A is out.</strong> Flat means stopped only on a <em>distance</em>-time graph. This y-axis is speed, and the speed is 8 m/s, not 0.",
@@ -793,8 +792,7 @@
         0
        ]
       }
-     ],
-     "pointLabels": false
+     ]
     },
     "check": {
      "id": "L06",
@@ -2390,8 +2388,7 @@
         15
        ]
       }
-     ],
-     "pointLabels": false
+     ]
     }
    },
    {
@@ -2487,58 +2484,55 @@
     "id": "XA4",
     "set": "A",
     "type": "dropdown",
-    "skill": "Variables and F = ma",
+    "skill": "Speed vs. velocity",
     "difficulty": 2,
-    "stim": "xs2",
-    "prompt": "<p>Complete the statements about the cart experiment.</p><p>The independent variable is {{0}}, and the dependent variable is {{1}}. For the 2.0-kg cart, F = m &times; a gives a net force of {{2}}, which matches the force the students used.</p>",
+    "prompt": "<p>A delivery van travels due east at a steady 60 km/h for 30 minutes. Then it turns around and travels due west at a steady 60 km/h.</p><p>During the first 30 minutes, the delivery van covers {{0}}. Comparing its motion before and after it turns around, its speed {{1}}, and its velocity {{2}}.</p>",
     "blanks": [
      {
       "options": [
-       "the mass of the cart",
-       "the acceleration of the cart",
-       "the net force on the cart",
-       "the smoothness of the table"
+       "30 km",
+       "120 km",
+       "1,800 km",
+       "2 km"
       ],
       "answer": 0,
       "why": [
        "",
-       "Acceleration is what the motion sensor measured, so it is the dependent variable.",
-       "The net force was kept at 6.0 N in every trial, so it is a controlled variable, not the one being changed.",
-       "The same smooth table was used in every trial, so it is a controlled condition."
+       "You divided the speed by the time (60 &divide; 0.5). Distance = speed &times; time: 60 km/h &times; 0.5 h = 30 km.",
+       "You multiplied by 30 without changing minutes to hours. The speed is per <em>hour</em>, so use 30 min = 0.5 h: 60 &times; 0.5 = 30 km.",
+       "You divided the speed by the number of minutes (60 &divide; 30). Convert 30 min to 0.5 h, then multiply: d = s &times; t = 60 &times; 0.5."
       ]
      },
      {
       "options": [
-       "the acceleration of the cart",
-       "the mass of the cart",
-       "the net force on the cart",
-       "the reading on the spring scale"
+       "stays the same, 60 km/h",
+       "changes, because its direction changes",
+       "doubles to 120 km/h"
       ],
       "answer": 0,
       "why": [
        "",
-       "The students changed the mass on purpose by adding blocks, so mass is the independent variable.",
-       "The net force stayed at 6.0 N, so it is a controlled variable. The dependent variable is what was measured as a result.",
-       "The spring scale was used to keep the force at 6.0 N; its reading was held constant, not measured as a result."
+       "Direction is part of velocity, not speed. The delivery van still covers 60 km each hour, so its speed is unchanged.",
+       "You added the speeds before and after the turn. The delivery van moves at 60 km/h the whole time; only its direction changes."
       ]
      },
      {
       "options": [
-       "6.0 N",
-       "1.5 N",
-       "0.67 N",
-       "5.0 N"
+       "changes from 60 km/h east to 60 km/h west",
+       "stays the same, because its speed does not change",
+       "changes from 60 km/h east to 0 km/h",
+       "doubles, because it now moves the opposite way"
       ],
       "answer": 0,
       "why": [
        "",
-       "You divided acceleration by mass (3.0 &divide; 2.0). F = m &times; a, so multiply: 2.0 &times; 3.0.",
-       "You divided mass by acceleration (2.0 &divide; 3.0). F = m &times; a, so multiply.",
-       "You added the mass and acceleration (2.0 + 3.0). F = m &times; a means multiply: 2.0 &times; 3.0 = 6.0 N."
+       "Equal speeds do not mean equal velocities. Velocity is speed <em>plus direction</em>, and the direction changed from east to west.",
+       "The delivery van is still moving at 60 km/h after the turn, so its velocity is not zero. It has the same speed in the opposite direction.",
+       "Reversing direction does not double anything. The size stays 60 km/h; only the direction flips from east to west."
       ]
      }
     ],
-    "explain": "<p>The students <strong>changed the mass</strong> on purpose, so it is the independent variable. They <strong>measured the acceleration</strong>, so it is the dependent variable. The net force (6.0 N) was controlled.</p><p>For the 2.0-kg cart: F = 2.0 kg &times; 3.0 m/s<sup>2</sup> = <strong>6.0 N</strong>, matching the force used, which supports Newton's second law.</p>"
+    "explain": "<p>Distance in the first part: convert 30 min to 0.5 h, then d = s &times; t = 60 km/h &times; 0.5 h = <strong>30 km</strong>.</p><p>Speed answers only \"how fast?\" Before and after the turn the delivery van moves at 60 km/h, so its <strong>speed stays the same</strong>.</p><p>Velocity is speed <em>with a direction</em>. It goes from 60 km/h east to 60 km/h west, so its <strong>velocity changes</strong>. The tempting answer that the velocity stays the same because the speed does not change ignores direction, which is the whole difference between speed and velocity.</p>"
    },
    {
     "id": "XA5",
@@ -2732,58 +2726,55 @@
     "id": "XB4",
     "set": "B",
     "type": "dropdown",
-    "skill": "Variables and F = ma",
+    "skill": "Speed vs. velocity",
     "difficulty": 2,
-    "stim": "xs4",
-    "prompt": "<p>Complete the statements about the cart experiment.</p><p>The independent variable is {{0}}, and the dependent variable is {{1}}. For the 6.0-N trial, rearranging F = m &times; a gives a mass of {{2}}, which matches the cart's actual mass.</p>",
+    "prompt": "<p>A ferry travels due north at a steady 24 km/h for 15 minutes. Then it turns around and travels due south at a steady 24 km/h.</p><p>During the first 15 minutes, the ferry covers {{0}}. Comparing its motion before and after it turns around, its speed {{1}}, and its velocity {{2}}.</p>",
     "blanks": [
      {
       "options": [
-       "the net force on the cart",
-       "the acceleration of the cart",
-       "the mass of the cart",
-       "the smoothness of the table"
+       "6 km",
+       "96 km",
+       "360 km",
+       "1.6 km"
       ],
       "answer": 0,
       "why": [
        "",
-       "Acceleration is what the motion sensor measured, so it is the dependent variable.",
-       "The cart's mass stayed at 2.0 kg in every trial, so it is a controlled variable.",
-       "The same smooth table was used in every trial, so it is a controlled condition."
+       "You divided the speed by the time (24 &divide; 0.25). Distance = speed &times; time: 24 km/h &times; 0.25 h = 6 km.",
+       "You multiplied by 15 without changing minutes to hours. The speed is per <em>hour</em>, so use 15 min = 0.25 h: 24 &times; 0.25 = 6 km.",
+       "You divided the speed by the number of minutes (24 &divide; 15). Convert 15 min to 0.25 h, then multiply: d = s &times; t = 24 &times; 0.25."
       ]
      },
      {
       "options": [
-       "the acceleration of the cart",
-       "the net force on the cart",
-       "the mass of the cart",
-       "the reading on the spring scale"
+       "stays the same, 24 km/h",
+       "changes, because its direction changes",
+       "doubles to 48 km/h"
       ],
       "answer": 0,
       "why": [
        "",
-       "The students set the force on purpose in each trial, so net force is the independent variable.",
-       "The mass stayed at 2.0 kg, so it is a controlled variable. The dependent variable is what was measured as a result.",
-       "The spring scale reading is the net force the students chose ahead of time, the independent variable, not the result."
+       "Direction is part of velocity, not speed. The ferry still covers 24 km each hour, so its speed is unchanged.",
+       "You added the speeds before and after the turn. The ferry moves at 24 km/h the whole time; only its direction changes."
       ]
      },
      {
       "options": [
-       "2.0 kg",
-       "18 kg",
-       "0.5 kg",
-       "3.0 kg"
+       "changes from 24 km/h north to 24 km/h south",
+       "stays the same, because its speed does not change",
+       "changes from 24 km/h north to 0 km/h",
+       "doubles, because it now moves the opposite way"
       ],
       "answer": 0,
       "why": [
        "",
-       "You multiplied force by acceleration (6.0 &times; 3.0). Mass = F &divide; a.",
-       "You divided acceleration by force (3.0 &divide; 6.0). Mass = F &divide; a = 6.0 &divide; 3.0.",
-       "You subtracted (6.0 &minus; 3.0). Rearranging F = m &times; a gives m = F &divide; a."
+       "Equal speeds do not mean equal velocities. Velocity is speed <em>plus direction</em>, and the direction changed from north to south.",
+       "The ferry is still moving at 24 km/h after the turn, so its velocity is not zero. It has the same speed in the opposite direction.",
+       "Reversing direction does not double anything. The size stays 24 km/h; only the direction flips from north to south."
       ]
      }
     ],
-    "explain": "<p>The students <strong>changed the net force</strong> on purpose, so it is the independent variable. They <strong>measured the acceleration</strong>, so it is the dependent variable. The mass (2.0 kg) was controlled.</p><p>For the 6.0-N trial: m = F &divide; a = 6.0 N &divide; 3.0 m/s<sup>2</sup> = <strong>2.0 kg</strong>, matching the cart's mass, which supports Newton's second law.</p>"
+    "explain": "<p>Distance in the first part: convert 15 min to 0.25 h, then d = s &times; t = 24 km/h &times; 0.25 h = <strong>6 km</strong>.</p><p>Speed answers only \"how fast?\" Before and after the turn the ferry moves at 24 km/h, so its <strong>speed stays the same</strong>.</p><p>Velocity is speed <em>with a direction</em>. It goes from 24 km/h north to 24 km/h south, so its <strong>velocity changes</strong>. The tempting answer that the velocity stays the same because the speed does not change ignores direction, which is the whole difference between speed and velocity.</p>"
    },
    {
     "id": "XB5",
