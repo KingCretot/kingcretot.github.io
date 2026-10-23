@@ -269,12 +269,31 @@ function scoreItem(it,val){
     case 'mc': return val===it.answer;
     case 'multi': return Array.isArray(val)&&val.length===it.answer.length&&it.answer.every(function(a){return val.indexOf(a)>=0});
     case 'dropdown': return Array.isArray(val)&&it.blanks.every(function(b,i){return val[i]===b.answer});
-    case 'fill': var n=normFill(val); if(it.answer.some(function(a){return normFill(a)===n}))return true; if(typeof it.value==='number'){var v=parseNum(val);return !isNaN(v)&&Math.abs(v-it.value)<=(it.tol||1e-9)+1e-9}return false;
+    case 'fill': if (it.expr) return exprMatch(val,it.expr,it.var||'x'); var n=normFill(val); if(it.answer.some(function(a){return normFill(a)===n}))return true; if(typeof it.value==='number'){var v=parseNum(val);return !isNaN(v)&&Math.abs(v-it.value)<=(it.tol||1e-9)+1e-9}return false;
     case 'drag': return Array.isArray(val)&&it.answer.every(function(a,i){return val[i]===a});
     case 'hotspot': return it.plane?Array.isArray(val)&&val[0]===it.answer[0]&&val[1]===it.answer[1]:val===it.answer;
   }
   return false;
 }
+/* algebraic expression equivalence for fill items with "expr" (e.g., "5x-7") */
+function exprEval(src,v,xv){
+  var s=String(src).toLowerCase().replace(/\s+/g,'').replace(/[−–]/g,'-').replace(/×|\*/g,'*').replace(/÷/g,'/').replace(/²/g,'^2').replace(/³/g,'^3'),i=0;
+  if (!s||/[^0-9a-z.+\-*/^()]/.test(s)) throw 0;
+  var letters=s.replace(/[^a-z]/g,''); if (letters&&letters.split('').some(function(c){return c!==v})) throw 0;
+  function peek(){return s[i]}
+  function prim(){var c=s[i];
+    if (c==='('){i++;var r=expr();if(s[i]!==')')throw 0;i++;return r}
+    if (c===v){i++;return xv}
+    var m=s.slice(i).match(/^(\d+\.?\d*|\.\d+)/); if(!m) throw 0; i+=m[0].length; return parseFloat(m[0])}
+  function pow(){var b=prim(); if(s[i]==='^'){i++; var neg=false; if(s[i]==='-'){neg=true;i++} var e=pow(); return Math.pow(b,neg?-e:e)} return b}
+  function unary(){if(s[i]==='-'){i++;return -unary()} if(s[i]==='+'){i++;return unary()} return pow()}
+  function term(){var r=unary(); for(;;){var c=s[i]; if(c==='*'){i++;r*=unary()} else if(c==='/'){i++;r/=unary()} else if(c==='('||c===v||/[0-9.]/.test(c||'')){r*=pow()} else return r}}
+  function expr(){var r=term(); for(;;){if(s[i]==='+'){i++;r+=term()} else if(s[i]==='-'){i++;r-=term()} else return r}}
+  var out=expr(); if(i<s.length) throw 0; return out;
+}
+function exprTerms(src){var s=String(src).replace(/\s+/g,'').replace(/[\u2212\u2013]/g,'-'),d=0,n=1;for(var i=0;i<s.length;i++){var c=s[i];if(c==='(')d++;else if(c===')')d--;else if((c==='+'||c==='-')&&d===0&&i>0&&!/[+\-*\/^(]/.test(s[i-1]))n++}return n}
+function exprMatch(a,b,v){return exprEq(a,b,v)&&exprTerms(a)===exprTerms(b)&&(/\(/.test(String(a))===/\(/.test(String(b)))}
+function exprEq(a,b,v){try{return [-2.5,-1.3,0.7,1.9,3.2].every(function(x){var p=exprEval(a,v,x),q=exprEval(b,v,x);return isFinite(p)&&Math.abs(p-q)<1e-7*Math.max(1,Math.abs(q))})}catch(e){return false}}
 function answered(it,val){if(val==null||val==='')return false;if(it.type==='drag'||it.type==='dropdown')return Array.isArray(val)&&val.every(function(x){return x!=null});if(it.type==='multi')return Array.isArray(val)&&val.length===it.answer.length;return true}
 function ansText(it,val){
   if (val==null||val===''||(Array.isArray(val)&&!val.some(function(x){return x!=null}))) return '(no answer)';
@@ -330,7 +349,7 @@ function whyFor(it,val){
     case 'dropdown': return it.blanks.map(function(b,i){return val[i]!=null&&val[i]!==b.answer&&b.why&&b.why[val[i]]?'<span class="wopt">'+esc(txt(b.options[val[i]]))+':</span> '+b.why[val[i]]:''}).filter(Boolean).join('<br>');
     case 'fill':
       var n=normFill(val), v=parseNum(val);
-      var m=(it.mistakes||[]).filter(function(mm){return (mm.answer||[]).some(function(a){var av=parseNum(a);return normFill(a)===n||(!isNaN(v)&&!isNaN(av)&&Math.abs(av-v)<1e-9)})})[0];
+      var m=(it.mistakes||[]).filter(function(mm){return (mm.answer||[]).some(function(a){if(it.expr) return exprEq(val,a,it.var||'x'); var av=parseNum(a);return normFill(a)===n||(!isNaN(v)&&!isNaN(av)&&Math.abs(av-v)<1e-9)})})[0];
       return m?m.why:'';
     case 'drag': case 'hotspot': return it.why||'';
   }
