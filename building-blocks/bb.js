@@ -105,7 +105,7 @@ window.BBLesson=function(L){
     var head=(s.kick?'<span class="kick">'+esc(s.kick)+'</span>':'')+(s.title?'<h2>'+html(s.title)+'</h2>':'');
     var T=s.type;
     if(T==='hello'){box.innerHTML='<span class="kick">'+esc(prettyDate(L.date))+'</span><h2>'+html(s.title||L.title)+'</h2>'+vis(s.visual)+'<div class="say">'+html(s.text||'')+'</div><div class="goal">🎯 '+html(L.goal)+'</div>';}
-    else if(T==='learn'){box.innerHTML=head+'<div class="say">'+html(s.text||'')+'</div>'+vis(s.visual)+(s.steps?'<div class="steps">'+s.steps.map(function(x,i){return '<div class="st'+(i===0?' on':'')+'">'+html(x.text)+vis(x.visual)+'</div>'}).join('')+'</div><button class="btn2" id="more">Show me the next step ➜</button>':'')+(s.tip?'<div class="tip">💡 '+html(s.tip)+'</div>':'');
+    else if(T==='learn'){box.innerHTML=head+'<div class="say">'+html(s.text||'')+'</div>'+vis(s.visual)+(s.steps?'<div class="steps">'+s.steps.map(function(x,i){return '<div class="st'+(i===0?' on':'')+'"><span class="stt">'+html(x.text)+'</span>'+vis(x.visual)+'</div>'}).join('')+'</div><button class="btn2" id="more">Show me the next step ➜</button>':'')+(s.tip?'<div class="tip">💡 '+html(s.tip)+'</div>':'');
       setTimeout(function(){var m=document.getElementById('more');if(m){var k=1,st=box.querySelectorAll('.st');if(st.length<2)m.remove();m.onclick=function(){if(k<st.length){st[k].classList.add('on');k++;}if(k>=st.length)m.remove();}}},0);}
     else if(T==='vocab'){box.innerHTML=head+'<div class="say">'+html(s.text||'Tap each card to flip it. Say the word out loud.')+'</div><div class="vocab">'+s.words.map(function(w){return '<div class="vc"><div class="in"><div class="f"><div class="e">'+esc(w.emoji||'📘')+'</div><div class="w">'+esc(w.word)+'</div><div style="font-size:14px;opacity:.85">'+esc(w.pos||'')+'</div></div><div class="b"><div class="m">'+html(w.meaning)+'</div><div><i>'+html(w.example)+'</i></div></div></div></div>'}).join('')+'</div>';
       setTimeout(function(){box.querySelectorAll('.vc').forEach(function(c){c.onclick=function(){c.classList.toggle('flip')}})},0);}
@@ -206,4 +206,23 @@ window.BBCourse=function(C){
 
 /* ---------- confetti ---------- */
 window.confetti=function(){var c=document.createElement('canvas');c.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:60';document.body.appendChild(c);c.width=innerWidth;c.height=innerHeight;var x=c.getContext('2d'),P=[],col=['#0047BA','#C9A84C','#DB2F30','#18A058','#E84393','#2E86DE'];for(var i=0;i<160;i++)P.push({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,v:2+Math.random()*4,r:Math.random()*6.28,s:6+Math.random()*7,c:col[i%6]});var t=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(function(p){p.y+=p.v;p.r+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore()});if(++t<200)requestAnimationFrame(f);else c.remove()})()};
+})();
+
+/* ---------- read-aloud (Heart voice) for young readers: on when window.KCE_READALOUD ---------- */
+(function(){
+  if(!window.KCE_READALOUD) return;
+  var SEL='.say,.q,.tip,.goal,.stt', aud=null;
+  function key(el){var c=el.cloneNode(true);c.querySelectorAll('.ra').forEach(function(b){b.remove()});return (c.textContent||'').replace(/\s+/g,' ').trim();}
+  function stop(){if(aud){try{aud.pause()}catch(e){}aud=null}try{speechSynthesis.cancel()}catch(e){}document.querySelectorAll('.ra.on').forEach(function(b){b.classList.remove('on')})}
+  function backup(t,b){try{var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;u.onend=u.onerror=function(){b.classList.remove('on')};speechSynthesis.speak(u)}catch(e){b.classList.remove('on')}}
+  function play(t,b){stop();b.classList.add('on');var f=(window.KCE_CLIPS||{})[t];if(!f){backup(t,b);return}
+    var a=new Audio(f),d=false;aud=a;a.onended=function(){b.classList.remove('on')};a.onerror=function(){if(!d){d=true;backup(t,b)}};var pr=a.play();if(pr&&pr.catch)pr.catch(function(){if(!d){d=true;backup(t,b)}});}
+  function deco(){document.querySelectorAll(SEL).forEach(function(el){if(el.querySelector(':scope > .ra'))return;var t=key(el);if(!t||!/[A-Za-z0-9]/.test(t))return;
+    var b=document.createElement('button');b.type='button';b.className='ra';b.title='Hear this read aloud';b.textContent='🔊';
+    b.onclick=function(ev){ev.stopPropagation();play(key(el),b)};el.insertBefore(b,el.firstChild);});}
+  var st=document.createElement('style');st.textContent='.ra{border:none;background:#0A1F3D;color:#fff;border-radius:999px;width:34px;height:34px;font-size:16px;cursor:pointer;margin:0 8px 0 0;vertical-align:middle;flex:none}.ra.on{background:#C9A84C}';
+  document.head.appendChild(st);
+  new MutationObserver(function(){deco()}).observe(document.documentElement,{childList:true,subtree:true});
+  window.KCE_RA_KEYS=function(){var k=[];document.querySelectorAll(SEL).forEach(function(el){var t=key(el);if(t)k.push(t)});return k};
+  window.KCE_RA_KEY_HTML=function(h){var d=document.createElement('div');d.className='x';d.innerHTML=h;return key(d)};
 })();
