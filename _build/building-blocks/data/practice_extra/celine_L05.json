@@ -1,0 +1,362 @@
+{
+ "sets": [
+  [
+   {
+    "type": "fill",
+    "q": "Week 1. Write <b>370</b> in expanded form: 370 = ____",
+    "answers": [
+     "300 + 70",
+     "300 + 70 + 0",
+     "300+70"
+    ],
+    "why": "3 hundreds and 7 tens. The 0 ones is worth 0. <b>300 + 70</b>",
+    "no": "Write what each digit is worth, with plus signs.",
+    "hint": "The 3 is worth 300.",
+    "placeholder": "Example: 300 + 40 + 5"
+   },
+   {
+    "type": "fill",
+    "q": "Week 1. Round <b>563</b> to the nearest <b>ten</b>: ____",
+    "answers": [
+     "560"
+    ],
+    "why": "563 is between 560 and 570. Look at the ones digit: 3. That is 4 or less, so round <b>down</b>. <b>560</b>",
+    "no": "Look at the ones digit. 5 or more rounds up. 4 or less stays.",
+    "hint": "563 is between 560 and 570. Which one is it closer to?",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Week 2. Which one is <b>true</b>?",
+    "choices": [
+     "953 &lt; 935",
+     "953 = 935",
+     "953 &gt; 935"
+    ],
+    "a": 2,
+    "why": "Hundreds tie: 9 and 9. Tens: 5 and 3. 5 is bigger, so <b>953 &gt; 935</b>.",
+    "no": [
+     "&lt; means less than. 953 is NOT less than 935. Look at the tens.",
+     "The digits are mixed up, so they are not equal.",
+     null
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Week 2. Put these in order from <b>least to greatest</b>: <b>627, 276, 672</b>.<br>Type them with commas: ____",
+    "answers": [
+     "276, 627, 672",
+     "276 < 627 < 672"
+    ],
+    "why": "Compare the hundreds first. If two tie, compare the tens. From least to greatest: <b>276, 627, 672</b>",
+    "no": "Look at the hundreds digits first. If two numbers have the same hundreds digit, look at the tens.",
+    "hint": "Which number is smallest?",
+    "placeholder": "Example: 100, 200, 300"
+   },
+   {
+    "type": "fill",
+    "q": "Week 3. <b>486 + 237 = ____</b>",
+    "answers": [
+     "723"
+    ],
+    "why": "Ones: 6 + 7 = 13. Write 3, carry 1. Tens: 8 + 3 + 1 = 12. Write 2, carry 1. Hundreds: 4 + 2 + 1 = 7. <b>723</b>",
+    "no": "Start with the ones. If a column makes 10 or more, write the ones digit and carry the 1 to the next column.",
+    "hint": "Ones first: 6 + 7 = 13.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Week 3. <b>902 − 548 = ____</b>",
+    "answers": [
+     "354"
+    ],
+    "why": "Ones: 2 − 8? Too small. The tens place has 0, so first take 1 hundred: 9 hundreds become 8, and 0 tens become 10 tens. Now take 1 ten: 10 tens become 9, and 2 ones become 12 ones. 12 − 8 = 4. Tens: 9 − 4 = 5. Hundreds: 8 − 5 = 3. <b>354</b>",
+    "no": "Start with the ones. If the top digit is too small, borrow 1 from the next place. Never flip the digits.",
+    "hint": "Ones first: 2 − 8? You need to borrow.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Week 4. A bakery made <b>470</b> rolls. It sold <b>289</b>. How many rolls are left?",
+    "choices": [
+     "759",
+     "181",
+     "219",
+     "281"
+    ],
+    "a": 1,
+    "why": "“Left” means subtract: 470 − 289. Ones: 0 − 9? Borrow: 10 − 9 = 1. Tens: 6 − 8? Borrow: 16 − 8 = 8. Hundreds: 3 − 2 = 1. <b>181</b>",
+    "no": [
+     "759 is 470 + 289. “Left” means subtract.",
+     null,
+     "Did you flip the digits instead of borrowing? Borrow when the top digit is too small.",
+     "Did you forget that the 4 hundreds became 3?"
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Week 4. <b>Estimate</b> 353 + 529. Round each number to the nearest hundred first. Then add. Estimate: ____",
+    "answers": [
+     "900"
+    ],
+    "why": "353 rounds to 400. 529 rounds to 500. 400 + 500 = <b>900</b>",
+    "no": "Round each number to the nearest hundred first. Then add the rounded numbers. Do not add the exact numbers.",
+    "hint": "353 rounds to 400.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Where did Eli go fishing? At the river ____.",
+    "answers": [
+     "dock"
+    ],
+    "why": "They fished “at the river <b>dock</b>.” That is part of the setting.",
+    "no": "Look at the first sentence.",
+    "hint": "It starts with d.",
+    "placeholder": "Type a word",
+    "visual": {
+     "kind": "passage",
+     "text": "<b>Eli's Fishing Trip</b><br>On a sunny morning, Eli and his mom went fishing at the river dock. First, Eli put a worm on his hook. Next, he dropped his line into the water. Then he waited, and waited. Nothing bit. Eli wanted to go home. “Fish like it quiet,” Mom said. Eli sat still and watched his red bobber. At last, the bobber dipped down! Eli pulled in a big, shiny fish. He grinned all the way home."
+    }
+   },
+   {
+    "q": "What was Eli's <b>conflict</b>?",
+    "choices": [
+     "He could not find a worm to put on his hook",
+     "No fish would bite, and he wanted to quit",
+     "His mom fell off the dock into the river",
+     "It started to rain on the river dock"
+    ],
+    "a": 1,
+    "why": "He waited and waited, but nothing bit. He wanted to go home. That is his problem.",
+    "no": [
+     "He put a worm on his hook. Nothing says he could not find one.",
+     null,
+     "Nobody falls in.",
+     "It was a sunny morning."
+    ],
+    "visual": {
+     "kind": "passage",
+     "text": "<b>Eli's Fishing Trip</b><br>On a sunny morning, Eli and his mom went fishing at the river dock. First, Eli put a worm on his hook. Next, he dropped his line into the water. Then he waited, and waited. Nothing bit. Eli wanted to go home. “Fish like it quiet,” Mom said. Eli sat still and watched his red bobber. At last, the bobber dipped down! Eli pulled in a big, shiny fish. He grinned all the way home."
+    }
+   },
+   {
+    "q": "What happened right <b>after</b> the bobber dipped down?",
+    "choices": [
+     "Eli put a worm on his hook",
+     "Eli pulled in a big fish",
+     "Mom said fish like it quiet",
+     "Eli dropped his line"
+    ],
+    "a": 1,
+    "why": "“At last, the bobber dipped down! Eli pulled in a big, shiny fish.”",
+    "no": [
+     "That was first.",
+     null,
+     "That came before he sat still.",
+     "That was next, near the start."
+    ],
+    "visual": {
+     "kind": "passage",
+     "text": "<b>Eli's Fishing Trip</b><br>On a sunny morning, Eli and his mom went fishing at the river dock. First, Eli put a worm on his hook. Next, he dropped his line into the water. Then he waited, and waited. Nothing bit. Eli wanted to go home. “Fish like it quiet,” Mom said. Eli sat still and watched his red bobber. At last, the bobber dipped down! Eli pulled in a big, shiny fish. He grinned all the way home."
+    }
+   },
+   {
+    "type": "fill",
+    "q": "Eli waited and caught a fish. The theme is: good things can come if you are ____.",
+    "answers": [
+     "patient",
+     "patience",
+     "calm",
+     "still",
+     "quiet"
+    ],
+    "why": "Eli sat still and waited, and he caught a fish. The lesson: <b>be patient</b>.",
+    "no": "What did Eli have to do to catch the fish?",
+    "hint": "It starts with p.",
+    "placeholder": "Type a word",
+    "visual": {
+     "kind": "passage",
+     "text": "<b>Eli's Fishing Trip</b><br>On a sunny morning, Eli and his mom went fishing at the river dock. First, Eli put a worm on his hook. Next, he dropped his line into the water. Then he waited, and waited. Nothing bit. Eli wanted to go home. “Fish like it quiet,” Mom said. Eli sat still and watched his red bobber. At last, the bobber dipped down! Eli pulled in a big, shiny fish. He grinned all the way home."
+    }
+   }
+  ],
+  [
+   {
+    "type": "fill",
+    "q": "Week 1. Write <b>904</b> in expanded form: 904 = ____",
+    "answers": [
+     "900 + 4",
+     "900 + 0 + 4",
+     "900+4"
+    ],
+    "why": "9 hundreds and 4 ones. The 0 tens is worth 0. <b>900 + 4</b> (or 900 + 0 + 4).",
+    "no": "Write what each digit is worth, with plus signs.",
+    "hint": "The 9 is worth 900.",
+    "placeholder": "Example: 300 + 40 + 5"
+   },
+   {
+    "type": "fill",
+    "q": "Week 1. Round <b>281</b> to the nearest <b>hundred</b>: ____",
+    "answers": [
+     "300"
+    ],
+    "why": "281 is between 200 and 300. Look at the tens digit: 8. That is 5 or more, so round <b>up</b>. <b>300</b>",
+    "no": "Look at the tens digit. 5 or more rounds up. 4 or less stays.",
+    "hint": "281 is between 200 and 300. Which one is it closer to?",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Week 2. Which one is <b>true</b>?",
+    "choices": [
+     "617 &gt; 671",
+     "617 &lt; 671",
+     "617 = 671"
+    ],
+    "a": 1,
+    "why": "Hundreds tie: 6 and 6. Tens: 1 and 7. 1 is less, so <b>617 &lt; 671</b>.",
+    "no": [
+     "&gt; means greater than. 617 is NOT greater than 671. Look at the tens.",
+     null,
+     "The digits are mixed up, so they are not equal."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Week 2. Put these in order from <b>greatest to least</b>: <b>845, 458, 854</b>.<br>Type them with commas: ____",
+    "answers": [
+     "854, 845, 458",
+     "854 > 845 > 458"
+    ],
+    "why": "Compare the hundreds first. If two tie, compare the tens. From greatest to least: <b>854, 845, 458</b>",
+    "no": "Look at the hundreds digits first. If two numbers have the same hundreds digit, look at the tens.",
+    "hint": "Which number is biggest?",
+    "placeholder": "Example: 100, 200, 300"
+   },
+   {
+    "type": "fill",
+    "q": "Week 3. <b>567 + 158 = ____</b>",
+    "answers": [
+     "725"
+    ],
+    "why": "Ones: 7 + 8 = 15. Write 5, carry 1. Tens: 6 + 5 + 1 = 12. Write 2, carry 1. Hundreds: 5 + 1 + 1 = 7. <b>725</b>",
+    "no": "Start with the ones. If a column makes 10 or more, write the ones digit and carry the 1 to the next column.",
+    "hint": "Ones first: 7 + 8 = 15.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Week 3. <b>803 − 527 = ____</b>",
+    "answers": [
+     "276"
+    ],
+    "why": "Ones: 3 − 7? Too small. The tens place has 0, so first take 1 hundred: 8 hundreds become 7, and 0 tens become 10 tens. Now take 1 ten: 10 tens become 9, and 3 ones become 13 ones. 13 − 7 = 6. Tens: 9 − 2 = 7. Hundreds: 7 − 5 = 2. <b>276</b>",
+    "no": "Start with the ones. If the top digit is too small, borrow 1 from the next place. Never flip the digits.",
+    "hint": "Ones first: 3 − 7? You need to borrow.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Week 4. A zoo had <b>610</b> tickets. It gave out <b>375</b>. How many tickets remain?",
+    "choices": [
+     "985",
+     "365",
+     "235",
+     "335"
+    ],
+    "a": 2,
+    "why": "“Remain” means what is left: subtract. 610 − 375. Ones: 0 − 5? Borrow: 10 − 5 = 5. Tens: 0 − 7? Borrow: 10 − 7 = 3. Hundreds: 5 − 3 = 2. <b>235</b>",
+    "no": [
+     "985 is 610 + 375. “Remain” means subtract.",
+     "Did you flip the digits instead of borrowing? Borrow when the top digit is too small.",
+     null,
+     "Did you forget that the 6 hundreds became 5?"
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Week 4. <b>Estimate</b> 438 + 251. Round each number to the nearest hundred first. Then add. Estimate: ____",
+    "answers": [
+     "700"
+    ],
+    "why": "438 rounds to 400. 251 rounds to 300. 400 + 300 = <b>700</b>",
+    "no": "Round each number to the nearest hundred first. Then add the rounded numbers. Do not add the exact numbers.",
+    "hint": "438 rounds to 400.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Who is the new girl? Type her name.",
+    "answers": [
+     "Pia"
+    ],
+    "why": "The new girl is <b>Pia</b>. Gabi is the main character.",
+    "no": "Look at the first sentence.",
+    "hint": "It starts with P.",
+    "placeholder": "Type a name",
+    "visual": {
+     "kind": "passage",
+     "text": "<b>Gabi and the New Girl</b><br>On Monday, a new girl named Pia sat alone at lunch. Gabi saw her. Gabi's friends waved for Gabi to sit with them. Gabi wanted to, but Pia looked sad. First, Gabi walked over to Pia's table. Next, she asked, “Can I sit with you?” Then they found out they both loved drawing horses. Last, Gabi waved her friends over, and they all ate together."
+    }
+   },
+   {
+    "q": "What was Gabi's <b>conflict</b>?",
+    "choices": [
+     "She forgot her lunch at home on Monday",
+     "Her friends waved her over, but Pia sat alone",
+     "Pia was mean to her and would not share",
+     "She did not like drawing horses like Pia"
+    ],
+    "a": 1,
+    "why": "Gabi wanted to sit with her friends, but Pia was alone and sad. Gabi had to choose. That is her problem.",
+    "no": [
+     "Nothing says she forgot her lunch.",
+     null,
+     "Pia was sad, not mean.",
+     "She loved drawing horses too."
+    ],
+    "visual": {
+     "kind": "passage",
+     "text": "<b>Gabi and the New Girl</b><br>On Monday, a new girl named Pia sat alone at lunch. Gabi saw her. Gabi's friends waved for Gabi to sit with them. Gabi wanted to, but Pia looked sad. First, Gabi walked over to Pia's table. Next, she asked, “Can I sit with you?” Then they found out they both loved drawing horses. Last, Gabi waved her friends over, and they all ate together."
+    }
+   },
+   {
+    "q": "What happened <b>last</b>?",
+    "choices": [
+     "Gabi walked over to Pia's table",
+     "They found out they both loved horses",
+     "Gabi asked Pia, “Can I sit with you?”",
+     "They all ate together"
+    ],
+    "a": 3,
+    "why": "“<b>Last</b>, Gabi waved her friends over, and they all ate together.”",
+    "no": [
+     "That was first.",
+     "That came with “Then.”",
+     "That was next.",
+     null
+    ],
+    "visual": {
+     "kind": "passage",
+     "text": "<b>Gabi and the New Girl</b><br>On Monday, a new girl named Pia sat alone at lunch. Gabi saw her. Gabi's friends waved for Gabi to sit with them. Gabi wanted to, but Pia looked sad. First, Gabi walked over to Pia's table. Next, she asked, “Can I sit with you?” Then they found out they both loved drawing horses. Last, Gabi waved her friends over, and they all ate together."
+    }
+   },
+   {
+    "type": "fill",
+    "q": "Gabi sat with Pia. The theme is: be ____ to someone who is left out.",
+    "answers": [
+     "kind",
+     "nice",
+     "friendly",
+     "a friend",
+     "caring"
+    ],
+    "why": "Gabi was <b>kind</b> to Pia, and everyone made a new friend. The lesson: be kind to someone who is left out.",
+    "no": "How did Gabi treat Pia?",
+    "hint": "It starts with k.",
+    "placeholder": "Type a word",
+    "visual": {
+     "kind": "passage",
+     "text": "<b>Gabi and the New Girl</b><br>On Monday, a new girl named Pia sat alone at lunch. Gabi saw her. Gabi's friends waved for Gabi to sit with them. Gabi wanted to, but Pia looked sad. First, Gabi walked over to Pia's table. Next, she asked, “Can I sit with you?” Then they found out they both loved drawing horses. Last, Gabi waved her friends over, and they all ate together."
+    }
+   }
+  ]
+ ]
+}

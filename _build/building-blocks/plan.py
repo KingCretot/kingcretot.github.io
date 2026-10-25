@@ -104,3 +104,24 @@ PROJECTS["ethan"] = [p + (_ethan_desc(p[4]),) for p in PROJECTS["ethan"]]
 
 def dates_for(who): return STU_DATES.get(who, DATES)
 def weeks_for(who): return STU_WEEKS.get(who, WEEKS)
+
+# ── Ce'Line Mosely (added Oct 25, 2026): Pathways Grades 2–3 in the Building Blocks format.
+# She is in Grade 4 but stays on Pathways Grades 2–3 (moved down Oct 15; 4–5 was too difficult).
+# One lesson a week (Tue 4:00–5:00 PM ET, in person, DeSoto County Library). Each lesson = one Pathways Grades 2–3 week.
+# Optional, self-paced Science and Social Studies (Grades 2–3) ride along each week, plus Florida Focus.
+# Jonathan is away Dec 20–28 only (no lessons Nov 16–30, Dec 20–28, Jan 1). Tue Dec 29 IS a lesson for Ce'Line.
+STU_DATES["celine"] = [(1,"2026-10-27","Tue","In person"),(2,"2026-11-03","Tue","In person"),(3,"2026-11-10","Tue","In person"),
+                       (4,"2026-12-01","Tue","In person"),(5,"2026-12-08","Tue","In person"),(6,"2026-12-15","Tue","In person"),(7,"2026-12-29","Tue","In person")]
+STU_WEEKS["celine"] = [(1,[1]),(2,[2]),(3,[3]),(4,[4]),(5,[5]),(6,[6]),(7,[7])]
+TOPICS["celine"] = {
+ 1: ("Place Value and Story Elements", "Place value and rounding + story elements (Pathways Week 1)", "#2E86DE", []),
+ 2: ("Comparing Numbers and Plot", "Comparing and ordering numbers + plot and conflict (Pathways Week 2)", "#10AC84", []),
+ 3: ("Regrouping and Sequencing", "Adding and subtracting with regrouping + sequencing and story structure (Pathways Week 3)", "#8E44AD", []),
+ 4: ("Word Problems and Theme", "Word problems and estimation + theme and lesson of a story (Pathways Week 4)", "#E67E22", []),
+ 5: ("Unit 1 Checkpoint", "Review of Weeks 1–4", "#C9A84C", []),
+ 6: ("Stocking the Shelves", "Pathways Week 6 math and reading (The Storm in the Stockroom)", "#16A085", []),
+ 7: ("Pricing Day and The Grumpy Hiker", "Pathways Week 7 math (Pricing Day at the Trading Post) and reading (The Grumpy Hiker)", "#D35400", []),
+}
+MASTERY["celine"] = 85
+NAMES["celine"] = "Ce'Line"
+SINGLE.add("celine")

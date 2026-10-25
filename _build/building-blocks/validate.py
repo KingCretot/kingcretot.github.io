@@ -50,7 +50,7 @@ def main(p):
     if "talk" not in types: P.append("needs a talk slide (book talk)")
     chk = next((s for s in L["slides"] if s.get("type") == "check"), None)
     if chk:
-        need = 8 if who == "bristol" else 10
+        need = 8 if who in ("bristol", "celine") else 10
         sets = chk.get("sets")
         if not sets or len(sets) != 3: P.append("check needs 'sets': exactly 3 different question sets (retakes rotate)")
         else:

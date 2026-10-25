@@ -1,0 +1,364 @@
+{
+ "sets": [
+  [
+   {
+    "type": "fill",
+    "q": "There are <b>3 vases</b>. Each vase has <b>5 flowers</b>. How many flowers?",
+    "visual": {
+     "kind": "groups",
+     "groups": 3,
+     "each": 5,
+     "emoji": "🌸"
+    },
+    "answers": [
+     "15"
+    ],
+    "why": "3 groups of 5: 5, 10, 15. <b>3 × 5 = 15</b>.",
+    "no": "Skip count by 5s, one time for each vase.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Write <b>2 + 2 + 2 + 2 + 2</b> as multiplication: ____",
+    "answers": [
+     "5 × 2",
+     "5 times 2",
+     "2 × 5",
+     "2 times 5",
+     "5 × 2 = 10",
+     "5 times 2 = 10",
+     "2 × 5 = 10",
+     "2 times 5 = 10",
+     "5 groups of 2"
+    ],
+    "why": "Five 2s: <b>5 × 2 = 10</b>.",
+    "no": "Count the 2s. That is the number of groups.",
+    "placeholder": "Like this: 10 x 10"
+   },
+   {
+    "q": "Which fact matches this array?",
+    "visual": {
+     "kind": "array",
+     "rows": 3,
+     "cols": 7,
+     "emoji": "🍪"
+    },
+    "choices": [
+     "3 + 7",
+     "7 × 7",
+     "3 × 7",
+     "3 × 3"
+    ],
+    "a": 2,
+    "why": "3 rows with 7 in each row: <b>3 × 7 = 21</b>.",
+    "no": [
+     "3 + 7 = 10. Count: there are 21 cookies.",
+     "There are 3 rows, not 7.",
+     null,
+     "Each row has 7, not 3."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "What is <b>2 × 10</b>? Think: 10 + 10.",
+    "answers": [
+     "20"
+    ],
+    "why": "10 + 10 = 20. <b>2 × 10 = 20</b>.",
+    "no": "Add 10 + 10.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Ivy has 4 jars of buttons. The jars have <b>5, 5, 5 and 3</b> buttons. How many buttons?",
+    "choices": [
+     "20",
+     "18",
+     "15",
+     "12"
+    ],
+    "a": 1,
+    "why": "The jars are not equal, so add: 5 + 5 + 5 + 3 = <b>18</b>.",
+    "no": [
+     "4 × 5 = 20, but one jar has only 3.",
+     null,
+     "15 leaves out the jar with 3.",
+     "4 × 3 = 12, but three jars have 5."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "In <b>4 × 7 = 28</b>, which number is the <b>product</b>?",
+    "answers": [
+     "28"
+    ],
+    "why": "The product is the answer: <b>28</b>.",
+    "no": "The product is the answer, after the = sign.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "<b>The baby was tired</b>, so she took a nap. Is the bold part the cause or the effect? Type <b>cause</b> or <b>effect</b>.",
+    "answers": [
+     "cause"
+    ],
+    "why": "Being tired is <b>why</b> she napped. It is the <b>cause</b>.",
+    "no": "Ask: is the bold part why, or what happened?",
+    "placeholder": "cause or effect"
+   },
+   {
+    "type": "fill",
+    "q": "Because the road was wet, <b>the bus drove slowly</b>. Is the bold part the cause or the effect? Type <b>cause</b> or <b>effect</b>.",
+    "answers": [
+     "effect"
+    ],
+    "why": "Driving slowly is <b>what happened</b>. It is the <b>effect</b>.",
+    "no": "Which happened first: the wet road or the slow bus?",
+    "placeholder": "cause or effect"
+   },
+   {
+    "q": "What was the <b>last</b> effect?",
+    "visual": {
+     "kind": "passage",
+     "text": "Ray did not tie his shoe. He tripped on the lace. He fell and scraped his knee. Mom put a bandage on it."
+    },
+    "choices": [
+     "He tripped on the lace.",
+     "Mom put a bandage on it.",
+     "Ray did not tie his shoe.",
+     "He fell and scraped his knee."
+    ],
+    "a": 1,
+    "why": "The chain ends when <b>Mom put a bandage on it</b>.",
+    "no": [
+     "Tripping caused more things to happen.",
+     null,
+     "That is the first cause.",
+     "The scraped knee caused one more thing."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "<b>He tripped on the lace.</b> Is that a cause, an effect, or both? Type <b>cause</b>, <b>effect</b> or <b>both</b>.",
+    "visual": {
+     "kind": "passage",
+     "text": "Ray did not tie his shoe. He tripped on the lace. He fell and scraped his knee. Mom put a bandage on it."
+    },
+    "answers": [
+     "both"
+    ],
+    "why": "The untied shoe caused it. It caused the fall. It is <b>both</b>.",
+    "no": "Ask two questions: What caused it? What did it cause?",
+    "placeholder": "cause, effect or both"
+   },
+   {
+    "type": "fill",
+    "q": "In Mia's storm story, the shutter cracked. What came in next?",
+    "answers": [
+     "rain",
+     "the rain",
+     "rainwater",
+     "water",
+     "the water"
+    ],
+    "why": "<b>Rain</b> got inside. Then the boxes got soaked.",
+    "no": "It came from the storm and made the boxes wet.",
+    "placeholder": "Type a word"
+   },
+   {
+    "q": "What does <b>trace</b> mean?",
+    "choices": [
+     "to add the same number again and again",
+     "to put things in equal rows and equal columns",
+     "to follow a chain back to where it started"
+    ],
+    "a": 2,
+    "why": "To <b>trace</b> is to follow a chain back to the start, like Mia did.",
+    "no": [
+     "That is repeated addition.",
+     "That is making an array.",
+     null
+    ]
+   }
+  ],
+  [
+   {
+    "type": "fill",
+    "q": "There are <b>4 tanks</b>. Each tank has <b>5 fish</b>. How many fish?",
+    "visual": {
+     "kind": "groups",
+     "groups": 4,
+     "each": 5,
+     "emoji": "🐟"
+    },
+    "answers": [
+     "20"
+    ],
+    "why": "4 groups of 5: 5, 10, 15, 20. <b>4 × 5 = 20</b>.",
+    "no": "Skip count by 5s, one time for each tank.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Write <b>3 + 3 + 3 + 3</b> as multiplication: ____",
+    "answers": [
+     "4 × 3",
+     "4 times 3",
+     "3 × 4",
+     "3 times 4",
+     "4 × 3 = 12",
+     "4 times 3 = 12",
+     "3 × 4 = 12",
+     "3 times 4 = 12",
+     "4 groups of 3"
+    ],
+    "why": "Four 3s: <b>4 × 3 = 12</b>.",
+    "no": "Count the 3s. That is the number of groups.",
+    "placeholder": "Like this: 10 x 10"
+   },
+   {
+    "q": "Which fact matches this array?",
+    "visual": {
+     "kind": "array",
+     "rows": 3,
+     "cols": 9,
+     "emoji": "🌽"
+    },
+    "choices": [
+     "3 + 9",
+     "9 × 9",
+     "3 × 3",
+     "3 × 9"
+    ],
+    "a": 3,
+    "why": "3 rows with 9 in each row: <b>3 × 9 = 27</b>.",
+    "no": [
+     "3 + 9 = 12. Count: there are 27 ears of corn.",
+     "There are 3 rows, not 9.",
+     "Each row has 9, not 3.",
+     null
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "What is <b>4 × 4</b>? Think: 4 + 4 + 4 + 4.",
+    "answers": [
+     "16"
+    ],
+    "why": "4 + 4 + 4 + 4 = 16. <b>4 × 4 = 16</b>.",
+    "no": "Add four 4s: 4, 8, …",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Zane has 3 trays of muffins. The trays have <b>6, 4 and 6</b> muffins. How many muffins?",
+    "choices": [
+     "18",
+     "12",
+     "16",
+     "10"
+    ],
+    "a": 2,
+    "why": "The trays are not equal, so add: 6 + 4 + 6 = <b>16</b>.",
+    "no": [
+     "3 × 6 = 18, but one tray has only 4.",
+     "3 × 4 = 12, but two trays have 6.",
+     null,
+     "6 + 4 = 10 leaves out one tray."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "In <b>3 × 7 = 21</b>, which number is the <b>product</b>?",
+    "answers": [
+     "21"
+    ],
+    "why": "The product is the answer: <b>21</b>.",
+    "no": "The product is the answer, after the = sign.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Lily's kite got stuck because <b>it flew into a tree</b>. Is the bold part the cause or the effect? Type <b>cause</b> or <b>effect</b>.",
+    "answers": [
+     "cause"
+    ],
+    "why": "Flying into the tree is <b>why</b> the kite got stuck. It is the <b>cause</b>.",
+    "no": "The word <b>because</b> comes right before the cause.",
+    "placeholder": "cause or effect"
+   },
+   {
+    "type": "fill",
+    "q": "The sun was very hot, so <b>the puddle dried up</b>. Is the bold part the cause or the effect? Type <b>cause</b> or <b>effect</b>.",
+    "answers": [
+     "effect"
+    ],
+    "why": "Drying up is <b>what happened</b>. It is the <b>effect</b>.",
+    "no": "Which happened first: the hot sun or the puddle drying up?",
+    "placeholder": "cause or effect"
+   },
+   {
+    "q": "What was the <b>first</b> cause?",
+    "visual": {
+     "kind": "passage",
+     "text": "Owen spilled paint on the floor. Dad slipped on the paint. Dad hurt his ankle. Owen made Dad a big get-well card."
+    },
+    "choices": [
+     "Dad slipped on the paint.",
+     "Owen spilled paint on the floor.",
+     "Dad hurt his ankle.",
+     "Owen made Dad a big get-well card."
+    ],
+    "a": 1,
+    "why": "It all started when <b>Owen spilled the paint</b>.",
+    "no": [
+     "Dad slipped because of something before it.",
+     null,
+     "Dad hurt his ankle because he slipped.",
+     "That is the last effect."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "<b>Dad hurt his ankle.</b> Is that a cause, an effect, or both? Type <b>cause</b>, <b>effect</b> or <b>both</b>.",
+    "visual": {
+     "kind": "passage",
+     "text": "Owen spilled paint on the floor. Dad slipped on the paint. Dad hurt his ankle. Owen made Dad a big get-well card."
+    },
+    "answers": [
+     "both"
+    ],
+    "why": "Slipping caused it. It caused Owen to make a card. It is <b>both</b>.",
+    "no": "Ask two questions: What caused it? What did it cause?",
+    "placeholder": "cause, effect or both"
+   },
+   {
+    "type": "fill",
+    "q": "In the storm story, the last effect was: less ____ for opening day.",
+    "answers": [
+     "inventory",
+     "stock",
+     "goods",
+     "things to sell",
+     "stuff to sell"
+    ],
+    "why": "There was less <b>inventory</b>: fewer things for the store to sell.",
+    "no": "It means all the things a store has to sell. It starts with <b>in</b>.",
+    "placeholder": "Type a word"
+   },
+   {
+    "q": "What is an <b>effect</b>?",
+    "choices": [
+     "the reason why something happens",
+     "what happens because of a cause",
+     "the big lesson a story teaches"
+    ],
+    "a": 1,
+    "why": "An <b>effect</b> is what happens because of a cause.",
+    "no": [
+     "That is a cause.",
+     null,
+     "That is the theme."
+    ]
+   }
+  ]
+ ]
+}
