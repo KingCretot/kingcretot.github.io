@@ -105,6 +105,16 @@ body {
 .lesson .go { margin-top:14px; display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:.95rem; color:var(--ac); }
 .lesson .go .arr { transition: transform .18s ease; }
 .lesson:hover .go .arr { transform:translateX(5px); }
+.lesson .when { margin-top:12px; font-weight:700; font-size:.9rem; color:var(--ink); }
+.lesson .when .fr-d { color:var(--french); font-weight:600; }
+.lesson .when .mk { display:block; margin-top:3px; font-size:.78rem; color:#a2541a; }
+.lesson .status { position:absolute; top:14px; right:56px; font-family:var(--hd); font-weight:800; font-size:.68rem; letter-spacing:.5px; padding:4px 10px; border-radius:999px; }
+.lesson.done { opacity:.72; }
+.lesson.done .status { background:#E3F6E6; color:#1e6b2b; }
+.lesson.next { border-color:var(--ac); box-shadow:0 0 0 4px rgba(255,201,60,.55), 0 14px 28px rgba(0,0,0,0.12); }
+.lesson.next .status { background:var(--sun); color:#4a3400; }
+@keyframes riseDone { to { opacity:.72; transform:translateY(0); } }
+.lesson.done { animation-name:riseDone; }
 .badge-new {
   position:absolute; top:14px; right:14px; background:var(--grass); color:#0f3d1c;
   font-family:var(--hd); font-weight:800; font-size:.62rem; letter-spacing:1px;
@@ -153,44 +163,48 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Elina_Lesson1_Hello_ABC.html" style="--ac:var(--sky); animation-delay:.02s">
+    <a class="lesson" data-date="2026-09-08" href="Elina_Lesson1_Hello_ABC.html" style="--ac:var(--sky); animation-delay:.02s">
       <div class="row1">
         <div class="num"><small>LESSON</small>1</div>
         <div class="emoji">🔤</div>
       </div>
+      <div class="when">📅 Tue, Sep 8 <span class="fr-d">· mar. 8 sept.</span></div>
       <h3>Hello, ABC &amp; My Favorites</h3>
       <div class="theme-en">Greetings, the alphabet, and first favorite things.</div>
       <div class="theme-fr">Salutations, l'alphabet, et les premières choses préférées.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson2_My_Family_My_House.html" style="--ac:var(--berry); animation-delay:.06s">
+    <a class="lesson" data-date="2026-09-15" href="Elina_Lesson2_My_Family_My_House.html" style="--ac:var(--berry); animation-delay:.06s">
       <div class="row1">
         <div class="num"><small>LESSON</small>2</div>
         <div class="emoji">🏠</div>
       </div>
+      <div class="when">📅 Tue, Sep 15 <span class="fr-d">· mar. 15 sept.</span></div>
       <h3>My Family &amp; My House</h3>
       <div class="theme-en">Family words and rooms in the house.</div>
       <div class="theme-fr">Les mots de la famille et les pièces de la maison.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson3_Numbers_MoreColors.html" style="--ac:var(--grape); animation-delay:.10s">
+    <a class="lesson" data-date="2026-09-22" href="Elina_Lesson3_Numbers_MoreColors.html" style="--ac:var(--grape); animation-delay:.10s">
       <div class="row1">
         <div class="num"><small>LESSON</small>3</div>
         <div class="emoji">🔢</div>
       </div>
+      <div class="when">📅 Tue, Sep 22 <span class="fr-d">· mar. 22 sept.</span></div>
       <h3>Numbers &amp; More Colors</h3>
       <div class="theme-en">Counting and naming more colors.</div>
       <div class="theme-fr">Compter et nommer plus de couleurs.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson4_MoreLetters_Sounds.html" style="--ac:var(--grass); animation-delay:.14s">
+    <a class="lesson" data-date="2026-09-29" href="Elina_Lesson4_MoreLetters_Sounds.html" style="--ac:var(--grass); animation-delay:.14s">
       <div class="row1">
         <div class="num"><small>LESSON</small>4</div>
         <div class="emoji">🔡</div>
       </div>
+      <div class="when">📅 Tue, Sep 29 <span class="fr-d">· mar. 29 sept.</span></div>
       <h3>More Letters &amp; Sounds</h3>
       <div class="theme-en">Practicing letter sounds and phonics.</div>
       <div class="theme-fr">Pratiquer les sons des lettres et la phonétique.</div>
@@ -206,44 +220,36 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Elina_Lesson5_MyDay.html" style="--ac:var(--tangerine); animation-delay:.02s">
+    <a class="lesson" data-date="2026-10-13" href="Elina_Lesson5_MyDay.html" style="--ac:var(--tangerine); animation-delay:.02s">
       <div class="row1">
         <div class="num"><small>LESSON</small>5</div>
         <div class="emoji">⏰</div>
       </div>
+      <div class="when">📅 Tue, Oct 13 <span class="fr-d">· mar. 13 oct.</span></div>
       <h3>My Day</h3>
       <div class="theme-en">Daily routine words, in order from morning to night.</div>
       <div class="theme-fr">Les mots de la routine quotidienne, du matin au soir.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson6_Weather_Days.html" style="--ac:var(--sky); animation-delay:.06s">
+    <a class="lesson" data-date="2026-10-27" href="Elina_Lesson6_Weather_Days.html" style="--ac:var(--sky); animation-delay:.06s">
       <div class="row1">
         <div class="num"><small>LESSON</small>6</div>
         <div class="emoji">⛅</div>
       </div>
+      <div class="when">📅 Tue, Oct 27 <span class="fr-d">· mar. 27 oct.</span></div>
       <h3>Weather &amp; Days</h3>
       <div class="theme-en">Days of the week and talking about the weather.</div>
       <div class="theme-fr">Les jours de la semaine et parler de la météo.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson7_AutumnShapesSizes.html" style="--ac:var(--berry); animation-delay:.10s">
+    <a class="lesson" data-date="2026-10-30" href="Elina_Lesson7_Halloween.html" style="--ac:var(--grape); animation-delay:.10s">
       <div class="row1">
         <div class="num"><small>LESSON</small>7</div>
-        <div class="emoji">🍂</div>
-      </div>
-      <h3>Autumn Shapes &amp; Sizes</h3>
-      <div class="theme-en">Describing autumn things by shape, size, and color.</div>
-      <div class="theme-fr">Décrire les choses d'automne par forme, taille, et couleur.</div>
-      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
-    </a>
-
-    <a class="lesson" href="Elina_Lesson8_Halloween.html" style="--ac:var(--grape); animation-delay:.14s">
-      <div class="row1">
-        <div class="num"><small>LESSON</small>8</div>
         <div class="emoji">🎃</div>
       </div>
+      <div class="when">📅 Fri, Oct 30 <span class="fr-d">· ven. 30 oct.</span> <span class="mk">Make-up lesson · Cours de rattrapage</span></div>
       <h3>Halloween Fun</h3>
       <div class="theme-en">Spooky vocabulary, costumes, and trick-or-treating.</div>
       <div class="theme-fr">Vocabulaire d'Halloween, costumes, et « des bonbons ou un sort ».</div>
@@ -259,22 +265,36 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Elina_Lesson9_Thanksgiving_Gratitude.html" style="--ac:var(--tangerine); animation-delay:.02s">
+    <a class="lesson" data-date="2026-11-03" href="Elina_Lesson8_AutumnShapesSizes.html" style="--ac:var(--berry); animation-delay:.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>8</div>
+        <div class="emoji">🍂</div>
+      </div>
+      <div class="when">📅 Tue, Nov 3 <span class="fr-d">· mar. 3 nov.</span></div>
+      <h3>Autumn Shapes &amp; Sizes</h3>
+      <div class="theme-en">Describing autumn things by shape, size, and color.</div>
+      <div class="theme-fr">Décrire les choses d'automne par forme, taille, et couleur.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" data-date="2026-11-10" href="Elina_Lesson9_Thanksgiving_Gratitude.html" style="--ac:var(--tangerine); animation-delay:.06s">
       <div class="row1">
         <div class="num"><small>LESSON</small>9</div>
         <div class="emoji">🦃</div>
       </div>
+      <div class="when">📅 Tue, Nov 10 <span class="fr-d">· mar. 10 nov.</span></div>
       <h3>Thanksgiving &amp; Gratitude</h3>
       <div class="theme-en">Thanksgiving vocabulary and words of gratitude.</div>
       <div class="theme-fr">Vocabulaire de Thanksgiving et mots de gratitude.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson10_MyBody_Feelings.html" style="--ac:var(--berry); animation-delay:.06s">
+    <a class="lesson" data-date="2026-11-11" href="Elina_Lesson10_MyBody_Feelings.html" style="--ac:var(--berry); animation-delay:.10s">
       <div class="row1">
         <div class="num"><small>LESSON</small>10</div>
         <div class="emoji">🧸</div>
       </div>
+      <div class="when">📅 Wed, Nov 11 <span class="fr-d">· mer. 11 nov.</span> <span class="mk">Make-up lesson · Cours de rattrapage</span></div>
       <h3>My Body &amp; Feelings</h3>
       <div class="theme-en">Body parts and talking about how you feel.</div>
       <div class="theme-fr">Les parties du corps et comment on se sent.</div>
@@ -290,33 +310,36 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Elina_Lesson11_Clothes_Weather.html" style="--ac:var(--sky); animation-delay:.02s">
+    <a class="lesson" data-date="2026-12-01" href="Elina_Lesson11_Clothes_Weather.html" style="--ac:var(--sky); animation-delay:.02s">
       <div class="row1">
         <div class="num"><small>LESSON</small>11</div>
         <div class="emoji">🧥</div>
       </div>
+      <div class="when">📅 Tue, Dec 1 <span class="fr-d">· mar. 1er déc.</span></div>
       <h3>Clothes &amp; Weather</h3>
       <div class="theme-en">Clothing words and matching them to the weather.</div>
       <div class="theme-fr">Les vêtements et les associer à la météo.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson12_WinterWonderland.html" style="--ac:var(--grape); animation-delay:.06s">
+    <a class="lesson" data-date="2026-12-08" href="Elina_Lesson12_WinterWonderland.html" style="--ac:var(--grape); animation-delay:.06s">
       <div class="row1">
         <div class="num"><small>LESSON</small>12</div>
         <div class="emoji">❄️</div>
       </div>
+      <div class="when">📅 Tue, Dec 8 <span class="fr-d">· mar. 8 déc.</span></div>
       <h3>Winter Wonderland</h3>
       <div class="theme-en">Winter vocabulary and cozy cold-weather words.</div>
       <div class="theme-fr">Vocabulaire d'hiver et mots douillets de saison froide.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson13_HolidayTraditions.html" style="--ac:var(--sun); animation-delay:.10s">
+    <a class="lesson" data-date="2026-12-15" href="Elina_Lesson13_HolidayTraditions.html" style="--ac:var(--sun); animation-delay:.10s">
       <div class="row1">
         <div class="num"><small>LESSON</small>13</div>
         <div class="emoji">🎄</div>
       </div>
+      <div class="when">📅 Tue, Dec 15 <span class="fr-d">· mar. 15 déc.</span></div>
       <h3>Holiday Traditions Around the World</h3>
       <div class="theme-en">Holiday traditions in Mexico, India, China, the USA, and France — the last lesson before winter break.</div>
       <div class="theme-fr">Les traditions des fêtes au Mexique, en Inde, en Chine, aux États-Unis et en France — la dernière leçon avant les vacances d'hiver.</div>
@@ -332,34 +355,37 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Elina_Lesson14_Animals_Sounds.html" style="--ac:var(--grass); animation-delay:.02s">
+    <a class="lesson" data-date="2027-01-05" href="Elina_Lesson14_Animals_Sounds.html" style="--ac:var(--grass); animation-delay:.02s">
       <div class="row1">
         <div class="num"><small>LESSON</small>14</div>
         <div class="emoji">🐄</div>
       </div>
+      <div class="when">📅 Tue, Jan 5 <span class="fr-d">· mar. 5 janv.</span></div>
       <h3>Animals &amp; Sounds</h3>
       <div class="theme-en">Animals, the sounds they make, and where they live.</div>
       <div class="theme-fr">Les animaux, leurs cris et où ils vivent.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson15_CountingTo50.html" style="--ac:var(--tangerine); animation-delay:.06s">
+    <a class="lesson" data-date="2027-01-12" href="Elina_Lesson15_CountingTo50.html" style="--ac:var(--tangerine); animation-delay:.06s">
       <div class="row1">
         <div class="num"><small>LESSON</small>15</div>
         <div class="emoji">🔢</div>
       </div>
+      <div class="when">📅 Tue, Jan 12 <span class="fr-d">· mar. 12 janv.</span></div>
       <h3>Counting to 50</h3>
       <div class="theme-en">Counting by tens, all the way to fifty.</div>
       <div class="theme-fr">Compter de dix en dix, jusqu'à cinquante.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Elina_Lesson16_YearEndCapstone.html" style="--ac:var(--berry); animation-delay:.10s">
+    <a class="lesson" data-date="2027-01-19" href="Elina_Lesson16_YearEndCapstone.html" style="--ac:var(--berry); animation-delay:.10s">
       <span class="badge-new">NEWEST</span>
       <div class="row1">
         <div class="num"><small>LESSON</small>16</div>
         <div class="emoji">🎉</div>
       </div>
+      <div class="when">📅 Tue, Jan 19 <span class="fr-d">· mar. 19 janv.</span></div>
       <h3>Year-End Celebration</h3>
       <div class="theme-en">A fun review of everything learned this year.</div>
       <div class="theme-fr">Une révision amusante de tout ce qui a été appris cette année.</div>
@@ -375,5 +401,16 @@ footer a:hover { color:var(--ink); }
 
 </div>
 <div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script>
+(function(){
+  var d=new Date(), t=d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2), nextDone=false;
+  var cards=document.querySelectorAll('.lesson[data-date]');
+  for(var i=0;i<cards.length;i++){
+    var c=cards[i], dt=c.getAttribute('data-date'), b=document.createElement('span'); b.className='status';
+    if(dt<t){ c.classList.add('done'); b.textContent='✓ Finished · Terminé'; c.appendChild(b); }
+    else if(!nextDone){ nextDone=true; c.classList.add('next'); b.textContent=(dt===t?'⭐ Today · Aujourd\'hui':'⭐ Next lesson · Prochaine leçon'); c.appendChild(b); }
+  }
+})();
+</script>
 </body>
 </html>
