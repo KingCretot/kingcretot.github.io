@@ -78,6 +78,15 @@ footer a:hover{ color:var(--white); }
   .hero h1{ font-size:2rem; }
   .grid{ grid-template-columns:1fr; }
 }
+.lesson .when { margin-top:12px; font-weight:700; font-size:.9rem; color:var(--white); }
+.lesson .when .fr-d { color:var(--violet); font-weight:600; }
+.lesson .when .mk { display:block; margin-top:3px; font-size:.78rem; color:var(--amber); }
+.lesson .status { display:inline-block; margin-top:6px; font-weight:800; font-size:.72rem; letter-spacing:.5px; padding:3px 10px; border-radius:999px; }
+.lesson.done .status { background:rgba(62,232,138,.16); color:var(--lime); }
+.lesson.next { border-color:var(--ac); box-shadow:0 0 0 3px var(--amber), 0 14px 28px var(--shadow); }
+.lesson.next .status { background:var(--amber); color:#2a1a00; }
+@keyframes riseDone { to { opacity:.62; transform:translateY(0); } }
+.lesson.done { animation-name:riseDone; }
 </style>
 </head>
 <body class="notranslate" translate="no">
@@ -105,45 +114,52 @@ footer a:hover{ color:var(--white); }
 
   <div class="grid">
 
-    <a class="lesson" href="Berenice_Lesson1_OnAir.html" style="--ac:var(--teal); animation-delay:0.02s">
+    <a class="lesson" data-date="2026-09-09" href="Berenice_Lesson1_OnAir.html" style="--ac:var(--teal); animation-delay:0.02s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>1</div>
         <div class="emoji">🎙️</div>
       </div>
+      <div class="when">📅 Wed, Sep 9 <span class="fr-d">· mer. 9 sept.</span></div>
       <h3>On Air!</h3>
       <div class="theme-en">You already understand more English than you give yourself credit for. This year, the goal isn&#x27;t more listening — it&#x27;s you talking, live, unscripted.</div>
       <div class="theme-fr">Tu comprends déjà plus d&#x27;anglais que tu ne le penses. Cette année, l&#x27;objectif n&#x27;est pas d&#x27;écouter plus — c&#x27;est de parler, en direct, sans script.</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson2_TheInterview.html" style="--ac:var(--coral); animation-delay:0.06s">
+
+    <a class="lesson" data-date="2026-09-16" href="Berenice_Lesson2_TheInterview.html" style="--ac:var(--coral); animation-delay:0.06s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>2</div>
         <div class="emoji">🎤</div>
       </div>
+      <div class="when">📅 Wed, Sep 16 <span class="fr-d">· mer. 16 sept.</span></div>
       <h3>The Interview</h3>
       <div class="theme-en">Last episode was about asking questions. This time, you&#x27;re in the hot seat — telling YOUR story, in order, so it actually flows.</div>
       <div class="theme-fr">Le dernier épisode, c&#x27;était poser des questions. Cette fois, c&#x27;est toi qu&#x27;on interviewe — tu racontes TON histoire, dans l&#x27;ordre, pour qu&#x27;elle coule bien.</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson3_HeadToHead.html" style="--ac:var(--violet); animation-delay:0.10s">
+
+    <a class="lesson" data-date="2026-09-23" href="Berenice_Lesson3_HeadToHead.html" style="--ac:var(--violet); animation-delay:0.10s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>3</div>
         <div class="emoji">⚖️</div>
       </div>
+      <div class="when">📅 Wed, Sep 23 <span class="fr-d">· mer. 23 sept.</span></div>
       <h3>Head to Head</h3>
       <div class="theme-en">Today you&#x27;ll learn to put two things side by side and actually say how they&#x27;re different — or surprisingly alike.</div>
       <div class="theme-fr">Aujourd&#x27;hui, tu vas apprendre à mettre deux choses côte à côte et à dire vraiment en quoi elles diffèrent — ou se ressemblent, étonnamment.</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson4_SayWhatYouThink.html" style="--ac:var(--amber); animation-delay:0.14s">
+
+    <a class="lesson" data-date="2026-09-30" href="Berenice_Lesson4_SayWhatYouThink.html" style="--ac:var(--amber); animation-delay:0.14s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>4</div>
         <div class="emoji">💡</div>
       </div>
+      <div class="when">📅 Wed, Sep 30 <span class="fr-d">· mer. 30 sept.</span></div>
       <h3>Say What You Think</h3>
       <div class="theme-en">Today isn&#x27;t about having the &quot;right&quot; opinion. It&#x27;s about stating one clearly, and backing it up with a reason.</div>
       <div class="theme-fr">Aujourd&#x27;hui, il ne s&#x27;agit pas d&#x27;avoir la « bonne » opinion. Il s&#x27;agit d&#x27;en exprimer une clairement, et de la justifier.</div>
@@ -159,48 +175,42 @@ footer a:hover{ color:var(--white); }
 
   <div class="grid">
 
-    <a class="lesson" href="Berenice_Lesson5_WhatHappensIf.html" style="--ac:var(--lime); animation-delay:0.02s">
+    <a class="lesson" data-date="2026-10-14" href="Berenice_Lesson5_WhatHappensIf.html" style="--ac:var(--lime); animation-delay:0.02s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>5</div>
         <div class="emoji">⚽</div>
       </div>
+      <div class="when">📅 Wed, Oct 14 <span class="fr-d">· mer. 14 oct.</span></div>
       <h3>What Happens If…?</h3>
       <div class="theme-en">I can talk about real possibilities with “If…, I&#x27;ll…” and explain my plan B.</div>
       <div class="theme-fr">Je peux parler de possibilités réelles avec « If…, I&#x27;ll… » et expliquer mon plan B.</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson6_TwoSidesOfYuki.html" style="--ac:var(--teal); animation-delay:0.06s">
+
+    <a class="lesson" data-date="2026-10-28" href="Berenice_Lesson6_TwoSidesOfYuki.html" style="--ac:var(--teal); animation-delay:0.06s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>6</div>
         <div class="emoji">🥁</div>
       </div>
+      <div class="when">📅 Wed, Oct 28 <span class="fr-d">· mer. 28 oct.</span></div>
       <h3>Two Sides of Yuki</h3>
       <div class="theme-en">I can describe people with nuance: how much (a bit, quite, really, extremely, not very) and what they&#x27;re like on the outside vs. deep down.</div>
       <div class="theme-fr">Je peux décrire les gens avec nuance : à quel point (a bit, quite, really, extremely, not very) et comment ils sont en apparence ou au fond.</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson7_ISeeYourPointBut.html" style="--ac:var(--coral); animation-delay:0.10s">
+
+    <a class="lesson" data-date="2026-10-31" href="Berenice_Lesson7_ISeeYourPointBut.html" style="--ac:var(--coral); animation-delay:0.10s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>7</div>
         <div class="emoji">♟️</div>
       </div>
+      <div class="when">📅 Sat, Oct 31 <span class="fr-d">· sam. 31 oct.</span> <span class="mk">Make-up lesson · Cours de rattrapage</span></div>
       <h3>I See Your Point, But…</h3>
       <div class="theme-en">I can disagree politely: I recognize the other person&#x27;s point first, then I give my own opinion with a reason.</div>
       <div class="theme-fr">Je peux exprimer mon désaccord poliment : je reconnais d&#x27;abord le point de vue de l&#x27;autre, puis je donne mon avis avec une raison.</div>
-      <span class="go">Start episode <span class="arr">&rarr;</span></span>
-    </a>
-    <a class="lesson" href="Berenice_Lesson8_UsuallyButSometimes.html" style="--ac:var(--violet); animation-delay:0.14s">
-      
-      <div class="row1">
-        <div class="num"><small>EPISODE</small>8</div>
-        <div class="emoji">🔭</div>
-      </div>
-      <h3>Usually… But Sometimes…</h3>
-      <div class="theme-en">I can describe my habits with nuance — how often I do things, and the exceptions that break the routine.</div>
-      <div class="theme-fr">Je peux décrire mes habitudes avec nuance — à quelle fréquence je fais les choses, et les exceptions qui cassent la routine.</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
 
@@ -213,23 +223,39 @@ footer a:hover{ color:var(--white); }
 
   <div class="grid">
 
-    <a class="lesson" href="Berenice_Lesson9_IfIWere.html" style="--ac:var(--amber); animation-delay:0.02s">
+    <a class="lesson" data-date="2026-11-04" href="Berenice_Lesson8_UsuallyButSometimes.html" style="--ac:var(--violet); animation-delay:0.02s">
+      
+      <div class="row1">
+        <div class="num"><small>EPISODE</small>8</div>
+        <div class="emoji">🔭</div>
+      </div>
+      <div class="when">📅 Wed, Nov 4 <span class="fr-d">· mer. 4 nov.</span></div>
+      <h3>Usually… But Sometimes…</h3>
+      <div class="theme-en">I can describe my habits with nuance — how often I do things, and the exceptions that break the routine.</div>
+      <div class="theme-fr">Je peux décrire mes habitudes avec nuance — à quelle fréquence je fais les choses, et les exceptions qui cassent la routine.</div>
+      <span class="go">Start episode <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" data-date="2026-11-11" href="Berenice_Lesson9_IfIWere.html" style="--ac:var(--amber); animation-delay:0.06s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>9</div>
         <div class="emoji">🏛️</div>
       </div>
+      <div class="when">📅 Wed, Nov 11 <span class="fr-d">· mer. 11 nov.</span></div>
       <h3>If I Were…</h3>
       <div class="theme-en">I can talk about imaginary situations with “If I were… / If I had…, I would…” and explain my choices.</div>
       <div class="theme-fr">Je peux parler de situations imaginaires avec « If I were… / If I had…, I would… » et justifier mes choix.</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson10_ThatMustHaveBeen.html" style="--ac:var(--lime); animation-delay:0.06s">
+
+    <a class="lesson" data-date="2026-11-14" href="Berenice_Lesson10_ThatMustHaveBeen.html" style="--ac:var(--lime); animation-delay:0.10s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>10</div>
         <div class="emoji">🫂</div>
       </div>
+      <div class="when">📅 Sat, Nov 14 <span class="fr-d">· sam. 14 nov.</span> <span class="mk">Make-up lesson · Cours de rattrapage</span></div>
       <h3>That Must Have Been…</h3>
       <div class="theme-en">I can react to someone&#x27;s story with real empathy: “That must have been…”, “You must have felt…”, “I can&#x27;t imagine…”.</div>
       <div class="theme-fr">Je peux réagir à l&#x27;histoire de quelqu&#x27;un avec une vraie empathie : « That must have been… », « You must have felt… », « I can&#x27;t imagine… ».</div>
@@ -245,34 +271,39 @@ footer a:hover{ color:var(--white); }
 
   <div class="grid">
 
-    <a class="lesson" href="Berenice_Lesson11_HaveYouThoughtAbout.html" style="--ac:var(--teal); animation-delay:0.02s">
+    <a class="lesson" data-date="2026-12-02" href="Berenice_Lesson11_HaveYouThoughtAbout.html" style="--ac:var(--teal); animation-delay:0.02s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>11</div>
         <div class="emoji">💡</div>
       </div>
+      <div class="when">📅 Wed, Dec 2 <span class="fr-d">· mer. 2 déc.</span></div>
       <h3>Have You Thought About…?</h3>
       <div class="theme-en">I can give useful, specific advice: “Have you thought about…ing?”, “Why don&#x27;t you…?”, “You could…”, “If I were you, I&#x27;d…”.</div>
       <div class="theme-fr">Je peux donner des conseils utiles et précis : « Have you thought about…ing? », « Why don&#x27;t you…? », « You could… », « If I were you, I&#x27;d… ».</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson12_BigPlansAhead.html" style="--ac:var(--coral); animation-delay:0.06s">
+
+    <a class="lesson" data-date="2026-12-09" href="Berenice_Lesson12_BigPlansAhead.html" style="--ac:var(--coral); animation-delay:0.06s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>12</div>
         <div class="emoji">🗓️</div>
       </div>
+      <div class="when">📅 Wed, Dec 9 <span class="fr-d">· mer. 9 déc.</span></div>
       <h3>Big Plans Ahead</h3>
       <div class="theme-en">I can talk about the future the right way: arrangements (I&#x27;m meeting…), plans (I&#x27;m going to…), and quick decisions (I&#x27;ll…).</div>
       <div class="theme-fr">Je peux parler du futur avec la bonne forme : rendez-vous fixés (I&#x27;m meeting…), projets (I&#x27;m going to…) et décisions sur le moment (I&#x27;ll…).</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson13_ThenVsNow.html" style="--ac:var(--violet); animation-delay:0.10s">
+
+    <a class="lesson" data-date="2026-12-16" href="Berenice_Lesson13_ThenVsNow.html" style="--ac:var(--violet); animation-delay:0.10s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>13</div>
         <div class="emoji">⏳</div>
       </div>
+      <div class="when">📅 Wed, Dec 16 <span class="fr-d">· mer. 16 déc.</span></div>
       <h3>Then vs. Now</h3>
       <div class="theme-en">I can describe how things have changed — what I used to do, think, or feel, and what&#x27;s true now.</div>
       <div class="theme-fr">Je peux décrire comment les choses ont changé — ce que je faisais, pensais ou ressentais avant, et ce qui est vrai maintenant.</div>
@@ -288,34 +319,39 @@ footer a:hover{ color:var(--white); }
 
   <div class="grid">
 
-    <a class="lesson" href="Berenice_Lesson14_FirstThenFinally.html" style="--ac:var(--amber); animation-delay:0.02s">
+    <a class="lesson" data-date="2027-01-06" href="Berenice_Lesson14_FirstThenFinally.html" style="--ac:var(--amber); animation-delay:0.02s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>14</div>
         <div class="emoji">🛹</div>
       </div>
+      <div class="when">📅 Wed, Jan 6 <span class="fr-d">· mer. 6 janv.</span></div>
       <h3>First, Then, Finally</h3>
       <div class="theme-en">I can explain how to do something clearly, step by step, so someone could actually follow it.</div>
       <div class="theme-fr">Je peux expliquer clairement comment faire quelque chose, étape par étape, pour que quelqu&#x27;un puisse vraiment suivre.</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson15_OnOneHand.html" style="--ac:var(--lime); animation-delay:0.06s">
+
+    <a class="lesson" data-date="2027-01-13" href="Berenice_Lesson15_OnOneHand.html" style="--ac:var(--lime); animation-delay:0.06s">
       
       <div class="row1">
         <div class="num"><small>EPISODE</small>15</div>
         <div class="emoji">⚖️</div>
       </div>
+      <div class="when">📅 Wed, Jan 13 <span class="fr-d">· mer. 13 janv.</span></div>
       <h3>On One Hand…</h3>
       <div class="theme-en">I can weigh the pros and cons of a choice out loud — clearly and with nuance — and then say what I&#x27;d choose.</div>
       <div class="theme-fr">Je peux peser le pour et le contre d&#x27;un choix à voix haute — clairement et avec nuance — puis dire ce que je choisirais.</div>
       <span class="go">Start episode <span class="arr">&rarr;</span></span>
     </a>
-    <a class="lesson" href="Berenice_Lesson16_LookingBackMovingForward.html" style="--ac:var(--teal); animation-delay:0.10s">
+
+    <a class="lesson" data-date="2027-01-20" href="Berenice_Lesson16_LookingBackMovingForward.html" style="--ac:var(--teal); animation-delay:0.10s">
       <span class="badge-new">FINALE</span>
       <div class="row1">
         <div class="num"><small>EPISODE</small>16</div>
         <div class="emoji">🌱</div>
       </div>
+      <div class="when">📅 Wed, Jan 20 <span class="fr-d">· mer. 20 janv.</span></div>
       <h3>Looking Back, Moving Forward</h3>
       <div class="theme-en">I can talk about what I&#x27;ve achieved this season (I&#x27;ve learned… / I&#x27;ve gotten better at…) and set clear goals for what&#x27;s next — using the season&#x27;s best skills.</div>
       <div class="theme-fr">Je peux parler de ce que j&#x27;ai accompli cette saison (I&#x27;ve learned… / I&#x27;ve gotten better at…) et me fixer des objectifs clairs pour la suite — en utilisant les meilleures compétences de la saison.</div>
@@ -331,5 +367,18 @@ footer a:hover{ color:var(--white); }
 
 </div>
 <div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script>
+(function(){
+  var d=new Date(), t=d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2), nextDone=false;
+  var cards=document.querySelectorAll('.lesson[data-date]');
+  for(var i=0;i<cards.length;i++){
+    var c=cards[i], dt=c.getAttribute('data-date'), w=c.querySelector('.when'), b=document.createElement('span'); b.className='status';
+    if(dt<t){ c.classList.add('done'); b.textContent='✓ Finished · Terminé'; }
+    else if(!nextDone){ nextDone=true; c.classList.add('next'); b.textContent=(dt===t?'⭐ Today · Aujourd\'hui':'⭐ Next lesson · Prochaine leçon'); }
+    else continue;
+    w.appendChild(document.createElement('br')); w.appendChild(b);
+  }
+})();
+</script>
 </body>
 </html>

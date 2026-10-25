@@ -121,6 +121,15 @@ footer a:hover { color:var(--ink); }
   .hero .fr { font-size:1.05rem; }
   .grid { grid-template-columns:1fr; }
 }
+.lesson .when { margin-top:12px; font-weight:700; font-size:.9rem; color:var(--ink); }
+.lesson .when .fr-d { color:var(--french); font-weight:600; }
+.lesson .when .mk { display:block; margin-top:3px; font-size:.78rem; color:#a2541a; }
+.lesson .status { display:inline-block; margin-top:6px; font-family:var(--hd); font-weight:800; font-size:.72rem; letter-spacing:.5px; padding:3px 10px; border-radius:999px; }
+.lesson.done .status { background:#E3F6E6; color:#1e6b2b; }
+.lesson.next { border-color:var(--ac); box-shadow:0 0 0 4px rgba(255,201,60,.55), 0 14px 28px rgba(0,0,0,0.12); }
+.lesson.next .status { background:var(--sun); color:#4a3400; }
+@keyframes riseDone { to { opacity:.72; transform:translateY(0); } }
+.lesson.done { animation-name:riseDone; }
 </style>
 </head>
 <body class="notranslate" translate="no">
@@ -147,33 +156,36 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Camille_Lesson1_WelcomeToMyWorld.html" style="--ac:var(--sky); animation-delay:0.02s">
+    <a class="lesson" data-date="2026-09-11" href="Camille_Lesson1_WelcomeToMyWorld.html" style="--ac:var(--sky); animation-delay:0.02s">
       <div class="row1">
         <div class="num"><small>LESSON</small>1</div>
         <div class="emoji">🌍</div>
       </div>
+      <div class="when">📅 Fri, Sep 11 <span class="fr-d">· ven. 11 sept.</span></div>
       <h3>Welcome to My World</h3>
       <div class="theme-en">Meeting her family, exploring ancient Egypt or Rome, and teaching her teacher about Le Mans.</div>
       <div class="theme-fr">Rencontrer sa famille, explorer l'Égypte ou Rome antique, et enseigner à sa professeure Le Mans.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Camille_Lesson2_MyFreeTime.html" style="--ac:var(--berry); animation-delay:0.06s">
+    <a class="lesson" data-date="2026-09-18" href="Camille_Lesson2_MyFreeTime.html" style="--ac:var(--berry); animation-delay:0.06s">
       <div class="row1">
         <div class="num"><small>LESSON</small>2</div>
         <div class="emoji">🎮</div>
       </div>
+      <div class="when">📅 Fri, Sep 18 <span class="fr-d">· ven. 18 sept.</span></div>
       <h3>My Free Time</h3>
       <div class="theme-en">Hobbies, weekend habits, and sharing her own favorite activities.</div>
       <div class="theme-fr">Passe-temps, habitudes du week-end, et partager ses activités préférées.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Camille_Lesson3_AnimalsAndPets.html" style="--ac:var(--grass); animation-delay:0.10s">
+    <a class="lesson" data-date="2026-09-25" href="Camille_Lesson3_AnimalsAndPets.html" style="--ac:var(--grass); animation-delay:0.10s">
       <div class="row1">
         <div class="num"><small>LESSON</small>3</div>
         <div class="emoji">🐾</div>
       </div>
+      <div class="when">📅 Fri, Sep 25 <span class="fr-d">· ven. 25 sept.</span></div>
       <h3>Animals & Pets</h3>
       <div class="theme-en">A tour of animal habitats, from the ocean to her own home.</div>
       <div class="theme-fr">Un tour des habitats animaux, de l'océan jusqu'à chez elle.</div>
@@ -189,58 +201,27 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Camille_Lesson4_BooksAndStories.html" style="--ac:var(--grape); animation-delay:0.02s">
+    <a class="lesson" data-date="2026-10-02" href="Camille_Lesson4_BooksAndStories.html" style="--ac:var(--grape); animation-delay:0.02s">
       <div class="row1">
         <div class="num"><small>LESSON</small>4</div>
         <div class="emoji">📖</div>
       </div>
+      <div class="when">📅 Fri, Oct 2 <span class="fr-d">· ven. 2 oct.</span></div>
       <h3>Books & Stories</h3>
       <div class="theme-en">Exploring story genres and sharing her own favorite book.</div>
       <div class="theme-fr">Explorer les genres d'histoires et partager son livre préféré.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Camille_Lesson5_MyFallVacation.html" style="--ac:var(--tangerine); animation-delay:0.06s">
+    <a class="lesson" data-date="2026-10-16" href="Camille_Lesson5_MyFallVacation.html" style="--ac:var(--tangerine); animation-delay:0.06s">
       <div class="row1">
         <div class="num"><small>LESSON</small>5</div>
         <div class="emoji">🕵️</div>
       </div>
+      <div class="when">📅 Fri, Oct 16 <span class="fr-d">· ven. 16 oct.</span></div>
       <h3>My Fall Vacation</h3>
       <div class="theme-en">I can talk about my plans for my fall vacation.</div>
       <div class="theme-fr">Je peux parler de mes projets pour mes vacances d&#x27;automne.</div>
-      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
-    </a>
-
-    <a class="lesson" href="Camille_Lesson6_MorningRoutine.html" style="--ac:var(--sky); animation-delay:0.10s">
-      <div class="row1">
-        <div class="num"><small>LESSON</small>6</div>
-        <div class="emoji">⏰</div>
-      </div>
-      <h3>Getting Ready for the Day</h3>
-      <div class="theme-en">I can talk about my morning routine and tell the time.</div>
-      <div class="theme-fr">Je peux parler de ma routine du matin et dire l&#x27;heure.</div>
-      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
-    </a>
-
-    <a class="lesson" href="Camille_Lesson7_WeatherAndSeasons.html" style="--ac:var(--berry); animation-delay:0.14s">
-      <div class="row1">
-        <div class="num"><small>LESSON</small>7</div>
-        <div class="emoji">🌦️</div>
-      </div>
-      <h3>Weather &amp; Seasons</h3>
-      <div class="theme-en">I can talk about the weather, the seasons, and what to wear.</div>
-      <div class="theme-fr">Je peux parler de la météo, des saisons et de ce qu&#x27;il faut porter.</div>
-      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
-    </a>
-
-    <a class="lesson" href="Camille_Lesson8_FavoriteFoods.html" style="--ac:var(--grass); animation-delay:0.18s">
-      <div class="row1">
-        <div class="num"><small>LESSON</small>8</div>
-        <div class="emoji">🍽️</div>
-      </div>
-      <h3>My Favorite Foods</h3>
-      <div class="theme-en">I can say what foods I like and order food politely.</div>
-      <div class="theme-fr">Je peux dire quels aliments j&#x27;aime et commander poliment.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
@@ -253,25 +234,27 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Camille_Lesson9_SportsILike.html" style="--ac:var(--grape); animation-delay:0.02s">
+    <a class="lesson" data-date="2026-11-06" href="Camille_Lesson6_MorningRoutine.html" style="--ac:var(--sky); animation-delay:0.02s">
       <div class="row1">
-        <div class="num"><small>LESSON</small>9</div>
-        <div class="emoji">🏅</div>
+        <div class="num"><small>LESSON</small>6</div>
+        <div class="emoji">⏰</div>
       </div>
-      <h3>Sports I Like</h3>
-      <div class="theme-en">I can talk about sports and say what I can and can&#x27;t do.</div>
-      <div class="theme-fr">Je peux parler de sport et dire ce que je sais faire et ce que je ne sais pas faire.</div>
+      <div class="when">📅 Fri, Nov 6 <span class="fr-d">· ven. 6 nov.</span></div>
+      <h3>Getting Ready for the Day</h3>
+      <div class="theme-en">I can talk about my morning routine and tell the time.</div>
+      <div class="theme-fr">Je peux parler de ma routine du matin et dire l&#x27;heure.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Camille_Lesson10_SpaceExplorers.html" style="--ac:var(--tangerine); animation-delay:0.06s">
+    <a class="lesson" data-date="2026-11-13" href="Camille_Lesson7_WeatherAndSeasons.html" style="--ac:var(--berry); animation-delay:0.06s">
       <div class="row1">
-        <div class="num"><small>LESSON</small>10</div>
-        <div class="emoji">🚀</div>
+        <div class="num"><small>LESSON</small>7</div>
+        <div class="emoji">🌦️</div>
       </div>
-      <h3>Space Explorers</h3>
-      <div class="theme-en">I can describe space with There is / There are and compare planets (bigger, hotter, farther than).</div>
-      <div class="theme-fr">Je peux décrire l&#x27;espace avec There is / There are et comparer les planètes (bigger, hotter, farther than).</div>
+      <div class="when">📅 Fri, Nov 13 <span class="fr-d">· ven. 13 nov.</span></div>
+      <h3>Weather &amp; Seasons</h3>
+      <div class="theme-en">I can talk about the weather, the seasons, and what to wear.</div>
+      <div class="theme-fr">Je peux parler de la météo, des saisons et de ce qu&#x27;il faut porter.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
@@ -284,36 +267,39 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Camille_Lesson11_MyHouseAndBedroom.html" style="--ac:var(--sky); animation-delay:0.02s">
+    <a class="lesson" data-date="2026-12-04" href="Camille_Lesson8_FavoriteFoods.html" style="--ac:var(--grass); animation-delay:0.02s">
       <div class="row1">
-        <div class="num"><small>LESSON</small>11</div>
-        <div class="emoji">🏠</div>
+        <div class="num"><small>LESSON</small>8</div>
+        <div class="emoji">🍽️</div>
       </div>
-      <h3>My House &amp; Bedroom</h3>
-      <div class="theme-en">I can say where things are in my house (in, on, under, next to, behind, between).</div>
-      <div class="theme-fr">Je peux dire où sont les choses dans ma maison (in, on, under, next to, behind, between).</div>
+      <div class="when">📅 Fri, Dec 4 <span class="fr-d">· ven. 4 déc.</span></div>
+      <h3>My Favorite Foods</h3>
+      <div class="theme-en">I can say what foods I like and order food politely.</div>
+      <div class="theme-fr">Je peux dire quels aliments j&#x27;aime et commander poliment.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Camille_Lesson12_Transportation.html" style="--ac:var(--berry); animation-delay:0.06s">
+    <a class="lesson" data-date="2026-12-11" href="Camille_Lesson9_SportsILike.html" style="--ac:var(--grape); animation-delay:0.06s">
       <div class="row1">
-        <div class="num"><small>LESSON</small>12</div>
-        <div class="emoji">🚗</div>
+        <div class="num"><small>LESSON</small>9</div>
+        <div class="emoji">🏅</div>
       </div>
-      <h3>Transportation &amp; Travel</h3>
-      <div class="theme-en">I can say how I travel (by bus, by car, on foot) and compare with the fastest, the biggest…</div>
-      <div class="theme-fr">Je peux dire comment je me déplace (by bus, by car, on foot) et comparer avec the fastest, the biggest…</div>
+      <div class="when">📅 Fri, Dec 11 <span class="fr-d">· ven. 11 déc.</span></div>
+      <h3>Sports I Like</h3>
+      <div class="theme-en">I can talk about sports and say what I can and can&#x27;t do.</div>
+      <div class="theme-fr">Je peux parler de sport et dire ce que je sais faire et ce que je ne sais pas faire.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Camille_Lesson13_WinterTraditions.html" style="--ac:var(--grass); animation-delay:0.10s">
+    <a class="lesson" data-date="2026-12-18" href="Camille_Lesson10_SpaceExplorers.html" style="--ac:var(--tangerine); animation-delay:0.10s">
       <div class="row1">
-        <div class="num"><small>LESSON</small>13</div>
-        <div class="emoji">❄️</div>
+        <div class="num"><small>LESSON</small>10</div>
+        <div class="emoji">🚀</div>
       </div>
-      <h3>Winter Traditions &amp; Holidays</h3>
-      <div class="theme-en">I can say what I did for the holidays (I got, I ate, I opened, I went) and compare American and French traditions.</div>
-      <div class="theme-fr">Je peux dire ce que j&#x27;ai fait pendant les fêtes (I got, I ate, I opened, I went) et comparer les traditions américaines et françaises.</div>
+      <div class="when">📅 Fri, Dec 18 <span class="fr-d">· ven. 18 déc.</span></div>
+      <h3>Space Explorers</h3>
+      <div class="theme-en">I can describe space with There is / There are and compare planets (bigger, hotter, farther than).</div>
+      <div class="theme-fr">Je peux décrire l&#x27;espace avec There is / There are et comparer les planètes (bigger, hotter, farther than).</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
@@ -326,44 +312,93 @@ footer a:hover { color:var(--ink); }
 
   <div class="grid">
 
-    <a class="lesson" href="Camille_Lesson14_FiveSenses.html" style="--ac:var(--grape); animation-delay:0.02s">
+    <a class="lesson" data-date="2027-01-08" href="Camille_Lesson11_MyHouseAndBedroom.html" style="--ac:var(--sky); animation-delay:0.02s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>11</div>
+        <div class="emoji">🏠</div>
+      </div>
+      <div class="when">📅 Fri, Jan 8 <span class="fr-d">· ven. 8 janv.</span></div>
+      <h3>My House &amp; Bedroom</h3>
+      <div class="theme-en">I can say where things are in my house (in, on, under, next to, behind, between).</div>
+      <div class="theme-fr">Je peux dire où sont les choses dans ma maison (in, on, under, next to, behind, between).</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" data-date="2027-01-15" href="Camille_Lesson12_Transportation.html" style="--ac:var(--berry); animation-delay:0.06s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>12</div>
+        <div class="emoji">🚗</div>
+      </div>
+      <div class="when">📅 Fri, Jan 15 <span class="fr-d">· ven. 15 janv.</span></div>
+      <h3>Transportation &amp; Travel</h3>
+      <div class="theme-en">I can say how I travel (by bus, by car, on foot) and compare with the fastest, the biggest…</div>
+      <div class="theme-fr">Je peux dire comment je me déplace (by bus, by car, on foot) et comparer avec the fastest, the biggest…</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" data-date="2027-01-22" href="Camille_Lesson13_WinterTraditions.html" style="--ac:var(--grass); animation-delay:0.10s">
+      <div class="row1">
+        <div class="num"><small>LESSON</small>13</div>
+        <div class="emoji">❄️</div>
+      </div>
+      <div class="when">📅 Fri, Jan 22 <span class="fr-d">· ven. 22 janv.</span></div>
+      <h3>Winter Traditions &amp; Holidays</h3>
+      <div class="theme-en">I can say what I did for the holidays (I got, I ate, I opened, I went) and compare American and French traditions.</div>
+      <div class="theme-fr">Je peux dire ce que j&#x27;ai fait pendant les fêtes (I got, I ate, I opened, I went) et comparer les traditions américaines et françaises.</div>
+      <span class="go">Start lesson <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="lesson" data-date="2027-01-29" href="Camille_Lesson14_FiveSenses.html" style="--ac:var(--grape); animation-delay:0.14s">
       <div class="row1">
         <div class="num"><small>LESSON</small>14</div>
         <div class="emoji">👀</div>
       </div>
+      <div class="when">📅 Fri, Jan 29 <span class="fr-d">· ven. 29 janv.</span></div>
       <h3>The Five Senses</h3>
       <div class="theme-en">I can describe things with my five senses: It looks… It smells… It tastes…</div>
       <div class="theme-fr">Je peux décrire des choses avec mes cinq sens : It looks… It smells… It tastes…</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Camille_Lesson15_CulturesOfTheWorld.html" style="--ac:var(--tangerine); animation-delay:0.06s">
+  </div>
+
+  <div class="seclabel">
+    <h2>February / Février</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="grid">
+
+    <a class="lesson" data-date="2027-02-05" href="Camille_Lesson15_CulturesOfTheWorld.html" style="--ac:var(--tangerine); animation-delay:0.02s">
       <div class="row1">
         <div class="num"><small>LESSON</small>15</div>
         <div class="emoji">🌍</div>
       </div>
+      <div class="when">📅 Fri, Feb 5 <span class="fr-d">· ven. 5 févr.</span></div>
       <h3>Cultures of the World</h3>
       <div class="theme-en">I can talk about countries, nationalities, and languages — and say what people do there.</div>
       <div class="theme-fr">Je peux parler des pays, des nationalités et des langues — et dire ce que les gens y font.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Camille_Lesson16_JobsAndFuture.html" style="--ac:var(--sky); animation-delay:0.10s">
+    <a class="lesson" data-date="2027-02-12" href="Camille_Lesson16_JobsAndFuture.html" style="--ac:var(--sky); animation-delay:0.06s">
       <div class="row1">
         <div class="num"><small>LESSON</small>16</div>
         <div class="emoji">💼</div>
       </div>
+      <div class="when">📅 Fri, Feb 12 <span class="fr-d">· ven. 12 févr.</span></div>
       <h3>Jobs &amp; When I Grow Up</h3>
       <div class="theme-en">I can say what people do in their jobs and what I will be when I grow up.</div>
       <div class="theme-fr">Je peux dire ce que les gens font dans leur métier et ce que je serai quand je serai grande.</div>
       <span class="go">Start lesson <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="lesson" href="Camille_Lesson17_FeelingsAndEmotions.html" style="--ac:var(--berry); animation-delay:0.14s">
+    <a class="lesson" data-date="2027-02-19" href="Camille_Lesson17_FeelingsAndEmotions.html" style="--ac:var(--berry); animation-delay:0.10s">
       <div class="row1">
         <div class="num"><small>LESSON</small>17</div>
         <div class="emoji">💭</div>
       </div>
+      <div class="when">📅 Fri, Feb 19 <span class="fr-d">· ven. 19 févr.</span></div>
       <h3>My Feelings &amp; Emotions</h3>
       <div class="theme-en">I can say how I feel and why, and give a friend good advice.</div>
       <div class="theme-fr">Je peux dire ce que je ressens et pourquoi, et donner un bon conseil à un(e) ami(e).</div>
@@ -379,5 +414,18 @@ footer a:hover { color:var(--ink); }
 
 </div>
 <div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script>
+(function(){
+  var d=new Date(), t=d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2), nextDone=false;
+  var cards=document.querySelectorAll('.lesson[data-date]');
+  for(var i=0;i<cards.length;i++){
+    var c=cards[i], dt=c.getAttribute('data-date'), w=c.querySelector('.when'), b=document.createElement('span'); b.className='status';
+    if(dt<t){ c.classList.add('done'); b.textContent='✓ Finished · Terminé'; }
+    else if(!nextDone){ nextDone=true; c.classList.add('next'); b.textContent=(dt===t?'⭐ Today · Aujourd\'hui':'⭐ Next lesson · Prochaine leçon'); }
+    else continue;
+    w.appendChild(document.createElement('br')); w.appendChild(b);
+  }
+})();
+</script>
 </body>
 </html>
