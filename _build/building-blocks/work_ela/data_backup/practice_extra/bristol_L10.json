@@ -1,0 +1,334 @@
+{
+ "sets": [
+  [
+   {
+    "type": "fill",
+    "q": "Bird whistles cost <b>$5 each</b>. Marion buys <b>7</b>. What is the total?",
+    "answers": [
+     "35",
+     "$35",
+     "thirty-five",
+     "thirty five"
+    ],
+    "why": "7 jumps of 5: 5, 10, 15, 20, 25, 30, <b>35</b>.",
+    "no": "Each whistle costs $5. Skip count 7 times.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Each pet carrier costs <b>$10</b>. Ellie buys <b>4</b>. What is the total?",
+    "answers": [
+     "40",
+     "$40",
+     "forty"
+    ],
+    "why": "4 × 10 = 40.",
+    "no": "Every carrier is $10. Skip count by 10s.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "What does <b>$4 a box</b> mean?",
+    "choices": [
+     "Each box holds 4 toys.",
+     "One box costs $4.",
+     "4 boxes cost $1."
+    ],
+    "a": 1,
+    "why": "<b>A box</b> means for each box. One box costs $4.",
+    "no": [
+     "$4 is money, not how many things are inside. It is the <b>price</b>.",
+     null,
+     "It is the other way. One box costs $4."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Fish food is <b>$8 a box</b>. Liz buys <b>4 boxes</b>. What is the total?",
+    "answers": [
+     "32",
+     "$32",
+     "thirty-two",
+     "thirty two"
+    ],
+    "why": "4 × 8. Double 8 is 16. Double 16 is <b>32</b>.",
+    "no": "Each box is $8. Multiply. Then check your math.",
+    "hint": "Double, double: 8 → 16 → ?",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "A bird cage is <b>$15</b>. A water dish is <b>$8</b>. How much more is the cage?",
+    "answers": [
+     "7",
+     "$7",
+     "seven"
+    ],
+    "why": "Compare: 15 − 8 = 7.",
+    "no": "<b>How much more</b> means subtract. Then check your math.",
+    "hint": "Count up from 8 to 15.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "A leash is <b>$8</b>. A ball is <b>$7</b>. Ellie buys both. What does she pay?",
+    "answers": [
+     "15",
+     "$15",
+     "fifteen"
+    ],
+    "why": "Two different things: 8 + 7 = 15.",
+    "no": "The prices are different. She buys <b>both</b>, so add. Then check your math.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Amy skip counts her $5 bills: 5, 10, 15, 20, 25, 30, 35, 40. How many bills?",
+    "answers": [
+     "8",
+     "eight"
+    ],
+    "why": "Count the numbers: 8 bills. 8 × 5 = 40.",
+    "no": "Each number you say is one bill. Count the numbers.",
+    "hint": "Point to each number and count.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Bowls cost <b>$7 each</b>. Liz buys <b>8</b>. What is the total?",
+    "choices": [
+     "$56",
+     "$15",
+     "$49"
+    ],
+    "a": 0,
+    "why": "8 × 7. 7 × 4 = 28. Double 28 is <b>56</b>.",
+    "no": [
+     null,
+     "$15 is 7 + 8. Every bowl is $7.",
+     "$49 is 7 × 7. Liz buys 8 bowls."
+    ]
+   },
+   {
+    "q": "In <b>3 × 8 = 24</b>, which numbers are the <b>factors</b>?",
+    "choices": [
+     "24",
+     "3 and 24",
+     "3 and 8"
+    ],
+    "a": 2,
+    "why": "Factors are the numbers you multiply: 3 and 8.",
+    "no": [
+     "24 is the <b>product</b>, the answer.",
+     "24 is the product. Which two numbers do you multiply?",
+     null
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Amy has <b>$20</b>. She buys a rope toy for <b>$7</b>. How much money is left?",
+    "answers": [
+     "13",
+     "$13",
+     "thirteen"
+    ],
+    "why": "She spends $7. 20 − 7 = 13.",
+    "no": "She <b>spends</b> money, so subtract. Then check your math.",
+    "hint": "Check: your answer + 7 should make 20.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Liz buys <b>4 bows at $3 each</b>. Ellie buys <b>2 hats at $6 each</b>. Who spends more?",
+    "choices": [
+     "They spend the same.",
+     "Liz",
+     "Ellie"
+    ],
+    "a": 0,
+    "why": "Liz: 4 × 3 = 12. Ellie: 2 × 6 = 12. The same!",
+    "no": [
+     null,
+     "Find Ellie's total too: 2 × 6.",
+     "Find Liz's total too: 4 × 3."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Bird toys cost <b>$9 each</b>. Amy buys <b>7</b>. What is the total?",
+    "answers": [
+     "63",
+     "$63",
+     "sixty-three",
+     "sixty three"
+    ],
+    "why": "7 × 9. 10 × 7 = 70. Take away one 7: <b>63</b>.",
+    "no": "Every toy is $9. Multiply. Then check your math.",
+    "hint": "10 sevens is 70. Take away one 7.",
+    "placeholder": "Type a number"
+   }
+  ],
+  [
+   {
+    "type": "fill",
+    "q": "Fish snacks cost <b>$5 each</b>. Liz buys <b>6</b>. What is the total?",
+    "answers": [
+     "30",
+     "$30",
+     "thirty"
+    ],
+    "why": "6 jumps of 5: 5, 10, 15, 20, 25, <b>30</b>.",
+    "no": "Each snack costs $5. Skip count 6 times.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Each lamp for the turtle tank costs <b>$10</b>. Marion buys <b>9</b>. What is the total?",
+    "answers": [
+     "90",
+     "$90",
+     "ninety"
+    ],
+    "why": "9 × 10 = 90.",
+    "no": "Every lamp is $10. Skip count by 10s.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Which tag means <b>one</b> leash costs $8?",
+    "choices": [
+     "$8 per leash",
+     "8 leashes for $1",
+     "$8 for all the leashes"
+    ],
+    "a": 0,
+    "why": "<b>Per leash</b> means for each leash. One leash costs $8.",
+    "no": [
+     null,
+     "That is the other way. Then one leash would cost much less than $8.",
+     "That is the total for all of them, not the price of one."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Chew sticks are <b>$9 a pack</b>. Amy buys <b>4 packs</b>. What is the total?",
+    "answers": [
+     "36",
+     "$36",
+     "thirty-six",
+     "thirty six"
+    ],
+    "why": "4 × 9. Double 9 is 18. Double 18 is <b>36</b>.",
+    "no": "Each pack is $9. Multiply. Then check your math.",
+    "hint": "Double, double: 9 → 18 → ?",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "A dog bed is <b>$14</b>. A squeaky toy is <b>$6</b>. How much more is the bed?",
+    "answers": [
+     "8",
+     "$8",
+     "eight"
+    ],
+    "why": "Compare: 14 − 6 = 8.",
+    "no": "<b>How much more</b> means subtract. Then check your math.",
+    "hint": "Count up from 6 to 14.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "A hamster ball is <b>$9</b>. A water bottle is <b>$5</b>. Marion buys both. What does she pay?",
+    "answers": [
+     "14",
+     "$14",
+     "fourteen"
+    ],
+    "why": "Two different things: 9 + 5 = 14.",
+    "no": "The prices are different. She buys <b>both</b>, so add. Then check your math.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Liz counts her $10 bills: 10, 20, 30, 40, 50, 60, 70, 80, 90. How many bills?",
+    "answers": [
+     "9",
+     "nine"
+    ],
+    "why": "Count the numbers: 9 bills. 9 × 10 = 90.",
+    "no": "Each number you say is one bill. Count the numbers.",
+    "hint": "Point to each number and count.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Hats cost <b>$9 each</b>. Marion buys <b>7</b>. What is the total?",
+    "choices": [
+     "$16",
+     "$56",
+     "$63"
+    ],
+    "a": 2,
+    "why": "7 × 9. 10 × 7 = 70. Take away one 7: <b>63</b>.",
+    "no": [
+     "$16 is 9 + 7. Every hat is $9.",
+     "$56 is 7 × 8. The price is $9.",
+     null
+    ]
+   },
+   {
+    "q": "In <b>6 × 7 = 42</b>, which numbers are the <b>factors</b>?",
+    "choices": [
+     "7 and 42",
+     "6 and 7",
+     "42"
+    ],
+    "a": 1,
+    "why": "Factors are the numbers you multiply: 6 and 7.",
+    "no": [
+     "42 is the product. Which two numbers do you multiply?",
+     null,
+     "42 is the <b>product</b>, the answer."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Marion has <b>$30</b>. She buys a leash for <b>$9</b>. How much money is left?",
+    "answers": [
+     "21",
+     "$21",
+     "twenty-one",
+     "twenty one"
+    ],
+    "why": "She spends $9. 30 − 9 = 21.",
+    "no": "She <b>spends</b> money, so subtract. Then check your math.",
+    "hint": "Check: your answer + 9 should make 30.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Marion buys <b>2 cages at $10 each</b>. Amy buys <b>4 tanks at $5 each</b>. Who spends more?",
+    "choices": [
+     "Marion",
+     "Amy",
+     "They spend the same."
+    ],
+    "a": 2,
+    "why": "Marion: 2 × 10 = 20. Amy: 4 × 5 = 20. The same!",
+    "no": [
+     "Find Amy's total too: 4 × 5.",
+     "Find Marion's total too: 2 × 10.",
+     null
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Cat beds cost <b>$9 each</b>. Liz buys <b>8</b>. What is the total?",
+    "answers": [
+     "72",
+     "$72",
+     "seventy-two",
+     "seventy two"
+    ],
+    "why": "8 × 9. 10 × 8 = 80. Take away one 8: <b>72</b>.",
+    "no": "Every bed is $9. Multiply. Then check your math.",
+    "hint": "10 eights is 80. Take away one 8.",
+    "placeholder": "Type a number"
+   }
+  ]
+ ]
+}

@@ -1,0 +1,1889 @@
+{
+ "student": "bailey",
+ "n": 8,
+ "title": "Pick the Smartest Method",
+ "goal": "I can choose the best method for a multiplication problem and find the mistake in someone's work.",
+ "card": {
+  "desc": "Bailey proves the week: she picks the <b>optimal method</b> (basic fact, break apart, or area model), hunts for <b>blunders</b> in other people's work (lost zeros, wrong facts, missing boxes, lost count) and solves harder word problems. This targets her habit of grabbing the most complicated method and losing track."
+ },
+ "win": "You picked the right tool and caught the blunders. That is a triumphant week!",
+ "slides": [
+  {
+   "type": "hello",
+   "title": "Pick the Smartest Method: On Your Own",
+   "text": "In class you picked the best tool and hunted blunders. Now prove it on your own. Keep paper and a pencil next to you.",
+   "visual": {
+    "kind": "emoji",
+    "text": "🧠 🔧 📐 🔍"
+   }
+  },
+  {
+   "type": "talk",
+   "kick": "Say it",
+   "title": "Explain it out loud",
+   "text": "Say these to a grown-up, or say them out loud to yourself.",
+   "prompts": [
+    "How do you choose between a fact, break apart and an area model?",
+    "Name the four blunders. Which one do <b>you</b> need to watch for?",
+    "Was a choice Hiccup made this week <b>deliberate</b>? Tell what happened."
+   ],
+   "starters": [
+    "First I ask myself …",
+    "The four blunders are …",
+    "Hiccup's choice was deliberate because …"
+   ]
+  },
+  {
+   "type": "vocab",
+   "kick": "Word Power",
+   "title": "Review your words",
+   "text": "Say the meaning out loud first. Then flip the card to check yourself.",
+   "words": [
+    {
+     "word": "method",
+     "pos": "noun",
+     "meaning": "A way of doing something, step by step.",
+     "example": "The area model is my <b>method</b> for 238 × 7.",
+     "emoji": "🛠️"
+    },
+    {
+     "word": "optimal",
+     "pos": "adjective",
+     "meaning": "The best possible choice for the job.",
+     "example": "For 9 × 7, the <b>optimal</b> method is just knowing the fact.",
+     "emoji": "🏅"
+    },
+    {
+     "word": "valid",
+     "pos": "adjective",
+     "meaning": "Correct and based on good reasons.",
+     "example": "Hiccup's answer is <b>valid</b>: every box is right.",
+     "emoji": "✔️"
+    },
+    {
+     "word": "blunder",
+     "pos": "noun",
+     "meaning": "A careless mistake.",
+     "example": "Writing 42 instead of 420 in the 60 box is a <b>blunder</b>.",
+     "emoji": "🤦"
+    },
+    {
+     "word": "scrutinize",
+     "pos": "verb",
+     "meaning": "To look at something very closely to find any problem.",
+     "example": "Gobber <b>scrutinized</b> every dragon in the training ring.",
+     "emoji": "🔎"
+    },
+    {
+     "word": "deliberate",
+     "pos": "adjective",
+     "meaning": "Done on purpose, after careful thinking.",
+     "example": "Choosing the area model was a <b>deliberate</b> choice, not a guess.",
+     "emoji": "🧠"
+    },
+    {
+     "word": "triumphant",
+     "pos": "adjective",
+     "meaning": "Proud and happy after winning or succeeding.",
+     "example": "The tribe gave a <b>triumphant</b> cheer when the danger was over.",
+     "emoji": "🏆"
+    }
+   ]
+  },
+  {
+   "type": "learn",
+   "kick": "Remember",
+   "title": "Pick the tool, then scrutinize",
+   "text": "🧠 Fact: both numbers 10 or less. 🔧 Break apart: a teen or a tens number. 📐 Area model: bigger numbers.",
+   "visual": {
+    "kind": "bigtext",
+    "text": "17 × 6 = 60 + 42",
+    "sub": "17 is a teen number: break it apart in your head"
+   },
+   "tip": "Four blunders to scrutinize for: lost zero, wrong fact, missing box, lost count."
+  },
+  {
+   "type": "tap",
+   "kick": "Try it",
+   "title": "Pick the tool",
+   "text": "Type <b>fact</b>, <b>break apart</b> or <b>area model</b>.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Which tool is optimal for <b>8 × 7</b>?",
+     "answers": [
+      "fact",
+      "know the fact",
+      "basic fact",
+      "know it"
+     ],
+     "why": "Both numbers are 10 or less: just know it. 8 × 7 = 56.",
+     "no": "Are both numbers 10 or less?",
+     "hint": "5, 6, 7, 8."
+    },
+    {
+     "type": "fill",
+     "q": "Which tool is optimal for <b>53 × 28</b>?",
+     "answers": [
+      "area model",
+      "area",
+      "an area model",
+      "area-model"
+     ],
+     "why": "Both numbers have two digits and neither is a teen or tens number: <b>area model</b> with four boxes.",
+     "no": "Is 53 a teen or a tens number?",
+     "hint": "Two 2-digit numbers need four boxes."
+    },
+    {
+     "type": "fill",
+     "q": "Break apart in your head: <b>17 × 8 = ____</b>",
+     "answers": [
+      "136"
+     ],
+     "why": "10 × 8 = 80 and 7 × 8 = 56. 80 + 56 = <b>136</b>.",
+     "no": "Split 17 into 10 + 7. Multiply each part by 8, then add.",
+     "hint": "80 + 56"
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Try it",
+   "title": "Fix the blunder",
+   "text": "Scrutinize the work. Type the right answer.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Snotlout wrote <b>35 × 8 = 24 + 40 = 64</b>. Fix the blunder. What is 35 × 8?",
+     "answers": [
+      "280"
+     ],
+     "why": "30 × 8 is 240, not 24 (lost zero). 240 + 40 = <b>280</b>.",
+     "no": "Check the 30 box. 30 is 3 tens.",
+     "hint": "3 tens × 8 = 24 tens."
+    },
+    {
+     "type": "fill",
+     "q": "Fishlegs wrote <b>24 × 15 = 200 + 20 = 220</b>. What is 24 × 15 really?",
+     "answers": [
+      "360"
+     ],
+     "why": "He left out two boxes. 200 + 40 + 100 + 20 = <b>360</b>.",
+     "no": "24 × 15 needs four boxes: 20 × 10, 4 × 10, 20 × 5, 4 × 5.",
+     "hint": "Missing: 4 × 10 = 40 and 20 × 5 = 100."
+    },
+    {
+     "type": "fill",
+     "q": "Gobber added 8 again and again for <b>13 × 8</b> and got 96. How many 8s did he really add?",
+     "answers": [
+      "12",
+      "twelve",
+      "12 eights",
+      "twelve eights",
+      "12 8s"
+     ],
+     "why": "96 is <b>12</b> eights (12 × 8 = 96). He lost count: 13 × 8 = 104.",
+     "no": "Which number times 8 makes 96?",
+     "hint": "10 × 8 = 80. How many more 8s make 96?"
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Try it",
+   "title": "Two-step problems",
+   "text": "Plan first: what do you do first, and what next? Type just the number.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Stoick has <b>600</b> coins. He buys <b>7</b> helmets that cost <b>68</b> coins each. How many coins are <b>left</b>?",
+     "answers": [
+      "124",
+      "124 coins"
+     ],
+     "why": "68 × 7 = 420 + 56 = 476. 600 − 476 = <b>124</b> coins left.",
+     "no": "First multiply 68 × 7. Then subtract from 600.",
+     "hint": "68 × 7 = 476."
+    },
+    {
+     "type": "fill",
+     "q": "There are <b>5</b> nests with <b>23</b> eggs each and <b>3</b> nests with <b>17</b> eggs each. How many eggs in all?",
+     "answers": [
+      "166",
+      "166 eggs"
+     ],
+     "why": "5 × 23 = 115 and 3 × 17 = 51. 115 + 51 = <b>166</b> eggs.",
+     "no": "Multiply for each kind of nest, then add.",
+     "hint": "5 × 23 = 115."
+    }
+   ]
+  },
+  {
+   "type": "recall",
+   "kick": "Remember",
+   "title": "This week",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Estimate: <b>58 × 22</b> is between 1,000 and <b>____</b>.",
+     "answers": [
+      "1800"
+     ],
+     "why": "50 × 20 = 1,000 and 60 × 30 = <b>1,800</b>.",
+     "no": "Round both numbers up: 60 and 30.",
+     "hint": "6 × 3 = 18, then two zeros."
+    },
+    {
+     "q": "Which partial products build <b>87 × 9</b>?",
+     "choices": [
+      "72 and 63",
+      "720 and 7",
+      "720 and 63",
+      "80 and 7"
+     ],
+     "a": 2,
+     "why": "80 × 9 = 720 and 7 × 9 = 63. Total: 783.",
+     "no": [
+      "80 × 9 is 8 tens × 9 = 72 tens = 720.",
+      "The 7 box gets multiplied too: 7 × 9 = 63.",
+      null,
+      "Those are the parts of 87. Multiply each one by 9."
+     ]
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Word Power",
+   "title": "Use your words",
+   "text": "Type the word from memory.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Gobber looked very closely at every box to find mistakes. He <b>________</b> the work.",
+     "answers": [
+      "scrutinized",
+      "scrutinize",
+      "scrutinizes"
+     ],
+     "why": "To <b>scrutinize</b> is to look very closely to find any problem.",
+     "no": "Which word means to look very closely for problems?",
+     "hint": "It starts with s-c-r."
+    },
+    {
+     "type": "fill",
+     "q": "Writing 7 × 8 = 54 is a careless mistake. A careless mistake is a <b>________</b>.",
+     "answers": [
+      "blunder"
+     ],
+     "why": "A <b>blunder</b> is a careless mistake.",
+     "no": "Which word means a careless mistake?",
+     "hint": "It starts with b-l."
+    },
+    {
+     "q": "Which choice is <b>deliberate</b>?",
+     "choices": [
+      "Hiccup trips over a bucket.",
+      "Hiccup plans his words carefully before he speaks to the dragon.",
+      "Hiccup sneezes in the middle of a speech."
+     ],
+     "a": 1,
+     "why": "Deliberate means done on purpose, after careful thinking.",
+     "no": [
+      "Tripping is an accident, not on purpose.",
+      null,
+      "A sneeze is not planned."
+     ]
+    }
+   ]
+  },
+  {
+   "type": "check",
+   "title": "Show What You Know",
+   "sets": [
+    [
+     {
+      "q": "What is the optimal way to find <b>16 × 9</b>?",
+      "choices": [
+       "Add 9 sixteen times",
+       "Break apart: 90 + 54 = 144",
+       "Draw a 4-box area model",
+       "Just know it as a basic fact"
+      ],
+      "a": 1,
+      "why": "10 × 9 + 6 × 9 = 90 + 54 = 144.",
+      "no": [
+       "Correct but slow, and easy to lose count.",
+       null,
+       "9 has only one digit, so there are not four boxes.",
+       "16 × 9 is bigger than the basic facts."
+      ]
+     },
+     {
+      "q": "Which problem should you solve with an <b>area model on paper</b>?",
+      "choices": [
+       "7 × 9",
+       "40 × 6",
+       "11 × 7",
+       "367 × 8"
+      ],
+      "a": 3,
+      "why": "A 3-digit number needs three boxes.",
+      "no": [
+       "A basic fact: just know it.",
+       "One fact and a zero: 240.",
+       "Break apart in your head: 70 + 7.",
+       null
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "What is <b>367 × 8</b>?",
+      "answers": [
+       "2936"
+      ],
+      "why": "2,400 + 480 + 56 = <b>2,936</b>.",
+      "no": "Use three boxes: 300 × 8, 60 × 8 and 7 × 8."
+     },
+     {
+      "type": "fill",
+      "q": "What is <b>29 × 16</b>?",
+      "answers": [
+       "464"
+      ],
+      "why": "200 + 90 + 120 + 54 = <b>464</b>.",
+      "no": "Use four boxes: 20 × 10, 9 × 10, 20 × 6 and 9 × 6."
+     },
+     {
+      "type": "fill",
+      "q": "Gobber wrote <b>85 × 7 = 560 + 35 = 595</b>. Is his work valid? Type <b>valid</b> or <b>not valid</b>.",
+      "answers": [
+       "valid"
+      ],
+      "why": "80 × 7 = 560 and 5 × 7 = 35. Every box is right, so it is <b>valid</b>.",
+      "no": "Check each box: 80 × 7 and 5 × 7."
+     },
+     {
+      "type": "fill",
+      "q": "Snotlout wrote <b>47 × 6 = 240 + 46 = 286</b>. Fix the blunder. What is 47 × 6?",
+      "answers": [
+       "282"
+      ],
+      "why": "7 × 6 is 42, not 46. 240 + 42 = <b>282</b>.",
+      "no": "Check the ones box: 7 × 6."
+     },
+     {
+      "type": "fill",
+      "q": "A Viking ship makes <b>18</b> trips. Each trip carries <b>25</b> sheep. How many sheep?",
+      "answers": [
+       "450",
+       "450 sheep"
+      ],
+      "why": "200 + 160 + 50 + 40 = <b>450</b>.",
+      "no": "18 equal trips of 25. Use four boxes."
+     },
+     {
+      "type": "fill",
+      "q": "Hiccup reads <b>45</b> pages a day for <b>6</b> days. His book has <b>300</b> pages. How many pages are <b>left</b>?",
+      "answers": [
+       "30",
+       "30 pages"
+      ],
+      "why": "45 × 6 = 270. 300 − 270 = <b>30</b> pages left.",
+      "no": "First multiply 45 × 6. Then subtract from 300."
+     },
+     {
+      "q": "To <b>scrutinize</b> an area model means to …",
+      "choices": [
+       "draw it as fast as you can",
+       "erase the smallest box",
+       "copy a friend's answer",
+       "look at every box very closely for mistakes"
+      ],
+      "a": 3,
+      "why": "Scrutinize means to look very closely.",
+      "no": [
+       "Scrutinize is slow and careful.",
+       "That would make a blunder.",
+       "Scrutinize means checking it yourself.",
+       null
+      ]
+     },
+     {
+      "q": "Fishlegs rushed and forgot to multiply the ones box. That careless mistake was a <b>______</b> in his work.",
+      "choices": [
+       "method",
+       "blunder",
+       "deliberate",
+       "triumphant"
+      ],
+      "a": 1,
+      "why": "A blunder is a careless mistake.",
+      "no": [
+       "A method is a way of doing something, not a mistake.",
+       null,
+       "Deliberate means on purpose. This was careless.",
+       "Triumphant means proud after winning."
+      ]
+     }
+    ],
+    [
+     {
+      "q": "What is the optimal way to find <b>18 × 7</b>?",
+      "choices": [
+       "Just know it as a basic fact",
+       "Add 7 eighteen times",
+       "Break apart: 70 + 56 = 126",
+       "Draw a 3-box area model"
+      ],
+      "a": 2,
+      "why": "10 × 7 + 8 × 7 = 70 + 56 = 126.",
+      "no": [
+       "18 × 7 is bigger than the basic facts.",
+       "Correct but slow, and easy to lose count.",
+       null,
+       "18 has only two digits, so three boxes makes no sense."
+      ]
+     },
+     {
+      "q": "Which problem can you just <b>know</b> as a basic fact?",
+      "choices": [
+       "6 × 9",
+       "16 × 9",
+       "60 × 19",
+       "69 × 6"
+      ],
+      "a": 0,
+      "why": "6 × 9 = 54 is a basic fact.",
+      "no": [
+       null,
+       "16 is bigger than 10. Break it apart.",
+       "Both numbers are too big for a basic fact.",
+       "69 needs two boxes."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "What is <b>485 × 6</b>?",
+      "answers": [
+       "2910"
+      ],
+      "why": "2,400 + 480 + 30 = <b>2,910</b>.",
+      "no": "Use three boxes: 400 × 6, 80 × 6 and 5 × 6."
+     },
+     {
+      "type": "fill",
+      "q": "What is <b>38 × 26</b>?",
+      "answers": [
+       "988"
+      ],
+      "why": "600 + 160 + 180 + 48 = <b>988</b>.",
+      "no": "Use four boxes: 30 × 20, 8 × 20, 30 × 6 and 8 × 6."
+     },
+     {
+      "type": "fill",
+      "q": "Fishlegs wrote <b>63 × 9 = 540 + 27 = 567</b>. Is his work valid? Type <b>valid</b> or <b>not valid</b>.",
+      "answers": [
+       "valid"
+      ],
+      "why": "60 × 9 = 540 and 3 × 9 = 27. Every box is right, so it is <b>valid</b>.",
+      "no": "Check each box: 60 × 9 and 3 × 9."
+     },
+     {
+      "type": "fill",
+      "q": "Gobber wrote <b>74 × 8 = 56 + 32 = 88</b>. Fix the blunder. What is 74 × 8?",
+      "answers": [
+       "592"
+      ],
+      "why": "70 × 8 is 560, not 56 (lost zero). 560 + 32 = <b>592</b>.",
+      "no": "Check the 70 box. 70 is 7 tens."
+     },
+     {
+      "type": "fill",
+      "q": "Each of <b>14</b> dragons eats <b>35</b> fish. How many fish?",
+      "answers": [
+       "490",
+       "490 fish"
+      ],
+      "why": "300 + 50 + 120 + 20 = <b>490</b>.",
+      "no": "14 equal groups of 35. Use four boxes."
+     },
+     {
+      "type": "fill",
+      "q": "Hiccup has <b>400</b> coins. He buys <b>9</b> maps that cost <b>36</b> coins each. How many coins are <b>left</b>?",
+      "answers": [
+       "76",
+       "76 coins"
+      ],
+      "why": "36 × 9 = 270 + 54 = 324. 400 − 324 = <b>76</b> coins left.",
+      "no": "First multiply 36 × 9. Then subtract from 400."
+     },
+     {
+      "q": "Which moment would make Hiccup feel <b>triumphant</b>?",
+      "choices": [
+       "losing his helmet in the sea",
+       "finally training his dragon after many tries",
+       "waiting in the rain",
+       "forgetting what to say"
+      ],
+      "a": 1,
+      "why": "Triumphant means proud and happy after winning or succeeding.",
+      "no": [
+       "That would make him upset, not proud.",
+       null,
+       "Waiting is not winning.",
+       "That is embarrassing, not triumphant."
+      ]
+     },
+     {
+      "q": "A <b>method</b> is …",
+      "choices": [
+       "a careless mistake",
+       "the best possible choice",
+       "a proud cheer",
+       "a way of doing something, step by step"
+      ],
+      "a": 3,
+      "why": "A method is a way of doing something, step by step.",
+      "no": [
+       "That is a blunder.",
+       "That is optimal.",
+       "That is triumphant.",
+       null
+      ]
+     }
+    ],
+    [
+     {
+      "q": "What is the optimal way to find <b>14 × 8</b>?",
+      "choices": [
+       "Break apart: 80 + 32 = 112",
+       "Add 8 fourteen times",
+       "Draw a 4-box area model",
+       "Just know it as a basic fact"
+      ],
+      "a": 0,
+      "why": "10 × 8 + 4 × 8 = 80 + 32 = 112.",
+      "no": [
+       null,
+       "Correct but slow, and easy to lose count.",
+       "8 has only one digit, so there are not four boxes.",
+       "14 × 8 is bigger than the basic facts."
+      ]
+     },
+     {
+      "q": "Which problem needs an <b>area model on paper</b>?",
+      "choices": [
+       "8 × 6",
+       "30 × 7",
+       "12 × 6",
+       "58 × 34"
+      ],
+      "a": 3,
+      "why": "Two 2-digit numbers need four boxes on paper.",
+      "no": [
+       "A basic fact: just know it (48).",
+       "One fact and a zero: 210.",
+       "Break apart in your head: 60 + 12 = 72.",
+       null
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "What is <b>629 × 7</b>?",
+      "answers": [
+       "4403"
+      ],
+      "why": "4,200 + 140 + 63 = <b>4,403</b>.",
+      "no": "Use three boxes: 600 × 7, 20 × 7 and 9 × 7."
+     },
+     {
+      "type": "fill",
+      "q": "What is <b>43 × 27</b>?",
+      "answers": [
+       "1161"
+      ],
+      "why": "800 + 60 + 280 + 21 = <b>1,161</b>.",
+      "no": "Use four boxes: 40 × 20, 3 × 20, 40 × 7 and 3 × 7."
+     },
+     {
+      "type": "fill",
+      "q": "Snotlout wrote <b>64 × 6 = 360 + 34 = 394</b>. Is his work valid? Type <b>valid</b> or <b>not valid</b>.",
+      "answers": [
+       "not valid",
+       "invalid"
+      ],
+      "why": "4 × 6 is 24, not 34. The right answer is 384, so his work is <b>not valid</b>.",
+      "no": "Check each box: 60 × 6 and 4 × 6."
+     },
+     {
+      "type": "fill",
+      "q": "Fishlegs wrote <b>26 × 17 = 200 + 42 = 242</b>. He left out two boxes. What is 26 × 17?",
+      "answers": [
+       "442"
+      ],
+      "why": "200 + 60 + 140 + 42 = <b>442</b>.",
+      "no": "26 × 17 needs four boxes: 20 × 10, 6 × 10, 20 × 7, 6 × 7."
+     },
+     {
+      "type": "fill",
+      "q": "<b>22</b> Vikings each carry <b>45</b> rocks. How many rocks?",
+      "answers": [
+       "990",
+       "990 rocks"
+      ],
+      "why": "800 + 100 + 80 + 10 = <b>990</b>.",
+      "no": "22 equal groups of 45. Use four boxes."
+     },
+     {
+      "type": "fill",
+      "q": "Gobber needs <b>500</b> nails. He has <b>9</b> bags with <b>47</b> nails each. How many <b>more</b> nails does he need?",
+      "answers": [
+       "77",
+       "77 nails"
+      ],
+      "why": "47 × 9 = 360 + 63 = 423. 500 − 423 = <b>77</b> more nails.",
+      "no": "First multiply 47 × 9. Then subtract from 500."
+     },
+     {
+      "q": "Gobber wants to <b>scrutinize</b> Hiccup's work. What does he do?",
+      "choices": [
+       "He throws it away.",
+       "He looks at every step very closely for mistakes.",
+       "He copies it fast.",
+       "He cheers for it."
+      ],
+      "a": 1,
+      "why": "Scrutinize means to look at something very closely to find any problem.",
+      "no": [
+       "That is abandoning it, not scrutinizing it.",
+       null,
+       "Scrutinizing is slow and careful.",
+       "Cheering is not checking."
+      ]
+     },
+     {
+      "q": "Which sentence uses <b>valid</b> correctly?",
+      "choices": [
+       "The valid dragon flew home.",
+       "I ate a valid sandwich for lunch.",
+       "Your answer is valid because each box is correct and it fits the estimate."
+      ],
+      "a": 2,
+      "why": "Valid means correct and based on good reasons.",
+      "no": [
+       "Valid describes reasoning or answers, not a dragon.",
+       "A sandwich is not correct or incorrect.",
+       null
+      ]
+     }
+    ]
+   ]
+  }
+ ],
+ "practice": {
+  "intro": "Three tries on each one. Only your first try counts. Pick the optimal method, then scrutinize your answer.",
+  "questions": [
+   {
+    "q": "Which problem can you just <b>know</b> as a basic fact?",
+    "choices": [
+     "18 × 9",
+     "80 × 19",
+     "8 × 9",
+     "89 × 8"
+    ],
+    "a": 2,
+    "why": "8 × 9 = 72 is a basic fact.",
+    "no": [
+     "18 is bigger than 10. Break it apart.",
+     "Both numbers are too big for a basic fact.",
+     null,
+     "89 needs boxes."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Break apart in your head: <b>15 × 9 = 90 + 45 = ____</b>",
+    "answers": [
+     "135"
+    ],
+    "why": "10 × 9 = 90 and 5 × 9 = 45. 90 + 45 = <b>135</b>.",
+    "no": "Add 90 and 45.",
+    "hint": "90 + 40 = 130, then 5 more."
+   },
+   {
+    "type": "fill",
+    "q": "What is <b>456 × 3</b>?",
+    "answers": [
+     "1368"
+    ],
+    "why": "1,200 + 150 + 18 = <b>1,368</b>.",
+    "no": "Use three boxes: 400 × 3, 50 × 3 and 6 × 3.",
+    "hint": "150 + 18 = 168. Then add 1,200."
+   },
+   {
+    "type": "fill",
+    "q": "What is <b>34 × 25</b>?",
+    "answers": [
+     "850"
+    ],
+    "why": "600 + 80 + 150 + 20 = <b>850</b>.",
+    "no": "Use four boxes: 30 × 20, 4 × 20, 30 × 5 and 4 × 5.",
+    "hint": "Count your boxes: four."
+   },
+   {
+    "type": "fill",
+    "q": "Fishlegs wrote <b>91 × 7 = 630 + 7 = 637</b>. Is his work valid? Type <b>valid</b> or <b>not valid</b>.",
+    "answers": [
+     "valid"
+    ],
+    "why": "90 × 7 = 630 and 1 × 7 = 7. Every box is right: <b>valid</b>.",
+    "no": "Check each box: 90 × 7 and 1 × 7.",
+    "hint": "9 × 7 = 63, so 90 × 7 = 630."
+   },
+   {
+    "type": "fill",
+    "q": "Hiccup wrote <b>58 × 7 = 350 + 54 = 404</b>. Fix the blunder. What is 58 × 7?",
+    "answers": [
+     "406"
+    ],
+    "why": "8 × 7 is 56, not 54. 350 + 56 = <b>406</b>. Remember 5, 6, 7, 8: 56 = 7 × 8.",
+    "no": "Check the ones box: 8 × 7.",
+    "hint": "5, 6, 7, 8."
+   },
+   {
+    "type": "fill",
+    "q": "Snotlout added 6 again and again for <b>16 × 6</b> and got 90. He lost count. What is 16 × 6 really?",
+    "answers": [
+     "96"
+    ],
+    "why": "90 is only fifteen 6s. 16 × 6 = 60 + 36 = <b>96</b>.",
+    "no": "Break apart: 10 × 6 + 6 × 6.",
+    "hint": "60 + 36"
+   },
+   {
+    "type": "fill",
+    "q": "The tribe has <b>7</b> boats with <b>36</b> rowers each and <b>4</b> boats with <b>18</b> rowers each. How many rowers in all?",
+    "answers": [
+     "324",
+     "324 rowers"
+    ],
+    "why": "7 × 36 = 252 and 4 × 18 = 72. 252 + 72 = <b>324</b>.",
+    "no": "Multiply for each kind of boat, then add.",
+    "hint": "7 × 36 = 210 + 42."
+   },
+   {
+    "q": "Which answer is reasonable for <b>48 × 21</b>?",
+    "choices": [
+     "108",
+     "10,080",
+     "1,008"
+    ],
+    "a": 2,
+    "why": "It is between 800 and 1,500. (800 + 160 + 40 + 8 = 1,008.)",
+    "no": [
+     "Too small: 40 × 20 is already 800.",
+     "Too big: 50 × 30 is only 1,500.",
+     null
+    ]
+   },
+   {
+    "q": "A <b>deliberate</b> choice is one you make …",
+    "choices": [
+     "by accident",
+     "very loudly",
+     "without looking",
+     "on purpose, after thinking"
+    ],
+    "a": 3,
+    "why": "Deliberate means done on purpose, after careful thought.",
+    "no": [
+     "That is the opposite of deliberate.",
+     "Deliberate is about thinking, not sound.",
+     "Deliberate means you thought about it.",
+     null
+    ]
+   },
+   {
+    "q": "Which sentence uses <b>method</b> correctly?",
+    "choices": [
+     "My method for ×9 facts is ×10 minus one group.",
+     "The method of 6 × 7 is 42.",
+     "A method is a mistake you find in someone's work."
+    ],
+    "a": 0,
+    "why": "A method is a way of doing something.",
+    "no": [
+     null,
+     "42 is the answer, not the method.",
+     "That is a blunder."
+    ]
+   },
+   {
+    "q": "Which word means <b>the best possible choice for the job</b>?",
+    "choices": [
+     "blunder",
+     "valid",
+     "optimal",
+     "deliberate"
+    ],
+    "a": 2,
+    "why": "<b>Optimal</b> means the best possible choice for the job.",
+    "no": [
+     "A blunder is a careless mistake.",
+     "Valid means correct and based on good reasons.",
+     null,
+     "Deliberate means done on purpose, after thinking."
+    ]
+   }
+  ]
+ },
+ "packet": {
+  "title": "Pick the Smartest Method",
+  "pages": [
+   [
+    {
+     "title": "Part 1: Word Power",
+     "directions": "Circle the best word for each sentence.",
+     "items": [
+      {
+       "type": "choice",
+       "text": "1. Gobber looked at every box very closely. He ______ the work.",
+       "options": [
+        "scrutinized",
+        "blundered",
+        "triumphed"
+       ]
+      },
+      {
+       "type": "choice",
+       "text": "2. Writing 7 × 8 = 54 is a careless ______.",
+       "options": [
+        "method",
+        "blunder",
+        "valid"
+       ]
+      },
+      {
+       "type": "choice",
+       "text": "3. For 9 × 6, the ______ method is just knowing the fact.",
+       "options": [
+        "optimal",
+        "deliberate",
+        "triumphant"
+       ]
+      },
+      {
+       "type": "choice",
+       "text": "4. Every partial product is right, so the answer is ______.",
+       "options": [
+        "triumphant",
+        "valid",
+        "blunder"
+       ]
+      },
+      {
+       "type": "write",
+       "text": "5. Use the word <b>deliberate</b> in a sentence about multiplying.",
+       "lines": 1
+      }
+     ]
+    },
+    {
+     "title": "Part 2: Pick the tool",
+     "directions": "Circle the optimal method for each problem.",
+     "items": [
+      {
+       "type": "choice",
+       "text": "6. 9 × 7",
+       "options": [
+        "Know the fact",
+        "Break apart",
+        "Area model"
+       ]
+      },
+      {
+       "type": "choice",
+       "text": "7. 15 × 6",
+       "options": [
+        "Know the fact",
+        "Break apart",
+        "Area model"
+       ]
+      },
+      {
+       "type": "choice",
+       "text": "8. 283 × 4",
+       "options": [
+        "Know the fact",
+        "Break apart",
+        "Area model"
+       ]
+      },
+      {
+       "type": "draw",
+       "text": "9. Solve #8 with an area model. Write the answer.",
+       "height": 0.85,
+       "lines": 1
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "title": "Part 3: Find the blunder",
+     "directions": "Find the blunder. Fix it and write the right answer.",
+     "items": [
+      {
+       "type": "problem",
+       "text": "10. Kai wrote: 76 × 8 = 560 + 42 = 602",
+       "lines": 1
+      },
+      {
+       "type": "problem",
+       "text": "11. Mira added 7 again and again for 16 × 7 and got 105.",
+       "lines": 1
+      }
+     ]
+    },
+    {
+     "title": "Part 4: Word problems",
+     "directions": "Estimate first. Then solve. Show your boxes.",
+     "items": [
+      {
+       "type": "draw",
+       "text": "12. A Viking market has 26 stalls. Each stall sells 35 fish. How many fish? Estimate: between ______ and ______.",
+       "height": 1.1,
+       "lines": 1
+      },
+      {
+       "type": "problem",
+       "text": "13. Hiccup has 500 coins. He buys 6 shields that cost 74 coins each. How many coins are left?",
+       "lines": 2
+      }
+     ]
+    },
+    {
+     "title": "Part 5: Book corner",
+     "directions": "Answer in two complete sentences.",
+     "items": [
+      {
+       "type": "write",
+       "text": "14. Has Hiccup been <b>triumphant</b> yet in the part you read? Use one detail from the book to prove your answer.",
+       "lines": 2
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "teacher": {
+  "objective": "Bailey chooses the optimal method for a multiplication problem (basic fact, break apart in her head, or area model on paper), finds and fixes blunders in someone else's repeated adding or area model, and solves one- and two-step word problems. This is the <b>Prove it</b> lesson for the area model week.",
+  "materials": [
+   "The <b>Class Lesson</b> on a laptop or tablet (teacher code 9110)",
+   "Index cards: 8 problems for the hands-on tool sort (9 × 8, 7 × 7, 14 × 6, 60 × 8, 12 × 9, 57 × 6, 426 × 7, 32 × 16)",
+   "Three paper plates or sticky notes labeled 🧠 Fact, 🔧 Break apart, 📐 Area model",
+   "Red pencil for marking blunders",
+   "Whiteboard, marker and grid paper",
+   "Her book, <i>How to Train Your Dragon</i>",
+   "Her Lesson 7 packet page 1 (and the Lesson 6 packet) to check together",
+   "Packet (2 pages) for the weekend"
+  ],
+  "plan": [
+   {
+    "time": "0:00–0:02",
+    "block": "Hello",
+    "do": "Class slide 1. Check which of Tuesday's tasks are done. She names a tool for 9 × 7 and for 245 × 6."
+   },
+   {
+    "time": "0:02–0:08",
+    "block": "Book Talk",
+    "do": "Class slide 2. Push her to back up her opinion about Hiccup's choice with a detail from the book."
+   },
+   {
+    "time": "0:08–0:13",
+    "block": "Word Power",
+    "do": "Class slide 3. Flip all 7 cards; she explains method vs. blunder."
+   },
+   {
+    "time": "0:13–0:17",
+    "block": "Packet check + warm-up",
+    "do": "Class slide 4. Check Lesson 7 packet page 1 (386 × 4 = 1,544) together, then 214 × 6 and 31 × 18 on the whiteboard."
+   },
+   {
+    "time": "0:17–0:20",
+    "block": "Three tools",
+    "do": "Class slide 5. Fact / Break apart / Area model columns on the whiteboard."
+   },
+   {
+    "time": "0:20–0:26",
+    "block": "Hands-on: tool sort",
+    "do": "Class slide 6. She sorts your 8 index cards onto the 3 plates, says why for each, and solves one card from each plate."
+   },
+   {
+    "time": "0:26–0:31",
+    "block": "Sort + pick and solve",
+    "do": "Class slides 7–8. She names the tool out loud before every tap."
+   },
+   {
+    "time": "0:31–0:35",
+    "block": "Spot the blunder",
+    "do": "Class slide 9. She names each of the four blunders in her own words."
+   },
+   {
+    "time": "0:35–0:39",
+    "block": "Hands-on: red pencil hunt",
+    "do": "Class slide 10. 53 × 8 = 40 + 24 = 64 on the whiteboard; she estimates, circles the lost zero in red and fixes it (424)."
+   },
+   {
+    "time": "0:39–0:43",
+    "block": "Find the blunder",
+    "do": "Class slide 11. She names the type of blunder before tapping."
+   },
+   {
+    "time": "0:43–0:45",
+    "block": "Recall",
+    "do": "Class slide 12. Quick and out loud."
+   },
+   {
+    "time": "0:45–0:52",
+    "block": "Two-step problems",
+    "do": "Class slides 13–14. She underlines the question and writes the plan (multiply, then subtract or compare) before computing."
+   },
+   {
+    "time": "0:52–0:54",
+    "block": "Word Power",
+    "do": "Class slide 15. Quick and out loud."
+   },
+   {
+    "time": "0:54–0:57",
+    "block": "Exit ticket",
+    "do": "Class slide 16 on her own: pick the tool for 14 × 7 and fix 47 × 8. No hints."
+   },
+   {
+    "time": "0:57–1:00",
+    "block": "Wrap-up + weekend tasks",
+    "do": "Class slide 17. Celebrate the week. Read the weekend task list together, including Multiplication Mountain Lesson 1."
+   }
+  ],
+  "watch": [
+   "Choosing the area model for everything, even 9 × 7. Say: the optimal tool is the fastest one that still gets it right.",
+   "Defaulting back to adding over and over when a number feels big. Ask: how many boxes would this need? Then draw them.",
+   "Saying \"there is no blunder\" without checking. Make her redo one box and compare it to the estimate before deciding.",
+   "In two-step problems, stopping after the multiplication (192 oars instead of 42). Have her reread the question sentence and underline what it asks.",
+   "\"I can't do it\" on 29 × 16. Point to the four boxes: each one is a fact she knows."
+  ],
+  "packet_key": [
+   {
+    "item": "1",
+    "answer": "scrutinized"
+   },
+   {
+    "item": "2",
+    "answer": "blunder"
+   },
+   {
+    "item": "3",
+    "answer": "optimal"
+   },
+   {
+    "item": "4",
+    "answer": "valid"
+   },
+   {
+    "item": "5",
+    "answer": "Any sentence that uses deliberate to mean on purpose, after thinking (for example, I made a deliberate choice to draw an area model)."
+   },
+   {
+    "item": "6",
+    "answer": "Know the fact (63)"
+   },
+   {
+    "item": "7",
+    "answer": "Break apart (60 + 30 = 90)"
+   },
+   {
+    "item": "8",
+    "answer": "Area model"
+   },
+   {
+    "item": "9",
+    "answer": "800 + 320 + 12 = 1,132"
+   },
+   {
+    "item": "10",
+    "answer": "6 × 8 is 48, not 42. 560 + 48 = 608."
+   },
+   {
+    "item": "11",
+    "answer": "105 is only fifteen 7s. 16 × 7 = 70 + 42 = 112."
+   },
+   {
+    "item": "12",
+    "answer": "Estimate between 600 and 1,200 (20 × 30 and 30 × 40). 600 + 180 + 100 + 30 = 910 fish."
+   },
+   {
+    "item": "13",
+    "answer": "6 × 74 = 420 + 24 = 444 coins spent; 500 − 444 = 56 coins left."
+   },
+   {
+    "item": "14",
+    "answer": "Two complete sentences that answer yes or no and give one detail from the book as proof."
+   }
+  ],
+  "notes": "This weekend she does the <b>After-Class Lesson</b> on her own; it ends with Show What You Know (3 different sets for retakes; she needs 90 to open Lesson 9). Lesson 9 (Monday, on Zoom) starts division. If she scores under 90, do not move on yet: on Monday, spend the first 10 minutes on two-box and four-box models and one blunder hunt, then let her retake this check (she gets a new set). If her misses are word problems, have her say the plan (multiply, then subtract) before solving."
+ },
+ "tasks": [
+  "Thursday night: do the <a href=\"lesson-08.html\">After-Class Lesson 8</a>. It ends with <b>Show What You Know</b>. Aim for 90.",
+  "Friday: do the <a href=\"practice-08.html\">Lesson 8 Practice</a> set.",
+  "Saturday: do the <a href=\"packet-08.html\">Lesson 8 Packet</a> (pages 1 and 2).",
+  "Sunday: finish <a href=\"packet-07.html\">Lesson 7 Packet</a> <b>page 2</b>.",
+  "Sunday: do <a href=\"https://kingcretot.github.io/KCE_Math_Foundations/World%201%20-%20Multiplication%20Mountain/MathFoundations_MultiplicationMountain_Lesson1.html\" target=\"_blank\">Multiplication Mountain, Lesson 1</a>. If it is locked, type 1111.",
+  "Friday, Saturday and Sunday: read <i>How to Train Your Dragon</i> for 15 minutes each day."
+ ],
+ "also": [
+  {
+   "label": "Multiplication Mountain, Lesson 1: Meet the Area Model",
+   "url": "https://kingcretot.github.io/KCE_Math_Foundations/World%201%20-%20Multiplication%20Mountain/MathFoundations_MultiplicationMountain_Lesson1.html",
+   "how": "Do the whole lesson on Sunday, after the Practice set. It reviews two-box and four-box area models with new numbers. If it is locked, type 1111."
+  }
+ ],
+ "teach": {
+  "slides": [
+   {
+    "type": "hello",
+    "title": "Pick the Smartest Method",
+    "text": "You have three tools now: <b>facts</b>, <b>break apart</b>, and the <b>area model</b>. Today you prove you can pick the right tool and catch a <b>blunder</b> in someone else's work.",
+    "visual": {
+     "kind": "emoji",
+     "text": "🧠 🔧 📐"
+    },
+    "notes": {
+     "do": "Before class: check her Lesson 7 score (Formspree) and whether Lesson 6's practice and packet, Lesson 7's practice and Lesson 7 packet page 1 are done. Lay out the 8 index cards, 3 labeled plates, red pencil, whiteboard and grid paper.",
+     "say": "This week you learned two big tools: break apart and the area model. Today is Prove it. You pick the best tool, and you catch other people's blunders.",
+     "ask": "Which tool would you use for 9 × 7? For 245 × 6?",
+     "listen": "9 × 7: just know it (63). 245 × 6: area model with three boxes. If she says area model for 9 × 7, that is today's big lesson."
+    }
+   },
+   {
+    "type": "talk",
+    "kick": "Book Talk",
+    "title": "Choices and results",
+    "text": "Think about <i>How to Train Your Dragon</i>.",
+    "prompts": [
+     "What is the most exciting thing that has happened so far? Tell it with details.",
+     "Find a choice Hiccup made. Was it a deliberate choice or a quick guess? Use a detail to explain.",
+     "If you could give Hiccup one piece of advice right now, what would it be, and why?"
+    ],
+    "starters": [
+     "The most exciting part was …",
+     "Hiccup chose to … I think it was …",
+     "I would tell Hiccup to … because …"
+    ],
+    "notes": {
+     "do": "5–6 minutes. Push for a detail from the book to back up every opinion. Tap the gold star for proof from the text.",
+     "ask": "Was Hiccup's choice deliberate or a quick guess? How do you know? What advice would you give him?",
+     "listen": "A strong answer quotes or retells a specific event. Link it: in math, picking a method should also be deliberate, not a quick grab for the longest way."
+    }
+   },
+   {
+    "type": "vocab",
+    "kick": "Word Power",
+    "title": "Words for today",
+    "text": "Tap each card to flip it. Read the word, the meaning and the example out loud.",
+    "words": [
+     {
+      "word": "method",
+      "pos": "noun",
+      "meaning": "A way of doing something, step by step.",
+      "example": "The area model is my <b>method</b> for 238 × 7.",
+      "emoji": "🛠️"
+     },
+     {
+      "word": "optimal",
+      "pos": "adjective",
+      "meaning": "The best possible choice for the job.",
+      "example": "For 9 × 7, the <b>optimal</b> method is just knowing the fact.",
+      "emoji": "🏅"
+     },
+     {
+      "word": "valid",
+      "pos": "adjective",
+      "meaning": "Correct and based on good reasons.",
+      "example": "Hiccup's answer is <b>valid</b>: every box is right.",
+      "emoji": "✔️"
+     },
+     {
+      "word": "blunder",
+      "pos": "noun",
+      "meaning": "A careless mistake.",
+      "example": "Writing 42 instead of 420 in the 60 box is a <b>blunder</b>.",
+      "emoji": "🤦"
+     },
+     {
+      "word": "scrutinize",
+      "pos": "verb",
+      "meaning": "To look at something very closely to find any problem.",
+      "example": "Gobber <b>scrutinized</b> every dragon in the training ring.",
+      "emoji": "🔎"
+     },
+     {
+      "word": "deliberate",
+      "pos": "adjective",
+      "meaning": "Done on purpose, after careful thinking.",
+      "example": "Choosing the area model was a <b>deliberate</b> choice, not a guess.",
+      "emoji": "🧠"
+     },
+     {
+      "word": "triumphant",
+      "pos": "adjective",
+      "meaning": "Proud and happy after winning or succeeding.",
+      "example": "The tribe gave a <b>triumphant</b> cheer when the danger was over.",
+      "emoji": "🏆"
+     }
+    ],
+    "notes": {
+     "do": "She flips all 7 cards and reads them aloud.",
+     "say": "Optimal, valid, blunder and scrutinize are the words a math checker uses. Deliberate and triumphant are great words for your book.",
+     "ask": "What is the difference between a blunder and a method? Scrutinize this card for me: what does the example sentence show?",
+     "listen": "A method is a way to solve; a blunder is a careless mistake. Scrutinize = look very closely for problems."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Warm-up",
+    "title": "Packet check: boxes from Tuesday",
+    "text": "Whiteboard first, then type.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "Three boxes. <b>214 × 6 = ____</b>",
+      "answers": [
+       "1284"
+      ],
+      "why": "1,200 + 60 + 24 = <b>1,284</b>.",
+      "no": "Split 214 into 200 + 10 + 4. Multiply each by 6.",
+      "hint": "200 × 6 = 1,200."
+     },
+     {
+      "type": "fill",
+      "q": "Four boxes. <b>31 × 18 = ____</b>",
+      "visual": {
+       "kind": "svg",
+       "svg": "<svg viewBox=\"0 0 324 220\" width=\"100%\" style=\"max-width:344px;display:block;margin:auto\" font-family=\"Fredoka,sans-serif\"><text x=\"131.0\" y=\"24\" text-anchor=\"middle\" font-size=\"20\" fill=\"#5b6578\">30</text><text x=\"266.0\" y=\"24\" text-anchor=\"middle\" font-size=\"20\" fill=\"#5b6578\">1</text><text x=\"36\" y=\"93.0\" text-anchor=\"end\" font-size=\"20\" fill=\"#5b6578\">10</text><rect x=\"46\" y=\"34\" width=\"170\" height=\"104\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"131.0\" y=\"94.0\" text-anchor=\"middle\" font-size=\"24\" fill=\"#8E44AD\">?</text><rect x=\"216\" y=\"34\" width=\"100\" height=\"104\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"266.0\" y=\"94.0\" text-anchor=\"middle\" font-size=\"24\" fill=\"#8E44AD\">?</text><text x=\"36\" y=\"182.0\" text-anchor=\"end\" font-size=\"20\" fill=\"#5b6578\">8</text><rect x=\"46\" y=\"138\" width=\"170\" height=\"74\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"131.0\" y=\"183.0\" text-anchor=\"middle\" font-size=\"24\" fill=\"#8E44AD\">?</text><rect x=\"216\" y=\"138\" width=\"100\" height=\"74\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"266.0\" y=\"183.0\" text-anchor=\"middle\" font-size=\"24\" fill=\"#8E44AD\">?</text></svg>"
+      },
+      "answers": [
+       "558"
+      ],
+      "why": "300 + 10 + 240 + 8 = <b>558</b>.",
+      "no": "Boxes: 30 × 10, 1 × 10, 30 × 8, 1 × 8.",
+      "hint": "Count the boxes: four."
+     }
+    ],
+    "notes": {
+     "do": "Look at her Lesson 7 packet page 1 together (item 9: 386 × 4 = 1,544). Then she does these two on the whiteboard.",
+     "ask": "How many boxes does each one need? What is your estimate first?",
+     "listen": "1,284 and 558. If she gets 308 for 31 × 18, she did only two boxes (300 + 8): have her count four."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Three tools: which one?",
+    "text": "Before you start, ask: <b>Which method is optimal?</b>",
+    "steps": [
+     {
+      "text": "🧠 <b>Know the fact.</b> Both numbers are 10 or less. 9 × 7 = 63. Done!"
+     },
+     {
+      "text": "🔧 <b>Break apart in your head.</b> One number is a teen (11–19) or a tens number. 12 × 8 = 80 + 16 = 96."
+     },
+     {
+      "text": "📐 <b>Area model on paper.</b> Bigger numbers: 68 × 7, 245 × 6, 23 × 14."
+     },
+     {
+      "text": "🐢 <b>Adding over and over</b> is never optimal for big numbers. It is slow and easy to lose count."
+     }
+    ],
+    "tip": "Ask yourself: Do I know it? Can I split it in my head? If not, draw the boxes.",
+    "notes": {
+     "do": "Click the steps one at a time. Draw three columns on the whiteboard: 🧠 Fact, 🔧 Break apart, 📐 Area model.",
+     "say": "The optimal tool is the fastest one that still gets it right. Big tools for big numbers. Small tools for small numbers.",
+     "ask": "Why is adding over and over never optimal for big numbers? When would you break apart in your head?",
+     "listen": "Too slow and easy to lose count. Break apart when one number is a teen (11–19) or a tens number."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Hands-on",
+    "title": "Sort the cards",
+    "text": "Your teacher has <b>8 cards</b> and <b>3 plates</b>: 🧠 Fact, 🔧 Break apart, 📐 Area model.",
+    "visual": {
+     "kind": "emoji",
+     "text": "🧠 🔧 📐"
+    },
+    "steps": [
+     {
+      "text": "Put each card on a plate. Say <b>why</b> out loud."
+     },
+     {
+      "text": "Pick <b>one card</b> from each plate and solve it on the whiteboard."
+     },
+     {
+      "text": "Was each tool the <b>optimal</b> one? Would a different tool be faster?"
+     }
+    ],
+    "tip": "Ask: Do I know it? Can I split it in my head? If not, draw the boxes.",
+    "notes": {
+     "do": "Cards: 9 × 8, 7 × 7, 14 × 6, 60 × 8, 12 × 9, 57 × 6, 426 × 7, 32 × 16. She sorts all 8 onto the plates, then solves one card from each plate (for example 7 × 7 = 49, 14 × 6 = 60 + 24 = 84, 32 × 16 = 300 + 20 + 180 + 12 = 512).",
+     "say": "Tell me why each card goes on its plate. 'Because it is big' is not enough: tell me what kind of number it is.",
+     "ask": "Why does 60 × 8 go on Break apart and not Area model? Why does 57 × 6 need paper?",
+     "listen": "60 × 8 is one fact and a zero (480). 57 × 6 is not a teen or a tens number, so two boxes on paper (300 + 42 = 342). Accept 12 × 9 on Break apart (90 + 18 = 108)."
+    }
+   },
+   {
+    "type": "sort",
+    "kick": "Sort it",
+    "title": "Pick the tool",
+    "text": "Tap a problem, then tap the tool you would use.",
+    "buckets": [
+     "🧠 Know the fact",
+     "🔧 Break apart in my head",
+     "📐 Area model on paper"
+    ],
+    "items": [
+     {
+      "text": "9 × 6",
+      "b": 0,
+      "why": "A basic fact: 54.",
+      "hint": "Are both numbers 10 or less?"
+     },
+     {
+      "text": "8 × 8",
+      "b": 0,
+      "why": "A basic fact: 64.",
+      "hint": "Are both numbers 10 or less?"
+     },
+     {
+      "text": "13 × 7",
+      "b": 1,
+      "why": "70 + 21 = 91 in your head.",
+      "hint": "13 is a teen number: 10 + 3."
+     },
+     {
+      "text": "50 × 9",
+      "b": 1,
+      "why": "5 × 9 = 45, so 450. One fact and a zero.",
+      "hint": "50 is a tens number."
+     },
+     {
+      "text": "11 × 6",
+      "b": 1,
+      "why": "60 + 6 = 66.",
+      "hint": "11 is 10 + 1."
+     },
+     {
+      "text": "346 × 8",
+      "b": 2,
+      "why": "Three boxes: 2,400 + 320 + 48 = 2,768.",
+      "hint": "A 3-digit number needs boxes."
+     },
+     {
+      "text": "27 × 14",
+      "b": 2,
+      "why": "Four boxes: 200 + 70 + 80 + 28 = 378.",
+      "hint": "Both numbers have two digits."
+     },
+     {
+      "text": "78 × 9",
+      "b": 2,
+      "why": "Two big boxes: 630 + 72 = 702.",
+      "hint": "78 is not a teen or a tens number."
+     }
+    ],
+    "done": "Facts for small numbers, break apart for teens and tens, area model for the big ones.",
+    "notes": {
+     "do": "Now the same sort on screen. She says the reason before each tap.",
+     "ask": "Is 11 × 6 a fact or a break apart? Why?",
+     "listen": "Break apart: 11 = 10 + 1, so 60 + 6 = 66. 78 × 9 is an area model because 78 is not a teen or a tens number."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Try it",
+    "title": "Pick and solve",
+    "items": [
+     {
+      "q": "What is the optimal way to find <b>19 × 6</b>?",
+      "choices": [
+       "Add 6 nineteen times",
+       "20 × 6 − 6 = 114",
+       "Draw a 3-box area model",
+       "10 × 6 + 9 = 69"
+      ],
+      "a": 1,
+      "why": "19 sixes is one six less than 20 sixes: 120 − 6 = <b>114</b>.",
+      "no": [
+       "That works but it is slow. 19 is close to 20, so use a shortcut.",
+       null,
+       "19 has only two digits. Three boxes makes no sense here.",
+       "The 9 must be multiplied by 6 too: 9 × 6 = 54."
+      ]
+     },
+     {
+      "q": "Hiccup wants to find <b>238 × 7</b>. Which method makes sense?",
+      "choices": [
+       "Add 7 two hundred thirty-eight times",
+       "Just know it as a fact",
+       "Area model: 1,400 + 210 + 56",
+       "Add 238 + 7"
+      ],
+      "a": 2,
+      "why": "A 3-digit number needs three boxes.",
+      "no": [
+       "Far too slow, and easy to lose count.",
+       "238 × 7 is not a basic fact.",
+       null,
+       "That is adding, not multiplying."
+      ]
+     },
+     {
+      "q": "So what is <b>238 × 7</b>?",
+      "choices": [
+       "1,666",
+       "1,656",
+       "245",
+       "1,610"
+      ],
+      "a": 0,
+      "why": "1,400 + 210 + 56 = <b>1,666</b>.",
+      "no": [
+       null,
+       "210 + 56: 1 ten + 5 tens = 6 tens, so 266, and 1,400 + 266 = 1,666.",
+       "You added 238 + 7.",
+       "You left out the ones box: 8 × 7 = 56."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "She names the tool out loud before she taps anything.",
+     "ask": "19 is close to which tens number? How does that help?",
+     "listen": "19 is one less than 20, so 20 × 6 − 6 = 114. For 238 × 7, three boxes: 1,400 + 210 + 56 = 1,666."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Spot the blunder",
+    "text": "Good mathematicians <b>scrutinize</b> work. Here are four blunders to watch for.",
+    "steps": [
+     {
+      "text": "<b>Blunder 1: the lost zero.</b> 62 × 7 = 42 + 14 = 56 ❌<br>The 60 box is 60 × 7 = <b>420</b>, not 42. Fixed: 420 + 14 = <b>434</b>."
+     },
+     {
+      "text": "<b>Blunder 2: the wrong fact.</b> 78 × 6 = 420 + 46 = 466 ❌<br>8 × 6 = <b>48</b>. Fixed: 420 + 48 = <b>468</b>.",
+      "visual": {
+       "kind": "area",
+       "b": 6,
+       "split": [
+        70,
+        8
+       ],
+       "show": true
+      }
+     },
+     {
+      "text": "<b>Blunder 3: the missing box.</b> 25 × 13 = 200 + 15 = 215 ❌<br>There are four boxes. Fixed: 200 + 50 + 60 + 15 = <b>325</b>.",
+      "visual": {
+       "kind": "svg",
+       "svg": "<svg viewBox=\"0 0 324 220\" width=\"100%\" style=\"max-width:344px;display:block;margin:auto\" font-family=\"Fredoka,sans-serif\"><text x=\"131.0\" y=\"24\" text-anchor=\"middle\" font-size=\"20\" fill=\"#5b6578\">20</text><text x=\"266.0\" y=\"24\" text-anchor=\"middle\" font-size=\"20\" fill=\"#5b6578\">5</text><text x=\"36\" y=\"93.0\" text-anchor=\"end\" font-size=\"20\" fill=\"#5b6578\">10</text><rect x=\"46\" y=\"34\" width=\"170\" height=\"104\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"131.0\" y=\"82.0\" text-anchor=\"middle\" font-size=\"16\" fill=\"#0A1F3D\">20 × 10</text><text x=\"131.0\" y=\"104.0\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"#0A1F3D\">200</text><rect x=\"216\" y=\"34\" width=\"100\" height=\"104\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"266.0\" y=\"82.0\" text-anchor=\"middle\" font-size=\"16\" fill=\"#0A1F3D\">5 × 10</text><text x=\"266.0\" y=\"104.0\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"#0A1F3D\">50</text><text x=\"36\" y=\"182.0\" text-anchor=\"end\" font-size=\"20\" fill=\"#5b6578\">3</text><rect x=\"46\" y=\"138\" width=\"170\" height=\"74\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"131.0\" y=\"171.0\" text-anchor=\"middle\" font-size=\"16\" fill=\"#0A1F3D\">20 × 3</text><text x=\"131.0\" y=\"193.0\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"#0A1F3D\">60</text><rect x=\"216\" y=\"138\" width=\"100\" height=\"74\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"266.0\" y=\"171.0\" text-anchor=\"middle\" font-size=\"16\" fill=\"#0A1F3D\">5 × 3</text><text x=\"266.0\" y=\"193.0\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"#0A1F3D\">15</text></svg>"
+      }
+     },
+     {
+      "text": "<b>Blunder 4: lost count.</b> Snotlout added 9 again and again for 12 × 9 and got 99 ❌<br>99 is only eleven 9s. Fixed: 90 + 18 = <b>108</b>."
+     }
+    ],
+    "tip": "Your estimate catches blunders. 62 × 7 must be between 60 × 7 = 420 and 70 × 7 = 490, so 56 cannot be right.",
+    "notes": {
+     "do": "Click one blunder at a time. Before she reads the fix line, she says in her own words what went wrong.",
+     "say": "Good mathematicians scrutinize. There are four blunders that show up again and again: the lost zero, the wrong fact, the missing box and lost count.",
+     "ask": "How would an estimate have caught Blunder 1? Which blunder do YOU make most?",
+     "listen": "62 × 7 must be between 420 and 490, so 56 cannot be right. Honest answers are good: use her answer as her personal watch-for."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Hands-on",
+    "title": "Red pencil blunder hunt",
+    "text": "Your teacher writes this on the whiteboard. Scrutinize it with a red pencil.",
+    "visual": {
+     "kind": "bigtext",
+     "text": "53 × 8 = 40 + 24 = 64",
+     "sub": "Find the blunder. Fix it."
+    },
+    "steps": [
+     {
+      "text": "Estimate: 50 × 8 = 400. So 64 is far too small."
+     },
+     {
+      "text": "The 50 box is 50 × 8 = <b>400</b>, not 40. That is a <b>lost zero</b>."
+     },
+     {
+      "text": "Fixed: 400 + 24 = <b>424</b>."
+     }
+    ],
+    "tip": "Always check with an estimate first. It tells you a blunder is hiding.",
+    "notes": {
+     "do": "Write 53 × 8 = 40 + 24 = 64 on the whiteboard BEFORE showing the steps. Hand her the red pencil. She circles the blunder and writes the fix. Then click through the steps to confirm.",
+     "say": "You are the checker. Do not redo it from scratch; scrutinize each box.",
+     "ask": "Before you look at any box: is 64 a reasonable answer? Which box is wrong? What kind of blunder is it?",
+     "listen": "Not reasonable (should be about 400). The 50 box: lost zero. 424. If she says 'he should add 53 + 8', ask: what does the × sign mean?"
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Try it",
+    "title": "Find the blunder",
+    "items": [
+     {
+      "q": "Snotlout found <b>83 × 9</b> like this: 72 + 27 = 99. What is the blunder?",
+      "choices": [
+       "He used the wrong fact. 3 × 9 is 24.",
+       "There is no blunder. 99 is correct.",
+       "He should have added 83 + 9 = 92.",
+       "He lost the zero. 80 × 9 = 720, so the answer is 747."
+      ],
+      "a": 3,
+      "why": "720 + 27 = <b>747</b>.",
+      "no": [
+       "3 × 9 really is 27. Look at the 80 box.",
+       "83 × 9 must be more than 80 × 9 = 720, so 99 is far too small.",
+       "The sign says multiply.",
+       null
+      ]
+     },
+     {
+      "q": "Fishlegs added 7 again and again for <b>15 × 7</b> and got 98. What happened?",
+      "choices": [
+       "He added only fourteen 7s. 15 × 7 = 70 + 35 = 105.",
+       "He added one 7 too many. The answer is 91.",
+       "There is no blunder. 98 is correct."
+      ],
+      "a": 0,
+      "why": "Fourteen 7s is 98. One more 7 makes <b>105</b>.",
+      "no": [
+       null,
+       "98 is fourteen 7s, so he added one too <b>few</b>, not too many.",
+       "15 × 7 = 70 + 35 = 105."
+      ]
+     },
+     {
+      "q": "This area model for <b>36 × 24</b> has one blunder. Which box is wrong?",
+      "visual": {
+       "kind": "svg",
+       "svg": "<svg viewBox=\"0 0 324 220\" width=\"100%\" style=\"max-width:344px;display:block;margin:auto\" font-family=\"Fredoka,sans-serif\"><text x=\"131.0\" y=\"24\" text-anchor=\"middle\" font-size=\"20\" fill=\"#5b6578\">30</text><text x=\"266.0\" y=\"24\" text-anchor=\"middle\" font-size=\"20\" fill=\"#5b6578\">6</text><text x=\"36\" y=\"93.0\" text-anchor=\"end\" font-size=\"20\" fill=\"#5b6578\">20</text><rect x=\"46\" y=\"34\" width=\"170\" height=\"104\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"131.0\" y=\"82.0\" text-anchor=\"middle\" font-size=\"16\" fill=\"#0A1F3D\">30 × 20</text><text x=\"131.0\" y=\"104.0\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"#0A1F3D\">600</text><rect x=\"216\" y=\"34\" width=\"100\" height=\"104\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"266.0\" y=\"82.0\" text-anchor=\"middle\" font-size=\"16\" fill=\"#0A1F3D\">6 × 20</text><text x=\"266.0\" y=\"104.0\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"#0A1F3D\">12</text><text x=\"36\" y=\"182.0\" text-anchor=\"end\" font-size=\"20\" fill=\"#5b6578\">4</text><rect x=\"46\" y=\"138\" width=\"170\" height=\"74\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"131.0\" y=\"171.0\" text-anchor=\"middle\" font-size=\"16\" fill=\"#0A1F3D\">30 × 4</text><text x=\"131.0\" y=\"193.0\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"#0A1F3D\">120</text><rect x=\"216\" y=\"138\" width=\"100\" height=\"74\" fill=\"#F7F0FB\" stroke=\"#8E44AD\" stroke-width=\"3\"/><text x=\"266.0\" y=\"171.0\" text-anchor=\"middle\" font-size=\"16\" fill=\"#0A1F3D\">6 × 4</text><text x=\"266.0\" y=\"193.0\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"#0A1F3D\">24</text></svg>"
+      },
+      "choices": [
+       "6 × 20 = 12",
+       "30 × 20 = 600",
+       "30 × 4 = 120",
+       "6 × 4 = 24"
+      ],
+      "a": 0,
+      "why": "6 × 20 is 6 × 2 tens = 12 tens = <b>120</b>, not 12. Fixed: 600 + 120 + 120 + 24 = 864.",
+      "no": [
+       null,
+       "3 × 2 = 6, and two zeros make 600. Correct.",
+       "3 × 4 = 12, then one zero: 120. Correct.",
+       "That fact is right."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "She names the type of blunder (lost zero, wrong fact, missing box, lost count) before tapping.",
+     "ask": "What type of blunder is this? How would you prove it?",
+     "listen": "83 × 9: lost zero (747). 15 × 7: lost count, only fourteen 7s (105). 36 × 24: the 6 × 20 box lost its zero (120, total 864)."
+    }
+   },
+   {
+    "type": "recall",
+    "kick": "Remember",
+    "title": "This week so far",
+    "items": [
+     {
+      "q": "What is <b>92 × 8</b>?",
+      "choices": [
+       "100",
+       "722",
+       "736"
+      ],
+      "a": 2,
+      "why": "720 + 16 = <b>736</b>.",
+      "no": [
+       "You added 92 + 8.",
+       "The ones box is 2 × 8 = 16, not 2.",
+       null
+      ]
+     },
+     {
+      "q": "Which is the best estimate for <b>21 × 38</b>?",
+      "choices": [
+       "between 60 and 120",
+       "between 600 and 1,200",
+       "between 6,000 and 12,000"
+      ],
+      "a": 1,
+      "why": "20 × 30 = 600 and 30 × 40 = 1,200.",
+      "no": [
+       "20 × 30 is 600, not 60.",
+       null,
+       "Too many zeros."
+      ]
+     },
+     {
+      "q": "Which four partial products build <b>41 × 17</b>?",
+      "choices": [
+       "400 and 7",
+       "400, 10, 28, 7",
+       "40, 10, 28, 7",
+       "400, 10, 280, 7"
+      ],
+      "a": 3,
+      "why": "40 × 10, 1 × 10, 40 × 7, 1 × 7. Total: <b>697</b>.",
+      "no": [
+       "Only two boxes. You need all four.",
+       "40 × 7 is 4 tens × 7 = 280.",
+       "Keep the zeros: 40 × 10 = 400 and 40 × 7 = 280.",
+       null
+      ]
+     }
+    ],
+    "notes": {
+     "do": "Quick and out loud.",
+     "ask": "What is your estimate for 21 × 38? How many partial products does 41 × 17 have?",
+     "listen": "600 to 1,200. Four partial products: 400, 10, 280, 7 (total 697)."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Two-step problems: plan first",
+    "text": "Gobber has <b>500</b> nails. He uses <b>7</b> bags with <b>38</b> nails in each bag. How many nails are <b>left</b>?",
+    "steps": [
+     {
+      "text": "<b>Plan:</b> First multiply to find the nails he used. Then subtract from 500."
+     },
+     {
+      "text": "<b>Step 1.</b> 38 × 7: 30 × 7 = 210 and 8 × 7 = 56. 210 + 56 = <b>266</b> nails used.",
+      "visual": {
+       "kind": "area",
+       "b": 7,
+       "split": [
+        30,
+        8
+       ],
+       "show": true
+      }
+     },
+     {
+      "text": "<b>Step 2.</b> 500 − 266 = <b>234</b> nails left."
+     },
+     {
+      "text": "<b>Check:</b> did you answer the question? It asks how many are <b>left</b>, so 234, not 266."
+     }
+    ],
+    "tip": "Underline the question. Words like left, more, in all and difference tell you the second step.",
+    "notes": {
+     "do": "Click the steps. Before step 1, she underlines the question on the whiteboard copy and says the plan in her own words.",
+     "say": "Two-step problems are where people stop too early. Plan both steps before you compute anything.",
+     "ask": "What is the question asking for? What do you do first? What is the second step?",
+     "listen": "Plan: multiply, then subtract. If she says 266 is the answer, ask her to read the last sentence again: how many are LEFT?"
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Try it",
+    "title": "Harder problems on Berk",
+    "items": [
+     {
+      "q": "Each of <b>9</b> dragons eats <b>8</b> fish a day. How many fish do they eat in <b>a week</b>?",
+      "choices": [
+       "72",
+       "24",
+       "504",
+       "494"
+      ],
+      "a": 2,
+      "why": "9 × 8 = 72 fish a day. 72 × 7 = 490 + 14 = <b>504</b>.",
+      "no": [
+       "That is one day. A week has 7 days, so do 72 × 7.",
+       "You added 9 + 8 + 7.",
+       null,
+       "72 × 7 = 490 + 14. Check the ones box."
+      ]
+     },
+     {
+      "q": "Stoick has <b>12</b> ships. Each ship needs <b>16</b> oars. He already has <b>150</b> oars. How many more oars does he need?",
+      "choices": [
+       "42",
+       "192",
+       "342"
+      ],
+      "a": 0,
+      "why": "12 × 16 = 100 + 20 + 60 + 12 = 192. 192 − 150 = <b>42</b>.",
+      "no": [
+       null,
+       "That is all the oars he needs. He already has 150, so subtract.",
+       "You added 150 more. He already has those oars, so subtract."
+      ]
+     },
+     {
+      "q": "Fishlegs buys <b>3</b> books that cost <b>124</b> coins each. Hiccup buys <b>4</b> books that cost <b>95</b> coins each. Who spends more, and by how much?",
+      "choices": [
+       "Fishlegs, by 8 coins",
+       "Hiccup, by 29 coins",
+       "They spend the same",
+       "Hiccup, by 8 coins"
+      ],
+      "a": 3,
+      "why": "124 × 3 = 372 and 95 × 4 = 380. 380 − 372 = <b>8</b>.",
+      "no": [
+       "Fishlegs spends 372 and Hiccup spends 380. Who has more?",
+       "29 is the difference in one book's price. Compare the totals.",
+       "372 and 380 are not the same.",
+       null
+      ]
+     }
+    ],
+    "notes": {
+     "do": "For each problem she writes the plan (multiply, then subtract / compare / multiply again) before computing.",
+     "ask": "What is the plan? Which number is the answer to the question, not just the first step?",
+     "listen": "Dragons: 72 a day, then × 7 = 504. Oars: 192 needed − 150 = 42. Books: 372 and 380, Hiccup by 8."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Word Power",
+    "title": "Use your new words",
+    "items": [
+     {
+      "q": "The <b>optimal</b> method for a problem is …",
+      "choices": [
+       "the best possible choice for that job",
+       "always the area model",
+       "the longest method, so you are careful",
+       "whatever your friend uses"
+      ],
+      "a": 0,
+      "why": "Optimal means the best possible choice.",
+      "no": [
+       null,
+       "For 9 × 7 the area model is not the best choice.",
+       "Long is not the same as best.",
+       "Optimal depends on the problem, not on a friend."
+      ]
+     },
+     {
+      "q": "Which sentence uses <b>valid</b> correctly?",
+      "choices": [
+       "The dragon gave a valid roar and flew away.",
+       "I was so valid that I ate three fish.",
+       "Her answer is valid because every partial product is correct."
+      ],
+      "a": 2,
+      "why": "Valid means correct and based on good reasons.",
+      "no": [
+       "Valid means correct and well-reasoned. A roar is not correct or incorrect.",
+       "Valid does not describe hunger or feelings.",
+       null
+      ]
+     },
+     {
+      "q": "When the danger was over, the Vikings gave a <b>triumphant</b> cheer. How did they feel?",
+      "choices": [
+       "scared that it would come back",
+       "proud and happy because they succeeded",
+       "bored and sleepy",
+       "confused about what happened"
+      ],
+      "a": 1,
+      "why": "Triumphant means proud and happy after winning.",
+      "no": [
+       "That is fear, not triumph.",
+       null,
+       "A triumphant cheer is full of energy.",
+       "Triumphant people know they won."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "She reads every choice and says why each wrong one is wrong.",
+     "ask": "Why is 'always the area model' not what optimal means?",
+     "listen": "Optimal depends on the problem; for 9 × 7 the fact is optimal. Valid = correct with good reasons. Triumphant = proud after winning."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Exit ticket",
+    "title": "Check for understanding",
+    "text": "On your own. No help this time.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "Which tool is optimal for <b>14 × 7</b>? Type <b>fact</b>, <b>break apart</b> or <b>area model</b>.",
+      "answers": [
+       "break apart",
+       "break it apart",
+       "break-apart"
+      ],
+      "why": "14 is a teen number: 70 + 28 = 98 in your head. <b>Break apart</b> is optimal.",
+      "no": "Is 14 a teen number or a tens number?",
+      "hint": "14 = 10 + 4."
+     },
+     {
+      "type": "fill",
+      "q": "Snotlout wrote <b>47 × 8 = 320 + 54 = 374</b>. Fix the blunder. What is 47 × 8?",
+      "answers": [
+       "376"
+      ],
+      "why": "7 × 8 is 56, not 54 (5, 6, 7, 8). 320 + 56 = <b>376</b>.",
+      "no": "Check each box. Is 7 × 8 really 54?",
+      "hint": "5, 6, 7, 8: 56 = 7 × 8."
+     }
+    ],
+    "notes": {
+     "do": "She works alone. You watch only.",
+     "say": "Show me you can pick the tool and catch a blunder by yourself.",
+     "listen": "Break apart, and 376 (wrong fact). If she types area model, accept her reason aloud but remind her the optimal tool is the fastest one that still works."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Wrap-up",
+    "title": "A triumphant week",
+    "text": "On Monday you saw why adding 8 seventy-five times is slow. Today you pick the smartest tool and catch blunders.",
+    "steps": [
+     {
+      "text": "🧠 <b>Know the fact</b> for small numbers."
+     },
+     {
+      "text": "🔧 <b>Break apart</b> in your head for teens and tens."
+     },
+     {
+      "text": "📐 <b>Area model</b> on paper for big numbers. Estimate first, count your boxes."
+     },
+     {
+      "text": "🔍 <b>Scrutinize</b>: lost zero, wrong fact, missing box, lost count."
+     }
+    ],
+    "tip": "Weekend work: after-class lesson, practice, packet, Lesson 7 packet page 2, Multiplication Mountain and reading.",
+    "notes": {
+     "do": "Click through the steps. Open the course page and read the weekend task list together, including Multiplication Mountain Lesson 1.",
+     "say": "You did it. On Monday you raced to add 8s, and it was slow. Today you chose the optimal tool and found other people's blunders. That is a triumphant week.",
+     "ask": "Which tool do you feel strongest with now? Which blunder will you watch for?",
+     "listen": "Any honest answer. Write her watch-for blunder on a sticky note for her packet."
+    }
+   }
+  ]
+ }
+}
