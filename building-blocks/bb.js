@@ -44,7 +44,7 @@ window.BBvis=vis;
 function norm0(x){return String(x==null?'':x).toLowerCase().replace(/(\d)\s+(\d+\s*\/\s*\d+)/g,'$1_$2').replace(/[’‘'`"“”]/g,'').replace(/[×*✕]/g,'x').replace(/[,!?;:$]/g,'').replace(/\.(?!\d)/g,'').replace(/\s+/g,'').replace(/[−–—]/g,'-').replace(/([a-z])-(?=[a-z])/g,'$1')}
 function normList(x){var t=String(x==null?'':x).trim().toLowerCase().replace(/\s+and\s+|\s*&\s*/g,', ');if(/^\d{1,3}(,\d{3})+$/.test(t))return null;if(!/^\d+(\s*[,;]\s*\d+|\s+\d+){2,}$/.test(t))return null;return 'list:'+t.split(/[\s,;]+/).join('-')}
 function norm(x){var L=normList(x);if(L)return L;var n=norm0(x);if(/^-?\d*\.?\d+$/.test(n)){var v=parseFloat(n);if(!isNaN(v))return String(v)}return n}
-function strip(x){var d=document.createElement('div');d.innerHTML=x;return d.textContent}
+function strip(x){var d=document.createElement('div');d.innerHTML=String(x==null?'':x).replace(/<br\s*\/?>/gi,' ');return d.textContent.replace(/\s+/g,' ').trim()}
 function answerText(q){return q.type==='fill'?q.answers[0]:q.choices[q.a]}
 /* ask(): one question, up to 3 tries. Wrong tries reset everything (nothing stays marked).
    After the 3rd wrong try: explanation + answer. onDone(firstTry, gotIt, firstResponse) */
@@ -58,7 +58,7 @@ function ask(box,q,opts){
     var inp=box.querySelector('.fillin'),go=box.querySelector('.fillgo'),fb=box.querySelector('.fb');
     function submit(){if(done)return;var v=norm(inp.value);if(!v){fb.className='fb show no';fb.innerHTML='Type an answer first.';return}
       used++;if(first===null)first=inp.value;
-      if(q.answers.some(function(a){var n=norm(a);return n===v||(/^\d+$/.test(n)&&new RegExp('^'+n+'[a-z]{3,}$').test(v))})){inp.classList.add('ok');inp.disabled=true;go.disabled=true;fb.className='fb show ok';fb.innerHTML='✅ <b>Yes!</b> '+html(q.why||'');finishQ(true);return}
+      var ap=function(x){return String(x).toLowerCase().replace(/[’‘`]/g,"'").replace(/\s+/g,' ').trim().replace(/[.!?]+$/,'').trim()},strictA=q.answers.every(function(a){return /['’‘`]/.test(a)});if(strictA?q.answers.some(function(a){return ap(a)===ap(inp.value)}):q.answers.some(function(a){var n=norm(a);return n===v||(/^\d+$/.test(n)&&new RegExp('^'+n+'[a-z]{3,}$').test(v))})){inp.classList.add('ok');inp.disabled=true;go.disabled=true;fb.className='fb show ok';fb.innerHTML='✅ <b>Yes!</b> '+html(q.why||'');finishQ(true);return}
       if(used>=tries){inp.disabled=true;go.disabled=true;fb.className='fb show no';fb.innerHTML='The answer is <b>'+html(q.answers[0])+'</b>. '+html(q.why||'');finishQ(false);return}
       fb.className='fb show no';fb.innerHTML=wrongMsg(used===2&&q.hint?q.hint:(q.no||'Not yet. Think about what you learned.'));inp.value='';inp.focus();}
     go.onclick=submit;inp.onkeydown=function(e){if(e.key==='Enter')submit()};
@@ -218,7 +218,7 @@ window.confetti=function(){var c=document.createElement('canvas');c.style.cssTex
   function backup(t,b){try{var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;u.onend=u.onerror=function(){b.classList.remove('on')};speechSynthesis.speak(u)}catch(e){b.classList.remove('on')}}
   function play(t,b){stop();b.classList.add('on');var f=(window.KCE_CLIPS||{})[t];if(!f){backup(t,b);return}
     var a=new Audio(f),d=false;aud=a;a.onended=function(){b.classList.remove('on')};a.onerror=function(){if(!d){d=true;backup(t,b)}};var pr=a.play();if(pr&&pr.catch)pr.catch(function(){if(!d){d=true;backup(t,b)}});}
-  function deco(){document.querySelectorAll(SEL).forEach(function(el){if(el.querySelector(':scope > .ra'))return;var t=key(el);if(!t||!/[A-Za-z0-9]/.test(t))return;
+  function deco(){document.querySelectorAll(SEL).forEach(function(el){if(el.querySelector(':scope > .ra'))return;if(window.KCE_RA_NOQ&&el.classList.contains('q'))return;var t=key(el);if(!t||!/[A-Za-z0-9]/.test(t))return;
     var b=document.createElement('button');b.type='button';b.className='ra';b.title='Hear this read aloud';b.textContent='🔊';
     b.onclick=function(ev){ev.stopPropagation();play(key(el),b)};el.insertBefore(b,el.firstChild);});}
   var st=document.createElement('style');st.textContent='.ra{border:none;background:#0A1F3D;color:#fff;border-radius:999px;width:34px;height:34px;font-size:16px;cursor:pointer;margin:0 8px 0 0;vertical-align:middle;flex:none}.ra.on{background:#C9A84C}';
