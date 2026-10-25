@@ -37,6 +37,18 @@
     return String(s || '').toLowerCase().replace(/[’‘`´]/g, "'").replace(/[\s  ]+/g, ' ')
       .replace(/^[\s.,;:!?«»"]+|[\s.,;:!?«»"]+$/g, '').replace(/\s*'\s*/g, "'").trim();
   }
+  /* French typography for rendered UI text (non-breaking space before ; : ! ? » and after «). Skips form fields. */
+  function frSpace(root) {
+    if (!root || !document.createTreeWalker) return;
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n, list = [];
+    while ((n = w.nextNode())) list.push(n);
+    list.forEach(function (t) {
+      var p = t.parentNode && t.parentNode.nodeName;
+      if (p === 'TEXTAREA' || p === 'SCRIPT' || p === 'STYLE' || p === 'OPTION') return;
+      var v = t.nodeValue, nv = v.replace(/ ([;:!?\u00BB])/g, '\u00A0$1').replace(/\u00AB /g, '\u00AB\u00A0');
+      if (nv !== v) t.nodeValue = nv;
+    });
+  }
   function slug(s) {
     var t = String(s || '');
     try { t = t.normalize('NFD').replace(/[̀-ͯ]/g, ''); } catch (e) {}
@@ -242,6 +254,7 @@
         '</div></article>';
     });
     box.innerHTML = h;
+    frSpace(box);
   }
 
   /* ================================================================== WEEK PAGE */
@@ -366,6 +379,7 @@
     var sc = D.screens[cur];
     var fn = R[sc.type];
     $('#screen').innerHTML = (fn ? fn(sc) : '<div class="card">Écran inconnu</div>') + navRow();
+    frSpace($('#screen'));
     tick();
   }
   function head(eyebrow, title, sub) {
@@ -571,7 +585,7 @@
   }
   function updatePlayer(id) {
     var el = document.getElementById('pl-' + id);
-    if (el) el.outerHTML = playerHtml(REC_INDEX[id].rec);
+    if (el) { el.outerHTML = playerHtml(REC_INDEX[id].rec); frSpace(document.getElementById('pl-' + id)); }
     Object.keys(REC_INDEX).forEach(function (k) {
       if (k !== id) { var o = document.getElementById('pl-' + k); if (o && !S.co.submitted) o.outerHTML = playerHtml(REC_INDEX[k].rec); }
     });
@@ -822,8 +836,8 @@
   }
   function rerenderRec(k) {
     var el = document.getElementById('rec-' + k);
-    if (el) el.outerHTML = recHtml(k, k === 'mono' ? [poSc().monologueMin, poSc().monologueMax] : null);
-    var s = document.getElementById('po-send'); if (s) s.outerHTML = poSendHtml();
+    if (el) { el.outerHTML = recHtml(k, k === 'mono' ? [poSc().monologueMin, poSc().monologueMax] : null); frSpace(document.getElementById('rec-' + k)); }
+    var s = document.getElementById('po-send'); if (s) { s.outerHTML = poSendHtml(); frSpace(document.getElementById('po-send')); }
   }
   function rerenderAllRecs() { recKeys().forEach(function (k) { if (document.getElementById('rec-' + k)) rerenderRec(k); }); }
   function pickMime() {
@@ -1006,7 +1020,7 @@
       rerenderSend();
     });
   }
-  function rerenderSend() { var s = document.getElementById('po-send'); if (s) s.outerHTML = poSendHtml(); }
+  function rerenderSend() { var s = document.getElementById('po-send'); if (s) { s.outerHTML = poSendHtml(); frSpace(document.getElementById('po-send')); } }
   function zipAll() {
     var files = recKeys().filter(function (k) { return BLOBS[k]; }).map(function (k) { return { name: recFile(k, BLOBS[k].type), blob: BLOBS[k] }; });
     if (!files.length) return;
@@ -1023,8 +1037,8 @@
     h += '<div class="card"><div class="bilan-grid">';
     if (lexSc) h += '<div class="bilan-row"><span class="k">Lexique</span><span>' + (S.lex.checked ? lexScore() : 'non vérifié') + '</span></div>';
     if (grSc) h += '<div class="bilan-row"><span class="k">Outils de langue</span><span>' + (S.gram.checked ? grScore() : 'non vérifié') + '</span></div>';
-    h += '<div class="bilan-row"><span class="k">Compréhension de l\'oral</span><span>' + (co != null ? '<strong>' + num(co) + ' / 25</strong> ' + (co >= 5 ? '' : '<span class="badge red">sous 5/25</span>') : '<span class="badge gray">non validée</span>') + '</span></div>';
-    h += '<div class="bilan-row"><span class="k">Compréhension des écrits</span><span>' + (ce != null ? '<strong>' + num(ce) + ' / 25</strong> ' + (ce >= 5 ? '' : '<span class="badge red">sous 5/25</span>') : '<span class="badge gray">non validée</span>') + '</span></div>';
+    h += '<div class="bilan-row"><span class="k">Compréhension de l\'oral</span><span>' + (co != null ? '<strong>' + num(co) + ' / 25</strong> ' + (co > 5 ? '' : co === 5 ? '<span class="badge gold">Seuil de 5/25 atteint</span>' : '<span class="badge red">sous 5/25</span>') : '<span class="badge gray">non validée</span>') + '</span></div>';
+    h += '<div class="bilan-row"><span class="k">Compréhension des écrits</span><span>' + (ce != null ? '<strong>' + num(ce) + ' / 25</strong> ' + (ce > 5 ? '' : ce === 5 ? '<span class="badge gold">Seuil de 5/25 atteint</span>' : '<span class="badge red">sous 5/25</span>') : '<span class="badge gray">non validée</span>') + '</span></div>';
     h += '<div class="bilan-row"><span class="k">Production écrite</span><span>' + (S.pe.sentAt ? '<span class="badge gold">Envoyée pour correction le ' + fmtDate(S.pe.sentAt) + '</span>' : '<span class="badge gray">non envoyée</span>') + '</span></div>';
     h += '<div class="bilan-row"><span class="k">Production orale</span><span>' + (S.po.sentAt ? '<span class="badge gold">Envoyée pour correction le ' + fmtDate(S.po.sentAt) + '</span>' : '<span class="badge gray">non envoyée</span>') + '</span></div>';
     h += '</div></div>';
