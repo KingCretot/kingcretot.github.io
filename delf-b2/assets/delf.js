@@ -45,10 +45,19 @@
 
   /* ------------------------------------------------------------------ storage (always try/catch) */
   var storageOk = true;
+  /* In-memory mirror: if localStorage is blocked (private mode, disabled site data), everything still works for the
+     current page view; it just is not kept after a reload. */
+  var MEM = {};
   var LS = {
-    get: function (k) { try { var v = window.localStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { return null; } },
-    set: function (k, v) { try { window.localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { storageOk = false; return false; } },
-    del: function (k) { try { window.localStorage.removeItem(k); } catch (e) {} }
+    get: function (k) {
+      try { var v = window.localStorage.getItem(k); if (v != null) return JSON.parse(v); } catch (e) {}
+      return Object.prototype.hasOwnProperty.call(MEM, k) ? JSON.parse(MEM[k]) : null;
+    },
+    set: function (k, v) {
+      MEM[k] = JSON.stringify(v);
+      try { window.localStorage.setItem(k, MEM[k]); return true; } catch (e) { storageOk = false; return false; }
+    },
+    del: function (k) { delete MEM[k]; try { window.localStorage.removeItem(k); } catch (e) {} }
   };
   function getName() { return LS.get(CFG.ns + ':name') || ''; }
   function setName(n) { LS.set(CFG.ns + ':name', n); }
@@ -489,7 +498,7 @@
   function scoreBox(sec, title) {
     var r = scoreSection(sec), det = Object.keys(r.ex).map(function (k) { return 'Exercice ' + k + ' : ' + num(r.ex[k].pts) + '/' + num(r.ex[k].max); }).join(' · ');
     return '<div class="scorebox" role="status"><div><div class="det">' + esc(title) + '</div><div class="big">' + num(r.total) + ' / 25</div></div><div class="det">' + det +
-      '<br>' + (r.total >= 5 ? 'Au-dessus du seuil éliminatoire de 5/25.' : 'Attention : en dessous de 5/25, l\'épreuve est éliminatoire.') + '</div></div>';
+      '<br>' + (r.total > 5 ? 'Au-dessus du seuil éliminatoire de 5/25.' : r.total === 5 ? 'Seuil de 5/25 atteint.' : 'Attention : en dessous de 5/25, l\'épreuve est éliminatoire.') + '</div></div>';
   }
   function submitArea(sec) {
     var st = S[sec];
@@ -1020,7 +1029,7 @@
     h += '<div class="bilan-row"><span class="k">Production orale</span><span>' + (S.po.sentAt ? '<span class="badge gold">Envoyée pour correction le ' + fmtDate(S.po.sentAt) + '</span>' : '<span class="badge gray">non envoyée</span>') + '</span></div>';
     h += '</div></div>';
     h += '<div class="card"><h3>Projection et règle de réussite</h3>' +
-      '<p>Pour obtenir le DELF B2, il faut <strong>au moins 50 points sur 100</strong> au total <strong>et au moins 5 sur 25 dans chacune des quatre épreuves</strong>. Une note inférieure à 5/25 dans une seule épreuve est éliminatoire, même si le total dépasse 50.</p>' +
+      '<p>Pour obtenir le DELF B2, il faut <strong>au moins 50 points sur 100</strong> au total <strong>et au moins 5 sur 25 dans chacune des quatre épreuves</strong>. Une note inférieure à 5/25 dans une seule épreuve est éliminatoire, même si le total atteint ou dépasse 50.</p>' +
       '<div class="en">To pass the DELF B2 you need at least 50/100 overall and at least 5/25 on each of the four papers. Below 5/25 on any single paper means failing, even with 50 or more overall.</div>';
     if (co != null && ce != null) {
       var known = co + ce, need = Math.max(10, 50 - known);
@@ -1035,7 +1044,7 @@
       '<div class="btnrow"><button type="button" class="btn gold" data-act="bilan-send">' + (S.bilan.sentAt ? 'Renvoyer mon bilan' : 'Envoyer mon bilan') + '</button></div></div>';
     var nx = D.next || {};
     h += '<div class="card navy"><h3>Et ensuite ?</h3>' + (nx.available ? '<p>Passez à la suite : <strong>' + esc(fr(nx.label)) + '</strong>.</p><div class="btnrow"><a class="btn gold" href="' + esc(nx.href) + '">Commencer ' + esc(fr(nx.label)) + ' →</a></div>' :
-      '<p>' + esc(fr(nx.label) || 'Semaine suivante') + ' : <strong>bientôt disponible</strong>.</p><div class="btnrow"><a class="btn gold" href="' + esc(D.hub || 'index.html') + '">Retour au cours</a></div>') + '</div>';
+      '<p><strong>' + esc(fr(nx.label) || 'Semaine suivante') + '</strong> (bientôt disponible).</p><div class="btnrow"><a class="btn gold" href="' + esc(D.hub || 'index.html') + '">Retour au cours</a></div>') + '</div>';
     h += '<div class="card"><h3>Recommencer cette semaine</h3><p class="small">Efface vos réponses, vos écoutes, vos textes et vos enregistrements de cette semaine sur cet appareil (votre nom est conservé).</p>' +
       (pending.reset ? '<p class="note red" role="alert">Tout sera effacé. Cliquez de nouveau pour confirmer.</p>' : '') +
       '<div class="btnrow"><button type="button" class="btn ghost" data-act="reset-week">Recommencer la semaine</button></div></div>';
