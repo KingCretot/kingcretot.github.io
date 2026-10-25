@@ -1,10 +1,10 @@
 // End-to-end test of a KCE DELF B2 week page + hub in headless Chromium.
-// Usage: node test_week.js 1   (serves /home/claude/kgh/delf-b2 on localhost:8765; screenshots -> /home/claude/delf/shots)
+// Usage: node test_week.js 1   (serves /home/claude/kgh/delf-b2 on localhost:8799 or $PORT; screenshots -> /home/claude/delf/shots)
 const { chromium } = require('playwright');
 const http = require('http'), fs = require('fs'), path = require('path');
 
 const N = parseInt(process.argv[2] || '1', 10), NN = String(N).padStart(2, '0');
-const ROOT = '/home/claude/kgh/delf-b2', SHOTS = '/home/claude/delf/shots', PORT = 8765;
+const ROOT = '/home/claude/kgh/delf-b2', SHOTS = '/home/claude/delf/shots', PORT = +(process.env.PORT || 8799);
 const BASE = `http://localhost:${PORT}/`;
 const results = []; let failures = 0;
 function check(name, cond, extra) { results.push((cond ? 'PASS ' : 'FAIL ') + name + (extra ? '  [' + extra + ']' : '')); if (!cond) failures++; }
@@ -25,6 +25,7 @@ const server = http.createServer((req, res) => {
   fs.createReadStream(f).pipe(res);
 });
 
+async function T(pg, sel) { const t = await pg.textContent(sel); return t == null ? t : t.replace(/[\u00A0\u202F]/g, ' '); }
 function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.test(x)).length; }
 
 (async () => {
@@ -51,6 +52,7 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   await page.goto(BASE + 'index.html');
   check('hub: 12 week cards', (await page.$$('.wcard')).length === 12);
   check('hub: week 2-12 "Bientôt disponible"', (await page.$$('.wcard.soon')).length === 11);
+  check('hub: "Commencer la semaine 1" button', (await page.$$eval('a[href="week01.html"]', as => as.filter(x => /Commencer la semaine 1/.test(x.textContent)).length)) >= 2);
   await shot('hub-desktop');
 
   // ---------- week page: name gate
@@ -58,10 +60,10 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   check('week: noindex meta', (await page.$('meta[name=robots][content="noindex,nofollow"]')) !== null);
   check('week: 12 screens in stepper', (await page.$$('#stepper button')).length === D.screens.length && D.screens.length === 12);
   await page.click('#screen [data-act=go][data-i="1"]');
-  check('name gate blocks Next without name', (await page.textContent('#screen')).includes('Entrez votre nom'));
+  check('name gate blocks Next without name', (await T(page, '#screen')).includes('Entrez votre nom'));
   await page.fill('#nm', 'Test Élève');
   await page.click('[data-act=save-name]');
-  check('name saved', (await page.textContent('#toolbar')).includes('Test Élève'));
+  check('name saved', (await T(page, '#toolbar')).includes('Test Élève'));
   await shot('01-accueil');
 
   // ---------- lexique
@@ -72,7 +74,7 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
     await page.selectOption(`select[data-lex="${i}"]`, { label: ans });
   }
   await page.click('[data-act=lex-check]');
-  check('lexique score 7/8', (await page.textContent('#screen')).includes('Score : 7 / 8'));
+  check('lexique score 7/8', (await T(page, '#screen')).includes('Score : 7 / 8'));
   await shot('02-lexique');
 
   // ---------- grammar (variants accepted)
@@ -81,7 +83,7 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   const variants = { 2: 'circula', 8: 'Laquelle', 4: 'Ce qui', 1: "avait  déjà fait" };
   for (let i = 0; i < gr.exercise.items.length; i++) await page.fill(`input[data-gram="${i}"]`, variants[i] || gr.exercise.items[i].accept[0]);
   await page.click('[data-act=gram-check]');
-  check('grammar 10/10 with variants (circula, Laquelle, capital, double space)', (await page.textContent('#screen')).includes('Score : 10 / 10'));
+  check('grammar 10/10 with variants (circula, Laquelle, capital, double space)', (await T(page, '#screen')).includes('Score : 10 / 10'));
   await shot('03-outils');
 
   // ---------- CO: play limits, persistence
@@ -89,7 +91,7 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   check('CO1: reading timer shown before playing', (await page.$('[data-act=read-start][data-rec=co1]')) !== null);
   await page.click('[data-act=read-start][data-rec=co1]');
   await page.waitForTimeout(1200);
-  const clockTxt = await page.textContent('[data-clock="read-co1"]');
+  const clockTxt = await T(page, '[data-clock="read-co1"]');
   check('CO1: reading countdown running', /^0:5\d$/.test(clockTxt.trim()), clockTxt);
   await page.click('[data-act=read-skip][data-rec=co1]');
   await page.click('[data-act=play][data-rec=co1]');
@@ -97,7 +99,7 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   check('CO1: play counted (1/2)', true);
   check('CO1: play button disabled while playing', await page.$eval('[data-act=play][data-rec=co1]', b => b.disabled));
   await page.reload(); await page.waitForTimeout(300);
-  check('CO1: after reload, count persisted (écoute 2 sur 2)', (await page.textContent('[data-act=play][data-rec=co1]')).includes('écoute 2 sur 2'));
+  check('CO1: after reload, count persisted (écoute 2 sur 2)', (await T(page, '[data-act=play][data-rec=co1]')).includes('écoute 2 sur 2'));
   await page.click('[data-act=play][data-rec=co1]');
   await page.waitForFunction(() => /Écoutes utilisées : 2/.test(document.querySelector('#pl-co1 .plays').textContent), null, { timeout: 15000 });
   await page.reload(); await page.waitForTimeout(300);
@@ -126,10 +128,10 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   check('MCQ selections restored after reload', await page.$eval(`input[name="${coItems[0].it.id}"][value="${coItems[0].it.answer}"]`, e => e.checked));
   await go('co3');
   await page.click('[data-act=submit][data-sec=co]');
-  check('CO submit asks confirmation first', (await page.textContent('#screen')).includes('Cliquez de nouveau'));
+  check('CO submit asks confirmation first', (await T(page, '#screen')).includes('Cliquez de nouveau'));
   await page.click('[data-act=submit][data-sec=co]');
   await page.waitForTimeout(400);
-  const coScoreTxt = await page.textContent('.scorebox .big');
+  const coScoreTxt = await T(page, '.scorebox .big');
   const fmt = x => (Math.round(x * 10) / 10).toString().replace('.', ',');
   check('CO score with exam weights', coScoreTxt.includes(fmt(expCO) + ' / 25'), coScoreTxt + ' expected ' + fmt(expCO));
   check('CO explanations shown', (await page.$$('#screen .mcq .expl')).length === 6);
@@ -139,13 +141,13 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   const coPay = payloads.find(p => /CO/.test(p.part || ''));
   check('Formspree CO payload', coPay && coPay.student === 'Test Élève' && coPay.score === fmt(expCO) + '/25' && /Ex1 Q1/.test(coPay.answers) && /co1: 2\/2/.test(coPay.listens), coPay && coPay.score);
   await page.reload(); await page.waitForTimeout(300);
-  check('CO stays submitted after reload', (await page.textContent('.scorebox .big')).includes(fmt(expCO)));
+  check('CO stays submitted after reload', (await T(page, '.scorebox .big')).includes(fmt(expCO)));
 
   // ---------- CE
   await go('ce1');
   await page.click('[data-act=ce-timer]');
   await page.waitForTimeout(700);
-  check('CE timer running', /^(59|60):\d\d$/.test((await page.textContent('[data-clock=ce]')).trim()));
+  check('CE timer running', /^(59|60):\d\d$/.test((await T(page, '[data-clock=ce]')).trim()));
   await shot('06-ce1');
   const ceItems = D.screens.filter(s => s.section === 'ce').flatMap(s => s.items.map(it => ({ it, sc: s })));
   let expCE = 0; const wrongCE = new Set([ceItems[0].it.id, ceItems[19].it.id]);
@@ -159,7 +161,7 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   await shot('07-ce3');
   await page.click('[data-act=submit][data-sec=ce]'); await page.click('[data-act=submit][data-sec=ce]');
   await page.waitForTimeout(400);
-  check('CE score with exam weights', (await page.textContent('.scorebox .big')).includes(fmt(expCE) + ' / 25'), fmt(expCE));
+  check('CE score with exam weights', (await T(page, '.scorebox .big')).includes(fmt(expCE) + ' / 25'), fmt(expCE));
   check('Formspree CE payload', payloads.some(p => /CE/.test(p.part || '') && p.score === fmt(expCE) + '/25'));
 
   // ---------- English toggle
@@ -174,25 +176,25 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   await go('pe');
   await page.click('[data-act=pe-start]');
   await page.waitForTimeout(600);
-  check('PE timer 60 min running', /^(59|60):\d\d$/.test((await page.textContent('[data-clock=pe]')).trim()));
+  check('PE timer 60 min running', /^(59|60):\d\d$/.test((await T(page, '[data-clock=pe]')).trim()));
   const shortTxt = "Bonjour à tous ! Je ne suis pas d'accord : l'anonymat protège les plus fragiles ; c'est-à-dire les victimes. « Vraiment ? » dira Marc. ";
   await page.fill('#essay', shortTxt);
   const shortN = wordsPy(shortTxt);
-  check('PE word count matches DELF rule (punctuation not counted)', (await page.textContent('#wcn')).trim() === shortN + ' mots', shortN + ' vs ' + await page.textContent('#wcn'));
-  check('PE <=124 warning', (await page.textContent('#wcmsg')).includes('124 mots ou moins'));
+  check('PE word count matches DELF rule (punctuation not counted)', (await T(page, '#wcn')).trim() === shortN + ' mots', shortN + ' vs ' + await T(page, '#wcn'));
+  check('PE <=124 warning', (await T(page, '#wcmsg')).includes('124 mots ou moins'));
   const model = D.screens[idx('pe')].model.paras.join('\n\n');
   await page.fill('#essay', model);
-  check('PE count of model text equals builder count', (await page.textContent('#wcn')).trim() === D.screens[idx('pe')].model.wordCount + ' mots');
+  check('PE count of model text equals builder count', (await T(page, '#wcn')).trim() === D.screens[idx('pe')].model.wordCount + ' mots');
   await page.check('input[data-chk="0"]');
   await page.reload(); await page.waitForTimeout(300);
   check('PE text + checklist restored after reload', (await page.inputValue('#essay')) === model && await page.$eval('input[data-chk="0"]', e => e.checked));
   await page.click('[data-act=pe-send]');
-  check('PE send asks confirmation when checklist incomplete', (await page.textContent('#screen')).includes('Cliquez de nouveau'));
+  check('PE send asks confirmation when checklist incomplete', (await T(page, '#screen')).includes('Cliquez de nouveau'));
   await page.click('[data-act=pe-send]');
   await page.waitForSelector('.model', { timeout: 5000 });
   const pePay = payloads.find(p => /PE/.test(p.part || ''));
   check('Formspree PE payload has full text, count, time, prompt id', pePay && pePay.essay === model && pePay.word_count === D.screens[idx('pe')].model.wordCount && pePay.prompt_id && /min/.test(pePay.time_used));
-  check('PE model answer + grid shown after sending', (await page.$$('.model mark')).length >= 8 && (await page.textContent('#screen')).includes('Morphosyntaxe'));
+  check('PE model answer + grid shown after sending', (await page.$$('.model mark')).length >= 8 && (await T(page, '#screen')).includes('Morphosyntaxe'));
   await shot('09-pe-sent');
 
   // ---------- PO
@@ -200,7 +202,7 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   await page.click('[data-act=po-choose][data-doc=A]');
   await page.click('[data-act=po-prep-start]');
   await page.waitForTimeout(600);
-  check('PO prep timer running', /^(29|30):\d\d$/.test((await page.textContent('[data-clock=prep]')).trim()));
+  check('PO prep timer running', /^(29|30):\d\d$/.test((await T(page, '[data-clock=prep]')).trim()));
   await page.fill('#po-notes', 'Problématique : confiance et IA. Plan en trois parties.');
   await page.click('[data-act=po-prep-end]');
   await page.click('[data-act=rec-start][data-key=mono]');
@@ -236,12 +238,12 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   await page.waitForTimeout(600);
   const poPay = payloads.find(p => /PO/.test(p.part || ''));
   check('Formspree PO payload (doc, notes, transcripts)', poPay && /Document A/.test(poPay.document) && /Problématique/.test(poPay.notes) && /présenter/.test(poPay.monologue_transcript) && /Q1/.test(poPay.interaction));
-  check('PO model outline + expressions shown after sending', (await page.textContent('#screen')).includes('Proposition de plan') && (await page.textContent('#screen')).includes('Expressions utiles'));
+  check('PO model outline + expressions shown after sending', (await T(page, '#screen')).includes('Proposition de plan') && (await T(page, '#screen')).includes('Expressions utiles'));
   await shot('11-po-sent');
 
   // ---------- Bilan
   await go('bilan');
-  const bt = await page.textContent('#screen');
+  const bt = await T(page, '#screen');
   check('Bilan shows CO/CE scores and sent dates', bt.includes(fmt(expCO) + ' / 25') && bt.includes(fmt(expCE) + ' / 25') && /Envoyée pour correction le \d\d\/\d\d\/\d{4}/.test(bt));
   check('Bilan pass rule', bt.includes('au moins 50 points sur 100') && bt.includes('au moins 5 sur 25'));
   check('Next week shown as coming soon', bt.includes('bientôt disponible'));
@@ -251,11 +253,11 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
 
   // ---------- hub status
   await page.goto(BASE + 'index.html');
-  check('Hub shows week 1 completed with scores', (await page.textContent('#card-w01')).includes('Terminée') && (await page.textContent('#card-w01')).includes('CO ' + fmt(expCO)));
+  check('Hub shows week 1 completed with scores', (await T(page, '#card-w01')).includes('Terminée') && (await T(page, '#card-w01')).includes('CO ' + fmt(expCO)));
 
   // ---------- mobile 390px: no horizontal scroll on any screen
   const m = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
-  await m.addInitScript(st => { try { localStorage.setItem('kceDelfB2:name', JSON.stringify('Test Élève')); localStorage.setItem(st.k, st.v); } catch (e) {} },
+  await m.addInitScript(st => { try { if (!localStorage.getItem('kceDelfB2:seeded')) { localStorage.setItem('kceDelfB2:seeded', '1'); localStorage.setItem('kceDelfB2:name', JSON.stringify('Test Élève')); localStorage.setItem(st.k, st.v); } } catch (e) {} },
     { k: 'kceDelfB2:' + D.id, v: await page.evaluate(id => localStorage.getItem('kceDelfB2:' + id), D.id) });
   const mp = await m.newPage();
   mp.on('pageerror', e => errors.push('mobile pageerror: ' + e.message));
@@ -272,9 +274,42 @@ function wordsPy(t) { return t.split(/[\s  ]+/).filter(x => /[\p{L}\p{N}]/u.t
   }
   // fresh state on mobile for pre-submission CO view
   await mp.evaluate(id => { const s = JSON.parse(localStorage.getItem('kceDelfB2:' + id)); s.co.submitted = false; localStorage.setItem('kceDelfB2:' + id, JSON.stringify(s)); }, D.id);
-  await mp.reload(); await mp.click(`#stepper button[data-i="${idx('co2')}"]`); await mp.waitForTimeout(150); await ow('co2-pre');
-  await mp.screenshot({ path: `${SHOTS}/w${NN}-m-co2-before.png`, fullPage: true });
+  { const mp2 = await m.newPage(); await mp2.goto(BASE + `week${NN}.html`); await mp2.click(`#stepper button[data-i="${idx('co2')}"]`); await mp2.waitForTimeout(150);
+    const w2 = await mp2.evaluate(() => document.documentElement.scrollWidth); if (w2 > 390) over.push('co2-pre:' + w2);
+    await mp2.screenshot({ path: `${SHOTS}/w${NN}-m-co2-before.png`, fullPage: true }); await mp2.close(); }
+  if (0) await mp.screenshot({ path: `${SHOTS}/w${NN}-m-co2-before.png`, fullPage: true });
   check('No horizontal scroll at 390px on any screen', over.length === 0, over.join(', '));
+
+  // ---------- French spacing in rendered UI: no plain space before : ; ! ? on any screen
+  const badSpace = [];
+  for (let i = 0; i < D.screens.length; i++) {
+    await mp.click(`#stepper button[data-i="${i}"]`); await mp.waitForTimeout(80);
+    const t = await mp.evaluate(() => { const w = document.createTreeWalker(document.getElementById('screen'), NodeFilter.SHOW_TEXT); let n, out = [];
+      while ((n = w.nextNode())) { if (n.parentNode.nodeName === 'TEXTAREA') continue; const m = n.nodeValue.match(/.{0,15} [;:!?\u00BB].{0,5}/); if (m) out.push(m[0]); } return out; });
+    t.forEach(x => badSpace.push(D.screens[i].id + ': ' + x));
+  }
+  check('French non-breaking spaces everywhere in rendered text', badSpace.length === 0, badSpace.slice(0, 4).join(' | '));
+  // ---------- threshold wording at exactly 5/25
+  await mp.evaluate(id => { const s = JSON.parse(localStorage.getItem('kceDelfB2:' + id)); s.co.submitted = true; s.co.score = 5; localStorage.setItem('kceDelfB2:' + id, JSON.stringify(s)); }, D.id);
+  const mp5 = await m.newPage(); await mp5.goto(BASE + `week${NN}.html`); await mp5.click(`#stepper button[data-i="${idx('bilan')}"]`); await mp5.waitForTimeout(150);
+  const bt5 = await T(mp5, '#screen');
+  check('Exactly 5/25 shows "Seuil de 5/25 atteint"; pass rule wording', bt5.includes('Seuil de 5/25 atteint') && bt5.includes('atteint ou dépasse 50') && /Semaine 2 — Le travail aujourd'hui/.test(bt5) && bt5.includes('(bientôt disponible)'), [bt5.includes('Seuil de 5/25 atteint'), bt5.includes('atteint ou dépasse 50'), /Semaine 2 — Le travail aujourd'hui/.test(bt5)].join());
+
+  // ---------- localStorage blocked: name and answers still work in memory
+  const bctx = await browser.newContext();
+  await bctx.addInitScript(() => { const thrower = () => { throw new Error('blocked'); };
+    Storage.prototype.getItem = thrower; Storage.prototype.setItem = thrower; Storage.prototype.removeItem = thrower; });
+  const bp = await bctx.newPage();
+  bp.on('pageerror', e => errors.push('blocked pageerror: ' + e.message));
+  await bp.route('**/formspree.io/**', r => r.fulfill({ status: 200, body: '{}' }));
+  await bp.goto(BASE + `week${NN}.html`);
+  await bp.fill('#nm', 'Sans Stockage'); await bp.click('[data-act=save-name]');
+  await bp.click('#screen [data-act=go][data-i="1"]'); await bp.waitForTimeout(150);
+  const onLex = await bp.$('select[data-lex="0"]') !== null;
+  await bp.selectOption('select[data-lex="0"]', { label: lex.practice.items[0].answer });
+  await bp.click('[data-act=lex-check]');
+  const lexOk = (await T(bp, '#screen')).includes('Score : 1 / 8');
+  check('Storage blocked: name saves in memory, navigation and exercises work', onLex && lexOk && (await T(bp, '#toolbar')).includes('Sans Stockage') && (await T(bp, '#save-note')).includes('impossible'));
 
   // ---------- file:// works
   const fp = await (await browser.newContext()).newPage();

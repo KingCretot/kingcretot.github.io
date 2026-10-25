@@ -215,10 +215,10 @@ def validate(d):
                     if not s["en"]: errs.append(r["id"] + ": segment without English")
         if t == "ce":
             doc = sc["doc"]
-            body = (doc["lead"]["fr"] + " " if doc.get("lead") else "") + " ".join(p["fr"] for p in doc["paras"])
+            body = " ".join(p["fr"] for p in doc["paras"])          # body = paragraphs only (title and lead excluded)
             wc = word_count(body)
-            wct = wc + word_count(doc["title"]["fr"])
-            report.append(("CE " + sc["id"] + " (body; with title %d)" % wct, wc, "425-450"))
+            wct = wc + word_count(doc["title"]["fr"]) + (word_count(doc["lead"]["fr"]) if doc.get("lead") else 0)
+            report.append(("CE " + sc["id"] + " (paragraphs; with title+lead %d)" % wct, wc, "425-450"))
             if not 425 <= wc <= 450: errs.append("%s text %d words (want 425-450)" % (sc["id"], wc))
         if t == "ce3":
             for op in sc["doc"]["opinions"]:
@@ -258,6 +258,25 @@ def validate(d):
             if re.search(r"\bsessions?\b", s, re.I): errs.append("word 'session' in English at " + path)
             m = re.search(BRITISH, s, re.I)
             if m: warns.append("British spelling? '%s' at %s" % (m.group(0), path))
+    # test-wise cue: the key should not systematically be the longest option
+    longest, total, lst = 0, 0, []
+    shortest_n = [0]
+    for sc in d["screens"]:
+        if sc["type"] in ("co", "ce"):
+            for i in sc["items"]:
+                lens = [len(o["fr"]) for o in i["options"]]
+                total += 1
+                if lens[i["answer"]] > max(l for k, l in enumerate(lens) if k != i["answer"]):
+                    longest += 1; lst.append(i["id"])
+                if lens[i["answer"]] < min(l for k, l in enumerate(lens) if k != i["answer"]):
+                    shortest_n[0] += 1
+    if total:
+        report.append(("Key is strictly the longest option", "%d/%d (%.0f%%)" % (longest, total, 100.0 * longest / total), "<= ~1/3"))
+        report.append(("  items", " ".join(lst), ""))
+        report.append(("Key is strictly the shortest option", "%d/%d" % (shortest_n[0], total), "<= ~1/3"))
+        if shortest_n[0] > total * 0.4: warns.append("key is the shortest option in %d/%d items" % (shortest_n[0], total))
+        if longest > total * 0.4: errs.append("key is the longest option in %d/%d items (max ~1/3)" % (longest, total))
+        elif longest > total / 3 + 1: warns.append("key is the longest option in %d/%d items" % (longest, total))
     # positions report
     for section in ("co", "ce"):
         seq = [i["answer"] for s in d["screens"] if s.get("section") == section and s["type"] in ("co", "ce", "ce3") for i in s["items"]]

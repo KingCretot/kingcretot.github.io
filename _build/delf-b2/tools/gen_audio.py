@@ -12,6 +12,8 @@ Voices (spec section 4):
   piper:siwis   fr_FR-siwis-medium (female)        piper:tom     fr_FR-tom-medium (male)  <- EXAMINER voice, all weeks
   piper:upmc:0  fr_FR-upmc-medium jessica (female) piper:upmc:1  fr_FR-upmc-medium pierre (male)
   kokoro:ff_siwis  Kokoro ff_siwis (female)
+  Variants: append @<pitch factor> for a distinct speaker from the same model, e.g. piper:upmc:0@1.08 (higher, younger).
+  Rule: never use piper:siwis and kokoro:ff_siwis in the same document (same speaker).
 Pronunciation: text is normalized for TTS (IA -> "I A", % -> "pour cent", M. -> Monsieur, acronyms spelled out);
 a segment can override with its "say" field.
 """
@@ -60,8 +62,21 @@ def kokoro():
         _kokoro = Kokoro(KOKORO_MODEL, KOKORO_VOICES)
     return _kokoro
 
+def pitch_shift(a, f):
+    """Shift pitch by factor f, keeping duration (ffmpeg asetrate + atempo)."""
+    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as fi, tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as fo:
+        i, o = fi.name, fo.name
+    sf.write(i, a, SR, subtype="FLOAT")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", i, "-af",
+                    "asetrate=%d,aresample=%d,atempo=%.5f" % (round(SR * f), SR, 1.0 / f), o], check=True)
+    b, _ = sf.read(o, dtype="float32"); os.unlink(i); os.unlink(o)
+    return b
+
 def synth(voice, text):
-    """Return float32 mono audio at SR."""
+    """Return float32 mono audio at SR. A voice may carry a pitch factor: 'piper:upmc:0@1.08'."""
+    if "@" in voice:
+        base, f = voice.split("@")
+        return trim(level(pitch_shift(synth(base, text), float(f))))
     parts = voice.split(":")
     if parts[0] == "piper":
         model = os.path.join(PIPER_DIR, "fr_FR-%s-medium.onnx" % parts[1])

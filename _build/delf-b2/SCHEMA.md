@@ -15,7 +15,7 @@ The engine (`assets/delf.js` + `assets/delf.css`) renders everything from that b
 2. `python3 build_week.py NN --check` — normalizes, shuffles answer positions, applies French typography, validates, prints word counts and the A/B/C sequence. Fix every `ERROR`.
 3. `python3 gen_audio.py NN` — generates every MP3 into `delf-b2/audio/weekNN/` (CO recordings + examiner questions). Prints durations.
 4. `python3 build_week.py NN` — writes `delf-b2/weekNN.html` (with audio durations) and `content/weekNN.built.json`.
-5. `node test_week.js NN` — headless end-to-end test, screenshots in `/home/claude/delf/shots/`.
+5. `node test_week.js NN` — headless end-to-end test (port 8799, or `PORT=…`), screenshots in `/home/claude/delf/shots/`.
 6. In `delf-b2/index.html`, set `"available": true` for the week; in the previous week's source set `next.available: true`, rebuild it.
 
 ## Conventions
@@ -26,7 +26,9 @@ The engine (`assets/delf.js` + `assets/delf.css`) renders everything from that b
 - **English**: American spelling; never the word "session" (the builder rejects it and warns on British spellings).
 - **MCQ authoring**: write `opts` with the **correct option first**; the builder shuffles into balanced A/B/C positions (counts within one of each other per section, never the same letter 3 times in a row across the section, every letter used in each 7-item exercise) and records `answer`. Already-final items (`options` + `answer`) are kept as is. Explanations must not refer to letters.
 - Item **weights**: Ex 1 and Ex 2 = 7 items, four at 1.5 + three at 1 (9 pts); Ex 3 = 6 items, two at 1.5 + four at 1 (7 pts). Section total 25. The builder enforces this.
-- Word counts enforced by the builder: CO Ex1/Ex2 transcripts 450–550; CO Ex3 items 150–200 each; CE Ex1/Ex2 body (lead + paragraphs) 425–450; CE3 opinions 100–120 each; PE model 280–320; lexicon 25–30 items; practice 8; grammar exercise 10; examiner questions 6–8 per document.
+- **Option lengths**: the key must not be a length cue. The builder reports how often the key is strictly the longest and strictly the shortest option (target about a third or less each; error above 40% for longest).
+- Every « quoted » passage in an explanation should be an exact excerpt of the document.
+- Word counts enforced by the builder: CO Ex1/Ex2 transcripts 450–550; CO Ex3 items 150–200 each; CE Ex1/Ex2 body (paragraphs only; title and lead excluded) 425–450; CE3 opinions 100–120 each; PE model 280–320; lexicon 25–30 items; practice 8; grammar exercise 10; examiner questions 6–8 per document.
 
 ## Top level
 
@@ -61,7 +63,7 @@ Every Screen has `id`, `type`, `label: L`. Sections: `co` screens share `section
 `ex: 1|2|3`, `title: L`, `instructions: L`, `readSeconds` (60 for Ex1/2, 30 for Ex3; per recording), `submit?`,
 `recordings: [{id, file, maxPlays (2 for Ex1/2, 1 for Ex3), label?: L, genre: L, source: L, duration (s, added by builder), speakers: {key: {name, role: L, voice}}, segments: [{spk, fr, en, say?}]}]`,
 `items: [MCQ + rec]` (`rec` = recording id; items are shown under their recording).
-Authoring shortcut for segments: `[spk, fr, en, say?]`. `say` = text read by TTS when pronunciation needs help. `voice` ∈ `piper:siwis`, `piper:tom`, `piper:upmc:0` (jessica), `piper:upmc:1` (pierre), `kokoro:ff_siwis`. **`piper:tom` is reserved for the examiner** (all weeks).
+Authoring shortcut for segments: `[spk, fr, en, say?]`. `say` = text read by TTS when pronunciation needs help. `voice` ∈ `piper:siwis`, `piper:tom`, `piper:upmc:0` (jessica), `piper:upmc:1` (pierre), `kokoro:ff_siwis`, optionally with a pitch factor for an extra distinct speaker: `piper:upmc:0@1.1` (higher/younger), `piper:upmc:1@0.92` (deeper). **`piper:tom` is reserved for the examiner** (all weeks); use pierre for male speakers in documents. **Never put `piper:siwis` and `kokoro:ff_siwis` in the same document: they are the same speaker.** Kokoro garbles some words; prefer Piper for key lines. Spell out numbers if needed, avoid "l'IA" in audio (write "l'intelligence artificielle"), and check every recording with faster-whisper (medium) before publishing — rephrase any key line that does not transcribe correctly.
 
 Behavior: reading countdown → play (no pause/seek) → play count saved immediately to localStorage (reload cannot reset it). After section submission: score /25 with weights, per-item explanation, native audio controls (unlimited replay), transcript with speaker names and English.
 
