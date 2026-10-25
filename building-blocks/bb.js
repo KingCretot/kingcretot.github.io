@@ -42,7 +42,8 @@ window.BBvis=vis;
 
 /* ---------- multiple choice widget ---------- */
 function norm0(x){return String(x==null?'':x).toLowerCase().replace(/(\d)\s+(\d+\s*\/\s*\d+)/g,'$1_$2').replace(/[’‘'`"“”]/g,'').replace(/[×*✕]/g,'x').replace(/[,!?;:$]/g,'').replace(/\.(?!\d)/g,'').replace(/\s+/g,'').replace(/[−–—]/g,'-').replace(/([a-z])-(?=[a-z])/g,'$1')}
-function norm(x){var n=norm0(x);if(/^-?\d*\.?\d+$/.test(n)){var v=parseFloat(n);if(!isNaN(v))return String(v)}return n}
+function normList(x){var t=String(x==null?'':x).trim().toLowerCase().replace(/\s+and\s+|\s*&\s*/g,', ');if(/^\d{1,3}(,\d{3})+$/.test(t))return null;if(!/^\d+(\s*[,;]\s*\d+|\s+\d+){2,}$/.test(t))return null;return 'list:'+t.split(/[\s,;]+/).join('-')}
+function norm(x){var L=normList(x);if(L)return L;var n=norm0(x);if(/^-?\d*\.?\d+$/.test(n)){var v=parseFloat(n);if(!isNaN(v))return String(v)}return n}
 function strip(x){var d=document.createElement('div');d.innerHTML=x;return d.textContent}
 function answerText(q){return q.type==='fill'?q.answers[0]:q.choices[q.a]}
 /* ask(): one question, up to 3 tries. Wrong tries reset everything (nothing stays marked).
