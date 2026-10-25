@@ -250,7 +250,7 @@
         (w.strategy ? '<div class="meta"><strong>Stratégie :</strong> ' + esc(w.strategy) + '</div>' : '') +
         (meta ? '<div class="meta">' + esc(meta) + '</div>' : '') +
         '<div class="foot-row">' + badge +
-        (w.available ? '<a class="btn" href="' + esc(w.href) + '">' + (s.key === 'new' ? 'Commencer' : 'Continuer') + '</a>' : '<span class="btn disabled" aria-disabled="true">Bientôt disponible</span>') +
+        (w.available ? '<a class="btn" href="' + esc(w.href) + '">' + (s.key === 'new' ? 'Commencer la semaine ' + w.n : 'Continuer la semaine ' + w.n) + '</a>' : '<span class="btn disabled" aria-disabled="true">Bientôt disponible</span>') +
         '</div></article>';
     });
     box.innerHTML = h;
