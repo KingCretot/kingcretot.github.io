@@ -1,0 +1,318 @@
+{
+ "sets": [
+  [
+   {
+    "type": "fill",
+    "q": "What is <b>double 7</b>?",
+    "answers": [
+     "14",
+     "fourteen"
+    ],
+    "why": "7 + 7 = <b>14</b>.",
+    "no": "Double means 7 + 7.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "<b>7 × 4 = ?</b>",
+    "answers": [
+     "28",
+     "twenty-eight",
+     "twenty eight",
+     "twentyeight"
+    ],
+    "why": "Turn it around: 4 × 7. Double 7 is 14. Double 14 is <b>28</b>.",
+    "no": "7 × 4 is the same as 4 × 7. Double, double.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "How many strawberries? <b>4 rows of 9</b>.",
+    "visual": {
+     "kind": "array",
+     "rows": 4,
+     "cols": 9,
+     "emoji": "🍓"
+    },
+    "choices": [
+     "13",
+     "36",
+     "32"
+    ],
+    "a": 1,
+    "why": "Double 9 is 18. Double 18 is 36.",
+    "no": [
+     "13 is 4 + 9. The rows are equal, so multiply.",
+     null,
+     "32 is 4 × 8. Each row has 9."
+    ]
+   },
+   {
+    "q": "Which shows double, double for <b>4 × 6</b>?",
+    "choices": [
+     "6, 12, 18",
+     "4, 8, 12",
+     "6, 12, 24"
+    ],
+    "a": 2,
+    "why": "Start at 6. Double: 12. Double again: 24.",
+    "no": [
+     "12 + 6 is not a double. Double 12 is 24.",
+     "Start with the 6, not the 4. Then double two times.",
+     null
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "What is <b>double 18</b>?",
+    "answers": [
+     "36",
+     "thirty-six",
+     "thirty six",
+     "thirtysix"
+    ],
+    "why": "18 + 18: 8 + 8 = 16 ones. Regroup. 1 + 1 + 1 = 3 tens. <b>36</b>.",
+    "no": "Add the ones first: 8 + 8 = 16. Regroup!",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "<b>4 × 8 = ?</b>",
+    "answers": [
+     "32",
+     "thirty-two",
+     "thirty two",
+     "thirtytwo"
+    ],
+    "why": "Double 8 is 16. Double 16 is <b>32</b>.",
+    "no": "Double 8. Then double again.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "There are 4 ponds. <b>Each</b> pond has 5 ducks. How many ducks?",
+    "visual": {
+     "kind": "groups",
+     "groups": 4,
+     "each": 5,
+     "emoji": "🦆"
+    },
+    "answers": [
+     "20",
+     "twenty"
+    ],
+    "why": "4 groups of 5. Double 5 is 10. Double 10 is <b>20</b>.",
+    "no": "Each pond has 5. Double, double.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Owen picked 4 apples. Ruby picked 6 apples. How many apples in all?",
+    "answers": [
+     "10",
+     "ten"
+    ],
+    "why": "4 and 6 are not equal groups. Add: <b>4 + 6 = 10</b>.",
+    "no": "Is there a clue word? Are the groups the same size?",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Count by 4s: 12, 16, 20, ____",
+    "answers": [
+     "24",
+     "twenty-four",
+     "twenty four",
+     "twentyfour"
+    ],
+    "why": "20 + 4 = <b>24</b>.",
+    "no": "Add 4 to the last number.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Which is the same as <b>4 × 5</b>?",
+    "choices": [
+     "10 + 10",
+     "5 + 5 + 5",
+     "4 + 5"
+    ],
+    "a": 0,
+    "why": "2 × 5 = 10. Double it: 10 + 10 = 20.",
+    "no": [
+     null,
+     "5 + 5 + 5 is only 3 groups of 5. 4 × 5 needs 4 groups.",
+     "4 + 5 adds. 4 × 5 is 4 groups of 5."
+    ]
+   },
+   {
+    "q": "Nora says <b>4 × 6 = 18</b>. What did she do?",
+    "choices": [
+     "She added only three 6s.",
+     "She doubled only one time.",
+     "She is right."
+    ],
+    "a": 0,
+    "why": "6 + 6 + 6 = 18. That is only 3 groups. Double 6 is 12. Double 12 is 24.",
+    "no": [
+     null,
+     "Doubling one time gives 12, not 18.",
+     "4 × 6 is 24, not 18. Double, double."
+    ]
+   }
+  ],
+  [
+   {
+    "type": "fill",
+    "q": "What is <b>double 6</b>?",
+    "answers": [
+     "12",
+     "twelve"
+    ],
+    "why": "6 + 6 = <b>12</b>.",
+    "no": "Double means 6 + 6.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "<b>3 × 4 = ?</b>",
+    "answers": [
+     "12",
+     "twelve"
+    ],
+    "why": "Turn it around: 4 × 3. Double 3 is 6. Double 6 is <b>12</b>.",
+    "no": "3 × 4 is the same as 4 × 3. Double, double.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "How many ladybugs? <b>4 rows of 8</b>.",
+    "visual": {
+     "kind": "array",
+     "rows": 4,
+     "cols": 8,
+     "emoji": "🐞"
+    },
+    "choices": [
+     "32",
+     "12",
+     "28"
+    ],
+    "a": 0,
+    "why": "Double 8 is 16. Double 16 is 32.",
+    "no": [
+     null,
+     "12 is 4 + 8. The rows are equal, so multiply.",
+     "28 is 4 × 7. Each row has 8."
+    ]
+   },
+   {
+    "q": "Which shows double, double for <b>4 × 10</b>?",
+    "choices": [
+     "10, 14, 18",
+     "10, 20, 40",
+     "10, 20, 30"
+    ],
+    "a": 1,
+    "why": "Start at 10. Double: 20. Double again: 40.",
+    "no": [
+     "That adds 4 each time. Double means add the number to itself: 10 + 10.",
+     null,
+     "20 + 10 is not a double. Double 20 is 40."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "What is <b>double 17</b>?",
+    "answers": [
+     "34",
+     "thirty-four",
+     "thirty four",
+     "thirtyfour"
+    ],
+    "why": "17 + 17: 7 + 7 = 14 ones. Regroup. 1 + 1 + 1 = 3 tens. <b>34</b>.",
+    "no": "Add the ones first: 7 + 7 = 14. Regroup!",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "<b>4 × 5 = ?</b>",
+    "answers": [
+     "20",
+     "twenty"
+    ],
+    "why": "Double 5 is 10. Double 10 is <b>20</b>.",
+    "no": "Double 5. Then double again.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "There are 4 nests. <b>Each</b> nest has 6 eggs. How many eggs?",
+    "visual": {
+     "kind": "groups",
+     "groups": 4,
+     "each": 6,
+     "emoji": "🥚"
+    },
+    "answers": [
+     "24",
+     "twenty-four",
+     "twenty four",
+     "twentyfour"
+    ],
+    "why": "4 groups of 6. Double 6 is 12. Double 12 is <b>24</b>.",
+    "no": "Each nest has 6. Double, double.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Zoe has 4 goldfish and 5 frogs. How many pets does she have?",
+    "answers": [
+     "9",
+     "nine"
+    ],
+    "why": "4 and 5 are not equal groups. Add: <b>4 + 5 = 9</b>.",
+    "no": "Is there a clue word? Are the groups the same size?",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Count by 4s: 28, 32, 36, ____",
+    "answers": [
+     "40",
+     "forty"
+    ],
+    "why": "36 + 4 = <b>40</b>.",
+    "no": "Add 4 to the last number.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Which is the same as <b>4 × 3</b>?",
+    "choices": [
+     "6 + 6",
+     "3 + 3",
+     "4 + 3"
+    ],
+    "a": 0,
+    "why": "2 × 3 = 6. Double it: 6 + 6 = 12.",
+    "no": [
+     null,
+     "3 + 3 is only 2 × 3. Double that again.",
+     "4 + 3 adds. 4 × 3 is 4 groups of 3."
+    ]
+   },
+   {
+    "q": "Sam says <b>4 × 7 = 11</b>. What did he do?",
+    "choices": [
+     "He added 4 + 7.",
+     "He doubled two times.",
+     "He is right."
+    ],
+    "a": 0,
+    "why": "4 + 7 = 11. But 4 × 7 means 4 groups of 7. Double 7 is 14. Double 14 is 28.",
+    "no": [
+     null,
+     "Doubling two times gives 28, not 11.",
+     "4 × 7 is 28, not 11."
+    ]
+   }
+  ]
+ ]
+}

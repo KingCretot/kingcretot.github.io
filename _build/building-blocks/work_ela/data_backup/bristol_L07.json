@@ -1,0 +1,1526 @@
+{
+ "student": "bristol",
+ "n": 7,
+ "title": "Sevens: 5 and 2 More",
+ "goal": "I can split 7 into 5 and 2 to find my 7s facts.",
+ "card": {
+  "desc": "Bristol learns <b>×7 = ×5 + ×2</b>. She splits a 7-row array into 5 rows and 2 rows, finds each part with facts she knows, and adds (7 × 6 = 30 + 12 = 42). Today is hands-on: she builds and splits real arrays and sees a calendar as an array of 7s."
+ },
+ "win": "Sevens are no match for you. 5 and 2 more!",
+ "slides": [
+  {
+   "type": "hello",
+   "title": "Sevens: 5 and 2 More",
+   "text": "You split 7s with beans in class. Now do it on your <b>own</b>. 💪",
+   "visual": {
+    "kind": "emoji",
+    "text": "5️⃣ ➕ 2️⃣ = 7️⃣"
+   }
+  },
+  {
+   "type": "talk",
+   "kick": "Say it",
+   "title": "Say it out loud",
+   "text": "Say each one out loud. Tell a grown-up if one is near.",
+   "prompts": [
+    "How do you split a <b>7s</b> fact?",
+    "Say the pattern: 5, 6, 7, 8. What does it mean?",
+    "What happened <b>first</b> in your book? What happened <b>next</b>?"
+   ],
+   "starters": [
+    "I split 7 into …",
+    "56 = …",
+    "First, … Next, …"
+   ]
+  },
+  {
+   "type": "learn",
+   "kick": "Remember",
+   "title": "5s part + 2s part",
+   "text": "Split the <b>7</b> into <b>5</b> and <b>2</b>. Keep the other number.",
+   "steps": [
+    {
+     "text": "<b>7 × 8</b>: 5 × 8 = 40.",
+     "visual": {
+      "kind": "array",
+      "rows": 5,
+      "cols": 8,
+      "emoji": "🟦"
+     }
+    },
+    {
+     "text": "2 × 8 = 16.",
+     "visual": {
+      "kind": "array",
+      "rows": 2,
+      "cols": 8,
+      "emoji": "🟨"
+     }
+    },
+    {
+     "text": "40 + 16 = <b>56</b>. So <b>7 × 8 = 56</b>.",
+     "visual": {
+      "kind": "bigtext",
+      "text": "7 × 8 = 56",
+      "sub": "5, 6, 7, 8"
+     }
+    }
+   ],
+   "tip": "Type your answer. You get <b>3 tries</b>."
+  },
+  {
+   "type": "tap",
+   "kick": "Try it",
+   "title": "Find both parts",
+   "items": [
+    {
+     "type": "fill",
+     "q": "5 × 5 = 25. 2 × 5 = 10. So <b>7 × 5</b> = ____",
+     "answers": [
+      "35"
+     ],
+     "why": "25 + 10 = <b>35</b>.",
+     "no": "Add the two parts.",
+     "hint": "25 + 10 = ?"
+    },
+    {
+     "type": "fill",
+     "q": "<b>7 × 9</b>. The 5s part is 5 × 9 = 45. The 2s part is 2 × 9 = ____",
+     "answers": [
+      "18"
+     ],
+     "why": "2 × 9 = <b>18</b>. Double 9.",
+     "no": "The 2s part is 2 rows of 9.",
+     "hint": "9 + 9 = ?"
+    },
+    {
+     "type": "fill",
+     "q": "45 + 18 = 63. So <b>7 × 9</b> = ____",
+     "answers": [
+      "63"
+     ],
+     "why": "5s part + 2s part: <b>63</b>.",
+     "no": "Add the parts.",
+     "hint": "45 + 18 = ?"
+    },
+    {
+     "q": "Which shows <b>7 × 8</b>?",
+     "choices": [
+      "5 × 8 + 2",
+      "5 × 8 + 2 × 8",
+      "5 × 7 + 2 × 7"
+     ],
+     "a": 1,
+     "why": "Split the 7. Both parts are groups of 8: 40 + 16 = <b>56</b>.",
+     "no": [
+      "The 2s part is 2 × 8, not just 2.",
+      null,
+      "Both parts need groups of 8. 5 × 7 + 2 × 7 = 49. That is 7 × 7."
+     ]
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "kick": "Build it",
+   "title": "Flower vases",
+   "text": "Marion has <b>7 vases</b>. Each vase has <b>6 flowers</b>. Make the groups.",
+   "groups": 7,
+   "each": 6,
+   "emoji": "🌻",
+   "why": "5 × 6 = 30. 2 × 6 = 12. 30 + 12 = 42. So <b>7 × 6 = 42</b>.",
+   "hint": "Each <b>vase</b> is one group. Set <b>Groups</b> to the number of vases. Set <b>In each group</b> to the flowers in one vase."
+  },
+  {
+   "type": "sort",
+   "kick": "Sort it",
+   "title": "Right split or wrong split?",
+   "text": "Check <b>both</b> parts. Then tap the box.",
+   "buckets": [
+    "✅ Right",
+    "❌ Wrong"
+   ],
+   "items": [
+    {
+     "text": "7 × 4 = 20 + 8",
+     "b": 0,
+     "why": "5 × 4 = 20 and 2 × 4 = 8.",
+     "hint": "5 × 4 = 20. 2 × 4 = 8. Are both parts right?"
+    },
+    {
+     "text": "7 × 9 = 45 + 9",
+     "b": 1,
+     "why": "The 2s part should be 2 × 9 = 18, not 9.",
+     "hint": "What is 2 × 9?"
+    },
+    {
+     "text": "7 × 7 = 35 + 14",
+     "b": 0,
+     "why": "5 × 7 = 35 and 2 × 7 = 14.",
+     "hint": "5 × 7 = 35. 2 × 7 = 14. Are both parts right?"
+    },
+    {
+     "text": "7 × 8 = 35 + 16",
+     "b": 1,
+     "why": "The 5s part should be 5 × 8 = 40, not 35.",
+     "hint": "What is 5 × 8?"
+    },
+    {
+     "text": "7 × 3 = 15 + 5",
+     "b": 1,
+     "why": "The 2s part should be 2 × 3 = 6, not 5.",
+     "hint": "What is 2 × 3?"
+    },
+    {
+     "text": "7 × 6 = 30 + 12",
+     "b": 0,
+     "why": "5 × 6 = 30 and 2 × 6 = 12.",
+     "hint": "5 × 6 = 30. 2 × 6 = 12. Are both parts right?"
+    }
+   ],
+   "done": "Both parts use the same number. 7 × 6 = 5 × 6 + 2 × 6."
+  },
+  {
+   "type": "tap",
+   "kick": "Calendar",
+   "title": "Weeks and days",
+   "text": "A week has <b>7 days</b>.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "How many days are in <b>8 weeks</b>? ____",
+     "answers": [
+      "56"
+     ],
+     "why": "8 × 7 = 7 × 8. 40 + 16 = <b>56</b>.",
+     "no": "8 weeks. 7 days in each week.",
+     "hint": "5, 6, 7, 8!"
+    },
+    {
+     "type": "fill",
+     "q": "How many days are in <b>3 weeks</b>? ____",
+     "answers": [
+      "21"
+     ],
+     "why": "3 × 7 = 7 × 3. 15 + 6 = <b>21</b>.",
+     "no": "3 weeks. 7 days in each week.",
+     "hint": "7 + 7 + 7 = ?"
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Word problems",
+   "title": "Multiply or add?",
+   "items": [
+    {
+     "type": "fill",
+     "q": "There are <b>7 dogs</b>. Each dog has <b>4 legs</b>. How many legs?",
+     "answers": [
+      "28"
+     ],
+     "why": "7 equal groups of 4. 20 + 8 = <b>28</b>.",
+     "no": "Each dog has 4. Multiply 7 × 4.",
+     "hint": "5 × 4 = 20. 2 × 4 = 8."
+    },
+    {
+     "type": "fill",
+     "q": "Amy has <b>7 apples</b>. She gets <b>6 more</b>. How many apples now?",
+     "answers": [
+      "13"
+     ],
+     "why": "Two amounts, not equal groups. Add: 7 + 6 = <b>13</b>.",
+     "no": "She gets more. Is that equal groups?",
+     "hint": "7 + 6 = ?"
+    },
+    {
+     "type": "fill",
+     "q": "There are <b>7 boxes</b>. Each box has <b>8 crayons</b>. Do you multiply or add? Type <b>multiply</b> or <b>add</b>.",
+     "answers": [
+      "multiply",
+      "times",
+      "multiplication"
+     ],
+     "why": "7 equal groups of 8. Multiply: 7 × 8 = 56.",
+     "no": "Is every box the same?",
+     "hint": "Each box has 8. Same size groups."
+    }
+   ]
+  },
+  {
+   "type": "check",
+   "title": "Show What You Know",
+   "sets": [
+    [
+     {
+      "type": "fill",
+      "q": "7 × 8 = ____",
+      "answers": [
+       "56"
+      ],
+      "why": "5 × 8 = 40. 2 × 8 = 16. 40 + 16 = <b>56</b>.",
+      "no": "5s part + 2s part.",
+      "hint": "5, 6, 7, 8!"
+     },
+     {
+      "q": "Which shows <b>7 × 6</b>?",
+      "choices": [
+       "5 × 6 + 2 × 6",
+       "5 × 6 + 2",
+       "5 × 6 + 6"
+      ],
+      "a": 0,
+      "why": "Split 7 into 5 and 2. Both parts are groups of 6.",
+      "no": [
+       null,
+       "The 2s part is 2 × 6, not just 2.",
+       "That is only 6 groups of 6."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "7 × 7 = ____",
+      "answers": [
+       "49"
+      ],
+      "why": "35 + 14 = <b>49</b>.",
+      "no": "5 × 7 and 2 × 7. Then add.",
+      "hint": "35 + 14 = ?"
+     },
+     {
+      "type": "fill",
+      "q": "How many days are in <b>5 weeks</b>? ____",
+      "answers": [
+       "35"
+      ],
+      "why": "5 × 7 = <b>35</b>.",
+      "no": "5 weeks, 7 days in each.",
+      "hint": "Count by 5s seven times."
+     },
+     {
+      "type": "fill",
+      "q": "There are <b>7 kids</b>. Each kid has <b>6 crayons</b>. How many crayons?",
+      "answers": [
+       "42"
+      ],
+      "why": "7 × 6: 30 + 12 = <b>42</b>.",
+      "no": "Each kid has 6. Multiply.",
+      "hint": "5 × 6 = 30. 2 × 6 = 12."
+     },
+     {
+      "q": "Marion has <b>7 marbles</b>. Ellie has <b>9 marbles</b>. How many in all?",
+      "choices": [
+       "63",
+       "2",
+       "16"
+      ],
+      "a": 2,
+      "why": "Not equal groups. Add: 7 + 9 = <b>16</b>.",
+      "no": [
+       "These are two different amounts. Add.",
+       "2 is 9 − 7. The question asks how many in all.",
+       null
+      ]
+     },
+     {
+      "q": "Which split is <b>wrong</b>?",
+      "choices": [
+       "7 × 4 = 20 + 8",
+       "7 × 6 = 30 + 14",
+       "7 × 7 = 35 + 14"
+      ],
+      "a": 1,
+      "why": "2 × 6 is 12, not 14. 7 × 6 = 30 + 12 = 42.",
+      "no": [
+       "5 × 4 = 20 and 2 × 4 = 8. This one is right.",
+       null,
+       "5 × 7 = 35 and 2 × 7 = 14. This one is right."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "7 × 9 = ____",
+      "answers": [
+       "63"
+      ],
+      "why": "45 + 18 = <b>63</b>.",
+      "no": "5 × 9 and 2 × 9. Then add.",
+      "hint": "45 + 18 = ?"
+     }
+    ],
+    [
+     {
+      "type": "fill",
+      "q": "Flip it! <b>6 × 7</b> = ____",
+      "answers": [
+       "42"
+      ],
+      "why": "Flip it: 7 × 6. 30 + 12 = <b>42</b>.",
+      "no": "Flip it to 7 × 6. Then split the 7.",
+      "hint": "5 × 6 = 30. 2 × 6 = 12."
+     },
+     {
+      "type": "fill",
+      "q": "7 × 3 = ____",
+      "answers": [
+       "21"
+      ],
+      "why": "15 + 6 = <b>21</b>.",
+      "no": "5 × 3 and 2 × 3. Then add.",
+      "hint": "15 + 6 = ?"
+     },
+     {
+      "q": "Which shows <b>7 × 9</b>?",
+      "choices": [
+       "5 × 9 + 2",
+       "5 × 9 + 2 × 9",
+       "5 × 7 + 2 × 7"
+      ],
+      "a": 1,
+      "why": "Split the 7. Both parts are groups of 9: 45 + 18 = 63.",
+      "no": [
+       "The 2s part is 2 × 9, not just 2.",
+       null,
+       "Both parts need groups of 9. 5 × 7 + 2 × 7 = 49. That is 7 × 7."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "How many days are in <b>2 weeks</b>? ____",
+      "answers": [
+       "14"
+      ],
+      "why": "2 × 7 = <b>14</b>.",
+      "no": "2 weeks, 7 days in each.",
+      "hint": "7 + 7 = ?"
+     },
+     {
+      "type": "fill",
+      "q": "Liz has <b>7 fish tanks</b>. Each tank has <b>5 fish</b>. How many fish?",
+      "answers": [
+       "35"
+      ],
+      "why": "7 × 5: 25 + 10 = <b>35</b>.",
+      "no": "Each tank has 5. Multiply.",
+      "hint": "5 × 5 = 25. 2 × 5 = 10."
+     },
+     {
+      "q": "Amy has <b>7 pencils</b>. Ellie has <b>7 pencils</b>. How many pencils in all?",
+      "choices": [
+       "49",
+       "14",
+       "0"
+      ],
+      "a": 1,
+      "why": "7 and 7 more. 7 + 7 = <b>14</b>.",
+      "no": [
+       "49 is 7 × 7. There are only two 7s here: 7 + 7.",
+       null,
+       "0 is 7 − 7. The question asks how many in all."
+      ]
+     },
+     {
+      "q": "One split has a <b>mistake</b>. Which one?",
+      "choices": [
+       "7 × 8 = 40 + 16",
+       "7 × 9 = 45 + 18",
+       "7 × 5 = 25 + 14"
+      ],
+      "a": 2,
+      "why": "2 × 5 is 10, not 14. 7 × 5 = 25 + 10 = 35.",
+      "no": [
+       "5 × 8 = 40 and 2 × 8 = 16. This one is right.",
+       "5 × 9 = 45 and 2 × 9 = 18. This one is right.",
+       null
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "56 = 7 × ____",
+      "answers": [
+       "8",
+       "eight"
+      ],
+      "why": "56 = 7 × <b>8</b>.",
+      "no": "7 times what is 56?",
+      "hint": "5, 6, 7, 8!"
+     }
+    ],
+    [
+     {
+      "type": "fill",
+      "q": "5 × 6 = 30. 2 × 6 = 12. So <b>7 × 6</b> = ____",
+      "answers": [
+       "42"
+      ],
+      "why": "30 + 12 = <b>42</b>.",
+      "no": "Add the two parts.",
+      "hint": "30 + 12 = ?"
+     },
+     {
+      "type": "fill",
+      "q": "9 × 7 = ____",
+      "answers": [
+       "63"
+      ],
+      "why": "9 × 7 = 7 × 9. 45 + 18 = <b>63</b>.",
+      "no": "Split the 7: 5 × 9 and 2 × 9.",
+      "hint": "45 + 18 = ?"
+     },
+     {
+      "q": "Which shows <b>7 × 5</b>?",
+      "choices": [
+       "5 × 7 + 2 × 7",
+       "5 × 5 + 2 × 5",
+       "5 × 5 + 5"
+      ],
+      "a": 1,
+      "why": "Split the 7. Both parts are groups of 5: 25 + 10 = 35.",
+      "no": [
+       "Both parts need groups of 5. 5 × 7 + 2 × 7 = 49. That is 7 × 7.",
+       null,
+       "That is only 6 groups of 5."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "How many days are in <b>7 weeks</b>? ____",
+      "answers": [
+       "49"
+      ],
+      "why": "7 × 7 = <b>49</b>.",
+      "no": "7 weeks, 7 days in each.",
+      "hint": "35 + 14 = ?"
+     },
+     {
+      "type": "fill",
+      "q": "The vet has <b>7 rows</b> of cages. Each row has <b>3 cages</b>. How many cages?",
+      "answers": [
+       "21"
+      ],
+      "why": "7 × 3: 15 + 6 = <b>21</b>.",
+      "no": "Each row has 3. Multiply.",
+      "hint": "5 × 3 = 15. 2 × 3 = 6."
+     },
+     {
+      "q": "Marion has <b>7 shells</b>. She finds <b>5 more</b>. How many shells now?",
+      "choices": [
+       "35",
+       "12",
+       "2"
+      ],
+      "a": 1,
+      "why": "Two amounts, not equal groups. Add: 7 + 5 = <b>12</b>.",
+      "no": [
+       "35 is 7 groups of 5. She just found 5 more.",
+       null,
+       "2 is 7 − 5. She found more."
+      ]
+     },
+     {
+      "q": "Find the split that is <b>not right</b>.",
+      "choices": [
+       "7 × 6 = 35 + 12",
+       "7 × 3 = 15 + 6",
+       "7 × 10 = 50 + 20"
+      ],
+      "a": 0,
+      "why": "The 5s part should be 5 × 6 = 30, not 35.",
+      "no": [
+       null,
+       "5 × 3 = 15 and 2 × 3 = 6. This one is right.",
+       "5 × 10 = 50 and 2 × 10 = 20. This one is right."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "Liz says <b>7 × 8 = 54</b>. Type the right answer: 7 × 8 = ____",
+      "answers": [
+       "56"
+      ],
+      "why": "40 + 16 = <b>56</b>.",
+      "no": "5 × 8 = 40. 2 × 8 = 16.",
+      "hint": "5, 6, 7, 8!"
+     }
+    ]
+   ]
+  }
+ ],
+ "practice": {
+  "intro": "You get 3 tries on each one. Only your first try counts. For 7s: 5s part + 2s part.",
+  "questions": [
+   {
+    "type": "fill",
+    "q": "5 × 3 = 15 and 2 × 3 = 6. So <b>7 × 3</b> = ____",
+    "answers": [
+     "21"
+    ],
+    "why": "15 + 6 = <b>21</b>.",
+    "no": "Add the two parts.",
+    "hint": "15 + 6 = ?"
+   },
+   {
+    "type": "fill",
+    "q": "7 × 5 = ____",
+    "answers": [
+     "35"
+    ],
+    "why": "5 × 5 = 25. 2 × 5 = 10. 25 + 10 = <b>35</b>.",
+    "no": "5s part + 2s part.",
+    "hint": "25 + 10 = ?"
+   },
+   {
+    "q": "What is <b>7 × 10</b>?",
+    "choices": [
+     "17",
+     "77",
+     "70"
+    ],
+    "a": 2,
+    "why": "50 + 20 = <b>70</b>.",
+    "no": [
+     "17 is 7 + 10. Multiply.",
+     "77 is 7 tens and 7 ones. 7 groups of 10 is 70.",
+     null
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Each spider has <b>8 legs</b>. How many legs on <b>7 spiders</b>?",
+    "answers": [
+     "56"
+    ],
+    "why": "7 × 8: 40 + 16 = <b>56</b>.",
+    "no": "7 spiders, 8 legs each. Multiply 7 × 8.",
+    "hint": "5, 6, 7, 8!"
+   },
+   {
+    "type": "fill",
+    "q": "7 × 6 = ____",
+    "answers": [
+     "42"
+    ],
+    "why": "30 + 12 = <b>42</b>.",
+    "no": "5 × 6 and 2 × 6. Then add.",
+    "hint": "30 + 12 = ?"
+   },
+   {
+    "q": "Which shows <b>7 × 4</b>?",
+    "choices": [
+     "5 × 4 + 2 × 4",
+     "5 × 4 + 2",
+     "5 + 4 + 2 + 4"
+    ],
+    "a": 0,
+    "why": "Split 7 into 5 and 2. Both parts are groups of 4: 20 + 8 = 28.",
+    "no": [
+     null,
+     "The 2s part is 2 × 4, not 2.",
+     "Multiply each part. Do not add."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "How many days are in <b>6 weeks</b>? ____",
+    "answers": [
+     "42"
+    ],
+    "why": "6 × 7 = 7 × 6 = <b>42</b>.",
+    "no": "6 weeks, 7 days in each.",
+    "hint": "30 + 12 = ?"
+   },
+   {
+    "type": "fill",
+    "q": "Amy walks the puppy <b>7 times</b>. Each walk is <b>9 blocks</b>. How many blocks?",
+    "answers": [
+     "63"
+    ],
+    "why": "7 × 9: 45 + 18 = <b>63</b>.",
+    "no": "Each walk is 9. Multiply.",
+    "hint": "5 × 9 = 45. 2 × 9 = 18."
+   },
+   {
+    "type": "fill",
+    "q": "8 × 6 = ____",
+    "answers": [
+     "48"
+    ],
+    "why": "4 × 6 = 24. Double 24 is <b>48</b>.",
+    "no": "Use the 8s trick: double the 4s.",
+    "hint": "24 + 24 = ?"
+   },
+   {
+    "q": "What is <b>9 × 9</b>?",
+    "choices": [
+     "72",
+     "81",
+     "89"
+    ],
+    "a": 1,
+    "why": "10 × 9 = 90. 90 − 9 = <b>81</b>.",
+    "no": [
+     "72 is 9 × 8. This is 9 groups of 9.",
+     null,
+     "89 is 90 − 1. Take away a whole group of 9."
+    ]
+   },
+   {
+    "q": "Ellie has <b>7 pens</b>. Liz has <b>8 pens</b>. How many pens in all?",
+    "choices": [
+     "56",
+     "15",
+     "1"
+    ],
+    "a": 1,
+    "why": "Not equal groups. Add: 7 + 8 = <b>15</b>.",
+    "no": [
+     "These are two different amounts. Add.",
+     null,
+     "1 is 8 − 7. The question asks how many in all."
+    ]
+   }
+  ]
+ },
+ "packet": {
+  "title": "Sevens: 5 and 2 More",
+  "pages": [
+   [
+    {
+     "title": "Part 1: Split the 7",
+     "directions": "Find the 5s part and the 2s part. Then add.",
+     "items": [
+      {
+       "type": "fill",
+       "text": "1. 7 × 3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 × 3 = _____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 × 3 = _____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 × 3 = _____",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "2. 7 × 6:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 × 6 = _____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 × 6 = _____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 × 6 = _____",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "3. 7 × 8:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 × 8 = _____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 × 8 = _____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 × 8 = _____",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "4. 7 × 9:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 × 9 = _____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 × 9 = _____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 × 9 = _____",
+       "lines": 0
+      }
+     ]
+    },
+    {
+     "title": "Part 2: Draw and split",
+     "directions": "Draw the array. Circle the top 5 rows. Circle the last 2 rows.",
+     "items": [
+      {
+       "type": "draw",
+       "text": "5. Draw 7 rows of 4 dots.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 × 4 = _____",
+       "height": 2.3
+      }
+     ]
+    },
+    {
+     "title": "Part 3: Days and weeks",
+     "directions": "A week has 7 days. Write the answer.",
+     "items": [
+      {
+       "type": "fill",
+       "text": "6. 2 weeks = _____ days&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. 5 weeks = _____ days&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. 7 weeks = _____ days",
+       "lines": 0
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "title": "Part 4: Multiply or add?",
+     "directions": "Circle <b>Multiply</b> or <b>Add</b>. Then solve.",
+     "items": [
+      {
+       "type": "choice",
+       "text": "9. The vet has 7 shelves. Each shelf has 5 jars. How many jars?",
+       "options": [
+        "Multiply",
+        "Add"
+       ]
+      },
+      {
+       "type": "problem",
+       "lines": 1
+      },
+      {
+       "type": "choice",
+       "text": "10. Liz has 7 kittens to feed. Amy has 4 kittens to feed. How many kittens in all?",
+       "options": [
+        "Multiply",
+        "Add"
+       ]
+      },
+      {
+       "type": "problem",
+       "lines": 1
+      },
+      {
+       "type": "choice",
+       "text": "11. There are 7 tables. Each table has 7 cups. How many cups?",
+       "options": [
+        "Multiply",
+        "Add"
+       ]
+      },
+      {
+       "type": "problem",
+       "lines": 1
+      }
+     ]
+    },
+    {
+     "title": "Part 5: Book corner",
+     "directions": "Tell two things from <i>Amy and the Missing Puppy</i> in order. Use a capital letter and a period.",
+     "items": [
+      {
+       "type": "write",
+       "text": "12. First, …",
+       "lines": 2
+      },
+      {
+       "type": "write",
+       "text": "13. Next, …",
+       "lines": 2
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "teacher": {
+  "objective": "Bristol finds any 7s fact by splitting 7 into 5 and 2: she finds the 5s part and the 2s part (both facts she owns) and adds them (7 × 6 = 30 + 12 = 42). She sees the split in real arrays and in a calendar, and she keeps practicing yesterday's 8s and 9s tricks.",
+  "materials": [
+   "The <b>Class lesson</b> open on your screen (teacher code)",
+   "About 70 beans or counters in two colors (or plain beans and a crayon to mark)",
+   "A long strip of paper or a ruler to split an array",
+   "A real calendar page",
+   "Whiteboard and marker",
+   "Index cards: one 7s fact on each (7 × 3 to 7 × 9)",
+   "Her book, <i>Amy and the Missing Puppy</i>",
+   "Lesson 6 packet and Lesson 7 packet to send home"
+  ],
+  "plan": [
+   {
+    "time": "0:00–0:03",
+    "block": "Hello",
+    "do": "Class slide 1. Look at Monday's Show What You Know score. She says the 8s and 9s tricks."
+   },
+   {
+    "time": "0:03–0:10",
+    "block": "Book Talk",
+    "do": "Class slide 2. She retells in order with First, Next, Then. If she jumps around, ask: what happened before that?"
+   },
+   {
+    "time": "0:10–0:15",
+    "block": "Warm-up: 8s, 9s, 6s",
+    "do": "Class slide 3. Before each tap, she names the trick."
+   },
+   {
+    "time": "0:15–0:27",
+    "block": "Split the 7 (hands-on)",
+    "do": "Class slides 4–6. She builds 7 rows of 4 beans, ruler under row 5; she types the top part, bottom part and total (slide 5). Then 7 rows of 6 beans for slide 6."
+   },
+   {
+    "time": "0:27–0:35",
+    "block": "Build and try",
+    "do": "Class slides 7–8. Bean piles for the puppy toys, then three taps. Say 5, 6, 7, 8 together."
+   },
+   {
+    "time": "0:35–0:41",
+    "block": "Split the right number",
+    "do": "Class slides 9–10. Ruler across the rows of 7 × 6: why 49 is wrong. Then the 7 × 9 steps in order, said aloud."
+   },
+   {
+    "time": "0:41–0:47",
+    "block": "Calendar array",
+    "do": "Class slides 11–12. She counts 4 weeks on the calendar page by rows, then types the days in 10 weeks and 9 weeks."
+   },
+   {
+    "time": "0:47–0:53",
+    "block": "Check the split and card flip",
+    "do": "Class slides 13–14. She checks each part on the whiteboard, then the 7s index cards: 5s part, 2s part, answer. Slow cards go aside for Thursday."
+   },
+   {
+    "time": "0:53–0:57",
+    "block": "Word problems",
+    "do": "Class slide 15. She reads aloud and says <b>equal groups or not</b> before she taps."
+   },
+   {
+    "time": "0:57–1:00",
+    "block": "Wrap-up",
+    "do": "Class slide 16. Read the two-night task list together: tonight the after-class lesson (with Show What You Know) and the Lesson 6 Practice; Wednesday the Lesson 7 Practice, the Lesson 6 packet and Lesson 7 packet page 1. Send both packets home."
+   }
+  ],
+  "watch": [
+   "Using 7 in both parts: 7 × 6 as 5 × 7 + 2 × 7 (= 49, which is 7 × 7). Ask: which number tells the rows? Which tells how many in each row?",
+   "Writing the 2s part as just 2 (7 × 3 = 15 + 2). Point to the 2 rows: how many beans in each row?",
+   "7 × 8 = 54. Say the pattern together: 5, 6, 7, 8 (56 = 7 × 8).",
+   "Answering 49 in the ribbon problem (7 ribbons and 7 more). She multiplied because both numbers are 7. Ask: are there 7 equal groups, or just two amounts?"
+  ],
+  "packet_key": [
+   {
+    "item": "1",
+    "answer": "15; 6; 21"
+   },
+   {
+    "item": "2",
+    "answer": "30; 12; 42"
+   },
+   {
+    "item": "3",
+    "answer": "40; 16; 56"
+   },
+   {
+    "item": "4",
+    "answer": "45; 18; 63"
+   },
+   {
+    "item": "5",
+    "answer": "Array of 7 rows of 4 dots, top 5 rows circled and last 2 rows circled; 7 × 4 = 28"
+   },
+   {
+    "item": "6",
+    "answer": "14 days"
+   },
+   {
+    "item": "7",
+    "answer": "35 days"
+   },
+   {
+    "item": "8",
+    "answer": "49 days"
+   },
+   {
+    "item": "9",
+    "answer": "Multiply; 7 × 5 = 35 jars"
+   },
+   {
+    "item": "10",
+    "answer": "Add; 7 + 4 = 11 kittens"
+   },
+   {
+    "item": "11",
+    "answer": "Multiply; 7 × 7 = 49 cups"
+   },
+   {
+    "item": "12",
+    "answer": "A complete sentence starting with First that tells an early event in the book."
+   },
+   {
+    "item": "13",
+    "answer": "A complete sentence starting with Next that tells what came after item 12."
+   }
+  ],
+  "notes": "Thursday (Lesson 8) is <b>Prove it</b> and mixes 4s, 6s, 7s, 8s and 9s. Her Show What You Know comes from tonight's after-class lesson (85 needed; a retake gets a new set). If she scores under 85, start Thursday with the bean array: 7 rows of 6, ruler under row 5, before the new lesson. Keep the index cards and the slow pile for Thursday. Times Table Trail Lesson 4 moved to the weekend task list (Lesson 8) so these two nights stay doable."
+ },
+ "tasks": [
+  "Tuesday night: do the <a href=\"lesson-07.html\"><b>After-class lesson</b></a>. Finish <b>Show What You Know</b> (get 85).",
+  "Tuesday night: do the <a href=\"practice-06.html\"><b>Lesson 6 Practice</b></a>.",
+  "Wednesday: do the <a href=\"practice-07.html\"><b>Lesson 7 Practice</b></a>. Try to get 85 or more.",
+  "Wednesday: do both pages of the <a href=\"packet-06.html\"><b>Lesson 6 Packet</b></a>.",
+  "Wednesday: do <b>page 1</b> of the <a href=\"packet-07.html\"><b>Lesson 7 Packet</b></a>. Save page 2.",
+  "Tuesday and Wednesday: read your book for <b>10 minutes</b> each night.",
+  "Thursday: bring the Lesson 6 packet and Lesson 7 packet page 1 to your lesson."
+ ],
+ "also": [],
+ "teach": {
+  "slides": [
+   {
+    "type": "hello",
+    "title": "Sevens: 5 and 2 More",
+    "text": "7 is a tricky number. But <b>7 = 5 + 2</b>. You know your 5s. You know your 2s. So you can do <b>7s</b>! 💪",
+    "visual": {
+     "kind": "emoji",
+     "text": "5️⃣ ➕ 2️⃣ = 7️⃣"
+    },
+    "notes": {
+     "do": "Set out: beans (two colors if you have them), a ruler or paper strip, a calendar page, whiteboard, the 7s index cards. Collect last night's Show What You Know score from the course page.",
+     "say": "Yesterday you learned 8s and 9s. Today we beat the trickiest number: 7.",
+     "ask": "Tell me yesterday's two tricks.",
+     "listen": "\"8s: double the 4s. 9s: 10s take away one group.\" If she mixes them, say both again with 8 × 6 and 9 × 6 before you go on."
+    }
+   },
+   {
+    "type": "talk",
+    "kick": "Book Talk",
+    "title": "Tell it in order",
+    "text": "Think about <i>Amy and the Missing Puppy</i>. Tell what happened <b>in order</b>.",
+    "prompts": [
+     "What happened <b>first</b> in the part you read?",
+     "What happened <b>next</b>?",
+     "What do you think will happen <b>at the end</b>? Why?"
+    ],
+    "starters": [
+     "First, …",
+     "Next, …",
+     "Then, …",
+     "I think at the end …"
+    ],
+    "notes": {
+     "do": "Book open. Let her look back at the pages she read.",
+     "say": "Tell me what happened, in order. Use First, Next, Then.",
+     "ask": "What happened before that? What happened after?",
+     "listen": "Events in the right order with time words. If she jumps around, ask: what happened before that? Then let her try again."
+    }
+   },
+   {
+    "type": "recall",
+    "kick": "Remember?",
+    "title": "8s, 9s and 6s",
+    "text": "Use your tricks from last lesson and last week.",
+    "items": [
+     {
+      "q": "What is <b>8 × 7</b>?",
+      "choices": [
+       "54",
+       "56",
+       "35"
+      ],
+      "a": 1,
+      "why": "4 × 7 = 28. Double 28 is <b>56</b>.",
+      "no": [
+       "Careful! 4 × 7 = 28. Double 28: 40 + 16 = 56.",
+       null,
+       "35 is 5 × 7. Find 4 × 7 and double it."
+      ]
+     },
+     {
+      "q": "What is <b>9 × 6</b>?",
+      "choices": [
+       "54",
+       "51",
+       "59"
+      ],
+      "a": 0,
+      "why": "10 × 6 = 60. Take away one group of 6: <b>54</b>.",
+      "no": [
+       null,
+       "51 is 60 − 9. Take away one group of <b>6</b>.",
+       "59 is 60 − 1. Take away a whole group of 6."
+      ]
+     },
+     {
+      "q": "What is <b>6 × 6</b>?",
+      "choices": [
+       "30",
+       "42",
+       "36"
+      ],
+      "a": 2,
+      "why": "5 × 6 = 30. One more group of 6: <b>36</b>.",
+      "no": [
+       "30 is 5 × 6. Add one more group of 6.",
+       "42 is 6 × 7.",
+       null
+      ]
+     }
+    ],
+    "notes": {
+     "say": "Name the trick, then tap.",
+     "ask": "Which trick is this one: double the 4s, 10s take away a group, or 5s plus a group?",
+     "listen": "8 × 7: double 28 is 56. 9 × 6: 60 − 6 = 54. 6 × 6: 30 + 6 = 36. If 7 × 8 = 54 shows up, fix it now with the double."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Split the 7",
+    "text": "Here are <b>7 rows of 4</b>. Let's split them into <b>5 rows</b> and <b>2 rows</b>.",
+    "steps": [
+     {
+      "text": "<b>Step 1.</b> 7 rows of 4. That is <b>7 × 4</b>.",
+      "visual": {
+       "kind": "array",
+       "rows": 7,
+       "cols": 4,
+       "emoji": "🟦"
+      }
+     },
+     {
+      "text": "<b>Step 2.</b> The top 5 rows: <b>5 × 4 = 20</b>.",
+      "visual": {
+       "kind": "array",
+       "rows": 5,
+       "cols": 4,
+       "emoji": "🟦"
+      }
+     },
+     {
+      "text": "<b>Step 3.</b> The last 2 rows: <b>2 × 4 = 8</b>.",
+      "visual": {
+       "kind": "array",
+       "rows": 2,
+       "cols": 4,
+       "emoji": "🟨"
+      }
+     },
+     {
+      "text": "<b>Step 4.</b> Add the parts: <b>20 + 8 = 28</b>. So <b>7 × 4 = 28</b>.",
+      "visual": {
+       "kind": "bigtext",
+       "text": "7 × 4 = 28"
+      }
+     }
+    ],
+    "tip": "5 rows + 2 rows = 7 rows. You did not lose any!",
+    "notes": {
+     "do": "Before you click: she builds 7 rows of 4 beans on the table. Lay the ruler under row 5. Then click through the steps as she counts.",
+     "say": "7 rows is 5 rows and 2 rows. You know 5s. You know 2s.",
+     "ask": "How many in the top part? In the bottom part? Together?",
+     "listen": "\"20 and 8, so 28.\" Ask: did we lose any beans when we put the ruler down? (No: 5 rows + 2 rows = 7 rows.)"
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Quick check",
+    "title": "Top part, bottom part",
+    "text": "Look at your beans. 7 rows of 4. Ruler under row 5.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "The top part is 5 rows of 4. 5 × 4 = ____",
+      "answers": [
+       "20"
+      ],
+      "why": "5 × 4 = <b>20</b>.",
+      "no": "Count by 5s four times.",
+      "hint": "5, 10, 15, 20"
+     },
+     {
+      "type": "fill",
+      "q": "The bottom part is 2 rows of 4. 2 × 4 = ____",
+      "answers": [
+       "8",
+       "eight"
+      ],
+      "why": "2 × 4 = <b>8</b>.",
+      "no": "Double 4.",
+      "hint": "4 + 4 = ?"
+     },
+     {
+      "type": "fill",
+      "q": "20 + 8 = 28. So <b>7 × 4</b> = ____",
+      "answers": [
+       "28"
+      ],
+      "why": "Top part plus bottom part: <b>28</b>. So 7 × 4 = 28.",
+      "no": "Add the two parts.",
+      "hint": "20 + 8 = ?"
+     }
+    ],
+    "notes": {
+     "do": "She types each answer herself (in person). Let her point to the beans as she answers.",
+     "ask": "Show me the top part. Show me the bottom part.",
+     "listen": "20, 8, 28. If she types 9 for the top, she added 5 + 4. Point to the top part: 5 rows with 4 in each. Count it with her by 5s: 5, 10, 15, 20."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Try 7 × 6",
+    "text": "Let's find <b>7 × 6</b>. Split 7 into <b>5</b> and <b>2</b>.",
+    "steps": [
+     {
+      "text": "<b>Step 1.</b> 5s part: <b>5 × 6 = 30</b>.",
+      "visual": {
+       "kind": "array",
+       "rows": 5,
+       "cols": 6,
+       "emoji": "🟩"
+      }
+     },
+     {
+      "text": "<b>Step 2.</b> 2s part: <b>2 × 6 = 12</b>.",
+      "visual": {
+       "kind": "array",
+       "rows": 2,
+       "cols": 6,
+       "emoji": "🟧"
+      }
+     },
+     {
+      "text": "<b>Step 3.</b> Add: <b>30 + 12 = 42</b>. So <b>7 × 6 = 42</b>.",
+      "visual": {
+       "kind": "bigtext",
+       "text": "7 × 6 = 42"
+      }
+     }
+    ],
+    "tip": "Both parts use the <b>same</b> number. For 7 × 6, it is 5 × <b>6</b> and 2 × <b>6</b>.",
+    "notes": {
+     "do": "She builds 7 rows of 6 beans. Ruler under row 5 again.",
+     "say": "Same split. The 6 stays the same in both parts.",
+     "ask": "What is 5 × 6? What is 2 × 6? Put them together.",
+     "listen": "\"30 and 12 is 42.\" Wrong: 35 + 14 = 49 (she used 7 in both parts, which is 7 × 7). Point: how many beans in each row? 6, in both parts."
+    }
+   },
+   {
+    "type": "build",
+    "kick": "Build it",
+    "title": "Puppy toys",
+    "text": "There are <b>7 puppies</b>. Each puppy gets <b>3 toys</b>. Make the groups.",
+    "groups": 7,
+    "each": 3,
+    "emoji": "🧸",
+    "why": "5 × 3 = 15. 2 × 3 = 6. 15 + 6 = 21. So <b>7 × 3 = 21</b>.",
+    "hint": "Each <b>puppy</b> is one group. Set <b>Groups</b> to the number of puppies. Set <b>In each group</b> to the toys for one puppy.",
+    "notes": {
+     "do": "She sets out 7 piles of 3 beans first, then taps the + buttons to match.",
+     "ask": "How many puppies? How many toys for each? Now split: 5 piles and 2 piles.",
+     "listen": "\"15 and 6, so 21.\""
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Try it",
+    "title": "5s and 2s make 7s",
+    "items": [
+     {
+      "q": "5 × 8 = 40 and 2 × 8 = 16. What is <b>7 × 8</b>?",
+      "choices": [
+       "54",
+       "48",
+       "56"
+      ],
+      "a": 2,
+      "why": "40 + 16 = <b>56</b>. Say it: 5, 6, 7, 8. <b>56 = 7 × 8</b>!",
+      "no": [
+       "Not 54. Add the parts again: 40 + 16.",
+       "48 is 6 × 8. You need one more group of 8.",
+       null
+      ]
+     },
+     {
+      "q": "What is <b>7 × 7</b>?",
+      "choices": [
+       "49",
+       "42",
+       "47"
+      ],
+      "a": 0,
+      "why": "5 × 7 = 35. 2 × 7 = 14. 35 + 14 = <b>49</b>.",
+      "no": [
+       null,
+       "42 is 6 × 7. You need one more group of 7.",
+       "Check the 2s part: 2 × 7 = 14, not 12."
+      ]
+     },
+     {
+      "q": "Which shows <b>7 × 3</b>?",
+      "choices": [
+       "5 × 3 + 2",
+       "5 × 7 + 2 × 7",
+       "5 × 3 + 2 × 3"
+      ],
+      "a": 2,
+      "why": "Split the 7. Both parts are groups of 3: 15 + 6 = 21.",
+      "no": [
+       "The 2 rows also have 3 in each. It is 2 × 3, not 2.",
+       "Both parts need groups of 3. 5 × 7 + 2 × 7 = 49. That is 7 × 7.",
+       null
+      ]
+     }
+    ],
+    "notes": {
+     "say": "Say both parts out loud. Then tap.",
+     "ask": "For 7 × 8: what is 5 × 8? 2 × 8? Now say it with me: 5, 6, 7, 8. 56 = 7 × 8.",
+     "listen": "\"40 and 16 is 56.\" If she picks 54, say the 5, 6, 7, 8 pattern together and write it on the whiteboard."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Careful",
+    "title": "Split the 7. Keep the other number.",
+    "text": "For <b>7 × 6</b>, split the <b>7</b>. The <b>6</b> stays in both parts.",
+    "steps": [
+     {
+      "text": "✅ 7 × 6 → 5 × <b>6</b> and 2 × <b>6</b>. 30 + 12 = <b>42</b>.",
+      "visual": {
+       "kind": "bigtext",
+       "text": "5 × 6 + 2 × 6 = 42"
+      }
+     },
+     {
+      "text": "❌ Not 5 × 7 and 2 × 7. That makes 35 + 14 = 49. That is <b>7 × 7</b>!",
+      "visual": {
+       "kind": "bigtext",
+       "text": "5 × 7 + 2 × 7 = 49",
+       "sub": "this is 7 × 7, not 7 × 6"
+      }
+     }
+    ],
+    "tip": "Ask: how many rows? How many in <b>each</b> row? Only the rows get split.",
+    "notes": {
+     "do": "Build 7 rows of 6 again. Lay the ruler across the rows, never down a row.",
+     "say": "The ruler only splits the rows. Every row still has 6.",
+     "ask": "Why is 49 wrong for 7 × 6?",
+     "listen": "\"Because each row has 6, not 7.\" or \"49 is 7 × 7.\" Either shows she sees it."
+    }
+   },
+   {
+    "type": "order",
+    "kick": "Put in order",
+    "title": "How to do 7 × 9",
+    "text": "Tap the steps in the right order.",
+    "steps": [
+     "Split 7 into 5 and 2",
+     "Find both parts: 5 × 9 = 45 and 2 × 9 = 18",
+     "Add the parts: 45 + 18 = 63",
+     "So 7 × 9 = 63"
+    ],
+    "why": "5s part, 2s part, then add. <b>7 × 9 = 63</b>.",
+    "hint": "First split the 7. Then find both parts.",
+    "notes": {
+     "say": "Say each step out loud before you tap it.",
+     "ask": "What comes first: split, find parts, or add?",
+     "listen": "Split, 45 and 18, add to 63. If she starts with adding, ask: add what? We need the parts first."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "A calendar is an array!",
+    "text": "A week has <b>7 days</b>. Each row on a calendar is one week.",
+    "visual": {
+     "kind": "array",
+     "rows": 4,
+     "cols": 7,
+     "emoji": "📅",
+     "label": "4 weeks. 7 days in each week."
+    },
+    "steps": [
+     {
+      "text": "How many days in <b>4 weeks</b>? That is <b>4 rows of 7</b>."
+     },
+     {
+      "text": "4 × 7 is the same as <b>7 × 4</b>. We know that one: <b>28</b>!",
+      "visual": {
+       "kind": "bigtext",
+       "text": "4 × 7 = 28"
+      }
+     }
+    ],
+    "tip": "A turn-around fact has the same answer. 4 × 7 = 7 × 4.",
+    "notes": {
+     "do": "Hand her the calendar page. She counts the days in the first 4 rows (weeks).",
+     "say": "Every row on a calendar is one week: 7 days. A calendar is an array of 7s!",
+     "ask": "How many rows did you count? How many in each row? So which fact is it?",
+     "listen": "\"4 rows of 7, 4 × 7 = 28.\" Then she flips it: 7 × 4 = 28 too."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Your turn",
+    "title": "Weeks and days",
+    "text": "Each week has <b>7 days</b>.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "How many days are in <b>10 weeks</b>? ____",
+      "answers": [
+       "70"
+      ],
+      "why": "10 × 7 = <b>70</b>.",
+      "no": "10 weeks. 7 days in each.",
+      "hint": "10 groups of 7."
+     },
+     {
+      "type": "fill",
+      "q": "How many days are in <b>9 weeks</b>? ____",
+      "answers": [
+       "63"
+      ],
+      "why": "9 × 7: 70 − 7 = <b>63</b>. Or 5s part + 2s part: 45 + 18 = 63.",
+      "no": "9 weeks, 7 days in each.",
+      "hint": "10 weeks is 70. Take away one week."
+     }
+    ],
+    "notes": {
+     "ask": "Which trick did you use for 9 weeks?",
+     "listen": "Either works: 10s take away one group (70 − 7) or split the 7 (45 + 18). Praise her for choosing."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Check the split",
+    "title": "Right or wrong?",
+    "items": [
+     {
+      "q": "Liz writes <b>7 × 3 = 15 + 2</b>. What is wrong?",
+      "choices": [
+       "The 2s part should be 2 × 3 = 6.",
+       "The 5s part should be 5 × 7.",
+       "Nothing. It is right."
+      ],
+      "a": 0,
+      "why": "2 rows of 3 is 6, not 2. 15 + 6 = <b>21</b>.",
+      "no": [
+       null,
+       "Split the 7. The 5s part is 5 × 3 = 15. That part is right.",
+       "15 + 2 = 17. But 7 × 3 = 21."
+      ]
+     },
+     {
+      "q": "Ellie writes <b>7 × 8 = 40 + 14</b>. What is wrong?",
+      "choices": [
+       "The 5s part should be 35.",
+       "Nothing. It is right.",
+       "The 2s part should be 2 × 8 = 16."
+      ],
+      "a": 2,
+      "why": "2 × 8 = 16. 40 + 16 = <b>56</b>.",
+      "no": [
+       "5 × 8 = 40. That part is right.",
+       "40 + 14 = 54. But 7 × 8 = 56.",
+       null
+      ]
+     },
+     {
+      "q": "Which split is <b>right</b> for 7 × 5?",
+      "choices": [
+       "35 + 10",
+       "25 + 10",
+       "25 + 2"
+      ],
+      "a": 1,
+      "why": "5 × 5 = 25. 2 × 5 = 10. 25 + 10 = <b>35</b>.",
+      "no": [
+       "35 is the answer, not the 5s part. 5 × 5 = 25.",
+       null,
+       "The 2s part is 2 × 5 = 10, not 2."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "She checks each part on the whiteboard before she taps.",
+     "ask": "Check the 5s part. Is it right? Now check the 2s part.",
+     "listen": "She finds which part is wrong, not just that it is wrong."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Card flip",
+    "title": "Say both parts",
+    "text": "I flip a card. You say the <b>5s part</b>, the <b>2s part</b>, and the <b>answer</b>. Then we check the hard ones here.",
+    "visual": {
+     "kind": "emoji",
+     "text": "🃏 7️⃣"
+    },
+    "steps": [
+     {
+      "text": "Cards first. Then click to check these four."
+     },
+     {
+      "text": "<b>7 × 3</b>: 15 + 6 = <b>21</b>"
+     },
+     {
+      "text": "<b>7 × 7</b>: 35 + 14 = <b>49</b>"
+     },
+     {
+      "text": "<b>7 × 8</b>: 40 + 16 = <b>56</b> (5, 6, 7, 8!)"
+     },
+     {
+      "text": "<b>7 × 9</b>: 45 + 18 = <b>63</b>"
+     }
+    ],
+    "tip": "5s part + 2s part. Same number in both parts.",
+    "notes": {
+     "do": "Use the 7s index cards (7 × 3 to 7 × 9), shuffled. She says both parts and the answer for each card. Put any slow card aside for Thursday. After the cards, click through the steps to check 7 × 3, 7 × 7, 7 × 8 and 7 × 9 together.",
+     "say": "Fast is good. Right is better. Say both parts every time.",
+     "listen": "Both parts, then the total. If she skips the parts and guesses, ask for the parts again."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Word problems",
+    "title": "Multiply or add?",
+    "items": [
+     {
+      "q": "Amy walks the puppy <b>every day</b> for <b>3 weeks</b>. How many days is that?",
+      "choices": [
+       "10",
+       "24",
+       "21"
+      ],
+      "a": 2,
+      "why": "3 weeks, 7 days in each. 3 × 7 = <b>21</b>.",
+      "no": [
+       "10 is 3 + 7. Each week has 7 days, so multiply.",
+       "24 is 3 × 8. A week has 7 days.",
+       null
+      ]
+     },
+     {
+      "q": "Liz has <b>7 jars</b>. She puts <b>6 biscuits</b> in each jar. How many biscuits?",
+      "choices": [
+       "42",
+       "13",
+       "36"
+      ],
+      "a": 0,
+      "why": "7 × 6: 30 + 12 = <b>42</b>.",
+      "no": [
+       null,
+       "13 is 7 + 6. Each jar has 6, so multiply.",
+       "36 is 6 × 6. There are 7 jars."
+      ]
+     },
+     {
+      "q": "Ellie has <b>7 ribbons</b>. Marion gives her <b>7 more</b>. How many now?",
+      "choices": [
+       "49",
+       "14",
+       "0"
+      ],
+      "a": 1,
+      "why": "This is one group plus another. Add: 7 + 7 = <b>14</b>.",
+      "no": [
+       "Two 7s is not 7 groups of 7. Add them.",
+       null,
+       "0 is 7 − 7. She got more ribbons."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "She reads each problem aloud.",
+     "say": "Before you tap: equal groups or not?",
+     "ask": "For the ribbons: are there 7 equal groups, or just two amounts?",
+     "listen": "Weeks and jars are equal groups: multiply. \"7 ribbons and 7 more\" is two amounts: add (14). If she says 49, she multiplied because both numbers are 7."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Wrap-up",
+    "title": "Your plan before Thursday",
+    "text": "<b>7s:</b> 5s part + 2s part. 7 × 6 = 30 + 12 = <b>42</b>.",
+    "steps": [
+     {
+      "text": "<b>Tonight:</b> the After-class lesson (it ends with Show What You Know) and the Lesson 6 Practice."
+     },
+     {
+      "text": "<b>Wednesday:</b> the Lesson 7 Practice, the Lesson 6 packet, and Lesson 7 packet page 1."
+     },
+     {
+      "text": "<b>Every night:</b> read your book for 10 minutes."
+     }
+    ],
+    "tip": "Thursday: bring the Lesson 6 packet and page 1 of the Lesson 7 packet.",
+    "notes": {
+     "do": "Open the course page and read the task list with her. Put the two packets in her folder.",
+     "say": "This is a two-night list. Do the first part tonight and the rest tomorrow.",
+     "ask": "What will you do tonight? What will you do tomorrow?",
+     "listen": "She can say tonight's two items and Wednesday's three."
+    }
+   }
+  ]
+ }
+}

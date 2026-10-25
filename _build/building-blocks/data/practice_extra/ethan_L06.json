@@ -1,0 +1,337 @@
+{
+ "sets": [
+  [
+   {
+    "type": "fill",
+    "q": "How many factors does <b>84</b> have? Type the number.",
+    "answers": [
+     "12",
+     "twelve"
+    ],
+    "why": "Pairs: 1 × 84, 2 × 42, 3 × 28, 4 × 21, 6 × 14, 7 × 12. 6 pairs = <b>12</b> factors.",
+    "no": "List the pairs in a column from 1 up.",
+    "hint": "There are 6 pairs.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "What are <b>ALL</b> the factors of <b>46</b>? List them smallest to largest.",
+    "answers": [
+     "1, 2, 23, 46",
+     "1,2,23,46",
+     "1 2 23 46",
+     "1, 2, 23 and 46"
+    ],
+    "why": "46 = 1 × 46 = 2 × 23, and 23 is prime. Factors: <b>1, 2, 23, 46</b>.",
+    "no": "Start at 1 × the number. Test 2, 3, 4, 5… in order. Write both numbers of every pair that works. Stop when the pairs meet.",
+    "hint": "46 ÷ 2 = ?",
+    "placeholder": "Example: 1, 2, 4, 8"
+   },
+   {
+    "q": "Which cow ID number is <b>prime</b>?",
+    "choices": [
+     "125",
+     "129",
+     "137",
+     "141"
+    ],
+    "a": 2,
+    "why": "137: not even, 1 + 3 + 7 = 11 (not a multiple of 3), does not end in 0 or 5, and 7 and 11 do not divide it. <b>137 is prime.</b>",
+    "no": [
+     "125 ends in 5, so 5 divides it: 125 = 5 × 25.",
+     "1 + 2 + 9 = 12, so 3 divides it: 129 = 3 × 43.",
+     null,
+     "1 + 4 + 1 = 6, so 3 divides it: 141 = 3 × 47."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "What is the <b>smallest digit</b> you can write in the blank to make <b>7 _ 4</b> divisible by 3?",
+    "answers": [
+     "1",
+     "one"
+    ],
+    "why": "7 + 4 = 11. Try 0 (11), 1 (12). 12 is a multiple of 3, so the digit is <b>1</b>: 714 ÷ 3 = 238.",
+    "no": "Add the digits you have. What do you need to reach a multiple of 3?",
+    "hint": "7 + 4 = 11.",
+    "placeholder": "Type one digit"
+   },
+   {
+    "type": "fill",
+    "q": "LCM of <b>6</b> and <b>20</b> = ____",
+    "answers": [
+     "60"
+    ],
+    "why": "Multiples of 20: 20 (÷ 6? no), 40 (no), 60 (yes). The LCM is <b>60</b>.",
+    "no": "List the multiples of the bigger number: ×1, ×2, ×3… Stop at the first one the smaller number also divides evenly.",
+    "hint": "20, 40, 60 …",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "GCF of <b>30</b> and <b>72</b> = ____",
+    "answers": [
+     "6"
+    ],
+    "why": "Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30. 72 ÷ 6 = 12, but 72 ÷ 10 and 72 ÷ 15 leave remainders. The GCF is <b>6</b>.",
+    "no": "List the factors of each number. Circle the factors they share. The biggest one you circled is the GCF.",
+    "hint": "Is 10 a factor of 72?",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Mom buys milk every <b>4</b> days and bread every <b>7</b> days. She bought both today. In how many days will she buy both on the same day again?",
+    "answers": [
+     "28",
+     "28 days"
+    ],
+    "why": "Multiples of 7: 7, 14, 21, 28. 28 ÷ 4 = 7 ✓. The LCM is <b>28</b> days.",
+    "no": "List the multiples of the bigger number: ×1, ×2, ×3… Stop at the first one the smaller number also divides evenly.",
+    "hint": "7, 14, 21, 28 … which one can 4 divide?",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Joyce has <b>40</b> red beads and <b>56</b> blue beads. She makes identical bracelets with nothing left over. What is the greatest number of bracelets?",
+    "choices": [
+     "8",
+     "4",
+     "16",
+     "280"
+    ],
+    "a": 0,
+    "why": "Factors of 40: 1, 2, 4, 5, 8, 10, 20, 40. 56 ÷ 8 = 7. The GCF is <b>8</b> bracelets (5 red and 7 blue on each).",
+    "no": [
+     null,
+     "4 is a common factor, but 8 is greater.",
+     "16 is a factor of neither 40 nor 56.",
+     "280 is the LCM, a multiple. You can't make 280 bracelets from 40 beads."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "4 × 9 = 36, so 4 and 9 are a ________ pair of 36.",
+    "answers": [
+     "factor",
+     "factor pair"
+    ],
+    "why": "They are a <b>factor</b> pair.",
+    "no": "Two numbers that multiply to make 36.",
+    "hint": "It starts with f-a-c."
+   },
+   {
+    "q": "Which sentence is punctuated correctly?",
+    "visual": {
+     "kind": "passage",
+     "text": "<span style=\"font-size:15px;color:#5b6578\">Read the story</span><br><b>The Sandcastle Wall</b><br><b>1</b> Clyde dug a deep moat around the sandcastle. “The waves can’t get us now,” he said.<br><b>2</b> “They will if the wall is too short,” Ethan said. “Pile the sand higher.”<br><b>3</b> Joyce dumped a bucket of wet sand on top. “Is this good?” she asked.<br><b>4</b> “That’s perfect!” Clyde cheered."
+    },
+    "choices": [
+     "Joyce asked “Is this good?”",
+     "Joyce asked, “is this good?”",
+     "Joyce asked, “Is this good?”",
+     "Joyce asked, “Is this good”?"
+    ],
+    "a": 2,
+    "why": "Tag first: comma after <i>asked</i>, capital <b>I</b>, question mark inside.",
+    "no": [
+     "Tag first needs a comma after asked.",
+     "The first spoken word needs a capital: Is.",
+     null,
+     "The question mark belongs inside the closing quotation mark."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Which word in paragraph 4 is the <b>strong tag</b>? Type it.",
+    "visual": {
+     "kind": "passage",
+     "text": "<span style=\"font-size:15px;color:#5b6578\">Read the story</span><br><b>The Sandcastle Wall</b><br><b>1</b> Clyde dug a deep moat around the sandcastle. “The waves can’t get us now,” he said.<br><b>2</b> “They will if the wall is too short,” Ethan said. “Pile the sand higher.”<br><b>3</b> Joyce dumped a bucket of wet sand on top. “Is this good?” she asked.<br><b>4</b> “That’s perfect!” Clyde cheered."
+    },
+    "answers": [
+     "cheered"
+    ],
+    "why": "“That’s perfect!” Clyde <b>cheered</b>. <i>Cheered</i> shows he is happy and excited.",
+    "no": "Look right after the closing quotation mark in paragraph 4.",
+    "hint": "It is not said.",
+    "placeholder": "Type one word"
+   },
+   {
+    "type": "fill",
+    "q": "Tag first: what mark goes right after the tag, before the opening quotation mark? Type its name.",
+    "answers": [
+     "comma",
+     "a comma"
+    ],
+    "why": "A <b>comma</b>: Ethan said, “Pile the sand higher.”",
+    "no": "It is a small mark that shows a pause.",
+    "hint": "It is the same mark that goes inside when the tag comes last."
+   }
+  ],
+  [
+   {
+    "type": "fill",
+    "q": "How many factors does <b>98</b> have? Type the number.",
+    "answers": [
+     "6",
+     "six"
+    ],
+    "why": "Pairs: 1 × 98, 2 × 49, 7 × 14. 3 pairs = <b>6</b> factors: 1, 2, 7, 14, 49, 98.",
+    "no": "List the pairs. Don’t forget to test 7.",
+    "hint": "There are 3 pairs.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "What are <b>ALL</b> the factors of <b>65</b>? List them smallest to largest.",
+    "answers": [
+     "1, 5, 13, 65",
+     "1,5,13,65",
+     "1 5 13 65",
+     "1, 5, 13 and 65"
+    ],
+    "why": "65 = 1 × 65 = 5 × 13. Factors: <b>1, 5, 13, 65</b>.",
+    "no": "Start at 1 × the number. Test 2, 3, 4, 5… in order. Write both numbers of every pair that works. Stop when the pairs meet.",
+    "hint": "65 ends in 5.",
+    "placeholder": "Example: 1, 2, 4, 8"
+   },
+   {
+    "q": "Which cow ID number is <b>composite</b>?",
+    "choices": [
+     "179",
+     "181",
+     "177",
+     "191"
+    ],
+    "a": 2,
+    "why": "1 + 7 + 7 = 15, a multiple of 3, so <b>177 = 3 × 59</b>. It has more than two factors.",
+    "no": [
+     "179 is prime: only 1 × 179 makes it.",
+     "181 is prime: only 1 × 181 makes it.",
+     null,
+     "191 is prime: only 1 × 191 makes it."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Which digit goes in the blank to make <b>3 _ 5</b> divisible by 9?",
+    "answers": [
+     "1",
+     "one"
+    ],
+    "why": "3 + 5 = 8. The next multiple of 9 is 9, so the digit is <b>1</b>: 315 ÷ 9 = 35.",
+    "no": "Add the digits you have. What do you need to reach a multiple of 9?",
+    "hint": "3 + 5 = 8.",
+    "placeholder": "Type one digit"
+   },
+   {
+    "type": "fill",
+    "q": "LCM of <b>14</b> and <b>21</b> = ____",
+    "answers": [
+     "42"
+    ],
+    "why": "Multiples of 21: 21 (÷ 14? no), 42 (yes). The LCM is <b>42</b>, not 294.",
+    "no": "List the multiples of the bigger number: ×1, ×2, ×3… Stop at the first one the smaller number also divides evenly.",
+    "hint": "21, 42 …",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "GCF of <b>45</b> and <b>75</b> = ____",
+    "answers": [
+     "15"
+    ],
+    "why": "Factors of 45: 1, 3, 5, 9, 15, 45. 75 ÷ 15 = 5. The GCF is <b>15</b>.",
+    "no": "List the factors of each number. Circle the factors they share. The biggest one you circled is the GCF.",
+    "hint": "Is 15 a factor of both?",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "One sprinkler turns on every <b>12</b> minutes and another every <b>16</b> minutes. They just turned on together. In how many minutes will they turn on together again?",
+    "answers": [
+     "48",
+     "48 minutes"
+    ],
+    "why": "Multiples of 16: 16 (÷ 12? no), 32 (no), 48 (yes). The LCM is <b>48</b> minutes.",
+    "no": "List the multiples of the bigger number: ×1, ×2, ×3… Stop at the first one the smaller number also divides evenly.",
+    "hint": "16, 32, 48 …",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Dad has <b>27</b> apples and <b>63</b> oranges. He packs identical fruit bags with nothing left over. What is the greatest number of bags?",
+    "choices": [
+     "3",
+     "189",
+     "9",
+     "27"
+    ],
+    "a": 2,
+    "why": "Factors of 27: 1, 3, 9, 27. 63 ÷ 9 = 7, but 63 ÷ 27 leaves 9. The GCF is <b>9</b> bags (3 apples and 7 oranges in each).",
+    "no": [
+     "3 is a common factor, but 9 is greater.",
+     "189 is the LCM, a multiple. You can't make 189 bags from 27 apples.",
+     null,
+     "27 does not divide 63 evenly."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "7 is a factor of 63, so 63 is a ________ of 7.",
+    "answers": [
+     "multiple",
+     "a multiple"
+    ],
+    "why": "63 is a <b>multiple</b> of 7 (7 × 9).",
+    "no": "Skip-count by 7: 7, 14, 21 … 63.",
+    "hint": "It starts with m-u-l."
+   },
+   {
+    "q": "Which sentence is punctuated correctly?",
+    "visual": {
+     "kind": "passage",
+     "text": "<span style=\"font-size:15px;color:#5b6578\">Read the story</span><br><b>The Bird Feeder</b><br><b>1</b> Dad held up a milk jug with a hole cut in its side. “This will be our bird feeder,” he said.<br><b>2</b> “Birds won’t come to a milk jug,” Ethan said.<br><b>3</b> “Fill it with seeds and wait,” Dad said.<br><b>4</b> The next morning, three cardinals were eating from it. “I take it back!” Ethan laughed."
+    },
+    "choices": [
+     "“This will be our bird feeder,” Dad said.",
+     "“This will be our bird feeder”, Dad said.",
+     "“This will be our bird feeder.” Dad said.",
+     "“this will be our bird feeder,” Dad said."
+    ],
+    "a": 0,
+    "why": "Tag last: comma <b>inside</b> the closing mark, capital on the first spoken word.",
+    "no": [
+     null,
+     "The comma belongs inside the closing quotation mark.",
+     "A period ends it too early. The tag finishes the sentence, so use a comma.",
+     "The first spoken word, This, needs a capital."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Which word in paragraph 4 is the <b>strong tag</b>? Type it.",
+    "visual": {
+     "kind": "passage",
+     "text": "<span style=\"font-size:15px;color:#5b6578\">Read the story</span><br><b>The Bird Feeder</b><br><b>1</b> Dad held up a milk jug with a hole cut in its side. “This will be our bird feeder,” he said.<br><b>2</b> “Birds won’t come to a milk jug,” Ethan said.<br><b>3</b> “Fill it with seeds and wait,” Dad said.<br><b>4</b> The next morning, three cardinals were eating from it. “I take it back!” Ethan laughed."
+    },
+    "answers": [
+     "laughed"
+    ],
+    "why": "“I take it back!” Ethan <b>laughed</b>. <i>Laughed</i> shows he is happy he was wrong.",
+    "no": "Look right after the closing quotation mark in paragraph 4.",
+    "hint": "It is not said.",
+    "placeholder": "Type one word"
+   },
+   {
+    "type": "fill",
+    "q": "“Do we need more seeds__” Ethan asked. What end mark goes in the blank, inside the quotation marks? Type its name.",
+    "answers": [
+     "question mark",
+     "a question mark",
+     "question"
+    ],
+    "why": "He is asking, so a <b>question mark</b> goes inside: “Do we need more seeds?” Ethan asked.",
+    "no": "Look at the tag: Ethan asked.",
+    "hint": "It is not a period or a comma."
+   }
+  ]
+ ]
+}

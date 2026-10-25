@@ -1,0 +1,1838 @@
+{
+ "student": "bailey",
+ "n": 2,
+ "title": "Prove It: Every ×9 and ×6 Fact",
+ "goal": "I can solve any ×9 or ×6 fact, find a missing factor, and fix a wrong fact.",
+ "card": {
+  "desc": "Bailey proves she owns the ×9 and ×6 facts. She flips facts with the <b>turn-around</b> (commutative) idea, finds <b>missing factors</b> (9 × ? = 63), catches and fixes flawed facts, and solves harder word problems. Vocabulary: multiple, equation, commutative, justify, flawed, reluctant, persevere."
+ },
+ "win": "You persevered and proved it. Every ×9 and ×6 fact is yours!",
+ "slides": [
+  {
+   "type": "hello",
+   "title": "Prove It on Your Own: ×9 and ×6",
+   "text": "In class you proved you own the ×9 and ×6 facts. Now do it on your own. You will <b>type</b> most answers. Finish with Show What You Know.",
+   "visual": {
+    "kind": "emoji",
+    "text": "🛡️ 9️⃣ 6️⃣ ⌨️"
+   }
+  },
+  {
+   "type": "learn",
+   "kick": "Quick reminder",
+   "title": "Your four tools",
+   "text": "Read these once. Then you are ready.",
+   "visual": {
+    "kind": "passage",
+    "text": "🔟 <b>×9</b>: ×10, take away one group. 9 × 6 → 60 − 6 = 54<br>🖐️ <b>×6</b>: ×5, add one group. 6 × 7 → 35 + 7 = 42<br>🔄 <b>Flip it</b>: 8 × 6 = 6 × 8 (commutative)<br>❓ <b>Missing factor</b>: say \"9 times <i>what</i> is 63?\" Then verify."
+   },
+   "tip": "A 6s answer is always even. In a 9s answer (9 × 2 up to 9 × 10), the tens digit is one less than the other factor."
+  },
+  {
+   "type": "vocab",
+   "kick": "Word Power",
+   "title": "Your 7 words",
+   "text": "Flip each card one more time. Next you will <b>type</b> these words from memory.",
+   "words": [
+    {
+     "word": "multiple",
+     "pos": "noun",
+     "emoji": "🔁",
+     "meaning": "The product of a number and 1, 2, 3, and so on.",
+     "example": "18, 27 and 36 are multiples of 9."
+    },
+    {
+     "word": "equation",
+     "pos": "noun",
+     "emoji": "⚖️",
+     "meaning": "A number sentence with an equal sign. Both sides are worth the same.",
+     "example": "9 × 7 = 63 is an equation."
+    },
+    {
+     "word": "commutative",
+     "pos": "adjective",
+     "emoji": "🔄",
+     "meaning": "You can switch the order of the factors and get the same answer.",
+     "example": "6 × 9 = 9 × 6, so multiplication is commutative."
+    },
+    {
+     "word": "justify",
+     "pos": "verb",
+     "emoji": "🧑‍⚖️",
+     "meaning": "To give reasons that prove you are right.",
+     "example": "Justify your answer with a fact or a picture."
+    },
+    {
+     "word": "flawed",
+     "pos": "adjective",
+     "emoji": "💔",
+     "meaning": "Having a mistake or a weak spot.",
+     "example": "The fact 9 × 6 = 56 is flawed."
+    },
+    {
+     "word": "reluctant",
+     "pos": "adjective",
+     "emoji": "😬",
+     "meaning": "Not wanting to do something.",
+     "example": "Toothless was reluctant to do what Hiccup told him."
+    },
+    {
+     "word": "persevere",
+     "pos": "verb",
+     "emoji": "🧗",
+     "meaning": "To keep trying even when it is hard.",
+     "example": "Hiccup kept trying to train Toothless. He persevered."
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Word Power",
+   "title": "Type the word",
+   "text": "Type the word that fits. Spell it carefully.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Fishlegs got stuck on a hard puzzle. He kept trying and did not quit. He chose to ____.",
+     "answers": [
+      "persevere"
+     ],
+     "why": "To <b>persevere</b> is to keep trying even when it is hard.",
+     "no": "Which word means to keep trying when it is hard? Look back at the word cards.",
+     "hint": "per-se-vere"
+    },
+    {
+     "type": "fill",
+     "q": "27, 36 and 45 are all ____ of 9.",
+     "answers": [
+      "multiples",
+      "multiple"
+     ],
+     "why": "Answers on the 9s list are <b>multiples</b> of 9.",
+     "no": "Which word names the answers on a times list?",
+     "hint": "It starts with <b>m</b>."
+    },
+    {
+     "type": "fill",
+     "q": "You can switch the factors and get the same product. Which word describes that?",
+     "answers": [
+      "commutative"
+     ],
+     "why": "<b>Commutative</b>: 8 × 6 = 6 × 8.",
+     "no": "It means you can switch the order.",
+     "hint": "com-mu-ta-tive"
+    },
+    {
+     "type": "fill",
+     "q": "Fishlegs wrote 9 × 5 = 54. His fact has a mistake. It is ____.",
+     "answers": [
+      "flawed"
+     ],
+     "why": "A fact with a mistake is <b>flawed</b>. 9 × 5 = 45.",
+     "no": "Which word means having a mistake?",
+     "hint": "It starts with <b>f</b>."
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Facts",
+   "title": "Type the product",
+   "text": "Use a shortcut, not adding over and over.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "6 × 8 = ____",
+     "answers": [
+      "48"
+     ],
+     "why": "5 × 8 = 40, plus one more 8: 40 + 8 = 48.",
+     "no": "Use ×5 plus one group: 40 + one more 8."
+    },
+    {
+     "type": "fill",
+     "q": "9 × 7 = ____",
+     "answers": [
+      "63"
+     ],
+     "why": "10 × 7 = 70, take away one 7: 70 − 7 = 63.",
+     "no": "Use ×10, then take away one group of 7."
+    },
+    {
+     "type": "fill",
+     "q": "7 × 6 = ____",
+     "answers": [
+      "42"
+     ],
+     "why": "Flip it to 6 × 7: 35 + 7 = 42.",
+     "no": "Flip it to 6 × 7. Then use ×5 plus one group."
+    },
+    {
+     "type": "fill",
+     "q": "What is the turn-around fact for <b>8 × 9</b>? Type it.",
+     "answers": [
+      "9 × 8",
+      "9 × 8 = 72",
+      "72 = 9 × 8",
+      "9 times 8",
+      "9 times 8 = 72"
+     ],
+     "why": "Switch the factors: 9 × 8. Both equal 72.",
+     "no": "Switch the two factors. Keep the × sign.",
+     "placeholder": "like 3 × 4"
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Missing factors",
+   "title": "9 times what?",
+   "text": "Say it as a question. Type the missing factor. Then verify.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "9 × ____ = 45",
+     "answers": [
+      "5"
+     ],
+     "why": "9 × 5 = 50 − 5 = 45.",
+     "no": "9 times what is 45? The tens digit 4 is one less than the factor."
+    },
+    {
+     "type": "fill",
+     "q": "____ × 6 = 36",
+     "answers": [
+      "6"
+     ],
+     "why": "6 × 6 = 30 + 6 = 36.",
+     "no": "What times 6 is 36? Try ×5 plus one group."
+    },
+    {
+     "type": "fill",
+     "q": "6 × ____ = 9 × 2",
+     "answers": [
+      "3"
+     ],
+     "why": "9 × 2 = 18, and 6 × 3 = 18. Both sides are 18.",
+     "no": "First find 9 × 2. Then: 6 times what is that?"
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "kick": "Sort it",
+   "title": "True or flawed?",
+   "text": "Tap a fact, then tap the right box. Use a pattern or a shortcut.",
+   "buckets": [
+    "✅ True",
+    "💔 Flawed"
+   ],
+   "items": [
+    {
+     "text": "9 × 6 = 54",
+     "b": 0,
+     "why": "60 − 6 = 54. True!",
+     "hint": "Use ×10 take away one group: 60 − 6."
+    },
+    {
+     "text": "6 × 4 = 26",
+     "b": 1,
+     "why": "20 + 4 = 24, not 26.",
+     "hint": "Use ×5 plus one group: 20 + 4."
+    },
+    {
+     "text": "9 × 5 = 45",
+     "b": 0,
+     "why": "50 − 5 = 45. True!",
+     "hint": "Use ×10 take away one group: 50 − 5."
+    },
+    {
+     "text": "8 × 6 = 46",
+     "b": 1,
+     "why": "Flip it to 6 × 8: 40 + 8 = 48, not 46.",
+     "hint": "Flip it to 6 × 8."
+    },
+    {
+     "text": "9 × 3 = 27",
+     "b": 0,
+     "why": "30 − 3 = 27, and 2 + 7 = 9. True!",
+     "hint": "Use ×10 take away one group: 30 − 3."
+    },
+    {
+     "text": "6 × 9 = 63",
+     "b": 1,
+     "why": "63 is 9 × 7. 6 × 9 = 60 − 6 = 54. Also, 63 is odd, and 6s answers are even.",
+     "hint": "Is a 6s answer ever odd?"
+    }
+   ],
+   "done": "Patterns and shortcuts catch every flawed fact."
+  },
+  {
+   "type": "tap",
+   "kick": "Fix it",
+   "title": "Catch the mistake",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Hiccup wrote 9 × 7 = 56. What is the correct product?",
+     "answers": [
+      "63"
+     ],
+     "why": "70 − 7 = 63. Also, 5 + 6 = 11, not 9, so 56 can't be a 9s answer. (56 is 7 × 8.)",
+     "no": "Use ×10, then take away one group of 7."
+    },
+    {
+     "q": "Snotlout wrote 9 × 8 = 81. Which check proves it is flawed?",
+     "choices": [
+      "8 + 1 = 9, so it is right.",
+      "81 is odd.",
+      "The tens digit should be 7, one less than 8. 9 × 8 = 72.",
+      "9s answers always end in 1."
+     ],
+     "a": 2,
+     "why": "For 9 × 2 up to 9 × 10, the tens digit is one less than the other factor. 9 × 8 = 80 − 8 = 72.",
+     "no": [
+      "The digit sum passes, but 81 is 9 × 9. Use the tens-digit check too.",
+      "Some 9s answers are odd (27, 63, 81). Odd doesn't prove it wrong.",
+      null,
+      "9 × 2 = 18 ends in 8. That rule is false."
+     ]
+    }
+   ]
+  },
+  {
+   "type": "talk",
+   "kick": "Say it out loud",
+   "title": "Teach someone at home",
+   "text": "Find someone at home. Teach them for two minutes.",
+   "prompts": [
+    "Show them how to find <b>9 × ? = 63</b>. Then verify it.",
+    "Justify that 6 × 6 = 36. Use the word <b>because</b>.",
+    "Tell them one time Hiccup was <b>reluctant</b>, or one time he <b>persevered</b>."
+   ],
+   "starters": [
+    "9 times what is 63? …",
+    "6 × 6 = 36 because …",
+    "Hiccup was reluctant when …"
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Word problems",
+   "title": "Problems from Berk",
+   "text": "Find the equal groups. Watch for a second step!",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Stoick has 6 crates with 9 shields in each crate. 7 shields are cracked. How many shields are <b>not</b> cracked?",
+     "answers": [
+      "47"
+     ],
+     "why": "6 × 9 = 54 shields. Then 54 − 7 = 47.",
+     "no": "First find all the shields (6 × 9). Then take away the cracked ones.",
+     "hint": "6 × 9 = 54. Now take away 7."
+    },
+    {
+     "type": "fill",
+     "q": "Fishlegs has 54 fish. He puts 9 fish in each basket. How many baskets does he fill?",
+     "answers": [
+      "6"
+     ],
+     "why": "9 × ? = 54. 9 × 6 = 60 − 6 = 54, so 6 baskets.",
+     "no": "9 times what is 54?"
+    },
+    {
+     "q": "Hiccup reads 6 pages a day for 9 days. Which equation tells how many pages he reads?",
+     "choices": [
+      "6 + 9 = 15",
+      "9 × 6 = 54",
+      "60 − 9 = 51",
+      "9 × 9 = 81"
+     ],
+     "a": 1,
+     "why": "9 days with 6 pages each is 9 equal groups of 6: 9 × 6 = 54.",
+     "no": [
+      "He reads 6 pages EACH day. That is equal groups, so multiply.",
+      null,
+      "For ×9 take away one group of 6, not 9: 60 − 6.",
+      "He reads 6 pages a day, not 9."
+     ]
+    }
+   ]
+  },
+  {
+   "type": "check",
+   "title": "Show What You Know",
+   "sets": [
+    [
+     {
+      "type": "fill",
+      "q": "9 × ____ = 72",
+      "answers": [
+       "8"
+      ],
+      "why": "The tens digit 7 is one less than 8. Verify: 80 − 8 = 72.",
+      "no": "9 times what is 72?"
+     },
+     {
+      "type": "fill",
+      "q": "Hiccup draws 6 dragons on each page. He fills 7 pages. How many dragons does he draw?",
+      "answers": [
+       "42"
+      ],
+      "why": "7 pages of 6 is 7 × 6. Flip it: 6 × 7 = 35 + 7 = 42.",
+      "no": "Each page has 6. There are 7 pages. Multiply."
+     },
+     {
+      "q": "Which equation is <b>true</b>?",
+      "choices": [
+       "6 × 8 = 6 + 8",
+       "9 − 6 = 6 − 9",
+       "6 × 8 = 8 × 6",
+       "6 × 9 = 5 × 9 + 6"
+      ],
+      "a": 2,
+      "why": "Multiplication is commutative, so 6 × 8 = 8 × 6. Both are 48.",
+      "no": [
+       "6 × 8 = 48, but 6 + 8 = 14.",
+       "Subtraction is not commutative. 9 − 6 = 3.",
+       null,
+       "5 × 9 + 6 = 51. The extra group is 9, not 6."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "Stoick buys 7 bags with 9 arrows in each bag. 5 arrows break. How many arrows are left?",
+      "answers": [
+       "58"
+      ],
+      "why": "7 × 9 = 70 − 7 = 63 arrows. Then 63 − 5 = 58.",
+      "no": "First find all the arrows. Then take away the broken ones."
+     },
+     {
+      "type": "fill",
+      "q": "____ × 6 = 54",
+      "answers": [
+       "9"
+      ],
+      "why": "9 × 6 = 60 − 6 = 54.",
+      "no": "What times 6 is 54?"
+     },
+     {
+      "q": "Hiccup wrote 9 × 4 = 45. How do you know it is <b>flawed</b>?",
+      "choices": [
+       "4 + 5 = 9, so it is correct.",
+       "The tens digit should be 3, so 9 × 4 = 36.",
+       "9s facts always end in 9.",
+       "45 is too small."
+      ],
+      "a": 1,
+      "why": "The tens digit is one less than the other factor. One less than 4 is 3: 9 × 4 = 36.",
+      "no": [
+       "The digits add to 9, but the tens digit is wrong. Use both checks.",
+       null,
+       "9 × 2 = 18 ends in 8, so that rule is false.",
+       "45 is too big, not too small."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "6 × 9 = 9 × 6. You can switch the factors. So multiplication is ____.",
+      "answers": [
+       "commutative"
+      ],
+      "why": "<b>Commutative</b>: switch the factors, same product.",
+      "no": "Which word means you can switch the order?"
+     },
+     {
+      "q": "Which number is a <b>multiple</b> of 9?",
+      "choices": [
+       "48",
+       "56",
+       "63",
+       "42"
+      ],
+      "a": 2,
+      "why": "63 = 9 × 7. Verify: 6 + 3 = 9.",
+      "no": [
+       "48 is 6 × 8. 4 + 8 = 12, not 9.",
+       "56 is 7 × 8. 5 + 6 = 11.",
+       null,
+       "42 is 6 × 7. 4 + 2 = 6."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "Which word means <i>not wanting to do something</i>?",
+      "answers": [
+       "reluctant"
+      ],
+      "why": "<b>Reluctant</b> means not wanting to do something.",
+      "no": "It starts with <b>r</b>."
+     },
+     {
+      "q": "You say 6 × 7 = 42. Which is the best way to <b>justify</b> it?",
+      "choices": [
+       "Because I said so.",
+       "6 + 7 = 13.",
+       "It looks right.",
+       "5 × 7 = 35, and 35 + 7 = 42."
+      ],
+      "a": 3,
+      "why": "To justify is to give a reason that proves it. The ×6 shortcut proves 42.",
+      "no": [
+       "That is not a reason.",
+       "That adds the factors. It doesn't prove 42.",
+       "Looking right is not proof.",
+       null
+      ]
+     }
+    ],
+    [
+     {
+      "type": "fill",
+      "q": "9 × ____ = 36",
+      "answers": [
+       "4"
+      ],
+      "why": "9 × 4 = 40 − 4 = 36.",
+      "no": "9 times what is 36?"
+     },
+     {
+      "type": "fill",
+      "q": "Gobber hangs 9 helmets on each of 6 racks. How many helmets?",
+      "answers": [
+       "54"
+      ],
+      "why": "6 racks of 9 is 6 × 9 = 60 − 6 = 54.",
+      "no": "6 equal groups of 9. Use a shortcut."
+     },
+     {
+      "q": "Which equation shows the <b>commutative</b> property?",
+      "choices": [
+       "7 × 9 = 7 + 9",
+       "7 × 9 = 9 × 7",
+       "9 − 7 = 7 − 9",
+       "7 × 9 = 70 − 9"
+      ],
+      "a": 1,
+      "why": "The factors switched places and the product stayed 63.",
+      "no": [
+       "7 × 9 = 63, but 7 + 9 = 16. That is false.",
+       null,
+       "Subtraction can't switch: 9 − 7 = 2, 7 − 9 is not 2.",
+       "70 − 9 = 61, not 63. And it doesn't switch the factors."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "Toothless catches 6 fish a day for 8 days. He gives 9 fish to Hiccup. How many fish does he keep?",
+      "answers": [
+       "39"
+      ],
+      "why": "8 × 6 = 48 fish. Then 48 − 9 = 39.",
+      "no": "First find all the fish (8 days of 6). Then take away 9."
+     },
+     {
+      "type": "fill",
+      "q": "6 × ____ = 42",
+      "answers": [
+       "7"
+      ],
+      "why": "6 × 7 = 35 + 7 = 42.",
+      "no": "6 times what is 42?"
+     },
+     {
+      "q": "Fishlegs wrote 6 × 8 = 42. Why is it flawed?",
+      "choices": [
+       "It is not flawed: 4 + 2 = 6.",
+       "6s answers are always odd.",
+       "It should be 6 + 8 = 14.",
+       "42 is 6 × 7. 6 × 8 = 40 + 8 = 48."
+      ],
+      "a": 3,
+      "why": "6 × 8 = 40 + 8 = 48. 42 is one group short.",
+      "no": [
+       "The digit check is for 9s, not 6s. 6 × 8 = 48.",
+       "6s answers are always even.",
+       "6 × 8 means 6 groups of 8. Don't add.",
+       null
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "Which word means <i>to keep trying even when it is hard</i>? Type it.",
+      "answers": [
+       "persevere",
+       "persevering"
+      ],
+      "why": "To <b>persevere</b> is to keep trying even when it is hard.",
+      "no": "It starts with <b>p</b>."
+     },
+     {
+      "q": "Which number is a multiple of 6 but <b>not</b> a multiple of 9?",
+      "choices": [
+       "18",
+       "27",
+       "54",
+       "30"
+      ],
+      "a": 3,
+      "why": "30 = 6 × 5, and 3 + 0 = 3, so it is not on the 9s list.",
+      "no": [
+       "18 is on both lists: 6 × 3 and 9 × 2.",
+       "27 is odd, so it is not a multiple of 6.",
+       "54 is on both lists: 6 × 9 and 9 × 6.",
+       null
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "A number sentence with an equal sign, like 6 × 4 = 24, is called an ____.",
+      "answers": [
+       "equation"
+      ],
+      "why": "An <b>equation</b> has an equal sign. Both sides are worth the same.",
+      "no": "It starts with <b>e</b>."
+     },
+     {
+      "q": "A young Viking is <b>reluctant</b> to go into the dragon arena. Which sentence shows that?",
+      "choices": [
+       "He runs to the arena before anyone else.",
+       "He drags his feet and looks for reasons not to go.",
+       "He wins the fight in one minute.",
+       "He sings a loud victory song."
+      ],
+      "a": 1,
+      "why": "Reluctant means not wanting to do something. Dragging his feet shows he doesn't want to go.",
+      "no": [
+       "Running there first is eager, the opposite of reluctant.",
+       null,
+       "Winning fast is about skill, not about wanting to go.",
+       "Singing is happy. It doesn't show he doesn't want to go."
+      ]
+     }
+    ],
+    [
+     {
+      "type": "fill",
+      "q": "____ × 9 = 27",
+      "answers": [
+       "3"
+      ],
+      "why": "3 × 9 = 27. Verify: 30 − 3 = 27.",
+      "no": "What times 9 is 27?"
+     },
+     {
+      "type": "fill",
+      "q": "Stoick sets 9 tables with 9 plates on each table. How many plates?",
+      "answers": [
+       "81"
+      ],
+      "why": "9 × 9 = 90 − 9 = 81.",
+      "no": "9 groups of 9. Take one group of 9 away from 90."
+     },
+     {
+      "q": "Bailey knows 6 × 7 = 42. Which fact does the commutative property give her for free?",
+      "choices": [
+       "6 × 6 = 36",
+       "42 − 6 = 36",
+       "7 × 6 = 42",
+       "6 + 7 = 13"
+      ],
+      "a": 2,
+      "why": "Switch the factors: 7 × 6 = 42.",
+      "no": [
+       "That changes a factor. Commutative only switches the order.",
+       "That subtracts. Switch the factors instead.",
+       null,
+       "That adds. Switch the factors in the multiplication."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "Hiccup has 4 bags with 9 apples in each bag. He finds 7 more apples. How many apples does he have now?",
+      "answers": [
+       "43"
+      ],
+      "why": "4 × 9 = 40 − 4 = 36. Then 36 + 7 = 43.",
+      "no": "First find the apples in the bags. Then add the 7 he found."
+     },
+     {
+      "type": "fill",
+      "q": "____ × 6 = 48",
+      "answers": [
+       "8"
+      ],
+      "why": "8 × 6 = 6 × 8 = 40 + 8 = 48.",
+      "no": "What times 6 is 48?"
+     },
+     {
+      "q": "Snotlout says 9 × 7 = 72 because 7 + 2 = 9. What is wrong?",
+      "choices": [
+       "Nothing. The digits add to 9.",
+       "The tens digit should be 6, one less than 7. 9 × 7 = 63.",
+       "He should add: 9 + 7 = 16.",
+       "9 × 7 must end in 9."
+      ],
+      "a": 1,
+      "why": "The tens digit is one less than 7, so it is 6: 9 × 7 = 70 − 7 = 63. 72 is 9 × 8.",
+      "no": [
+       "The digit sum passes, but the tens digit is wrong. Use both checks.",
+       null,
+       "9 × 7 is 7 groups of 9. Multiply, don't add.",
+       "9 × 7 = 63 ends in 3."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "Which word means <i>having a mistake or a weak spot</i>?",
+      "answers": [
+       "flawed"
+      ],
+      "why": "<b>Flawed</b> means having a mistake or a weak spot.",
+      "no": "It starts with <b>f</b>."
+     },
+     {
+      "q": "Which list shows <b>only</b> multiples of 6?",
+      "choices": [
+       "12, 21, 30",
+       "16, 26, 36",
+       "6, 15, 24",
+       "12, 24, 36"
+      ],
+      "a": 3,
+      "why": "6 × 2 = 12, 6 × 4 = 24, 6 × 6 = 36.",
+      "no": [
+       "21 is odd, so it is not a multiple of 6.",
+       "16 and 26 are not on the 6s list.",
+       "15 is odd, so it is not a multiple of 6.",
+       null
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "Jonathan asks, \"How do you know?\" He wants you to ____ your answer.",
+      "answers": [
+       "justify"
+      ],
+      "why": "To <b>justify</b> is to give reasons that prove you are right.",
+      "no": "It starts with <b>j</b>."
+     },
+     {
+      "q": "Hiccup keeps trying to train Toothless, even when Toothless will not listen. Which word fits Hiccup?",
+      "choices": [
+       "He is reluctant.",
+       "He perseveres.",
+       "He is flawed.",
+       "He is commutative."
+      ],
+      "a": 1,
+      "why": "He keeps trying even when it is hard. That is <b>persevering</b>.",
+      "no": [
+       "Reluctant means not wanting to try. Hiccup keeps trying!",
+       null,
+       "Flawed describes a mistake, not a person who keeps trying.",
+       "Commutative describes switching factors, not a person."
+      ]
+     }
+    ]
+   ]
+  }
+ ],
+ "practice": {
+  "intro": "Three tries on each one. Only your first try counts. Type most answers. Flip facts, find missing factors, and verify every answer.",
+  "questions": [
+   {
+    "type": "fill",
+    "q": "9 × ____ = 81",
+    "answers": [
+     "9"
+    ],
+    "why": "The tens digit 8 is one less than 9. Verify: 90 − 9 = 81.",
+    "no": "9 times what is 81?"
+   },
+   {
+    "type": "fill",
+    "q": "6 × ____ = 24",
+    "answers": [
+     "4"
+    ],
+    "why": "6 × 4 = 20 + 4 = 24.",
+    "no": "6 times what is 24? Try ×5 plus one group."
+   },
+   {
+    "type": "fill",
+    "q": "What is 8 × 6? Type the product.",
+    "answers": [
+     "48"
+    ],
+    "why": "Flip it to 6 × 8: 40 + 8 = 48.",
+    "no": "Flip it to 6 × 8. Then ×5 plus one group."
+   },
+   {
+    "q": "What is 4 × 9?",
+    "choices": [
+     "32",
+     "45",
+     "27",
+     "36"
+    ],
+    "a": 3,
+    "why": "Flip it to 9 × 4: 40 − 4 = 36.",
+    "no": [
+     "Verify: 3 + 2 = 5, not 9.",
+     "45 is 9 × 5.",
+     "27 is 9 × 3.",
+     null
+    ]
+   },
+   {
+    "q": "An <b>equation</b> needs both sides to be worth the same. Which one is a true equation?",
+    "choices": [
+     "9 × 5 = 50 − 9",
+     "9 × 5",
+     "9 × 5 = 50 − 5",
+     "9 × 5 = 45 + 9"
+    ],
+    "a": 2,
+    "why": "9 × 5 = 45 and 50 − 5 = 45. Both sides are worth 45.",
+    "no": [
+     "50 − 9 = 41, but 9 × 5 = 45. The two sides are not worth the same.",
+     "There is no equal sign, so it is not an equation.",
+     null,
+     "45 + 9 = 54, but 9 × 5 = 45. The two sides don't match."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Fishlegs gets stuck on 7 × 9, but he keeps trying strategies until he solves it. He ____.",
+    "answers": [
+     "perseveres",
+     "persevere",
+     "persevered"
+    ],
+    "why": "To <b>persevere</b> is to keep trying even when it is hard.",
+    "no": "Which word means keep trying? It starts with <b>p</b>."
+   },
+   {
+    "q": "Which number is a multiple of 6 <b>and</b> a multiple of 9?",
+    "choices": [
+     "27",
+     "24",
+     "18",
+     "45"
+    ],
+    "a": 2,
+    "why": "6 × 3 = 18 and 9 × 2 = 18. It is on both lists.",
+    "no": [
+     "27 is a multiple of 9, but it is odd, so it is not a multiple of 6.",
+     "24 is a multiple of 6, but 2 + 4 = 6, not 9.",
+     null,
+     "45 is a multiple of 9, but it is odd, so it is not a multiple of 6."
+    ]
+   },
+   {
+    "q": "Fishlegs wrote 6 × 7 = 36. Which equation fixes it?",
+    "choices": [
+     "30 + 6 = 36",
+     "35 + 6 = 41",
+     "42 + 7 = 49",
+     "35 + 7 = 42"
+    ],
+    "a": 3,
+    "why": "5 × 7 = 35, plus one more group of 7: 35 + 7 = 42.",
+    "no": [
+     "30 + 6 is 6 × 6.",
+     "Add a group of 7, not 6. And a 6s answer can't be odd.",
+     "42 + 7 is 7 × 7.",
+     null
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "A dragon trainer has 60 fish. She keeps 6 for herself. She gives 6 fish to each dragon. How many dragons get fish?",
+    "answers": [
+     "9"
+    ],
+    "why": "60 − 6 = 54 fish to share. 6 × ? = 54. 6 × 9 = 45 + 9 = 54, so 9 dragons.",
+    "no": "First take away the 6 she keeps. Then: 6 times what is that?",
+    "hint": "60 − 6 = 54. Now: 6 times what is 54?"
+   },
+   {
+    "type": "fill",
+    "q": "Hiccup has 6 boxes with 9 nails in each. He uses 20 nails. How many nails are left?",
+    "answers": [
+     "34"
+    ],
+    "why": "6 × 9 = 54 nails. Then 54 − 20 = 34.",
+    "no": "First find all the nails (6 × 9). Then take away 20."
+   },
+   {
+    "type": "fill",
+    "q": "To give reasons that prove you are right is to ____ your answer.",
+    "answers": [
+     "justify"
+    ],
+    "why": "To <b>justify</b> is to give reasons that prove you are right.",
+    "no": "It starts with <b>j</b>."
+   },
+   {
+    "q": "Which fact is <b>flawed</b>?",
+    "choices": [
+     "9 × 7 = 63",
+     "6 × 9 = 54",
+     "9 × 2 = 27",
+     "6 × 5 = 30"
+    ],
+    "a": 2,
+    "why": "9 × 2 = 20 − 2 = 18. 27 is 9 × 3. The digits add to 9, but the tens digit should be 1, one less than 2.",
+    "no": [
+     "70 − 7 = 63. True.",
+     "45 + 9 = 54. True.",
+     null,
+     "6 × 5 = 30. True."
+    ]
+   }
+  ]
+ },
+ "packet": {
+  "title": "Prove It: Every ×9 and ×6 Fact",
+  "pages": [
+   [
+    {
+     "title": "Part 1: Word power",
+     "directions": "Write the best word from the word bank on each line.",
+     "items": [
+      {
+       "type": "bank",
+       "words": [
+        "multiple",
+        "equation",
+        "commutative",
+        "justify",
+        "flawed",
+        "reluctant",
+        "persevere"
+       ]
+      },
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "1. Multiplication is ______________, so 6 × 9 and 9 × 6 have the same product."
+      },
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "2. 36 is a ______________ of 9 and also of 6."
+      },
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "3. Toothless did not want to get out of his warm bed. He was ______________."
+      },
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "4. 9 × 3 = 24 is a ______________ fact."
+      },
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "5. When a problem is hard, I ______________ and try another strategy."
+      },
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "6. A number sentence with an equal sign, like 9 × 7 = 63, is called a(n) ______________."
+      },
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "7. Use a fact or a picture to ______________ your answer."
+      }
+     ]
+    },
+    {
+     "title": "Part 2: Fact power",
+     "directions": "Write each product. Use your shortcuts.",
+     "items": [
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "8. 6 × 3 = ____ &nbsp;&nbsp;&nbsp;&nbsp; 6 × 6 = ____ &nbsp;&nbsp;&nbsp;&nbsp; 6 × 9 = ____ &nbsp;&nbsp;&nbsp;&nbsp; 6 × 4 = ____"
+      },
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "9. 9 × 3 = ____ &nbsp;&nbsp;&nbsp;&nbsp; 9 × 6 = ____ &nbsp;&nbsp;&nbsp;&nbsp; 9 × 9 = ____ &nbsp;&nbsp;&nbsp;&nbsp; 9 × 4 = ____"
+      },
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "10. 6 × 7 = ____ &nbsp;&nbsp;&nbsp;&nbsp; 9 × 7 = ____ &nbsp;&nbsp;&nbsp;&nbsp; 6 × 8 = ____ &nbsp;&nbsp;&nbsp;&nbsp; 9 × 8 = ____"
+      }
+     ]
+    },
+    {
+     "title": "Part 3: Missing factors",
+     "directions": "Find the missing factor.",
+     "items": [
+      {
+       "type": "fill",
+       "lines": 0,
+       "text": "11. 9 × ____ = 63 &nbsp;&nbsp;&nbsp;&nbsp; 12. 6 × ____ = 42 &nbsp;&nbsp;&nbsp;&nbsp; 13. ____ × 9 = 45 &nbsp;&nbsp;&nbsp;&nbsp; 14. ____ × 6 = 54"
+      }
+     ]
+    },
+    {
+     "title": "Part 4: Find it and fix it",
+     "directions": "Is the fact flawed? Justify your answer.",
+     "items": [
+      {
+       "type": "problem",
+       "text": "15. Fishlegs wrote 9 × 9 = 72. Is it flawed? Justify your answer and write the correct fact.",
+       "lines": 2
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "title": "Part 5: Word problems",
+     "directions": "Write an equation. Then solve. Show your shortcut.",
+     "items": [
+      {
+       "type": "problem",
+       "text": "16. The Vikings have 42 torches. They put 6 torches in each hut. How many huts get torches?",
+       "lines": 3
+      },
+      {
+       "type": "problem",
+       "text": "17. Hiccup packs 8 crates with 9 fish in each. Toothless eats 15 fish. How many fish are left?",
+       "lines": 3
+      },
+      {
+       "type": "problem",
+       "text": "18. Hiccup has 6 bags with 7 dragon scales in each bag. He gives 12 scales to Fishlegs. How many scales does Hiccup have left?",
+       "lines": 3
+      }
+     ]
+    },
+    {
+     "title": "Part 6: Book corner",
+     "directions": "Answer in complete sentences about <i>How to Train Your Dragon</i>.",
+     "items": [
+      {
+       "type": "write",
+       "text": "19. Does Hiccup <b>persevere</b> when things get hard? Justify your answer with one event from the part you read.",
+       "lines": 4
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "teacher": {
+  "objective": "Bailey shows she owns every ×6 and ×9 fact to 10: she uses the turn-around (commutative) idea, finds missing factors (9 × ? = 63), spots and fixes flawed facts, and solves one- and two-step word problems. She learns 7 vocabulary words (multiple, equation, commutative, justify, flawed, reluctant, persevere) and reviews Tuesday's words.",
+  "materials": [
+   "About 60 counters",
+   "A sheet of paper to rotate as an array (6 rows of 9)",
+   "Whiteboard and marker",
+   "Tuesday's 7 vocab index cards plus 7 new cards",
+   "Her book, <i>How to Train Your Dragon</i>",
+   "Printed packet (2 pages) to send home",
+   "3 blank index cards for the Justify It slide"
+  ],
+  "plan": [
+   {
+    "time": "0:00–0:03",
+    "block": "Hello + Lesson 1 check-in",
+    "do": "Class slide 1. Collect Lesson 1 packet page 1 and look at her Lesson 1 after-class score. She names Tuesday's two shortcuts."
+   },
+   {
+    "time": "0:03–0:10",
+    "block": "Book Talk",
+    "do": "Class slide 2. She retells in order and tells how Hiccup has changed, using <i>ingenious</i> or <i>strategy</i>."
+   },
+   {
+    "time": "0:10–0:14",
+    "block": "Recall",
+    "do": "Class slide 3. She says each shortcut aloud before tapping. Rebuild any miss with counters."
+   },
+   {
+    "time": "0:14–0:22",
+    "block": "Word Power",
+    "do": "Class slides 4–5. Teach the 7 words one at a time (say, clap, meaning, example, her sentence). Add 7 index cards to Tuesday's pile. Slide 5: she answers out loud first."
+   },
+   {
+    "time": "0:22–0:26",
+    "block": "All the facts",
+    "do": "Class slide 6. Whiteboard quick-fire on ×6 and ×9 facts; she names the shortcut each time. Point out that 6s answers are even."
+   },
+   {
+    "time": "0:26–0:32",
+    "block": "Turn-around (hands-on)",
+    "do": "Class slide 7. 6 rows of 9 counters on paper; turn the paper to show 9 rows of 6. She flips 7 × 9 and 8 × 6 out loud."
+   },
+   {
+    "time": "0:32–0:39",
+    "block": "Missing factors",
+    "do": "Class slides 8–9. She says each one as a question (\"9 times what is 63?\") and verifies on the whiteboard."
+   },
+   {
+    "time": "0:39–0:46",
+    "block": "True or flawed",
+    "do": "Class slides 10–11. She names her check before each tap and explains each mistake in her own words before tapping the fix."
+   },
+   {
+    "time": "0:46–0:53",
+    "block": "Word problems",
+    "do": "Class slides 12–13. She says each step of the order aloud. Fish problem: whiteboard first, choices covered."
+   },
+   {
+    "time": "0:53–0:57",
+    "block": "Justify it (index cards)",
+    "do": "Class slide 14. She writes 3 facts on index cards and justifies each one out loud with \"because.\""
+   },
+   {
+    "time": "0:57–1:00",
+    "block": "Wrap-up",
+    "do": "Class slide 15. Go through the task list on the course page: After-Class Lesson tonight; Practice Friday; this packet and Lesson 1 packet page 2 Saturday; Times Table Trail Lesson 4 Sunday; reading every day."
+   }
+  ],
+  "watch": [
+   "Answering missing-factor problems with the total or a random fact (9 × ? = 63 → 54). Ask: \"Say it as a question: 9 times what is 63?\" Then make her verify.",
+   "Not flipping a fact she doesn't know (7 × 9). Ask: \"Which factor has a shortcut?\" and point to the 9.",
+   "Two-step word problems: she stops after the multiplication (54 fish) and forgets the second step. Ask: \"Did anything else happen in the story?\"",
+   "Using only the digit-sum check (accepting 9 × 3 = 72). Remind her: two checks catch more.",
+   "Choosing the slowest method or saying \"I can't.\" Say: \"You already proved you know 10s and 5s. Which shortcut fits?\" Praise perseverance by name: \"That's persevering.\""
+  ],
+  "packet_key": [
+   {
+    "item": "1",
+    "answer": "commutative"
+   },
+   {
+    "item": "2",
+    "answer": "multiple"
+   },
+   {
+    "item": "3",
+    "answer": "reluctant"
+   },
+   {
+    "item": "4",
+    "answer": "flawed (9 × 3 = 27)"
+   },
+   {
+    "item": "5",
+    "answer": "persevere"
+   },
+   {
+    "item": "6",
+    "answer": "equation"
+   },
+   {
+    "item": "7",
+    "answer": "justify"
+   },
+   {
+    "item": "8",
+    "answer": "18, 36, 54, 24"
+   },
+   {
+    "item": "9",
+    "answer": "27, 54, 81, 36"
+   },
+   {
+    "item": "10",
+    "answer": "42, 63, 48, 72"
+   },
+   {
+    "item": "11",
+    "answer": "7"
+   },
+   {
+    "item": "12",
+    "answer": "7"
+   },
+   {
+    "item": "13",
+    "answer": "5"
+   },
+   {
+    "item": "14",
+    "answer": "9"
+   },
+   {
+    "item": "15",
+    "answer": "Yes, it is flawed. 7 + 2 = 9 passes the digit check, but the tens digit should be 8 (one less than 9). 9 × 9 = 90 − 9 = 81. (72 is 9 × 8.)"
+   },
+   {
+    "item": "16",
+    "answer": "6 × ? = 42; 6 × 7 = 35 + 7 = 42, so 7 huts"
+   },
+   {
+    "item": "17",
+    "answer": "8 × 9 = 9 × 8 = 80 − 8 = 72 fish; 72 − 15 = 57 fish left"
+   },
+   {
+    "item": "18",
+    "answer": "6 × 7 = 35 + 7 = 42 scales; 42 − 12 = 30 scales left"
+   },
+   {
+    "item": "19",
+    "answer": "A yes or no answer in complete sentences, justified with a real event from the part she read, using <i>persevere</i> correctly."
+   }
+  ],
+  "notes": "Show What You Know is now at the end of the After-Class Lesson, done at home tonight. Each retake gives her a brand-new set of 10. Lesson 3 (Monday, Zoom) starts ×8 and ×4 with doubling, so ×6 and ×9 need to be solid. If her score is under 90, begin Monday with 5 minutes of mixed ×6 and ×9 missing factors (she holds up whiteboard answers to the camera), then have her retake the check before Lesson 3. Keep both sets of vocab cards for spaced review."
+ },
+ "tasks": [
+  "Thursday night: do the <a href=\"lesson-02.html\">After-Class Lesson</a>. Get 90 or more on Show What You Know.",
+  "Friday: do the <a href=\"practice-02.html\">Practice set</a>. Aim for 90 or more.",
+  "Saturday: print this lesson's <a href=\"packet-02.html\">Packet</a> and do both pages.",
+  "Saturday: do page 2 of the <a href=\"packet-01.html\">Lesson 1 Packet</a>.",
+  "Sunday: do <a href=\"https://kingcretot.github.io/KCE_Math_Foundations/world3/lesson4.html\" target=\"_blank\">Times Table Trail, Lesson 4</a>. If it is locked, type 1111.",
+  "<span data-ela></span>Saturday or Sunday: do the reading lesson <a href=\"https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week8/reading.html\" target=\"_blank\"><b>Pathways Week 8 Reading: Ravi's Newsletter</b></a>. Figure out why the author wrote the piece. Aim for 85. If it is locked, type 1111.",
+  "Every day until Monday: read <i>How to Train Your Dragon</i> for 15 minutes. Find a time Hiccup <b>perseveres</b>."
+ ],
+ "also": [
+  {
+   "label": "Times Table Trail, Lesson 4: Multiplying by 6, 7, 8 and 9",
+   "url": "https://kingcretot.github.io/KCE_Math_Foundations/world3/lesson4.html",
+   "how": "Do this on Sunday, before Monday's Zoom lesson. Use your ×9 and ×6 shortcuts on every 6s and 9s question. The 7s and 8s are a sneak peek at next week, so just try your best. If it is locked, type 1111."
+  },
+  {
+   "label": "Pathways Week 8 Reading: Ravi's Newsletter",
+   "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week8/reading.html",
+   "how": "Reading practice for this week. Do it on Saturday or Sunday (it is on your task list). Figure out why the author wrote the piece. Aim for 85 or more. If it is locked, type 1111.",
+   "ela": true
+  }
+ ],
+ "teach": {
+  "slides": [
+   {
+    "type": "hello",
+    "title": "Prove It: Every ×9 and ×6 Fact",
+    "text": "On Tuesday you learned two shortcuts. Today you <b>prove</b> you own them: flip facts around, find missing numbers, and catch mistakes like a dragon detective. 🐉🔍",
+    "visual": {
+     "kind": "emoji",
+     "text": "🛡️ 9️⃣ 6️⃣ 🏆"
+    },
+    "notes": {
+     "do": "Collect her Lesson 1 packet page 1 and look at her Lesson 1 after-class score on the course page before you start.",
+     "say": "\"Tuesday you learned the tools. Today you prove you own them. By the end of class you will catch a wrong fact in two seconds.\"",
+     "ask": "\"What are the two shortcuts from Tuesday? Say them in one sentence each.\"",
+     "listen": "\"×9: ten groups, take one group away.\" and \"×6: five groups, add one more group.\" If she says \"add 9 nine times,\" go straight to the recall slide and rebuild with counters."
+    }
+   },
+   {
+    "type": "talk",
+    "kick": "Book Talk",
+    "title": "Talk about your book",
+    "text": "Think about <i>How to Train Your Dragon</i>.",
+    "prompts": [
+     "What happened in the part you read since Tuesday?",
+     "How has Hiccup changed since the start of the book? Give one example.",
+     "Use Tuesday's words: what is one <b>ingenious</b> thing Hiccup did, or one <b>strategy</b> he used?"
+    ],
+    "starters": [
+     "Since Tuesday, …",
+     "At first Hiccup …, but now he …",
+     "One ingenious thing Hiccup did was …"
+    ],
+    "notes": {
+     "do": "5–7 minutes. Book closed first, then she may open it to find a page.",
+     "say": "\"Tell me what happened since Tuesday, in order. Then tell me how Hiccup is different now.\"",
+     "ask": "\"How has Hiccup changed? Give one example from the book.\" Then: \"Use <b>ingenious</b> or <b>strategy</b> in a sentence about him.\"",
+     "listen": "A real event in order (first, then, after that) and a before/after change (\"At first he … but now he …\"). If she only says \"he's braver,\" ask \"What did he DO that shows it?\""
+    }
+   },
+   {
+    "type": "recall",
+    "kick": "Remember",
+    "title": "Tuesday's shortcuts",
+    "text": "Quick review. Show me you remember!",
+    "items": [
+     {
+      "q": "Which one is the ×9 shortcut for 9 × 9?",
+      "choices": [
+       "81 − 9",
+       "90 − 1",
+       "90 − 9",
+       "100 − 9"
+      ],
+      "a": 2,
+      "why": "10 × 9 = 90, then take away one group of 9: 90 − 9 = 81.",
+      "no": [
+       "81 is already the answer. Start with 10 × 9 = 90.",
+       "Take away a whole group of 9, not 1.",
+       null,
+       "100 is 10 × 10. Start with 10 × 9."
+      ]
+     },
+     {
+      "q": "Use ×5 plus one group. What is 6 × 9?",
+      "choices": [
+       "45 + 6 = 51",
+       "45 + 9 = 54",
+       "50 + 9 = 59",
+       "54 − 9 = 45"
+      ],
+      "a": 1,
+      "why": "5 × 9 = 45, plus one more group of 9: 45 + 9 = 54.",
+      "no": [
+       "The extra group has 9 in it, not 6.",
+       null,
+       "5 × 9 is 45, not 50.",
+       "That takes a group away. For ×6 you add one."
+      ]
+     },
+     {
+      "q": "Adding 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 instead of doing 60 − 6 is…",
+      "choices": [
+       "efficient",
+       "tedious",
+       "ingenious",
+       "a factor"
+      ],
+      "a": 1,
+      "why": "Nine 6s added one at a time is long, slow and boring: <b>tedious</b>. 60 − 6 is the efficient way.",
+      "no": [
+       "Efficient means fast with no wasted steps. Adding nine times is the opposite.",
+       null,
+       "Ingenious means very clever. The shortcut is the clever way.",
+       "A factor is a number you multiply."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "She says the shortcut out loud BEFORE she taps. If she misses the ×9 or ×6 item, rebuild it with counters right away (10 rows minus one row; 5 rows plus one row).",
+     "ask": "\"Why is 90 − 9 right and 90 − 1 wrong?\"",
+     "listen": "\"Because you take away a whole group of 9, not just 1.\""
+    }
+   },
+   {
+    "type": "vocab",
+    "kick": "Word Power",
+    "title": "7 new words",
+    "text": "Jonathan reads each word. You flip the card, read the meaning, and make your own sentence.",
+    "words": [
+     {
+      "word": "multiple",
+      "pos": "noun",
+      "emoji": "🔁",
+      "meaning": "The product of a number and 1, 2, 3, and so on.",
+      "example": "18, 27 and 36 are multiples of 9."
+     },
+     {
+      "word": "equation",
+      "pos": "noun",
+      "emoji": "⚖️",
+      "meaning": "A number sentence with an equal sign. Both sides are worth the same.",
+      "example": "9 × 7 = 63 is an equation."
+     },
+     {
+      "word": "commutative",
+      "pos": "adjective",
+      "emoji": "🔄",
+      "meaning": "You can switch the order of the factors and get the same answer.",
+      "example": "6 × 9 = 9 × 6, so multiplication is commutative."
+     },
+     {
+      "word": "justify",
+      "pos": "verb",
+      "emoji": "🧑‍⚖️",
+      "meaning": "To give reasons that prove you are right.",
+      "example": "Justify your answer with a fact or a picture."
+     },
+     {
+      "word": "flawed",
+      "pos": "adjective",
+      "emoji": "💔",
+      "meaning": "Having a mistake or a weak spot.",
+      "example": "The fact 9 × 6 = 56 is flawed."
+     },
+     {
+      "word": "reluctant",
+      "pos": "adjective",
+      "emoji": "😬",
+      "meaning": "Not wanting to do something.",
+      "example": "Toothless was reluctant to do what Hiccup told him."
+     },
+     {
+      "word": "persevere",
+      "pos": "verb",
+      "emoji": "🧗",
+      "meaning": "To keep trying even when it is hard.",
+      "example": "Hiccup kept trying to train Toothless. He persevered."
+     }
+    ],
+    "notes": {
+     "do": "Teach the words one at a time (about 1 minute each). Write each word on an index card and add the cards to Tuesday's pile.",
+     "say": "For each word: read it, clap the syllables (com-mu-ta-tive, per-se-vere), read the meaning, read the example, then she makes her own sentence. \"A <b>multiple</b> of 9 is any answer on the 9s list. An <b>equation</b> must have an equal sign. <b>Commutative</b> comes from <i>commute</i>, to switch places. To <b>justify</b> is to prove with a reason. <b>Flawed</b> means it has a crack in it, a mistake.\"",
+     "ask": "\"When have YOU been <b>reluctant</b>? When did you <b>persevere</b>?\" \"Is 9 × 7 an equation? What about 9 × 7 = 63?\"",
+     "listen": "Personal sentences that show the meaning (\"I was reluctant to go to the dentist\"). \"9 × 7 is not an equation because there is no equal sign.\""
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Word Work",
+    "title": "Talk it through",
+    "text": "Answer out loud first. Then type or tap.",
+    "notes": {
+     "do": "Bailey answers out loud before she types or taps. Ask her to justify each answer.",
+     "ask": "\"Why are 19 and 29 not multiples of 9?\" \"Which word did you pick for the Viking, and why?\"",
+     "listen": "\"19 and 29 are not on the 9s list: 9 × 2 = 18 and 9 × 3 = 27.\" For the Viking: \"Reluctant, because he didn't want to get in the boat.\""
+    },
+    "items": [
+     {
+      "q": "Which list shows only <b>multiples</b> of 9?",
+      "choices": [
+       "9, 19, 29",
+       "18, 27, 36",
+       "9, 15, 21",
+       "45, 50, 55"
+      ],
+      "a": 1,
+      "why": "9 × 2 = 18, 9 × 3 = 27, 9 × 4 = 36. All three are on the 9s list.",
+      "no": [
+       "19 and 29 end in 9, but they are not on the 9s list (9, 18, 27 …).",
+       null,
+       "15 and 21 are not on the 9s list. 9 × 2 is 18.",
+       "Only 45 is a multiple of 9. 50 and 55 are not."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "The young Viking dragged his feet and would not get in the boat. He was ____.",
+      "answers": [
+       "reluctant"
+      ],
+      "why": "<b>Reluctant</b> means not wanting to do something.",
+      "no": "Which word means not wanting to do something?",
+      "hint": "It starts with <b>r</b>."
+     }
+    ]
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "All the ×6 and ×9 facts",
+    "text": "Here is every 6s and 9s fact up to ×10. These products are the <b>multiples</b> of 6 and 9.",
+    "visual": {
+     "kind": "passage",
+     "text": "<b>6s:</b> 6, 12, 18, 24, 30, 36, 42, 48, 54, 60<br><b>9s:</b> 9, 18, 27, 36, 45, 54, 63, 72, 81, 90"
+    },
+    "steps": [
+     {
+      "text": "<b>Pattern 1.</b> Every multiple of 6 is <b>even</b>. So 6 × 7 can't be 41 or 43."
+     },
+     {
+      "text": "<b>Pattern 2.</b> 6 times 2, 4, 6 or 8 ends in that same digit: 6 × 2 = 12, 6 × 4 = 24, 6 × 6 = 36, 6 × 8 = 48."
+     },
+     {
+      "text": "<b>Pattern 3.</b> 18, 36 and 54 are on <b>both</b> lists. They are multiples of 6 AND of 9."
+     }
+    ],
+    "tip": "Use the patterns to catch mistakes fast. If a 6s answer is odd, it is wrong.",
+    "notes": {
+     "do": "Quick-fire on the whiteboard: you say a ×6 or ×9 fact, she answers and names the shortcut. 8–10 facts in 3 minutes.",
+     "say": "\"These lists are the <b>multiples</b> of 6 and 9. Look for patterns. Patterns catch mistakes.\"",
+     "ask": "\"Can 6 × 7 be 41? How do you know without working it out?\"",
+     "listen": "\"No, because every multiple of 6 is even.\""
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Turn-around facts",
+    "text": "Multiplication is <b>commutative</b>: you can switch the factors and the product stays the same.",
+    "visual": {
+     "kind": "array",
+     "rows": 6,
+     "cols": 9,
+     "emoji": "🐉",
+     "label": "6 rows of 9 = 54. Turn it sideways: 9 rows of 6 = 54."
+    },
+    "steps": [
+     {
+      "text": "6 × 9 and 9 × 6 are the <b>same array</b>, just turned. Both are 54.",
+      "visual": {
+       "kind": "bigtext",
+       "text": "6 × 9 = 9 × 6"
+      }
+     },
+     {
+      "text": "Stuck on 7 × 9? Flip it to <b>9 × 7</b> and use the ×9 shortcut: 70 − 7 = 63."
+     },
+     {
+      "text": "Stuck on 8 × 6? Flip it to <b>6 × 8</b> and use the ×6 shortcut: 40 + 8 = 48."
+     }
+    ],
+    "tip": "Every fact you learn gives you a second fact for free.",
+    "notes": {
+     "do": "Hands-on: lay out 6 rows of 9 counters on a sheet of paper. Turn the paper sideways so it shows 9 rows of 6.",
+     "say": "\"I did not add or take away a single counter. I only turned the paper. That is why multiplication is <b>commutative</b>.\"",
+     "ask": "\"Did any counters change? So what is 9 × 6?\" Then say 7 × 9 and 8 × 6 and have her flip each one to the factor that has a shortcut.",
+     "listen": "\"Same counters, so 9 × 6 is 54 too.\" \"7 × 9: flip it to 9 × 7, 70 − 7 = 63.\""
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Find the missing factor",
+    "text": "Sometimes a factor is missing: <b>9 × ? = 63</b>. Ask: 9 times what number makes 63?",
+    "visual": {
+     "kind": "triangle",
+     "a": 9,
+     "b": "?",
+     "c": 63
+    },
+    "steps": [
+     {
+      "text": "<b>Use a pattern.</b> For 9 × 2 up to 9 × 10, the tens digit of the product is one less than the other factor. 63 has a tens digit of 6, so the factor is <b>7</b>."
+     },
+     {
+      "text": "<b>Verify.</b> 9 × 7 = 70 − 7 = 63 ✔. So ? = 7.",
+      "visual": {
+       "kind": "bigtext",
+       "text": "9 × 7 = 63"
+      }
+     },
+     {
+      "text": "<b>Try a 6s one:</b> 6 × ? = 48. Guess 8 and check: 5 × 8 = 40, and 40 + 8 = 48 ✔. So ? = 8."
+     }
+    ],
+    "tip": "Always verify a missing factor by multiplying it back.",
+    "notes": {
+     "do": "Write 9 × ☐ = 63 on the whiteboard. She must say it as a question before she answers.",
+     "say": "\"A missing factor is a question: 9 times WHAT is 63? Then you verify by multiplying back.\"",
+     "ask": "\"9 times what is 63? How do you verify it?\"",
+     "listen": "\"7, because 70 − 7 = 63.\" If she answers 54 or 72, she is grabbing a nearby fact. Ask: \"Is that the factor or the product?\""
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Try it",
+    "title": "Missing factors",
+    "items": [
+     {
+      "q": "9 × ? = 54",
+      "visual": {
+       "kind": "triangle",
+       "a": 9,
+       "b": "?",
+       "c": 54
+      },
+      "choices": [
+       "5",
+       "7",
+       "6",
+       "8"
+      ],
+      "a": 2,
+      "why": "The tens digit of 54 is 5, so the factor is 6. Verify: 60 − 6 = 54.",
+      "no": [
+       "9 × 5 = 45, not 54.",
+       "9 × 7 = 63, not 54.",
+       null,
+       "9 × 8 = 72, not 54."
+      ]
+     },
+     {
+      "q": "? × 6 = 42",
+      "choices": [
+       "8",
+       "6",
+       "9",
+       "7"
+      ],
+      "a": 3,
+      "why": "7 × 6 = 42. Verify with the ×6 shortcut: 35 + 7 = 42.",
+      "no": [
+       "8 × 6 = 48, not 42.",
+       "6 × 6 = 36, not 42.",
+       "9 × 6 = 54, not 42.",
+       null
+      ]
+     },
+     {
+      "q": "6 × ? = 9 × 4",
+      "choices": [
+       "4",
+       "5",
+       "6",
+       "9"
+      ],
+      "a": 2,
+      "why": "First, 9 × 4 = 36. Then 6 × ? = 36, so ? = 6. Both sides equal 36.",
+      "no": [
+       "6 × 4 = 24, but 9 × 4 = 36. The sides don't match.",
+       "6 × 5 = 30, not 36.",
+       null,
+       "6 × 9 = 54, not 36."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "She reads each one as a question (\"6 times what is 36?\") and verifies on the whiteboard before tapping.",
+     "ask": "For the last one: \"What do you have to do FIRST before you can find the missing factor?\"",
+     "listen": "\"Work out 9 × 4 = 36 first, then 6 times what is 36.\""
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "True or flawed?",
+    "title": "Catch the flawed facts",
+    "text": "Say which check you used. Then type <b>true</b> or <b>flawed</b>.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "6 × 9 = 56. Is it true or flawed? Type <b>true</b> or <b>flawed</b>.",
+      "answers": [
+       "flawed",
+       "wrong",
+       "false",
+       "not true"
+      ],
+      "why": "45 + 9 = 54, not 56. Flawed.",
+      "no": "Use ×5 plus one group: 45 + 9."
+     },
+     {
+      "type": "fill",
+      "q": "8 × 9 = 72. Is it true or flawed? Type <b>true</b> or <b>flawed</b>.",
+      "answers": [
+       "true",
+       "correct",
+       "right"
+      ],
+      "why": "Flip it to 9 × 8: 80 − 8 = 72. True!",
+      "no": "Flip it to 9 × 8."
+     },
+     {
+      "type": "fill",
+      "q": "4 × 9 = 32. Is it true or flawed? Type <b>true</b> or <b>flawed</b>.",
+      "answers": [
+       "flawed",
+       "wrong",
+       "false",
+       "not true"
+      ],
+      "why": "3 + 2 = 5, not 9. 4 × 9 = 36. Flawed.",
+      "no": "Add the digits. Do you get 9?"
+     },
+     {
+      "type": "fill",
+      "q": "7 × 6 = 36. Is it true or flawed? Type <b>true</b> or <b>flawed</b>.",
+      "answers": [
+       "flawed",
+       "wrong",
+       "false",
+       "not true"
+      ],
+      "why": "36 is 6 × 6. 7 × 6 = 35 + 7 = 42. Flawed.",
+      "no": "Flip it to 6 × 7. Use ×5 plus one group."
+     }
+    ],
+    "notes": {
+     "do": "Before each answer she names the check she used: the even rule, the tens-digit rule, the digit-sum rule, or a shortcut. Then she types.",
+     "ask": "\"4 × 9 = 32. Which check catches it fastest?\"",
+     "listen": "\"The digits 3 + 2 make 5, not 9.\" Praise any correct check, then ask for a second one."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Fix it",
+    "title": "Find the mistake",
+    "items": [
+     {
+      "q": "Hiccup wrote 7 × 9 = 70 − 9 = 61. What did he do wrong?",
+      "choices": [
+       "He took away 9. He should take away 7: 70 − 7 = 63.",
+       "He should add: 70 + 9 = 79.",
+       "He should use ×5: 35 + 9 = 44.",
+       "Nothing. It is correct."
+      ],
+      "a": 0,
+      "why": "7 × 9 = 9 × 7. That is 10 groups of 7 minus one group of 7: 70 − 7 = 63.",
+      "no": [
+       null,
+       "Adding makes 11 groups. Take one group away.",
+       "The ×6 shortcut doesn't fit a ×9 fact.",
+       "Verify: 6 + 1 = 7, not 9. It is flawed."
+      ]
+     },
+     {
+      "q": "Fishlegs wrote 6 × 9 = 45 + 6 = 51. Which equation fixes it?",
+      "choices": [
+       "60 + 9 = 69",
+       "45 − 9 = 36",
+       "45 + 9 = 54",
+       "50 + 6 = 56"
+      ],
+      "a": 2,
+      "why": "5 × 9 = 45. Add one more group of <b>9</b>: 45 + 9 = 54.",
+      "no": [
+       "Start at 5 × 9 = 45, not 60.",
+       "For ×6, add a group. Don't take one away.",
+       null,
+       "5 × 9 is 45, not 50, and the extra group is 9, not 6."
+      ]
+     },
+     {
+      "q": "Stoick says 9 × 3 = 72 because 7 + 2 = 9. Why is his answer flawed?",
+      "choices": [
+       "The digits add to 9, so it is right.",
+       "The tens digit should be 2, so 9 × 3 = 27.",
+       "He should add: 9 + 3 = 12.",
+       "9s facts are never even."
+      ],
+      "a": 1,
+      "why": "The digits add to 9, but the tens digit must be one less than 3. 9 × 3 = 27. 72 is 9 × 8.",
+      "no": [
+       "The digit check isn't enough. Use the tens-digit check too.",
+       null,
+       "9 × 3 is 3 groups of 9. Multiply, don't add.",
+       "9 × 2 = 18 and 9 × 8 = 72 are even, so that rule is false."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "Cover the choices with your hand first. She explains the mistake in her own words, THEN taps.",
+     "say": "\"Don't just find the right answer. Tell me what the person did wrong so you never do it.\"",
+     "ask": "\"What did Hiccup take away? What should he take away?\"",
+     "listen": "\"He took away 9, but he needs to take away one group of 7.\""
+    }
+   },
+   {
+    "type": "order",
+    "kick": "Step by step",
+    "title": "Solve a word problem",
+    "text": "Stoick has <b>54 shields</b>. He puts <b>6 shields</b> on each longship. How many longships? Tap the steps in order.",
+    "steps": [
+     "Read it: 54 shields in all, 6 on each ship.",
+     "Find the equal groups: each ship gets 6.",
+     "Write the equation: 6 × ? = 54.",
+     "Use a fact you know: 6 × 9 = 45 + 9 = 54.",
+     "Answer and verify: 9 longships. 9 × 6 = 60 − 6 = 54 ✔"
+    ],
+    "why": "Read, find the groups, write the equation, use a fact, then verify. That is a strategy you can use on any problem.",
+    "hint": "What do you always do first with a word problem?",
+    "notes": {
+     "do": "She says each step out loud as she taps it.",
+     "ask": "\"Why do we verify at the end? What would you do if it didn't check?\"",
+     "listen": "\"To make sure it's right. If it doesn't check, I try a different factor.\""
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Prove it",
+    "title": "Word problems",
+    "items": [
+     {
+      "q": "Hiccup catches 9 baskets of fish with 6 fish in each. Toothless eats 8 of them. How many fish are left?",
+      "visual": {
+       "kind": "groups",
+       "groups": 9,
+       "each": 6,
+       "emoji": "🐟"
+      },
+      "choices": [
+       "62",
+       "46",
+       "54",
+       "48"
+      ],
+      "a": 1,
+      "why": "9 × 6 = 60 − 6 = 54 fish. Then 54 − 8 = <b>46</b> left.",
+      "no": [
+       "62 is 54 + 8. Toothless ate them, so subtract.",
+       null,
+       "54 is how many he caught. Don't forget Toothless ate 8.",
+       "48 is 6 × 8. The 8 fish were eaten, not a group."
+      ]
+     },
+     {
+      "q": "The Vikings set up 63 benches in 9 equal rows. How many benches are in each row?",
+      "choices": [
+       "54",
+       "6",
+       "8",
+       "7"
+      ],
+      "a": 3,
+      "why": "9 × ? = 63. The tens digit is 6, so ? = 7. Verify: 70 − 7 = 63.",
+      "no": [
+       "54 is a total, not one row. You need 9 × ? = 63.",
+       "9 × 6 = 54, not 63.",
+       "9 × 8 = 72, not 63.",
+       null
+      ]
+     },
+     {
+      "q": "Fishlegs knows 9 × 8 = 72. Which fact does the commutative idea give him for free?",
+      "choices": [
+       "9 × 9 = 81",
+       "8 + 9 = 17",
+       "8 × 9 = 72",
+       "72 − 8 = 64"
+      ],
+      "a": 2,
+      "why": "Switch the factors: 8 × 9 = 72. Same product!",
+      "no": [
+       "That is true, but it is a different fact. Flipping 9 × 8 doesn't give it.",
+       "That is adding, not multiplying.",
+       null,
+       "That is subtracting. Commutative means switching the factors."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "For the fish problem, cover the choices and let her solve it on the whiteboard first. Then she taps.",
+     "ask": "\"Did anything else happen in the story after the fish were caught?\"",
+     "listen": "\"Toothless ate 8, so I take 8 away.\" If she stops at 54, point to the second sentence."
+    }
+   },
+   {
+    "type": "talk",
+    "kick": "Justify It",
+    "title": "Prove it out loud",
+    "text": "Use the word <b>justify</b>. Give a reason, not just an answer.",
+    "prompts": [
+     "Justify that 6 × 8 = 48 in <b>two</b> different ways.",
+     "Is 9 × 6 = 56 true or flawed? Justify your answer.",
+     "Make up a word problem about Berk for 6 × 7. Then solve it."
+    ],
+    "starters": [
+     "One way is … Another way is …",
+     "It is flawed because …",
+     "On Berk, there are …"
+    ],
+    "notes": {
+     "do": "Hands-on: give her three index cards. She writes 6 × 8, 9 × 6 and 6 × 7 on them and holds each one up as she answers.",
+     "say": "\"A justify answer always has the word <i>because</i> in it.\"",
+     "ask": "\"Can you prove 6 × 8 = 48 with the turn-around too?\"",
+     "listen": "\"40 + 8 = 48\" and \"8 × 6 is 6, 12, 24, 48\" or a flip. For the word problem: equal groups of 7 (or 6) and the answer 42 with a label."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Wrap-up",
+    "title": "You proved it. Now practice it.",
+    "text": "Today you flipped facts, found missing factors, caught flawed facts, and solved two-step problems.",
+    "visual": {
+     "kind": "passage",
+     "text": "▶ <b>After-Class Lesson</b>: tonight, on your own. It ends with Show What You Know.<br>📝 <b>Practice</b>: Friday.<br>🖨 <b>Packet</b> (both pages) and <b>Lesson 1 packet page 2</b>: Saturday.<br>🔗 <b>Times Table Trail, Lesson 4</b>: Sunday.<br>📚 Read 15 minutes every day."
+    },
+    "tip": "Monday's lesson is on Zoom. Have ready: your book, about 60 dried beans, paper and a pencil.",
+    "notes": {
+     "do": "Open the course page and go through the task list with her. Show the Times Table Trail Lesson 4 link and the Lesson 1 packet page 2 link.",
+     "ask": "\"Which word from today was the hardest? Use it in one more sentence.\"",
+     "say": "\"You need 90 on Show What You Know tonight. If you miss, you get brand-new questions on the retake.\""
+    }
+   }
+  ]
+ }
+}

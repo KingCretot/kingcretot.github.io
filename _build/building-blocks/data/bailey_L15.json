@@ -1,0 +1,1799 @@
+{
+ "student": "bailey",
+ "n": 15,
+ "title": "Prove It: Long Division Detective",
+ "goal": "I can solve long division word problems, find the mistake in someone's work, and check my answer by multiplying.",
+ "card": {
+  "desc": "Prove-it day for long division. Bailey solves mixed 2- and 3-digit problems, decides when a story needs dividing or multiplying, <b>finds and fixes the mistake</b> in someone else's worked problem, and convinces Jonathan with a multiply-back check. Seven new words, including <b>algorithm</b> and <b>discrepancy</b>."
+ },
+ "win": "Long division detective: you solved it, checked it, and caught every mistake!",
+ "teach": {
+  "slides": [
+   {
+    "type": "hello",
+    "title": "Prove It: Long Division Detective",
+    "text": "This week you learned the long division algorithm with 2-digit and 3-digit numbers. Today you <b>prove it</b>: solve word problems, find mistakes in someone else's work, and check every answer by multiplying.",
+    "visual": {
+     "kind": "emoji",
+     "text": "🕵️➗✔️"
+    },
+    "notes": {
+     "do": "Set out: whiteboard and marker with the four steps written on it, paper and pencil, 3 index cards with the word problems from slide 11 written on them, her book. Base-ten blocks nearby in case she needs them.",
+     "say": "\"Prove-it day. You are the teacher today: you will check other people's work and find their mistakes.\"",
+     "ask": "\"How did Tuesday's Show What You Know go? Did the Lesson 13 packet feel easy or hard?\" (Check her scores and the packet before class.)"
+    }
+   },
+   {
+    "type": "talk",
+    "kick": "Book Talk",
+    "title": "Hiccup's test",
+    "text": "Think about <i>How to Train Your Dragon</i>.",
+    "prompts": [
+     "What test do the young Vikings have to pass to become full members of the tribe? How is Hiccup doing so far?",
+     "What is one mistake Hiccup made? How did he try to fix it?",
+     "Do you think Hiccup will pass? Use a clue from the book to back up your prediction."
+    ],
+    "starters": [
+     "The young Vikings have to …",
+     "Hiccup made a mistake when … He tried to fix it by …",
+     "I predict … because …"
+    ],
+    "notes": {
+     "do": "6 minutes. Let her find the pages.",
+     "ask": "\"What mistake did Hiccup make, and how did he try to fix it?\" This links to today: finding and fixing mistakes.",
+     "listen": "A prediction backed by a clue from the text, not just a wish. If she only says \"yes he will\", ask: \"What in the book makes you think so?\""
+    }
+   },
+   {
+    "type": "recall",
+    "kick": "Warm-up",
+    "title": "This week so far",
+    "text": "Solve on paper. Then type the quotient.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "Use long division: <b>95 ÷ 5</b> = ____",
+      "answers": [
+       "19"
+      ],
+      "why": "95 ÷ 5 = 19. Check: 19 × 5 = 95.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "Start with the first digit: how many 5s fit in 9?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ___\n5 ) 95"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Use long division: <b>832 ÷ 8</b> = ____",
+      "answers": [
+       "104"
+      ],
+      "why": "832 ÷ 8 = 104. Check: 104 × 8 = 832.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "Start with the first digit: how many 8s fit in 8?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n8 ) 832"
+      }
+     }
+    ],
+    "notes": {
+     "do": "She types the answers herself. Watch the tens step on 832 ÷ 8 (3 ÷ 8 gives a placeholder 0).",
+     "say": "Praise the 0 the moment she writes it: \"Vigilant! There is the placeholder.\"",
+     "listen": "95 ÷ 5 = 19 and 832 ÷ 8 = 104."
+    }
+   },
+   {
+    "type": "vocab",
+    "kick": "Word Power",
+    "title": "Words for today",
+    "text": "Tap each card to flip it. Read it out loud. Then use it in your own sentence.",
+    "words": [
+     {
+      "word": "algorithm",
+      "pos": "noun",
+      "emoji": "⚙️",
+      "meaning": "A set of steps that always works when you follow them in order.",
+      "example": "Long division is an <b>algorithm</b>: divide, multiply, subtract, bring down."
+     },
+     {
+      "word": "discrepancy",
+      "pos": "noun",
+      "emoji": "⚠️",
+      "meaning": "A difference between two things that should match.",
+      "example": "13 × 6 = 78, not 618. That <b>discrepancy</b> tells me there is a mistake."
+     },
+     {
+      "word": "thorough",
+      "pos": "adjective",
+      "emoji": "🔎",
+      "meaning": "Careful and complete, checking every part.",
+      "example": "A <b>thorough</b> check looks at every step, not just the answer."
+     },
+     {
+      "word": "rectify",
+      "pos": "verb",
+      "emoji": "🛠️",
+      "meaning": "To fix a mistake and make it right.",
+      "example": "Fishlegs found his subtraction slip and <b>rectified</b> it."
+     },
+     {
+      "word": "convince",
+      "pos": "verb",
+      "emoji": "🤝",
+      "meaning": "To make someone believe that something is true.",
+      "example": "Show the multiplication check to <b>convince</b> me your answer is right."
+     },
+     {
+      "word": "initiation",
+      "pos": "noun",
+      "emoji": "🎖️",
+      "meaning": "A test or ceremony a person goes through to become a full member of a group.",
+      "example": "In the book, the young Vikings must train a dragon as part of their <b>initiation</b> into the tribe."
+     },
+     {
+      "word": "conclude",
+      "pos": "verb",
+      "emoji": "🏁",
+      "meaning": "To decide something after thinking about the facts.",
+      "example": "168 × 4 = 672, so I <b>conclude</b> that my answer is right."
+     }
+    ],
+    "notes": {
+     "do": "She reads each card and makes her own sentence. Write <b>discrepancy</b> and <b>rectify</b> on the whiteboard.",
+     "say": "\"Today's words are detective words. You will find a discrepancy, rectify it, and convince me you are right.\"",
+     "ask": "\"Why is long division called an algorithm?\" (It is a set of steps that always works.) \"What is Hiccup's initiation?\"",
+     "listen": "<i>Discrepancy</i>: two things that should match but don't. <i>Thorough</i>: every part checked."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Is it a division story?",
+    "text": "A story is division when a <b>total</b> is split into <b>equal</b> groups. Then follow these steps.",
+    "steps": [
+     {
+      "text": "<b>Read:</b> Stoick shares <b>456 fish</b> equally among <b>8 dragons</b>. How many fish does each dragon get?"
+     },
+     {
+      "text": "<b>Decide:</b> a total (456) is split into equal groups (8 dragons). Divide: <b>456 ÷ 8</b>."
+     },
+     {
+      "text": "<b>Estimate:</b> 8 × 50 = 400 and 8 × 60 = 480. The answer is between 50 and 60."
+     },
+     {
+      "text": "<b>Solve:</b> 8 does not fit in 4, so start with 45.",
+      "visual": {
+       "kind": "longdiv",
+       "text": "     57\n   ____\n8 ) 456\n   -40\n   ---\n     56\n    -56\n    ---\n      0"
+      }
+     },
+     {
+      "text": "<b>Check and label:</b> 57 × 8 = 400 + 56 = 456. Each dragon gets <b>57 fish</b>."
+     }
+    ],
+    "tip": "If the story puts equal groups together to find a total, that is multiplication, not division.",
+    "notes": {
+     "do": "She solves 456 ÷ 8 on paper before you reveal Step 4.",
+     "say": "Praise each step she does: \"Estimate, yes.\" \"45 first, yes.\"",
+     "ask": "\"What does the 57 count?\" (fish for each dragon.)",
+     "listen": "She labels the answer. A bare 57 is not an answer to a story."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Guided practice",
+    "title": "Divide or multiply?",
+    "items": [
+     {
+      "q": "Stoick has <b>5 ships</b>. Each ship carries <b>128 Vikings</b>. How many Vikings are there in all? Which number sentence solves it?",
+      "choices": [
+       "128 × 5",
+       "128 + 5",
+       "128 − 5",
+       "128 ÷ 5"
+      ],
+      "a": 0,
+      "why": "Equal groups put together: multiply. 128 × 5 = 640 Vikings.",
+      "no": [
+       null,
+       "The groups are equal, so adding the two numbers does not work.",
+       "Nothing is taken away in this story, so do not subtract.",
+       "This story puts groups together to find a total, so multiply."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "The Hooligans pack <b>738 arrows</b> equally into <b>6 barrels</b>. How many arrows go in each barrel?",
+      "answers": [
+       "123",
+       "123 arrows"
+      ],
+      "why": "738 ÷ 6 = 123 arrows. Check: 123 × 6 = 738.",
+      "no": "Write the division, then solve it on paper one step at a time.",
+      "hint": "Divide: 738 ÷ 6."
+     },
+     {
+      "type": "fill",
+      "q": "Hiccup is reading a book with <b>144 pages</b>. He reads <b>8 pages</b> a night. How many nights will it take?",
+      "answers": [
+       "18",
+       "18 nights"
+      ],
+      "why": "144 ÷ 8 = 18 nights. Check: 18 × 8 = 144.",
+      "no": "Write the division, then solve it on paper one step at a time.",
+      "hint": "Divide: 144 ÷ 8."
+     }
+    ],
+    "notes": {
+     "do": "She says divide or multiply and why BEFORE she solves. Then she solves on paper.",
+     "ask": "\"Is a total being split, or are groups being put together?\"",
+     "listen": "Ships item: \"Groups are put together, so multiply.\" 738 ÷ 6 = 123 arrows. 144 ÷ 8 = 18 nights (8 does not fit in 1, so start with 14)."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Find the mistake",
+    "text": "Fishlegs worked out <b>672 ÷ 4</b> and got <b>165 R 2</b>. Be a thorough detective.",
+    "visual": {
+     "kind": "longdiv",
+     "text": "    165 R2\n   ____\n4 ) 672\n   -4\n   --\n    27\n   -24\n   ---\n     22\n    -20\n    ---\n      2"
+    },
+    "steps": [
+     {
+      "text": "<b>Check by multiplying:</b> 165 × 4 + 2 = 660 + 2 = 662. But the dividend is 672. That is a <b>discrepancy</b>, so there is a mistake."
+     },
+     {
+      "text": "<b>Go step by step.</b> 6 − 4 = 2 ✔. Bring down 7: 27 ✔. 6 × 4 = 24 ✔. 27 − 24 = 2 ✘. It should be <b>3</b>."
+     },
+     {
+      "text": "<b>Rectify it:</b> 3, bring down the 2: 32. 32 ÷ 4 = 8. So 672 ÷ 4 = <b>168</b>.",
+      "visual": {
+       "kind": "longdiv",
+       "text": "    168\n   ____\n4 ) 672\n   -4\n   --\n    27\n   -24\n   ---\n     32\n    -32\n    ---\n      0"
+      }
+     },
+     {
+      "text": "<b>Check again:</b> 168 × 4 = 400 + 240 + 32 = 672 ✔. Now I can conclude it is right."
+     }
+    ],
+    "tip": "The check tells you THAT there is a mistake. Going step by step tells you WHERE.",
+    "notes": {
+     "do": "Before Step 2, let her hunt for the mistake on her own. Give her one full minute.",
+     "say": "When she finds it: \"You found it! That is exactly what a thorough mathematician does.\"",
+     "ask": "\"Was the multiplication check enough to find the mistake?\" (No, it shows there IS one. Then you look step by step.)",
+     "listen": "She checks every subtraction out loud, not just the last one."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Guided practice",
+    "title": "Detective work",
+    "items": [
+     {
+      "q": "Snotlout worked out <b>936 ÷ 9</b> and got <b>14</b>. Check: 14 × 9 = 126, not 936. Find the mistake in the work.",
+      "choices": [
+       "The first digit should be 2.",
+       "Nothing is wrong. The answer is accurate.",
+       "A placeholder 0 is missing in the quotient. The answer is 104.",
+       "The first subtraction is wrong."
+      ],
+      "a": 2,
+      "why": "A placeholder 0 is missing in the quotient. The answer is 104. Fix it and finish: 936 ÷ 9 = 104. Check: 104 × 9 = 936.",
+      "no": [
+       "2 × 9 = 18. That is too big.",
+       "Check: 14 × 9 = 126, not 936. That discrepancy means there is a mistake.",
+       null,
+       "Check it: that subtraction is correct."
+      ],
+      "visual": {
+       "kind": "longdiv",
+       "text": "    14\n   ____\n9 ) 936\n   -9\n   --\n    036\n    -36\n    ---\n      0"
+      }
+     },
+     {
+      "q": "Hiccup worked out <b>952 ÷ 7</b> and got <b>131 R 5</b>. Check: 131 × 7 + 5 = 922, not 952. Find the mistake in the work.",
+      "choices": [
+       "A placeholder 0 is missing in the quotient.",
+       "He forgot to bring down a digit.",
+       "Nothing is wrong. The answer is accurate.",
+       "The multiplication is wrong: 3 × 7 = 21, not 24."
+      ],
+      "a": 3,
+      "why": "The multiplication is wrong: 3 × 7 = 21, not 24. Fix it and finish: 952 ÷ 7 = 136. Check: 136 × 7 = 952.",
+      "no": [
+       "Every place in the quotient has a digit. Check each multiplication.",
+       "Every digit was brought down. Check each multiplication.",
+       "Check: 131 × 7 + 5 = 922, not 952. That discrepancy means there is a mistake.",
+       null
+      ],
+      "visual": {
+       "kind": "longdiv",
+       "text": "    131 R5\n   ____\n7 ) 952\n   -7\n   --\n    25\n   -24\n   ---\n     12\n     -7\n     --\n      5"
+      }
+     }
+    ],
+    "notes": {
+     "do": "She reads the work out loud line by line and says ✔ or ✘ for each step.",
+     "say": "Praise every correct ✔ she gives, and cheer loudly when she finds the ✘.",
+     "listen": "936 ÷ 9: Snotlout skipped the 0 when 9 did not fit in 3 (answer 104). 952 ÷ 7: 3 × 7 is 21, not 24 (answer 136)."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Convince me: check with the area model",
+    "text": "To check a 3-digit quotient, multiply it back. The area model makes it quick. Check <b>942 ÷ 6 = 157</b>:",
+    "visual": {
+     "kind": "area",
+     "b": 6,
+     "split": [
+      100,
+      50,
+      7
+     ],
+     "show": true
+    },
+    "tip": "600 + 300 + 42 = 942. It matches the dividend, so the answer is accurate.",
+    "notes": {
+     "do": "She draws the three boxes on the whiteboard herself.",
+     "ask": "\"Why three boxes?\" (157 = 100 + 50 + 7.)",
+     "listen": "She adds the three parts correctly: 600 + 300 = 900, plus 42 = 942."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Guided practice",
+    "title": "Check these",
+    "items": [
+     {
+      "type": "fill",
+      "q": "Convince me: check <b>738 ÷ 6 = 123</b> by multiplying. 123 × 6 = ____",
+      "answers": [
+       "738"
+      ],
+      "why": "100 × 6 + 20 × 6 + 3 × 6 = 600 + 120 + 18 = 738. It matches, so 738 ÷ 6 = 123 is accurate.",
+      "no": "Break 123 apart: 100 + 20 + 3. Multiply each part by 6, then add."
+     },
+     {
+      "type": "fill",
+      "q": "Convince me: check <b>832 ÷ 8 = 104</b> by multiplying. 104 × 8 = ____",
+      "answers": [
+       "832"
+      ],
+      "why": "100 × 8 + 4 × 8 = 800 + 32 = 832. It matches, so 832 ÷ 8 = 104 is accurate.",
+      "no": "Break 104 apart: 100 + 4. Multiply each part by 8, then add."
+     }
+    ],
+    "notes": {
+     "say": "Praise each box she multiplies correctly.",
+     "listen": "123 × 6 = 600 + 120 + 18 = 738. 104 × 8 = 800 + 32 = 832."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Hands-on",
+    "title": "Word problem relay",
+    "text": "Pick an index card. Read it out loud. Decide, estimate, solve on paper, check, and label. Then type the answer.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "Gobber stacks <b>630 shields</b> in equal piles of <b>3</b>. How many piles?",
+      "answers": [
+       "210",
+       "210 piles"
+      ],
+      "why": "630 ÷ 3 = 210 piles. Check: 210 × 3 = 630.",
+      "no": "Write the division, then solve it on paper one step at a time.",
+      "hint": "Divide: 630 ÷ 3."
+     },
+     {
+      "type": "fill",
+      "q": "<b>612 eggs</b> are shared equally among <b>6 dragon nests</b>. How many eggs are in each nest?",
+      "answers": [
+       "102",
+       "102 eggs"
+      ],
+      "why": "612 ÷ 6 = 102 eggs. Check: 102 × 6 = 612.",
+      "no": "Write the division, then solve it on paper one step at a time.",
+      "hint": "Divide: 612 ÷ 6."
+     },
+     {
+      "type": "fill",
+      "q": "Toothless eats <b>7 fish</b> a day. How many days will <b>336 fish</b> last?",
+      "answers": [
+       "48",
+       "48 days"
+      ],
+      "why": "336 ÷ 7 = 48 days. Check: 48 × 7 = 336.",
+      "no": "Write the division, then solve it on paper one step at a time.",
+      "hint": "Divide: 336 ÷ 7."
+     }
+    ],
+    "notes": {
+     "do": "The three stories are on index cards, face down. She picks one at a time and does the whole routine at the whiteboard.",
+     "say": "Praise each part of the routine as she does it: \"Decided, yes. Estimated, yes. Checked, yes!\"",
+     "listen": "630 ÷ 3 = 210 piles (the last 0 must be written). 612 ÷ 6 = 102 eggs (placeholder 0). 336 ÷ 7 = 48 days (7 does not fit in 3)."
+    }
+   },
+   {
+    "type": "order",
+    "kick": "Put in order",
+    "title": "How to find a mistake",
+    "text": "Tap the steps in the order a thorough detective uses them.",
+    "steps": [
+     "Check the answer by multiplying.",
+     "Notice the discrepancy: it does not match the dividend.",
+     "Go back to the first step of the work.",
+     "Check each divide, multiply, subtract and bring down.",
+     "Rectify the wrong step and finish the problem.",
+     "Check again and conclude."
+    ],
+    "why": "Check, notice, go back, look step by step, rectify, check again.",
+    "hint": "You cannot know there is a mistake until you check. What comes first?",
+    "notes": {
+     "do": "She says the steps from memory before tapping.",
+     "listen": "Check first, rectify near the end, check again last."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Word work",
+    "title": "Words in action",
+    "items": [
+     {
+      "q": "Fishlegs's answer was 165 R 2, but the check gave 662 instead of 672. What is the difference between 662 and 672 called?",
+      "choices": [
+       "an algorithm",
+       "a discrepancy",
+       "an initiation",
+       "a quotient"
+      ],
+      "a": 1,
+      "why": "A <i>discrepancy</i> is a difference between two things that should match.",
+      "no": [
+       "An algorithm is a set of steps.",
+       null,
+       "An initiation is a test to join a group.",
+       "The quotient is the answer to a division."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "Fishlegs found his mistake and fixed it. He ____ it. (Use a word from your word cards that means <i>fixed</i>. Add -ed.)",
+      "answers": [
+       "rectified"
+      ],
+      "why": "To <i>rectify</i> is to fix a mistake. He rectified it.",
+      "no": "It starts with rect- and ends with -ified."
+     },
+     {
+      "q": "Which is a <b>thorough</b> check?",
+      "choices": [
+       "Looking only at the final answer",
+       "Guessing that it looks right",
+       "Checking every step and then multiplying back",
+       "Asking Snotlout"
+      ],
+      "a": 2,
+      "why": "<i>Thorough</i> means careful and complete, checking every part.",
+      "no": [
+       "That skips the steps.",
+       "Guessing is not checking.",
+       null,
+       "Asking someone else is not checking it yourself."
+      ]
+     }
+    ],
+    "notes": {
+     "ask": "\"Use <i>convince</i> in a sentence about your math.\" \"Use <i>conclude</i> in a sentence about the book.\"",
+     "listen": "She uses each word correctly in her own sentence."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Exit ticket",
+    "title": "Show me before you go",
+    "text": "On your own. No help this time.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "Use long division: <b>864 ÷ 6</b> = ____",
+      "answers": [
+       "144"
+      ],
+      "why": "864 ÷ 6 = 144. Check: 144 × 6 = 864.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "Start with the first digit: how many 6s fit in 8?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n6 ) 864"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Stoick shares <b>282 apples</b> equally among <b>6 barrels</b>. How many apples go in each barrel?",
+      "answers": [
+       "47",
+       "47 apples"
+      ],
+      "why": "282 ÷ 6 = 47 apples. Check: 47 × 6 = 282.",
+      "no": "Write the division, then solve it on paper one step at a time.",
+      "hint": "Divide: 282 ÷ 6."
+     },
+     {
+      "q": "Snotlout worked out <b>728 ÷ 7</b> and got <b>14</b>. Check: 14 × 7 = 98, not 728. Find the mistake in the work.",
+      "choices": [
+       "Nothing is wrong. The answer is accurate.",
+       "A placeholder 0 is missing in the quotient. The answer is 104.",
+       "The first subtraction is wrong.",
+       "The first digit should be 2."
+      ],
+      "a": 1,
+      "why": "A placeholder 0 is missing in the quotient. The answer is 104. Fix it and finish: 728 ÷ 7 = 104. Check: 104 × 7 = 728.",
+      "no": [
+       "Check: 14 × 7 = 98, not 728. That discrepancy means there is a mistake.",
+       null,
+       "Check it: that subtraction is correct.",
+       "2 × 7 = 14. That is too big."
+      ],
+      "visual": {
+       "kind": "longdiv",
+       "text": "    14\n   ____\n7 ) 728\n   -7\n   --\n    028\n    -28\n    ---\n      0"
+      }
+     }
+    ],
+    "notes": {
+     "do": "She works alone on paper. Note any miss: it tells you what to warm up with on Monday.",
+     "listen": "864 ÷ 6 = 144; 282 ÷ 6 = 47 apples; 728 ÷ 7: the placeholder 0 is missing (104)."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Wrap-up",
+    "title": "Your weekend plan",
+    "text": "You proved it: you can do the long division algorithm, use it in word problems, and find other people's mistakes.",
+    "steps": [
+     {
+      "text": "<b>Tonight:</b> the After-class lesson. It ends with Show What You Know. You need 90."
+     },
+     {
+      "text": "<b>Friday:</b> the Lesson 15 Practice and page 2 of the Lesson 14 Packet."
+     },
+     {
+      "text": "<b>Saturday:</b> the Lesson 15 Packet, then Long Division Lane, Lessons 1 and 2."
+     },
+     {
+      "text": "<b>Sunday:</b> Long Division Lane, Lesson 4, and the reading lesson. <b>Every day:</b> read 15 minutes."
+     }
+    ],
+    "tip": "Monday is about remainders: what happens when the last subtraction is not 0.",
+    "notes": {
+     "do": "Open the course page and go through the Lesson 15 task list and the three Long Division Lane links with her (and with Tia if she is there).",
+     "say": "\"You were a thorough detective today. Monday we find out what happens when division does not come out even.\"",
+     "ask": "\"What will you do first tonight?\""
+    }
+   }
+  ]
+ },
+ "slides": [
+  {
+   "type": "hello",
+   "title": "On Your Own: Long Division Detective",
+   "text": "In class you solved division stories, found mistakes in other people's work, and checked by multiplying. Now prove it on your own with paper and a pencil. It takes about 25 minutes and ends with <b>Show What You Know</b>.",
+   "visual": {
+    "kind": "emoji",
+    "text": "🕵️✔️"
+   }
+  },
+  {
+   "type": "talk",
+   "kick": "Say it out loud",
+   "title": "Teach it to someone",
+   "text": "Find someone at home. Teach them. Say it out loud before you go on.",
+   "prompts": [
+    "Tell them how you know a story is a division story. Make up a dragon example.",
+    "Show them how to check 456 ÷ 8 = 57 by multiplying.",
+    "What is the young Vikings' <b>initiation</b> in <i>How to Train Your Dragon</i>?"
+   ],
+   "starters": [
+    "It is division when …",
+    "To check it, I multiply …",
+    "Their initiation is …"
+   ]
+  },
+  {
+   "type": "vocab",
+   "kick": "Word Power",
+   "title": "Remember the words",
+   "text": "Tap each card. Say the meaning before you flip it. Then flip to check yourself.",
+   "words": [
+    {
+     "word": "algorithm",
+     "pos": "noun",
+     "emoji": "⚙️",
+     "meaning": "A set of steps that always works when you follow them in order.",
+     "example": "Long division is an <b>algorithm</b>: divide, multiply, subtract, bring down."
+    },
+    {
+     "word": "discrepancy",
+     "pos": "noun",
+     "emoji": "⚠️",
+     "meaning": "A difference between two things that should match.",
+     "example": "13 × 6 = 78, not 618. That <b>discrepancy</b> tells me there is a mistake."
+    },
+    {
+     "word": "thorough",
+     "pos": "adjective",
+     "emoji": "🔎",
+     "meaning": "Careful and complete, checking every part.",
+     "example": "A <b>thorough</b> check looks at every step, not just the answer."
+    },
+    {
+     "word": "rectify",
+     "pos": "verb",
+     "emoji": "🛠️",
+     "meaning": "To fix a mistake and make it right.",
+     "example": "Fishlegs found his subtraction slip and <b>rectified</b> it."
+    },
+    {
+     "word": "convince",
+     "pos": "verb",
+     "emoji": "🤝",
+     "meaning": "To make someone believe that something is true.",
+     "example": "Show the multiplication check to <b>convince</b> me your answer is right."
+    },
+    {
+     "word": "initiation",
+     "pos": "noun",
+     "emoji": "🎖️",
+     "meaning": "A test or ceremony a person goes through to become a full member of a group.",
+     "example": "In the book, the young Vikings must train a dragon as part of their <b>initiation</b> into the tribe."
+    },
+    {
+     "word": "conclude",
+     "pos": "verb",
+     "emoji": "🏁",
+     "meaning": "To decide something after thinking about the facts.",
+     "example": "168 × 4 = 672, so I <b>conclude</b> that my answer is right."
+    }
+   ]
+  },
+  {
+   "type": "learn",
+   "kick": "Remember",
+   "title": "Solve, check, conclude",
+   "text": "Divide, multiply, subtract, bring down. Then multiply back to check.",
+   "visual": {
+    "kind": "longdiv",
+    "text": "    195\n   ____\n5 ) 975\n   -5\n   --\n    47\n   -45\n   ---\n     25\n    -25\n    ---\n      0"
+   },
+   "steps": [
+    {
+     "text": "<b>975 ÷ 5 = 195.</b> Check: 195 × 5 = 500 + 450 + 25 = 975 ✔."
+    },
+    {
+     "text": "If the check gives a different number, that is a <b>discrepancy</b>. Go back and check each step."
+    }
+   ],
+   "tip": "Division story? A total is split into equal groups."
+  },
+  {
+   "type": "tap",
+   "kick": "Your turn",
+   "title": "Solve on paper",
+   "text": "Copy each problem on your paper. Solve it one step at a time. Type the quotient.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Use long division: <b>987 ÷ 7</b> = ____",
+     "answers": [
+      "141"
+     ],
+     "why": "987 ÷ 7 = 141. Check: 141 × 7 = 987.",
+     "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+     "hint": "Start with the first digit: how many 7s fit in 9?",
+     "visual": {
+      "kind": "longdiv",
+      "text": "\n   ____\n7 ) 987"
+     }
+    },
+    {
+     "type": "fill",
+     "q": "Use long division: <b>535 ÷ 5</b> = ____",
+     "answers": [
+      "107"
+     ],
+     "why": "535 ÷ 5 = 107. Check: 107 × 5 = 535.",
+     "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+     "hint": "Start with the first digit: how many 5s fit in 5?",
+     "visual": {
+      "kind": "longdiv",
+      "text": "\n   ____\n5 ) 535"
+     }
+    },
+    {
+     "type": "fill",
+     "q": "Use long division: <b>413 ÷ 7</b> = ____",
+     "answers": [
+      "59"
+     ],
+     "why": "413 ÷ 7 = 59. Check: 59 × 7 = 413.",
+     "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+     "hint": "7 does not fit in 4, so start with 41: how many 7s fit in 41?",
+     "visual": {
+      "kind": "longdiv",
+      "text": "\n   ____\n7 ) 413"
+     }
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Your turn",
+   "title": "Division stories",
+   "items": [
+    {
+     "type": "fill",
+     "q": "<b>712 Vikings</b> sail in <b>8 longships</b>, the same number in each. How many Vikings are in each longship?",
+     "answers": [
+      "89",
+      "89 Vikings"
+     ],
+     "why": "712 ÷ 8 = 89 Vikings. Check: 89 × 8 = 712.",
+     "no": "Write the division, then solve it on paper one step at a time.",
+     "hint": "Divide: 712 ÷ 8."
+    },
+    {
+     "type": "fill",
+     "q": "Fishlegs has <b>264 dragon cards</b>. He puts <b>8 cards</b> on each page of his album. How many pages does he fill?",
+     "answers": [
+      "33",
+      "33 pages"
+     ],
+     "why": "264 ÷ 8 = 33 pages. Check: 33 × 8 = 264.",
+     "no": "Write the division, then solve it on paper one step at a time.",
+     "hint": "Divide: 264 ÷ 8."
+    },
+    {
+     "q": "There are <b>4 dragon pens</b> with <b>136 fish</b> in each pen. How many fish are there in all? Which number sentence solves it?",
+     "choices": [
+      "136 − 4",
+      "136 ÷ 4",
+      "136 × 4",
+      "136 + 4"
+     ],
+     "a": 2,
+     "why": "Equal groups put together: multiply. 136 × 4 = 544 fish.",
+     "no": [
+      "Nothing is taken away in this story, so do not subtract.",
+      "This story puts groups together to find a total, so multiply.",
+      null,
+      "The groups are equal, so adding the two numbers does not work."
+     ]
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Your turn",
+   "title": "Find the mistake",
+   "text": "Check by multiplying. Then look at each step.",
+   "items": [
+    {
+     "q": "Snotlout worked out <b>852 ÷ 6</b> and got <b>143 R 4</b>. Check: 143 × 6 + 4 = 862, not 852. Find the mistake in the work.",
+     "choices": [
+      "The subtraction is wrong: 25 − 24 = 1, not 2.",
+      "A placeholder 0 is missing in the quotient.",
+      "The first digit should be 2.",
+      "Nothing is wrong. The answer is accurate."
+     ],
+     "a": 0,
+     "why": "The subtraction is wrong: 25 − 24 = 1, not 2. Fix it and finish: 852 ÷ 6 = 142. Check: 142 × 6 = 852.",
+     "no": [
+      null,
+      "Look at the quotient: every place has a digit. Look at the subtractions instead.",
+      "2 × 6 = 12. That is too big.",
+      "Check: 143 × 6 + 4 = 862, not 852. That discrepancy means there is a mistake."
+     ],
+     "visual": {
+      "kind": "longdiv",
+      "text": "    143 R4\n   ____\n6 ) 852\n   -6\n   --\n    25\n   -24\n   ---\n     22\n    -18\n    ---\n      4"
+     }
+    },
+    {
+     "q": "Fishlegs worked out <b>642 ÷ 6</b> and got <b>17</b>. Check: 17 × 6 = 102, not 642. Find the mistake in the work.",
+     "choices": [
+      "The first subtraction is wrong.",
+      "The first digit should be 2.",
+      "Nothing is wrong. The answer is accurate.",
+      "A placeholder 0 is missing in the quotient. The answer is 107."
+     ],
+     "a": 3,
+     "why": "A placeholder 0 is missing in the quotient. The answer is 107. Fix it and finish: 642 ÷ 6 = 107. Check: 107 × 6 = 642.",
+     "no": [
+      "Check it: that subtraction is correct.",
+      "2 × 6 = 12. That is too big.",
+      "Check: 17 × 6 = 102, not 642. That discrepancy means there is a mistake.",
+      null
+     ],
+     "visual": {
+      "kind": "longdiv",
+      "text": "    17\n   ____\n6 ) 642\n   -6\n   --\n    042\n    -42\n    ---\n      0"
+     }
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Your turn",
+   "title": "Convince me",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Convince me: check <b>657 ÷ 3 = 219</b> by multiplying. 219 × 3 = ____",
+     "answers": [
+      "657"
+     ],
+     "why": "200 × 3 + 10 × 3 + 9 × 3 = 600 + 30 + 27 = 657. It matches, so 657 ÷ 3 = 219 is accurate.",
+     "no": "Break 219 apart: 200 + 10 + 9. Multiply each part by 3, then add."
+    },
+    {
+     "type": "fill",
+     "q": "Convince me: check <b>535 ÷ 5 = 107</b> by multiplying. 107 × 5 = ____",
+     "answers": [
+      "535"
+     ],
+     "why": "100 × 5 + 7 × 5 = 500 + 35 = 535. It matches, so 535 ÷ 5 = 107 is accurate.",
+     "no": "Break 107 apart: 100 + 7. Multiply each part by 5, then add."
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Word work",
+   "title": "Words in action",
+   "text": "Type the word.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "A set of steps that always works when you follow them in order is an ____. (Use a word from your word cards.)",
+     "answers": [
+      "algorithm"
+     ],
+     "why": "An <i>algorithm</i> is a set of steps that always works.",
+     "no": "It starts with al-."
+    },
+    {
+     "type": "fill",
+     "q": "To make someone believe something is true is to ____ them. (Use a word from your word cards.)",
+     "answers": [
+      "convince"
+     ],
+     "why": "To <i>convince</i> is to make someone believe it.",
+     "no": "It starts with con-."
+    },
+    {
+     "q": "After checking every step, Hiccup decided his plan would work. Which word means <i>decided after thinking about the facts</i>?",
+     "choices": [
+      "rectified",
+      "concluded",
+      "omitted",
+      "convinced"
+     ],
+     "a": 1,
+     "why": "To <i>conclude</i> is to decide after thinking about the facts.",
+     "no": [
+      "Rectified means fixed.",
+      null,
+      "Omitted means left out.",
+      "Convinced means made someone believe."
+     ]
+    }
+   ]
+  },
+  {
+   "type": "recall",
+   "kick": "Remember?",
+   "title": "Earlier lessons",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Use the area model: <b>86 × 7</b> = ____",
+     "answers": [
+      "602"
+     ],
+     "why": "80 × 7 = 560 and 6 × 7 = 42. 560 + 42 = 602.",
+     "no": "80 × 7 = 560. Now add 6 × 7.",
+     "visual": {
+      "kind": "area",
+      "b": 7,
+      "split": [
+       80,
+       6
+      ],
+      "show": false
+     }
+    },
+    {
+     "type": "fill",
+     "q": "<b>? ÷ 8 = 9</b>. What is the missing number?",
+     "answers": [
+      "72"
+     ],
+     "why": "9 × 8 = 72.",
+     "no": "The biggest number is missing. Multiply."
+    }
+   ]
+  },
+  {
+   "type": "check",
+   "title": "Show What You Know",
+   "sets": [
+    [
+     {
+      "type": "fill",
+      "q": "Use long division: <b>856 ÷ 4</b> = ____",
+      "answers": [
+       "214"
+      ],
+      "why": "856 ÷ 4 = 214. Check: 214 × 4 = 856.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "Start with the first digit: how many 4s fit in 8?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n4 ) 856"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Use long division: <b>981 ÷ 9</b> = ____",
+      "answers": [
+       "109"
+      ],
+      "why": "981 ÷ 9 = 109. Check: 109 × 9 = 981.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "Start with the first digit: how many 9s fit in 9?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n9 ) 981"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Use long division: <b>371 ÷ 7</b> = ____",
+      "answers": [
+       "53"
+      ],
+      "why": "371 ÷ 7 = 53. Check: 53 × 7 = 371.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "7 does not fit in 3, so start with 37: how many 7s fit in 37?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n7 ) 371"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Stoick shares <b>696 fish</b> equally among <b>8 dragons</b>. How many fish does each dragon get?",
+      "answers": [
+       "87",
+       "87 fish"
+      ],
+      "why": "696 ÷ 8 = 87 fish. Check: 87 × 8 = 696.",
+      "no": "Write the division, then solve it on paper one step at a time.",
+      "hint": "Divide: 696 ÷ 8."
+     },
+     {
+      "q": "Hiccup has <b>945 feathers</b>. He puts the same number into each of <b>7 pillows</b>. How many feathers go in each pillow? Which number sentence solves it?",
+      "choices": [
+       "945 + 7",
+       "945 − 7",
+       "945 ÷ 7",
+       "945 × 7"
+      ],
+      "a": 2,
+      "why": "A total split into equal parts: divide. 945 ÷ 7 = 135 feathers.",
+      "no": [
+       "The groups are equal, so adding the two numbers does not work.",
+       "Nothing is taken away in this story, so do not subtract.",
+       null,
+       "This story splits a total into equal parts, so divide."
+      ]
+     },
+     {
+      "q": "Snotlout worked out <b>858 ÷ 3</b> and got <b>289 R 1</b>. Check: 289 × 3 + 1 = 868, not 858. Find the mistake in the work.",
+      "choices": [
+       "Nothing is wrong. The answer is accurate.",
+       "The subtraction is wrong: 25 − 24 = 1, not 2.",
+       "A placeholder 0 is missing in the quotient.",
+       "The first digit should be 3."
+      ],
+      "a": 1,
+      "why": "The subtraction is wrong: 25 − 24 = 1, not 2. Fix it and finish: 858 ÷ 3 = 286. Check: 286 × 3 = 858.",
+      "no": [
+       "Check: 289 × 3 + 1 = 868, not 858. That discrepancy means there is a mistake.",
+       null,
+       "Look at the quotient: every place has a digit. Look at the subtractions instead.",
+       "3 × 3 = 9. That is too big."
+      ],
+      "visual": {
+       "kind": "longdiv",
+       "text": "    289 R1\n   ____\n3 ) 858\n   -6\n   --\n    25\n   -24\n   ---\n     28\n    -27\n    ---\n      1"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Convince me: check <b>828 ÷ 6 = 138</b> by multiplying. 138 × 6 = ____",
+      "answers": [
+       "828"
+      ],
+      "why": "100 × 6 + 30 × 6 + 8 × 6 = 600 + 180 + 48 = 828. It matches, so 828 ÷ 6 = 138 is accurate.",
+      "no": "Break 138 apart: 100 + 30 + 8. Multiply each part by 6, then add."
+     },
+     {
+      "type": "fill",
+      "q": "A difference between two things that should match is a ____. (Use a word from your word cards.)",
+      "answers": [
+       "discrepancy"
+      ],
+      "why": "A <i>discrepancy</i> is a difference between two things that should match.",
+      "no": "It starts with dis-."
+     },
+     {
+      "q": "To <b>rectify</b> a mistake means to…",
+      "choices": [
+       "fix it",
+       "find it",
+       "hide it",
+       "make it again"
+      ],
+      "a": 0,
+      "why": "To <i>rectify</i> is to fix a mistake and make it right.",
+      "no": [
+       null,
+       "Finding comes first, but rectify means fixing.",
+       "Hiding a mistake does not fix it.",
+       "Making it again is the opposite."
+      ]
+     },
+     {
+      "q": "Which story is solved by <b>dividing</b>?",
+      "choices": [
+       "5 dragons each eat 112 fish. How many fish in all?",
+       "There are 324 eggs split equally into 9 nests. How many eggs in each nest?",
+       "Hiccup has 128 nails and finds 6 more. How many now?",
+       "A ship has 240 oars and loses 8. How many are left?"
+      ],
+      "a": 1,
+      "why": "A total (324) is split into equal groups (9 nests): 324 ÷ 9 = 36.",
+      "no": [
+       "Equal groups put together: multiply.",
+       null,
+       "Finding more: add.",
+       "Losing some: subtract."
+      ]
+     }
+    ],
+    [
+     {
+      "type": "fill",
+      "q": "Use long division: <b>768 ÷ 6</b> = ____",
+      "answers": [
+       "128"
+      ],
+      "why": "768 ÷ 6 = 128. Check: 128 × 6 = 768.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "Start with the first digit: how many 6s fit in 7?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n6 ) 768"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Use long division: <b>520 ÷ 5</b> = ____",
+      "answers": [
+       "104"
+      ],
+      "why": "520 ÷ 5 = 104. Check: 104 × 5 = 520.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "Start with the first digit: how many 5s fit in 5?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n5 ) 520"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Use long division: <b>576 ÷ 9</b> = ____",
+      "answers": [
+       "64"
+      ],
+      "why": "576 ÷ 9 = 64. Check: 64 × 9 = 576.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "9 does not fit in 5, so start with 57: how many 9s fit in 57?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n9 ) 576"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Gobber has <b>395 rivets</b> to share equally among <b>5 workers</b>. How many rivets does each worker get?",
+      "answers": [
+       "79",
+       "79 rivets"
+      ],
+      "why": "395 ÷ 5 = 79 rivets. Check: 79 × 5 = 395.",
+      "no": "Write the division, then solve it on paper one step at a time.",
+      "hint": "Divide: 395 ÷ 5."
+     },
+     {
+      "q": "Each of <b>6 longships</b> carries <b>124 shields</b>. How many shields are there in all? Which number sentence solves it?",
+      "choices": [
+       "124 ÷ 6",
+       "124 × 6",
+       "124 + 6",
+       "124 − 6"
+      ],
+      "a": 1,
+      "why": "Equal groups put together: multiply. 124 × 6 = 744 shields.",
+      "no": [
+       "This story puts groups together to find a total, so multiply.",
+       null,
+       "The groups are equal, so adding the two numbers does not work.",
+       "Nothing is taken away in this story, so do not subtract."
+      ]
+     },
+     {
+      "q": "Fishlegs worked out <b>963 ÷ 9</b> and got <b>17</b>. Check: 17 × 9 = 153, not 963. Find the mistake in the work.",
+      "choices": [
+       "The first digit should be 2.",
+       "Nothing is wrong. The answer is accurate.",
+       "A placeholder 0 is missing in the quotient. The answer is 107.",
+       "The first subtraction is wrong."
+      ],
+      "a": 2,
+      "why": "A placeholder 0 is missing in the quotient. The answer is 107. Fix it and finish: 963 ÷ 9 = 107. Check: 107 × 9 = 963.",
+      "no": [
+       "2 × 9 = 18. That is too big.",
+       "Check: 17 × 9 = 153, not 963. That discrepancy means there is a mistake.",
+       null,
+       "Check it: that subtraction is correct."
+      ],
+      "visual": {
+       "kind": "longdiv",
+       "text": "    17\n   ____\n9 ) 963\n   -9\n   --\n    063\n    -63\n    ---\n      0"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Convince me: check <b>740 ÷ 5 = 148</b> by multiplying. 148 × 5 = ____",
+      "answers": [
+       "740"
+      ],
+      "why": "100 × 5 + 40 × 5 + 8 × 5 = 500 + 200 + 40 = 740. It matches, so 740 ÷ 5 = 148 is accurate.",
+      "no": "Break 148 apart: 100 + 40 + 8. Multiply each part by 5, then add."
+     },
+     {
+      "type": "fill",
+      "q": "Careful and complete, checking every part, is ____. (Use a word from your word cards.)",
+      "answers": [
+       "thorough"
+      ],
+      "why": "<i>Thorough</i> means careful and complete.",
+      "no": "It starts with th-."
+     },
+     {
+      "q": "In <i>How to Train Your Dragon</i>, what is the young Vikings' <b>initiation</b>?",
+      "choices": [
+       "a feast",
+       "a test they must pass to become full members of the tribe",
+       "a long sea voyage home",
+       "a dragon's nap"
+      ],
+      "a": 1,
+      "why": "An <i>initiation</i> is a test or ceremony to become a full member of a group.",
+      "no": [
+       "A feast is a celebration, not a test.",
+       null,
+       "A voyage is a trip by sea.",
+       "A nap has nothing to do with joining a group."
+      ]
+     },
+     {
+      "q": "Hiccup checks <b>399 ÷ 7 = 57</b> and gets 57 × 7 = 399. What can he <b>conclude</b>?",
+      "choices": [
+       "The answer is wrong.",
+       "He needs a placeholder zero.",
+       "The answer is right.",
+       "He should add instead."
+      ],
+      "a": 2,
+      "why": "The check matches the dividend, so he can conclude the answer is right.",
+      "no": [
+       "The check matches, so it is not wrong.",
+       "57 has no missing place.",
+       null,
+       "Dividing was the right operation."
+      ]
+     }
+    ],
+    [
+     {
+      "type": "fill",
+      "q": "Use long division: <b>924 ÷ 4</b> = ____",
+      "answers": [
+       "231"
+      ],
+      "why": "924 ÷ 4 = 231. Check: 231 × 4 = 924.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "Start with the first digit: how many 4s fit in 9?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n4 ) 924"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Use long division: <b>436 ÷ 4</b> = ____",
+      "answers": [
+       "109"
+      ],
+      "why": "436 ÷ 4 = 109. Check: 109 × 4 = 436.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "Start with the first digit: how many 4s fit in 4?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n4 ) 436"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Use long division: <b>474 ÷ 6</b> = ____",
+      "answers": [
+       "79"
+      ],
+      "why": "474 ÷ 6 = 79. Check: 79 × 6 = 474.",
+      "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+      "hint": "6 does not fit in 4, so start with 47: how many 6s fit in 47?",
+      "visual": {
+       "kind": "longdiv",
+       "text": "\n   ____\n6 ) 474"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "<b>928 stones</b> are piled into <b>8 equal piles</b> to build a wall. How many stones are in each pile?",
+      "answers": [
+       "116",
+       "116 stones"
+      ],
+      "why": "928 ÷ 8 = 116 stones. Check: 116 × 8 = 928.",
+      "no": "Write the division, then solve it on paper one step at a time.",
+      "hint": "Divide: 928 ÷ 8."
+     },
+     {
+      "q": "<b>186 Vikings</b> stand in <b>3 equal rows</b>. How many Vikings are in each row? Which number sentence solves it?",
+      "choices": [
+       "186 − 3",
+       "186 ÷ 3",
+       "186 × 3",
+       "186 + 3"
+      ],
+      "a": 1,
+      "why": "A total split into equal parts: divide. 186 ÷ 3 = 62 Vikings.",
+      "no": [
+       "Nothing is taken away in this story, so do not subtract.",
+       null,
+       "This story splits a total into equal parts, so divide.",
+       "The groups are equal, so adding the two numbers does not work."
+      ]
+     },
+     {
+      "q": "Hiccup worked out <b>948 ÷ 6</b> and got <b>154 R 4</b>. Check: 154 × 6 + 4 = 928, not 948. Find the mistake in the work.",
+      "choices": [
+       "A placeholder 0 is missing in the quotient.",
+       "He forgot to bring down a digit.",
+       "Nothing is wrong. The answer is accurate.",
+       "The multiplication is wrong: 5 × 6 = 30, not 32."
+      ],
+      "a": 3,
+      "why": "The multiplication is wrong: 5 × 6 = 30, not 32. Fix it and finish: 948 ÷ 6 = 158. Check: 158 × 6 = 948.",
+      "no": [
+       "Every place in the quotient has a digit. Check each multiplication.",
+       "Every digit was brought down. Check each multiplication.",
+       "Check: 154 × 6 + 4 = 928, not 948. That discrepancy means there is a mistake.",
+       null
+      ],
+      "visual": {
+       "kind": "longdiv",
+       "text": "    154 R4\n   ____\n6 ) 948\n   -6\n   --\n    34\n   -32\n   ---\n     28\n    -24\n    ---\n      4"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "Convince me: check <b>972 ÷ 9 = 108</b> by multiplying. 108 × 9 = ____",
+      "answers": [
+       "972"
+      ],
+      "why": "100 × 9 + 8 × 9 = 900 + 72 = 972. It matches, so 972 ÷ 9 = 108 is accurate.",
+      "no": "Break 108 apart: 100 + 8. Multiply each part by 9, then add."
+     },
+     {
+      "type": "fill",
+      "q": "Long division is an ____: a set of steps that always works. (Use a word from your word cards.)",
+      "answers": [
+       "algorithm"
+      ],
+      "why": "An <i>algorithm</i> is a set of steps that always works in order.",
+      "no": "It starts with al-."
+     },
+     {
+      "q": "Which sentence uses <b>convince</b> correctly?",
+      "choices": [
+       "I convince the dragon to the cave.",
+       "Convince is the answer to a division.",
+       "The check will convince you my answer is right.",
+       "She convinced 7 × 8 = 56 in her head."
+      ],
+      "a": 2,
+      "why": "To <i>convince</i> is to make someone believe something is true.",
+      "no": [
+       "You lead a dragon to a cave; you convince a person of an idea.",
+       "That is the quotient.",
+       null,
+       "You calculate a fact; you convince a person."
+      ]
+     },
+     {
+      "q": "Which story is solved by <b>multiplying</b>?",
+      "choices": [
+       "168 fish shared by 4 dragons",
+       "8 nests with 112 eggs in each nest",
+       "642 arrows packed 6 to a bundle",
+       "305 apples in 5 equal barrels"
+      ],
+      "a": 1,
+      "why": "Equal groups put together to find a total: 8 × 112 = 896 eggs.",
+      "no": [
+       "Sharing a total: divide.",
+       null,
+       "Packing a total into equal bundles: divide.",
+       "Splitting a total into equal barrels: divide."
+      ]
+     }
+    ]
+   ]
+  }
+ ],
+ "practice": {
+  "intro": "Three tries on each one, but only your first try counts. Keep paper and a pencil next to you. Decide, estimate, solve, check, and label.",
+  "questions": [
+   {
+    "type": "fill",
+    "q": "Use long division: <b>729 ÷ 3</b> = ____",
+    "answers": [
+     "243"
+    ],
+    "why": "729 ÷ 3 = 243. Check: 243 × 3 = 729.",
+    "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+    "hint": "Start with the first digit: how many 3s fit in 7?",
+    "visual": {
+     "kind": "longdiv",
+     "text": "\n   ____\n3 ) 729"
+    }
+   },
+   {
+    "type": "fill",
+    "q": "Use long division: <b>318 ÷ 3</b> = ____",
+    "answers": [
+     "106"
+    ],
+    "why": "318 ÷ 3 = 106. Check: 106 × 3 = 318.",
+    "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+    "hint": "Start with the first digit: how many 3s fit in 3?",
+    "visual": {
+     "kind": "longdiv",
+     "text": "\n   ____\n3 ) 318"
+    }
+   },
+   {
+    "type": "fill",
+    "q": "Use long division: <b>248 ÷ 4</b> = ____",
+    "answers": [
+     "62"
+    ],
+    "why": "248 ÷ 4 = 62. Check: 62 × 4 = 248.",
+    "no": "Go one step at a time: divide, multiply, subtract, bring down.",
+    "hint": "4 does not fit in 2, so start with 24: how many 4s fit in 24?",
+    "visual": {
+     "kind": "longdiv",
+     "text": "\n   ____\n4 ) 248"
+    }
+   },
+   {
+    "type": "fill",
+    "q": "Hiccup's map has <b>195 islands</b> on <b>3 pages</b>, the same number on each page. How many islands are on each page?",
+    "answers": [
+     "65",
+     "65 islands"
+    ],
+    "why": "195 ÷ 3 = 65 islands. Check: 65 × 3 = 195.",
+    "no": "Write the division, then solve it on paper one step at a time.",
+    "hint": "Divide: 195 ÷ 3."
+   },
+   {
+    "type": "fill",
+    "q": "Toothless carries <b>9 fish</b> on each trip. How many trips to carry <b>657 fish</b>?",
+    "answers": [
+     "73",
+     "73 trips"
+    ],
+    "why": "657 ÷ 9 = 73 trips. Check: 73 × 9 = 657.",
+    "no": "Write the division, then solve it on paper one step at a time.",
+    "hint": "Divide: 657 ÷ 9."
+   },
+   {
+    "q": "Each of <b>7 dragons</b> eats <b>115 fish</b> a week. How many fish do they eat in all? Which number sentence solves it?",
+    "choices": [
+     "115 + 7",
+     "115 − 7",
+     "115 ÷ 7",
+     "115 × 7"
+    ],
+    "a": 3,
+    "why": "Equal groups put together: multiply. 115 × 7 = 805 fish.",
+    "no": [
+     "The groups are equal, so adding the two numbers does not work.",
+     "Nothing is taken away in this story, so do not subtract.",
+     "This story puts groups together to find a total, so multiply.",
+     null
+    ]
+   },
+   {
+    "q": "Snotlout worked out <b>795 ÷ 5</b> and got <b>157</b>. Check: 157 × 5 = 785, not 795. Find the mistake in the work.",
+    "choices": [
+     "The first digit should be 2.",
+     "Nothing is wrong. The answer is accurate.",
+     "The subtraction is wrong: 29 − 25 = 4, not 3.",
+     "A placeholder 0 is missing in the quotient."
+    ],
+    "a": 2,
+    "why": "The subtraction is wrong: 29 − 25 = 4, not 3. Fix it and finish: 795 ÷ 5 = 159. Check: 159 × 5 = 795.",
+    "no": [
+     "2 × 5 = 10. That is too big.",
+     "Check: 157 × 5 = 785, not 795. That discrepancy means there is a mistake.",
+     null,
+     "Look at the quotient: every place has a digit. Look at the subtractions instead."
+    ],
+    "visual": {
+     "kind": "longdiv",
+     "text": "    157\n   ____\n5 ) 795\n   -5\n   --\n    29\n   -25\n   ---\n     35\n    -35\n    ---\n      0"
+    }
+   },
+   {
+    "type": "fill",
+    "q": "Convince me: check <b>561 ÷ 3 = 187</b> by multiplying. 187 × 3 = ____",
+    "answers": [
+     "561"
+    ],
+    "why": "100 × 3 + 80 × 3 + 7 × 3 = 300 + 240 + 21 = 561. It matches, so 561 ÷ 3 = 187 is accurate.",
+    "no": "Break 187 apart: 100 + 80 + 7. Multiply each part by 3, then add."
+   },
+   {
+    "type": "fill",
+    "q": "To fix a mistake and make it right is to ____ it. (Use a word from your word cards.)",
+    "answers": [
+     "rectify"
+    ],
+    "why": "To <i>rectify</i> is to fix a mistake.",
+    "no": "It starts with rect-."
+   },
+   {
+    "type": "fill",
+    "q": "To decide something after thinking about the facts is to ____. (Use a word from your word cards.)",
+    "answers": [
+     "conclude"
+    ],
+    "why": "To <i>conclude</i> is to decide after thinking about the facts.",
+    "no": "It starts with con-."
+   },
+   {
+    "q": "Which shows a <b>discrepancy</b>?",
+    "choices": [
+     "168 × 4 = 672, and the dividend is 672",
+     "165 × 4 + 2 = 662, but the dividend is 672",
+     "9 × 8 = 72",
+     "Divide, multiply, subtract, bring down"
+    ],
+    "a": 1,
+    "why": "The check (662) and the dividend (672) should match but do not.",
+    "no": [
+     "These match, so there is no discrepancy.",
+     null,
+     "That is a correct fact.",
+     "That is the algorithm, not a difference."
+    ]
+   }
+  ]
+ },
+ "packet": {
+  "title": "Prove It: Long Division Detective",
+  "pages": [
+   [
+    {
+     "title": "Part 1: Word Power",
+     "directions": "Draw a line from each word to its meaning.",
+     "items": [
+      {
+       "type": "match",
+       "text": "1. Match each word to its meaning.",
+       "left": [
+        "algorithm",
+        "discrepancy",
+        "thorough",
+        "rectify",
+        "convince",
+        "initiation",
+        "conclude"
+       ],
+       "right": [
+        "to fix a mistake",
+        "a test to join a group",
+        "a difference that should not be there",
+        "steps that always work in order",
+        "to decide after thinking about the facts",
+        "careful and complete",
+        "to make someone believe something"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Part 2: Divide or multiply?",
+     "directions": "Circle the operation. Then write the number sentence and solve it on scrap paper.",
+     "items": [
+      {
+       "type": "choice",
+       "text": "2. 7 dragons each eat 124 fish. How many fish in all?",
+       "options": [
+        "divide",
+        "multiply"
+       ]
+      },
+      {
+       "type": "choice",
+       "text": "3. 581 fish are shared equally by 7 dragons. How many does each get?",
+       "options": [
+        "divide",
+        "multiply"
+       ]
+      },
+      {
+       "type": "fill",
+       "text": "4. Answers: &nbsp; #2 = ________ fish &nbsp;&nbsp;&nbsp; #3 = ________ fish",
+       "lines": 0
+      }
+     ]
+    },
+    {
+     "title": "Part 3: Find the mistake",
+     "directions": "Check by multiplying. Find the wrong step. Rectify it.",
+     "items": [
+      {
+       "type": "problem",
+       "text": "5. Snotlout wrote 948 ÷ 4 = 236 R 4. Check it. What is wrong? (Hint: look at the remainder.) What is the right answer?",
+       "lines": 2
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "title": "Part 4: Word problems",
+     "directions": "Decide, estimate, solve with long division, check, and label your answer.",
+     "items": [
+      {
+       "type": "draw",
+       "text": "6. The Hooligans have 920 arrows. They pack 8 arrows in each bundle. How many bundles?",
+       "height": 1.45
+      },
+      {
+       "type": "draw",
+       "text": "7. 856 apples are shared equally among 8 barrels. How many apples go in each barrel?",
+       "height": 1.45
+      },
+      {
+       "type": "draw",
+       "text": "8. Toothless eats 6 fish a day. How many days will 402 fish last?",
+       "height": 1.45
+      }
+     ]
+    },
+    {
+     "title": "Part 5: Write with this week's words",
+     "directions": "Write in complete sentences.",
+     "items": [
+      {
+       "type": "write",
+       "text": "9. Explain how you would <b>convince</b> someone that 920 ÷ 8 = 115 is right.",
+       "lines": 2
+      },
+      {
+       "type": "write",
+       "text": "10. Book corner: How is Hiccup doing in his <b>initiation</b>? Use a detail from the book.",
+       "lines": 2
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "teacher": {
+  "objective": "Bailey proves the week: mixed long division with no remainder (2- and 3-digit dividends, placeholder zeros, first digit too small), deciding when a story is division (a total split into equal groups) or multiplication, finding and rectifying the mistake in a worked problem (subtraction slip, wrong fact, omitted zero), and checking every quotient by multiplying back with the area model.",
+  "materials": [
+   "Class lesson on your laptop or tablet (teacher code 9110)",
+   "Whiteboard and marker with the four steps written on it",
+   "3 index cards, each with one word problem from class slide 11 (630 shields in piles of 3; 612 eggs in 6 nests; 336 fish, 7 a day)",
+   "Paper and a pencil for Bailey",
+   "Base-ten blocks nearby, only if she needs them",
+   "Her book, <i>How to Train Your Dragon</i>",
+   "Packet (2 pages): done this weekend"
+  ],
+  "plan": [
+   {
+    "time": "0:00–0:02",
+    "block": "Hello and materials",
+    "do": "Class slide 1. Index cards face down, whiteboard ready. Ask about Tuesday's check and the Lesson 13 packet."
+   },
+   {
+    "time": "0:02–0:08",
+    "block": "Book Talk",
+    "do": "Class slide 2. The young Vikings' test, one mistake Hiccup made and how he fixed it, a prediction with a clue."
+   },
+   {
+    "time": "0:08–0:11",
+    "block": "Warm-up",
+    "do": "Class slide 3. 95 ÷ 5 and 832 ÷ 8 on paper; praise the placeholder 0."
+   },
+   {
+    "time": "0:11–0:16",
+    "block": "Word Power",
+    "do": "Class slide 4. Her own sentence for each word; discrepancy and rectify on the whiteboard."
+   },
+   {
+    "time": "0:16–0:25",
+    "block": "Division stories",
+    "do": "Class slides 5–6. 456 fish among 8 dragons (decide, estimate, solve, check, label); then divide or multiply, 738 ÷ 6 and 144 ÷ 8."
+   },
+   {
+    "time": "0:25–0:36",
+    "block": "Find the mistake",
+    "do": "Class slides 7–8. Fishlegs's 672 ÷ 4 = 165 R 2: check, discrepancy, step by step, rectify. Then Snotlout's missing zero and Hiccup's wrong fact. Praise each ✔ she gives."
+   },
+   {
+    "time": "0:36–0:41",
+    "block": "Convince me",
+    "do": "Class slides 9–10. Check 942 ÷ 6 = 157 with three area boxes; then she checks 123 × 6 and 104 × 8."
+   },
+   {
+    "time": "0:41–0:48",
+    "block": "Word problem relay (hands-on)",
+    "do": "Class slide 11. She picks each index card and does the whole routine at the whiteboard."
+   },
+   {
+    "time": "0:48–0:51",
+    "block": "How to find a mistake",
+    "do": "Class slide 12. She orders the six detective steps from memory."
+   },
+   {
+    "time": "0:51–0:54",
+    "block": "Word work",
+    "do": "Class slide 13. Discrepancy, rectified, thorough; convince and conclude in her own sentences."
+   },
+   {
+    "time": "0:54–0:58",
+    "block": "Exit ticket",
+    "do": "Class slide 14. 864 ÷ 6, the apples story, Snotlout's 728 ÷ 7 on her own; note any miss."
+   },
+   {
+    "time": "0:58–1:00",
+    "block": "Wrap-up",
+    "do": "Class slide 15. Course page: Lesson 15 task list and the three Long Division Lane links."
+   }
+  ],
+  "watch": [
+   "Dividing in a story that needs multiplying (5 ships with 128 Vikings each). Ask: \"Is a total being split, or are groups being put together?\"",
+   "A bare number for a story answer. Ask: \"57 what?\" until she labels it.",
+   "Checking only the final answer when hunting for a mistake. Say: \"The check tells you THAT. Now find WHERE: read me every subtraction.\"",
+   "Omitting the 0 at the end of a quotient (630 ÷ 3 = 21). Ask: \"Did you bring down every digit? What happened to the last 0?\"",
+   "In the area-model check, multiplying 1 × 6 instead of 100 × 6 for the hundreds box. Point to the place value.",
+   "\"I can't do it\" on a story. Say: \"Read it to me. Is a total being split?\" Then praise that first decision before the next step."
+  ],
+  "packet_key": [
+   {
+    "item": "1",
+    "answer": "algorithm → steps that always work in order; discrepancy → a difference that should not be there; thorough → careful and complete; rectify → to fix a mistake; convince → to make someone believe something; initiation → a test to join a group; conclude → to decide after thinking about the facts"
+   },
+   {
+    "item": "2",
+    "answer": "multiply"
+   },
+   {
+    "item": "3",
+    "answer": "divide"
+   },
+   {
+    "item": "4",
+    "answer": "#2: 124 × 7 = 868 fish; #3: 581 ÷ 7 = 83 fish"
+   },
+   {
+    "item": "5",
+    "answer": "Check: 236 × 4 + 4 = 948, but the remainder 4 is not smaller than the divisor 4, so another 4 fits. The ones step should be 28 ÷ 4 = 7 with 0 left: 948 ÷ 4 = 237."
+   },
+   {
+    "item": "6",
+    "answer": "920 ÷ 8 = 115 bundles. Check: 115 × 8 = 920"
+   },
+   {
+    "item": "7",
+    "answer": "856 ÷ 8 = 107 apples (placeholder 0). Check: 107 × 8 = 856"
+   },
+   {
+    "item": "8",
+    "answer": "402 ÷ 6 = 67 days (6 does not fit in 4). Check: 67 × 6 = 402"
+   },
+   {
+    "item": "9",
+    "answer": "Answers vary. Example: I would multiply 115 × 8 = 800 + 80 + 40 = 920. It matches the dividend, so it is right."
+   },
+   {
+    "item": "10",
+    "answer": "Answers vary; uses initiation correctly with a detail from the book."
+   }
+  ],
+  "notes": "Bailey takes Show What You Know on her own tonight at the end of the After-class lesson. Check her Formspree score before Monday. If she scores under 90, look at the misses: computation (placeholder zero, first digit too small), stories (divide or multiply), or mistake-finding. Open Monday with 8 minutes on that one part, then she retakes (a brand-new question set). Monday starts remainders, which needs a solid algorithm, so reteach computation first if more than one area slipped."
+ },
+ "tasks": [
+  "Thursday night: do the <a href=\"lesson-15.html\">After-class lesson</a>. It ends with <b>Show What You Know</b>. You need 90.",
+  "Friday: do the <a href=\"practice-15.html\">Lesson 15 Practice</a>.",
+  "Friday: do page 2 of the <a href=\"packet-14.html\">Lesson 14 Packet</a>.",
+  "Saturday: print the <a href=\"packet-15.html\">Lesson 15 Packet</a> and do both pages.",
+  "Saturday and Sunday: do Long Division Lane in order: <a href=\"https://kingcretot.github.io/KCE_Math_Foundations/World%203%20-%20Long%20Division%20Lane/MathFoundations_LongDivisionLane_Lesson1.html\" target=\"_blank\">Lesson 1</a> and <a href=\"https://kingcretot.github.io/KCE_Math_Foundations/World%203%20-%20Long%20Division%20Lane/MathFoundations_LongDivisionLane_Lesson2.html\" target=\"_blank\">Lesson 2</a> on Saturday, <a href=\"https://kingcretot.github.io/KCE_Math_Foundations/World%203%20-%20Long%20Division%20Lane/MathFoundations_LongDivisionLane_Lesson4.html\" target=\"_blank\">Lesson 4</a> on Sunday. If one is locked, type 1111.",
+  "<span data-ela></span>Sunday: do the reading lesson <a href=\"https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week2/reading.html\" target=\"_blank\"><b>Pathways Week 2 Reading: Two Sides of the Story</b></a>. Read the same afternoon from two points of view. Aim for 85. If it is locked, type 1111.",
+  "Friday, Saturday and Sunday: read <i>How to Train Your Dragon</i> for 15 minutes each day."
+ ],
+ "also": [
+  {
+   "label": "Long Division Lane, Lesson 1: Meet Long Division",
+   "url": "https://kingcretot.github.io/KCE_Math_Foundations/World%203%20-%20Long%20Division%20Lane/MathFoundations_LongDivisionLane_Lesson1.html",
+   "how": "Do the whole lesson on Saturday. It reviews the four steps from Monday. Say each step out loud. Aim for 90. If it is locked, type 1111."
+  },
+  {
+   "label": "Long Division Lane, Lesson 2: Dividing 2-Digit Numbers",
+   "url": "https://kingcretot.github.io/KCE_Math_Foundations/World%203%20-%20Long%20Division%20Lane/MathFoundations_LongDivisionLane_Lesson2.html",
+   "how": "Do the whole lesson on Saturday, after Lesson 1. Estimate first on every problem. Aim for 90. If it is locked, type 1111."
+  },
+  {
+   "label": "Long Division Lane, Lesson 4: Dividing 3-Digit Numbers by 1-Digit",
+   "url": "https://kingcretot.github.io/KCE_Math_Foundations/World%203%20-%20Long%20Division%20Lane/MathFoundations_LongDivisionLane_Lesson4.html",
+   "how": "Do the whole lesson on Sunday. Watch for placeholder zeros and a first digit that is too small. Aim for 90. If it is locked, type 1111."
+  },
+  {
+   "label": "Pathways Week 2 Reading: Two Sides of the Story",
+   "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week2/reading.html",
+   "how": "Reading practice for this week. Do it on Sunday (it is on your task list). Read the same afternoon from two points of view and compare how each person feels. Aim for 85 or more. If it is locked, type 1111.",
+   "ela": true
+  },
+  {
+   "label": "OPTIONAL · Social Studies Week 13: Slavery, Abolition and the Civil War",
+   "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week13/socialstudies.html",
+   "how": "<b>OPTIONAL and self-paced.</b> This is not part of your class lessons and your teacher does not teach it. Do it on your own if you want to, one week at a time. Aim for 85 or more so the next week opens. If it is locked, type 1111."
+  }
+ ]
+}

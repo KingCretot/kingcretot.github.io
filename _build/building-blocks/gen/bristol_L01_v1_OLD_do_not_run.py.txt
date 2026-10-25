@@ -1,0 +1,94 @@
+import json
+G=lambda g,e,em="🍪",label=None:{"kind":"groups","groups":g,"each":e,"emoji":em,**({"label":label} if label else {})}
+U=lambda sets,em="🐚":{"kind":"uneven","sets":sets,"emoji":em}
+L={
+"student":"bristol","n":1,
+"title":"Equal Groups or Not?",
+"goal":"I can tell if groups are equal, and pick multiply or add.",
+"card":{"desc":"Bristol learns what <b>equal groups</b> are. If the groups are equal, she multiplies. If they are not equal, she adds. This is the skill that keeps tripping her up in word problems."},
+"win":"You are a real group detective!",
+"slides":[
+ {"type":"hello","title":"Equal Groups or Not?","text":"Today you are a <b>group detective</b>. 🔍 You will look at groups and decide: are they <b>equal</b>?","visual":{"kind":"emoji","text":"🔍🍪🍪🍪"}},
+ {"type":"talk","kick":"Book Talk","title":"Tell me about your book","text":"Think about <i>Amy and the Missing Puppy</i>.","prompts":["What happened the last time you read?","Who was in that part of the story?","How did Amy feel? What clue tells you?"],"starters":["Last time, …","Amy felt … because …","The clue is …"]},
+ {"type":"learn","kick":"Learn","title":"What are equal groups?","text":"<b>Equal groups</b> have the <b>same number</b> in every group.","visual":G(3,4,"🍪","3 groups. Each group has 4."),"tip":"Count each group. If every group has the same number, the groups are equal."},
+ {"type":"learn","kick":"Learn","title":"These are NOT equal","text":"Look! The groups have different numbers.","visual":U([4,2,5]),"tip":"One group has 4. One has 2. One has 5. Not the same, so <b>not equal</b>."},
+ {"type":"tap","kick":"Try it","title":"Equal or not?","items":[
+   {"q":"Are these groups equal?","visual":G(4,3,"⭐"),"choices":["Yes, equal","No, not equal"],"a":0,"why":"Every group has 3 stars.","no":[None,"Count each group. Do they all have 3?"]},
+   {"q":"Are these groups equal?","visual":U([3,3,4],"🍓"),"choices":["Yes, equal","No, not equal"],"a":1,"why":"Two groups have 3, but one group has 4.","no":["Count the last group. Does it have 3?",None]},
+   {"q":"Each bag has 5 marbles. There are 2 bags. Are the groups equal?","visual":{"kind":"emoji","text":"👜👜"},"choices":["Yes, equal","No, not equal","I can't tell"],"a":0,"why":"The words <b>each bag has 5</b> tell you every group is the same.","no":[None,"Read it again: <b>each</b> bag has 5.","The word <b>each</b> is your clue."]}
+ ]},
+ {"type":"learn","kick":"Learn","title":"Equal groups? Multiply!","text":"When groups are equal, you can <b>multiply</b>. It is faster than counting!","steps":[
+   {"text":"<b>Step 1.</b> How many groups? <b>3</b>","visual":G(3,4,"🍪")},
+   {"text":"<b>Step 2.</b> How many in each group? <b>4</b>"},
+   {"text":"<b>Step 3.</b> Groups × in each: <b>3 × 4 = 12</b>","visual":{"kind":"bigtext","text":"3 × 4 = 12"}},
+   {"text":"<b>Step 4.</b> Check by skip counting by 4s.","visual":{"kind":"numberline","start":0,"jump":4,"jumps":3}}]},
+ {"type":"build","kick":"Build it","title":"Theo's apple bags","text":"Theo has <b>4 bags</b>. Each bag has <b>6 apples</b>. Make the groups.","groups":4,"each":6,"emoji":"🍎","why":"4 groups of 6. That is <b>4 × 6 = 24</b> apples.","hint":"How many bags? How many apples in each bag?"},
+ {"type":"learn","kick":"Learn","title":"Not equal? Add!","text":"Mia has <b>5 shells</b>. Theo has <b>3 shells</b>. How many in all?","visual":U([5,3]),"steps":[
+   {"text":"The groups are <b>not equal</b> (5 and 3)."},
+   {"text":"So we <b>add</b>: <b>5 + 3 = 8</b> shells.","visual":{"kind":"bigtext","text":"5 + 3 = 8"}}],"tip":"You can only multiply when every group is the same."},
+ {"type":"sort","kick":"Sort it","title":"Multiply or add?","text":"Tap a card. Then tap the right box.","buckets":["✖️ Multiply<br><small>equal groups</small>","➕ Add<br><small>not equal</small>"],"items":[
+   {"text":"3 boxes, 6 crayons in each box","b":0,"why":"Each box has 6, so the groups are equal.","hint":"Every box has 6. Are they equal?"},
+   {"text":"Amy has 4 dog treats. Ellie has 7 dog treats.","b":1,"why":"4 and 7 are not the same.","hint":"Does Amy have the same number as Ellie?"},
+   {"text":"5 dogs, 4 legs on each dog","b":0,"why":"Every dog has 4 legs.","hint":"Does every dog have the same number of legs?"},
+   {"text":"A red bag has 8 beads and a blue bag has 2 beads.","b":1,"why":"8 and 2 are different.","hint":"Do both bags have the same number?"},
+   {"text":"6 rows of chairs, 3 chairs in each row","b":0,"why":"Each row has 3 chairs.","hint":"Is every row the same?"},
+   {"text":"Mia picked 9 flowers. Then she picked 6 more.","b":1,"why":"9 and 6 are not equal groups.","hint":"Is 9 the same as 6?"}],"done":"Equal groups → multiply. Not equal → add."},
+ {"type":"tap","kick":"Try it","title":"Word problems","items":[
+   {"q":"There are 4 tables. Each table has 6 cups. Which matches the problem?","visual":G(4,6,"🥤"),"choices":["4 + 6","4 × 6","6 − 4"],"a":1,"why":"4 equal groups of 6, so <b>4 × 6 = 24</b>.","no":["4 + 6 adds the tables to the cups on one table. Every table has 6.",None,"Nobody took cups away."]},
+   {"q":"Amy found 3 clues on Monday and 5 clues on Tuesday. How many clues?","visual":U([3,5],"🔎"),"choices":["3 × 5","3 + 5","5 × 5"],"a":1,"why":"3 and 5 are not equal groups, so add: <b>3 + 5 = 8</b>.","no":["You can't multiply. 3 and 5 are not the same size.",None,"There are not 5 groups of 5."]}
+ ]},
+ {"type":"check","title":"Show What You Know","questions":[
+   {"q":"Are these groups equal?","visual":U([6,6,5],"🍩"),"choices":["Yes","No"],"a":1,"why":"One group has 5, not 6."},
+   {"q":"Which one means <b>3 groups of 5</b>?","choices":["5 groups with 3 in each","3 groups with 3 in each","3 groups with 5 in each"],"a":2,"why":"3 groups, 5 in each."},
+   {"q":"There are 5 vases. Each vase has 4 roses. How many roses?","visual":G(5,4,"🌹"),"choices":["20","9","16"],"a":0,"why":"5 × 4 = 20."},
+   {"q":"Liz has 7 stickers. Ellie has 4 stickers. How many stickers in all?","choices":["11","28","3"],"a":0,"why":"Not equal groups, so add: 7 + 4 = 11."},
+   {"q":"Which problem needs <b>multiply</b>?","choices":["Mia has 6 pens and Theo has 2 pens.","There are 4 tents with 6 kids in each tent.","Amy read 5 pages, then 9 pages."],"a":1,"why":"Each tent has 6, so the groups are equal."},
+   {"q":"6 dogs. Each dog has 2 ears. Which is right?","choices":["6 + 2 = 8 ears","6 − 2 = 4 ears","6 × 2 = 12 ears"],"a":2,"why":"6 equal groups of 2: 6 × 2 = 12."},
+   {"q":"A bag has 3 red balls and 8 blue balls. Which do you do?","choices":["Add: 3 + 8","Multiply: 3 × 8","Take away: 8 − 3"],"a":0,"why":"Two groups, 3 and 8, are not equal. Add to find all the balls."},
+   {"q":"Skip count by 4s: 4, 8, 12, ___. What comes next?","visual":{"kind":"numberline","start":0,"jump":4,"jumps":3},"choices":["14","16","13"],"a":1,"why":"12 + 4 = 16, so 4 × 4 = 16."}]}
+],
+"practice":{"intro":"Two tries on each one. Equal groups → multiply. Not equal → add.","questions":[
+ {"q":"Are these groups equal?","visual":G(3,6,"🧁"),"choices":["Yes","No"],"a":0,"why":"Each group has 6.","no":[None, "Count each group. All 3 groups have 6."]},
+ {"q":"Are these groups equal?","visual":U([2,2,3,2],"🐟"),"choices":["Yes","No"],"a":1,"why":"One group has 3.","no":["Count the third group. It has 3, not 2.", None]},
+ {"q":"There are 2 nests. Each nest has 5 eggs. How many eggs?","visual":G(2,5,"🥚"),"choices":["7","10","25"],"a":1,"why":"2 × 5 = 10.","no":["7 is 2 + 5. That adds the nests to one nest of eggs.", None, "25 would be 5 nests. There are only 2 nests."]},
+ {"q":"Marion has 6 crayons. Liz has 3 crayons. How many in all?","choices":["9","18","3"],"a":0,"why":"Not equal, so add: 6 + 3 = 9.","no":[None, "18 is 6 × 3. There are not 6 groups of 3 here.", "3 is 6 − 3. Nobody lost any crayons."]},
+ {"q":"Which matches: 5 boxes, 3 toys in each box?","choices":["5 + 3","5 × 3","3 × 3"],"a":1,"why":"5 equal groups of 3.","no":["Every box has 3, so the groups are equal. Multiply.", None, "There are 5 boxes, not 3."]},
+ {"q":"Which one is <b>NOT</b> equal groups?","choices":["4 cars, 4 wheels on each","3 plates, 2 cookies on each","A cup with 5 grapes and a cup with 9 grapes"],"a":2,"why":"5 and 9 are different.","no":["Each car has 4 wheels. Those groups are equal.", "Each plate has 2 cookies. Those groups are equal.", None]},
+ {"q":"4 kids each have 3 balloons. How many balloons?","choices":["7","12","9"],"a":1,"why":"4 × 3 = 12.","no":["7 is 4 + 3. That adds the kids to one kid's balloons.", None, "9 is only 3 groups of 3. There are 4 kids: 3, 6, 9, 12."]},
+ {"q":"What is 3 groups of 6?","visual":G(3,6,"⚽"),"choices":["9","18","12"],"a":1,"why":"6, 12, 18. So 3 × 6 = 18.","no":["9 is 3 + 6. Count all 3 groups.", None, "12 is only 2 groups of 6. Count all 3 groups."]},
+ {"q":"Amy walked 4 blocks. Then she walked 6 blocks. How many blocks?","choices":["10","24","2"],"a":0,"why":"Different amounts, so add: 4 + 6 = 10.","no":[None, "24 is 4 × 6. She did not walk 4 groups of 6.", "2 is 6 − 4. The question asks how many in all."]},
+ {"q":"There are 6 bowls with 4 dog treats in each. Which number sentence fits?","choices":["6 + 4 = 10","6 × 4 = 24","4 × 4 = 16"],"a":1,"why":"6 equal groups of 4: 6 × 4 = 24.","no":["Every bowl has 4, so the groups are equal. Multiply.", None, "There are 6 bowls, not 4."]}]},
+"packet":{"title":"Equal Groups or Not?","pages":[
+ [{"title":"Part 1: Equal or not?","directions":"Read each one. Circle <b>Equal</b> or <b>Not equal</b>.","items":[
+   {"type":"choice","text":"1. 3 bags with 5 apples in each bag","options":["Equal","Not equal"]},
+   {"type":"choice","text":"2. A box with 4 pens and a box with 7 pens","options":["Equal","Not equal"]},
+   {"type":"choice","text":"3. 6 cats with 4 legs on each cat","options":["Equal","Not equal"]},
+   {"type":"choice","text":"4. Amy has 2 clues. Ellie has 8 clues.","options":["Equal","Not equal"]}]},
+  {"title":"Part 2: Draw it","directions":"Draw the groups. Then write the multiplication.","items":[
+   {"type":"draw","text":"5. Draw 3 groups of 4 stars.","height":1.2},
+   {"type":"fill","text":"___ × ___ = ___","lines":0},
+   {"type":"draw","text":"6. Draw 2 groups of 6 dots.","height":1.2},
+   {"type":"fill","text":"___ × ___ = ___","lines":0}]}],
+ [{"title":"Part 3: Multiply or add?","directions":"Circle <b>Multiply</b> or <b>Add</b>. Then solve.","items":[
+   {"type":"choice","text":"7. There are 4 tables. Each table has 3 cups. How many cups?","options":["Multiply","Add"]},{"type":"problem","lines":1},
+   {"type":"choice","text":"8. Mia has 5 shells. Theo has 6 shells. How many shells?","options":["Multiply","Add"]},{"type":"problem","lines":1},
+   {"type":"choice","text":"9. 5 dogs. Each dog has 2 ears. How many ears?","options":["Multiply","Add"]},{"type":"problem","lines":1}]},
+  {"title":"Part 4: Book corner","directions":"Write one sentence about <i>Amy and the Missing Puppy</i>. Use a capital letter and a period.","items":[
+   {"type":"write","text":"10. What happened in the part you read?","lines":3}]}]]},
+"teacher":{
+ "objective":"Bristol can tell whether groups are equal and choose multiplication (equal groups) or addition (unequal groups), then solve. Her September diagnostic showed she computes correctly but picks the wrong operation in word problems.",
+ "materials":["Counters or dried beans, about 40","6 small cups or paper plates (to make groups)","Whiteboard and marker","Her book, <i>Amy and the Missing Puppy</i>","Printed packet (2 pages) to send home"],
+ "plan":[
+  {"time":"0:00–0:08","block":"Book Talk","do":"Slide 2. She tells you what happened last time she read. Ask: who was there, how Amy felt, and what clue shows it. Don't correct yet; just listen."},
+  {"time":"0:08–0:20","block":"Equal or not (hands-on)","do":"Before the slides: make 3 cups with 4 beans each and 3 cups with 4, 2 and 5. Ask: which set is equal? How do you know? Then do slides 3–5 together."},
+  {"time":"0:20–0:32","block":"Multiply equal groups","do":"Slides 6–7. She builds 4 groups of 6 with beans, then on the screen. Have her say 4 groups of 6 is 24 and skip count 6, 12, 18, 24."},
+  {"time":"0:32–0:42","block":"Not equal → add","do":"Slides 8–9. In the sort, she must say why before tapping. Push on the word <b>each</b>; it is the biggest clue."},
+  {"time":"0:42–0:50","block":"Word problems","do":"Slide 10. She reads each problem aloud. Ask her to point to the numbers and say equal or not equal before she picks."},
+  {"time":"0:50–0:57","block":"Show What You Know","do":"Slide 11, on her own. One try each. She needs 85 (7 of 8) to open Lesson 2."},
+  {"time":"0:57–1:00","block":"Wrap-up","do":"Show her the task list on the course page. Packet pages 1 and 2 are due Thursday."}],
+ "watch":["Adding the two numbers she sees no matter what (for example 4 + 6 for 4 tables with 6 cups). Make her draw it.","Mixing up 3 groups of 5 and 5 groups of 3 when drawing. Ask: which number tells how many groups?","Counting one by one instead of skip counting. Allow it today, but model skip counting each time."],
+ "packet_key":[{"item":"1","answer":"Equal"},{"item":"2","answer":"Not equal"},{"item":"3","answer":"Equal"},{"item":"4","answer":"Not equal"},{"item":"5","answer":"3 groups of 4 stars; 3 × 4 = 12"},{"item":"6","answer":"2 groups of 6 dots; 2 × 6 = 12"},{"item":"7","answer":"Multiply; 4 × 3 = 12 cups"},{"item":"8","answer":"Add; 5 + 6 = 11 shells"},{"item":"9","answer":"Multiply; 5 × 2 = 10 ears"},{"item":"10","answer":"Any complete sentence about the book with a capital letter and a period."}],
+ "notes":"Lesson 2 (Thursday) is <b>Prove it</b> for this week, so keep today's sort cards. If she scores under 85, redo the bean cups at the start of Thursday's lesson before the new lesson."},
+"tasks":["Do the <b>Practice</b>. Try to get 85 or more.","Print the <b>Packet</b>. Do page 1 on Wednesday.","Do packet page 2 before Thursday.","Read your book for 15 minutes. Be ready to tell what happened."]
+}
+json.dump(L,open('/home/claude/bb_build/data/bristol_L01.json','w'),ensure_ascii=False,indent=1)

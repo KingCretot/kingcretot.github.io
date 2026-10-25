@@ -1,0 +1,311 @@
+{
+ "sets": [
+  [
+   {
+    "type": "fill",
+    "q": "Gobber sharpens <b>8 swords</b> an hour. How many hours will it take him to sharpen <b>56 swords</b>?",
+    "answers": [
+     "7",
+     "7 hours",
+     "seven"
+    ],
+    "why": "Grouping: 56 ÷ 8 = 7 hours. Confirm: 7 × 8 = 56.",
+    "no": "Ask: 8 × what = 56?"
+   },
+   {
+    "type": "fill",
+    "q": "<b>? ÷ 7 = 9</b>. What is the unknown?",
+    "answers": [
+     "63"
+    ],
+    "why": "9 × 7 = 63. Confirm: 63 ÷ 7 = 9.",
+    "no": "The dividend is missing. Multiply."
+   },
+   {
+    "type": "fill",
+    "q": "<b>42 ÷ ? = 7</b>. Find the unknown.",
+    "answers": [
+     "6",
+     "six"
+    ],
+    "why": "7 × 6 = 42, so 42 ÷ 6 = 7.",
+    "no": "Ask: 7 × what = 42?"
+   },
+   {
+    "q": "Astrid has <b>48 arrows</b>. She shares them equally among <b>8 riders</b>. What does the story <b>not</b> tell you yet?",
+    "choices": [
+     "How many riders?",
+     "How many arrows in all?",
+     "How many arrows each rider gets?"
+    ],
+    "a": 2,
+    "why": "It is sharing: 48 ÷ 8 = 6 arrows for each rider.",
+    "no": [
+     "The story already tells you: 8 riders.",
+     "The story already tells you: 48 arrows in all.",
+     null
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Fishlegs spreads <b>72 dragon scales</b> evenly across <b>8 trays</b>. How many scales are on each tray?",
+    "answers": [
+     "9",
+     "9 scales",
+     "nine"
+    ],
+    "why": "Sharing: 72 ÷ 8 = 9 on each tray. Confirm: 9 × 8 = 72.",
+    "no": "Ask: 8 × what = 72?"
+   },
+   {
+    "q": "Only one is correct. Check each one. Which is it?",
+    "choices": [
+     "54 ÷ 6 = 8",
+     "63 ÷ 7 = 9",
+     "48 ÷ 8 = 7",
+     "81 ÷ 9 = 8"
+    ],
+    "a": 1,
+    "why": "9 × 7 = 63.",
+    "no": [
+     "Check: 8 × 6 = 48, not 54.",
+     null,
+     "Check: 7 × 8 = 56, not 48.",
+     "Check: 8 × 9 = 72, not 81."
+    ]
+   },
+   {
+    "q": "Check <b>59 ÷ 7 = 8 R 3</b>. What do you find?",
+    "choices": [
+     "Wrong: 8 × 7 is 59",
+     "Wrong: it should be 7 R 10",
+     "Right: 8 × 7 + 3 = 59",
+     "Wrong: the remainder is 7"
+    ],
+    "a": 2,
+    "why": "8 × 7 = 56 and 56 + 3 = 59.",
+    "no": [
+     "8 × 7 = 56. Then add the remainder 3.",
+     "10 left over is more than 7.",
+     null,
+     "A remainder must be smaller than the divisor."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Check <b>67 ÷ 9 = 7 R 4</b>: 7 × 9 + 4 = ____",
+    "answers": [
+     "67"
+    ],
+    "why": "7 × 9 = 63 and 63 + 4 = 67. It matches, so it is confirmed.",
+    "no": "Multiply 7 × 9 first, then add 4."
+   },
+   {
+    "q": "Which number is <b>divisible</b> by 7?",
+    "choices": [
+     "51",
+     "42",
+     "44",
+     "64"
+    ],
+    "a": 1,
+    "why": "7 × 6 = 42 with nothing left over.",
+    "no": [
+     "51 ÷ 7 = 7 R 2.",
+     null,
+     "44 ÷ 7 = 6 R 2.",
+     "64 ÷ 7 = 9 R 1."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "In <b>? × 6 = 54</b>, the ? stands for a number we do not know yet. That missing number is called the ____. (Use a word from your word cards.)",
+    "answers": [
+     "unknown",
+     "the unknown"
+    ],
+    "why": "The <i>unknown</i> is the missing number you need to find. Here it is 9.",
+    "no": "It means not known yet. It starts with u."
+   },
+   {
+    "type": "fill",
+    "q": "Hiccup studied the strange runes on an old map until he could read the secret message. He was able to ____ it. (Use a word from your word cards.)",
+    "answers": [
+     "decipher"
+    ],
+    "why": "To <i>decipher</i> is to figure out something hard to read or understand, like a code.",
+    "no": "It starts with d."
+   },
+   {
+    "q": "Which sentence uses <b>daunting</b> correctly?",
+    "choices": [
+     "56 is daunting by 8, with nothing left over.",
+     "The giant pile of division problems looked daunting, but Bailey began with the first one.",
+     "Fishlegs gave a daunting answer: 7 R 3, exact in every detail.",
+     "Hiccup will daunting the fish to each dragon."
+    ],
+    "a": 1,
+    "why": "<i>Daunting</i> means it seems hard or scary before you start.",
+    "no": [
+     "That describes divisible.",
+     null,
+     "That describes precise.",
+     "Daunting is not an action word. Allot means to hand out."
+    ]
+   }
+  ],
+  [
+   {
+    "type": "fill",
+    "q": "A Viking ship carries <b>7 sheep</b> on each trip. How many trips will it take to carry <b>49 sheep</b>?",
+    "answers": [
+     "7",
+     "7 trips",
+     "seven"
+    ],
+    "why": "Grouping: 49 ÷ 7 = 7 trips. Confirm: 7 × 7 = 49.",
+    "no": "Ask: 7 × what = 49?"
+   },
+   {
+    "type": "fill",
+    "q": "<b>? ÷ 8 = 9</b>. What is the unknown?",
+    "answers": [
+     "72"
+    ],
+    "why": "9 × 8 = 72. Confirm: 72 ÷ 8 = 9.",
+    "no": "The dividend is missing. Multiply."
+   },
+   {
+    "type": "fill",
+    "q": "<b>63 ÷ ? = 7</b>. Find the unknown.",
+    "answers": [
+     "9",
+     "nine"
+    ],
+    "why": "7 × 9 = 63, so 63 ÷ 9 = 7.",
+    "no": "Ask: 7 × what = 63?"
+   },
+   {
+    "q": "Snotlout packs <b>54 rocks</b> into bags of <b>9</b>. What does the story <b>not</b> tell you yet?",
+    "choices": [
+     "How many rocks in all?",
+     "How many bags?",
+     "How many rocks in each bag?"
+    ],
+    "a": 1,
+    "why": "It is grouping: 54 ÷ 9 = 6 bags.",
+    "no": [
+     "The story already tells you: 54 rocks in all.",
+     null,
+     "The story already tells you: 9 in each bag."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Gobber shares <b>48 helmets</b> equally among <b>6 ships</b>. How many helmets go on each ship?",
+    "answers": [
+     "8",
+     "8 helmets",
+     "eight"
+    ],
+    "why": "Sharing: 48 ÷ 6 = 8 on each ship. Confirm: 8 × 6 = 48.",
+    "no": "Ask: 6 × what = 48?"
+   },
+   {
+    "q": "Only one is correct. Confirm each one. Which is it?",
+    "choices": [
+     "56 ÷ 8 = 8",
+     "42 ÷ 6 = 6",
+     "81 ÷ 9 = 9",
+     "72 ÷ 8 = 8"
+    ],
+    "a": 2,
+    "why": "9 × 9 = 81.",
+    "no": [
+     "Check: 8 × 8 = 64, not 56.",
+     "Check: 6 × 6 = 36, not 42.",
+     null,
+     "Check: 8 × 8 = 64, not 72."
+    ]
+   },
+   {
+    "q": "Check <b>44 ÷ 6 = 7 R 3</b>. What do you find?",
+    "choices": [
+     "Right: 7 × 6 + 3 = 44",
+     "Wrong: 7 × 6 + 3 = 45, so it should be 7 R 2",
+     "Wrong: it should be 6 R 8",
+     "Wrong: it should be 8 R 0"
+    ],
+    "a": 1,
+    "why": "7 × 6 = 42 and 44 − 42 = 2. So 44 ÷ 6 = 7 R 2.",
+    "no": [
+     "7 × 6 = 42 and 42 + 3 = 45, not 44.",
+     null,
+     "8 left over is more than 6. One more group fits.",
+     "8 × 6 = 48. That is more than 44."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Check <b>52 ÷ 8 = 6 R 4</b>: 6 × 8 + 4 = ____",
+    "answers": [
+     "52"
+    ],
+    "why": "6 × 8 = 48 and 48 + 4 = 52. It matches, so it is confirmed.",
+    "no": "Multiply 6 × 8 first, then add 4."
+   },
+   {
+    "q": "Which number is <b>NOT</b> divisible by 8?",
+    "choices": [
+     "64",
+     "48",
+     "60",
+     "72"
+    ],
+    "a": 2,
+    "why": "60 ÷ 8 = 7 R 4. Something is left over, so 60 is not divisible by 8.",
+    "no": [
+     "8 × 8 = 64 with nothing left over, so 64 is divisible by 8.",
+     "8 × 6 = 48 with nothing left over, so 48 is divisible by 8.",
+     null,
+     "8 × 9 = 72 with nothing left over, so 72 is divisible by 8."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Bailey multiplied 9 × 7 = 63 to show for sure that 63 ÷ 7 = 9 is right. She used multiplication to ____ her answer. (Use a word from your word cards.)",
+    "answers": [
+     "confirm"
+    ],
+    "why": "To <i>confirm</i> is to show for sure that something is true or right.",
+    "no": "It starts with c."
+   },
+   {
+    "type": "fill",
+    "q": "Fishlegs did not say \"about 6.\" He said 45 ÷ 7 = 6 R 3, the exact answer. His answer was ____. (Use a word from your word cards.)",
+    "answers": [
+     "precise"
+    ],
+    "why": "<i>Precise</i> means exactly right, with every detail correct. Check: 6 × 7 + 3 = 45.",
+    "no": "It starts with p."
+   },
+   {
+    "q": "Which of these would most likely feel <b>daunting</b> to a new dragon rider?",
+    "choices": [
+     "flying through a storm for the first time",
+     "eating a snack",
+     "counting to 5",
+     "sitting in the sun"
+    ],
+    "a": 0,
+    "why": "<i>Daunting</i> means it seems hard or scary before you start.",
+    "no": [
+     null,
+     "Eating a snack is not hard or scary.",
+     "Counting to 5 is easy, not scary to start.",
+     "Sitting in the sun is relaxing, not daunting."
+    ]
+   }
+  ]
+ ]
+}

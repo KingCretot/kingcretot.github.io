@@ -1,0 +1,326 @@
+{
+ "sets": [
+  [
+   {
+    "type": "fill",
+    "q": "What is <b>9 × 12</b>? Type the product.",
+    "answers": [
+     "108",
+     "one hundred eight",
+     "one hundred and eight"
+    ],
+    "why": "Use the 9: twelve 10s is 120, take away one 12: 120 − 12 = 108.",
+    "no": "Use the 9: ×10, take away one group of 12."
+   },
+   {
+    "type": "fill",
+    "q": "What is <b>8 × 11</b>? Type the product.",
+    "answers": [
+     "88",
+     "eighty-eight",
+     "eighty eight"
+    ],
+    "why": "Double 11 three times: 22, 44, 88.",
+    "no": "Double 11 three times."
+   },
+   {
+    "q": "What is <b>7 × 12</b>?",
+    "choices": [
+     "72",
+     "84",
+     "19",
+     "96"
+    ],
+    "a": 1,
+    "why": "(5 × 12) + (2 × 12) = 60 + 24 = 84.",
+    "no": [
+     "72 is 6 × 12. You need one more 12.",
+     null,
+     "19 is 7 + 12. Multiply, do not add.",
+     "96 is 8 × 12. One group too many."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "<b>6 × ? = 54</b>. Type the missing factor.",
+    "answers": [
+     "9",
+     "nine"
+    ],
+    "why": "6 × 9 = 45 + 9 = 54.",
+    "no": "6 times what is 54? Use ×5 plus one group."
+   },
+   {
+    "type": "fill",
+    "q": "<b>? × 7 = 77</b>. Type the missing factor.",
+    "answers": [
+     "11",
+     "eleven"
+    ],
+    "why": "11 × 7 = 55 + 22 = 77.",
+    "no": "What times 7 is 77? Try (5 × ?) + (2 × ?)."
+   },
+   {
+    "q": "Which path for <b>8 × 6</b> uses doubling?",
+    "choices": [
+     "6 → 12 → 18 → 24",
+     "8 → 16 → 32 → 64",
+     "6 → 12 → 24 → 48"
+    ],
+    "a": 2,
+    "why": "×8 is three doubles: 6 → 12 → 24 → 48.",
+    "no": [
+     "That adds 6 each time. Doubling 12 jumps straight to 24.",
+     "That is three doubles of 8, which is 8 × 8 = 64.",
+     null
+    ]
+   },
+   {
+    "q": "Which fact belongs to the <b>9, 4, 36</b> fact family?",
+    "choices": [
+     "36 ÷ 4 = 8",
+     "9 + 4 = 13",
+     "36 ÷ 9 = 4"
+    ],
+    "a": 2,
+    "why": "36 ÷ 9 = 4 uses the same three numbers. 4 × 9 = 36 proves it.",
+    "no": [
+     "36 ÷ 4 is 9, not 8. And 8 is not one of the three numbers.",
+     "Addition is not part of a multiplication fact family.",
+     null
+    ]
+   },
+   {
+    "q": "Which fact is the <b>commutative</b> partner of 6 × 8?",
+    "choices": [
+     "8 × 6",
+     "6 × 6",
+     "48 ÷ 6"
+    ],
+    "a": 0,
+    "why": "Commutative means switch the factors: 8 × 6 = 48.",
+    "no": [
+     null,
+     "6 × 6 changes a factor. Commutative only switches the order.",
+     "That is in the fact family, but it is division. Switch the factors instead."
+    ]
+   },
+   {
+    "q": "To <b>demonstrate</b> that 7 × 8 = 56 means to…",
+    "choices": [
+     "guess the answer and move on",
+     "copy the answer from a friend",
+     "show clearly why it is true",
+     "say that it is wrong"
+    ],
+    "a": 2,
+    "why": "To demonstrate is to show clearly how something works or why it is true, like 40 + 16 = 56.",
+    "no": [
+     "Guessing does not show anything. Demonstrate means show why it is true.",
+     "Copying is not showing. Demonstrate means show clearly why it is true.",
+     null,
+     "7 × 8 = 56 is true. Demonstrate means show why it is true."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Use one of your new words. Gobber's hook hand can be a hammer, a spoon, or a comb. It is very ____.",
+    "answers": [
+     "versatile"
+    ],
+    "why": "<b>Versatile</b> means able to be used in many different ways.",
+    "no": "Which word means useful in many ways? It starts with <b>v</b>."
+   },
+   {
+    "type": "fill",
+    "q": "Valka feeds 7 baby dragons. Each baby dragon eats 6 eels. How many eels?",
+    "answers": [
+     "42",
+     "forty-two",
+     "forty two",
+     "42 eels",
+     "forty-two eels"
+    ],
+    "why": "7 × 6 = 30 + 12 = 42. Break the 7 into 5 + 2.",
+    "no": "7 equal groups of 6. Use (5 × 6) + (2 × 6)."
+   },
+   {
+    "q": "In <b>8 × ? = 72</b>, Stoick calls the ? the <b>missing factor</b>. What does that mean?",
+    "choices": [
+     "It is the product of 8 and 72.",
+     "It is the factor you have to find when the product is given.",
+     "It is a number someone crossed out by mistake."
+    ],
+    "a": 1,
+    "why": "The <b>missing factor</b> is the factor you have to find. Here it is 9, because 8 × 9 = 72.",
+    "no": [
+     "72 is already the product. The missing factor is what you multiply 8 by to get 72.",
+     null,
+     "Nothing was crossed out. The missing factor is the factor you must find."
+    ]
+   }
+  ],
+  [
+   {
+    "type": "fill",
+    "q": "What is <b>9 × 15</b>? Type the product.",
+    "answers": [
+     "135",
+     "one hundred thirty-five",
+     "one hundred and thirty-five",
+     "one hundred thirty five",
+     "one hundred and thirty five"
+    ],
+    "why": "Use the 9: fifteen 10s is 150, take away one 15: 150 − 15 = 135.",
+    "no": "Use the 9: ×10, take away one group of 15."
+   },
+   {
+    "type": "fill",
+    "q": "What is <b>8 × 14</b>? Type the product.",
+    "answers": [
+     "112",
+     "one hundred twelve",
+     "one hundred and twelve"
+    ],
+    "why": "Double 14 three times: 28, 56, 112.",
+    "no": "Double 14 three times."
+   },
+   {
+    "q": "What is <b>7 × 13</b>?",
+    "choices": [
+     "91",
+     "20",
+     "104",
+     "78"
+    ],
+    "a": 0,
+    "why": "(5 × 13) + (2 × 13) = 65 + 26 = 91.",
+    "no": [
+     null,
+     "20 is 7 + 13. Multiply, do not add.",
+     "104 is 8 × 13. One group too many.",
+     "78 is 6 × 13. You need one more 13."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "<b>? × 6 = 72</b>. Type the missing factor.",
+    "answers": [
+     "12",
+     "twelve"
+    ],
+    "why": "12 × 6 = 60 + 12 = 72.",
+    "no": "What times 6 is 72? Use ×5 plus one group."
+   },
+   {
+    "type": "fill",
+    "q": "<b>? × 7 = 98</b>. Type the missing factor.",
+    "answers": [
+     "14",
+     "fourteen"
+    ],
+    "why": "14 × 7 = 70 + 28 = 98.",
+    "no": "What times 7 is 98? Try ten 7s first, then add more 7s."
+   },
+   {
+    "q": "Which path for <b>8 × 9</b> uses doubling?",
+    "choices": [
+     "9 → 18 → 36",
+     "9 → 18 → 36 → 72",
+     "9 → 18 → 27 → 36"
+    ],
+    "a": 1,
+    "why": "×8 is three doubles: 9 → 18 → 36 → 72.",
+    "no": [
+     "That is only two doubles, which is 4 × 9 = 36. Double one more time.",
+     null,
+     "That adds 9 each time. Doubling 18 jumps straight to 36."
+    ]
+   },
+   {
+    "q": "Which fact belongs to the <b>7, 4, 28</b> fact family?",
+    "choices": [
+     "28 + 4 = 32",
+     "28 ÷ 7 = 4",
+     "28 ÷ 4 = 6"
+    ],
+    "a": 1,
+    "why": "28 ÷ 7 = 4 uses the same three numbers. 4 × 7 = 28 proves it.",
+    "no": [
+     "Addition is not part of a multiplication fact family, and 32 is not one of the numbers.",
+     null,
+     "28 ÷ 4 is 7, not 6. And 6 is not one of the three numbers."
+    ]
+   },
+   {
+    "q": "Which fact is the <b>commutative</b> partner of 8 × 7?",
+    "choices": [
+     "56 ÷ 8",
+     "7 × 8",
+     "8 × 8"
+    ],
+    "a": 1,
+    "why": "Commutative means switch the factors: 7 × 8 = 56.",
+    "no": [
+     "That is in the fact family, but it is division. Switch the factors instead.",
+     null,
+     "8 × 8 changes a factor. Commutative only switches the order."
+    ]
+   },
+   {
+    "q": "In math, an <b>operation</b> is…",
+    "choices": [
+     "the factor you must find",
+     "an action like add, subtract, multiply, or divide",
+     "the answer to a multiplication problem",
+     "a group of facts that use the same three numbers"
+    ],
+    "a": 1,
+    "why": "An <b>operation</b> is a math action: add, subtract, multiply, or divide.",
+    "no": [
+     "That is a missing factor. An operation is a math action.",
+     null,
+     "That is a product. An operation is the action you do, like multiply.",
+     "That is a fact family. An operation is a math action, like divide."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Use one of your new words. After a long, hard race, Astrid and Stormfly crossed the finish line first. They were ____.",
+    "answers": [
+     "victorious"
+    ],
+    "why": "<b>Victorious</b> means having won a fight, a game, or a contest.",
+    "no": "Which word means having won? It starts with <b>v</b>."
+   },
+   {
+    "type": "fill",
+    "q": "Stoick builds 9 sheep pens. Each pen holds 7 sheep. How many sheep?",
+    "answers": [
+     "63",
+     "sixty-three",
+     "sixty three",
+     "63 sheep",
+     "sixty-three sheep"
+    ],
+    "why": "9 × 7 = 70 − 7 = 63.",
+    "no": "9 equal groups of 7. Use ×10 take away one group."
+   },
+   {
+    "q": "Gobber calls Hiccup <b>inventive</b>. What does that mean?",
+    "choices": [
+     "Hiccup is always right on time.",
+     "Hiccup is the strongest Viking on Berk.",
+     "Hiccup is good at thinking of new, clever ideas."
+    ],
+    "a": 2,
+    "why": "<b>Inventive</b> means good at thinking of new and clever ideas.",
+    "no": [
+     "Being on time is being punctual, not inventive.",
+     "Inventive is about new ideas, not strength.",
+     null
+    ]
+   }
+  ]
+ ]
+}

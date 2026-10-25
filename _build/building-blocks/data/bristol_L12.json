@@ -1,0 +1,1739 @@
+{
+ "student": "bristol",
+ "n": 12,
+ "title": "Welcome Back: What Do You Remember?",
+ "goal": "I can show what I remember about groups, facts and word problems.",
+ "card": {
+  "desc": "Bristol presents her <b>Gratitude Project</b> book. Then she does a review of Weeks 1–4: equal groups (multiply) or not (add), the fact tricks for <b>4, 6, 7, 8 and 9</b> with missing factors, the <b>3 detective questions</b> and price-tag problems. There is no new skill. Jonathan finds out what she kept over the break and what slipped."
+ },
+ "win": "Welcome back! Your brain kept so much!",
+ "slides": [
+  {
+   "type": "hello",
+   "title": "Welcome Back: On Your Own",
+   "text": "You showed your book. Now show what you <b>remember</b>, all on your own! 🧠",
+   "visual": {
+    "kind": "emoji",
+    "text": "🧠✖️🏷️"
+   }
+  },
+  {
+   "type": "learn",
+   "kick": "Remember",
+   "title": "Your tool box",
+   "text": "Use these on every question today.",
+   "steps": [
+    {
+     "text": "Equal groups → ✖️ multiply. Not equal → ➕ add."
+    },
+    {
+     "text": "Tricks: <b>×4</b> double, double. <b>×6</b> 5s + one more group. <b>×7</b> 5s + 2s. <b>×8</b> double the 4s. <b>×9</b> 10s take away one group."
+    },
+    {
+     "text": "Detective: What is happening? Equal groups? Which operation?"
+    }
+   ],
+   "tip": "Use your trick cards from class!"
+  },
+  {
+   "type": "talk",
+   "kick": "Say it",
+   "title": "Say it out loud",
+   "text": "Say these out loud. You can tell your mom!",
+   "prompts": [
+    "Tell your trick for the <b>8s</b> and the <b>9s</b>.",
+    "Say the <b>3 detective questions</b>.",
+    "Tell a story where the groups are <b>not equal</b>."
+   ],
+   "starters": [
+    "For the 8s, I …",
+    "First I ask …",
+    "Liz has … Amy has …"
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Look first",
+   "title": "Equal or not?",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Each plate has <b>6</b> cookies. How many cookies in all?",
+     "answers": [
+      "18"
+     ],
+     "why": "3 equal groups of 6. 3 × 6 = <b>18</b>.",
+     "no": "Count the plates. Each one has 6. Multiply.",
+     "placeholder": "Type a number",
+     "visual": {
+      "kind": "groups",
+      "groups": 3,
+      "each": 6,
+      "emoji": "🍪"
+     }
+    },
+    {
+     "type": "fill",
+     "q": "Are these groups equal? <br>Type <b>equal</b> or <b>not equal</b>.",
+     "answers": [
+      "not equal"
+     ],
+     "why": "The groups have 4, 6 and 3. They are <b>not equal</b>.",
+     "no": "Count each group. Are they all the same?",
+     "placeholder": "equal or not equal",
+     "visual": {
+      "kind": "uneven",
+      "sets": [
+       4,
+       6,
+       3
+      ],
+      "emoji": "⭐"
+     }
+    },
+    {
+     "type": "fill",
+     "q": "These groups are not equal. Add them. How many stars in all?",
+     "answers": [
+      "14"
+     ],
+     "why": "2 + 7 + 5 = <b>14</b>.",
+     "no": "Not equal means add. Add all three groups.",
+     "placeholder": "Type a number",
+     "visual": {
+      "kind": "uneven",
+      "sets": [
+       2,
+       7,
+       5
+      ],
+      "emoji": "⭐"
+     }
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Facts",
+   "title": "Use your tricks",
+   "text": "Type the answer.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "____ = 9 × 4",
+     "answers": [
+      "36"
+     ],
+     "why": "10 × 4 = 40. Take away one 4: <b>36</b>.",
+     "no": "Use the 9s trick: 10 fours, take away one 4.",
+     "hint": "10 × 4 = 40. Take away 4.",
+     "placeholder": "Type a number"
+    },
+    {
+     "type": "fill",
+     "q": "____ = 7 × 6",
+     "answers": [
+      "42"
+     ],
+     "why": "5 × 6 = 30 and 2 × 6 = 12. 30 + 12 = <b>42</b>.",
+     "no": "Use the 7s trick: the 5s fact plus the 2s fact.",
+     "hint": "5 × 6 = 30. 2 × 6 = 12.",
+     "placeholder": "Type a number"
+    },
+    {
+     "type": "fill",
+     "q": "____ = 8 × 7",
+     "answers": [
+      "56"
+     ],
+     "why": "4 × 7 = 28. Double 28 is <b>56</b>.",
+     "no": "Use the 8s trick: find 4 × 7, then double it.",
+     "hint": "4 × 7 = 28. Double 28.",
+     "placeholder": "Type a number"
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Missing number",
+   "title": "Find the missing factor",
+   "items": [
+    {
+     "type": "fill",
+     "q": "7 × ____ = 49",
+     "answers": [
+      "7"
+     ],
+     "why": "7 × 7 = 49. 35 + 14 = 49.",
+     "no": "What times 7 makes 49?",
+     "hint": "Count by 7s: 7, 14, 21, 28, 35, 42, 49. How many jumps?",
+     "placeholder": "Type a number"
+    },
+    {
+     "type": "fill",
+     "q": "____ × 8 = 48",
+     "answers": [
+      "6"
+     ],
+     "why": "6 × 8 = 48. 5 × 8 = 40. One more 8 is 48.",
+     "no": "What times 8 makes 48?",
+     "hint": "Count by 8s: 8, 16, 24, 32, 40, 48. How many jumps?",
+     "placeholder": "Type a number"
+    },
+    {
+     "type": "fill",
+     "q": "9 × ____ = 36",
+     "answers": [
+      "4"
+     ],
+     "why": "9 × 4 = 36. 10 × 4 = 40. Take away 4: 36.",
+     "no": "What times 9 makes 36?",
+     "hint": "10 fours is 40. Take away one 4.",
+     "placeholder": "Type a number"
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "kick": "Sort it",
+   "title": "Which operation?",
+   "text": "Read the <b>whole</b> story. Tap it. Then tap the right box.",
+   "buckets": [
+    "✖️ Multiply",
+    "➕ Add",
+    "➖ Subtract"
+   ],
+   "items": [
+    {
+     "text": "There are 5 bikes. Each bike has 2 lights.",
+     "b": 0,
+     "why": "<b>Each</b> bike has 2. 5 × 2.",
+     "hint": "Find the word <b>each</b>."
+    },
+    {
+     "text": "Liz baked 12 muffins. Her dad baked 8 more.",
+     "b": 1,
+     "why": "8 more muffins join. 12 + 8.",
+     "hint": "Do the muffins join or go away?"
+    },
+    {
+     "text": "Amy has 20 crayons. Marion has 13. How many more does Amy have?",
+     "b": 2,
+     "why": "<b>How many more</b> → compare. 20 − 13.",
+     "hint": "This story compares two girls."
+    },
+    {
+     "text": "Ellie had 16 balloons. 4 floated away.",
+     "b": 2,
+     "why": "4 balloons went away. 16 − 4.",
+     "hint": "Did balloons join or go away?"
+    },
+    {
+     "text": "Every one of the 6 frogs has 4 legs.",
+     "b": 0,
+     "why": "<b>Every</b> frog has 4. 6 × 4.",
+     "hint": "Find the word <b>every</b>."
+    },
+    {
+     "text": "Marion read 9 pages before lunch and 6 pages after lunch.",
+     "b": 1,
+     "why": "9 and 6 are different amounts that join. 9 + 6.",
+     "hint": "Are 9 and 6 equal groups?"
+    }
+   ],
+   "done": "Great detective work!"
+  },
+  {
+   "type": "tap",
+   "kick": "Shop",
+   "title": "Price tags",
+   "text": "Ask the 3 detective questions. Then type the number.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Hats cost <b>$9 each</b>. Ellie buys <b>4</b>. What is the total?",
+     "answers": [
+      "36"
+     ],
+     "why": "Same price for each hat. 4 × 9 = <b>36</b>.",
+     "no": "Every hat is $9. Multiply. Then check your math.",
+     "hint": "4 × 10 = 40. Take away one 4.",
+     "placeholder": "Type a number"
+    },
+    {
+     "type": "fill",
+     "q": "Amy has <b>$35</b>. Kites cost <b>$5 each</b>. How many kites can she buy?",
+     "answers": [
+      "7"
+     ],
+     "why": "5, 10, 15, 20, 25, 30, 35. That is <b>7</b> jumps.",
+     "no": "Count by 5s until you reach 35. Count the jumps.",
+     "hint": "? × 5 = 35",
+     "placeholder": "Type a number"
+    },
+    {
+     "type": "fill",
+     "q": "A coat costs <b>$41</b>. A hat costs <b>$16</b>. How much <b>more</b> is the coat?",
+     "answers": [
+      "25"
+     ],
+     "why": "Compare: 41 − 16 = <b>25</b>. Check: 25 + 16 = 41.",
+     "no": "How much more means subtract. Then add back to check.",
+     "hint": "Regroup a ten: 11 − 6 in the ones.",
+     "placeholder": "Type a number"
+    }
+   ]
+  },
+  {
+   "type": "tap",
+   "kick": "Be the teacher",
+   "title": "Fix the mistake",
+   "text": "Type the right answer.",
+   "items": [
+    {
+     "type": "fill",
+     "q": "Amy says: <i>8 × 4 = 36.</i><br>What is 8 × 4 really?",
+     "answers": [
+      "32"
+     ],
+     "why": "Double, double: 8 → 16 → <b>32</b>. 36 is 9 × 4.",
+     "no": "Use double, double. Then check your math.",
+     "hint": "Double 8 is 16. Double 16.",
+     "placeholder": "Type a number"
+    }
+   ]
+  },
+  {
+   "type": "check",
+   "title": "Show What You Know",
+   "sets": [
+    [
+     {
+      "q": "Which number sentence matches the picture?",
+      "choices": [
+       "3 × 6 = 18",
+       "5 + 3 + 6 = 14",
+       "3 × 5 = 15"
+      ],
+      "a": 1,
+      "why": "The groups are 5, 3 and 6. Not equal, so add: 5 + 3 + 6 = 14.",
+      "no": [
+       "Not every group has 6. Count each group.",
+       null,
+       "The groups are not all 5. Count each group."
+      ],
+      "visual": {
+       "kind": "uneven",
+       "sets": [
+        5,
+        3,
+        6
+       ],
+       "emoji": "🍎"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "8 × 7 = ____",
+      "answers": [
+       "56"
+      ],
+      "why": "4 × 7 = 28. Double 28 is 56.",
+      "no": "Use the 8s trick: find 4 × 7, then double it.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "____ × 7 = 42",
+      "answers": [
+       "6"
+      ],
+      "why": "6 × 7 = 42. 5 × 7 = 35. One more 7 is 42.",
+      "no": "What times 7 makes 42?",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "Ellie found 8 shells. Then she found 7 more. <br>Add, subtract or multiply?",
+      "answers": [
+       "add",
+       "addition",
+       "plus",
+       "+"
+      ],
+      "why": "8 shells and 7 more shells join → add. 8 + 7 = 15.",
+      "no": "Do the shells join or go away? Are there equal groups?",
+      "placeholder": "add, subtract or multiply"
+     },
+     {
+      "type": "fill",
+      "q": "There are <b>7</b> tents. Each tent sleeps <b>4</b> kids. How many kids?",
+      "answers": [
+       "28"
+      ],
+      "why": "7 × 4 = 28. Double 7 is 14. Double 14 is 28.",
+      "no": "Each tent has 4. Multiply. Then check your math.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "Marion had <b>42</b> beads. She used <b>17</b>. How many are left?",
+      "answers": [
+       "25"
+      ],
+      "why": "She used some, so subtract. 42 − 17 = 25. Check: 25 + 17 = 42.",
+      "no": "Beads went away. Subtract. Then add back to check.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "Liz has <b>$25</b>. Yo-yos cost <b>$5 each</b>. How many can she buy?",
+      "answers": [
+       "5"
+      ],
+      "why": "5, 10, 15, 20, 25. That is 5 jumps.",
+      "no": "Count by 5s until you reach 25. Count the jumps.",
+      "placeholder": "Type a number"
+     },
+     {
+      "q": "Liz says: <i>6 × 7 = 48.</i> What is right?",
+      "choices": [
+       "48 is right.",
+       "49",
+       "42"
+      ],
+      "a": 2,
+      "why": "6 × 7: 5 × 7 = 35. One more 7: 35 + 7 = 42.",
+      "no": [
+       "48 is 6 × 8. Use the 6s trick: 5 × 7 = 35, plus one more 7.",
+       "49 is 7 × 7. Liz needs 6 sevens.",
+       null
+      ]
+     }
+    ],
+    [
+     {
+      "q": "Which story matches the picture?",
+      "choices": [
+       "3 baskets with 8 eggs in each",
+       "8 baskets with 3 eggs in each",
+       "3 eggs and 8 more eggs"
+      ],
+      "a": 0,
+      "why": "The picture has 3 groups. Each group has 8. 3 × 8 = 24.",
+      "no": [
+       null,
+       "Count the groups in the picture. There are 3.",
+       "The picture shows equal groups, not 3 and 8 more."
+      ],
+      "visual": {
+       "kind": "groups",
+       "groups": 3,
+       "each": 8,
+       "emoji": "🥚"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "____ = 6 × 8",
+      "answers": [
+       "48"
+      ],
+      "why": "5 × 8 = 40. One more 8: 48.",
+      "no": "Use the 6s trick: the 5s fact plus one more 8.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "____ × 9 = 63",
+      "answers": [
+       "7"
+      ],
+      "why": "7 × 9 = 63. 10 × 7 = 70. Take away 7: 63.",
+      "no": "What times 9 makes 63?",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "There are 5 bunnies. Each bunny eats 3 carrots. <br>Add, subtract or multiply?",
+      "answers": [
+       "multiply",
+       "multiplication",
+       "times",
+       "x"
+      ],
+      "why": "<b>Each</b> bunny eats 3. Equal groups → multiply. 5 × 3 = 15.",
+      "no": "Find the word <b>each</b>.",
+      "placeholder": "add, subtract or multiply"
+     },
+     {
+      "type": "fill",
+      "q": "Ellie fills <b>9</b> vases. She puts <b>6</b> tulips in each vase. How many tulips?",
+      "answers": [
+       "54"
+      ],
+      "why": "9 × 6. 10 × 6 = 60. Take away one 6: 54.",
+      "no": "Each vase has 6. Multiply. Then check your math.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "Liz read <b>26</b> pages. Amy read <b>38</b> pages. How many more pages did Amy read?",
+      "answers": [
+       "12"
+      ],
+      "why": "Compare: 38 − 26 = 12. Check: 12 + 26 = 38.",
+      "no": "How many more means subtract. Then add back to check.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "Paint sets cost <b>$9 each</b>. Amy buys <b>3</b>. What is the total?",
+      "answers": [
+       "27"
+      ],
+      "why": "3 × 9 = 27. 3 × 10 = 30. Take away 3: 27.",
+      "no": "Every paint set is $9. Multiply. Then check your math.",
+      "placeholder": "Type a number"
+     },
+     {
+      "q": "Marion buys <b>3 games at $8 each</b>. Ellie buys <b>4 games at $6 each</b>. Who spends more?",
+      "choices": [
+       "Marion",
+       "Ellie",
+       "They spend the same."
+      ],
+      "a": 2,
+      "why": "Marion: 3 × 8 = 24. Ellie: 4 × 6 = 24. They spend the same.",
+      "no": [
+       "Marion spends 3 × 8 = $24. Find Ellie's total: 4 × 6.",
+       "Ellie spends 4 × 6 = $24. Find Marion's total: 3 × 8.",
+       null
+      ]
+     }
+    ],
+    [
+     {
+      "q": "Look at the groups. Which is true?",
+      "choices": [
+       "They are equal. 3 × 4 = 12",
+       "They are not equal. 4 + 4 + 3 = 11",
+       "They are equal. 4 + 4 + 4 = 12"
+      ],
+      "a": 1,
+      "why": "One group has only 3. Not equal, so add: 4 + 4 + 3 = 11.",
+      "no": [
+       "Count the last group. It has 3, not 4.",
+       null,
+       "Count the last group. It has 3, not 4."
+      ],
+      "visual": {
+       "kind": "uneven",
+       "sets": [
+        4,
+        4,
+        3
+       ],
+       "emoji": "🐟"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "____ = 9 × 8",
+      "answers": [
+       "72"
+      ],
+      "why": "10 × 8 = 80. Take away one 8: 72.",
+      "no": "Use the 9s trick: 10 eights, take away one 8.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "____ × 4 = 36",
+      "answers": [
+       "9"
+      ],
+      "why": "9 × 4 = 36. Double 9 is 18. Double 18 is 36.",
+      "no": "What times 4 makes 36?",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "Marion had 24 grapes. She ate 9 of them. <br>Add, subtract or multiply?",
+      "answers": [
+       "subtract",
+       "subtraction",
+       "minus",
+       "take away",
+       "-",
+       "−"
+      ],
+      "why": "9 grapes went away → subtract. 24 − 9 = 15.",
+      "no": "Did the grapes join or go away?",
+      "placeholder": "add, subtract or multiply"
+     },
+     {
+      "type": "fill",
+      "q": "There are <b>6</b> teams. Every team has <b>7</b> players. How many players?",
+      "answers": [
+       "42"
+      ],
+      "why": "6 × 7. 5 × 7 = 35. One more 7: 42.",
+      "no": "Every team has 7. Multiply. Then check your math.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "Amy has <b>19</b> red beads and <b>27</b> blue beads. How many beads in all?",
+      "answers": [
+       "46"
+      ],
+      "why": "Two different amounts join. 19 + 27 = 46.",
+      "no": "Add the red and the blue beads. Then check your math.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "Marion has <b>$90</b>. Lamps cost <b>$10 each</b>. How many lamps can she buy?",
+      "answers": [
+       "9"
+      ],
+      "why": "Count by 10s to 90: 9 jumps. 9 × 10 = 90.",
+      "no": "Count by 10s until you reach 90. Count the jumps.",
+      "placeholder": "Type a number"
+     },
+     {
+      "q": "Ellie says: <i>9 boxes. 7 cups in each box. 9 + 7 = 16 cups.</i> What is right?",
+      "choices": [
+       "63 cups",
+       "16 cups is right.",
+       "56 cups"
+      ],
+      "a": 0,
+      "why": "Each box has 7. Equal groups: 9 × 7 = 63.",
+      "no": [
+       null,
+       "Ellie added. Each box has 7, so multiply.",
+       "56 is 8 × 7. There are 9 boxes."
+      ]
+     }
+    ]
+   ]
+  }
+ ],
+ "practice": {
+  "intro": "Three tries on each one. Only your first try counts. Use your trick cards and the 3 detective questions.",
+  "questions": [
+   {
+    "type": "fill",
+    "q": "Each nest has <b>5</b> eggs. How many eggs in all?",
+    "answers": [
+     "30"
+    ],
+    "why": "6 equal groups of 5. 6 × 5 = 30.",
+    "no": "Count the nests. Each one has 5. Multiply.",
+    "placeholder": "Type a number",
+    "visual": {
+     "kind": "groups",
+     "groups": 6,
+     "each": 5,
+     "emoji": "🥚"
+    }
+   },
+   {
+    "type": "fill",
+    "q": "These groups are not equal. How many bugs in all?",
+    "answers": [
+     "13"
+    ],
+    "why": "3 + 4 + 6 = 13.",
+    "no": "Not equal means add. Add all three groups.",
+    "placeholder": "Type a number",
+    "visual": {
+     "kind": "uneven",
+     "sets": [
+      3,
+      4,
+      6
+     ],
+     "emoji": "🐞"
+    }
+   },
+   {
+    "type": "fill",
+    "q": "____ = 6 × 4",
+    "answers": [
+     "24"
+    ],
+    "why": "5 × 4 = 20. One more 4: 24.",
+    "no": "Use the 6s trick: the 5s fact plus one more 4.",
+    "hint": "5 × 4 = 20. Add one more 4.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "____ = 9 × 7",
+    "answers": [
+     "63"
+    ],
+    "why": "10 × 7 = 70. Take away one 7: 63.",
+    "no": "Use the 9s trick: 10 sevens, take away one 7.",
+    "hint": "10 × 7 = 70. Take away 7.",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "____ × 9 = 81",
+    "answers": [
+     "9"
+    ],
+    "why": "9 × 9 = 81. 90 − 9 = 81.",
+    "no": "What times 9 makes 81?",
+    "hint": "10 nines is 90. Take away one 9.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "<b>7 × 4</b> has the same answer as which fact?",
+    "choices": [
+     "7 + 4",
+     "4 × 7",
+     "7 × 5"
+    ],
+    "a": 1,
+    "why": "Turn-around facts have the same answer. 7 × 4 = 4 × 7 = <b>28</b>.",
+    "no": [
+     "7 + 4 = 11. That adds. 7 × 4 = 28.",
+     null,
+     "7 × 5 = 35. That is one more group of 7."
+    ]
+   },
+   {
+    "type": "fill",
+    "q": "Liz has <b>$50</b>. Books cost <b>$10 each</b>. How many books can she buy?",
+    "answers": [
+     "5"
+    ],
+    "why": "10, 20, 30, 40, 50. That is 5 jumps.",
+    "no": "Count by 10s until you reach 50. Count the jumps.",
+    "hint": "? × 10 = 50",
+    "placeholder": "Type a number"
+   },
+   {
+    "type": "fill",
+    "q": "Ellie had <b>33</b> stickers. She gave <b>18</b> to Amy. How many does she have now?",
+    "answers": [
+     "15"
+    ],
+    "why": "She gave some away, so subtract. 33 − 18 = 15. Check: 15 + 18 = 33.",
+    "no": "Stickers went away. Subtract. Then add back to check.",
+    "hint": "Regroup a ten: 13 − 8 in the ones.",
+    "placeholder": "Type a number"
+   },
+   {
+    "q": "Which story is an <b>equal groups</b> story?",
+    "choices": [
+     "Amy has 7 pens and 5 pencils.",
+     "Liz had 12 shells. She lost 5.",
+     "There are 7 bowls with 5 berries in each."
+    ],
+    "a": 2,
+    "why": "5 berries in <b>each</b> bowl. Equal groups: 7 × 5 = 35.",
+    "no": [
+     "Pens and pencils are different amounts. That is add.",
+     "She lost shells. That is subtract.",
+     null
+    ]
+   },
+   {
+    "q": "Marion says: <i>8 × 9 = 63.</i> What is right?",
+    "choices": [
+     "72",
+     "63 is right.",
+     "81"
+    ],
+    "a": 0,
+    "why": "4 × 9 = 36. Double 36 is <b>72</b>.",
+    "no": [
+     null,
+     "63 is 7 × 9. Marion needs 8 nines.",
+     "81 is 9 × 9. Marion needs 8 nines."
+    ]
+   },
+   {
+    "q": "Amy buys <b>2 hats at $9 each</b>. Liz buys <b>4 hats at $4 each</b>. Who spends more?",
+    "choices": [
+     "Liz",
+     "They spend the same.",
+     "Amy"
+    ],
+    "a": 2,
+    "why": "Amy: 2 × 9 = 18. Liz: 4 × 4 = 16. Amy spends more.",
+    "no": [
+     "Liz spends 4 × 4 = $16. Find Amy's total: 2 × 9.",
+     "Find both totals. Are $18 and $16 the same?",
+     null
+    ]
+   },
+   {
+    "q": "There are <b>6</b> cages. Each cage has <b>8</b> mice. Which number sentence fits?",
+    "choices": [
+     "6 + 8 = 14",
+     "6 × 8 = 48",
+     "6 × 8 = 42"
+    ],
+    "a": 1,
+    "why": "Each cage has 8. Equal groups: 6 × 8 = 48.",
+    "no": [
+     "Each cage has 8. That is equal groups, so multiply.",
+     null,
+     "6 × 8 is not 42. 5 × 8 = 40. One more 8 is 48."
+    ]
+   }
+  ]
+ },
+ "packet": {
+  "title": "Welcome Back Review",
+  "pages": [
+   [
+    {
+     "title": "Part 1: Equal or not?",
+     "directions": "Circle <b>Equal</b> or <b>Not equal</b>. Then write the number sentence.",
+     "items": [
+      {
+       "type": "choice",
+       "text": "1. There are 4 bags. Each bag has 5 marbles.",
+       "options": [
+        "Equal",
+        "Not equal"
+       ]
+      },
+      {
+       "type": "problem",
+       "lines": 1
+      },
+      {
+       "type": "choice",
+       "text": "2. One box has 3 pens. One has 8 pens. One has 4 pens.",
+       "options": [
+        "Equal",
+        "Not equal"
+       ]
+      },
+      {
+       "type": "problem",
+       "lines": 1
+      }
+     ]
+    },
+    {
+     "title": "Part 2: Fact tricks",
+     "directions": "Use your trick cards. Write the answer.",
+     "items": [
+      {
+       "type": "fill",
+       "text": "3. 6 × 7 = ______",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "4. 9 × 6 = ______",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "5. 8 × 4 = ______",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "6. 7 × 3 = ______",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "7. 4 × 9 = ______",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "8. 6 × 6 = ______",
+       "lines": 0
+      }
+     ]
+    },
+    {
+     "title": "Part 3: Missing numbers",
+     "directions": "Write the missing factor.",
+     "items": [
+      {
+       "type": "fill",
+       "text": "9. 4 × ______ = 32",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "10. ______ × 5 = 45",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "11. 7 × ______ = 28",
+       "lines": 0
+      },
+      {
+       "type": "fill",
+       "text": "12. ______ × 9 = 54",
+       "lines": 0
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "title": "Part 4: Detective stories",
+     "directions": "Circle <b>Add</b>, <b>Subtract</b> or <b>Multiply</b>. Then solve.",
+     "items": [
+      {
+       "type": "choice",
+       "text": "13. There are 8 boats. Each boat has 7 kids. How many kids?",
+       "options": [
+        "Add",
+        "Subtract",
+        "Multiply"
+       ]
+      },
+      {
+       "type": "problem",
+       "lines": 1
+      },
+      {
+       "type": "choice",
+       "text": "14. Liz had 31 shells. She gave 14 to Amy. How many are left?",
+       "options": [
+        "Add",
+        "Subtract",
+        "Multiply"
+       ]
+      },
+      {
+       "type": "problem",
+       "lines": 1
+      }
+     ]
+    },
+    {
+     "title": "Part 5: Price tags",
+     "directions": "Write the number sentence. Then write the answer.",
+     "items": [
+      {
+       "type": "problem",
+       "text": "15. Mugs cost $6 each. Marion buys 7. What is the total?",
+       "lines": 1
+      },
+      {
+       "type": "problem",
+       "text": "16. Ellie has $60. Games cost $10 each. How many can she buy?",
+       "lines": 1
+      },
+      {
+       "type": "problem",
+       "text": "17. Amy buys 3 bows at $7 each. Liz buys 4 bows at $5 each. Who spends more?",
+       "lines": 2
+      }
+     ]
+    },
+    {
+     "title": "Part 6: Book corner",
+     "directions": "Use a capital letter and a period.",
+     "items": [
+      {
+       "type": "write",
+       "text": "18. Write about your favorite page in your Thankful Book.",
+       "lines": 2
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "teacher": {
+  "objective": "Bristol presents her Gratitude Project book, then shows what she kept from Weeks 1–4 after the three-week break: equal groups → multiply and not equal → add; the fact tricks for 4, 6, 7, 8 and 9 (mixed, with missing factors); the 3 detective questions; and price-tag problems (total, how many can I buy, who spends more). Week 5 (Review). No new skill. The goal is to find out what she kept and what slipped.",
+  "materials": [
+   "The <b>Class lesson</b> open on your laptop (course page, code 9110)",
+   "Her Thankful Book and her Count the Slips page (page 3 of the Gratitude Project)",
+   "About 40 beans and 6 paper cups",
+   "Play money: about 30 $1 bills and 8 $5 bills",
+   "5 index cards for her trick cards",
+   "Whiteboard and marker",
+   "Her book, <i>Amy and the Missing Puppy</i>",
+   "Printed packet (2 pages) to send home"
+  ],
+  "plan": [
+   {
+    "time": "0:00–0:02",
+    "block": "Hello",
+    "do": "Class slide 1. Book and page 3 on the table."
+   },
+   {
+    "time": "0:02–0:10",
+    "block": "Show and Tell: My Thankful Book",
+    "do": "Class slide 2. She reads her book out loud and shows page 3. You are the audience. Praise one true thing."
+   },
+   {
+    "time": "0:10–0:14",
+    "block": "Your slips are math",
+    "do": "Class slide 3. 6 piles of 5 → 6 × 5 = 30. River's pile of 4 → not equal → add (29)."
+   },
+   {
+    "time": "0:14–0:19",
+    "block": "Book Talk",
+    "do": "Class slide 4. How the book ended, whether her guess from Lesson 11 was right, what Amy learned."
+   },
+   {
+    "time": "0:19–0:23",
+    "block": "Brain check",
+    "do": "Class slide 5. She tells everything she remembers with no help. You check it off on the whiteboard."
+   },
+   {
+    "time": "0:23–0:29",
+    "block": "Equal or not + sort",
+    "do": "Class slides 6–7. Beans in cups, then the sort. She says equal or not equal before each tap."
+   },
+   {
+    "time": "0:29–0:38",
+    "block": "Fact tricks",
+    "do": "Class slides 8–9. She makes 5 trick cards, then solves 4 facts, saying the trick first."
+   },
+   {
+    "time": "0:38–0:42",
+    "block": "Missing factors",
+    "do": "Class slide 10. Skip count and count the jumps."
+   },
+   {
+    "time": "0:42–0:47",
+    "block": "Detective questions",
+    "do": "Class slides 11–12. The 3 questions, then she names the operation for 3 stories."
+   },
+   {
+    "time": "0:47–0:54",
+    "block": "Price tags",
+    "do": "Class slides 13–15. Pay with play money, build 7 groups of $4, then 3 shop problems."
+   },
+   {
+    "time": "0:54–0:57",
+    "block": "Be the teacher",
+    "do": "Class slide 16. She names each mistake before she picks."
+   },
+   {
+    "time": "0:57–1:00",
+    "block": "Wrap-up",
+    "do": "Class slide 17. What was easy, what to practice. Show the task list."
+   }
+  ],
+  "watch": [
+   "Facts that slipped over the break, most likely 7s and 8s (54 for 7 × 8, 48 for 6 × 7). Point to her trick card and have her say the trick before the answer.",
+   "Multiplying when the groups are not equal (6 × 5 for River's pile of 4). Have her count each group out loud.",
+   "Giving the last skip-count number instead of the number of jumps (\"80\" for how many puzzles). Ask: \"Is 80 puzzles or dollars?\"",
+   "Number grabbing in word problems: adding 4 + 7 when each bag has 7. Ask the 3 detective questions.",
+   "Regrouping slips in subtraction (42 − 17 as 35). Have her add back to check.",
+   "Mixing up the price (one) and the total (all)."
+  ],
+  "packet_key": [
+   {
+    "item": "1",
+    "answer": "Equal; 4 × 5 = 20 marbles"
+   },
+   {
+    "item": "2",
+    "answer": "Not equal; 3 + 8 + 4 = 15 pens"
+   },
+   {
+    "item": "3",
+    "answer": "42"
+   },
+   {
+    "item": "4",
+    "answer": "54"
+   },
+   {
+    "item": "5",
+    "answer": "32"
+   },
+   {
+    "item": "6",
+    "answer": "21"
+   },
+   {
+    "item": "7",
+    "answer": "36"
+   },
+   {
+    "item": "8",
+    "answer": "36"
+   },
+   {
+    "item": "9",
+    "answer": "8"
+   },
+   {
+    "item": "10",
+    "answer": "9"
+   },
+   {
+    "item": "11",
+    "answer": "4"
+   },
+   {
+    "item": "12",
+    "answer": "6"
+   },
+   {
+    "item": "13",
+    "answer": "Multiply; 8 × 7 = 56 kids"
+   },
+   {
+    "item": "14",
+    "answer": "Subtract; 31 − 14 = 17 shells"
+   },
+   {
+    "item": "15",
+    "answer": "7 × 6 = 42; $42"
+   },
+   {
+    "item": "16",
+    "answer": "6 games (6 × 10 = 60, or 6 jumps of 10)"
+   },
+   {
+    "item": "17",
+    "answer": "Amy: 3 × 7 = 21. Liz: 4 × 5 = 20. Amy spends more ($1 more)."
+   },
+   {
+    "item": "18",
+    "answer": "Any sentence about a page of her book, with a capital letter and a period."
+   }
+  ],
+  "notes": "Write down what she could not say in the brain check (slide 5) and what she missed today. Those are the math items to keep alive in the recall slides of Lessons 13–18. If she scores under 85 on Show What You Know, have her redo the Practice set over the weekend and retake Show What You Know (she gets a new question set) before Lesson 13. If she did <b>not</b> pass the Pathways Week 7 Math retake from Lesson 11, do it with her today after class or at the start of Lesson 14 (in person). It is not on her task list because she does it with you."
+ },
+ "tasks": [
+  "Thursday night: do the <a href=\"lesson-12.html\">After-Class Lesson</a>. Finish with <b>Show What You Know</b>.",
+  "Friday: do the <a href=\"practice-12.html\">Lesson 12 Practice</a>. Try to get 85 or more.",
+  "Saturday: do the <a href=\"packet-12.html\">Lesson 12 Packet</a>, pages 1 and 2. Use your trick cards.",
+  "<span data-ela></span>Sunday: do the reading lesson <a href=\"https://kingcretot.github.io/KCE_Pathways_Curriculum/grade3/week1/reading.html\" target=\"_blank\"><b>Pathways Week 1 Reading: Story Elements</b></a>. Find the character and the setting in Theo's hiking story. Aim for 85. If it is locked, type 1111.",
+  "Friday, Saturday and Sunday: read your book for <b>15 minutes</b> each day."
+ ],
+ "also": [
+  {
+   "label": "Pathways Week 1 Reading: Story Elements",
+   "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade3/week1/reading.html",
+   "how": "Reading practice for this week. Do it on Sunday (it is on your task list). Find the character and the setting in Theo's hiking story. Aim for 85 or more. If it is locked, type 1111.",
+   "ela": true
+  },
+  {
+   "label": "OPTIONAL · Social Studies Week 10: Unit 2 Checkpoint",
+   "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade3/week10/socialstudies-checkpoint.html",
+   "how": "<b>OPTIONAL and self-paced.</b> This is not part of your class lessons and your teacher does not teach it. Do it on your own if you want to, one week at a time. Aim for 85 or more so the next week opens. If it is locked, type 1111."
+  }
+ ],
+ "teach": {
+  "slides": [
+   {
+    "type": "hello",
+    "title": "Welcome Back!",
+    "text": "Welcome back from your break! 🎉<br>First, you show your <b>Thankful Book</b>. <br>Then we find out what you <b>remember</b>.",
+    "visual": {
+     "kind": "emoji",
+     "text": "🫙📖🧠"
+    },
+    "notes": {
+     "do": "Before she arrives, set out about 40 beans, 6 paper cups, play money ($1 and $5 bills), 5 index cards and the whiteboard. Ask her to put her Thankful Book and her Count the Slips page (page 3 of the project) on the table.",
+     "say": "\"It has been three weeks! Today has two parts. First, your Thankful Book. Then a brain check. There is no new skill today. I want to see what you remember.\"",
+     "ask": "\"Did you bring your book and your Count the Slips page?\"",
+     "listen": "She has both. If page 3 is missing, ask her to tell you the numbers she remembers."
+    }
+   },
+   {
+    "type": "talk",
+    "kick": "Show and Tell",
+    "title": "My Thankful Book",
+    "text": "Read your book to your teacher. 📖",
+    "prompts": [
+     "Read each page out loud. Show the picture.",
+     "Which page is your <b>favorite</b>? Why?",
+     "Show your <b>Count the Slips</b> page. How many slips were in each pile?"
+    ],
+    "starters": [
+     "This page is about …",
+     "My favorite page is … because …",
+     "Each pile had … slips."
+    ],
+    "notes": {
+     "do": "About 8 minutes. You are the audience. She reads the whole book out loud (about 3 minutes) and shows each picture. Then she shows page 3 (Count the Slips). Write her pile numbers on the whiteboard for the next slide.",
+     "say": "\"Thank you for reading your book to me. You and your family worked hard on this.\"",
+     "ask": "\"Which page is your favorite? Why?\" \"How many piles did you make? How many slips were in each pile?\"",
+     "listen": "She reads each sentence smoothly and points to the picture. Praise one true thing: a capital letter, a period, a clear picture, a loud voice. Each person wrote one slip a day, so Week 1 piles should have about 5 slips each."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Your slips",
+    "title": "Your slips are math!",
+    "text": "Each person wrote <b>one</b> slip a day for <b>5</b> days.",
+    "items": [
+     {
+      "q": "<b>6</b> piles. Each pile has <b>5</b> slips. Which number sentence finds all the slips?",
+      "choices": [
+       "6 + 5 = 11",
+       "6 × 5 = 30",
+       "5 × 5 = 25"
+      ],
+      "a": 1,
+      "why": "6 equal piles of 5. <b>6 × 5 = 30</b> slips.",
+      "no": [
+       "That adds the 6 piles and the 5 slips. Every pile has 5, so multiply.",
+       null,
+       "Count the piles. There are 6, not 5."
+      ],
+      "visual": {
+       "kind": "groups",
+       "groups": 6,
+       "each": 5,
+       "emoji": "📝"
+      }
+     },
+     {
+      "type": "fill",
+      "q": "One day, nobody wrote River's slip. Now his pile has only <b>4</b>. Are the piles equal? <br>Type <b>equal</b> or <b>not equal</b>.",
+      "answers": [
+       "not equal"
+      ],
+      "why": "One pile has 4. The others have 5. They are <b>not equal</b>, so you add: 5 + 5 + 5 + 5 + 5 + 4 = 29.",
+      "no": "Count each pile. Do they all have the same number?",
+      "placeholder": "equal or not equal",
+      "visual": {
+       "kind": "uneven",
+       "sets": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        4
+       ],
+       "emoji": "📝"
+      }
+     }
+    ],
+    "notes": {
+     "do": "If she has her real numbers from page 3, use them too. Equal piles: she multiplies. One pile different: she adds.",
+     "ask": "\"Why can we multiply in the first picture?\" \"Why can't we multiply in the second picture?\"",
+     "listen": "\"Every pile has 5.\" \"River's pile is different, so we add.\" If she says 6 × 5 for the second picture, have her count River's pile out loud."
+    }
+   },
+   {
+    "type": "talk",
+    "kick": "Book Talk",
+    "title": "The end of the story",
+    "text": "Think about <i>Amy and the Missing Puppy</i>.",
+    "prompts": [
+     "Did you finish the book? How did it end?",
+     "Last time you guessed the ending. Was your guess <b>right</b>?",
+     "What did Amy <b>learn</b> in this story?"
+    ],
+    "starters": [
+     "At the end, …",
+     "My guess was … It was right because …",
+     "Amy learned …"
+    ],
+    "notes": {
+     "do": "About 5 minutes. At Lesson 11 she guessed how the book would end. If she has not finished, she tells where she is and makes a new guess with a clue.",
+     "ask": "\"How did it end?\" \"Was your guess right? What clue helped you?\" \"What did Amy learn?\"",
+     "listen": "Events in order (first, next, then, at the end). For what Amy learned, accept a lesson in her own words. If she only retells, ask: \"What would Amy do differently next time?\""
+    }
+   },
+   {
+    "type": "talk",
+    "kick": "Brain check",
+    "title": "What do you remember?",
+    "text": "No looking back! Tell your teacher what you remember. 🧠",
+    "prompts": [
+     "When do you <b>multiply</b>? When do you <b>add</b>?",
+     "Tell your trick for the <b>4s</b>, <b>6s</b>, <b>7s</b>, <b>8s</b> and <b>9s</b>.",
+     "Say the <b>3 detective questions</b>."
+    ],
+    "starters": [
+     "I multiply when …",
+     "For the 8s, I …",
+     "First I ask …"
+    ],
+    "notes": {
+     "do": "About 4 minutes. Do not teach yet. On the whiteboard, make a quick list and check off what she says with no help: the equal groups rule, each of the 5 fact tricks, and the 3 questions. This is the main thing to find out today.",
+     "say": "\"I want to see what stayed in your brain over the break. It is fine if something slipped. That tells me what to practice.\"",
+     "listen": "Equal groups → multiply, not equal → add. ×4: double, double. ×6: the 5s fact plus one more group. ×7: the 5s fact plus the 2s fact. ×8: double the 4s. ×9: the 10s fact take away one group. What is happening? Equal groups? Which operation? Circle anything she could not say. Spend the most time on those slides."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Remember",
+    "title": "Equal or not?",
+    "text": "Look at the groups <b>first</b>.",
+    "steps": [
+     {
+      "text": "<b>Equal groups:</b> every group has the same number. → ✖️ multiply<br>4 vases. 3 roses in each. 4 × 3 = <b>12</b>",
+      "visual": {
+       "kind": "groups",
+       "groups": 4,
+       "each": 3,
+       "emoji": "🌹"
+      }
+     },
+     {
+      "text": "<b>Not equal:</b> the groups are different. → ➕ add<br>3 roses, 5 roses, 2 roses. 3 + 5 + 2 = <b>10</b>",
+      "visual": {
+       "kind": "uneven",
+       "sets": [
+        3,
+        5,
+        2
+       ],
+       "emoji": "🌹"
+      }
+     }
+    ],
+    "tip": "Count every group before you choose.",
+    "notes": {
+     "do": "She builds both with beans in cups (4 cups of 3, then cups of 3, 5 and 2) before you reveal each step.",
+     "ask": "\"Can you multiply 3, 5 and 2? Why not?\"",
+     "listen": "\"No. The groups are not the same.\" If she says yes, line the three cups up and have her count each one."
+    }
+   },
+   {
+    "type": "sort",
+    "kick": "Sort it",
+    "title": "Multiply or add?",
+    "text": "Tap a card. Then tap the right box.",
+    "buckets": [
+     "✖️ Equal groups: multiply",
+     "➕ Not equal: add"
+    ],
+    "items": [
+     {
+      "text": "5 plates. Each plate has 4 grapes.",
+      "b": 0,
+      "why": "<b>Each</b> plate has 4. 5 × 4 = 20.",
+      "hint": "Find the word <b>each</b>."
+     },
+     {
+      "text": "One bag has 6 shells. One has 2. One has 7.",
+      "b": 1,
+      "why": "6, 2 and 7 are different. 6 + 2 + 7 = 15.",
+      "hint": "Do all the bags have the same number?"
+     },
+     {
+      "text": "8 dogs. Every dog has 4 paws.",
+      "b": 0,
+      "why": "<b>Every</b> dog has 4. 8 × 4 = 32.",
+      "hint": "Find the word <b>every</b>."
+     },
+     {
+      "text": "Liz has 9 beads. Amy has 5 beads.",
+      "b": 1,
+      "why": "9 and 5 are different. 9 + 5 = 14.",
+      "hint": "Do the girls have the same number?"
+     },
+     {
+      "text": "3 boxes with 7 crayons in each box.",
+      "b": 0,
+      "why": "7 in <b>each</b> box. 3 × 7 = 21.",
+      "hint": "Is every box the same?"
+     },
+     {
+      "text": "A red cup has 4 beans. A blue cup has 8 beans.",
+      "b": 1,
+      "why": "4 and 8 are different. 4 + 8 = 12.",
+      "hint": "Are 4 and 8 the same?"
+     }
+    ],
+    "done": "You checked every group first!",
+    "notes": {
+     "do": "She reads each card out loud and says \"equal\" or \"not equal\" BEFORE she taps a box.",
+     "ask": "\"Equal or not equal? How do you know?\"",
+     "listen": "The words each and every point to equal groups. Two or three different numbers mean not equal, so add."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Remember",
+    "title": "Fact tricks",
+    "text": "You have a <b>trick</b> for every hard fact.",
+    "steps": [
+     {
+      "text": "<b>× 4:</b> double, double. <br>4 × 8: 8 → 16 → <b>32</b>"
+     },
+     {
+      "text": "<b>× 6:</b> the 5s fact plus one more group. <br>6 × 9: 45 + 9 = <b>54</b>"
+     },
+     {
+      "text": "<b>× 7:</b> the 5s fact plus the 2s fact. <br>7 × 7: 35 + 14 = <b>49</b>"
+     },
+     {
+      "text": "<b>× 8:</b> double the 4s. <br>8 × 8: 4 × 8 = 32. Double 32 is <b>64</b>."
+     },
+     {
+      "text": "<b>× 9:</b> the 10s fact take away one group. <br>9 × 9: 90 − 9 = <b>81</b>"
+     }
+    ],
+    "tip": "Stuck on a fact? Use the trick. Do not count by 1s!",
+    "notes": {
+     "do": "Reveal one trick at a time. She writes each trick on an index card (5 cards). She keeps the cards for the packet.",
+     "say": "\"These are your 5 tricks. Let's put each one on a card.\"",
+     "ask": "Before you reveal each one: \"What is your trick for the 6s? the 7s?\"",
+     "listen": "Check her list from the brain check. A trick she could not say before needs one more example out loud."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Try it",
+    "title": "Facts with tricks",
+    "text": "Say the trick out loud. Then type the answer.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "____ = 6 × 6",
+      "answers": [
+       "36"
+      ],
+      "why": "5 × 6 = 30. One more 6: 30 + 6 = <b>36</b>.",
+      "no": "Use the 6s trick: the 5s fact plus one more 6.",
+      "hint": "5 × 6 = 30. Add one more 6.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "____ = 4 × 7",
+      "answers": [
+       "28"
+      ],
+      "why": "Double, double: 7 → 14 → <b>28</b>.",
+      "no": "Use the 4s trick: double 7, then double again.",
+      "hint": "Double 7 is 14. Double 14.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "____ = 7 × 9",
+      "answers": [
+       "63"
+      ],
+      "why": "10 × 7 = 70. Take away one 7: 70 − 7 = <b>63</b>.",
+      "no": "Use the 9s trick: 10 sevens, take away one 7.",
+      "hint": "10 × 7 = 70. Take away 7.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "____ = 8 × 9",
+      "answers": [
+       "72"
+      ],
+      "why": "4 × 9 = 36. Double 36 is <b>72</b>.",
+      "no": "Use the 8s trick: find 4 × 9, then double it.",
+      "hint": "4 × 9 = 36. Double 36.",
+      "placeholder": "Type a number"
+     }
+    ],
+    "notes": {
+     "do": "In person: she types on your laptop. She says the trick out loud before she types each answer.",
+     "ask": "\"Which trick did you use?\"",
+     "listen": "36, 28, 63, 72. On 7 × 9 she may use the 7s trick (35 + 28 = 63) or the 9s trick (70 − 7). Both are fine. If she counts by 1s, point to her index card."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Missing number",
+    "title": "Find the missing factor",
+    "text": "What number makes the fact true?",
+    "items": [
+     {
+      "type": "fill",
+      "q": "8 × ____ = 64",
+      "answers": [
+       "8"
+      ],
+      "why": "8 × 8 = 64. Check: 4 × 8 = 32. Double 32 is 64.",
+      "no": "What times 8 makes 64?",
+      "hint": "Count by 8s: 8, 16, 24, 32, 40, 48, 56, 64. How many jumps?",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "____ × 9 = 54",
+      "answers": [
+       "6"
+      ],
+      "why": "6 × 9 = 54. Check: 10 × 6 = 60. Take away 6: 54.",
+      "no": "What times 9 makes 54?",
+      "hint": "10 sixes is 60. Take away one 6.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "____ × 4 = 28",
+      "answers": [
+       "7"
+      ],
+      "why": "7 × 4 = 28. Double 7 is 14. Double 14 is 28.",
+      "no": "What times 4 makes 28?",
+      "hint": "Count by 4s until you reach 28. How many jumps?",
+      "placeholder": "Type a number"
+     }
+    ],
+    "notes": {
+     "do": "She skip counts on her fingers. For ____ × 4 = 28, she can put out 4 cups and add one bean to each cup at a time until there are 28 beans.",
+     "ask": "\"How many jumps did you make?\"",
+     "listen": "8, 6, 7. The answer is the number of jumps, not the last number she says."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Remember",
+    "title": "The detective questions",
+    "text": "Before you solve a story, ask <b>3 questions</b>. 🕵️",
+    "steps": [
+     {
+      "text": "<b>1. What is happening?</b>"
+     },
+     {
+      "text": "<b>2. Are there equal groups?</b> Look for <b>each</b>, <b>every</b> or <b>per</b>."
+     },
+     {
+      "text": "<b>3. Which operation?</b> ➕ add, ➖ subtract or ✖️ multiply?"
+     },
+     {
+      "text": "<i>Marion has 32 stickers. She gives 9 to Ellie.</i><br>Stickers go away → ➖ 32 − 9 = <b>23</b>"
+     }
+    ],
+    "tip": "<b>How many more</b> means compare. Compare means subtract.",
+    "notes": {
+     "do": "She says each question before you reveal it. On the last step, she answers all 3 questions out loud before you show the number sentence.",
+     "ask": "\"What is happening to the stickers?\" \"How do we check 32 − 9 = 23?\"",
+     "listen": "\"They go away, so subtract.\" Check: 23 + 9 = 32."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Name it",
+    "title": "Which operation?",
+    "text": "Type <b>add</b>, <b>subtract</b> or <b>multiply</b>.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "Ellie has 6 jars. She puts 5 shells in each jar. How many shells? <br>Add, subtract or multiply?",
+      "answers": [
+       "multiply",
+       "multiplication",
+       "times",
+       "x"
+      ],
+      "why": "5 shells in <b>each</b> jar. Equal groups → multiply. 6 × 5 = 30.",
+      "no": "Find the word <b>each</b>. Is every jar the same?",
+      "placeholder": "add, subtract or multiply"
+     },
+     {
+      "type": "fill",
+      "q": "Amy picked 14 apples. Liz picked 9 apples. How many more did Amy pick? <br>Add, subtract or multiply?",
+      "answers": [
+       "subtract",
+       "subtraction",
+       "minus",
+       "take away",
+       "-",
+       "−"
+      ],
+      "why": "<b>How many more</b> → compare → subtract. 14 − 9 = 5.",
+      "no": "This story compares two girls. What does <b>how many more</b> mean?",
+      "placeholder": "add, subtract or multiply"
+     },
+     {
+      "type": "fill",
+      "q": "The club washed 7 dogs on Saturday and 12 dogs on Sunday. How many dogs? <br>Add, subtract or multiply?",
+      "answers": [
+       "add",
+       "addition",
+       "plus",
+       "+"
+      ],
+      "why": "7 and 12 are different amounts that join → add. 7 + 12 = 19.",
+      "no": "Are 7 and 12 equal groups? Do they join or go away?",
+      "placeholder": "add, subtract or multiply"
+     }
+    ],
+    "notes": {
+     "do": "She reads each story out loud, answers the 3 questions, then types the operation.",
+     "ask": "Only if she is wrong: \"What is happening? Are the groups equal?\"",
+     "listen": "Multiply, subtract, add. The dogs story has two numbers but no equal groups, so it is add."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Remember",
+    "title": "Price tags",
+    "text": "Many things at the <b>same price</b>? Multiply. 🏷️",
+    "steps": [
+     {
+      "text": "<b>How many × price = total.</b><br>Pens cost $3 each. Amy buys 6. 6 × 3 = <b>$18</b>.",
+      "visual": {
+       "kind": "bigtext",
+       "text": "6 × $3 = $18"
+      }
+     },
+     {
+      "text": "<b>How many can I buy?</b><br>Ellie has $40. Bows cost $5 each. Count by 5s to 40. That is <b>8</b> jumps, so 8 bows.",
+      "visual": {
+       "kind": "numberline",
+       "start": 0,
+       "jump": 5,
+       "jumps": 8
+      }
+     },
+     {
+      "text": "<b>Who spends more?</b> Find <b>both</b> totals first. Then compare."
+     }
+    ],
+    "tip": "The <b>price</b> is for one. The <b>total</b> is for all of them.",
+    "notes": {
+     "do": "She pays for 6 pens at $3 with $1 bills in 6 piles of 3. Then she counts out $40 in $5 bills and counts the bills.",
+     "ask": "\"Is $3 the price or the total?\" \"How many bills did you use for $40?\"",
+     "listen": "$3 is the price, $18 is the total. 8 bills of $5 make $40, so 8 bows."
+    }
+   },
+   {
+    "type": "build",
+    "kick": "Hands on",
+    "title": "Pay for the stickers",
+    "text": "Sticker sheets cost <b>$4 each</b>. Liz buys <b>7</b> sheets. Make one group of $4 for each sheet.",
+    "groups": 7,
+    "each": 4,
+    "emoji": "💵",
+    "why": "7 groups of $4. 7 × 4 = <b>$28</b>.",
+    "hint": "How many sheets? That is the number of groups. How much is each sheet?",
+    "notes": {
+     "do": "She makes 7 piles of four $1 bills on the table. Then she sets the counters on screen.",
+     "ask": "\"How many groups? How many dollars in each? What is the total?\"",
+     "listen": "7 groups of 4, $28. If she makes 4 groups of 7, ask: \"How many sheets did Liz buy?\""
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Try it",
+    "title": "Shop problems",
+    "items": [
+     {
+      "type": "fill",
+      "q": "Notebooks cost <b>$6 each</b>. Marion buys <b>4</b>. What is the total?",
+      "answers": [
+       "24"
+      ],
+      "why": "Same price for each notebook. 4 × 6 = <b>24</b>.",
+      "no": "Every notebook is $6. Multiply. Then check your math.",
+      "hint": "Double 6 is 12. Double 12.",
+      "placeholder": "Type a number"
+     },
+     {
+      "type": "fill",
+      "q": "Liz has <b>$80</b>. Puzzles cost <b>$10 each</b>. How many can she buy?",
+      "answers": [
+       "8"
+      ],
+      "why": "10, 20, 30, 40, 50, 60, 70, 80. That is <b>8</b> jumps. 8 × 10 = 80.",
+      "no": "Count by 10s until you reach 80. Count the jumps.",
+      "hint": "? × 10 = 80",
+      "placeholder": "Type a number"
+     },
+     {
+      "q": "Amy buys <b>5 pens at $3 each</b>. Ellie buys <b>2 books at $7 each</b>. Who spends more?",
+      "choices": [
+       "Ellie",
+       "Amy",
+       "They spend the same."
+      ],
+      "a": 1,
+      "why": "Amy: 5 × 3 = 15. Ellie: 2 × 7 = 14. Amy spends $1 more.",
+      "no": [
+       "Ellie spends 2 × 7 = $14. Find Amy's total: 5 × 3.",
+       null,
+       "Find both totals. Are $15 and $14 the same?"
+      ]
+     }
+    ],
+    "notes": {
+     "do": "She solves each one on the whiteboard first, then answers on the laptop.",
+     "ask": "\"Too big or too small? How can you check?\"",
+     "listen": "$24, 8 puzzles, Amy. On the last one she must find both totals before she picks."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Find the mistake",
+    "title": "Be the teacher",
+    "items": [
+     {
+      "q": "Ellie says: <i>9 × 6 = 56.</i> What is right?",
+      "choices": [
+       "54",
+       "56 is right.",
+       "63"
+      ],
+      "a": 0,
+      "why": "10 × 6 = 60. Take away one 6: <b>54</b>.",
+      "no": [
+       null,
+       "56 is 7 × 8. Use 10 × 6 = 60, then take away one 6.",
+       "63 is 9 × 7. Ellie needs 9 sixes, not 9 sevens."
+      ]
+     },
+     {
+      "q": "Liz says: <i>4 bags. 7 apples in each bag. 4 + 7 = 11 apples.</i> What is right?",
+      "choices": [
+       "11 apples is right.",
+       "21 apples",
+       "28 apples"
+      ],
+      "a": 2,
+      "why": "Each bag has 7. Equal groups: 4 × 7 = <b>28</b>.",
+      "no": [
+       "Liz added. Each bag has 7, so multiply.",
+       "21 is 3 × 7. There are 4 bags.",
+       null
+      ]
+     }
+    ],
+    "notes": {
+     "do": "She says what Ellie and Liz did wrong BEFORE she picks.",
+     "ask": "\"What did Ellie do? What did Liz do?\"",
+     "listen": "Ellie used a wrong fact (56 is 7 × 8). Liz added when the groups were equal."
+    }
+   },
+   {
+    "type": "talk",
+    "kick": "Wrap-up",
+    "title": "What did you keep?",
+    "text": "You did a lot today! 🌟",
+    "prompts": [
+     "What was <b>easy</b> today?",
+     "What do you want to <b>practice</b> more?",
+     "Next lesson is about words like <b>don't</b> and <b>can't</b>. Can you find one in your book?"
+    ],
+    "starters": [
+     "… was easy.",
+     "I want to practice …",
+     "I found …"
+    ],
+    "notes": {
+     "do": "Show the task list on the course page: tonight the After-Class Lesson; Friday the Practice; Saturday the Packet; Sunday the reading lesson; 15 minutes of reading each day.",
+     "say": "\"You remembered a lot! Monday we start something new on Zoom.\"",
+     "listen": "She names one thing that was easy and one thing to practice. Compare it with your brain-check list."
+    }
+   }
+  ]
+ }
+}
