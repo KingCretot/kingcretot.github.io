@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SAT Baseline Review Practice · KingCretot Experience</title>
+<style>
+:root{--navy:#0A1F3D;--gold:#C9A84C;--blue:#0047BA;--red:#DB2F30;--green:#2E7D32;--cream:#FAF7EF;--ink:#1D2433;--muted:#4A5261;--line:#E2DDD0;--soft:#F3F1EA}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;background:var(--soft);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy);line-height:1.2;margin:0}
+.mast{background:var(--navy);padding:22px 0 0}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+.brandrow{display:flex;align-items:center;gap:14px}
+.kc{border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:3px}
+.kc div{border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);color:var(--gold);font-family:Georgia,'Times New Roman',serif;font-weight:bold;font-size:18px;letter-spacing:3px;padding:2px 7px}
+.wm{font-family:Georgia,'Times New Roman',serif;color:var(--gold);font-size:22px;line-height:1}
+.tag{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:3px;margin-top:6px}
+.mast h1{color:#fff;font-size:28px;margin:18px 0 6px}
+.mast .sub{color:#E8E4D6;font-size:16px;margin:0 0 18px}
+.band{display:flex;height:6px}.band i{flex:1}
+main{padding:24px 0 30px}
+.progress{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted);margin-bottom:10px}
+.bar{height:8px;background:var(--line);border-radius:6px;overflow:hidden;margin-bottom:18px}
+.bar span{display:block;height:100%;background:var(--gold);width:0;transition:width .25s}
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:14px;padding:24px;box-shadow:0 2px 10px rgba(10,31,61,.05)}
+.screen{display:none}.screen.on{display:block}
+.qno{font-family:Georgia,'Times New Roman',serif;color:var(--gold);font-weight:bold;font-size:17px}
+.qtag{font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);font-weight:bold;margin-left:8px}
+.stem{font-size:19px;font-weight:bold;margin:12px 0 16px;line-height:1.5}
+.sys{font-family:Georgia,'Times New Roman',serif;font-size:20px;background:var(--cream);border-left:4px solid var(--gold);padding:8px 14px;margin:10px 0 14px;line-height:1.7}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;border:2px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;font-size:18px;background:#fff;text-align:left;font-family:Arial,Helvetica,sans-serif;color:var(--ink);width:100%}
+.opt:hover{border-color:var(--blue)}
+.opt .ltr{flex-shrink:0;width:30px;height:30px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;font-weight:bold;font-size:15px;color:var(--navy)}
+.opt.sel{border-color:var(--navy);background:#F1F4F9}.opt.sel .ltr{background:var(--navy);border-color:var(--navy);color:#fff}
+.opt.right{border-color:var(--green);background:#EDF7EE}.opt.right .ltr{background:var(--green);border-color:var(--green);color:#fff}
+.opt.wrong{border-color:var(--red);background:#FCEDED}.opt.wrong .ltr{background:var(--red);border-color:var(--red);color:#fff}
+.typein label{display:block;font-weight:bold;color:var(--navy);font-size:15px;margin-bottom:6px}
+.typein input{width:100%;max-width:260px;font:inherit;font-size:20px;padding:10px 12px;border:2px solid var(--line);border-radius:10px}
+.typein .hint{font-size:14px;color:var(--muted);margin-top:6px}
+.typein input.right{border-color:var(--green);background:#EDF7EE}.typein input.wrong{border-color:var(--red);background:#FCEDED}
+.workspace{margin-top:16px;font-size:15px;color:var(--muted);background:var(--cream);border:1px dashed var(--gold);border-radius:10px;padding:10px 14px}
+.feedback{display:none;margin-top:16px;font-weight:bold;font-size:17px}
+.feedback.ok{color:var(--green)}.feedback.no{color:var(--red)}
+.sol{display:none;margin-top:14px;border-top:1px dashed var(--line);padding-top:14px}
+.sol.show{display:block}
+.sol h3{font-size:17px;margin-bottom:6px}
+.sol ol{margin:6px 0 10px;padding-left:24px}.sol li{margin:6px 0}
+.tip{background:var(--cream);border-left:4px solid var(--gold);padding:10px 14px;font-size:16px;border-radius:0 8px 8px 0}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:16px;border-radius:11px;padding:12px 20px;cursor:pointer;border:2px solid var(--navy);background:#fff;color:var(--navy)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn.navy{background:var(--navy);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.nav{display:flex;justify-content:space-between;margin-top:18px}
+.field{margin:12px 0}.field label{display:block;font-weight:bold;color:var(--navy);font-size:15px;margin-bottom:6px}
+.field input{width:100%;font:inherit;font-size:18px;padding:10px 12px;border:2px solid var(--line);border-radius:10px}
+ul.plain{padding-left:20px}ul.plain li{margin:6px 0}
+.sent{display:none;background:#EDF7EE;border:1px solid var(--green);color:#1B5E20;border-radius:10px;padding:12px 14px;font-weight:bold;margin-top:14px}
+.err{display:none;background:#FCEDED;border:1px solid var(--red);color:#8E1B1B;border-radius:10px;padding:12px 14px;margin-top:14px}
+footer{background:var(--navy);color:#fff;text-align:center;padding:18px 20px;font-size:12px;line-height:1.7}
+footer .nm{font-family:Georgia,'Times New Roman',serif;color:var(--gold);font-size:16px}footer .g{color:var(--gold)}
+@media (max-width:560px){html{font-size:17px}.mast h1{font-size:24px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<div class="brandrow"><div class="kc"><div>KC</div></div><div><div class="wm">KingCretot Experience</div>
+<div class="tag"><span style="color:#0047BA">EDUCATE</span><span style="color:#C9A84C"> · EMPOWER · </span><span style="color:#DB2F30">EXCEL</span></div></div></div>
+<h1>SAT Baseline Review Practice</h1>
+<p class="sub">Eleven math problems to try again, one at a time, with every step shown.</p>
+</div>
+<div class="band"><i style="background:#0047BA"></i><i style="background:#C9A84C"></i><i style="background:#DB2F30"></i></div>
+</header>
+
+<main><div class="wrap">
+<div class="progress"><span id="plabel">Start</span><span id="pcount"></span></div>
+<div class="bar"><span id="pbar"></span></div>
+<div class="card" id="deck"></div>
+</div></main>
+
+<footer><div class="nm">KingCretot Experience</div>
+Approved Provider: <span class="g">Step Up For Students</span> · <span class="g">Arizona ESA</span> · <span class="g">West Virginia Hope Scholarship</span><br>
+kingcretot.com · kce@kingcretot.com · PO Box 2322, Arcadia, FL 34265<br>
+&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</footer>
+
+<script>
+const FORM='https://formspree.io/f/mpqgdkww';
+const Q=[
+{tag:'Problem-Solving & Data Analysis',type:'mc',stem:'Of the 240 shirts a store sold last month, 35% were sold on weekends. How many of the shirts were sold on weekends?',
+ opts:['8.4','84','156','205'],ans:1,
+ steps:['“35% of 240” means 0.35 × 240.','Change the percent to a decimal: 35 ÷ 100 = 0.35.','Multiply: 0.35 × 240 = 84.','Check: 10% of 240 is 24, so 35% is 3.5 × 24 = 84. ✓'],
+ tip:'A percent becomes a decimal by moving the point two places left: 35% = 0.35, not 0.035.'},
+{tag:'Advanced Math',type:'mc',stem:'The function f is defined by f(x) = 3x² − 2x. What is the value of f(−2)?',
+ opts:['−16','8','16','40'],ans:2,
+ steps:['Replace every x with (−2): f(−2) = 3(−2)² − 2(−2).','Exponent first: (−2)² = 4, so 3(4) = 12.','Next term: −2 × (−2) = +4. A negative times a negative is positive.','Add: 12 + 4 = 16.'],
+ tip:'Put the negative number in parentheses every time you substitute, and watch the signs.'},
+{tag:'Geometry & Trigonometry',type:'in',stem:'A rectangular storage box is 6 inches long, 4 inches wide, and 2.5 inches tall. What is the volume of the box, in cubic inches?',
+ ans:[60],steps:['Volume of a rectangular box = length × width × height.','Length × width: 6 × 4 = 24.','Times the height: 24 × 2.5 = 60.','The volume is 60 cubic inches.'],
+ tip:'Volume multiplies all three measurements. Cubic inches tell you it is a volume.'},
+{tag:'Algebra',type:'in',stem:'In the xy-plane, the point (k, 11) lies on the line y = 4x − 9. What is the value of k?',
+ ans:[5],steps:['A point on a line makes the equation true, so put x = k and y = 11 into y = 4x − 9.','11 = 4k − 9.','Add 9 to both sides: 20 = 4k.','Divide both sides by 4: k = 5.','Check: 4(5) − 9 = 20 − 9 = 11. ✓'],
+ tip:'Never leave a type-in blank. There is no penalty for a wrong answer on the SAT.'},
+{tag:'Advanced Math',type:'mc',stem:'Which expression is equivalent to (2x − 5)²?',
+ opts:['4x² − 20x + 25','4x² − 25','4x² + 25','4x² − 10x + 25'],ans:0,
+ steps:['(2x − 5)² means (2x − 5)(2x − 5).','Multiply every term by every term (FOIL): 2x · 2x = 4x²; 2x · (−5) = −10x; (−5) · 2x = −10x; (−5) · (−5) = +25.','Combine like terms: 4x² − 10x − 10x + 25 = 4x² − 20x + 25.'],
+ tip:'(a − b)² is not a² + b². Write it out twice and multiply, and the middle term appears.'},
+{tag:'Algebra',type:'in',sys:'2x + 5y = 1<br>3x − y = 10',stem:'If (x, y) is the solution to the system of equations shown, what is the value of x + y?',
+ ans:[2],steps:['Solve the second equation for y: 3x − y = 10, so y = 3x − 10.','Substitute into the first equation: 2x + 5(3x − 10) = 1.','Distribute: 2x + 15x − 50 = 1.','Combine: 17x − 50 = 1, so 17x = 51 and x = 3.','Find y: y = 3(3) − 10 = −1.','Answer the question asked: x + y = 3 + (−1) = 2.','Check: 2(3) + 5(−1) = 1 ✓ and 3(3) − (−1) = 10 ✓'],
+ tip:'Read the last line of the question again before you answer. Here it asks for x + y, not x.'},
+{tag:'Advanced Math',type:'in',stem:'If x > 0 and 2x² + 5x − 12 = 0, what is the value of x?',
+ ans:[1.5],steps:['Factor 2x² + 5x − 12. Find two numbers that multiply to 2 × (−12) = −24 and add to 5: 8 and −3.','Split the middle term: 2x² + 8x − 3x − 12.','Group: 2x(x + 4) − 3(x + 4) = (2x − 3)(x + 4).','Set each factor to zero: 2x − 3 = 0 gives x = 3/2; x + 4 = 0 gives x = −4.','The problem says x > 0, so x = 3/2.','Check: 2(1.5)² + 5(1.5) − 12 = 4.5 + 7.5 − 12 = 0 ✓'],
+ tip:'You can type a fraction like 3/2 exactly as written, or the decimal 1.5.'},
+{tag:'Geometry & Trigonometry',type:'mc',stem:'A circle has a radius of 9 centimeters. What is the length, in centimeters, of an arc of this circle that has a central angle of 140°?',
+ opts:['3.5π','7π','14π','31.5π'],ans:1,
+ steps:['The whole circle’s circumference is 2πr = 2π(9) = 18π.','The arc is the fraction of the circle the angle covers: 140/360 = 7/18.','Arc length = (7/18) × 18π = 7π (about 21.99 cm).'],
+ tip:'A full circle is 360°. The angle over 360 tells you what fraction of the circle the arc is.'},
+{tag:'Algebra',type:'mc',sys:'4x − ky = 7<br>6x + 9y = 2',stem:'In the system of equations shown, k is a constant. For what value of k does the system have no solution?',
+ opts:['−27/2','−6','6','27/2'],ans:1,
+ steps:['No solution means the two lines are parallel: same slope, different y-intercept.','Second equation in slope form: 9y = −6x + 2, so y = −(2/3)x + 2/9. Slope = −2/3.','First equation in slope form: −ky = −4x + 7, so y = (4/k)x − 7/k. Slope = 4/k.','Set the slopes equal: 4/k = −2/3, so −2k = 12 and k = −6.','Check the intercepts differ: with k = −6 the first line is y = −(2/3)x + 7/6, and 7/6 ≠ 2/9, so the lines never meet. ✓'],
+ tip:'Keep the negative sign with the term it belongs to: in −ky, the coefficient of y is −k.'},
+{tag:'Advanced Math',type:'in',stem:'In the xy-plane, the line y = 4x + c, where c is a constant, intersects the graph of y = x² + 2x + 7 at exactly one point. What is the value of c?',
+ ans:[6],steps:['Where the graphs meet, the y-values are equal: x² + 2x + 7 = 4x + c.','Move everything to one side: x² − 2x + (7 − c) = 0.','Exactly one point means exactly one solution, so the discriminant must equal 0. The discriminant is (x-coefficient)² − 4 × (x²-coefficient) × (constant term). Here the x²-coefficient is 1, the x-coefficient is −2, and the constant term is (7 − c).','(−2)² − 4(1)(7 − c) = 0, so 4 − 28 + 4c = 0.','−24 + 4c = 0, so 4c = 24 and c = 6.','Check: with c = 6 the equation is x² − 2x + 1 = (x − 1)² = 0, which has one solution, x = 1. ✓'],
+ tip:'“Exactly one point” means the discriminant is zero. Desmos can confirm it: graph both and slide c until they just touch.'},
+{tag:'Geometry & Trigonometry',type:'mc',stem:'In the xy-plane, a circle has the equation x² + y² − 8x + 6y = 11. What is the radius of the circle?',
+ opts:['√11','5','6','36'],ans:2,
+ steps:['Group the x terms and the y terms: (x² − 8x) + (y² + 6y) = 11.','Complete the square for x: half of −8 is −4, and (−4)² = 16. For y: half of 6 is 3, and 3² = 9.','Add 16 and 9 to both sides: (x² − 8x + 16) + (y² + 6y + 9) = 11 + 16 + 9.','Factor: (x − 4)² + (y + 3)² = 36.','r² = 36, so the radius is r = 6.'],
+ tip:'Whatever you add to complete the square, add to the right side too, and keep the number that was already there.'}
+];
+const L='ABCD';
+const state=Q.map(()=>({pick:null,typed:'',checked:false,correct:false,first:null,tries:0}));
+let cur=-1; // -1 = start screen, Q.length = finish
+const deck=document.getElementById('deck');
+function today(){const d=new Date();return String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+'/'+d.getFullYear();}
+let student='Adrianna Gomez Vilsaint', dateStr=today();
+function toNum(s){s=String(s).trim().replace(/\s+/g,'').replace('−','-');if(!s)return NaN;if(/^-?\d+\/\d+$/.test(s)){const[a,b]=s.split('/');return Number(a)/Number(b);}return Number(s);}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function progress(){const n=Q.length;const pl=document.getElementById('plabel'),pc=document.getElementById('pcount'),pb=document.getElementById('pbar');
+ if(cur<0){pl.textContent='Start';pc.textContent='';pb.style.width='0%';}
+ else if(cur>=n){pl.textContent='Finish';pc.textContent='';pb.style.width='100%';}
+ else{pl.textContent='Problem '+(cur+1)+' of '+n;pc.textContent=state.filter(s=>s.checked).length+' checked';pb.style.width=((cur+1)/n*100)+'%';}}
+function render(){progress();window.scrollTo({top:0,behavior:'smooth'});
+ if(cur<0){deck.innerHTML=`<h2>Before you begin</h2>
+ <p>These are the math problems from your SAT Baseline worth another look. For each one, work it out on paper first, then enter your answer and press <b>Check</b>. Every problem shows the full solution step by step after you check it. You can skip any problem with <b>Next</b> and come back to it.</p>
+ <div class="field"><label for="nm">Name</label><input id="nm" value="${esc(student)}"></div>
+ <div class="field"><label for="dt">Date (month/day/year)</label><input id="dt" value="${esc(dateStr)}"></div>
+ <ul class="plain"><li>Have paper and a pencil ready.</li><li>Use a calculator or <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener">Desmos</a> if you like, the same calculator you get on test day.</li><li>There is no timer.</li></ul>
+ <div class="nav"><span></span><button class="btn gold" id="go">Start →</button></div>`;
+ document.getElementById('go').onclick=()=>{student=document.getElementById('nm').value.trim()||student;dateStr=document.getElementById('dt').value.trim()||dateStr;cur=0;render();};return;}
+ if(cur>=Q.length){const done=state.filter(s=>s.checked).length;const right=state.filter(s=>s.first===true).length;
+ deck.innerHTML=`<h2>Nice work, ${esc(student.split(' ')[0])}!</h2>
+ <p>You checked ${done} of ${Q.length} problems and got ${right} right on the first try. Press <b>Send to KCE</b> so your work goes to KingCretot Experience before your next lesson.</p>
+ <p>Any problem you skipped is still waiting: press <b>Back</b> to return to it.</p>
+ <div class="row"><button class="btn gold" id="send">Send to KCE</button></div>
+ <div class="sent" id="sent">Sent to KingCretot Experience. Thank you!</div>
+ <div class="err" id="err">That didn’t send. Check your internet connection and press Send to KCE again.</div>
+ <div class="nav"><button class="btn" id="back">← Back</button><span></span></div>`;
+ document.getElementById('back').onclick=()=>{cur=Q.length-1;render();};
+ document.getElementById('send').onclick=send;return;}
+ const q=Q[cur],s=state[cur];
+ let body=`<div><span class="qno">Problem ${cur+1}</span><span class="qtag">${q.tag}</span></div>`;
+ if(q.sys)body+=`<div class="sys">${q.sys}</div>`;
+ body+=`<div class="stem">${esc(q.stem)}</div>`;
+ if(q.type==='mc'){body+='<div class="opts">'+q.opts.map((o,i)=>`<button class="opt" data-i="${i}"><span class="ltr">${L[i]}</span><span>${esc(o)}</span></button>`).join('')+'</div>';}
+ else{body+=`<div class="typein"><label for="ti">Your answer</label><input id="ti" inputmode="decimal" autocomplete="off" value="${esc(s.typed)}"><div class="hint">Type a number, a decimal, or a fraction like 3/4.</div></div>`;}
+ body+=`<div class="workspace">Work it out on paper first, then check.</div>
+ <div class="row"><button class="btn navy" id="chk">Check</button><button class="btn" id="show">Show the steps</button></div>
+ <div class="feedback" id="fb"></div>
+ <div class="sol" id="sol"><h3>Step by step</h3><ol>${q.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><div class="tip"><b>Remember:</b> ${esc(q.tip)}</div></div>
+ <div class="nav"><button class="btn" id="back">← Back</button><button class="btn gold" id="next">${cur===Q.length-1?'Finish →':'Next →'}</button></div>`;
+ deck.innerHTML=body;
+ if(q.type==='mc'){deck.querySelectorAll('.opt').forEach(b=>{b.onclick=()=>{if(s.checked&&s.correct)return;s.pick=Number(b.dataset.i);deck.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel','wrong'));b.classList.add('sel');};});
+  if(s.pick!==null){const b=deck.querySelector(`.opt[data-i="${s.pick}"]`);b.classList.add(s.checked?(s.correct?'right':'wrong'):'sel');}}
+ else{const ti=document.getElementById('ti');ti.oninput=()=>{s.typed=ti.value;ti.classList.remove('wrong');};if(s.checked)ti.classList.add(s.correct?'right':'wrong');}
+ if(s.checked){showFb(s.correct);document.getElementById('sol').classList.add('show');}
+ document.getElementById('chk').onclick=check;
+ document.getElementById('show').onclick=()=>document.getElementById('sol').classList.toggle('show');
+ document.getElementById('back').onclick=()=>{cur--;render();};
+ document.getElementById('next').onclick=()=>{cur++;render();};}
+function showFb(ok){const fb=document.getElementById('fb');fb.style.display='block';fb.className='feedback '+(ok?'ok':'no');
+ fb.textContent=ok?'Correct! Read the steps below to lock in the method.':'Not yet. Look over the steps below, then try again or move on.';}
+function check(){const q=Q[cur],s=state[cur];let ok=false;if(s.checked&&s.correct)return;
+ if(q.type==='mc'){if(s.pick===null){const fb=document.getElementById('fb');fb.style.display='block';fb.className='feedback no';fb.textContent='Choose an answer first, or press Next to skip.';return;}
+  ok=s.pick===q.ans;deck.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel','wrong','right'));deck.querySelector(`.opt[data-i="${s.pick}"]`).classList.add(ok?'right':'wrong');if(!ok)deck.querySelector(`.opt[data-i="${q.ans}"]`).classList.add('right');}
+ else{const v=toNum(s.typed);if(isNaN(v)){const fb=document.getElementById('fb');fb.style.display='block';fb.className='feedback no';fb.textContent='Type a number first, or press Next to skip.';return;}
+  ok=q.ans.some(a=>Math.abs(a-v)<1e-9);document.getElementById('ti').classList.add(ok?'right':'wrong');}
+ s.tries++;if(s.first===null)s.first=ok;s.checked=true;s.correct=ok;
+ showFb(ok);document.getElementById('sol').classList.add('show');progress();}
+async function send(){const btn=document.getElementById('send');btn.disabled=true;
+ const data={_subject:'KCE SAT — Baseline Review Practice — '+student,assessment:'SAT Baseline Review Practice',student_name:student,date:dateStr,
+  checked:state.filter(s=>s.checked).length+' of '+Q.length,right_first_try:state.filter(s=>s.first===true).length+' of '+Q.length,right_by_the_end:state.filter(s=>s.correct).length+' of '+Q.length,
+  by_problem:Q.map((q,i)=>{const s=state[i];const a=q.type==='mc'?(s.pick===null?'(blank)':L[s.pick]+') '+q.opts[s.pick]):(s.typed.trim()||'(blank)');return 'P'+(i+1)+' · '+q.tag+' · answered '+a+' · '+(s.checked?(s.first?'right first try':(s.correct?'right on a later try':'not yet')):'not checked')+(s.tries>1?' · '+s.tries+' tries':'');}).join('\n'),
+  completed:new Date().toLocaleString('en-US')};
+ try{const r=await fetch(FORM,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+  if(!r.ok)throw 0;document.getElementById('sent').style.display='block';}
+ catch(e){btn.disabled=false;document.getElementById('err').style.display='block';}}
+render();
+</script>
+</body>
+</html>
