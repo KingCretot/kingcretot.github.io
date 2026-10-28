@@ -145,14 +145,15 @@ def _reteach(T):
     if not R: return ""
     rows = "".join(f'<tr><td style="white-space:nowrap"><b>{E(t)}</b></td><td><b>{E(blk)}</b><br>{E(do)}</td></tr>' for t, blk, do in R["plan"])
     return ('<div style="border:3px solid #DB2F30;border-radius:14px;padding:12px 16px;margin:0 0 18px;background:#FFF7F7">'
-        f'<h2 style="color:#DB2F30;margin-top:0">Reteach day · {E(R["date"])}</h2>'
+        f'<h2 style="color:#DB2F30;margin-top:0">Reteach module (use if Lesson 1 is not mastered) · {E(R["date"])}</h2>'
         f'<p><b>Why:</b> {E(R["why"])}</p>'
         '<h3 style="color:#0A1F3D;margin:10px 0 4px">What his errors show</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in R["errors"]) + '</ul>'
         '<h3 style="color:#0A1F3D;margin:10px 0 4px">Materials</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in R["materials"]) + '</ul>'
         f'<h3 style="color:#0A1F3D;margin:10px 0 4px">60-minute reteach plan</h3><table class="tt">{rows}</table>'
         '<h3 style="color:#0A1F3D;margin:10px 0 4px">Decision after class</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in R["decide"]) + '</ul>'
+        + (f'<p>🖨️ <a href="{R["print"]}" target="_blank"><b>Print the Graph Paper Practice</b></a> (2 pages: 3 problems with estimate boxes, plus a blank grid). Give him a copy to take home if he stays on multiplication this week.</p>' if R.get("print") else '') +
         f'<p><b>Answer key:</b> {E(R["graph_key"])}</p>'
-        '<p style="font-size:15px;color:#5b6578">The original Lesson 1 class plan follows below.</p></div>')
+        '<p style="font-size:15px;color:#5b6578">The regular class plan for this lesson follows below.</p></div>')
 
 def teacher_page(who, L, m):
     T = L["teacher"]
