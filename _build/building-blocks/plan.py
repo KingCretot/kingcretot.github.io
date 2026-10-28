@@ -76,9 +76,10 @@ PROJECTS = {"bristol": _SIMON, "bailey": _SIMON}
 # ── Ethan Ferguson (added Oct 20, 2026): Pathways Grades 4–5 in the Building Blocks format.
 # One lesson a week (Wed, in person, KCE Schoolhouse). Each lesson = one Pathways week, so "Week" = Pathways week number.
 STU_DATES = {
- "ethan": [(1,"2026-10-21","Wed","In person"),(2,"2026-10-28","Wed","In person"),(3,"2026-11-04","Wed","In person"),
-           (4,"2026-11-11","Wed","In person"),(5,"2026-12-02","Wed","In person"),
-           (6,"2026-12-09","Wed","In person"),(7,"2026-12-16","Wed","In person")],
+ "ethan": [(1,"2026-10-21","Wed","In person"),(2,"2026-11-04","Wed","In person"),(3,"2026-11-11","Wed","In person"),
+           (4,"2026-12-02","Wed","In person"),(5,"2026-12-09","Wed","In person"),
+           (6,"2026-12-16","Wed","In person"),(7,"2027-01-06","Wed","In person")]
+# Oct 27, 2026 (Jonathan): Oct 28 is a reteach of Lesson 1 (not mastered); Lessons 2-7 moved back one week.,
 }
 STU_WEEKS = {"ethan": [(6,[1]),(7,[2]),(8,[3]),(9,[4]),(10,[5]),(11,[6]),(12,[7])]}
 PW45 = PW + "grade4-5/"
@@ -97,7 +98,7 @@ SINGLE = {"ethan"}   # one lesson per week: card label shows the Pathways week, 
 def _ethan_desc(show):
     return f"A family project for the break, and you lead it. Mom, Dad, Joyce and Clyde are all in it. Follow the day-by-day plan. Present it at {show}."
 PROJECTS["ethan"] = [
- (9, "ethan-november.html", "The Ferguson Family Feast Planner", "Thu, Nov 12 – Tue, Dec 1", "Lesson 5 · Wed, Dec 2"),
+ (9, "ethan-november.html", "The Ferguson Family Feast Planner", "Thu, Nov 12 – Tue, Dec 1", "Lesson 5 · Wed, Dec 9"),
  (12, "ethan-holiday.html", "The Ferguson Family Winter Games", "Thu, Dec 17 – Tue, Jan 5", "your first January lesson · Wed, Jan 6"),
 ]
 PROJECTS["ethan"] = [p + (_ethan_desc(p[4]),) for p in PROJECTS["ethan"]]
