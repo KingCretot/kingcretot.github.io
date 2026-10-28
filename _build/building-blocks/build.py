@@ -207,7 +207,7 @@ def course_page(who, Ls):
             tasks = "".join(f'<label class="task"><input type="checkbox" id="t-{who}-{n}-{i}"> {tk}</label>' for i, tk in enumerate(L["tasks"]))
             wide = who in SINGLE
             c1 = (f'{head}<h3>{E(L["title"])}</h3><div class="gl">🎯 {E(L["goal"])}</div><p class="desc">{L["card"]["desc"]}</p><span class="status"></span>'
-                  f'<div class="btns">' + (f'<a class="b4" href="class-{n:02d}.html">🧑‍🏫 Class lesson (teacher leads it)</a>' if L.get("teach") else '') + f'<a class="b1 go-lesson" href="lesson-{n:02d}.html">▶ After-class lesson</a>'
+                  f'<div class="btns">' + (f'<a class="b4" href="class-{n:02d}.html">🧑‍🏫 Class lesson (teacher leads it)</a>' if L.get("teach") else '') + (f'<a class="b1" style="background:#0A1F3D;color:#C9A84C" href="{L["retake"]["href"]}">{E(L["retake"]["label"])}</a>' if L.get("retake") else '') + f'<a class="b1 go-lesson" href="lesson-{n:02d}.html">▶ After-class lesson</a>'
                   f'<a class="b2" href="practice-{n:02d}.html">📝 Practice</a><a class="b2" href="packet-{n:02d}.html">🖨 Packet</a>' + _printday(who, n) + f'<a class="b3" href="teacher-{n:02d}.html">🔒 Teacher plan &amp; key</a></div>')
             c2 = (f'<div class="also"><b>Also do:</b><ul>{also}</ul></div>' if also else "")
             c3 = f'<div class="tasks"><b>✅ Before the next lesson:</b>{tasks}</div>'

@@ -12,7 +12,7 @@
    {
     "type": "hello",
     "title": "Deja's Food Drive and the Class Pet Vote",
-    "text": "Deja's class collected <b>552 cans</b> for <b>24 food pantries</b>. Every pantry needs a fair share. Today you learn <b>long division</b> to split big numbers. Then you read two classmates who see a class vote very differently, and you <b>compare</b> their viewpoints.",
+    "text": "Deja's class collected <b>552 cans</b> for <b>24 food pantries</b>. Every pantry needs a fair share. Today you learn <b>long division</b> to split big numbers. Then you read two classmates who see a class vote very differently, and you <b>compare</b> their viewpoints. <b>First:</b> 20 minutes of Lesson 1 review, because long division uses multiplication in every step.",
     "visual": {
      "kind": "emoji",
      "text": "🥫➗🐹"
@@ -22,6 +22,267 @@
      "say": "Two jobs today. First 35 minutes: long division, step by step, with remainders and a check. Last 25 minutes: two kids, one class vote, and how to compare what they think.",
      "ask": "What do you remember about division with leftovers? What was 45 ÷ 6?",
      "listen": "7 R3 (6 × 7 = 42, 3 left). If he hesitates, that is fine: today builds that exact skill."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "The tens row: 36 × 47",
+    "text": "The 4 in 47 is <b>4 tens</b>, so the second row is 36 × <b>40</b>, not 36 × 4.",
+    "visual": {
+     "kind": "longdiv",
+     "text": "     36\n   × 47\n   ----\n    252  ← 36 × 7\n+ 1,440  ← 36 × 40\n   ----\n  1,692"
+    },
+    "steps": [
+     {
+      "text": "<b>Ones row.</b> 36 × 7 = <b>252</b>."
+     },
+     {
+      "text": "<b>Tens row.</b> Say “forty.” Write the <b>0</b> first. Then 36 × 4 = 144 goes in front of it: <b>1,440</b>."
+     },
+     {
+      "text": "<b>Add.</b> 252 + 1,440 = <b>1,692</b>. Estimate: 40 × 50 = 2,000. Close, so it makes sense."
+     }
+    ],
+    "tip": "The tens row always ends in 0. If it doesn't, stop and fix it.",
+    "notes": {
+     "do": "Build 36 × 40 with base-ten blocks or the place-value chart first: 4 groups of 36 is 144, and 40 groups is ten times that.",
+     "say": "When you multiply by 40, you are making groups of ten. That is why the 0 comes first.",
+     "ask": "Why is 36 × 4 not the tens row?",
+     "listen": "Because the 4 is in the tens place: it means 40."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Your turn",
+    "title": "The tens row",
+    "text": "Paper first, then type.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "<b>56 × 40 = ____</b>",
+      "answers": [
+       "2240",
+       "2,240"
+      ],
+      "why": "Write the 0 first. 56 × 4 = 224, so 56 × 40 = <b>2,240</b>.",
+      "no": "Write the 0 first, then 56 × 4.",
+      "hint": "56 × 4 = 224."
+     },
+     {
+      "type": "fill",
+      "q": "<b>47 × 30 = ____</b>",
+      "answers": [
+       "1410",
+       "1,410"
+      ],
+      "why": "Write the 0 first. 47 × 3 = 141, so 47 × 30 = <b>1,410</b>.",
+      "no": "Write the 0, then 47 × 3.",
+      "hint": "47 × 3 = 141."
+     },
+     {
+      "q": "In <b>68 × 27</b>, what is the tens row?",
+      "choices": [
+       "136",
+       "476",
+       "1,360",
+       "13,600"
+      ],
+      "a": 2,
+      "why": "The 2 in 27 is 2 tens: 68 × 20 = <b>1,360</b>.",
+      "no": [
+       "That is 68 × 2. The 2 is 2 tens, so the row needs a 0.",
+       "That is the ones row, 68 × 7.",
+       null,
+       "One zero too many: 68 × 20 is about 1,400, not 14,000."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "He says “twenty,” “forty,” “thirty” out loud before each one.",
+     "say": "Say the tens digit as tens.",
+     "ask": "What would 56 × 40 be if you forgot the 0?",
+     "listen": "224, which is far too small. The estimate (60 × 40 = 2,400) catches it."
+    }
+   },
+   {
+    "type": "learn",
+    "kick": "Learn",
+    "title": "Line up every column, then add",
+    "text": "On graph paper, put <b>one digit in each square</b>. Then add the two rows one column at a time, right to left.",
+    "visual": {
+     "kind": "longdiv",
+     "text": "     68\n   × 27\n   ----\n    476  ← 68 × 7\n+ 1,360  ← 68 × 20\n   ----\n  1,836"
+    },
+    "steps": [
+     {
+      "text": "<b>Ones:</b> 6 + 0 = 6."
+     },
+     {
+      "text": "<b>Tens:</b> 7 + 6 = 13. Write 3, regroup the 1 above the hundreds."
+     },
+     {
+      "text": "<b>Hundreds:</b> 4 + 3 + the regrouped 1 = 8. <b>Thousands:</b> 1. Answer: <b>1,836</b>."
+     }
+    ],
+    "tip": "Write every regrouped 1 above its column so you can see it when you add.",
+    "notes": {
+     "do": "He does 68 × 27 on graph paper with you, one digit per square. This was one he missed (he wrote 1,786).",
+     "say": "When the columns drift, the adding goes wrong. The squares keep them straight.",
+     "ask": "Where did 1,786 come from?",
+     "listen": "Usually a lost regroup in the tens or hundreds. Have him find it."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Estimate",
+    "title": "Count the zeros",
+    "text": "Round, multiply the front digits, then count the zeros.",
+    "items": [
+     {
+      "q": "<b>70 × 20 = ?</b>",
+      "choices": [
+       "140",
+       "14,000",
+       "1,400",
+       "2,100"
+      ],
+      "a": 2,
+      "why": "7 × 2 = 14, then two zeros: <b>1,400</b>.",
+      "no": [
+       "Only one zero. 70 × 20 has two zeros.",
+       "One zero too many. 70 × 20 has two zeros, not three.",
+       null,
+       "That is 70 × 30."
+      ]
+     },
+     {
+      "type": "fill",
+      "q": "<b>80 × 40 = ____</b>",
+      "answers": [
+       "3200",
+       "3,200"
+      ],
+      "why": "8 × 4 = 32, then two zeros: <b>3,200</b>.",
+      "no": "8 × 4, then count the zeros.",
+      "hint": "8 × 4 = 32."
+     },
+     {
+      "q": "Someone got <b>68 × 27 = 18,360</b>. Estimate: 70 × 30 = 2,100. What do you say?",
+      "choices": [
+       "Close enough",
+       "Too big: about 10 times too big",
+       "Too small"
+      ],
+      "a": 1,
+      "why": "2,100 vs 18,360 is about <b>10 times too big</b>: there is an extra 0. The real answer is 1,836.",
+      "no": [
+       "18,360 is nowhere near 2,100. Something is wrong.",
+       null,
+       "18,360 is bigger than 2,100, not smaller."
+      ]
+     }
+    ],
+    "notes": {
+     "do": "He writes the estimate in a box BEFORE every problem from now on.",
+     "say": "An estimate is only useful if it is right. Count the zeros.",
+     "ask": "When would an estimate NOT catch a mistake?",
+     "listen": "When the answer is close but wrong (like 1,786 vs 1,836). Then you recheck each step."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "Find the mistake",
+    "title": "Be the checker",
+    "text": "Check each row yourself on paper before you choose.",
+    "items": [
+     {
+      "q": "Someone wrote: <b>74 × 18 = 562 + 740 = 1,302</b>. What went wrong?",
+      "choices": [
+       "74 × 10 should be 74",
+       "74 × 8 should be 592: the regrouped 3 was never added",
+       "562 + 740 is not 1,302",
+       "Nothing. 1,302 is right."
+      ],
+      "a": 1,
+      "why": "4 × 8 = 32: write 2, regroup 3. 7 × 8 = 56, plus 3 = 59. So 74 × 8 = <b>592</b>, and 592 + 740 = 1,332.",
+      "no": [
+       "74 × 10 = 740 is right: it needs the 0.",
+       null,
+       "562 + 740 is 1,302. The adding is fine; the first row is wrong.",
+       "Check 74 × 8 again. Where did the regrouped 3 go?"
+      ]
+     },
+     {
+      "q": "Someone wrote: <b>76 × 38 = 608 + 2,280 = 2,848</b>. What went wrong?",
+      "choices": [
+       "76 × 8 should be 568",
+       "76 × 30 should be 228",
+       "Nothing. 2,848 is right.",
+       "The rows were added wrong: 608 + 2,280 = 2,888"
+      ],
+      "a": 3,
+      "why": "Both rows are right. Add again column by column: 608 + 2,280 = <b>2,888</b>.",
+      "no": [
+       "76 × 8 = 608 is right.",
+       "76 × 30 needs the 0: 2,280 is right.",
+       "Add the rows again, one column at a time.",
+       null
+      ]
+     }
+    ],
+    "notes": {
+     "do": "He says WHICH row is wrong and WHY before choosing.",
+     "say": "These are your own two mistakes from the last few days. Find them like a teacher would.",
+     "ask": "Which mistake would the estimate catch?",
+     "listen": "Neither: both answers are close to the estimate. Only rechecking each step catches them."
+    }
+   },
+   {
+    "type": "tap",
+    "kick": "On your own",
+    "title": "Three in a row",
+    "text": "Estimate, ones row, tens row, line up, add, compare. Paper first.",
+    "items": [
+     {
+      "type": "fill",
+      "q": "<b>68 × 27 = ____</b>",
+      "answers": [
+       "1836",
+       "1,836"
+      ],
+      "why": "476 + 1,360 = <b>1,836</b>.",
+      "no": "Ones row 68 × 7, tens row 68 × 20, then add.",
+      "hint": "Estimate: 70 × 30 = 2,100."
+     },
+     {
+      "type": "fill",
+      "q": "<b>135 × 12 = ____</b>",
+      "answers": [
+       "1620",
+       "1,620"
+      ],
+      "why": "270 + 1,350 = <b>1,620</b>.",
+      "no": "Ones row 135 × 2, tens row 135 × 10, then add.",
+      "hint": "Estimate: 140 × 10 = 1,400."
+     },
+     {
+      "type": "fill",
+      "q": "<b>216 × 14 = ____</b>",
+      "answers": [
+       "3024",
+       "3,024"
+      ],
+      "why": "864 + 2,160 = <b>3,024</b>.",
+      "no": "Ones row 216 × 4, tens row 216 × 10, then add.",
+      "hint": "Estimate: 200 × 15 = 3,000."
+     }
+    ],
+    "notes": {
+     "do": "He works alone. If he misses one, stop and do one more on graph paper with you before moving on.",
+     "say": "These are the exact steps you'll use to check long division in a few minutes.",
+     "ask": "How do you know your answer is right?",
+     "listen": "It's close to my estimate AND I rechecked each row."
     }
    },
    {
@@ -383,276 +644,6 @@
     }
    },
    {
-    "type": "tap",
-    "kick": "You lead",
-    "title": "17 late cans: 569 ÷ 24",
-    "text": "A late donor brings <b>17 more cans</b>. Now Deja has <b>569</b>. Use your multiples card. You tell me each step.",
-    "items": [
-     {
-      "type": "fill",
-      "q": "Multiples of 24: 24, 48, 72, 96, ____",
-      "answers": [
-       "120"
-      ],
-      "why": "96 + 24 = <b>120</b>. Also 24 × 5 = 120.",
-      "no": "Add 24 to 96.",
-      "hint": "96 + 24."
-     },
-     {
-      "type": "fill",
-      "q": "569 ÷ 24. How many 24s fit in <b>56</b>?",
-      "answers": [
-       "2"
-      ],
-      "why": "48 fits and 72 is too big. So <b>2</b>, and 56 − 48 = 8.",
-      "no": "Look at your multiples list.",
-      "hint": "48 is less than 56. 72 is more."
-     },
-     {
-      "type": "fill",
-      "q": "<b>569 ÷ 24 = ____</b>",
-      "answers": [
-       "23 R17",
-       "23 r 17",
-       "23r17",
-       "23 remainder 17",
-       "23 rem 17",
-       "23 R 17",
-       "23 remainder of 17",
-       "23 with 17 left over",
-       "23 with 17 left"
-      ],
-      "why": "56 ÷ 24 → 2 (2 × 24 = 48), 8 left. Bring down 9: 89 ÷ 24 → 3 (3 × 24 = 72), 17 left. <b>23 R17</b>. Check: 24 × 23 + 17 = 569.",
-      "no": "After 56 − 48 = 8, bring down the 9 to make 89. How many 24s fit in 89?",
-      "hint": "72 fits in 89. 89 − 72 = 17.",
-      "placeholder": "Example: 5 R2"
-     },
-     {
-      "type": "fill",
-      "q": "Check: <b>24 × 23 + 17 = ____</b>",
-      "answers": [
-       "569"
-      ],
-      "why": "24 × 23 = 552, and 552 + 17 = <b>569</b>. ✅",
-      "no": "You already know 24 × 23.",
-      "hint": "552 + 17."
-     },
-     {
-      "type": "fill",
-      "q": "What if Deja shared ONLY the 17 late cans among the 24 pantries? <b>17 ÷ 24 = ____</b> Type it like 5 R2.",
-      "answers": [
-       "0 R17",
-       "0 r 17",
-       "0r17",
-       "0 remainder 17",
-       "0 rem 17",
-       "0 R 17",
-       "0 remainder of 17",
-       "0 with 17 left over",
-       "0 with 17 left"
-      ],
-      "why": "24 does not fit into 17 even once, so the quotient is <b>0</b> and all 17 cans are left over: <b>0 R17</b>. Check: 24 × 0 + 17 = 17.",
-      "no": "Look at your multiples list. Is 17 bigger or smaller than 24?",
-      "hint": "How many 24s fit in 17? None. So every can is left over.",
-      "placeholder": "Example: 5 R2"
-     }
-    ],
-    "notes": {
-     "do": "He is the teacher. He tells you every step and you write exactly what he says on the whiteboard, even if it is wrong. Let him catch it with the check. The last item is new: the dividend (17) is smaller than the divisor (24). Pathways Week 7 Math asks this exact problem.",
-     "ask": "Is 17 an OK remainder? Why? And for 17 ÷ 24, how many 24s fit in 17?",
-     "listen": "Yes, because 17 is smaller than 24. If he gets 22 R41, ask: does another 24 fit in 41? For 17 ÷ 24: 24 does not fit into 17 even once, so the quotient is 0 and all 17 are left over (0 R17). If he types 1 R7 or 24 R17, ask him to do the check."
-    }
-   },
-   {
-    "type": "learn",
-    "kick": "Learn",
-    "title": "What does the remainder mean?",
-    "text": "Deja packs <b>170 cans</b> into boxes that hold <b>24</b>. 170 ÷ 24 = <b>7 R2</b>. The answer depends on the question!",
-    "visual": {
-     "kind": "bigtext",
-     "text": "170 ÷ 24 = 7 R2"
-    },
-    "steps": [
-     {
-      "text": "<b>Round up.</b> How many boxes to pack <b>ALL</b> the cans? 7 boxes leave 2 cans out, so she needs <b>8</b> boxes."
-     },
-     {
-      "text": "<b>Drop it.</b> How many <b>FULL</b> boxes can she deliver? Only <b>7</b>. The 2 extra cans do not make a full box."
-     },
-     {
-      "text": "<b>The remainder is the answer.</b> How many cans are <b>left over</b>? <b>2</b> cans."
-     }
-    ],
-    "tip": "Read the question again after you divide. Ask: does everything need a place, do only full groups count, or does it want the leftovers?",
-    "notes": {
-     "do": "Write the three questions on the whiteboard. He answers each one before you click the step.",
-     "say": "A remainder is not a mistake. It is information. The question tells you what to do with it.",
-     "ask": "When would you ever round up? (Buses, boxes, tables: everyone or everything needs a spot.)",
-     "listen": "He should say 8, 7 and 2 and explain each. Typing '7 R2' as the number of boxes is the mistake to catch."
-    }
-   },
-   {
-    "type": "tap",
-    "kick": "Try it",
-    "title": "Use the remainder",
-    "text": "Divide on paper. Then read the question again before you answer.",
-    "items": [
-     {
-      "type": "fill",
-      "q": "Volunteers ride in vans that hold <b>8</b> people. <b>30</b> volunteers are going. How many vans are needed?",
-      "answers": [
-       "4",
-       "4 vans"
-      ],
-      "why": "30 ÷ 8 = 3 R6. Three vans leave 6 people behind, so round up: <b>4</b> vans.",
-      "no": "Every volunteer needs a seat. What do you do with the remainder?",
-      "hint": "30 ÷ 8 = 3 R6."
-     },
-     {
-      "q": "Deja packs <b>90</b> cans in boxes of <b>12</b>. Only <b>FULL</b> boxes go on the truck. How many boxes go on the truck?",
-      "choices": [
-       "7 R6",
-       "8",
-       "6",
-       "7"
-      ],
-      "a": 3,
-      "why": "90 ÷ 12 = 7 R6. Only full boxes count, so drop the remainder: <b>7</b> boxes.",
-      "no": [
-       "You can't put 7 R6 boxes on a truck. Use the remainder to decide.",
-       "An 8th box would only have 6 cans, so it is not full.",
-       "6 is the remainder (cans left over), not the number of boxes.",
-       null
-      ]
-     },
-     {
-      "type": "fill",
-      "q": "The class has <b>$95</b>. Bags of rice cost <b>$6</b> each. They buy as many bags as they can. How many dollars are left?",
-      "answers": [
-       "$5",
-       "5",
-       "5 dollars"
-      ],
-      "why": "95 ÷ 6 = 15 R5. They buy 15 bags (6 × 15 = $90) and <b>$5</b> is left.",
-      "no": "Divide 95 by 6. What does the remainder stand for here?",
-      "hint": "6 × 15 = 90."
-     }
-    ],
-    "notes": {
-     "do": "He says which of the three cases each problem is (round up, drop it, or the remainder is the answer) before he answers.",
-     "listen": "Vans: round up. Truck: drop it. Money left: the remainder is the answer."
-    }
-   },
-   {
-    "type": "tap",
-    "kick": "Find the mistake",
-    "title": "Be the checker",
-    "text": "Each one has one mistake. Use the check to find it.",
-    "items": [
-     {
-      "q": "Someone wrote: <b>95 ÷ 7 = 12 R11</b>. What went wrong?",
-      "choices": [
-       "7 × 12 is not 84",
-       "Nothing. 12 R11 is right.",
-       "The remainder 11 is bigger than 7, so another 7 fits. It is 13 R4.",
-       "They should have divided 7 by 95"
-      ],
-      "a": 2,
-      "why": "A remainder must be smaller than the divisor. 7 × 13 = 91, and 95 − 91 = 4. So <b>13 R4</b>.",
-      "no": [
-       "7 × 12 = 84 is right. Look at the remainder.",
-       "The check works (7 × 12 + 11 = 95), but 11 is bigger than 7. Another 7 fits.",
-       null,
-       "The dividend 95 is divided BY the divisor 7."
-      ]
-     },
-     {
-      "q": "Someone wrote: <b>552 ÷ 6 = 9 R1</b>. What went wrong?",
-      "choices": [
-       "They forgot to bring down the 2. The check gives 6 × 9 + 1 = 55, not 552.",
-       "9 should be 8",
-       "The remainder should be 6",
-       "Nothing. 9 R1 is right."
-      ],
-      "a": 0,
-      "why": "After 55 − 54 = 1, bring down the 2 to make 12. 12 ÷ 6 = 2. So <b>92</b>.",
-      "no": [
-       null,
-       "6 × 9 = 54 fits in 55. The 9 is right.",
-       "A remainder of 6 is never OK when dividing by 6.",
-       "Check: 6 × 9 + 1 = 55. That is not 552."
-      ]
-     },
-     {
-      "q": "Someone wrote: <b>696 ÷ 24 = 28 R24</b>. What went wrong?",
-      "choices": [
-       "24 × 28 is too big",
-       "The remainder equals the divisor, so one more 24 fits. It is 29.",
-       "Nothing. 28 R24 is right.",
-       "They should round down to 28"
-      ],
-      "a": 1,
-      "why": "A remainder of 24 means another full 24 fits. 24 × 29 = 696, so <b>29</b>.",
-      "no": [
-       "24 × 28 = 672, which fits in 696.",
-       null,
-       "A remainder can never equal the divisor.",
-       "Rounding is not the problem. Another whole 24 fits."
-      ]
-     }
-    ],
-    "notes": {
-     "do": "He writes the check for each one on paper before he chooses. He must say WHICH step went wrong.",
-     "say": "These are the three big division mistakes: a remainder that is too big, forgetting to bring down, and stopping one group early.",
-     "ask": "Which mistake does the multiplication check catch? Which one needs the 'remainder smaller than divisor' rule?",
-     "listen": "The check catches the forgotten bring-down (55, not 552). 12 R11 and 28 R24 pass the check, so he needs the remainder rule for those."
-    }
-   },
-   {
-    "type": "tap",
-    "kick": "Exit ticket",
-    "title": "Math check",
-    "text": "On your own. Paper, then the check, then type.",
-    "items": [
-     {
-      "type": "fill",
-      "q": "<b>634 ÷ 5 = ____</b>",
-      "answers": [
-       "126 R4",
-       "126 r 4",
-       "126r4",
-       "126 remainder 4",
-       "126 rem 4",
-       "126 R 4",
-       "126 remainder of 4",
-       "126 with 4 left over",
-       "126 with 4 left"
-      ],
-      "why": "6 ÷ 5 → 1 (1 × 5 = 5), 1 left. Bring down 3: 13 ÷ 5 → 2 (2 × 5 = 10), 3 left. Bring down 4: 34 ÷ 5 → 6 (6 × 5 = 30), 4 left. <b>126 R4</b>. Check: 5 × 126 + 4 = 634.",
-      "no": "Start with 6. Divide, multiply, subtract, bring down.",
-      "hint": "6 ÷ 5 → 1, 1 left. Bring down 3: 13.",
-      "placeholder": "Example: 5 R2"
-     },
-     {
-      "type": "fill",
-      "q": "<b>768 ÷ 32 = ____</b>",
-      "answers": [
-       "24",
-       "24 R0",
-       "24 remainder 0"
-      ],
-      "why": "76 ÷ 32 → 2 (2 × 32 = 64), 12 left. Bring down 8: 128 ÷ 32 → 4 (4 × 32 = 128), 0 left. <b>24</b>. Check: 32 × 24 = 768.",
-      "no": "Make a multiples list for 32 first: 32, 64, 96, 128 …",
-      "hint": "76 ÷ 32 → 2 (64). 76 − 64 = 12. Bring down the 8.",
-      "placeholder": "Example: 5 R2"
-     }
-    ],
-    "notes": {
-     "do": "Hands off. Note his first answers. Then switch to reading (10:05).",
-     "listen": "126 R4 and 24. Both right on the first try with the check written means he is ready for the Pathways Week 7 Math lesson on Tuesday."
-    }
-   },
-   {
     "type": "vocab",
     "kick": "Word Power",
     "title": "Reading words for today",
@@ -953,52 +944,6 @@
      "do": "Tap the gold star when he quotes the text. Push for exact words from the passage, not just 'because I like fish.'",
      "ask": "Why is it useful to read BOTH pieces before you vote?",
      "listen": "Each writer points out things the other one does not. A good decision weighs the benefits AND the problems."
-    }
-   },
-   {
-    "type": "tap",
-    "kick": "Exit ticket",
-    "title": "Words from memory",
-    "text": "No word list. Type the word.",
-    "items": [
-     {
-      "type": "fill",
-      "q": "In 552 ÷ 24 = 23, the number 23 is the ________.",
-      "answers": [
-       "quotient",
-       "the quotient",
-       "a quotient"
-      ],
-      "why": "23 is the answer, so it is the <b>quotient</b>.",
-      "no": "It is the answer to a division problem.",
-      "hint": "It starts with q-u-o."
-     },
-     {
-      "type": "fill",
-      "q": "“A few kids in our class are allergic to fur” is a fact that supports Theo's viewpoint. A fact like that is called ________.",
-      "answers": [
-       "evidence"
-      ],
-      "why": "Facts and details that support a viewpoint are <b>evidence</b>.",
-      "no": "It is what you use to back up a viewpoint.",
-      "hint": "It starts with e-v-i."
-     },
-     {
-      "type": "fill",
-      "q": "A plan where each side gives up a little so both can agree is a ________.",
-      "answers": [
-       "compromise",
-       "the compromise",
-       "a compromise"
-      ],
-      "why": "That is a <b>compromise</b>, like Theo's fish tank.",
-      "no": "Theo's fish tank idea is one.",
-      "hint": "It starts with c-o-m-p-r-o."
-     }
-    ],
-    "notes": {
-     "do": "No peeking at the vocab slides. A missed word is said three times, spelled out loud, then typed again.",
-     "listen": "Spelling counts: q-u-o-t-i-e-n-t, e-v-i-d-e-n-c-e, c-o-m-p-r-o-m-i-s-e."
     }
    },
    {
@@ -2428,108 +2373,106 @@
   ]
  },
  "teacher": {
-  "objective": "Math (35 min): Ethan divides 3-digit numbers by 1-digit and 2-digit divisors with long division (Divide, Multiply, Subtract, Bring down), uses a multiples list for 2-digit divisors, writes remainders correctly (smaller than the divisor), checks every answer with multiplication (divisor × quotient + remainder = dividend), and decides what a remainder means in a story (round up, drop it, or the remainder is the answer). Reading (25 min): he compares and contrasts two viewpoints in The Class Pet Vote, names what each writer cares about most, picks the strongest evidence from the text, explains a compromise, and types the math and reading words from memory.",
+  "objective": "Review first (20 min): Ethan fixes the Lesson 1 steps he has not mastered (tens row with the 0, lining up columns on graph paper, adding the partial products, estimating with the right number of zeros, checking his own work). Then Lesson 2 math (18 min): long division with 1-digit divisors, remainders, and the check divisor × quotient + remainder = dividend, previewing 2-digit divisors if time allows. Reading (18 min): compare and contrast two viewpoints in The Class Pet Vote using evidence from the text. After class he retakes Lesson 1 on his own (85 needed) before the Lesson 2 after-class lesson opens.",
   "materials": [
-   "The <b>class lesson</b> on a laptop or tablet (teacher code 9110)",
-   "Base-ten blocks for 552 ÷ 4: 5 flats, 15 rods and 32 units (5 flats, 5 rods, 2 units to build 552, plus 10 extra rods and 30 extra units for trading)",
-   "One index card for his multiples list (24, 48, 72, 96, 120)",
-   "Two highlighters or colored pencils (one for Malia, one for Theo)",
-   "Whiteboard and marker for the T-chart (Same | Different)",
-   "Pencil and paper; Packet (2 pages), printed: page 1 Friday, page 2 Sunday"
+   "The class lesson on a laptop or tablet (teacher code 9110)",
+   "Graph Paper Practice (graph-paper-01.pdf), or graph paper / lined paper turned sideways",
+   "Base-ten blocks: for 36 × 40, and for 552 ÷ 4 (5 flats, 15 rods, 32 units)",
+   "Whiteboard and two marker colors; two highlighters (one for Malia, one for Theo)",
+   "Pencil and paper; Lesson 2 Packet (2 pages), printed: page 1 Saturday, page 2 Sunday"
   ],
   "plan": [
    {
-    "time": "0:00–0:03",
-    "block": "9:30 · MATH (35 min) · Hello + Deja's problem",
-    "do": "Class slides 1–2. He guesses 552 ÷ 24. Write his guess in the corner of the whiteboard."
+    "time": "0:00–0:02",
+    "block": "9:30 · Hello + why we review first",
+    "do": "Class slide 1. Tell him why we review first. Write the three steps on the whiteboard: estimate · ones row + tens row · line up and add."
    },
    {
-    "time": "0:03–0:07",
-    "block": "9:33 · Warm-up: Lesson 1 review",
-    "do": "Class slide 3. 24 × 23 = 552 (spaced review of Lesson 1), 56 ÷ 7, 47 ÷ 6 = 7 R5 and its check."
+    "time": "0:02–0:07",
+    "block": "9:32 · REVIEW: the tens row",
+    "do": "Slides 2–3. Blocks for 36 × 40; he says “forty” and writes the 0 first. 56 × 40, 47 × 30, the tens row of 68 × 27."
    },
    {
-    "time": "0:07–0:09",
-    "block": "9:37 · Math words",
-    "do": "Class slide 4. Dividend, divisor, quotient, remainder, multiple. He spells quotient out loud."
+    "time": "0:07–0:12",
+    "block": "9:37 · Line up and add",
+    "do": "Slide 4. 68 × 27 on graph paper, one digit per square, regroup marks above."
    },
    {
-    "time": "0:09–0:14",
-    "block": "9:39 · Hands-on: 552 ÷ 4",
-    "do": "Class slide 5. Base-ten blocks shared into 4 groups; each trade is a bring down. He writes each step on paper. Answer 138, checked with 138 × 4."
+    "time": "0:12–0:15",
+    "block": "9:42 · Estimate: count the zeros",
+    "do": "Slide 5. 70 × 20, 80 × 40, and the 18,360 mistake."
    },
    {
-    "time": "0:14–0:17",
-    "block": "9:44 · Your turn: 552 ÷ 6",
-    "do": "Class slide 6. He talks through each step; you only ask questions. Answer 92."
+    "time": "0:15–0:17",
+    "block": "9:45 · Be the checker",
+    "do": "Slide 6. His own mistakes: 74 × 18 and 76 × 38. He names the row and the reason."
    },
    {
-    "time": "0:17–0:21",
-    "block": "9:47 · Remainders + the check",
-    "do": "Class slides 7–8. 557 ÷ 6 = 92 R5, then 389 ÷ 4 and 731 ÷ 8. He writes divisor × quotient + remainder under every problem."
+    "time": "0:17–0:20",
+    "block": "9:47 · Three in a row (on his own)",
+    "do": "Slide 7. 68 × 27, 135 × 12, 216 × 14. A miss means one more on graph paper with you."
    },
    {
-    "time": "0:21–0:26",
-    "block": "9:51 · Two-digit divisors",
-    "do": "Class slides 9–10. He makes the multiples card for 24. 552 ÷ 24 = 23 together (compare to his 9:30 guess), then he leads 569 ÷ 24 = 23 R17 and 17 ÷ 24 = 0 R17 (dividend smaller than the divisor, as in Pathways Week 7 Math)."
+    "time": "0:20–0:23",
+    "block": "9:50 · LESSON 2 · Deja's problem + warm-up",
+    "do": "Slides 8–9. He guesses 552 ÷ 24. 24 × 23 = 552 (multiplication he just fixed), 56 ÷ 7, 47 ÷ 6 = 7 R5 and its check."
    },
    {
-    "time": "0:26–0:29",
-    "block": "9:56 · What does the remainder mean?",
-    "do": "Class slides 11–12. 170 ÷ 24 = 7 R2: 8 boxes, 7 full boxes, 2 cans. He names the case (round up, drop it, remainder is the answer) before each answer."
+    "time": "0:23–0:25",
+    "block": "9:53 · Math words",
+    "do": "Slide 10. Dividend, divisor, quotient, remainder, multiple."
    },
    {
-    "time": "0:29–0:32",
-    "block": "9:59 · Find the mistake",
-    "do": "Class slide 13. Remainder too big, forgotten bring-down, remainder equal to the divisor. He writes the check for each."
+    "time": "0:25–0:30",
+    "block": "9:55 · Hands-on: 552 ÷ 4",
+    "do": "Slide 11. Base-ten blocks shared into 4 groups; each trade is a bring down. Answer 138, checked with 138 × 4."
    },
    {
-    "time": "0:32–0:35",
-    "block": "10:02 · Math exit ticket",
-    "do": "Class slide 14 on his own: 634 ÷ 5 and 768 ÷ 32. Note his first answers."
+    "time": "0:30–0:33",
+    "block": "10:00 · Your turn: 552 ÷ 6",
+    "do": "Slide 12. He talks through each step. Answer 92."
    },
    {
-    "time": "0:35–0:38",
-    "block": "10:05 · READING (25 min) · Reading words",
-    "do": "Class slide 15. Viewpoint, compare, contrast, reasoning, evidence, persuasive, compromise. Extra time on evidence and compromise."
+    "time": "0:33–0:38",
+    "block": "10:03 · Remainders + the check",
+    "do": "Slides 13–14. 557 ÷ 6 = 92 R5. He writes divisor × quotient + remainder under every problem, on graph paper."
    },
    {
-    "time": "0:38–0:42",
-    "block": "10:08 · Malia's case",
-    "do": "Class slide 16. He reads aloud and highlights Malia's reasons in color 1."
+    "time": "0:38–0:40",
+    "block": "10:08 · Preview: two-digit divisors",
+    "do": "Slide 15 (552 ÷ 24 = 23 with a multiples list). 569 ÷ 24, what a remainder means in a story, and the division checker are in his after-class lesson."
    },
    {
-    "time": "0:42–0:46",
-    "block": "10:12 · Theo's case",
-    "do": "Class slide 17. He reads aloud and highlights Theo's reasons in color 2."
+    "time": "0:40–0:42",
+    "block": "10:10 · READING · Reading words",
+    "do": "Slide 16. Viewpoint, compare, contrast, reasoning, evidence, persuasive, compromise."
    },
    {
-    "time": "0:46–0:50",
-    "block": "10:16 · Compare and contrast (hands-on)",
-    "do": "Class slide 18. He fills a whiteboard T-chart (Same | Different) from his highlights BEFORE you click the steps."
+    "time": "0:42–0:48",
+    "block": "10:12 · Malia's case and Theo's case",
+    "do": "Slides 17–18. He reads aloud and highlights each writer's reasons in a different color."
    },
    {
-    "time": "0:50–0:53",
-    "block": "10:20 · Weigh the evidence",
-    "do": "Class slide 19. Strongest evidence, the fish tank as a compromise, and what they both want."
+    "time": "0:48–0:53",
+    "block": "10:18 · Compare, contrast, weigh the evidence",
+    "do": "Slides 19–20. Whiteboard T-chart (Same | Different) from his highlights, then the strongest evidence and the compromise."
    },
    {
     "time": "0:53–0:56",
-    "block": "10:23 · Your viewpoint",
-    "do": "Class slide 20. He votes, gives one piece of evidence from the text, and names the strongest point from the side he did not pick. Gold star for exact words from the text."
+    "block": "10:23 · His viewpoint",
+    "do": "Slide 21. He votes and gives one piece of evidence in the text's exact words."
    },
    {
-    "time": "0:56–0:58",
-    "block": "10:26 · Words from memory",
-    "do": "Class slide 21. Quotient, evidence, compromise typed with no peeking."
-   },
-   {
-    "time": "0:58–1:00",
-    "block": "10:28 · Wrap-up + task list",
-    "do": "Class slide 22. He says the four steps and the check. Open the course page and read this week's task list."
+    "time": "0:56–0:60",
+    "block": "10:26 · Wrap-up + the two buttons",
+    "do": "Slide 22, then show the course card: first the Retake Lesson 1 button (on his own, after class), then the After-class lesson, which opens when he scores 85. Read the task list together, including the retake rule."
    }
   ],
   "watch": [
+   "<b>Tens row:</b> he must say the tens digit as tens (“forty”) and write the 0 first. 56 × 40 = 324 was his mistake: he treated 40 as 4.",
+   "<b>Columns:</b> one digit per square on graph paper; regrouped 1s written above the column. Most of his wrong answers (1,786 for 1,836; 2,848 for 2,888; 1,350 for 1,620) came from adding the rows.",
+   "<b>Estimate:</b> 70 × 20 = 1,400, not 14,000. He writes the estimate in a box before every problem.",
+   "<b>Rushing on retakes:</b> his scores have dropped on repeat tries (Pathways Week 6 Math 80, 63, 55; Week 3 Reading 75, 25). Retakes come after the problems are worked on paper, one retake a day.",
    "<b>Where the first digit goes:</b> when the divisor does not fit into the first digit (552 ÷ 6), the first quotient digit goes over the SECOND digit. If he writes 0 or a digit over the 5, ask: how many 6s fit in 5?",
    "<b>Bring down every digit:</b> his answer must use every digit of the dividend. 552 ÷ 6 = 9 R1 means he stopped early. The check catches it: 6 × 9 + 1 = 55, not 552.",
    "<b>Remainder size:</b> the remainder must be smaller than the divisor. 12 R11 for 95 ÷ 7, or 28 R24 for 696 ÷ 24, pass the multiplication check, so he also needs this rule.",
@@ -2609,75 +2552,23 @@
     "answer": "Any vote with one quoted or named detail from the text. Compromise example: a fish tank (a pet with no fur), or a pet that does not need daily care."
    }
   ],
-  "notes": "<b>For you only (do not share with Ethan):</b> reading is a strength (98 on the first try on Pathways Week 6 Reading, and every story question right on the Unit 1 checkpoint), so the reading block is shorter and pushes for evidence and compare/contrast vocabulary. His facts and the area model are strong. He is weaker on long multi-step procedures and on TYPED answers compared with multiple choice, so this lesson is mostly typed answers. Division with remainders was 'nearly there' (45 ÷ 6 = 7 R3 on the second try). Writing vocabulary words from memory is weak (factors, quotient, compromise, evidence), so every part ends with words typed from memory. Before class, check his Lesson 1 Show What You Know score: if it is under 85, use the first 2 minutes of the warm-up on one more stacked multiplication problem, because every division check uses it. <b>Finish:</b> if both math exit-ticket problems are right on the first try with the check written, he is ready for Pathways Week 7 Math (Tuesday on his task list, aim for 85). His task list also has Pathways Week 7 Reading on Friday (he already read Malia's and Theo's pieces in class) and Pathways Week 4 Reading on Sunday, which he never did in September (main idea and summarizing). Tonight he does the <b>after-class lesson</b>; it ends with Show What You Know (10 questions: 6 math and 4 reading; 3 different sets for retakes; he needs 85). If he scores under 85, look at the Formspree missed list: a forgotten bring-down or a too-big remainder means 10 minutes of long division on paper at the start of next lesson, with the check written for each; a missed remainder story means rereading the question and naming the case out loud; a missed word means index-card practice.",
-  "reteach": {
-   "date": "Wed, Oct 28, 2026",
-   "why": "Before teaching Lesson 2, check Lesson 1. Long division (multiply, subtract, and the check divisor × quotient + remainder) uses the multi-digit multiplication from Lesson 1. If his Lesson 1 Show What You Know is under 85, use this reteach module for today instead of the Lesson 2 class plan below, and teach Lesson 2 at the next lesson.",
-   "errors": [
-    "He picks the right partial products; the breakdown is in the last two steps.",
-    "Place value of the tens row: for 56 × 40 he wrote 324 (should be 2,240). He treats 40 like 4 and loses the zero, and the 56 × 4 step slipped too (224).",
-    "Adding the partial products: 68 × 27 → 1,786 (1,836); 76 × 38 → 2,848 (2,888); 135 × 12 → 1,350 (1,620). Columns drift and the regrouping goes wrong.",
-    "Estimating: 70 × 20 = 14,000. He counts the zeros wrong, so the estimate cannot catch errors.",
-    "Checking: he accepted 74 × 18 = 562 + 740 (74 × 8 = 592).",
-    "Reading: he reads well (98 on Week 6 Reading); Week 3 needs exact words from the text as proof, not guessing."
-   ],
-   "materials": [
-    "Base-ten blocks and a place-value chart (thousands · hundreds · tens · ones)",
-    "Graph paper: Graph Paper Practice (graph-paper-01.pdf in this folder), or lined paper turned sideways",
-    "Whiteboard with two marker colors, a highlighter",
-    "His own device for the Show What You Know retake (so a pass unlocks Lesson 2 on his device). If he uses yours, type 9110 in the Teacher code box on his Lesson 2 lock screen at home."
-   ],
-   "plan": [
-    [
-     "9:30–9:35",
-     "Diagnose",
-     "He solves 47 × 36 (1,692) on the whiteboard, talking out loud. Do not correct; note where it breaks."
-    ],
-    [
-     "9:35–9:45",
-     "Place value (I do)",
-     "Blocks and the place-value chart: 36 × 7 and 36 × 40. He says “forty,” writes the 0 first, then multiplies by 4. Area-model box beside it so each box shows its real value."
-    ],
-    [
-     "9:45–9:55",
-     "Line up and add (we do)",
-     "Graph paper, one digit per square, regrouping marks above the columns. Estimate first (count the zeros), compare after. Error hunt on 74 × 18 = 562 + 740 and 56 × 40 = 324: he finds and fixes both."
-    ],
-    [
-     "9:55–10:05",
-     "You do + retake",
-     "68 × 27, 135 × 12, 216 × 14 on his own (1,836 · 1,620 · 3,024). Three in a row correct, then he retakes Show What You Know (new question set) while you watch."
-    ],
-    [
-     "10:05–10:25",
-     "Reading: Making the Case",
-     "Pathways Week 3 Reading together. For each question he points to the exact sentence and highlights it (claim one color, evidence another), then finishes the scored challenge on his own."
-    ],
-    [
-     "10:25–10:30",
-     "Wrap-up",
-     "He explains the four multiplication steps in his own words. If he passed (85+), show him the Lesson 2 card's task list. If not, give him this week's work instead: Lesson 1 Practice set on Thursday and again Monday, Graph Paper Practice page 1 Friday and page 2 Saturday (redo Lesson 1 Packet page 2), retake Lesson 1 Show What You Know on his own device until 85, and Pathways Week 3 Reading if it is under 85. Read 15 minutes a day."
-    ]
-   ],
-   "decide": [
-    "85 or more on the retake: he does the Lesson 2 after-class work this week as listed, and you teach the Lesson 2 class plan next lesson.",
-    "Under 85: stay on multiplication this week (Lesson 1 Practice sets and the Graph Paper Practice), and reteach before Lesson 2.",
-    "Week 3 Reading: 85 or more closes it; under 85, redo it together before the Lesson 2 reading."
-   ],
-   "graph_key": "Graph Paper Practice page 1: 57 × 34 = 1,938 (estimate 60 × 30 = 1,800) · 83 × 46 = 3,818 (estimate 80 × 50 = 4,000) · 124 × 23 = 2,852 (estimate 120 × 20 = 2,400).",
-   "print": "graph-paper-01.pdf"
-  }
+  "notes": "<b>Why the review is built in (Oct 27, 2026):</b> Ethan has not mastered Lesson 1 (Show What You Know 50, then 70; he needs 85), and every step of long division uses that multiplication. So this lesson opens with 20 minutes of targeted review, then moves into Lesson 2. After class he retakes Lesson 1 on his own (the Retake Lesson 1 button on the card); the Lesson 2 after-class lesson stays locked until he scores 85. If he took the retake on your computer and passed, type 9110 in the Teacher code box on his Lesson 2 lock screen at home. <b>Graph Paper Practice key:</b> 57 × 34 = 1,938 (estimate 60 × 30 = 1,800) · 83 × 46 = 3,818 (80 × 50 = 4,000) · 124 × 23 = 2,852 (120 × 20 = 2,400). <b>Next lesson:</b> if he is still under 85 on Lesson 1, open with 10 minutes of the same review before the Lesson 3 class."
  },
  "tasks": [
-  "Wednesday (after class): do the <a href=\"lesson-02.html\">after-class lesson</a>. It ends with <b>Show What You Know</b>. Aim for 85.",
-  "Thursday: do the <a href=\"practice-02.html\">Practice</a> set. Work every division problem on paper and write the check.",
-  "Friday: do <a href=\"https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week7/reading.html\" target=\"_blank\">Pathways Week 7 Reading</a> (The Class Pet Vote). You read Malia's and Theo's pieces in class, so use what you learned: compare, contrast and weigh the evidence. Aim for 85. If it is locked, type 1111.",
-  "Saturday: print the <a href=\"packet-02.html\">Packet</a> and do <b>page 1</b>. Then, on an index card, write these 8 words and what they mean from memory: <b>dividend, divisor, quotient, remainder, viewpoint, contrast, evidence, compromise</b>. Check your card on the Word Power slide.",
-  "Sunday: do <b>page 2</b> of the <a href=\"packet-02.html\">Packet</a>. Then do <a href=\"https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week4/reading.html\" target=\"_blank\">Pathways Week 4 Reading</a> (Splitting the Profits). Find the main idea and the details that support it. Aim for 85. If it is locked, type 1111.",
-  "Monday: do the <a href=\"practice-02.html\">Practice</a> set again. You get a new set of questions.",
-  "Tuesday: do <a href=\"https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week7/math.html\" target=\"_blank\">Pathways Week 7 Math</a>. Write the check for every division problem and check every typed answer. Aim for 85. If it is locked, type 1111."
+  "Wednesday (after class): tap <b>Retake Lesson 1</b> and do it on your own. Work every problem on paper first: estimate, ones row, tens row, line up, add, compare. It ends with Show What You Know. Aim for 85. When you get 85, your After-class lesson for Lesson 2 opens.",
+  "Thursday: if Lesson 2 is open, do the <a href=\"lesson-02.html\">after-class lesson</a>. It ends with Show What You Know. Aim for 85. If Lesson 2 is still locked, do the <a href=\"practice-01.html\">Lesson 1 Practice</a> set, then retake Lesson 1 one time.",
+  "Friday: print the <a href=\"graph-paper-01.pdf\" target=\"_blank\">Graph Paper Practice</a> and do page 1 (three problems, one digit in each square). Then do the <a href=\"practice-02.html\">Practice</a> set if Lesson 2 is open.",
+  "Saturday: print the <a href=\"packet-02.html\">Packet</a> and do <b>page 1</b>. Then, on an index card, write these 8 words and what they mean from memory: <b>dividend, divisor, quotient, remainder, viewpoint, contrast, evidence, compromise</b>. If Pathways Week 3 Reading is under 85, retake it one time: point to the exact sentence before every answer.",
+  "Sunday: do <b>page 2</b> of the <a href=\"packet-02.html\">Packet</a> and page 2 of the Graph Paper Practice (redo Lesson 1 Packet page 2). Then do <a href=\"https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week7/reading.html\" target=\"_blank\">Pathways Week 7 Reading</a> (The Class Pet Vote). Aim for 85. If it is locked, type 1111.",
+  "Monday: do the Lesson 2 <a href=\"practice-02.html\">Practice</a> set again. You get a new set of questions.",
+  "Tuesday: do <a href=\"https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week7/math.html\" target=\"_blank\">Pathways Week 7 Math</a>. Write the check for every division problem. Aim for 85. If it is locked, type 1111. <b>Retake rule all week:</b> work the problems on paper first, and only one retake a day. Read 15 minutes every day."
  ],
  "also": [
+  {
+   "label": "Pathways Week 3 Reading: Making the Case",
+   "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week3/reading.html",
+   "how": "We work on this in class. If it is still under 85, retake it one time on Saturday (it is on your task list). Point to the exact sentence in the story before every answer. Aim for 85 or more. If it is locked, type 1111."
+  },
   {
    "label": "Pathways Week 7 Math: Deja's Food Drive",
    "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week7/math.html",
@@ -2686,12 +2577,12 @@
   {
    "label": "Pathways Week 7 Reading: The Class Pet Vote",
    "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week7/reading.html",
-   "how": "Do this on Friday (it is on your task list). You already read Malia's and Theo's pieces in class, so use what you learned: compare, contrast and weigh the evidence. If you already did it, retake it. Aim for 85 or more. If it is locked, type 1111."
+   "how": "Do this on Sunday (it is on your task list). You already read Malia's and Theo's pieces in class, so use what you learned: compare, contrast and weigh the evidence. Aim for 85 or more. If it is locked, type 1111."
   },
   {
    "label": "Pathways Week 4 Reading: Splitting the Profits",
    "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week4/reading.html",
-   "how": "Do this on Sunday, after page 2 of the Packet (it is on your task list). You skipped this one earlier, so take your time: find the main idea and the details that support it, then sum it up in your own words. Aim for 85 or more. If it is locked, type 1111."
+   "how": "Not this week. Do it after Pathways Week 3 Reading is at 85: find the main idea and the details that support it, then sum it up in your own words. Aim for 85 or more. If it is locked, type 1111."
   },
   {
    "label": "Long Division Lane, Lesson 4: Dividing 3-Digit Numbers by 1-Digit",
@@ -2703,5 +2594,9 @@
    "url": "https://kingcretot.github.io/KCE_Pathways_Curriculum/grade4-5/week1/socialstudies.html",
    "how": "<b>OPTIONAL and self-paced.</b> This is not part of your class lessons and your teacher does not teach it. Do it on your own if you want to, one week at a time. Aim for 85 or more so the next week opens. If it is locked, type 1111."
   }
- ]
+ ],
+ "retake": {
+  "label": "🔁 Retake Lesson 1 (do this first, after class)",
+  "href": "lesson-01.html"
+ }
 }
