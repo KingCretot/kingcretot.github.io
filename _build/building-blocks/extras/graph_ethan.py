@@ -15,7 +15,7 @@ for i,(pr,est) in enumerate(probs,1):
     p1+=f'''<div class="prob"><div class="pl"><div class="q"><span class="num">{i}</span> {pr}</div>
 <div class="est">My estimate: <b class="box"></b><div class="hint">Round, then multiply: {est.split(" × ")[0]} × {est.split(" × ")[1]}</div></div>
 <div class="est">Close to my estimate? <span class="yn">Yes · No</span></div></div>{grid(9,6)}</div>'''
-p2=hdr("Graph Paper Practice · Page 2","Saturday. Redo page 2 of your Lesson 1 Packet here. Copy each problem, then work it with <b>one digit in each square</b> so every column lines up.")
+p2=hdr("Graph Paper Practice · Page 2","Sunday. Redo page 2 of your Lesson 1 Packet here. Copy each problem, then work it with <b>one digit in each square</b> so every column lines up.")
 p2+=f'<div style="margin-top:6px">{grid(18,19)}</div>'
 CSS=f'''@page{{size:letter;margin:0}}*{{box-sizing:border-box}}body{{margin:0;background:#EFEDE6;font-family:Arial,Helvetica,sans-serif;color:#1D2433}}
 .page{{width:8.5in;height:11in;margin:14px auto;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.12);padding:0 0 .3in;overflow:hidden;position:relative}}
