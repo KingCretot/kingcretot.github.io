@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Game Plan · KingCretot Experience</title>
-<link rel="stylesheet" href="fo.css?v=9">
+<link rel="stylesheet" href="fo.css?v=10">
 </head>
 <body>
 <div id="fo-bar" class="fo-bar" data-home="index.html"></div>
@@ -122,11 +122,11 @@
     document.getElementById('season').innerHTML = PHASES.map(function (ph) {
       return '<div class="ph2"><b>' + ph.n + '</b><span>' + ph.s + '</span></div><div class="tiles">' + WEEKS.filter(function (x) { return x.w >= ph.from && x.w <= ph.to; }).map(function (x) {
         var r = rec[x.w], open = x.built && FO.isOpen(x.d);
-        var st = r ? '<span class="st ' + r.wl + '">' + r.wl + ' · ' + r.score + '</span>' : open ? '<span class="st go">Open the lesson ›</span>' : (FO.teacher() && !x.built ? '<span class="st">Not built yet</span>' : '<span class="st">🔒 Opens ' + nice(x.d) + '</span>');
+        var st = (r ? '<span class="st ' + r.wl + '">Practice: ' + r.wl + ' · ' + r.score + '</span>' : '') + (open ? '<a class="btn navy" href="lesson' + pad(x.w) + '.html">Lesson</a><a class="btn gold" href="practice' + pad(x.w) + '.html">Practice Here</a>' : (FO.teacher() && !x.built ? '<span class="st">Not built yet</span>' : '<span class="st">🔒 Opens ' + nice(x.d) + '</span>'));
         var inner = '<div class="tl-top"><span class="tl-n">Week ' + x.w + '</span><span class="tl-d">' + nice(x.d) + '</span></div><h3>' + esc(x.t) + '</h3>' +
           '<div class="subj sm"><div><span class="m">Math</span>' + esc(x.m) + '</div><div><span class="e">ELA</span>' + esc(x.e) + '</div><div><span class="f">Money</span>' + esc(x.f) + '</div></div>' +
           '<div class="tl-st">' + st + '</div>';
-        return open ? '<a class="tile open" href="lesson' + pad(x.w) + '.html">' + inner + '</a>' : '<div class="tile">' + inner + '</div>';
+        return '<div class="tile' + (open ? ' open' : '') + '">' + inner + '</div>';
       }).join('') + '</div>';
     }).join('');
   }
