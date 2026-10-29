@@ -13,7 +13,7 @@
 <div class="tmode" id="tmode"></div>
 <div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
 
-<script src="fo.js?v=9"></script>
+<script src="fo.js?v=12"></script>
 <script>
 (function () {
   function field(min, max, marks) {
@@ -58,7 +58,7 @@
 
   var slides = [
     { html: '<div class="eyebrow">Week 1 · Kickoff</div><h2>Kickoff</h2>' +
-      '<p>Real teams aren’t just run on the field. Somebody upstairs is reading stats, scouting players and deciding where every dollar goes. That’s the general manager. This year, that’s you.</p>' +
+      '<p>Real teams aren’t just run on the field. Somebody upstairs is reading stats, scouting players and deciding where every dollar goes. That’s the <b>general manager</b>, or <b>GM</b> for short. This year, that’s you.</p>' +
       '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Field Position.</b> Positive and negative numbers on the field.</span></div>' +
       '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Film Room.</b> Find the central idea of a story.</span></div>' +
       '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Cap Space.</b> Needs, wants and what every choice costs.</span></div>' +
@@ -116,7 +116,7 @@
       '<div class="inrow"><a class="btn gold" href="practice01.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
   ];
 
-  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Pick a GM name, name your team, choose your colors and a logo shape. You only do this once. You can edit it later from Home.</p><div id="builder"></div>',
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can edit it later from Home.</p><div id="builder"></div>',
     init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
 
   document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-10-29', 'Week 1', document.getElementById('deck'))) return; FO.deck({ id: 'L01', slides: slides, items: items, home: 'index.html' }); });

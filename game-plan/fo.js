@@ -300,8 +300,8 @@
   /* ---------- franchise builder ---------- */
   FO.builder = function (mount, onSave) {
     var p = FO.profile();
-    mount.innerHTML = '<div class="builder"><div>' +
-      '<div class="field-row"><label for="b-gm">GM name (a nickname is fine)</label><input id="b-gm" maxlength="40" value="' + esc(p.gm) + '" placeholder="Like Dre or Coach K"></div>' +
+    mount.innerHTML = '<div class="callout blue" style="margin-top:0"><b>You’re the GM.</b> GM is short for <b>general manager</b>, the boss who runs a football team. The GM picks the players, signs the contracts and decides how the team spends its money. In Game Plan, that’s your job.</div><div class="builder"><div>' +
+      '<div class="field-row"><label for="b-gm">Your name or nickname</label><input id="b-gm" maxlength="40" value="' + esc(p.gm) + '" placeholder="Like Dre or Coach K"></div>' +
       '<div class="grid2"><div class="field-row"><label for="b-city">Home city</label><input id="b-city" maxlength="22" value="' + esc(p.city) + '" placeholder="Make one up or pick a real city"></div>' +
       '<div class="field-row"><label for="b-team">Team name</label><input id="b-team" maxlength="18" value="' + esc(p.team) + '" placeholder="Like the Storm or the Gators"></div></div>' +
       '<div class="field-row"><label>Primary color</label><div class="swatches" data-k="c1">' + FO.COLORS.map(function (c) { return '<button type="button" class="sw' + (c === p.c1 ? ' sel' : '') + '" style="background:' + c + '" data-c="' + c + '" aria-label="Color ' + c + '"></button>'; }).join('') + '</div></div>' +
