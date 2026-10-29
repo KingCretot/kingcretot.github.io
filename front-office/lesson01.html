@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Week 1: Welcome to the Front Office · KCE</title>
-<link rel="stylesheet" href="fo.css?v=2">
+<link rel="stylesheet" href="fo.css?v=6">
 </head>
 <body>
 <div id="fo-bar" class="fo-bar" data-home="index.html"></div>
 <main id="deck" class="deck" aria-live="polite"></main>
 <div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
 
-<script src="fo.js?v=3"></script>
+<script src="fo.js?v=5"></script>
 <script>
 (function () {
   function field(min, max, marks) {
@@ -58,14 +58,11 @@
   var slides = [
     { html: '<div class="eyebrow">Week 1 · Kickoff</div><h2>Welcome to the Front Office</h2>' +
       '<p>Real teams aren’t just run on the field. Somebody upstairs is reading stats, scouting players and deciding where every dollar goes. That’s the general manager. This year, that’s you.</p>' +
-      '<div class="grid2"><div class="callout blue"><span class="pill m">Q1 · Math</span><h3 style="margin:8px 0 4px">Field Position</h3>Positive and negative numbers on the field.</div>' +
-      '<div class="callout red"><span class="pill e">Q2 · ELA</span><h3 style="margin:8px 0 4px">Film Room</h3>Find the central idea of a story.</div>' +
-      '<div class="callout"><span class="pill f">Q3 · Money</span><h3 style="margin:8px 0 4px">Cap Space</h3>Needs, wants and what every choice costs.</div>' +
-      '<div class="callout" style="background:#EEF6F0;border-left-color:var(--turf)"><span class="pill r">Q4 · Game Day</span><h3 style="margin:8px 0 4px">Practice Here</h3>Win it with 80+ to put a W on your record.</div></div>' +
-      '<p style="margin-top:12px">Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>. Let’s build your team first.</p>' },
-
-    { html: '<div class="eyebrow">Pregame</div><h2>Build Your Franchise</h2><p>Pick a GM name, name your team, pick your colors and choose a logo shape. You can change it later from the season page.</p><div id="builder"></div>',
-      init: function (sec) { FO.builder(sec.querySelector('#builder')); } },
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Field Position.</b> Positive and negative numbers on the field.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Film Room.</b> Find the central idea of a story.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Cap Space.</b> Needs, wants and what every choice costs.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
 
     { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Field Position</span></div><h2>The Field Is a Number Line</h2>' +
       '<p>Put the <b>line of scrimmage at 0</b>. Gaining yards moves you right, into <b>positive</b> numbers. Losing yards moves you left, into <b>negative</b> numbers. Numbers less than 0 are negative. Whole numbers and their opposites (…, −2, −1, 0, 1, 2, …) are called <b>integers</b>.</p>' +
@@ -115,8 +112,11 @@
       '<li>The central idea is what the whole text is really about. Details prove it, and context clues unlock new words.</li>' +
       '<li>Needs come before wants. Every choice has an opportunity cost.</li></ul>' +
       '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
-      '<div class="inrow"><a class="btn gold" href="practice01.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Season page</a></div>' }
+      '<div class="inrow"><a class="btn gold" href="practice01.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
   ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Pick a GM name, name your team, choose your colors and a logo shape. You only do this once. You can edit it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
 
   document.addEventListener('DOMContentLoaded', function () { FO.deck({ id: 'L01', slides: slides, items: items, home: 'index.html' }); });
 })();

@@ -23,6 +23,7 @@
   FO.SHAPES = ['shield', 'circle', 'diamond', 'hex'];
   FO.profile = function () { return get('profile', { gm: '', city: '', team: '', c1: '#0047BA', c2: '#C9A84C', shape: 'shield' }); };
   FO.saveProfile = function (p) { set('profile', p); FO.renderBar(); };
+  FO.gmLabel = function (n) { return /^(gm|coach|general manager)\b/i.test(n) ? n : 'GM ' + n; };
   FO.hasTeam = function () { var p = FO.profile(); return !!(p.team && p.gm); };
   FO.teamName = function () { var p = FO.profile(); return p.team ? ((p.city ? p.city + ' ' : '') + p.team) : 'Your Franchise'; };
 
@@ -89,7 +90,7 @@
     var xp = FO.xp(), lvl = Math.floor(xp / 300) + 1, pct = (xp % 300) / 3;
     var p = FO.profile();
     el.innerHTML = '<div class="fo-bar-in"><a class="fo-brand" href="' + (el.dataset.home || 'index.html') + '"><span class="fo-kc"><span>KC</span></span><span><b>Front Office</b><small>KingCretot Experience</small></span></a>' +
-      '<div class="fo-stats">' + (FO.hasTeam() ? '<span class="fo-chip" title="' + esc(FO.teamName()) + '"><span class="fo-mini-logo">' + FO.logo(p, 22) + '</span>' + esc(p.team) + '</span>' : '') +
+      '<div class="fo-stats">' + (/(lesson|practice)\d+\.html$/.test(location.pathname) ? '<a class="fo-chip" style="color:#fff;text-decoration:none" href="' + (el.dataset.home || 'index.html') + '">⌂ Home</a>' : '') + (FO.hasTeam() ? '<span class="fo-chip tc" title="' + esc(FO.teamName()) + '"><span class="fo-mini-logo">' + FO.logo(p, 22) + '</span>' + esc(p.team) + '</span>' : '') +
       '<span class="fo-chip">Lvl ' + lvl + ' <span class="fo-xpbar"><i style="width:' + pct + '%"></i></span><span class="g">' + xp + ' XP</span></span>' +
       '<span class="fo-chip">Record <span class="g">' + FO.wl() + '</span></span></div></div>';
   };
@@ -278,7 +279,7 @@
     var nav = document.createElement('div'); nav.className = 'deck-nav';
     nav.innerHTML = '<div class="deck-nav-in"><button class="btn ghost prev" type="button">◀ Back</button><div class="deck-prog"><i></i></div><span class="deck-count"></span><button class="btn gold next" type="button">Next ▶</button></div>';
     document.body.appendChild(nav); document.body.classList.add('has-nav');
-    var saved = get('pos_' + cfg.id, 0);
+    var pk = 'pos_' + cfg.id + '_' + slides.length, saved = get(pk, 0);
     function show(n) {
       i = Math.max(0, Math.min(slides.length - 1, n));
       $$('.slide', root).forEach(function (s, k) { s.classList.toggle('on', k === i); });
@@ -286,7 +287,7 @@
       $('.deck-count', nav).textContent = (i + 1) + ' / ' + slides.length;
       $('.prev', nav).disabled = i === 0;
       $('.next', nav).textContent = i === slides.length - 1 ? 'Done ✓' : 'Next ▶';
-      set('pos_' + cfg.id, i); window.scrollTo({ top: 0 });
+      set(pk, i); window.scrollTo({ top: 0 });
       if (slides[i].onShow) slides[i].onShow(root.children[i]);
     }
     $('.prev', nav).addEventListener('click', function () { show(i - 1); });
@@ -300,7 +301,7 @@
   FO.builder = function (mount, onSave) {
     var p = FO.profile();
     mount.innerHTML = '<div class="builder"><div>' +
-      '<div class="field-row"><label for="b-gm">GM name (a nickname is fine)</label><input id="b-gm" maxlength="40" value="' + esc(p.gm) + '" placeholder="Like Coach K or GM Dre"></div>' +
+      '<div class="field-row"><label for="b-gm">GM name (a nickname is fine)</label><input id="b-gm" maxlength="40" value="' + esc(p.gm) + '" placeholder="Like Dre or Coach K"></div>' +
       '<div class="grid2"><div class="field-row"><label for="b-city">Home city</label><input id="b-city" maxlength="22" value="' + esc(p.city) + '" placeholder="Make one up or pick a real city"></div>' +
       '<div class="field-row"><label for="b-team">Team name</label><input id="b-team" maxlength="18" value="' + esc(p.team) + '" placeholder="Like the Storm or the Gators"></div></div>' +
       '<div class="field-row"><label>Primary color</label><div class="swatches" data-k="c1">' + FO.COLORS.map(function (c) { return '<button type="button" class="sw' + (c === p.c1 ? ' sel' : '') + '" style="background:' + c + '" data-c="' + c + '" aria-label="Color ' + c + '"></button>'; }).join('') + '</div></div>' +
@@ -309,7 +310,7 @@
       '<button type="button" class="btn gold save">Lock in my franchise</button><span class="saved" style="margin-left:10px;font-size:14px;color:var(--ok)"></span>' +
       '</div><div class="logo-card"><div class="lg"></div><div class="tn"></div><div class="gm"></div></div></div>';
     function read() { return { gm: $('#b-gm', mount).value.trim(), city: $('#b-city', mount).value.trim(), team: $('#b-team', mount).value.trim(), c1: p.c1, c2: p.c2, shape: p.shape }; }
-    function preview() { var q = read(); $('.lg', mount).innerHTML = FO.logo(q, 150); $('.tn', mount).textContent = (q.city ? q.city + ' ' : '') + (q.team || 'Your Team'); $('.gm', mount).textContent = q.gm ? 'GM ' + q.gm : 'General Manager'; }
+    function preview() { var q = read(); $('.lg', mount).innerHTML = FO.logo(q, 150); $('.tn', mount).textContent = (q.city ? q.city + ' ' : '') + (q.team || 'Your Team'); $('.gm', mount).textContent = q.gm ? FO.gmLabel(q.gm) : 'General Manager'; }
     $$('input', mount).forEach(function (x) { x.addEventListener('input', preview); });
     $$('.swatches', mount).forEach(function (row) { row.addEventListener('click', function (e) { var b = e.target.closest('.sw'); if (!b) return; $$('.sw', row).forEach(function (x) { x.classList.remove('sel'); }); b.classList.add('sel'); p[row.dataset.k] = b.dataset.c; preview(); FO.tone('tap'); }); });
     $('.shapes', mount).addEventListener('click', function (e) { var b = e.target.closest('.shapebtn'); if (!b) return; $$('.shapebtn', mount).forEach(function (x) { x.classList.remove('sel'); }); b.classList.add('sel'); p.shape = b.dataset.s; preview(); FO.tone('tap'); });
@@ -358,7 +359,7 @@
         '<div class="wl ' + wl + '" style="background:' + (wl === 'W' ? '#E8F5EC;color:#1E7B3A' : '#FDECEC;color:#C0262B') + '">' + (wl === 'W' ? 'W · Win in the books' : 'L · Run it back') + '</div>' +
         '<p>' + firsts + ' of ' + items.length + ' right on the first try. ' + subTxt + '.</p>' +
         (wl === 'W' ? '<p>That’s a win for the ' + esc(FO.teamName()) + '. Season record: <b>' + FO.wl() + '</b>.</p>' : '<p>Review the plays below, then run it back. Your next try is a brand-new set of questions.</p>') +
-        '<div class="inrow" style="justify-content:center;margin:8px 0"><button class="btn navy again" type="button">Run it back (new set)</button><a class="btn ghost" href="' + (cfg.home || 'index.html') + '">Back to the season</a></div>' +
+        '<div class="inrow" style="justify-content:center;margin:8px 0"><button class="btn navy again" type="button">Run it back (new set)</button><a class="btn ghost" href="' + (cfg.home || 'index.html') + '">Home</a></div>' +
         (log.length ? '<ol class="missed">' + log.map(function (l) { return '<li><b>' + esc(l.s) + ':</b> ' + esc(l.q) + '<br><span style="color:var(--muted)">You first said: ' + esc(l.given) + ' · Answer: ' + esc(l.answer) + '</span></li>'; }).join('') + '</ol>' : '') +
         '<p class="sendst" style="font-size:14px;color:var(--muted)">Sending your results to your KCE teacher…</p></div>';
       $('.again', root).addEventListener('click', function () { location.reload(); });

@@ -5,28 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Front Office · KingCretot Experience</title>
-<link rel="stylesheet" href="fo.css?v=2">
+<link rel="stylesheet" href="fo.css?v=6">
 </head>
 <body>
 <div id="fo-bar" class="fo-bar" data-home="index.html"></div>
 
-<header class="fo-hero">
-  <div class="wrap">
-    <div class="eyebrow">KCE · Math · ELA · Money</div>
-    <h1>Front Office</h1>
-    <p>You’re the general manager of your own football franchise. Every week you run the numbers, study the film and manage the money. Win your Practice Here to put a W on the board, earn badges and build your season.</p>
-  </div>
-</header>
+<header class="hero2"><div class="home">
+  <div class="eyebrow">KCE · Math · ELA · Money</div>
+  <h1 id="h-title">Front Office</h1>
+  <p>You run the front office of your own football franchise. Each week: one lesson, one Practice Here. Score 80 or more to put a W on the board.</p>
+</div></header>
 
-<main class="wrap">
-  <section id="gm"></section>
-
-  <section>
-    <div class="phase"><h2>Trophy Case</h2><span id="badge-count"></span></div>
-    <div class="badge-row" id="trophies"></div>
-  </section>
-
-  <div id="season"></div>
+<main class="home">
+  <div id="thisweek"></div>
+  <h2 class="sec-h" id="team-h">Your Team</h2>
+  <div id="gm"></div>
+  <h2 class="sec-h">Season Schedule<small>A new week opens every Thursday.</small></h2>
+  <div class="sched" id="season"></div>
+  <h2 class="sec-h">Trophy Case<small id="badge-count"></small></h2>
+  <div class="trophy"><div class="badge-row" id="trophies"></div></div>
 </main>
 
 <div class="foot">
@@ -36,11 +33,11 @@
 </div>
 <div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
 
-<script src="fo.js?v=3"></script>
+<script src="fo.js?v=5"></script>
 <script>
 (function () {
   var WEEKS = [
-    { w: 1, d: '2026-10-29', t: 'Welcome to the Front Office', m: 'Integers on the field: number line, opposites, absolute value, adding gains and losses', e: 'Central idea, supporting details and context clues', f: 'Needs vs. wants and opportunity cost', built: true },
+    { w: 1, d: '2026-10-29', t: 'Welcome to the Front Office', m: 'Positive and negative numbers on the field', e: 'Central idea and context clues', f: 'Needs vs. wants and opportunity cost', built: true },
     { w: 2, d: '2026-11-05', t: 'Scouting Combine', m: 'Ratios and unit rates', e: 'Author’s purpose and perspective', f: 'Gross pay vs. net pay' },
     { w: 3, d: '2026-11-12', t: 'Contract Talks', m: 'Percents', e: 'Claims and evidence in an argument', f: 'Contracts and the fine print' },
     { w: 4, d: '2026-12-03', t: 'Building the Roster', m: 'GCF, LCM and dividing fractions', e: 'Text structure', f: 'Budgeting with 50/30/20' },
@@ -77,29 +74,42 @@
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
   var esc = FO.esc;
 
+  function current() {
+    var built = WEEKS.filter(function (x) { return x.built; }), today = new Date().toISOString().slice(0, 10), c = built[0];
+    built.forEach(function (x) { if (x.d <= today) c = x; });
+    return c;
+  }
+
+  function thisWeek() {
+    var x = current(), r = FO.record()[x.w];
+    document.getElementById('thisweek').innerHTML = '<section class="tw"><div><div class="when">This week · Week ' + x.w + ' · ' + nice(x.d) + '</div><h2>' + esc(x.t) + '</h2>' +
+      '<div class="subj"><div><span class="m">Math</span>' + esc(x.m) + '</div><div><span class="e">ELA</span>' + esc(x.e) + '</div><div><span class="f">Money</span>' + esc(x.f) + '</div></div></div>' +
+      '<div class="go"><a class="btn navy" href="lesson' + pad(x.w) + '.html">Start lesson</a><a class="btn gold" href="practice' + pad(x.w) + '.html">Practice Here</a>' +
+      '<div class="last">' + (r ? 'Practice result: <b style="color:' + (r.wl === 'W' ? 'var(--ok)' : 'var(--bad)') + '">' + r.wl + ' · ' + r.score + '</b>' : 'Practice not played yet') + '</div></div></section>';
+  }
+
   function gm() {
-    var el = document.getElementById('gm');
+    var el = document.getElementById('gm'), h = document.getElementById('h-title');
     if (!FO.hasTeam()) {
-      el.innerHTML = '<div class="phase"><h2>Build Your Franchise</h2><span>Start here</span></div><div class="slide on" id="b"></div>';
+      document.getElementById('team-h').innerHTML = 'Build Your Team<small>Do this once. It saves on this device.</small>';
+      el.innerHTML = '<div class="slide on" id="b"></div>';
       FO.builder(document.getElementById('b'), function () { setTimeout(render, 900); });
+      h.textContent = 'Front Office';
       return;
     }
-    var p = FO.profile(), rec = FO.record(), wins = 0, played = 0, best = 0;
-    for (var k in rec) { played++; if (rec[k].wl === 'W') wins++; best = Math.max(best, rec[k].score); }
-    var xp = FO.xp();
-    el.innerHTML = '<div class="gm-card"><div>' + FO.logo(p, 120) + '</div><div><div class="eyebrow" style="color:var(--muted)">General Manager ' + esc(p.gm) + '</div>' +
-      '<h2 style="margin:4px 0 0;font-size:28px;color:var(--navy)">' + esc(FO.teamName()) + '</h2>' +
-      '<div class="statline"><div><b>' + FO.wl() + '</b>Record</div><div><b>' + xp + '</b>XP</div><div><b>' + (Math.floor(xp / 300) + 1) + '</b>GM level</div><div><b>' + FO.badges().length + '</b>Badges</div><div><b>' + (played ? best : '—') + '</b>Best score</div></div>' +
-      '<button class="btn ghost" type="button" id="edit" style="margin-top:12px;padding:7px 12px;font-size:13px">Edit franchise</button></div></div>';
+    var p = FO.profile();
+    document.getElementById('team-h').textContent = 'Your Team';
+    h.textContent = FO.teamName();
+    el.innerHTML = '<div class="team">' + FO.logo(p, 64) + '<div><div class="nm">' + esc(FO.teamName()) + '</div><div class="gmn">' + esc(FO.gmLabel(p.gm)) + ' · Record ' + FO.wl() + ' · ' + FO.xp() + ' XP</div></div><button class="ed" type="button" id="edit">Edit team</button></div>';
     document.getElementById('edit').addEventListener('click', function () {
-      el.innerHTML = '<div class="phase"><h2>Edit Your Franchise</h2></div><div class="slide on" id="b"></div>';
+      el.innerHTML = '<div class="slide on" id="b"></div>';
       FO.builder(document.getElementById('b'), function () { setTimeout(render, 900); });
     });
   }
 
   function trophies() {
     var have = FO.badges(), ids = Object.keys(FO.BADGES);
-    document.getElementById('badge-count').textContent = have.length + ' of ' + ids.length + ' earned so far · more unlock every week';
+    document.getElementById('badge-count').textContent = have.length + ' of ' + ids.length + ' earned · more unlock every week';
     document.getElementById('trophies').innerHTML = ids.map(function (id) {
       var b = FO.BADGES[id], on = have.indexOf(id) >= 0;
       return '<div class="badge' + (on ? '' : ' locked') + '" title="' + esc(b.d) + '">' + FO.badgeSVG(id) + esc(b.n) + '</div>';
@@ -109,21 +119,15 @@
   function season() {
     var rec = FO.record();
     document.getElementById('season').innerHTML = PHASES.map(function (ph) {
-      var cards = WEEKS.filter(function (x) { return x.w >= ph.from && x.w <= ph.to; }).map(function (x) {
-        var r = rec[x.w];
-        var res = r ? '<span class="res ' + r.wl + '">' + r.wl + ' · ' + r.score + '</span>' : '';
-        var acts = x.built
-          ? '<a class="btn navy" href="lesson' + pad(x.w) + '.html">Open lesson</a><a class="btn gold" href="practice' + pad(x.w) + '.html">Practice Here</a>'
-          : '<span style="font-size:13px;color:var(--muted)">Unlocks ' + nice(x.d) + '</span>';
-        return '<article class="wk' + (x.built ? '' : ' soon') + '">' + res + '<div class="wn">Week ' + x.w + ' · ' + nice(x.d) + '</div><h3>' + esc(x.t) + '</h3>' +
-          '<ul><li><span class="pill m">Math</span> ' + esc(x.m) + '</li><li><span class="pill e">ELA</span> ' + esc(x.e) + '</li><li><span class="pill f">Money</span> ' + esc(x.f) + '</li></ul>' +
-          '<div class="acts">' + acts + '</div></article>';
+      return '<div class="ph-h">' + ph.n + ' · ' + ph.s.split(' · ')[1] + '</div>' + WEEKS.filter(function (x) { return x.w >= ph.from && x.w <= ph.to; }).map(function (x) {
+        var r = rec[x.w], st = r ? '<span class="st ' + r.wl + '">' + r.wl + ' · ' + r.score + '</span>' : (x.built ? '<span class="st go">Open ›</span>' : '<span class="st">Opens ' + nice(x.d).slice(5) + '</span>');
+        var inner = '<div class="n">' + x.w + '</div><div><div class="t">' + esc(x.t) + '</div><div class="d">' + nice(x.d) + ' · ' + esc(x.m) + ' · ' + esc(x.e) + ' · ' + esc(x.f) + '</div></div>' + st;
+        return x.built ? '<a class="row open" href="lesson' + pad(x.w) + '.html">' + inner + '</a>' : '<div class="row">' + inner + '</div>';
       }).join('');
-      return '<section><div class="phase"><h2>' + ph.n + '</h2><span>' + ph.s + '</span></div><div class="card-grid">' + cards + '</div></section>';
     }).join('');
   }
 
-  function render() { FO.renderBar(); gm(); trophies(); season(); }
+  function render() { FO.renderBar(); thisWeek(); gm(); trophies(); season(); }
   document.addEventListener('DOMContentLoaded', render);
 })();
 </script>
