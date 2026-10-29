@@ -87,7 +87,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:bold;line-height:1.15}
 .fb.info{background:var(--cream);color:var(--ink)}
 .tries{font-size:13px;color:var(--muted);margin-left:auto}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 10px}
-.chipbtn{border:2px solid var(--navy3);background:#fff;color:var(--navy);border-radius:999px;padding:7px 14px;font-weight:bold;font-size:15px}
+.chipbtn{border:2px solid var(--navy3);background:#fff;color:var(--navy);border-radius:999px;padding:10px 16px;min-height:44px;font-weight:bold;font-size:15px}
 .chipbtn.sel{background:var(--navy);color:#fff}
 .chipbtn.used{opacity:.35}
 .bins{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -96,7 +96,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:bold;line-height:1.15}
 .bin .chipbtn{margin:3px}
 .slots{display:flex;flex-wrap:wrap;gap:8px;min-height:44px;padding:8px;border:2px dashed var(--line);border-radius:12px;background:#FBFAF6;margin-bottom:8px}
 .nl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.nl-wrap svg{display:block;min-width:560px;width:100%;height:auto;touch-action:manipulation}
+.nl-wrap svg{display:block;width:100%;height:auto;touch-action:manipulation}
+.nudge{display:flex;align-items:center;gap:8px;margin-top:6px}.nudge button{min-width:44px;min-height:44px;border-radius:10px;border:2px solid var(--navy3);background:#fff;font-weight:bold;font-size:18px;color:var(--navy)}
 .passage{background:#FCFBF7;border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-family:var(--serif);font-size:17px;line-height:1.7}
 .passage h4{font-family:var(--serif);font-size:20px;margin:0 0 4px;color:var(--navy)}
 .passage .by{font-family:var(--sans);font-size:13px;color:var(--muted);margin-bottom:10px}
@@ -112,7 +113,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:bold;line-height:1.15}
 .field-row label{display:block;font-weight:bold;font-size:14px;margin-bottom:4px;color:var(--navy)}
 .field-row input{font:inherit;padding:10px 12px;border:2px solid var(--line);border-radius:10px;width:100%}
 .swatches{display:flex;flex-wrap:wrap;gap:8px}
-.sw{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--line)}
+.sw{width:44px;height:44px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--line)}
 .sw.sel{box-shadow:0 0 0 3px var(--navy)}
 .shapes{display:flex;gap:8px;flex-wrap:wrap}
 .shapebtn{border:2px solid var(--line);background:#fff;border-radius:10px;padding:6px}
@@ -126,7 +127,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:bold;line-height:1.15}
 .badge{width:96px;text-align:center;font-size:12px;font-weight:bold;color:var(--navy)}
 .badge svg{width:76px;height:76px;display:block;margin:0 auto 4px}
 .badge.locked{opacity:.35;filter:grayscale(1)}
-.toast{position:fixed;left:50%;top:76px;transform:translate(-50%,-30px);opacity:0;z-index:60;background:var(--navy);color:#fff;border:2px solid var(--gold);border-radius:14px;padding:12px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:all .35s;max-width:92vw}
+.toast{position:fixed;left:50%;top:auto;bottom:90px;min-width:min(320px,92vw);transform:translate(-50%,30px);opacity:0;z-index:60;background:var(--navy);color:#fff;border:2px solid var(--gold);border-radius:14px;padding:12px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:all .35s;max-width:92vw}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .toast svg{width:44px;height:44px;flex:0 0 44px}
 .toast b{color:var(--gold);display:block}

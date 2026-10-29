@@ -47,9 +47,9 @@
   /* ---------- XP, badges, record ---------- */
   FO.BADGES = {
     founder:   { n: 'Franchise Founder', d: 'Built your team', c: '#C9A84C', i: 'star' },
-    fieldpos:  { n: 'Field Position', d: 'Integers on the field', c: '#1E6B3A', i: 'ball' },
-    filmroom:  { n: 'Film Room', d: 'Found the central idea', c: '#DB2F30', i: 'doc' },
-    capwise:   { n: 'Cap Wise', d: 'Needs, wants and opportunity cost', c: '#0047BA', i: 'cash' },
+    fieldpos:  { n: 'Field Position', d: 'Finished Field Position', c: '#1E6B3A', i: 'ball' },
+    filmroom:  { n: 'Film Room', d: 'Finished the Film Room', c: '#DB2F30', i: 'doc' },
+    capwise:   { n: 'Cap Wise', d: 'Finished Cap Space', c: '#0047BA', i: 'cash' },
     w1win:     { n: 'Week 1 W', d: 'Won Practice Here, Week 1', c: '#0A1F3D', i: 'trophy' }
   };
   FO.addBadges = function (o) { for (var k in o) FO.BADGES[k] = o[k]; };
@@ -65,7 +65,7 @@
     return '<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L88 18 V50 C88 74 70 90 50 97 C30 90 12 74 12 50 V18 Z" fill="' + b.c + '" stroke="#C9A84C" stroke-width="5"/>' + icon(b.i, b.c) + '</svg>';
   };
   FO.xp = function () { return get('xp', 0); };
-  FO.addXP = function (n) { set('xp', FO.xp() + n); FO.renderBar(); };
+  FO.addXP = function (n) { var before = Math.floor(FO.xp() / 300); set('xp', FO.xp() + n); FO.renderBar(); var after = Math.floor(FO.xp() / 300); if (after > before) setTimeout(function () { FO.toast('<b>Level up: GM Level ' + (after + 1) + '</b>Your front office is moving up.'); FO.confetti(); FO.tone('badge'); }, 3400); };
   FO.badges = function () { return get('badges', []); };
   FO.award = function (id) {
     var have = FO.badges(); if (have.indexOf(id) >= 0) return false;
@@ -118,27 +118,25 @@
   };
 
   /* ---------- number line (football field) ---------- */
-  FO.fieldSVG = function (min, max, opts) {
-    opts = opts || {};
-    var W = 800, pad = 40, H = 150, step = (W - 2 * pad) / (max - min), s = '';
+  FO.fieldSVG = function (min, max) {
+    var narrow = (window.innerWidth || 800) < 600;
+    var W = narrow ? 480 : 800, pad = narrow ? 26 : 40, FH = narrow ? 120 : 90, H = FH + 64, step = (W - 2 * pad) / (max - min), s = '';
+    var fs = narrow ? 19 : 24, cy = 10 + FH / 2;
     s += '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Number line from ' + min + ' to ' + max + ' drawn as a football field">';
-    s += '<rect x="0" y="10" width="' + W + '" height="90" rx="10" fill="#1E6B3A"/>';
-    for (var v = min; v <= max; v++) {
-      var x = pad + (v - min) * step;
-      if (v % 2 === 0) s += '<rect x="' + x + '" y="10" width="' + step + '" height="90" fill="#26834A" opacity="' + (v < max ? 1 : 0) + '"/>';
-    }
+    s += '<rect x="0" y="10" width="' + W + '" height="' + FH + '" rx="10" fill="#1E6B3A"/>';
+    for (var v = min; v < max; v++) { var x = pad + (v - min) * step; if (v % 2 === 0) s += '<rect x="' + x + '" y="10" width="' + step + '" height="' + FH + '" fill="#26834A"/>'; }
     for (v = min; v <= max; v++) {
       x = pad + (v - min) * step;
       var zero = v === 0;
-      s += '<line x1="' + x + '" y1="10" x2="' + x + '" y2="100" stroke="' + (zero ? '#C9A84C' : '#fff') + '" stroke-width="' + (zero ? 4 : (v % 5 === 0 ? 2.2 : 1)) + '" opacity="' + (zero ? 1 : .85) + '"/>';
-      s += '<text x="' + x + '" y="122" text-anchor="middle" font-family="Arial" font-size="15" font-weight="' + (zero ? 'bold' : 'normal') + '" fill="#0A1F3D">' + (v < 0 ? '−' + (-v) : v) + '</text>';
+      s += '<line x1="' + x + '" y1="10" x2="' + x + '" y2="' + (10 + FH) + '" stroke="' + (zero ? '#C9A84C' : '#fff') + '" stroke-width="' + (zero ? 4 : (v % 5 === 0 ? 2.2 : 1)) + '" opacity="' + (zero ? 1 : .85) + '"/>';
+      if (!narrow || v % 2 === 0) s += '<text x="' + x + '" y="' + (FH + 36) + '" text-anchor="middle" font-family="Arial" font-size="' + fs + '" font-weight="' + (zero ? 'bold' : 'normal') + '" fill="#0A1F3D">' + (v < 0 ? '−' + (-v) : v) + '</text>';
     }
-    s += '<text x="' + (pad + (0 - min) * step) + '" y="142" text-anchor="middle" font-family="Arial" font-size="12" fill="#5A6275">line of scrimmage</text>';
-    s += '<text x="' + (pad + 4) + '" y="28" font-family="Arial" font-size="12" font-weight="bold" fill="#fff" opacity=".85">◀ LOSS</text>';
-    s += '<text x="' + (W - pad - 4) + '" y="28" text-anchor="end" font-family="Arial" font-size="12" font-weight="bold" fill="#fff" opacity=".85">GAIN ▶</text>';
-    s += '<g class="ball" style="display:none"><ellipse cx="0" cy="62" rx="15" ry="9" fill="#8B4A1F" stroke="#5C2E10" stroke-width="2"/><path d="M-6 62 H6 M-3 59 V65 M0 59 V65 M3 59 V65" stroke="#fff" stroke-width="1.5"/></g>';
+    s += '<text x="' + (pad + (0 - min) * step) + '" y="' + (FH + 58) + '" text-anchor="middle" font-family="Arial" font-size="15" fill="#5A6275">line of scrimmage</text>';
+    s += '<text x="' + (pad + 4) + '" y="32" font-family="Arial" font-size="16" font-weight="bold" fill="#fff" opacity=".85">◀ LOSS</text>';
+    s += '<text x="' + (W - pad - 4) + '" y="32" text-anchor="end" font-family="Arial" font-size="16" font-weight="bold" fill="#fff" opacity=".85">GAIN ▶</text>';
+    s += '<g class="ball" style="display:none"><ellipse cx="0" cy="' + cy + '" rx="15" ry="9" fill="#8B4A1F" stroke="#5C2E10" stroke-width="2"/><path d="M-6 ' + cy + ' H6 M-3 ' + (cy - 3) + ' V' + (cy + 3) + ' M0 ' + (cy - 3) + ' V' + (cy + 3) + ' M3 ' + (cy - 3) + ' V' + (cy + 3) + '" stroke="#fff" stroke-width="1.5"/></g>';
     s += '<rect class="hit" x="0" y="0" width="' + W + '" height="' + H + '" fill="transparent" style="cursor:pointer"/></svg>';
-    return { svg: s, x: function (val) { return pad + (val - min) * step; }, val: function (px) { return Math.max(min, Math.min(max, Math.round((px - pad) / step + min))); } };
+    return { svg: s, cy: cy, x: function (val) { return pad + (val - min) * step; }, val: function (px) { return Math.max(min, Math.min(max, Math.round((px - pad) / step + min))); } };
   };
   function svgX(svg, evt) { var pt = svg.createSVGPoint(); pt.x = evt.clientX; pt.y = evt.clientY; return pt.matrixTransform(svg.getScreenCTM().inverse()).x; }
   function placeBall(svg, f, val) { var b = svg.querySelector('.ball'); b.style.display = ''; b.setAttribute('transform', 'translate(' + f.x(val) + ' 0)'); }
@@ -172,7 +170,7 @@
       h += '<p style="font-size:14px;color:var(--muted);margin:-4px 0 8px">Tap an item, then tap the box it belongs in.</p><div class="chips pool">' + state.items.map(function (i) { return '<button type="button" class="chipbtn" data-i="' + i + '">' + it.items[i][0] + '</button>'; }).join('') + '</div><div class="bins">' + it.bins.map(function (b, bi) { return '<div class="bin" data-b="' + bi + '" role="button" tabindex="0"><h4>' + b + '</h4><div class="in"></div></div>'; }).join('') + '</div>';
     } else if (it.t === 'nl') {
       state.f = FO.fieldSVG(it.min, it.max);
-      h += '<div class="nl-wrap">' + state.f.svg + '</div><p class="nl-read" style="font-size:14px;color:var(--muted);margin:6px 0 0">Tap the field to place the ball.</p>';
+      h += '<div class="nl-wrap">' + state.f.svg + '</div><div class="nudge"><button type="button" class="nl-l" aria-label="Move ball left one">◀</button><button type="button" class="nl-r" aria-label="Move ball right one">▶</button><span class="nl-read" style="font-size:14px;color:var(--muted)">Tap the field to place the ball, then use ◀ ▶ to fine-tune.</span></div>';
     }
     h += '<div class="inrow" style="margin-top:10px"><button type="button" class="btn navy check">Check</button><span class="tries"></span></div><div class="fb" role="status"></div>';
     box.innerHTML = h; mount.appendChild(box);
@@ -204,7 +202,10 @@
     function resetSort() { var pool = $('.pool', box); state.items.forEach(function (i) { var b = $('.chipbtn[data-i="' + i + '"]', box); b.classList.remove('sel'); pool.appendChild(b); }); state.place = {}; cur = null; }
     if (it.t === 'nl') {
       var svg = $('svg', box);
-      $('.hit', box).addEventListener('click', function (e) { if (done) return; var v = state.f.val(svgX(svg, e)); state.v = v; placeBall(svg, state.f, v); $('.nl-read', box).textContent = 'Ball placed at ' + FO.fmt(v) + '.'; FO.tone('tap'); });
+      function setV(v) { v = Math.max(it.min, Math.min(it.max, v)); state.v = v; placeBall(svg, state.f, v); $('.nl-read', box).textContent = 'Ball placed at ' + (v > 0 ? '+' : '') + FO.fmt(v) + '.'; FO.tone('tap'); }
+      $('.hit', box).addEventListener('click', function (e) { if (done) return; setV(state.f.val(svgX(svg, e))); });
+      $('.nl-l', box).addEventListener('click', function () { if (done) return; setV(state.v === undefined ? 0 : state.v - 1); });
+      $('.nl-r', box).addEventListener('click', function () { if (done) return; setV(state.v === undefined ? 0 : state.v + 1); });
     }
 
     function response() {
@@ -216,7 +217,7 @@
       if (it.t === 'sort') { if (Object.keys(state.place).length < it.items.length) return null; var okk = it.items.every(function (x, i) { return state.place[i] === x[1]; }); return { ok: okk, txt: it.items.map(function (x, i) { return x[0] + '→' + it.bins[state.place[i]]; }).join('; ') }; }
       if (it.t === 'nl') { if (state.v === undefined) return null; return { ok: state.v === it.a, txt: FO.fmt(state.v) }; }
     }
-    function lock() { done = true; btn.disabled = true; $$('button.opt,.chipbtn,.clear', box).forEach(function (b) { b.disabled = true; }); var inp = $('input', box); if (inp) inp.disabled = true; }
+    function lock() { done = true; btn.disabled = true; $$('button.opt,.chipbtn,.clear,.nudge button', box).forEach(function (b) { b.disabled = true; }); var inp = $('input', box); if (inp) inp.disabled = true; }
     function showAnswer() {
       if (it.t === 'mc' || it.t === 'multi') { $$('.opt', box).forEach(function (b) { var i = +b.dataset.i; if ((it.t === 'mc' && i === it.a) || (it.t === 'multi' && it.a.indexOf(i) >= 0)) b.classList.add('right'); }); }
       if (it.t === 'nl') { placeBall($('svg', box), state.f, it.a); }
@@ -240,7 +241,7 @@
         lock(); showAnswer(); FO.tone('right');
         $$('.opt.sel', box).forEach(function (b) { b.classList.add('right'); });
         fb.className = 'fb show ok'; fb.innerHTML = '<b>' + (tries === 1 ? pick(['Touchdown!', 'Money.', 'Clean read.', 'That’s the play.', 'Locked in.']) : 'Got it.') + '</b> ' + (it.why || '');
-        if (tries === 1 && opts.mode !== 'practice') FO.addXP(10);
+        if (tries === 1 && opts.mode !== 'practice' && opts.key) { var dn = get('done', {}); if (!dn[opts.key]) { dn[opts.key] = 1; set('done', dn); FO.addXP(10); } }
         triesEl.textContent = '';
         if (opts.onDone) opts.onDone({ first: tries === 1, given: firstGiven, answer: ansText(), q: it.q });
         return;
@@ -259,7 +260,7 @@
       if (it.t === 'num' || it.t === 'text') { var inp = $('input', box); inp.value = ''; inp.focus(); }
       if (it.t === 'order') resetOrder();
       if (it.t === 'sort') resetSort();
-      if (it.t === 'nl') { state.v = undefined; $('svg .ball', box).style.display = 'none'; $('.nl-read', box).textContent = 'Tap the field to place the ball.'; }
+      if (it.t === 'nl') { state.v = undefined; $('svg .ball', box).style.display = 'none'; $('.nl-read', box).textContent = 'Tap the field to place the ball, then use ◀ ▶ to fine-tune.'; }
     });
     return box;
   };
@@ -271,7 +272,7 @@
     root.innerHTML = slides.map(function (s, n) { return '<section class="slide" data-n="' + n + '">' + s.html + '</section>'; }).join('');
     slides.forEach(function (s, n) {
       var sec = root.children[n];
-      $$('[data-item]', sec).forEach(function (m) { var it = cfg.items[m.dataset.item]; if (it) FO.item(it, m, { mode: 'lesson', onDone: function (r) { if (it.badge && r) FO.award(it.badge); } }); });
+      $$('[data-item]', sec).forEach(function (m) { var it = cfg.items[m.dataset.item]; if (it) FO.item(it, m, { mode: 'lesson', key: cfg.id + ':' + m.dataset.item, onDone: function (r) { if (it.badge && r) FO.award(it.badge); } }); });
       if (s.init) s.init(sec);
     });
     var nav = document.createElement('div'); nav.className = 'deck-nav';
@@ -299,7 +300,7 @@
   FO.builder = function (mount, onSave) {
     var p = FO.profile();
     mount.innerHTML = '<div class="builder"><div>' +
-      '<div class="field-row"><label for="b-gm">General Manager (your first and last name)</label><input id="b-gm" maxlength="40" value="' + esc(p.gm) + '" placeholder="First and last name"></div>' +
+      '<div class="field-row"><label for="b-gm">GM name (a nickname is fine)</label><input id="b-gm" maxlength="40" value="' + esc(p.gm) + '" placeholder="Like Coach K or GM Dre"></div>' +
       '<div class="grid2"><div class="field-row"><label for="b-city">Home city</label><input id="b-city" maxlength="22" value="' + esc(p.city) + '" placeholder="Make one up or pick a real city"></div>' +
       '<div class="field-row"><label for="b-team">Team name</label><input id="b-team" maxlength="18" value="' + esc(p.team) + '" placeholder="Like the Storm or the Gators"></div></div>' +
       '<div class="field-row"><label>Primary color</label><div class="swatches" data-k="c1">' + FO.COLORS.map(function (c) { return '<button type="button" class="sw' + (c === p.c1 ? ' sel' : '') + '" style="background:' + c + '" data-c="' + c + '" aria-label="Color ' + c + '"></button>'; }).join('') + '</div></div>' +
@@ -329,12 +330,12 @@
     function gate() {
       var p = FO.profile();
       root.innerHTML = '<div class="slide on"><div class="eyebrow">Practice Here · Week ' + cfg.week + '</div><h2>' + esc(cfg.title) + '</h2>' +
-        '<p>' + items.length + ' plays. Only your <b>first try</b> counts toward your score, but you get three tries on every question, and the explanation shows after the third. Score ' + FO.MASTERY + ' or more to put a <b>W</b> in your season record. Your results go to your KCE teacher.</p>' +
-        '<div class="field-row" style="max-width:420px"><label for="p-name">Your first and last name</label><input id="p-name" value="' + esc(p.gm) + '" maxlength="40" placeholder="First and last name"></div><p class="err" style="color:var(--bad);font-size:14px;min-height:20px;margin:0"></p>' +
+        '<p>' + items.length + ' plays. Only your <b>first try</b> counts toward your score, but you get three tries on every question, and if you miss three times, we’ll show you the answer and why. Score ' + FO.MASTERY + ' or more to put a <b>W</b> in your season record. Your results go to your KCE teacher.</p>' +
+        '<div class="field-row" style="max-width:420px"><label for="p-name">Your first and last name</label><input id="p-name" value="' + esc(get('student', '')) + '" maxlength="40" placeholder="First and last name"></div><p class="err" style="color:var(--bad);font-size:14px;min-height:20px;margin:0"></p>' +
         '<button class="btn gold go" type="button">Start practice ▶</button>' + (attempts ? '<p style="font-size:14px;color:var(--muted);margin-top:10px">This is try ' + (attempts + 1) + ', so you get a fresh set of questions.</p>' : '') + '</div>';
       $('.go', root).addEventListener('click', function () {
         var n = $('#p-name', root).value.trim(); if (n.split(/\s+/).length < 2) { $('.err', root).textContent = 'Type your first and last name.'; return; }
-        cfg.name = n; if (!FO.profile().gm) { var pp = FO.profile(); pp.gm = n; FO.saveProfile(pp); }
+        cfg.name = n; set('student', n);
         start = Date.now(); next();
       });
     }
@@ -354,12 +355,12 @@
       items.forEach(function (it, k) { if (!log.some(function (l) { return l.n === k + 1; })) bySub[it.s][0]++; });
       var subTxt = Object.keys(bySub).map(function (k) { return k + ' ' + bySub[k][0] + '/' + bySub[k][1]; }).join(' · ');
       root.innerHTML = '<div class="slide on result"><div class="eyebrow">Final score · Week ' + cfg.week + '</div><div class="big">' + score + '</div>' +
-        '<div class="wl ' + wl + '" style="background:' + (wl === 'W' ? '#E8F5EC;color:#1E7B3A' : '#FDECEC;color:#C0262B') + '">' + (wl === 'W' ? 'W · Win in the books' : 'L · Not this time') + '</div>' +
+        '<div class="wl ' + wl + '" style="background:' + (wl === 'W' ? '#E8F5EC;color:#1E7B3A' : '#FDECEC;color:#C0262B') + '">' + (wl === 'W' ? 'W · Win in the books' : 'L · Run it back') + '</div>' +
         '<p>' + firsts + ' of ' + items.length + ' right on the first try. ' + subTxt + '.</p>' +
         (wl === 'W' ? '<p>That’s a win for the ' + esc(FO.teamName()) + '. Season record: <b>' + FO.wl() + '</b>.</p>' : '<p>Review the plays below, then run it back. Your next try is a brand-new set of questions.</p>') +
+        '<div class="inrow" style="justify-content:center;margin:8px 0"><button class="btn navy again" type="button">Run it back (new set)</button><a class="btn ghost" href="' + (cfg.home || 'index.html') + '">Back to the season</a></div>' +
         (log.length ? '<ol class="missed">' + log.map(function (l) { return '<li><b>' + esc(l.s) + ':</b> ' + esc(l.q) + '<br><span style="color:var(--muted)">You first said: ' + esc(l.given) + ' · Answer: ' + esc(l.answer) + '</span></li>'; }).join('') + '</ol>' : '') +
-        '<p class="sendst" style="font-size:14px;color:var(--muted)">Sending your results to your KCE teacher…</p>' +
-        '<div class="inrow" style="justify-content:center;margin-top:8px"><button class="btn navy again" type="button">Run it back (new set)</button><a class="btn ghost" href="' + (cfg.home || 'index.html') + '">Back to the season</a></div></div>';
+        '<p class="sendst" style="font-size:14px;color:var(--muted)">Sending your results to your KCE teacher…</p></div>';
       $('.again', root).addEventListener('click', function () { location.reload(); });
       if (wl === 'W') FO.confetti();
       var payload = {
