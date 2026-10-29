@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Front Office · KingCretot Experience</title>
-<link rel="stylesheet" href="fo.css?v=7">
+<link rel="stylesheet" href="fo.css?v=8">
 </head>
 <body>
 <div id="fo-bar" class="fo-bar" data-home="index.html"></div>
@@ -21,7 +21,7 @@
   <h2 class="sec-h" id="team-h">Your Team</h2>
   <div id="gm"></div>
   <h2 class="sec-h">Season Schedule<small>A new week opens every Thursday.</small></h2>
-  <div class="sched" id="season"></div>
+  <div id="season"></div>
   <h2 class="sec-h">Trophy Case<small id="badge-count"></small></h2>
   <div class="trophy"><div class="badge-row" id="trophies"></div></div>
 </main>
@@ -120,11 +120,14 @@
   function season() {
     var rec = FO.record();
     document.getElementById('season').innerHTML = PHASES.map(function (ph) {
-      return '<div class="ph-h">' + ph.n + ' · ' + ph.s.split(' · ')[1] + '</div>' + WEEKS.filter(function (x) { return x.w >= ph.from && x.w <= ph.to; }).map(function (x) {
-        var r = rec[x.w], st = r ? '<span class="st ' + r.wl + '">' + r.wl + ' · ' + r.score + '</span>' : (x.built && FO.isOpen(x.d) ? '<span class="st go">Open ›</span>' : (FO.teacher() && !x.built ? '<span class="st">Not built yet</span>' : '<span class="st">Opens ' + nice(x.d).slice(5) + '</span>'));
-        var inner = '<div class="n">' + x.w + '</div><div><div class="t">' + esc(x.t) + '</div><div class="d">' + nice(x.d) + ' · ' + esc(x.m) + ' · ' + esc(x.e) + ' · ' + esc(x.f) + '</div></div>' + st;
-        return x.built && FO.isOpen(x.d) ? '<a class="row open" href="lesson' + pad(x.w) + '.html">' + inner + '</a>' : '<div class="row">' + inner + '</div>';
-      }).join('');
+      return '<div class="ph2"><b>' + ph.n + '</b><span>' + ph.s + '</span></div><div class="tiles">' + WEEKS.filter(function (x) { return x.w >= ph.from && x.w <= ph.to; }).map(function (x) {
+        var r = rec[x.w], open = x.built && FO.isOpen(x.d);
+        var st = r ? '<span class="st ' + r.wl + '">' + r.wl + ' · ' + r.score + '</span>' : open ? '<span class="st go">Open the lesson ›</span>' : (FO.teacher() && !x.built ? '<span class="st">Not built yet</span>' : '<span class="st">🔒 Opens ' + nice(x.d) + '</span>');
+        var inner = '<div class="tl-top"><span class="tl-n">Week ' + x.w + '</span><span class="tl-d">' + nice(x.d) + '</span></div><h3>' + esc(x.t) + '</h3>' +
+          '<div class="subj sm"><div><span class="m">Math</span>' + esc(x.m) + '</div><div><span class="e">ELA</span>' + esc(x.e) + '</div><div><span class="f">Money</span>' + esc(x.f) + '</div></div>' +
+          '<div class="tl-st">' + st + '</div>';
+        return open ? '<a class="tile open" href="lesson' + pad(x.w) + '.html">' + inner + '</a>' : '<div class="tile">' + inner + '</div>';
+      }).join('') + '</div>';
     }).join('');
   }
 
