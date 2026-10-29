@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 1: Welcome to the Front Office · KCE</title>
+<link rel="stylesheet" href="fo.css?v=1">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=1"></script>
+<script>
+(function () {
+  function field(min, max, marks) {
+    var f = FO.fieldSVG(min, max), s = f.svg.replace('<rect class="hit"', '<rect class="hit" style="display:none"');
+    marks.forEach(function (m) {
+      var x = f.x(m.v);
+      s = s.replace('</svg>', '<g><circle cx="' + x + '" cy="62" r="13" fill="' + m.c + '" stroke="#fff" stroke-width="3"/><text x="' + x + '" y="67" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">' + m.l + '</text></g></svg>');
+    });
+    return '<div class="nl-wrap">' + s + '</div>';
+  }
+
+  var PASSAGE = '<div class="passage"><h4>More Than a Game</h4><div class="by">A short feature story</div>' +
+    '<p><span class="pn">1</span>When Hurricane Elena tore through Palmetto Ridge last fall, it ripped the roof off the high school gym and flattened the bleachers at Ridgeline Field. For weeks, families were busy patching their own homes. Nobody was talking about football.</p>' +
+    '<p><span class="pn">2</span>Then Coach Dana Reyes called a town meeting. She asked one question: should the team try to play its homecoming game on its own field? The vote was unanimous. Every hand in the room went up.</p>' +
+    '<p><span class="pn">3</span>The next Saturday, more than two hundred volunteers showed up. A roofing company donated supplies. Students and parents salvaged lumber from fallen fences and sheds, pulling out the nails and stacking every usable board. A retired carpenter showed teenagers how to measure twice and cut once. In three weekends, Ridgeline Field had new bleachers.</p>' +
+    '<p><span class="pn">4</span>Something else was rebuilt too. Neighbors who had barely spoken before were trading jokes over sandwiches. Two shops on Main Street reopened early so they could sell team shirts. Players said the team’s morale had never been higher, even though the season had started with three straight losses.</p>' +
+    '<p><span class="pn">5</span>Palmetto Ridge lost the homecoming game by three points. When the final whistle blew, the crowd stayed in the stands and cheered anyway. One fan put it simply: “We already won. We got our town back.”</p></div>';
+
+  var items = {
+    nl1: { t: 'nl', min: -10, max: 10, a: 8, q: 'Your running back gains <b>8 yards</b>. Tap the field to place the ball at <b>+8</b>.', hint: 'Gains move right of the line of scrimmage (0).', why: 'A gain is positive, so it sits 8 units to the right of 0.' },
+    nl2: { t: 'nl', min: -10, max: 10, a: -4, q: 'Next play: your quarterback gets sacked for a <b>4-yard loss</b>. Place the ball at <b>−4</b>.', hint: 'Losses move left of 0.', why: 'A loss is negative, so −4 is 4 units to the left of 0.' },
+    opp: { t: 'num', a: 5, q: 'What is the <b>opposite</b> of −5?', ph: 'Type a number', hint: 'Same distance from 0, other side.', why: '−5 and 5 are both 5 units from 0, on opposite sides.' },
+    abs: { t: 'mc', o: ['|−9|', '|+6|', 'They are equal', 'You can’t compare them'], a: 0, q: 'A 9-yard loss (−9) and a 6-yard gain (+6). Which has the <b>greater absolute value</b>?', hint: 'Absolute value only asks: how far from 0?', why: '|−9| = 9 and |+6| = 6. Absolute value measures distance from 0, so direction doesn’t matter.' },
+    absn: { t: 'num', a: 12, q: '|−12| = ?', why: '−12 is 12 units from 0, so |−12| = 12. Absolute value is never negative.' },
+    cmp: { t: 'mc', o: ['−8', '−3', 'They are equal'], a: 1, keep: true, q: 'Which is <b>greater</b>: −8 or −3?', hint: 'On the number line, the number farther right is greater.', why: '−3 is to the right of −8, so −3 > −8. Losing 3 yards beats losing 8.' },
+    ord: { t: 'order', items: ['−11', '−5', '0', '3', '12'], q: 'Put these yard lines in order from <b>least to greatest</b>. Tap them in order.', hint: 'Start with the biggest loss.', why: 'From left to right on the field: −11, −5, 0, 3, 12.' },
+    drive: { t: 'num', a: 12, q: 'Your offense runs four plays: <b>+8, −3, +12, −5</b>. What is the <b>net yardage</b> for the drive?', unit: 'yards', ph: 'Net yards', hint: 'Add the gains (8 + 12), add the losses (3 + 5), then subtract.', why: 'Gains: 8 + 12 = 20. Losses: 3 + 5 = 8. 20 − 8 = +12 yards.' },
+    first: { t: 'mc', o: ['Yes, +12 is more than the 10 yards needed', 'No, the sack ruined it', 'No, the losses cancel out the gains', 'Can’t tell'], a: 0, q: 'You need <b>10 yards</b> for a first down. Did that drive get it?', why: 'Net +12 is more than 10, so yes: first down.' },
+    add2: { t: 'num', a: -2, q: '−6 + 4 = ?', ph: 'Type a number', hint: 'Lose 6, then gain 4. Which side of 0 do you end on?', why: 'Start at −6 and move 4 to the right: you land on −2.', badge: 'fieldpos' },
+
+    ci: { t: 'mc', o: ['A hurricane can destroy a football field in one night.', 'Rebuilding the field for one game helped bring the whole town back together.', 'Palmetto Ridge has a weak football team.', 'Coach Reyes is a good carpenter.'], a: 1, q: 'What is the <b>central idea</b> of “More Than a Game”?', hint: 'Think about the title and the fan’s quote at the end.', why: 'The story is about more than the field. The project rebuilt the town’s spirit, which is why the fan says “we got our town back.”' },
+    det: { t: 'multi', o: ['Neighbors who had barely spoken were trading jokes over sandwiches.', 'Two shops on Main Street reopened early.', 'The hurricane flattened the bleachers.', 'The team lost the homecoming game by three points.'], a: [0, 1], q: 'Which <b>two details</b> best support the central idea?', hint: 'Pick the details that show the town coming back together.', why: 'Neighbors talking again and shops reopening show the town rebuilding, not just the field.' },
+    v1: { t: 'mc', o: ['Everyone agreed', 'Most people agreed', 'The vote was quick', 'The vote was close'], a: 0, q: 'In paragraph 2, what does <b>unanimous</b> mean?', hint: 'Read the sentence right after it.', why: 'The next sentence is the clue: every hand went up, so everyone agreed.' },
+    v2: { t: 'mc', o: ['Delivered', 'Painted', 'Saved something useful from damage', 'Threw away'], a: 2, q: 'In paragraph 3, what does <b>salvaged</b> mean?', hint: 'They pulled out nails and stacked every usable board.', why: 'They rescued usable boards from wreckage, so salvaged means saved something useful from damage.' },
+    v3: { t: 'mc', o: ['The team’s score', 'How confident and positive the group feels', 'The team’s uniforms', 'The number of players'], a: 1, q: 'In paragraph 4, what does <b>morale</b> mean?', hint: 'It was high even after three losses, so it isn’t the record.', why: 'Morale is the mood and confidence of a group. It went up even though they were losing.' },
+    sum: { t: 'mc', o: ['A hurricane hit Palmetto Ridge. There was a game. The team lost by three.', 'After a hurricane, a town rebuilt its football field together. They lost the game, but the project brought the community back.', 'Coach Reyes called a meeting and asked a question about homecoming.', 'Football is the most important thing in a small town.'], a: 1, q: 'Which is the <b>best summary</b>?', hint: 'A good summary covers the beginning, the key event and the point, in your own words.', why: 'It covers the problem, what people did and the central idea without extra detail.', badge: 'filmroom' },
+
+    sort: { t: 'sort', bins: ['Need', 'Want'], items: [['Rent', 0], ['Groceries', 0], ['Health insurance', 0], ['Electric bill', 0], ['Gaming console', 1], ['Designer sneakers', 1], ['Concert tickets', 1], ['Gold chain', 1]], q: 'Help Marcus sort his spending: <b>need</b> or <b>want</b>?', hint: 'A need is something you must have to live safely and keep working.', why: 'Rent, groceries, health insurance and electricity keep him housed, fed, healthy and working. The rest are fun, but optional.' },
+    oc: { t: 'mc', o: ['The bills he already paid', 'The gaming PC', 'The $1,200 in savings he could have had', 'Nothing, because he can afford it'], a: 2, q: 'Marcus has $1,200 left after bills. He buys a gaming PC instead of saving it. What is his <b>opportunity cost</b>?', hint: 'Opportunity cost is the next-best thing you give up.', why: 'He gave up having $1,200 in savings. That’s the next-best choice he didn’t pick.' },
+    gm: { t: 'mc', o: ['The alternate jerseys', 'The new weight room', 'The $50,000', 'The fans'], a: 0, q: 'Your franchise has <b>$50,000</b>. You can upgrade the weight room <b>or</b> buy flashy alternate jerseys, not both. You choose the weight room. What’s the opportunity cost?', why: 'The opportunity cost is the option you gave up: the alternate jerseys.', badge: 'capwise' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 1 · Kickoff</div><h2>Welcome to the Front Office</h2>' +
+      '<p>Real teams aren’t just run on the field. Somebody upstairs is reading stats, scouting players and deciding where every dollar goes. That’s the general manager. This year, that’s you.</p>' +
+      '<div class="grid2"><div class="callout blue"><span class="pill m">Q1 · Math</span><h3 style="margin:8px 0 4px">Field Position</h3>Positive and negative numbers on the field.</div>' +
+      '<div class="callout red"><span class="pill e">Q2 · ELA</span><h3 style="margin:8px 0 4px">Film Room</h3>Find the central idea of a story.</div>' +
+      '<div class="callout"><span class="pill f">Q3 · Money</span><h3 style="margin:8px 0 4px">Cap Space</h3>Needs, wants and what every choice costs.</div>' +
+      '<div class="callout" style="background:#EEF6F0;border-left-color:var(--turf)"><span class="pill r">Q4 · You</span><h3 style="margin:8px 0 4px">Practice Here</h3>Win it with 80+ to put a W on your record.</div></div>' +
+      '<p style="margin-top:12px">Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>. Let’s build your team first.</p>' },
+
+    { html: '<div class="eyebrow">Pregame</div><h2>Build Your Franchise</h2><p>Name your team, pick your colors and choose a logo shape. You can change it later from the season page.</p><div id="builder"></div>',
+      init: function (sec) { FO.builder(sec.querySelector('#builder')); } },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Field Position</span></div><h2>The Field Is a Number Line</h2>' +
+      '<p>Put the <b>line of scrimmage at 0</b>. Gaining yards moves you right, into <b>positive</b> numbers. Losing yards moves you left, into <b>negative</b> numbers. Numbers less than 0 are negative. Whole numbers and their opposites (…, −2, −1, 0, 1, 2, …) are called <b>integers</b>.</p>' +
+      field(-10, 10, [{ v: -7, l: '−7', c: '#DB2F30' }, { v: 5, l: '+5', c: '#0047BA' }]) +
+      '<div class="callout">A 7-yard sack is <b>−7</b>. A 5-yard run is <b>+5</b>. Zero is neither positive nor negative.</div>' +
+      '<div data-item="nl1"></div><div data-item="nl2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Field Position</span></div><h2>Opposites and Absolute Value</h2>' +
+      '<p><b>Opposites</b> are the same distance from 0 on opposite sides, like a 6-yard gain (+6) and a 6-yard loss (−6).</p>' +
+      '<p><b>Absolute value</b> is how far a number is from 0, no matter the direction. Think of it as “how many yards did the ball move?”</p>' +
+      '<p class="big-rule">|−9| = 9 &nbsp;&nbsp; |+6| = 6 &nbsp;&nbsp; |0| = 0</p>' +
+      field(-10, 10, [{ v: -6, l: '−6', c: '#DB2F30' }, { v: 6, l: '+6', c: '#0047BA' }]) +
+      '<div data-item="opp"></div><div data-item="abs"></div><div data-item="absn"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Field Position</span></div><h2>Who’s Ahead? Comparing Integers</h2>' +
+      '<p>On a number line, <b>farther right means greater</b>. That’s why −3 > −8: losing 3 yards is better than losing 8.</p>' +
+      '<div class="callout red"><b>Watch out:</b> −8 has a bigger absolute value than −3, but −8 is the <i>smaller</i> number. Absolute value is distance. Comparing is position.</div>' +
+      '<div data-item="cmp"></div><div data-item="ord"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Field Position</span></div><h2>Adding Integers: The Drive Chart</h2>' +
+      '<p><b>Net yardage = total gains − total losses.</b> Add the gains together, add the losses together, then find the difference. The result takes the sign of whichever side is bigger.</p>' +
+      '<div class="callout blue"><b>Play 1:</b> +8 &nbsp; <b>Play 2:</b> −3 &nbsp; <b>Play 3:</b> +12 &nbsp; <b>Play 4:</b> −5</div>' +
+      '<div data-item="drive"></div><div data-item="first"></div><div data-item="add2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room</span></div><h2>Finding the Central Idea</h2>' +
+      '<p>Coaches watch film to find the one thing that decided the game. Readers do the same thing. The <b>central idea</b> is the most important point the whole text makes. <b>Supporting details</b> are the facts and moments that prove it.</p>' +
+      '<div class="callout"><b>How to find it:</b> look at the title, the ending and any detail that keeps coming back. Ask: what is this <i>really</i> about?</div>' +
+      PASSAGE + '<div data-item="ci"></div><div data-item="det"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room</span></div><h2>Context Clues and Summary</h2>' +
+      '<p>When you hit a word you don’t know, scout the sentences around it. Writers often explain a hard word right next to it.</p>' +
+      PASSAGE + '<div data-item="v1"></div><div data-item="v2"></div><div data-item="v3"></div><div data-item="sum"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Cap Space</span></div><h2>Needs vs. Wants</h2>' +
+      '<p>Meet <b>Marcus Hale</b>, your new rookie linebacker. He just got his first paycheck, and he wants to spend it all. Your job as GM is to help him keep his career on track.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Need:</b> something you must have to live safely and keep working: housing, food, utilities, health care.</div><div class="callout"><b>Want:</b> something that’s nice to have, but you’d be OK without it.</div></div>' +
+      '<p>Smart budgets start with needs: <b>income − needs = money left for wants and saving</b>.</p><div data-item="sort"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Cap Space</span></div><h2>Opportunity Cost</h2>' +
+      '<p>Money and time are limited, so every choice has a cost: the <b>next-best thing you give up</b>. That’s called <b>opportunity cost</b>. Every GM faces it. So does every person with a paycheck.</p>' +
+      '<div class="callout">If you spend Saturday at practice, the opportunity cost might be the movie you skipped.</div>' +
+      '<div data-item="oc"></div><div data-item="gm"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 1 in the Books</h2>' +
+      '<ul><li>The field is a number line. Gains are positive, losses are negative, and 0 is the line of scrimmage.</li>' +
+      '<li>Absolute value is distance from 0. Farther right means greater.</li>' +
+      '<li>The central idea is what the whole text is really about. Details prove it, and context clues unlock new words.</li>' +
+      '<li>Needs come before wants. Every choice has an opportunity cost.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice01.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Season page</a></div>' }
+  ];
+
+  document.addEventListener('DOMContentLoaded', function () { FO.deck({ id: 'L01', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>
