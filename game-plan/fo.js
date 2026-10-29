@@ -359,7 +359,7 @@
       root.innerHTML = '<div class="slide on result"><div class="eyebrow">Final score · Week ' + cfg.week + '</div><div class="big">' + score + '</div>' +
         '<div class="wl ' + wl + '" style="background:' + (wl === 'W' ? '#E8F5EC;color:#1E7B3A' : '#FDECEC;color:#C0262B') + '">' + (wl === 'W' ? 'W · Win in the books' : 'L · Run it back') + '</div>' +
         '<p>' + firsts + ' of ' + items.length + ' right on the first try. ' + subTxt + '.</p>' +
-        (wl === 'W' ? '<p>That’s a win for the ' + esc(FO.teamName()) + '. Season record: <b>' + FO.wl() + '</b>.</p>' : '<p>Review the plays below, then run it back. Your next try is a brand-new set of questions.</p>') +
+        (wl === 'W' ? '<p>That’s a win for ' + esc(FO.teamName()) + '. Season record: <b>' + FO.wl() + '</b>.</p>' : '<p>Review the plays below, then run it back. Your next try is a brand-new set of questions.</p>') +
         '<div class="inrow" style="justify-content:center;margin:8px 0"><button class="btn navy again" type="button">Run it back (new set)</button><a class="btn ghost" href="' + (cfg.home || 'index.html') + '">Home</a></div>' +
         (log.length ? '<ol class="missed">' + log.map(function (l) { return '<li><b>' + esc(l.s) + ':</b> ' + esc(l.q) + '<br><span style="color:var(--muted)">You first said: ' + esc(l.given) + ' · Answer: ' + esc(l.answer) + '</span></li>'; }).join('') + '</ol>' : '') +
         '<p class="sendst" style="font-size:14px;color:var(--muted)">Sending your results to your KCE teacher…</p></div>';
