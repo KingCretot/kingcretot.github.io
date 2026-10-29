@@ -307,17 +307,18 @@
       '<div class="field-row"><label>Primary color</label><div class="swatches" data-k="c1">' + FO.COLORS.map(function (c) { return '<button type="button" class="sw' + (c === p.c1 ? ' sel' : '') + '" style="background:' + c + '" data-c="' + c + '" aria-label="Color ' + c + '"></button>'; }).join('') + '</div></div>' +
       '<div class="field-row"><label>Trim color</label><div class="swatches" data-k="c2">' + FO.COLORS.concat(['#FFFFFF']).map(function (c) { return '<button type="button" class="sw' + (c === p.c2 ? ' sel' : '') + '" style="background:' + c + '" data-c="' + c + '" aria-label="Color ' + c + '"></button>'; }).join('') + '</div></div>' +
       '<div class="field-row"><label>Logo shape</label><div class="shapes">' + FO.SHAPES.map(function (s) { return '<button type="button" class="shapebtn' + (s === p.shape ? ' sel' : '') + '" data-s="' + s + '" aria-label="' + s + '">' + FO.logo({ team: p.team || 'F', c1: '#0A1F3D', c2: '#C9A84C', shape: s }, 44) + '</button>'; }).join('') + '</div></div>' +
-      '<button type="button" class="btn gold save">Lock in my franchise</button><span class="saved" style="margin-left:10px;font-size:14px;color:var(--ok)"></span>' +
+      '<button type="button" class="btn gold save">Save my team</button><span class="saved" style="margin-left:10px;font-size:14px;color:var(--ok)"></span>' +
       '</div><div class="logo-card"><div class="lg"></div><div class="tn"></div><div class="gm"></div></div></div>';
     function read() { return { gm: $('#b-gm', mount).value.trim(), city: $('#b-city', mount).value.trim(), team: $('#b-team', mount).value.trim(), c1: p.c1, c2: p.c2, shape: p.shape }; }
     function preview() { var q = read(); $('.lg', mount).innerHTML = FO.logo(q, 150); $('.tn', mount).textContent = (q.city ? q.city + ' ' : '') + (q.team || 'Your Team'); $('.gm', mount).textContent = q.gm ? FO.gmLabel(q.gm) : 'General Manager'; }
-    $$('input', mount).forEach(function (x) { x.addEventListener('input', preview); });
-    $$('.swatches', mount).forEach(function (row) { row.addEventListener('click', function (e) { var b = e.target.closest('.sw'); if (!b) return; $$('.sw', row).forEach(function (x) { x.classList.remove('sel'); }); b.classList.add('sel'); p[row.dataset.k] = b.dataset.c; preview(); FO.tone('tap'); }); });
-    $('.shapes', mount).addEventListener('click', function (e) { var b = e.target.closest('.shapebtn'); if (!b) return; $$('.shapebtn', mount).forEach(function (x) { x.classList.remove('sel'); }); b.classList.add('sel'); p.shape = b.dataset.s; preview(); FO.tone('tap'); });
+    function autosave() { var q = read(); if (q.gm && q.team && q.c1 !== q.c2) { set('profile', q); } }
+    $$('input', mount).forEach(function (x) { x.addEventListener('input', function () { preview(); autosave(); }); });
+    $$('.swatches', mount).forEach(function (row) { row.addEventListener('click', function (e) { var b = e.target.closest('.sw'); if (!b) return; $$('.sw', row).forEach(function (x) { x.classList.remove('sel'); }); b.classList.add('sel'); p[row.dataset.k] = b.dataset.c; preview(); autosave(); FO.tone('tap'); }); });
+    $('.shapes', mount).addEventListener('click', function (e) { var b = e.target.closest('.shapebtn'); if (!b) return; $$('.shapebtn', mount).forEach(function (x) { x.classList.remove('sel'); }); b.classList.add('sel'); p.shape = b.dataset.s; preview(); autosave(); FO.tone('tap'); });
     $('.save', mount).addEventListener('click', function () {
       var q = read(); if (!q.gm || !q.team) { $('.saved', mount).style.color = 'var(--bad)'; $('.saved', mount).textContent = 'Add your name and a team name first.'; return; }
       if (q.c1 === q.c2) { $('.saved', mount).style.color = 'var(--bad)'; $('.saved', mount).textContent = 'Pick two different colors so the logo pops.'; return; }
-      FO.saveProfile(q); $('.saved', mount).style.color = 'var(--ok)'; $('.saved', mount).textContent = 'Franchise saved.'; FO.award('founder'); if (onSave) onSave(q);
+      FO.saveProfile(q); $('.saved', mount).style.color = 'var(--ok)'; $('.saved', mount).textContent = 'Team saved. You won’t need to do this again.'; FO.award('founder'); if (onSave) onSave(q);
     });
     preview();
   };
