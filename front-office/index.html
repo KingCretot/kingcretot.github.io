@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Front Office · KingCretot Experience</title>
-<link rel="stylesheet" href="fo.css?v=6">
+<link rel="stylesheet" href="fo.css?v=7">
 </head>
 <body>
 <div id="fo-bar" class="fo-bar" data-home="index.html"></div>
@@ -31,9 +31,10 @@
   Approved Provider: <span class="g">Step Up For Students</span> · <span class="g">Arizona ESA</span> · <span class="g">West Virginia Hope Scholarship</span><br>
   kce@kingcretot.com · 914-809-0112 · PO Box 2322, Arcadia, FL 34265
 </div>
+<div class="tmode" id="tmode"></div>
 <div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
 
-<script src="fo.js?v=5"></script>
+<script src="fo.js?v=7"></script>
 <script>
 (function () {
   var WEEKS = [
@@ -75,8 +76,8 @@
   var esc = FO.esc;
 
   function current() {
-    var built = WEEKS.filter(function (x) { return x.built; }), today = new Date().toISOString().slice(0, 10), c = built[0];
-    built.forEach(function (x) { if (x.d <= today) c = x; });
+    var built = WEEKS.filter(function (x) { return x.built; }), c = built[0];
+    built.forEach(function (x) { if (FO.isOpen(x.d)) c = x; });
     return c;
   }
 
@@ -84,7 +85,7 @@
     var x = current(), r = FO.record()[x.w];
     document.getElementById('thisweek').innerHTML = '<section class="tw"><div><div class="when">This week · Week ' + x.w + ' · ' + nice(x.d) + '</div><h2>' + esc(x.t) + '</h2>' +
       '<div class="subj"><div><span class="m">Math</span>' + esc(x.m) + '</div><div><span class="e">ELA</span>' + esc(x.e) + '</div><div><span class="f">Money</span>' + esc(x.f) + '</div></div></div>' +
-      '<div class="go"><a class="btn navy" href="lesson' + pad(x.w) + '.html">Start lesson</a><a class="btn gold" href="practice' + pad(x.w) + '.html">Practice Here</a>' +
+      (FO.isOpen(x.d) ? '<div class="go"><a class="btn navy" href="lesson' + pad(x.w) + '.html">Start lesson</a><a class="btn gold" href="practice' + pad(x.w) + '.html">Practice Here</a>' : '<div class="go"><span class="btn navy" style="opacity:.45">🔒 Opens ' + nice(x.d) + '</span>') +
       '<div class="last">' + (r ? 'Practice result: <b style="color:' + (r.wl === 'W' ? 'var(--ok)' : 'var(--bad)') + '">' + r.wl + ' · ' + r.score + '</b>' : 'Practice not played yet') + '</div></div></section>';
   }
 
@@ -120,14 +121,14 @@
     var rec = FO.record();
     document.getElementById('season').innerHTML = PHASES.map(function (ph) {
       return '<div class="ph-h">' + ph.n + ' · ' + ph.s.split(' · ')[1] + '</div>' + WEEKS.filter(function (x) { return x.w >= ph.from && x.w <= ph.to; }).map(function (x) {
-        var r = rec[x.w], st = r ? '<span class="st ' + r.wl + '">' + r.wl + ' · ' + r.score + '</span>' : (x.built ? '<span class="st go">Open ›</span>' : '<span class="st">Opens ' + nice(x.d).slice(5) + '</span>');
+        var r = rec[x.w], st = r ? '<span class="st ' + r.wl + '">' + r.wl + ' · ' + r.score + '</span>' : (x.built && FO.isOpen(x.d) ? '<span class="st go">Open ›</span>' : (FO.teacher() && !x.built ? '<span class="st">Not built yet</span>' : '<span class="st">Opens ' + nice(x.d).slice(5) + '</span>'));
         var inner = '<div class="n">' + x.w + '</div><div><div class="t">' + esc(x.t) + '</div><div class="d">' + nice(x.d) + ' · ' + esc(x.m) + ' · ' + esc(x.e) + ' · ' + esc(x.f) + '</div></div>' + st;
-        return x.built ? '<a class="row open" href="lesson' + pad(x.w) + '.html">' + inner + '</a>' : '<div class="row">' + inner + '</div>';
+        return x.built && FO.isOpen(x.d) ? '<a class="row open" href="lesson' + pad(x.w) + '.html">' + inner + '</a>' : '<div class="row">' + inner + '</div>';
       }).join('');
     }).join('');
   }
 
-  function render() { FO.renderBar(); thisWeek(); gm(); trophies(); season(); }
+  function render() { FO.renderBar(); FO.teacherToggle(document.getElementById('tmode')); thisWeek(); gm(); trophies(); season(); }
   document.addEventListener('DOMContentLoaded', render);
 })();
 </script>

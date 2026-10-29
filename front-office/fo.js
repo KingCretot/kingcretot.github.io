@@ -380,5 +380,32 @@
     gate();
   };
 
+
+  /* ---------- teacher mode and date unlocks ---------- */
+  FO.TPIN = '9110';
+  FO.teacher = function () { try { return localStorage.getItem('kce_fo_teacher') === '1'; } catch (e) { return false; } };
+  FO.today = function () { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
+  FO.isOpen = function (iso) { return FO.teacher() || FO.today() >= iso; };
+  FO.teacherToggle = function (mount) {
+    var on = FO.teacher();
+    mount.innerHTML = '<button type="button" class="tbtn">' + (on ? 'Teacher mode is on: every lesson is open on this device (tap to turn off)' : 'Teacher: open every lesson on this device') + '</button>';
+    mount.querySelector('button').addEventListener('click', function () {
+      if (FO.teacher()) { try { localStorage.removeItem('kce_fo_teacher'); } catch (e) {} location.reload(); return; }
+      var v = prompt('Teacher code'); if (v === null) return;
+      if (v === FO.TPIN) { try { localStorage.setItem('kce_fo_teacher', '1'); } catch (e) {} location.reload(); } else alert('That code is not right.');
+    });
+  };
+  FO.gate = function (iso, label, root) {
+    if (FO.isOpen(iso)) return true;
+    var p = iso.split('-'), M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    root.innerHTML = '<div class="slide on" style="text-align:center;max-width:520px;margin:30px auto"><div style="font-size:44px">🔒</div><h2>' + esc(label) + ' opens Thu, ' + M[+p[1] - 1] + ' ' + (+p[2]) + '</h2><p style="margin:0 auto 14px">Check back on lesson day.</p>' +
+      '<div class="inrow" style="justify-content:center"><a class="btn navy" href="index.html">Home</a></div>' +
+      '<p style="font-size:13px;color:var(--muted);margin:20px auto 0">Teacher code: <input id="tpin" type="password" inputmode="numeric" style="width:100px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px"> <button type="button" class="btn ghost" id="tok" style="padding:6px 12px;font-size:13px">Open</button></p><p id="tmsg" style="font-size:13px;color:var(--bad);margin:6px auto 0"></p></div>';
+    root.querySelector('#tok').addEventListener('click', function () {
+      if (root.querySelector('#tpin').value === FO.TPIN) { try { localStorage.setItem('kce_fo_teacher', '1'); } catch (e) {} location.reload(); }
+      else root.querySelector('#tmsg').textContent = 'That code is not right.';
+    });
+    return false;
+  };
   document.addEventListener('DOMContentLoaded', FO.renderBar);
 })();

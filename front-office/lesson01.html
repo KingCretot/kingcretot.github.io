@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Week 1: Welcome to the Front Office · KCE</title>
-<link rel="stylesheet" href="fo.css?v=6">
+<link rel="stylesheet" href="fo.css?v=7">
 </head>
 <body>
 <div id="fo-bar" class="fo-bar" data-home="index.html"></div>
 <main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
 <div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
 
-<script src="fo.js?v=5"></script>
+<script src="fo.js?v=7"></script>
 <script>
 (function () {
   function field(min, max, marks) {
@@ -118,7 +119,7 @@
   if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Pick a GM name, name your team, choose your colors and a logo shape. You only do this once. You can edit it later from Home.</p><div id="builder"></div>',
     init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
 
-  document.addEventListener('DOMContentLoaded', function () { FO.deck({ id: 'L01', slides: slides, items: items, home: 'index.html' }); });
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-10-29', 'Week 1', document.getElementById('deck'))) return; FO.deck({ id: 'L01', slides: slides, items: items, home: 'index.html' }); });
 })();
 </script>
 </body>

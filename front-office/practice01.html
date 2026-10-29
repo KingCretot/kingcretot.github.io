@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Practice Here · Week 1 · KCE Front Office</title>
-<link rel="stylesheet" href="fo.css?v=6">
+<link rel="stylesheet" href="fo.css?v=7">
 </head>
 <body>
 <div id="fo-bar" class="fo-bar" data-home="index.html"></div>
 <main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
 <div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
 
-<script src="fo.js?v=5"></script>
+<script src="fo.js?v=7"></script>
 <script>
 (function () {
   var A = [
@@ -56,7 +57,7 @@
     '<p><span class="pn">3</span>Grass costs less to put in, and many players say it is easier on their knees. But grass needs mowing, watering and repairs almost every week. That maintenance adds up.</p>' +
     '<p><span class="pn">4</span>There is no perfect answer. Each school has to weigh cost, upkeep and player safety before it decides.</p></div>';
 
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-10-29', 'Week 1', document.getElementById('practice'))) return;
     FO.practice({ week: 1, title: 'Welcome to the Front Office', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w1win', home: 'index.html' });
   });
 })();
