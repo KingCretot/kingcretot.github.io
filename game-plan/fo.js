@@ -1,4 +1,4 @@
-/* KCE Front Office — shared engine: franchise profile, XP, badges, season record,
+/* KCE Game Plan — shared engine: franchise profile, XP, badges, season record,
    interactive items, lesson deck and Practice Here runner. */
 (function () {
   'use strict';
@@ -89,7 +89,7 @@
     var el = $('#fo-bar'); if (!el) return;
     var xp = FO.xp(), lvl = Math.floor(xp / 300) + 1, pct = (xp % 300) / 3;
     var p = FO.profile();
-    el.innerHTML = '<div class="fo-bar-in"><a class="fo-brand" href="' + (el.dataset.home || 'index.html') + '"><span class="fo-kc"><span>KC</span></span><span><b>Front Office</b><small>KingCretot Experience</small></span></a>' +
+    el.innerHTML = '<div class="fo-bar-in"><a class="fo-brand" href="' + (el.dataset.home || 'index.html') + '"><span class="fo-kc"><span>KC</span></span><span><b>Game Plan</b><small>KingCretot Experience</small></span></a>' +
       '<div class="fo-stats">' + (/(lesson|practice)\d+\.html$/.test(location.pathname) ? '<a class="fo-chip" style="color:#fff;text-decoration:none" href="' + (el.dataset.home || 'index.html') + '">⌂ Home</a>' : '') + (FO.hasTeam() ? '<span class="fo-chip tc" title="' + esc(FO.teamName()) + '"><span class="fo-mini-logo">' + FO.logo(p, 22) + '</span>' + esc(p.team) + '</span>' : '') +
       '<span class="fo-chip">Lvl ' + lvl + ' <span class="fo-xpbar"><i style="width:' + pct + '%"></i></span><span class="g">' + xp + ' XP</span></span>' +
       '<span class="fo-chip">Record <span class="g">' + FO.wl() + '</span></span></div></div>';
@@ -365,8 +365,8 @@
       $('.again', root).addEventListener('click', function () { location.reload(); });
       if (wl === 'W') FO.confetti();
       var payload = {
-        _subject: 'Front Office: ' + cfg.name + ' Week ' + cfg.week + ' practice ' + score + ' (' + wl + ')',
-        program: 'KCE Front Office', student: cfg.name, team: FO.teamName(), module: 'front-office-week' + cfg.week + '-practice',
+        _subject: 'Game Plan: ' + cfg.name + ' Week ' + cfg.week + ' practice ' + score + ' (' + wl + ')',
+        program: 'KCE Game Plan', student: cfg.name, team: FO.teamName(), module: 'game-plan-week' + cfg.week + '-practice',
         lesson: 'Week ' + cfg.week + ': ' + cfg.title, set: setKey, attempt: attempts + 1, score: score, mastered: wl === 'W' ? 'yes' : 'no',
         correct_first_try: firsts + ' of ' + items.length, by_subject: subTxt, season_record: FO.wl(),
         missed: log.length ? log.map(function (l) { return 'Play ' + l.n + ' (' + l.s + '): ' + l.q + ' | first try: ' + l.given + ' | answer: ' + l.answer; }).join('\n') : 'none',
