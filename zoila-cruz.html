@@ -53,6 +53,7 @@ ul.services li{margin:6px 0}
 
 <p>Dear Julieta and Zoila,</p>
 <p>Thank you for the wonderful conversation today, Julieta. Zoila is clearly a driven young woman, and her goal of becoming a nurse practitioner is one we would be proud to help her reach. What follows is the plan we discussed: SAT preparation, a clear college and scholarship plan, and steady mentorship from now through the end of her junior year, alongside the support she already has from her college advisor. We&rsquo;re glad to be part of it.</p>
+<p style="text-align:center;margin:18px 0 6px"><a href="#book" style="display:inline-block;background:#0A1F3D;color:#C9A84C;font-weight:bold;font-size:15px;padding:13px 28px;border-radius:5px;text-decoration:none">Book Our Face-to-Face Meeting &rarr;</a></p>
 
 <h2>1 &middot; Zoila&rsquo;s Academic Snapshot</h2>
 <table>
@@ -182,6 +183,26 @@ ul.services li{margin:6px 0}
 <div id="responseMsg" style="display:none;margin-top:14px;padding:13px 16px;border-radius:5px;font-size:13.5px"></div>
 </div>
 
+<h2 id="book">6 &middot; Book Our Face-to-Face Meeting</h2>
+<p>Before lessons begin, I&rsquo;d love to sit down with you both, Julieta and Zoila, to meet in person, set Zoila&rsquo;s Saturday time and map out her first steps. Choose the time and place that&rsquo;s easiest for you:</p>
+<div id="book-form" style="margin:14px 0 20px">
+<label style="display:flex;gap:10px;align-items:flex-start;border:1px solid #e0dcd0;border-radius:6px;padding:12px 14px;margin-bottom:10px;cursor:pointer"><input type="radio" name="slot" value="Monday, November 2 at 4:15 PM" onchange="slotChange()" style="margin-top:4px"><span><b>Monday, November 2 &middot; 4:15 PM</b><br><span style="font-size:13px;color:#666">At a coffee shop downtown, or I can come to your home &mdash; whichever is easiest.</span></span></label>
+<label style="display:flex;gap:10px;align-items:flex-start;border:1px solid #e0dcd0;border-radius:6px;padding:12px 14px;margin-bottom:10px;cursor:pointer"><input type="radio" name="slot" value="Wednesday, November 4" onchange="slotChange()" style="margin-top:4px"><span><b>Wednesday, November 4 &middot; any time from 11:00 AM to 2:00 PM</b><br><span style="font-size:13px;color:#666">Pick a start time below, and a coffee shop downtown or your home.</span></span></label>
+<label style="display:flex;gap:10px;align-items:flex-start;border:1px solid #e0dcd0;border-radius:6px;padding:12px 14px;margin-bottom:12px;cursor:pointer"><input type="radio" name="slot" value="Tuesday, November 10, 3:00-3:45 PM" onchange="slotChange()" style="margin-top:4px"><span><b>Tuesday, November 10 &middot; 3:00 &ndash; 3:45 PM</b><br><span style="font-size:13px;color:#666">DeSoto County Public Library, Arcadia.</span></span></label>
+<div id="wedTime" style="display:none"><label style="display:block;font-size:12.5px;color:#666;margin-bottom:4px">Wednesday start time</label>
+<select id="bkTime" style="width:100%;padding:10px 12px;border:1px solid #d8d2c2;border-radius:4px;font-family:Georgia,serif;font-size:13.5px;margin-bottom:12px;box-sizing:border-box;background:#fff"><option value="">Select a time&hellip;</option><option>11:00 AM</option><option>11:30 AM</option><option>12:00 PM</option><option>12:30 PM</option><option>1:00 PM</option><option>1:30 PM</option></select></div>
+<div id="placeBox" style="display:none"><label style="display:block;font-size:12.5px;color:#666;margin-bottom:4px">Where should we meet?</label>
+<select id="bkPlace" style="width:100%;padding:10px 12px;border:1px solid #d8d2c2;border-radius:4px;font-family:Georgia,serif;font-size:13.5px;margin-bottom:12px;box-sizing:border-box;background:#fff"><option value="">Select one&hellip;</option><option value="Coffee shop downtown Arcadia">A coffee shop downtown</option><option value="Our home">Our home (please add your address below)</option></select></div>
+<label style="display:block;font-size:12.5px;color:#666;margin-bottom:4px">Your name</label>
+<input type="text" id="bkName" placeholder="Julieta Cruz" style="width:100%;padding:10px 12px;border:1px solid #d8d2c2;border-radius:4px;font-family:Georgia,serif;font-size:13.5px;margin-bottom:12px;box-sizing:border-box;background:#fff">
+<label style="display:block;font-size:12.5px;color:#666;margin-bottom:4px">Best phone number</label>
+<input type="tel" id="bkPhone" placeholder="(863) 000-0000" style="width:100%;padding:10px 12px;border:1px solid #d8d2c2;border-radius:4px;font-family:Georgia,serif;font-size:13.5px;margin-bottom:12px;box-sizing:border-box;background:#fff">
+<label style="display:block;font-size:12.5px;color:#666;margin-bottom:4px">Anything else? (your address if we&rsquo;re meeting at home, or a note)</label>
+<textarea id="bkNote" rows="2" style="width:100%;padding:10px 12px;border:1px solid #d8d2c2;border-radius:4px;font-family:Georgia,serif;font-size:13.5px;margin-bottom:12px;box-sizing:border-box;background:#fff"></textarea>
+<button onclick="bookMeeting()" style="width:100%;background:#C9A84C;color:#0A1F3D;border:none;padding:14px 16px;border-radius:5px;font-family:Georgia,serif;font-size:15px;font-weight:bold;cursor:pointer">Book This Meeting &rarr;</button>
+<div id="bookMsg" style="display:none;margin-top:12px;padding:13px 16px;border-radius:5px;font-size:13.5px"></div>
+</div>
+
 <p style="font-size:12px;color:#888;margin-top:6px">Prefer email? Reply directly to this message or write to <a href="mailto:kce@kingcretot.com" style="color:#0047BA">kce@kingcretot.com</a> any time.</p>
 
 <p style="margin-top:20px">We&rsquo;re looking forward to working with Zoila this year.</p>
@@ -203,6 +224,26 @@ function showPaymentReminder(){
     'Monthly':'<b>Monthly:</b> by the lessons in each month, from $130.00 (November) to $260.00 &mdash; total $1,495.00, with a commitment through May 22, 2027.',
     'Pay as you go':'<b>Pay as you go:</b> $145.00 per lesson (regular rate), paid before each lesson. No school-year commitment, and lessons are booked based on availability.' };
   box.innerHTML=t[v];
+}
+function slotChange(){
+  var v=(document.querySelector('input[name="slot"]:checked')||{}).value||'';
+  document.getElementById('wedTime').style.display = v.indexOf('Wednesday')===0 ? 'block' : 'none';
+  document.getElementById('placeBox').style.display = (v.indexOf('Monday')===0 || v.indexOf('Wednesday')===0) ? 'block' : 'none';
+}
+function bookMeeting(){
+  var r=document.querySelector('input[name="slot"]:checked'), msg=document.getElementById('bookMsg');
+  if(!r){ alert('Please choose a meeting time.'); return; }
+  var slot=r.value, time=document.getElementById('bkTime').value, place=document.getElementById('bkPlace').value;
+  var name=document.getElementById('bkName').value.trim(), phone=document.getElementById('bkPhone').value.trim(), note=document.getElementById('bkNote').value.trim();
+  if(slot.indexOf('Wednesday')===0){ if(!time){ alert('Please choose a start time for Wednesday.'); return; } slot+=' at '+time; }
+  if(slot.indexOf('Tuesday')===0){ place='DeSoto County Public Library'; }
+  else if(!place){ alert('Please choose where we should meet.'); return; }
+  if(!name){ alert('Please enter your name.'); return; }
+  if(!phone){ alert('Please enter a phone number so we can confirm.'); return; }
+  var payload={ _subject:'Meeting request — Zoila Cruz — '+slot, student:'Zoila Cruz', respondent:name, phone:phone, meeting_time:slot, meeting_place:place, note:note, proposal:'KCE Academic Partnership Proposal — face-to-face meeting' };
+  fetch('https://formspree.io/f/mvkgajjw',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
+  .then(function(res){ if(!res.ok) throw new Error('send'); msg.style.display='block'; msg.style.background='#eef7ee'; msg.style.color='#1a7a3c'; msg.innerHTML='<b>Thank you, '+name+'!</b> Your meeting request for <b>'+slot+'</b> ('+place+') is in. We&rsquo;ll confirm with you shortly.'; })
+  .catch(function(){ msg.style.display='block'; msg.style.background='#fdeeee'; msg.style.color='#DB2F30'; msg.innerHTML='Something went wrong. Please call or text us, or email kce@kingcretot.com.'; });
 }
 function toggleQuestions(){ var box=document.getElementById('questionBox'); box.style.display = box.style.display==='none' ? 'block' : 'none'; }
 function sendResponse(type){
