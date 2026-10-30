@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 1: Kickoff · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=10">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=14"></script>
+<script>
+(function () {
+  function field(marks) {
+    var f = FO.fieldSVG(0, 10, { k: 10, yard: true }), s = f.svg.replace('<rect class="hit"', '<rect class="hit" style="display:none"');
+    marks.forEach(function (m) {
+      var x = f.x(m.v);
+      s = s.replace('</svg>', '<g><circle cx="' + x + '" cy="' + f.cy + '" r="15" fill="' + m.c + '" stroke="#fff" stroke-width="3"/><text x="' + x + '" y="' + (f.cy + 5) + '" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">' + m.l + '</text></g></svg>');
+    });
+    return '<div class="nl-wrap">' + s + '</div>';
+  }
+  var CHART = '<table style="border-collapse:collapse;margin:10px 0 14px;font-size:15px;text-align:center;width:100%;max-width:620px">' +
+    '<tr style="background:#0A1F3D;color:#fff;font-size:12px"><th style="padding:6px 4px">Hundred<br>thousands</th><th style="padding:6px 4px">Ten<br>thousands</th><th style="padding:6px 4px">Thousands</th><th style="padding:6px 4px">Hundreds</th><th style="padding:6px 4px">Tens</th><th style="padding:6px 4px">Ones</th></tr>' +
+    '<tr style="font-size:26px;font-weight:bold;color:#0A1F3D"><td style="border:1px solid #ddd;padding:8px">4</td><td style="border:1px solid #ddd;padding:8px">5</td><td style="border:1px solid #ddd;padding:8px">2</td><td style="border:1px solid #ddd;padding:8px">9</td><td style="border:1px solid #ddd;padding:8px">3</td><td style="border:1px solid #ddd;padding:8px">6</td></tr>' +
+    '<tr style="font-size:13px;color:#5A6275"><td style="border:1px solid #ddd;padding:6px">400,000</td><td style="border:1px solid #ddd;padding:6px">50,000</td><td style="border:1px solid #ddd;padding:6px">2,000</td><td style="border:1px solid #ddd;padding:6px">900</td><td style="border:1px solid #ddd;padding:6px">30</td><td style="border:1px solid #ddd;padding:6px">6</td></tr></table>';
+
+  var PASSAGE = '<div class="passage"><h4>The Helmet Drive</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>The Bayside Bobcats had a problem. Their helmets were so old that many of them were cracked. The league made a rule: no team could play without safe helmets. New helmets cost $80 each, and the Bobcats needed twenty of them. That added up to $1,600, and the team’s bank account was nearly empty. Money was scarce, and nobody knew where to find more.</p>' +
+    '<p><span class="pn">2</span>Then Mia, the quarterback’s younger sister, had an idea. “What if the whole neighborhood helped?” she asked at a team meeting. She suggested a Saturday car wash at the community center.</p>' +
+    '<p><span class="pn">3</span>Coach Ellis was doubtful at first. “Twenty helmets is a lot of car washes,” he said. But Mia was determined. She made colorful signs for every street corner, and she kept asking businesses for help until the bakery on Main Street agreed to donate cookies. Parents signed up as volunteers, people who agree to work without being paid.</p>' +
+    '<p><span class="pn">4</span>On the day of the car wash, the line of cars stretched around the block. Players scrubbed tires while little brothers and sisters sold cookies. A hardware store down the street matched every dollar the team raised.</p>' +
+    '<p><span class="pn">5</span>By sunset, the Bobcats had raised more than enough money. When the new helmets arrived, the team wrote one name on the back of each helmet: MIA. “One person had the idea,” Coach Ellis said, “but it took the whole town to make it happen.”</p></div>';
+
+  var items = {
+    pv1: { t: 'mc', o: ['50,000', '5,000', '500,000', '5'], a: 0, q: 'This season, <b>452,936</b> fans came to Bayside Stadium. What is the <b>value</b> of the <b>5</b>?', hint: 'Find the 5 in the chart. Which place is it in?', why: 'The 5 is in the ten thousands place, so its value is 5 × 10,000 = 50,000.' },
+    pv2: { t: 'num', a: 320506, show: '320,506', q: 'Write <b>300,000 + 20,000 + 500 + 6</b> as one number (standard form).', ph: 'Type the number', hint: 'There are no thousands and no tens, so those places get a 0.', why: '3 hundred thousands, 2 ten thousands, 0 thousands, 5 hundreds, 0 tens, 6 ones: 320,506.' },
+    pv3: { t: 'mc', keep: true, o: ['10 times', '100 times', '1,000 times', 'The same value'], a: 0, q: 'The 7 in <b>70,000</b> is how many times the value of the 7 in <b>7,000</b>?', hint: 'Moving one place to the left makes a digit worth 10 times more.', why: '70,000 is one place to the left of 7,000, so it is worth 10 times as much: 7,000 × 10 = 70,000.' },
+    wf: { t: 'mc', o: ['206,041', '206,410', '260,041', '2,641'], a: 0, q: 'Which number is <b>two hundred six thousand, forty-one</b>?', hint: 'Write the thousands part first (206), then the rest (041).', why: '“Two hundred six thousand” is 206 in the thousands period. “Forty-one” is 041 in the ones period: 206,041.' },
+    cmp: { t: 'mc', keep: true, o: ['48,906', '48,960', 'They are equal'], a: 1, q: 'Two games drew <b>48,906</b> fans and <b>48,960</b> fans. Which crowd was <b>bigger</b>?', hint: 'Compare digit by digit from the left. Where is the first difference?', why: 'The ten thousands, thousands and hundreds match (48,9__). In the tens place, 6 tens is more than 0 tens, so 48,960 is bigger.' },
+    sym: { t: 'mc', keep: true, o: ['>', '<', '='], a: 0, q: 'Choose the symbol that makes this true: <b>125,430 ___ 124,999</b>', hint: 'Start with the biggest place. Look at the thousands.', why: 'Both have 1 hundred thousand and 2 ten thousands. In the thousands, 5 > 4, so 125,430 > 124,999.' },
+    ord: { t: 'order', items: ['9,875', '19,500', '91,200', '109,050', '190,005'], q: 'Put these ticket sales in order from <b>least to greatest</b>. Tap them in order.', hint: 'Count the digits first. Fewer digits means a smaller number.', why: 'Least to greatest: 9,875; 19,500; 91,200; 109,050; 190,005.' },
+    nl1: { t: 'nl', min: 0, max: 10, k: 10, yard: true, a: 4, q: 'The ball is on the <b>37-yard line</b>. Round 37 to the <b>nearest ten</b>. Tap the yard line it rounds to.', hint: 'Look at the ones digit, 7. Is it 5 or more?', why: '37 is between 30 and 40. The ones digit is 7, which is 5 or more, so 37 rounds up to 40.' },
+    nl2: { t: 'nl', min: 0, max: 10, k: 10, yard: true, a: 6, q: 'The ball is on the <b>62-yard line</b>. Round 62 to the <b>nearest ten</b>.', hint: 'The ones digit is 2. Less than 5 means round down.', why: '62 is between 60 and 70. The ones digit is 2, which is less than 5, so 62 rounds down to 60.' },
+    r1: { t: 'num', a: 65000, show: '65,000', q: 'Round <b>64,718</b> to the nearest <b>thousand</b>.', ph: 'Type the number', hint: 'Circle the thousands digit (4). Look at the digit to its right (7).', why: 'The digit to the right of the thousands place is 7, which is 5 or more, so the 4 goes up to 5: 65,000.' },
+    r2: { t: 'mc', o: ['250,000', '240,000', '246,000', '200,000'], a: 0, q: 'Round <b>245,503</b> to the nearest <b>ten thousand</b>.', hint: 'The ten thousands digit is 4. Look at the digit to its right.', why: 'The digit to the right of the ten thousands place is 5, so round up: 245,503 rounds to 250,000.', badge: 'fieldpos' },
+
+    ci: { t: 'mc', o: ['Helmets can crack when they get old.', 'When a whole community works together, it can solve a problem that seemed too big.', 'Car washes are the best way to raise money.', 'Mia is the quarterback’s younger sister.'], a: 1, q: 'What is the <b>central idea</b> of “The Helmet Drive”?', hint: 'Read what Coach Ellis says at the very end.', why: 'The story shows many people helping to raise the money. Coach Ellis says it best: it took the whole town.' },
+    det: { t: 'multi', o: ['Parents signed up as volunteers.', 'A hardware store matched every dollar the team raised.', 'New helmets cost $80 each.', 'The car wash was on a Saturday.'], a: [0, 1], q: 'Which <b>two details</b> best support the central idea?', hint: 'Pick the details that show other people helping.', why: 'Parents volunteering and the store matching dollars both show the community working together.' },
+    v1: { t: 'mc', o: ['There was not enough of it', 'There was too much of it', 'It was easy to find', 'It was saved in a bank'], a: 0, q: 'In paragraph 1, what does <b>scarce</b> mean?', hint: 'The bank account was “nearly empty.”', why: 'The clues are “nearly empty” and “nobody knew where to find more,” so scarce means there was not enough.' },
+    v2: { t: 'mc', o: ['Very excited', 'Not sure it would work', 'Angry', 'Ready to help right away'], a: 1, q: 'In paragraph 3, what does <b>doubtful</b> mean?', hint: 'Read what Coach Ellis says next.', why: 'Coach says “Twenty helmets is a lot of car washes,” and the word “But” shows Mia felt differently. He was not sure it would work.' },
+    v3: { t: 'mc', o: ['Tired and ready to quit', 'Not going to give up', 'Shy and quiet', 'Confused'], a: 1, q: 'In paragraph 3, what does <b>determined</b> mean?', hint: 'She “kept asking businesses for help until” one said yes.', why: 'Mia kept going until she got help, so determined means not going to give up.' },
+    sum: { t: 'mc', o: ['The Bobcats needed helmets. Mia had an idea. Coach Ellis talked.', 'The Bobcats needed $1,600 for new helmets. Mia organized a car wash, the whole town helped, and the team raised more than enough.', 'Mia made colorful signs for every street corner.', 'Old helmets are not safe.'], a: 1, q: 'Which is the <b>best summary</b> of the story?', hint: 'A good summary tells the problem, what happened and how it ended.', why: 'It tells the problem, the main events and the ending in a few words, without small details.', badge: 'filmroom' },
+
+    sort: { t: 'sort', bins: ['Need', 'Want'], items: [['Food', 0], ['Water', 0], ['Medicine', 0], ['Shoes for school', 0], ['Video game', 1], ['Candy', 1], ['Football cards', 1], ['Movie tickets', 1]], q: 'Help your rookie sort his list: <b>need</b> or <b>want</b>?', hint: 'A need is something you must have to stay safe and healthy.', why: 'Food, water, medicine and school shoes keep you healthy and ready to learn. The others are fun, but you can live without them.' },
+    left: { t: 'num', a: 8, show: '$8', unit: 'dollars', q: 'You have <b>$20</b>. You spend <b>$12</b> on things you need. How much is left to save or spend on wants?', hint: 'Subtract what you spent on needs.', why: '$20 − $12 = $8 left.' },
+    oc: { t: 'mc', o: ['The team poster', 'Saving toward the new football', 'Her $10', 'Nothing'], a: 1, q: 'Maya has <b>$10</b>. She can buy a team poster <b>or</b> save it toward a new football. She buys the poster. What did she <b>give up</b>?', hint: 'What was the other choice?', why: 'She gave up saving toward the new football. That is the choice she didn’t pick.' },
+    gm: { t: 'mc', o: ['The new practice footballs', 'The pizza party', 'The $500', 'The players'], a: 1, q: 'Your team has <b>$500</b>. You can buy new practice footballs <b>or</b> throw a pizza party, not both. You choose the footballs. What did you <b>give up</b>?', why: 'You gave up the pizza party, the choice you didn’t pick.', badge: 'capwise' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 1 · Kickoff</div><h2>Kickoff</h2>' +
+      '<p>Every football team has a boss behind the scenes. That person picks the players, plans the season and decides how the team spends its money. That boss is called the <b>general manager</b>, or <b>GM</b> for short. This year, that’s you.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Stadium Numbers.</b> Read, compare and round big numbers.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Film Room.</b> Find the central idea of a story.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Cap Space.</b> Needs, wants and smart choices.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Numbers</span></div><h2>Big Crowds, Big Numbers</h2>' +
+      '<p>Stadium crowds can be huge. To read a big number, use <b>place value</b>: every place in a number is worth <b>10 times</b> the place to its right.</p>' + CHART +
+      '<div class="callout">In <b>452,936</b>, the 4 is worth 400,000, the 5 is worth 50,000 and the 2 is worth 2,000. The comma separates the thousands from the hundreds.</div>' +
+      '<div data-item="pv1"></div><div data-item="pv2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Numbers</span></div><h2>The Power of 10</h2>' +
+      '<p>When a digit moves <b>one place to the left</b>, it is worth <b>10 times</b> as much. 700 is 10 times 70. 7,000 is 10 times 700.</p>' +
+      '<p class="big-rule">7 → 70 → 700 → 7,000 → 70,000 → 700,000</p>' +
+      '<div class="callout blue">To write a number from words, do the part before “thousand” first, then the rest. <b>Two hundred six thousand, forty-one</b> = 206 thousand + 41 = <b>206,041</b>.</div>' +
+      '<div data-item="pv3"></div><div data-item="wf"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Numbers</span></div><h2>Which Crowd Was Bigger?</h2>' +
+      '<p>To compare big numbers, line up the places and start at the <b>left</b>. The first place where the digits are different tells you which number is greater.</p>' +
+      '<div class="callout"><b>&gt;</b> means “is greater than.” <b>&lt;</b> means “is less than.” The open side always faces the bigger number.</div>' +
+      '<div data-item="cmp"></div><div data-item="sym"></div><div data-item="ord"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Numbers</span></div><h2>Rounding on the Field</h2>' +
+      '<p>A football field has 100 yards with a line every 10 yards. Rounding to the nearest ten is like asking, “Which 10-yard line is the ball closest to?”</p>' +
+      field([{ v: 3.7, l: '37', c: '#DB2F30' }, { v: 4, l: '40', c: '#0047BA' }]) +
+      '<div class="callout"><b>The rule:</b> look at the digit to the <b>right</b> of the place you’re rounding to. <b>5 or more</b>, round up. <b>Less than 5</b>, round down.</div>' +
+      '<div data-item="nl1"></div><div data-item="nl2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Numbers</span></div><h2>Rounding Big Crowds</h2>' +
+      '<p>The same rule works for big numbers. Find the place you’re rounding to, then look one digit to the right.</p>' +
+      '<div class="callout blue"><b>Round 64,718 to the nearest thousand:</b> the thousands digit is 4. The digit to its right is 7, which is 5 or more, so the 4 becomes a 5 and every digit after it becomes 0.</div>' +
+      '<div data-item="r1"></div><div data-item="r2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room</span></div><h2>Finding the Central Idea</h2>' +
+      '<p>Coaches watch game film to find the most important thing that happened. Readers do the same thing. The <b>central idea</b> is the most important point of the whole text. <b>Supporting details</b> are the parts that prove it.</p>' +
+      '<div class="callout"><b>How to find it:</b> look at the title, the ending and the ideas that keep coming back. Ask yourself: what is this story <i>really</i> about?</div>' +
+      PASSAGE + '<div data-item="ci"></div><div data-item="det"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room</span></div><h2>Context Clues and Summary</h2>' +
+      '<p>When you find a word you don’t know, look at the words and sentences around it. Those <b>context clues</b> often tell you what the word means.</p>' +
+      PASSAGE + '<div data-item="v1"></div><div data-item="v2"></div><div data-item="v3"></div><div data-item="sum"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Cap Space</span></div><h2>Needs vs. Wants</h2>' +
+      '<p>Every GM has a budget, the amount of money the team can spend. Smart GMs pay for what the team <b>needs</b> first.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Need:</b> something you must have to stay safe and healthy, like food, water, a home and medicine.</div><div class="callout"><b>Want:</b> something that’s fun to have, but you would be OK without it.</div></div>' +
+      '<div data-item="sort"></div><div data-item="left"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Cap Space</span></div><h2>What Do You Give Up?</h2>' +
+      '<p>Money is limited, so when you choose one thing, you give up something else. The thing you give up is called the <b>opportunity cost</b>. It’s the choice you didn’t pick.</p>' +
+      '<div class="callout">If you spend Saturday at football practice, you give up going to the park that day.</div>' +
+      '<div data-item="oc"></div><div data-item="gm"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 1 in the Books</h2>' +
+      '<ul><li>Every place in a number is worth 10 times the place to its right.</li>' +
+      '<li>To compare big numbers, start at the left and find the first digit that is different.</li>' +
+      '<li>To round, look one digit to the right: 5 or more rounds up, less than 5 rounds down.</li>' +
+      '<li>The central idea is what the whole story is really about. Details prove it, and context clues unlock new words.</li>' +
+      '<li>Needs come before wants. Every choice means giving something up.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice01.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can change it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-10-30', 'Week 1', document.getElementById('deck'))) return; FO.deck({ id: 'L01', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

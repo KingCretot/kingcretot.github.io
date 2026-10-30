@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 1 · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=10">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=14"></script>
+<script>
+(function () {
+  var A = [
+    { s: 'Math', t: 'mc', o: ['10,000', '100,000', '1,000', '1'], a: 0, q: 'In <b>718,402</b>, what is the <b>value</b> of the <b>1</b>?', hint: 'Which place is the 1 in?', why: 'The 1 is in the ten thousands place, so it is worth 10,000.' },
+    { s: 'Math', t: 'num', a: 543080, show: '543,080', q: 'Write <b>500,000 + 40,000 + 3,000 + 80</b> in standard form.', hint: 'There are no hundreds and no ones, so those places get a 0.', why: '5 hundred thousands, 4 ten thousands, 3 thousands, 0 hundreds, 8 tens, 0 ones: 543,080.' },
+    { s: 'Math', t: 'mc', keep: true, o: ['>', '<', '='], a: 1, q: 'Choose the symbol that makes this true: <b>36,512 ___ 36,521</b>', hint: 'Compare from the left. Where is the first difference?', why: 'In the tens place, 1 ten is less than 2 tens, so 36,512 < 36,521.' },
+    { s: 'Math', t: 'order', items: ['4,099', '40,990', '49,009', '409,900'], q: 'Order from <b>least to greatest</b>: 49,009 · 4,099 · 409,900 · 40,990', hint: 'Count the digits first.', why: '4,099; 40,990; 49,009; 409,900.' },
+    { s: 'Math', t: 'nl', min: 0, max: 10, k: 10, yard: true, a: 8, q: 'The ball is on the <b>84-yard line</b>. Round 84 to the <b>nearest ten</b>.', hint: 'The ones digit is 4. Less than 5 means round down.', why: '84 is between 80 and 90. The ones digit is 4, so it rounds down to 80.' },
+    { s: 'Math', t: 'num', a: 27000, show: '27,000', q: 'Round <b>27,384</b> to the nearest <b>thousand</b>.', hint: 'Look at the hundreds digit, 3.', why: 'The digit to the right of the thousands place is 3, which is less than 5, so round down: 27,000.' },
+    { s: 'Math', t: 'mc', keep: true, o: ['10 times', '100 times', '1,000 times', 'The same value'], a: 0, q: 'The 3 in <b>300,000</b> is how many times the value of the 3 in <b>30,000</b>?', hint: 'One place to the left is worth 10 times more.', why: '300,000 is one place to the left of 30,000, so it is 10 times the value.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Practicing again and again helped Sam become a strong kicker.', 'Kicking a football is easy.', 'Sam’s team won every game.', 'Coaches should yell at their players.'], a: 0, q: 'What is the <b>central idea</b> of “The Kicker Who Kept Trying”?', hint: 'Read what Sam says at the end.', why: 'The whole story shows Sam practicing until he improves. He says hard work made the difference.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['Every evening, after his homework, Sam practiced in the park.', 'Sam kicked fifty balls each night.', 'The game was played on a Saturday.', 'Sam’s team wore blue jerseys.'], a: [0, 1], q: 'Which <b>two details</b> best support the central idea?', why: 'Practicing every evening and kicking fifty balls a night show Sam’s hard work.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Not steady; changing from one try to the next', 'Very strong', 'Perfect', 'Slow and careful'], a: 0, q: 'In paragraph 2, what does <b>erratic</b> mean?', hint: 'One kick sailed far, and the next rolled only a few feet.', why: 'His kicks kept changing from far to short, so erratic means not steady.' },
+    { s: 'Money', t: 'sort', bins: ['Need', 'Want'], items: [['Toothbrush', 0], ['Doctor visit', 0], ['Groceries', 0], ['Toy drone', 1], ['Candy bar', 1], ['Team bobblehead', 1]], q: 'Sort each item: <b>need</b> or <b>want</b>?', why: 'A toothbrush, a doctor visit and groceries keep you healthy. The others are fun extras.' },
+    { s: 'Money', t: 'mc', o: ['The jersey', 'The movies with friends', 'His $15', 'Nothing'], a: 1, q: 'Eli has <b>$15</b>. He can buy a jersey <b>or</b> go to the movies with friends. He buys the jersey. What did he <b>give up</b>?', hint: 'What was the other choice?', why: 'He gave up the movies, the choice he didn’t pick.' },
+    { s: 'Money', t: 'num', a: 9, show: '$9', unit: 'dollars', q: 'You have <b>$25</b>. You spend <b>$16</b> on needs. How much is left?', hint: 'Subtract.', why: '$25 − $16 = $9.' }
+  ];
+  var B = [
+    { s: 'Math', t: 'mc', o: ['30,000', '3,000', '300,000', '300'], a: 0, q: 'In <b>635,270</b>, what is the <b>value</b> of the <b>3</b>?', hint: 'Which place is the 3 in?', why: 'The 3 is in the ten thousands place, so it is worth 30,000.' },
+    { s: 'Math', t: 'num', a: 207605, show: '207,605', q: 'Write <b>200,000 + 7,000 + 600 + 5</b> in standard form.', hint: 'There are no ten thousands and no tens, so those places get a 0.', why: '2 hundred thousands, 0 ten thousands, 7 thousands, 6 hundreds, 0 tens, 5 ones: 207,605.' },
+    { s: 'Math', t: 'mc', keep: true, o: ['>', '<', '='], a: 1, q: 'Choose the symbol that makes this true: <b>509,118 ___ 590,118</b>', hint: 'Compare from the left.', why: 'In the ten thousands place, 0 is less than 9, so 509,118 < 590,118.' },
+    { s: 'Math', t: 'order', items: ['7,654', '17,456', '71,546', '170,465'], q: 'Order from <b>least to greatest</b>: 71,546 · 170,465 · 7,654 · 17,456', hint: 'Count the digits first.', why: '7,654; 17,456; 71,546; 170,465.' },
+    { s: 'Math', t: 'nl', min: 0, max: 10, k: 10, yard: true, a: 3, q: 'The ball is on the <b>25-yard line</b>. Round 25 to the <b>nearest ten</b>.', hint: 'The ones digit is 5. Five or more rounds up.', why: '25 is exactly halfway between 20 and 30. The rule says 5 or more rounds up, so 25 rounds to 30.' },
+    { s: 'Math', t: 'num', a: 82000, show: '82,000', q: 'Round <b>81,650</b> to the nearest <b>thousand</b>.', hint: 'Look at the hundreds digit, 6.', why: 'The digit to the right of the thousands place is 6, which is 5 or more, so round up: 82,000.' },
+    { s: 'Math', t: 'mc', o: ['430,012', '430,120', '403,012', '43,012'], a: 0, q: 'Which number is <b>four hundred thirty thousand, twelve</b>?', hint: 'Write the thousands part (430), then the rest (012).', why: '430 thousand and 12 more: 430,012.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Careful planning helped the team earn enough money for their trip.', 'Snack stands sell popcorn.', 'The team’s trip was to the beach.', 'Football games are fun to watch.'], a: 0, q: 'What is the <b>central idea</b> of “The Snack Stand”?', hint: 'What made the snack stand work?', why: 'The story shows the team planning, tracking and adjusting, and that is how they earned enough for the trip.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['They made a chart to track what they spent.', 'Each week they wrote down which snacks sold best.', 'The stand was painted red.', 'Home games started at noon.'], a: [0, 1], q: 'Which <b>two details</b> best support the central idea?', why: 'Tracking costs and noting what sold best are examples of careful planning.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['The money left over after paying for supplies', 'The money spent on supplies', 'The price of one snack', 'A kind of snack'], a: 0, q: 'In paragraph 3, what does <b>profit</b> mean?', hint: 'Read the words right around it.', why: 'The sentence says it is the money left over after paying for the supplies.' },
+    { s: 'Money', t: 'sort', bins: ['Need', 'Want'], items: [['School lunch', 0], ['Bandages', 0], ['Toothpaste', 0], ['Slime kit', 1], ['Video game', 1], ['Stickers', 1]], q: 'Sort each item: <b>need</b> or <b>want</b>?', why: 'Lunch, bandages and toothpaste keep you healthy. The others are fun extras.' },
+    { s: 'Money', t: 'mc', o: ['Saving toward the bike', 'The football cards', 'Her $12', 'Nothing'], a: 1, q: 'Ava has <b>$12</b>. She can buy football cards <b>or</b> save toward a bike. She saves. What did she <b>give up</b>?', hint: 'What was the other choice?', why: 'She gave up the football cards, the choice she didn’t pick.' },
+    { s: 'Money', t: 'num', a: 12, show: '$12', unit: 'dollars', q: 'You have <b>$30</b>. You spend <b>$18</b> on needs. How much is left?', hint: 'Subtract.', why: '$30 − $18 = $12.' }
+  ];
+  var PA = '<div class="passage"><h4>The Kicker Who Kept Trying</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>Sam wanted to be the kicker for his youth football team. There was just one problem: his first kicks wobbled sideways and barely left the ground.</p>' +
+    '<p><span class="pn">2</span>Every evening, after his homework, Sam practiced in the park. At first his kicks were erratic. One sailed far down the field, and the next rolled only a few feet.</p>' +
+    '<p><span class="pn">3</span>His coach showed him two tips: keep your eyes on the ball, and plant your other foot right beside it. Sam kicked fifty balls each night until the tips felt natural.</p>' +
+    '<p><span class="pn">4</span>In the last game of the season, Sam kicked the winning field goal. When his friends cheered, he smiled. “It wasn’t luck,” he said. “It was all that practice.”</p></div>';
+  var PB = '<div class="passage"><h4>The Snack Stand</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>The Riverside Rams wanted to go to a football camp in another city, but the trip cost $300. The players decided to run a snack stand at their home games.</p>' +
+    '<p><span class="pn">2</span>Before the first game, they made a chart to track what they spent on supplies. Each week they wrote down which snacks sold best. When popcorn sold out and pretzels didn’t, they made more popcorn and fewer pretzels.</p>' +
+    '<p><span class="pn">3</span>At the end of the season, they counted the money. After paying for the supplies, the money left over, their profit, was $340.</p>' +
+    '<p><span class="pn">4</span>“We didn’t just sell snacks,” said the team captain. “We had a plan, and we stuck to it.”</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-10-30', 'Week 1', document.getElementById('practice'))) return;
+    FO.practice({ week: 1, title: 'Kickoff', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w1win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>

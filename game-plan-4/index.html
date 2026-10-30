@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Game Plan · Grade 4 · KingCretot Experience</title>
+<link rel="stylesheet" href="fo.css?v=10">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+
+<header class="hero2"><div class="home">
+  <div class="eyebrow">KCE · Grade 4 · Math · ELA · Money</div>
+  <h1 id="h-title">Game Plan</h1>
+  <p>You’re the GM, short for general manager: the boss who runs a football team. The GM picks the players, signs the contracts and manages the money. Each week: one lesson, one Practice Here. Score 80 or more to put a W on the board.</p>
+</div></header>
+
+<main class="home">
+  <div id="thisweek"></div>
+  <h2 class="sec-h" id="team-h">Your Team</h2>
+  <div id="gm"></div>
+  <h2 class="sec-h">Season Schedule<small>A new week opens every Friday.</small></h2>
+  <div id="season"></div>
+  <h2 class="sec-h">Trophy Case<small id="badge-count"></small></h2>
+  <div class="trophy"><div class="badge-row" id="trophies"></div></div>
+</main>
+
+<div class="foot">
+  <div class="n">KingCretot Experience</div>
+  Approved Provider: <span class="g">Step Up For Students</span> · <span class="g">Arizona ESA</span> · <span class="g">West Virginia Hope Scholarship</span><br>
+  kce@kingcretot.com · 914-809-0112 · PO Box 2322, Arcadia, FL 34265
+</div>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=14"></script>
+<script>
+(function () {
+  var WEEKS = [
+    { w: 1, d: '2026-10-30', t: 'Kickoff', m: 'Place value, comparing and rounding big numbers', e: 'Central idea and context clues', f: 'Needs vs. wants', built: true },
+    { w: 2, d: '2026-11-06', t: 'Scouting Combine', m: 'Multiplying multi-digit numbers', e: 'Character traits and motivations', f: 'Ways to earn money' },
+    { w: 3, d: '2026-11-13', t: 'Contract Talks', m: 'Dividing with remainders', e: 'Theme', f: 'Saving for a goal' },
+    { w: 4, d: '2026-12-04', t: 'Building the Roster', m: 'Factors, multiples, primes and composites', e: 'Text structure', f: 'Making a simple budget' },
+    { w: 5, d: '2026-12-11', t: 'Stadium Upgrade', m: 'Area and perimeter', e: 'Summarizing', f: 'Comparing prices' },
+    { w: 6, d: '2026-12-18', t: 'Midseason Film Review', m: 'Review of Weeks 1–5', e: 'Review of Weeks 1–5', f: 'Counting change', review: true },
+    { w: 7, d: '2027-01-08', t: 'New Year, New Playbook', m: 'Equivalent fractions', e: 'Point of view', f: 'Spend, save and share' },
+    { w: 8, d: '2027-01-15', t: 'Two-Minute Drill', m: 'Comparing fractions', e: 'Figurative language', f: 'Banks and keeping money safe' },
+    { w: 9, d: '2027-01-22', t: 'Weather Delay', m: 'Adding and subtracting fractions', e: 'Poetry', f: 'How savings grow' },
+    { w: 10, d: '2027-01-29', t: 'Road Trip', m: 'Mixed numbers', e: 'Comparing two texts', f: 'Planning a trip budget' },
+    { w: 11, d: '2027-02-05', t: 'Super Bowl Week', m: 'Multiplying a fraction by a whole number', e: 'Persuasion in ads', f: 'Ads and smart shopping' },
+    { w: 12, d: '2027-02-12', t: 'The Numbers Game', m: 'Decimals: tenths and hundredths', e: 'Charts and graphs in a text', f: 'Better buys' },
+    { w: 13, d: '2027-02-19', t: 'Trade Deadline', m: 'Comparing decimals and fractions', e: 'Greek and Latin roots', f: 'Fair trades' },
+    { w: 14, d: '2027-02-26', t: 'Film Review II', m: 'Review of Weeks 7–13', e: 'Review of Weeks 7–13', f: 'Money review', review: true },
+    { w: 15, d: '2027-03-05', t: 'Locker Room Build', m: 'Measurement conversions', e: 'Opinion writing', f: 'Borrowing and paying back' },
+    { w: 16, d: '2027-03-12', t: 'Wild Card', m: 'Angles and protractors', e: 'Drama and scenes', f: 'Giving and donating' },
+    { w: 17, d: '2027-03-26', t: 'Divisional Round', m: 'Lines, symmetry and shapes', e: 'Biography', f: 'Jobs and careers' },
+    { w: 18, d: '2027-04-02', t: 'Conference Championship', m: 'Line plots, mode, median and range', e: 'Author’s purpose', f: 'Starting a small business' },
+    { w: 19, d: '2027-04-09', t: 'Championship Week', m: 'Patterns and equations', e: 'Writing a game recap', f: 'Cash, debit and credit' },
+    { w: 20, d: '2027-04-16', t: 'The Big Game', m: 'Multi-step word problems', e: 'Paired passages', f: 'Spotting scams' },
+    { w: 21, d: '2027-04-23', t: 'Victory Parade', m: 'Season review', e: 'Season review', f: 'Money review', review: true },
+    { w: 22, d: '2027-04-30', t: 'FAST Camp: Math', m: 'FAST-style math, every strand', e: 'Short reading warm-up', f: 'Setting SMART goals' },
+    { w: 23, d: '2027-05-07', t: 'FAST Camp: Reading', m: 'Short math warm-up', e: 'FAST-style reading, every skill', f: 'Needs, wants and goals review' },
+    { w: 24, d: '2027-05-14', t: 'Season Finale', m: 'GM Annual Report capstone', e: 'GM Annual Report capstone', f: 'Your personal money plan', review: true }
+  ];
+  var PHASES = [
+    { n: 'Preseason', s: 'Weeks 1–6 · Oct–Dec', from: 1, to: 6 },
+    { n: 'Regular Season', s: 'Weeks 7–14 · Jan–Feb', from: 7, to: 14 },
+    { n: 'Playoffs', s: 'Weeks 15–21 · Mar–Apr', from: 15, to: 21 },
+    { n: 'FAST Camp and the Finale', s: 'Weeks 22–24 · Apr–May', from: 22, to: 24 }
+  ];
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function nice(iso) { var p = iso.split('-'); return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(+p[0], +p[1] - 1, +p[2]).getDay()] + ', ' + MON[+p[1] - 1] + ' ' + (+p[2]); }
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  var esc = FO.esc;
+
+  function current() {
+    var built = WEEKS.filter(function (x) { return x.built; }), c = built[0];
+    built.forEach(function (x) { if (FO.isOpen(x.d)) c = x; });
+    return c;
+  }
+
+  function thisWeek() {
+    var x = current(), r = FO.record()[x.w];
+    document.getElementById('thisweek').innerHTML = '<section class="tw"><div><div class="when">This week · Week ' + x.w + ' · ' + nice(x.d) + '</div><h2>' + esc(x.t) + '</h2>' +
+      '<div class="subj"><div><span class="m">Math</span>' + esc(x.m) + '</div><div><span class="e">ELA</span>' + esc(x.e) + '</div><div><span class="f">Money</span>' + esc(x.f) + '</div></div></div>' +
+      (FO.isOpen(x.d) ? '<div class="go"><a class="btn navy" href="lesson' + pad(x.w) + '.html">Start lesson</a><a class="btn gold" href="practice' + pad(x.w) + '.html">Practice Here</a>' : '<div class="go"><span class="btn navy" style="opacity:.45">🔒 Opens ' + nice(x.d) + '</span>') +
+      '<div class="last">' + (r ? 'Practice result: <b style="color:' + (r.wl === 'W' ? 'var(--ok)' : 'var(--bad)') + '">' + r.wl + ' · ' + r.score + '</b>' : 'Practice not played yet') + '</div></div></section>';
+  }
+
+  function gm() {
+    var el = document.getElementById('gm'), h = document.getElementById('h-title');
+    if (!FO.hasTeam()) {
+      document.getElementById('team-h').innerHTML = 'Build Your Team<small>Do this once. It saves on this device.</small>';
+      el.innerHTML = '<div class="slide on" id="b"></div>';
+      FO.builder(document.getElementById('b'), function () { setTimeout(render, 900); });
+      h.textContent = 'Game Plan';
+      return;
+    }
+    var p = FO.profile();
+    document.getElementById('team-h').textContent = 'Your Team';
+    h.textContent = FO.teamName();
+    el.innerHTML = '<div class="team">' + FO.logo(p, 64) + '<div><div class="nm">' + esc(FO.teamName()) + '</div><div class="gmn">' + esc(FO.gmLabel(p.gm)) + ' · Record ' + FO.wl() + ' · ' + FO.xp() + ' XP</div></div><button class="ed" type="button" id="edit">Edit team</button></div>';
+    document.getElementById('edit').addEventListener('click', function () {
+      el.innerHTML = '<div class="slide on" id="b"></div>';
+      FO.builder(document.getElementById('b'), function () { setTimeout(render, 900); });
+    });
+  }
+
+  function trophies() {
+    var have = FO.badges(), ids = Object.keys(FO.BADGES);
+    document.getElementById('badge-count').textContent = have.length + ' of ' + ids.length + ' earned · more unlock every week';
+    document.getElementById('trophies').innerHTML = ids.map(function (id) {
+      var b = FO.BADGES[id], on = have.indexOf(id) >= 0;
+      return '<div class="badge' + (on ? '' : ' locked') + '" title="' + esc(b.d) + '">' + FO.badgeSVG(id) + esc(b.n) + '</div>';
+    }).join('');
+  }
+
+  function season() {
+    var rec = FO.record();
+    document.getElementById('season').innerHTML = PHASES.map(function (ph) {
+      return '<div class="ph2"><b>' + ph.n + '</b><span>' + ph.s + '</span></div><div class="tiles">' + WEEKS.filter(function (x) { return x.w >= ph.from && x.w <= ph.to; }).map(function (x) {
+        var r = rec[x.w], open = x.built && FO.isOpen(x.d);
+        var st = (r ? '<span class="st ' + r.wl + '">Practice: ' + r.wl + ' · ' + r.score + '</span>' : '') + (open ? '<a class="btn navy" href="lesson' + pad(x.w) + '.html">Lesson</a><a class="btn gold" href="practice' + pad(x.w) + '.html">Practice Here</a>' : (FO.teacher() && !x.built ? '<span class="st">Not built yet</span>' : '<span class="st">🔒 Opens ' + nice(x.d) + '</span>'));
+        var inner = '<div class="tl-top"><span class="tl-n">Week ' + x.w + '</span><span class="tl-d">' + nice(x.d) + '</span></div><h3>' + esc(x.t) + '</h3>' +
+          '<div class="subj sm"><div><span class="m">Math</span>' + esc(x.m) + '</div><div><span class="e">ELA</span>' + esc(x.e) + '</div><div><span class="f">Money</span>' + esc(x.f) + '</div></div>' +
+          '<div class="tl-st">' + st + '</div>';
+        return '<div class="tile' + (open ? ' open' : '') + '">' + inner + '</div>';
+      }).join('') + '</div>';
+    }).join('');
+  }
+
+  function render() { FO.renderBar(); FO.teacherToggle(document.getElementById('tmode')); thisWeek(); gm(); trophies(); season(); }
+  document.addEventListener('DOMContentLoaded', render);
+})();
+</script>
+</body>
+</html>
