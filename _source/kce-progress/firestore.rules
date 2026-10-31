@@ -1,26 +1,36 @@
 rules_version = '2';
 
-// KCE Student Progress System — Firestore security rules (v2, after the independent review)
-// Families see only their own children. Only the KCE admin account sees everyone.
-// Families can save progress and scores for courses KCE has assigned; they cannot
-// enroll students, assign courses, unlock lessons, change or delete scores, or erase progress.
+// KCE Student Progress System — Firestore security rules (v3: Google sign-in or KCE code)
+// Families see only their own children. Only the KCE admin account (Google) sees everyone.
+// Families can save progress and scores for courses KCE has assigned; they cannot enroll
+// students, assign courses, create codes, unlock lessons, change or delete scores, or erase progress.
 
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Google sign-in only, with a verified email.
-    function signedIn() {
+    // Two ways in: a Google account with a verified email, or a KCE code that KCE created.
+    function isGoogle() {
       return request.auth != null
         && request.auth.token.email != null
         && request.auth.token.email_verified == true
         && request.auth.token.firebase.sign_in_provider == 'google.com';
     }
+    function isCode() {
+      return request.auth != null
+        && request.auth.token.firebase.sign_in_provider == 'password'
+        && request.auth.token.email != null
+        && request.auth.token.email.matches('^[a-f0-9]{24}@code[.]kingcretot[.]com$');
+    }
     function myEmail() { return request.auth.token.email.lower(); }
-    function isAdmin() { return signedIn() && myEmail() == 'kce@kingcretot.com'; }
+    function isAdmin() { return isGoogle() && myEmail() == 'kce@kingcretot.com'; }
 
+    // A family member: a Google email the family listed, or a KCE code given to that family.
+    function memberOf(fam) {
+      return (isGoogle() && myEmail() in fam.get('parentEmails', []))
+        || (isCode() && request.auth.uid in fam.get('codeUids', []));
+    }
     function inFamily(fid) {
-      return signedIn()
-        && myEmail() in get(/databases/$(database)/documents/families/$(fid)).data.parentEmails;
+      return memberOf(get(/databases/$(database)/documents/families/$(fid)).data);
     }
     function courseAssigned(fid, sid, cid) {
       return cid in get(/databases/$(database)/documents/families/$(fid)/students/$(sid)).data.courses;
@@ -69,7 +79,7 @@ service cloud.firestore {
     }
 
     match /families/{fid} {
-      allow read: if isAdmin() || (signedIn() && myEmail() in resource.data.parentEmails);
+      allow read: if isAdmin() || memberOf(resource.data);
       allow write: if isAdmin();
 
       match /students/{sid} {
