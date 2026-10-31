@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js';
 import { getAuth, initializeAuth, inMemoryPersistence, createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut, connectAuthEmulator, signInWithCredential }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
-import { getFirestore, connectFirestoreEmulator, collection, doc, getDocs, setDoc, addDoc, updateDoc, query, orderBy, limit, serverTimestamp, arrayUnion, arrayRemove, deleteField, runTransaction, Timestamp, getDoc }
+import { getFirestore, connectFirestoreEmulator, collection, doc, getDocs, setDoc, addDoc, updateDoc, query, orderBy, limit, serverTimestamp, arrayUnion, arrayRemove, deleteField, runTransaction, Timestamp, getDoc, deleteDoc }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
 
 const CONFIG = {
@@ -221,7 +221,7 @@ function renderFamilies() {
       h += `<div class="child"><b>${esc(S.student.firstName)}</b><br>${(S.student.courses || []).map((c) => `<span class="pill ok">${esc(courseName(c))}<span class="x" data-s="${esc(S.sid)}" data-rm-course="${esc(c)}" title="Remove this course">×</span></span>`).join(' ') || '<span class="muted">No courses</span>'}
         <div style="margin-top:6px"><select data-s="${esc(S.sid)}" class="addc"><option value="">+ Assign a course…</option>${COURSES.filter((c) => !(S.student.courses || []).includes(c.id)).map((c) => `<option value="${c.id}">${esc(c.name)}</option>`).join('')}</select></div></div>`;
     }
-    h += `<a class="stu" data-add-child>+ Add a child to this family</a></div>`;
+    h += `<a class="stu" data-add-child>+ Add a child to this family</a> <a class="x" style="float:right" data-del-fam>Remove this family</a></div>`;
   }
   h += `</div>`;
   $('#view').innerHTML = h;
@@ -242,6 +242,19 @@ function renderFamilies() {
       const e = (window.prompt('Google sign-in email to add') || '').trim().toLowerCase();
       if (!e) return; if (!emailOk(e)) return alertMsg('That email does not look right.');
       await updateDoc(doc(db, 'families', fid), { parentEmails: arrayUnion(e) }); load();
+    };
+    box.querySelector('[data-del-fam]').onclick = async () => {
+      const F = DATA.find((d) => d.fid === fid);
+      const kids = F.students.map((S) => S.student.firstName).join(', ') || 'no children';
+      if (!window.confirm(`Remove the ${F.family.name} family (${kids}) and all of their saved progress and scores? This cannot be undone.`)) return;
+      try {
+        for (const S of F.students) {
+          const base = ['families', fid, 'students', S.sid];
+          for (const sub of ['events', 'progress']) { const all = await getDocs(collection(db, ...base, sub)); for (const d of all.docs) await deleteDoc(d.ref); }
+          await deleteDoc(doc(db, ...base));
+        }
+        await deleteDoc(doc(db, 'families', fid)); load();
+      } catch (e) { alertMsg('Could not remove the family: ' + e.message); }
     };
     box.querySelector('[data-add-code]').onclick = () => makeCode(fid, box);
     box.querySelectorAll('[data-rm-code]').forEach((x) => (x.onclick = async () => {
