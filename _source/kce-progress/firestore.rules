@@ -1,0 +1,88 @@
+rules_version = '2';
+
+// KCE Student Progress System — Firestore security rules
+// Families see only their own children. Only the KCE admin account sees everyone.
+// Families can save progress and scores for courses KCE has assigned; they cannot
+// enroll students, assign courses, unlock lessons or delete anything.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null
+        && request.auth.token.email != null
+        && request.auth.token.email_verified == true;
+    }
+    function myEmail() { return request.auth.token.email.lower(); }
+    function isAdmin() { return signedIn() && myEmail() == 'kce@kingcretot.com'; }
+
+    function familyDoc(fid) {
+      return get(/databases/$(database)/documents/families/$(fid)).data;
+    }
+    function inFamily(fid) {
+      return signedIn() && myEmail() in familyDoc(fid).parentEmails;
+    }
+    function courseAssigned(fid, sid, cid) {
+      return cid in get(/databases/$(database)/documents/families/$(fid)/students/$(sid)).data.courses;
+    }
+
+    // Progress document: one per student per course.
+    function validProgress() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['items', 'attempts', 'tasks', 'unlocked', 'updatedAt'])
+        && d.updatedAt == request.time
+        && (!('items' in d) || d.items is map)
+        && (!('attempts' in d) || d.attempts is map)
+        && (!('tasks' in d) || d.tasks is map);
+    }
+    // Families may never add or change lesson unlocks (only KCE can).
+    function unlocksUntouched() {
+      return resource == null
+        ? !('unlocked' in request.resource.data)
+        : !request.resource.data.diff(resource.data).affectedKeys().hasAny(['unlocked']);
+    }
+
+    // Score event: append-only record of a lesson check or practice set.
+    function validEvent(cid) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['course', 'part', 'lesson', 'lessonTitle', 'score', 'correct',
+                               'total', 'mastered', 'attempt', 'questionSet', 'missed', 'by', 'at'])
+        && d.course == cid
+        && d.part is string && d.part.size() <= 40
+        && d.lesson is string && d.lesson.size() <= 80
+        && d.score is number && d.score >= 0 && d.score <= 100
+        && (!('missed' in d) || (d.missed is list && d.missed.size() <= 60))
+        && d.at == request.time;
+    }
+
+    match /families/{fid} {
+      allow read: if isAdmin() || (signedIn() && myEmail() in resource.data.parentEmails);
+      allow write: if isAdmin();
+
+      match /students/{sid} {
+        allow read: if isAdmin() || inFamily(fid);
+        allow write: if isAdmin();
+
+        match /progress/{cid} {
+          allow read: if isAdmin() || inFamily(fid);
+          allow create, update: if isAdmin()
+            || (inFamily(fid) && courseAssigned(fid, sid, cid) && validProgress() && unlocksUntouched());
+          allow delete: if isAdmin();
+        }
+
+        match /events/{eid} {
+          allow read: if isAdmin() || inFamily(fid);
+          allow create: if isAdmin()
+            || (inFamily(fid) && courseAssigned(fid, sid, request.resource.data.course)
+                && validEvent(request.resource.data.course));
+          allow update, delete: if isAdmin();
+        }
+      }
+    }
+
+    // Everything else is closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
