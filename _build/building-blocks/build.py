@@ -69,20 +69,23 @@ def meta(who, n):
 def page(title, body, extra_head=""):
     return f'<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)}</title>{FONTS}<link rel="stylesheet" href="../bb.css">{extra_head}</head><body>{body}</body></html>'
 
+# KCE Student Progress System: saves each student's progress to KCE's database (Oct 31 2026).
+PROG = lambda who: f'<script type="module" src="../../kce-progress/kce-progress.js" data-course="bb-{who}"></script>'
+
 def lesson_page(who, L, m, prev, teach=False):
     data = dict(teacherView=teach, student=who, studentName=NAMES[who], id=f"bb-{who}-L{m['n']:02d}", label=f"Lesson {m['n']}", title=L["title"], goal=L["goal"],
                 date=m["date"], mastery=MASTERY[who], color=m["color"], slides=(L["teach"]["slides"] if teach else L["slides"]), win=L.get("win", ""),
                 prev=(f"bb-{who}-L{prev:02d}" if prev else None), prevTitle=(f"Lesson {prev}" if prev else ""))
     body = (TOP + '<div class="stage"><div class="bar"><a href="index.html" style="font-family:Fredoka,sans-serif;text-decoration:none">🏠</a><div class="prog"><i id="pi"></i></div><span class="stars" id="stars">⭐ 0</span></div><div id="stage"></div></div>'
             '<div class="nav"><button class="back" id="back">⬅ Back</button><button class="next" id="next">Next ➜</button></div>' +
-            (_ra(who, L)) + f'<script src="../bb.js"></script><script>BBLesson({json.dumps(data, ensure_ascii=False)});</script>')
+            (_ra(who, L)) + f'<script src="../bb.js"></script><script>BBLesson({json.dumps(data, ensure_ascii=False)});</script>' + PROG(who))
     return page(("Class Lesson · " if teach else "") + f"{NAMES[who]} · Lesson {m['n']}: {L['title']}", body)
 
 def practice_page(who, L, m):
     data = dict(studentName=NAMES[who], label=f"Lesson {m['n']}", title=L["title"], mastery=MASTERY[who], color=m["color"], questions=L["practice"]["questions"], id=f"{who}-L{m['n']:02d}", sets=[L["practice"]["questions"]] + _extra(who, m["n"]))
     body = (TOP + f'<div class="stage"><div class="bar"><a href="index.html" style="font-family:Fredoka,sans-serif;text-decoration:none">🏠</a><div class="prog"><i id="pi"></i></div></div>'
             f'<h1 style="color:#0A1F3D;margin:4px 0 2px;font-size:28px">📝 Practice: {E(L["title"])}</h1><p style="margin:0 0 12px;color:#5b6578">{E(L["practice"].get("intro","Three tries on each one. Only your first try counts. Your score goes to KCE."))}</p><div id="stage"></div></div>' +
-            (_ra(who, L)) + f'<script src="../bb.js"></script><script>BBPractice({json.dumps(data, ensure_ascii=False)});</script>')
+            (_ra(who, L)) + f'<script src="../bb.js"></script><script>BBPractice({json.dumps(data, ensure_ascii=False)});</script>' + PROG(who))
     return page(f"{NAMES[who]} · Practice {m['n']}", body)
 
 PACKET_CSS = """<style>
@@ -248,7 +251,7 @@ def course_page(who, Ls):
             '<div class="note">🧑‍🏫 <b>Class lesson</b>: your teacher teaches it with you. ▶ <b>After-class lesson</b>: do it on your own after class. 📝 <b>Practice</b>: more work during the week. 🖨 <b>Packet</b>: paper work to print. ✅ <b>Before the next lesson</b>: your to-do list. '
             'You get 3 tries on every question, but only your first try counts. 🔒 Each lesson opens when you score '+str(MASTERY[who])+' or more on the lesson before it. If an <b>Also do</b> lesson is locked, type the code <b>1111</b>.</div></div>' + secs +
             '<p style="text-align:center"><button id="tmode"></button></p><div class="foot">KingCretot Experience, LLC · PO Box 2322, Arcadia, FL 34265 · Step Up For Students · Arizona ESA · West Virginia Hope Scholarship</div>'
-            f'<script src="../bb.js"></script><script>BBCourse({{mastery:{MASTERY[who]},studentName:"{nm}"}});</script>')
+            f'<script src="../bb.js"></script><script>BBCourse({{mastery:{MASTERY[who]},studentName:"{nm}"}});</script>' + PROG(who))
     return page(f"{nm}'s Building Blocks | KingCretot Experience", body)
 
 def build(who):

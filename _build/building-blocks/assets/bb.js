@@ -196,7 +196,7 @@ window.BBTeacher=function(){
 window.BBCourse=function(C){
   var cards=document.querySelectorAll('[data-lesson]');
   cards.forEach(function(card){var id=card.dataset.lesson,prev=card.dataset.prev,btn=card.querySelector('.go-lesson');
-    var p=rd(PKEY)[id];if(p){var t=card.querySelector('.status');t.innerHTML=p.passed?'✅ Mastered · best '+p.best:'Best so far: '+p.best+' (need '+C.mastery+')';t.style.display='inline-block'}
+    var p=rd(PKEY)[id];if(p){var t=card.querySelector('.status');t.textContent=p.passed===true?'✅ Mastered · best '+(Number(p.best)||0):'Best so far: '+(Number(p.best)||0)+' (need '+C.mastery+')';t.style.display='inline-block'}
     if(prev&&!passed(prev)&&!unlocked(id)&&!teacher()){card.classList.add('locked');btn.dataset.locked='1';}
     var tl=card.querySelectorAll('.task input');var done=rd('kce_bb_tasks');tl.forEach(function(cb){cb.checked=!!done[cb.id];cb.onchange=function(){var d=rd('kce_bb_tasks');d[cb.id]=cb.checked;wr('kce_bb_tasks',d)}});
   });
