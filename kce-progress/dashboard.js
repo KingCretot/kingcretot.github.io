@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js';
 import { getAuth, initializeAuth, inMemoryPersistence, createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut, connectAuthEmulator, signInWithCredential }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
-import { getFirestore, connectFirestoreEmulator, collection, doc, getDocs, setDoc, addDoc, updateDoc, query, orderBy, limit, serverTimestamp, arrayUnion, arrayRemove, deleteField }
+import { getFirestore, connectFirestoreEmulator, collection, doc, getDocs, setDoc, addDoc, updateDoc, query, orderBy, limit, serverTimestamp, arrayUnion, arrayRemove, deleteField, runTransaction, Timestamp, getDoc }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
 
 const CONFIG = {
@@ -180,7 +180,7 @@ function detail(fid, sid) {
   else {
     h += `<table><tr><th>When</th><th>Course</th><th>What</th><th>Score</th><th class="hide-s">Right</th><th class="hide-s">Try</th><th class="hide-s">By</th></tr>`;
     for (const e of S.events) h += `<tr><td>${fmt(toDate(e.at))}</td><td>${esc(courseName(e.course))}</td><td>${esc(e.lesson)} · ${esc(e.part)}${e.lessonTitle ? `<br><span class="muted">${esc(e.lessonTitle)}</span>` : ''}</td>
-      <td><span class="pill ${e.mastered === true ? 'ok' : 'no'}">${n0(e.score)}</span></td><td class="hide-s">${n0(e.correct)}/${n0(e.total)}</td><td class="hide-s">${n0(e.attempt)}</td><td class="hide-s">${e.by === 'teacher' ? 'Live lesson' : 'Student'}</td></tr>`;
+      <td><span class="pill ${e.mastered === true ? 'ok' : 'no'}">${n0(e.score)}</span></td><td class="hide-s">${n0(e.correct)}/${n0(e.total)}</td><td class="hide-s">${n0(e.attempt)}</td><td class="hide-s">${e.by === 'teacher' ? 'Live lesson' : e.by === 'import' ? 'Past score' : 'Student'}</td></tr>`;
     h += `</table>`;
   }
   h += `</div>`;
@@ -205,6 +205,9 @@ function renderFamilies() {
     <div id="kids">${childBlock(0)}</div>
     <button class="btn light" id="addkid">+ Add another child</button><button class="btn gold" id="savefam">Save family</button>
     <div class="msg" id="fmsg"></div></div>`;
+  h += `<div class="card"><h2>Load past scores</h2>
+    <p class="muted">Adds scores from before the switch (the Weekly Score Logs) to each student's history. Enter the family first. Loading the same file again does not make copies.</p>
+    <input type="file" id="impf" accept=".json,application/json"> <div class="msg" id="impmsg"></div></div>`;
   h += `<div class="card"><h2>Families</h2>`;
   if (!DATA.length) h += `<p class="muted">No families yet.</p>`;
   for (const F of DATA) {
@@ -226,6 +229,7 @@ function renderFamilies() {
   let n = 1;
   $('#addkid').onclick = () => $('#kids').insertAdjacentHTML('beforeend', childBlock(n++));
   $('#savefam').onclick = saveFamily;
+  $('#impf').onchange = (e) => importFile(e.target.files && e.target.files[0]);
 
   document.querySelectorAll('.fam').forEach((box) => {
     const fid = box.dataset.f;
@@ -284,6 +288,61 @@ async function makeCode(fid, box) {
       <button class="btn light" data-copy>Copy code</button></div>`;
     again.querySelector('[data-copy]').onclick = async (e) => { try { await navigator.clipboard.writeText(code); e.target.textContent = 'Copied ✓'; } catch (_) { e.target.textContent = 'Select the code and copy it'; } };
   } catch (e) { out.className = 'msg bad'; out.textContent = 'Could not create the code: ' + (e.code || e.message); }
+}
+// ---------- past scores ----------
+const IMP_ID = /^imp-[a-z0-9-]{1,80}$/;
+const s0 = (v, n) => String(v == null ? '' : v).slice(0, n);
+const i0 = (v, d = 0) => { const n = Math.round(Number(v)); return Number.isFinite(n) ? Math.max(0, Math.min(500, n)) : d; };
+let PENDING = null;
+async function importFile(file) {
+  const m = $('#impmsg'); m.className = 'msg'; m.textContent = ''; PENDING = null;
+  if (!file) return;
+  let d; try { d = JSON.parse(await file.text()); } catch (e) { m.className = 'msg bad'; m.textContent = 'That file could not be read. Please choose the past-scores file KCE prepared.'; return; }
+  if (!d || d.kind !== 'kce-past-scores' || typeof d.courses !== 'object') { m.className = 'msg bad'; m.textContent = 'That is not a KCE past-scores file.'; return; }
+  const plan = []; const lines = [];
+  for (const cid of Object.keys(d.courses)) {
+    if (!COURSES.some((c) => c.id === cid)) { lines.push(`${esc(cid)}: not a KCE course here — skipped.`); continue; }
+    const who = []; DATA.forEach((F) => F.students.forEach((S) => { if ((S.student.courses || []).includes(cid)) who.push({ F, S }); }));
+    const evs = (d.courses[cid].events || []).filter((e) => e && IMP_ID.test(e.id || ''));
+    if (who.length !== 1) { lines.push(`<b>${esc(courseName(cid))}</b>: ${who.length ? 'more than one student has this course' : 'no student has this course yet — enter the family first'}. Skipped.`); continue; }
+    const { F, S } = who[0];
+    plan.push({ cid, F, S, evs, items: d.courses[cid].items || {}, attempts: d.courses[cid].attempts || {} });
+    lines.push(`<b>${esc(courseName(cid))}</b> → ${esc(S.student.firstName)} (${esc(F.family.name)} family): ${evs.length} past scores.`);
+  }
+  m.innerHTML = lines.join('<br>') + (plan.length ? `<br><button class="btn gold" id="impgo">Load these scores</button>` : '');
+  if (plan.length) { PENDING = plan; $('#impgo').onclick = runImport; }
+}
+async function runImport() {
+  const m = $('#impmsg'); const plan = PENDING; PENDING = null; if (!plan) return;
+  m.className = 'msg'; m.textContent = 'Loading…'; const done = [];
+  try {
+    for (const P of plan) {
+      const base = ['families', P.F.fid, 'students', P.S.sid];
+      for (const e of P.evs) {
+        const when = new Date(e.at); if (isNaN(when)) continue;
+        const total = i0(e.total);
+        await setDoc(doc(db, ...base, 'events', e.id), {
+          course: P.cid, part: s0(e.part || 'Lesson', 40), lesson: s0(e.lesson, 80), lessonTitle: s0(e.lessonTitle, 200),
+          score: Math.max(0, Math.min(100, Number(e.score) || 0)), correct: Math.min(i0(e.correct), total), total,
+          mastered: e.mastered === true, attempt: i0(e.attempt, 1), questionSet: i0(e.questionSet, 1),
+          missed: s0(e.missed, 8000), by: 'import', at: Timestamp.fromDate(when)
+        });
+      }
+      // Add the past results to the saved lesson record, keeping whatever is already better.
+      const pat = new RegExp('^' + P.cid + '-L\\d+$');
+      await runTransaction(db, async (tx) => {
+        const ref = doc(db, ...base, 'progress', P.cid); const cur = (await tx.get(ref)).data() || {};
+        const items = { ...(cur.items || {}) }, attempts = { ...(cur.attempts || {}) };
+        for (const k of Object.keys(P.items)) { if (!pat.test(k)) continue; const x = items[k] || {}, y = P.items[k] || {};
+          items[k] = { best: Math.max(Number(x.best) || 0, Math.min(100, Number(y.best) || 0)), passed: !!(x.passed || y.passed === true), last: x.last != null ? x.last : (Number(y.last) || 0) }; }
+        for (const k of Object.keys(P.attempts)) { if (pat.test(k)) attempts[k] = Math.max(Number(attempts[k]) || 0, i0(P.attempts[k])); }
+        tx.set(ref, { items, attempts, updatedAt: serverTimestamp() }, { merge: true });
+      });
+      done.push(`${P.evs.length} for ${P.S.student.firstName}`);
+    }
+    m.className = 'msg good'; m.textContent = 'Loaded past scores: ' + done.join(', ') + '.';
+    setTimeout(load, 1200);
+  } catch (e) { m.className = 'msg bad'; m.textContent = 'Stopped: ' + e.message + (done.length ? ' (already loaded: ' + done.join(', ') + ')' : ''); }
 }
 function alertMsg(t) { const m = $('#fmsg'); if (m) { m.className = 'msg bad'; m.textContent = t; m.scrollIntoView({ behavior: 'smooth' }); } }
 
