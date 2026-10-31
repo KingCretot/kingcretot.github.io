@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://www.gstatic.com wss://*.firebaseio.com https://*.firebaseio.com http://127.0.0.1:8080 http://127.0.0.1:9099; frame-src https://kce-student-progress.firebaseapp.com https://accounts.google.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+
+<title>KCE Progress Dashboard</title>
+<style>
+:root{--navy:#0A1F3D;--gold:#C9A84C;--blue:#0047BA;--red:#DB2F30;--cream:#FAF7EF;--line:#E2DDD0;--ink:#1D2433;--muted:#5A6272;--green:#1E7B45}
+*{box-sizing:border-box}
+body{margin:0;background:#EFEDE6;color:var(--ink);font:15px/1.45 Arial,Helvetica,sans-serif}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy);margin:0}
+.mast{background:var(--navy);padding:16px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.mono{border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:2px}
+.mono div{border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);font:bold 17px Georgia,serif;color:var(--gold);letter-spacing:3px;padding:2px 7px}
+.wm{font:21px Georgia,serif;color:var(--gold)}
+.tag{font:bold 10px Arial,sans-serif;letter-spacing:3px;margin-top:4px}
+.mast .right{margin-left:auto;color:#fff;font-size:13px;display:flex;gap:12px;align-items:center}
+.mast a{color:var(--gold);cursor:pointer;text-decoration:underline}
+.tri{display:flex;height:5px}.tri span{flex:1}
+main{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+.tabs{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap}
+.tabs button{font:bold 14px Arial,sans-serif;border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:20px;padding:7px 16px;cursor:pointer}
+.tabs button.on{background:var(--navy);color:#fff}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:0 0 16px}
+.card h2{font-size:20px;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--gold)}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:16px}
+.sum div{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:10px;padding:12px 14px}
+.sum b{display:block;font:bold 26px Georgia,serif;color:var(--navy)}
+.sum span{color:var(--muted);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--navy);color:var(--gold);text-align:left;padding:8px 10px;font-weight:bold;font-size:13px}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:var(--cream)}
+.pill{display:inline-block;border-radius:10px;padding:1px 8px;font-size:12px;font-weight:bold;margin:1px 2px}
+.ok{background:#E3F2E8;color:var(--green)}.no{background:#FDECEC;color:#A11E1E}.wait{background:#F3EBD2;color:#6B5413}
+.muted{color:var(--muted)}
+.stu{cursor:pointer;color:var(--blue);font-weight:bold;text-decoration:underline}
+label{display:block;font-weight:bold;color:var(--navy);margin:12px 0 4px}
+input[type=text],input[type=email],select{width:100%;max-width:460px;padding:9px 10px;border:1px solid #B9B2A2;border-radius:8px;font:15px Arial,sans-serif}
+.btn{font:bold 14px Arial,sans-serif;border:0;border-radius:8px;padding:9px 16px;cursor:pointer;background:var(--navy);color:#fff;margin:12px 8px 0 0}
+.btn.gold{background:var(--gold);color:var(--navy)}.btn.light{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.child{border:1px dashed #B9B2A2;border-radius:10px;padding:10px 14px;margin:10px 0;max-width:560px}
+.courses{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:6px}
+.courses label{font-weight:normal;color:var(--ink);margin:0;display:flex;gap:6px;align-items:center}
+.msg{margin-top:10px;font-weight:bold}.msg.good{color:var(--green)}.msg.bad{color:#A11E1E}
+.gate{max-width:440px;margin:60px auto;text-align:center}
+.gate .btn{font-size:16px;padding:12px 22px}
+.fam{border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0}
+.fam h3{font-size:17px}
+.x{color:#A11E1E;cursor:pointer;font-weight:bold;margin-left:4px}
+.foot{background:var(--navy);color:#fff;text-align:center;font-size:12px;padding:16px;line-height:1.7}
+.foot b{font:16px Georgia,serif;color:var(--gold);font-weight:normal}
+@media(max-width:640px){td,th{padding:6px}.hide-s{display:none}}
+</style></head>
+<body>
+<div class="mast">
+  <div class="mono"><div>KC</div></div>
+  <div><div class="wm">KingCretot Experience</div>
+  <div class="tag"><span style="color:#0047BA">EDUCATE</span><span style="color:#C9A84C"> · EMPOWER · </span><span style="color:#DB2F30">EXCEL</span></div></div>
+  <div class="right" id="who"></div>
+</div>
+<div class="tri"><span style="background:#0047BA"></span><span style="background:#C9A84C"></span><span style="background:#DB2F30"></span></div>
+<main id="app"><div class="gate"><h2>Student Progress Dashboard</h2><p class="muted">Loading…</p></div></main>
+<div class="foot"><b>KingCretot Experience</b><br>Approved Provider: <span style="color:#C9A84C">Step Up For Students</span> · <span style="color:#C9A84C">Arizona ESA</span> · <span style="color:#C9A84C">West Virginia Hope Scholarship</span><br>CONFIDENTIAL · Internal KCE page · PO Box 2322, Arcadia, FL 34265</div>
+
+<script type="module" src="dashboard.js" data-emulator="local"></script>
+</body></html>

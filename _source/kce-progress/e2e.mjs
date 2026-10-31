@@ -88,6 +88,34 @@ await D.pg.evaluate(()=>window.__kcepTestSignIn('tia@example.com'));
 await D.pg.waitForSelector('.kcep-box',{timeout:20000});
 const t2=await D.pg.textContent('.kcep-box');
 ok('Tia gets "Who\'s learning today?" with only her own children', t2.includes("Who's learning today?")&&t2.includes('Bristol')&&t2.includes('Bailey')&&!t2.includes('Ethan'));
+await D.pg.click('.kcep-box button:has-text("Bristol")');
+await D.pg.waitForFunction(()=>{const b=document.querySelector('.kcep');return !!b&&b.textContent.includes('Saving for Bristol')},null,{timeout:20000}); await wait(1200);
+await D.pg.evaluate(()=>{ const p=JSON.parse(localStorage.getItem('kce_bb_progress')||'{}'); p['bb-ethan-L04']={best:88,passed:true,last:88}; localStorage.setItem('kce_bb_progress',JSON.stringify(p)); });
+await wait(3500);
+ok("Bristol's new score saved to Bristol", (await read('families/simon/students/bristol/progress/bb-ethan'))?.items?.['bb-ethan-L04']?.best===88);
+await D.pg.click('.kcep a:has-text("Switch")'); await D.pg.waitForSelector('.kcep-box',{timeout:20000});
+await D.pg.click('.kcep-box button:has-text("Bailey")');
+await D.pg.waitForFunction(()=>{const b=document.querySelector('.kcep');return !!b&&b.textContent.includes('Saving for Bailey')},null,{timeout:20000}); await wait(2000);
+let bai2=await read('families/simon/students/bailey/progress/bb-ethan');
+ok("switching to Bailey on the same device does NOT copy Bristol's score into Bailey's record", !bai2 || !bai2.items || !bai2.items['bb-ethan-L04']);
+const shown=await D.pg.evaluate(()=>JSON.parse(localStorage.getItem('kce_bb_progress')||'{}'));
+ok("the page now shows Bailey's own record, not Bristol's", !shown['bb-ethan-L04']);
+await D.pg.click('.kcep a:has-text("Sign out")'); await D.pg.waitForSelector('.kcep button',{timeout:20000});
+const after=await D.pg.evaluate(()=>JSON.parse(localStorage.getItem('kce_bb_progress')||'{}'));
+ok('signing out takes this course\'s progress off the shared device', Object.keys(after).filter(k=>/^bb-ethan-L/.test(k)).length===0);
+
+// Two devices open at once: an older device can never lower a score
+let X1=await device(), X2=await device();
+for (const X of [X1,X2]) { await X.pg.goto(URL); await X.pg.waitForSelector('.kcep button'); await X.pg.evaluate(()=>window.__kcepTestSignIn('skyler@example.com')); await X.pg.waitForFunction(()=>{const b=document.querySelector('.kcep');return !!b&&b.textContent.includes('Saving for Ethan')},null,{timeout:20000}); }
+await wait(1500);
+await X1.pg.evaluate(()=>{ const p=JSON.parse(localStorage.getItem('kce_bb_progress')||'{}'); p['bb-ethan-L06']={best:95,passed:true,last:95}; localStorage.setItem('kce_bb_progress',JSON.stringify(p)); });
+await wait(3500);
+await X2.pg.evaluate(()=>{ const p=JSON.parse(localStorage.getItem('kce_bb_progress')||'{}'); p['bb-ethan-L06']={best:40,passed:false,last:40}; localStorage.setItem('kce_bb_progress',JSON.stringify(p)); });
+await wait(3500);
+const l6=(await read('families/ferguson/students/ethan/progress/bb-ethan')).items['bb-ethan-L06'];
+ok('two devices open: the 95 and "mastered" are kept when the other device scores 40', l6.best===95 && l6.passed===true);
+const x2=await X2.pg.evaluate(()=>JSON.parse(localStorage.getItem('kce_bb_progress'))['bb-ethan-L06']);
+ok('the second device then shows the 95 too', x2.best===95 && x2.passed===true);
 
 // Account not set up
 let E2=await device(); await E2.pg.goto(URL); await E2.pg.waitForSelector('.kcep button');
