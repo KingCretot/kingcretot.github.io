@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>KCE Progress Practice Page</title>
+<style>
+body{margin:0;background:#FAF7EF;color:#1D2433;font:16px/1.5 Arial,Helvetica,sans-serif}
+.mast{background:#0A1F3D;padding:14px 20px;color:#C9A84C;font:21px Georgia,serif}
+.mast small{display:block;font:bold 10px Arial,sans-serif;letter-spacing:3px;margin-top:3px}
+.tri{display:flex;height:5px}.tri span{flex:1}
+main{max-width:620px;margin:0 auto;padding:22px 16px 90px}
+h1{font:bold 24px Georgia,serif;color:#0A1F3D;margin:0 0 6px}
+.card{background:#fff;border:1px solid #E2DDD0;border-left:5px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.card h2{font:bold 18px Georgia,serif;color:#0A1F3D;margin:0 0 4px}
+.status{font-weight:bold;color:#1E7B45;min-height:1.4em}
+button{font:bold 15px Arial,sans-serif;border:2px solid #0A1F3D;background:#fff;color:#0A1F3D;border-radius:8px;padding:8px 14px;margin:6px 8px 0 0;cursor:pointer}
+button:hover{background:#0A1F3D;color:#fff}
+</style></head>
+<body>
+<div class="mast">KingCretot Experience<small><span style="color:#0047BA">EDUCATE</span> · EMPOWER · <span style="color:#DB2F30">EXCEL</span></small></div>
+<div class="tri"><span style="background:#0047BA"></span><span style="background:#C9A84C"></span><span style="background:#DB2F30"></span></div>
+<main>
+<h1>Practice page</h1>
+<p>For testing the KCE progress system only. Each button saves a pretend lesson score, the same way a real lesson does.</p>
+<div id="lessons"></div>
+</main>
+<script>
+(function(){
+  var K='kce_bb_progress', C='bb-practice';
+  function rd(){try{return JSON.parse(localStorage.getItem(K)||'{}')||{}}catch(e){return {}}}
+  function show(){document.querySelectorAll('[data-l]').forEach(function(s){var p=rd()[C+'-L0'+s.dataset.l];s.textContent=p?(p.passed===true?'✅ Mastered · best '+(Number(p.best)||0):'Best so far: '+(Number(p.best)||0)+' (need 85)'):'Not started'})}
+  function score(n,v){var all=rd(),id=C+'-L0'+n,old=all[id]||{};all[id]={best:Math.max(Number(old.best)||0,v),passed:!!(old.passed||v>=85),last:v};localStorage.setItem(K,JSON.stringify(all));
+    fetch('https://formspree.io/f/kce-practice-only',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({part:'Lesson check',lesson:'Practice Lesson '+n,lesson_title:'Practice',score:v,correct:Math.round(v/10),total:10,mastered:v>=85?'yes':'no',attempt:1,question_set:1})}).catch(function(){});show()}
+  var box=document.getElementById('lessons');
+  [1,2,3].forEach(function(n){var c=document.createElement('div');c.className='card';c.innerHTML='<h2>Practice Lesson '+n+'</h2><div class="status" data-l="'+n+'"></div>';
+    [60,90].forEach(function(v){var b=document.createElement('button');b.textContent='Score '+v;b.onclick=function(){score(n,v)};c.appendChild(b)});box.appendChild(c)});
+  show();
+})();
+</script>
+<script type="module" src="kce-progress.js" data-course="bb-practice"></script>
+</body></html>
