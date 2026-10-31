@@ -42,7 +42,7 @@ const rx = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const WHO = COURSE ? COURSE.replace(/^bb-/, '') : '';
 const PAT = {
   items: new RegExp('^' + rx(COURSE || '') + '-L\\d+$'),
-  attempts: new RegExp('^(practice-)?' + rx(COURSE || '') + '-L\\d+$'),
+  attempts: new RegExp('^(practice-)?(' + rx(COURSE || '') + '|' + rx(WHO || '-') + ')-L\\d+$'),  // practice pages use practice-bristol-L01
   tasks: new RegExp('^t-' + rx(WHO) + '-\\d+-\\d+$')
 };
 const PARTS = ['items', 'attempts', 'tasks'];
