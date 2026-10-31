@@ -18,7 +18,8 @@ const COURSES = [
   { id: 'bb-bristol', name: 'Building Blocks — Bristol' },
   { id: 'bb-bailey', name: 'Building Blocks — Bailey' },
   { id: 'bb-ethan', name: 'Building Blocks — Ethan' },
-  { id: 'bb-celine', name: "Building Blocks — Ce'Line" }
+  { id: 'bb-celine', name: "Building Blocks — Ce'Line" },
+  { id: 'bb-practice', name: 'Practice page (testing only)' }
 ];
 const courseName = (id) => (COURSES.find((c) => c.id === id) || { name: id }).name;
 
