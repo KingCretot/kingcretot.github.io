@@ -60,7 +60,7 @@ function gate() {
   $('#app').innerHTML = `<div class="gate card"><h2>Student Progress Dashboard</h2><p class="muted">KCE staff sign-in</p><button class="btn gold" id="in">Sign in with Google</button></div>`;
   $('#in').onclick = async () => {
     const p = new GoogleAuthProvider(); p.setCustomParameters({ prompt: 'select_account' });
-    try { await signInWithPopup(auth, p); } catch (e) { if (e && e.code === 'auth/popup-blocked') signInWithRedirect(auth, p); }
+    try { await signInWithPopup(auth, p); } catch (e) { const g = document.querySelector('.gate'); if (g) { const m = document.createElement('p'); m.className = 'msg bad'; m.textContent = (e && e.code === 'auth/popup-blocked') ? 'Please allow pop-ups for this page, then click Sign in again.' : 'Sign-in did not finish (' + ((e && e.code) || 'unknown') + '). Please try again.'; g.appendChild(m); } }
   };
 }
 
