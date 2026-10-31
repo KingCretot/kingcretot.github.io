@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut, connectAuthEmulator, signInWithCredential }
+import { getAuth, initializeAuth, inMemoryPersistence, createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut, connectAuthEmulator, signInWithCredential }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
-import { getFirestore, connectFirestoreEmulator, collection, doc, getDocs, setDoc, addDoc, updateDoc, query, orderBy, limit, serverTimestamp, arrayUnion, arrayRemove }
+import { getFirestore, connectFirestoreEmulator, collection, doc, getDocs, setDoc, addDoc, updateDoc, query, orderBy, limit, serverTimestamp, arrayUnion, arrayRemove, deleteField }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
 
 const CONFIG = {
@@ -24,9 +24,13 @@ const COURSES = [
 const courseName = (id) => (COURSES.find((c) => c.id === id) || { name: id }).name;
 
 const app = initializeApp(CONFIG), auth = getAuth(app), db = getFirestore(app);
+// A second, separate sign-in used only to create KCE codes, so KCE stays signed in here.
+const maker = initializeAuth(initializeApp(CONFIG, 'code-maker'), { persistence: inMemoryPersistence });
 const me = document.querySelector('script[data-emulator]');
-if (me && me.dataset.emulator === 'local' && /^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+const EMU = !!(me && me.dataset.emulator === 'local' && /^(localhost|127\.0\.0\.1)$/.test(location.hostname));
+if (EMU) {
   connectAuthEmulator(auth, 'http://127.0.0.1:9099', { disableWarnings: true });
+  connectAuthEmulator(maker, 'http://127.0.0.1:9099', { disableWarnings: true });
   connectFirestoreEmulator(db, '127.0.0.1', 8080);
   window.__kcepTestSignIn = (email) => signInWithCredential(auth, GoogleAuthProvider.credential(JSON.stringify({ sub: email, email, email_verified: true })));
 }
@@ -39,7 +43,21 @@ const toDate = (t) => (t && t.toDate ? t.toDate() : t ? new Date(t) : null);
 const fmt = (d) => d ? d.toLocaleString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }) : '—';
 const fmtDay = (d) => d ? d.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' }) : '—';
 const slug = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'student';
-const emailOk = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+const emailOk = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) && !e.endsWith('@code.kingcretot.com');
+// KCE codes: 12 random letters and numbers (no look-alikes such as 0/O or 1/I/L).
+const ABC = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+function newCode() {
+  const out = []; const buf = new Uint8Array(1);
+  while (out.length < 12) { crypto.getRandomValues(buf); if (buf[0] < 248) out.push(ABC[buf[0] % 31]); }
+  return out.join('').replace(/(.{4})(?=.)/g, '$1-');
+}
+// Same one-way scramble as the course pages: the sign-in name never reveals the code.
+async function codeLogin(code) {
+  const k = code.toLowerCase().replace(/[^a-z0-9]/g, ''); const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', enc.encode(k), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: enc.encode('kce-code-v1'), iterations: 100000 }, key, 96);
+  return { email: [...new Uint8Array(bits)].map((b) => b.toString(16).padStart(2, '0')).join('') + '@code.kingcretot.com', password: 'kce-' + k };
+}
 
 let DATA = [];   // [{fid, family, students:[{sid, student, progress:{cid:doc}, events:[...]}]}]
 let VIEW = 'students';
@@ -48,7 +66,8 @@ onAuthStateChanged(auth, async (user) => {
   if (!user) return gate();
   $('#who').innerHTML = `<span>${esc(user.email)}</span><a id="out">Sign out</a>`;
   $('#out').onclick = () => signOut(auth);
-  if ((user.email || '').toLowerCase() !== ADMIN) {
+  const google = (user.providerData || []).some((p) => p.providerId === 'google.com');
+  if ((user.email || '').toLowerCase() !== ADMIN || !google) {
     $('#app').innerHTML = `<div class="gate card"><h2>KCE staff only</h2><p>This page is for KingCretot Experience. Please sign in with the KCE account.</p></div>`;
     return;
   }
@@ -180,9 +199,9 @@ function childBlock(i) {
 
 function renderFamilies() {
   let h = `<div class="card"><h2>Add a family</h2>
-    <p class="muted">First names only. Use the parent's Google sign-in email (or the student's own, for students who sign in themselves). Never a child's email.</p>
+    <p class="muted">First names only. Add the parent's Google sign-in email if they use Google. If they don't, leave it empty and give the family a KCE code after saving. Never a child's email.</p>
     <label>Parent's first name</label><input type="text" id="pn" maxlength="40" placeholder="e.g. Tia">
-    <label>Google sign-in email(s)</label><input type="text" id="pe" placeholder="one or more, separated by commas">
+    <label>Google sign-in email(s) <span class="muted" style="font-weight:normal">(optional)</span></label><input type="text" id="pe" placeholder="one or more, separated by commas — or leave empty and use a KCE code">
     <div id="kids">${childBlock(0)}</div>
     <button class="btn light" id="addkid">+ Add another child</button><button class="btn gold" id="savefam">Save family</button>
     <div class="msg" id="fmsg"></div></div>`;
@@ -191,7 +210,10 @@ function renderFamilies() {
   for (const F of DATA) {
     h += `<div class="fam" data-f="${esc(F.fid)}"><h3>${esc(F.family.name)}</h3>
       <p>${(F.family.parentEmails || []).map((e) => `<span class="pill wait">${esc(e)}<span class="x" data-rm-email="${esc(e)}" title="Remove this email">×</span></span>`).join(' ')}
-      <a class="stu" data-add-email>+ email</a></p>`;
+      <a class="stu" data-add-email>+ email</a></p>
+      <p>${(F.family.codeUids || []).map((u) => [u, (F.family.codeInfo || {})[u] || { label: '(no label)' }]).map(([u, c]) => `<span class="pill ok">KCE code · ${esc(c && c.label)} · made ${esc(fmtDay(toDate(c && c.at)))}<span class="x" data-rm-code="${esc(u)}" title="Turn off this code">×</span></span>`).join(' ')}
+      <a class="stu" data-add-code>+ Create a sign-in code</a></p>
+      <div class="msg good" data-code-out></div>`;
     for (const S of F.students) {
       h += `<div class="child"><b>${esc(S.student.firstName)}</b><br>${(S.student.courses || []).map((c) => `<span class="pill ok">${esc(courseName(c))}<span class="x" data-s="${esc(S.sid)}" data-rm-course="${esc(c)}" title="Remove this course">×</span></span>`).join(' ') || '<span class="muted">No courses</span>'}
         <div style="margin-top:6px"><select data-s="${esc(S.sid)}" class="addc"><option value="">+ Assign a course…</option>${COURSES.filter((c) => !(S.student.courses || []).includes(c.id)).map((c) => `<option value="${c.id}">${esc(c.name)}</option>`).join('')}</select></div></div>`;
@@ -209,7 +231,7 @@ function renderFamilies() {
     const fid = box.dataset.f;
     box.querySelectorAll('[data-rm-email]').forEach((x) => (x.onclick = async () => {
       const F = DATA.find((d) => d.fid === fid);
-      if ((F.family.parentEmails || []).length <= 1) return alertMsg('A family needs at least one sign-in email.');
+      if ((F.family.parentEmails || []).length <= 1 && !(F.family.codeUids || []).length) return alertMsg('A family needs at least one sign-in email or KCE code.');
       await updateDoc(doc(db, 'families', fid), { parentEmails: arrayRemove(x.dataset.rmEmail) }); load();
     }));
     box.querySelector('[data-add-email]').onclick = async () => {
@@ -217,6 +239,14 @@ function renderFamilies() {
       if (!e) return; if (!emailOk(e)) return alertMsg('That email does not look right.');
       await updateDoc(doc(db, 'families', fid), { parentEmails: arrayUnion(e) }); load();
     };
+    box.querySelector('[data-add-code]').onclick = () => makeCode(fid, box);
+    box.querySelectorAll('[data-rm-code]').forEach((x) => (x.onclick = async () => {
+      const F = DATA.find((d) => d.fid === fid);
+      if (!(F.family.parentEmails || []).length && (F.family.codeUids || []).length <= 1) return alertMsg('A family needs at least one sign-in email or KCE code. Create a new code first.');
+      if (!window.confirm('Turn off this KCE code? Anyone using it will no longer see this family.')) return;
+      const u = x.dataset.rmCode;
+      await updateDoc(doc(db, 'families', fid), { codeUids: arrayRemove(u), ['codeInfo.' + u]: deleteField() }); load();
+    }));
     box.querySelectorAll('[data-rm-course]').forEach((x) => (x.onclick = async () => {
       await updateDoc(doc(db, 'families', fid, 'students', x.dataset.s), { courses: arrayRemove(x.dataset.rmCourse) }); load();
     }));
@@ -234,6 +264,27 @@ function renderFamilies() {
     };
   });
 }
+// Create a KCE code for a family: shown once here, never stored. Only its sign-in account id is saved.
+async function makeCode(fid, box) {
+  const F = DATA.find((d) => d.fid === fid);
+  const label = (window.prompt('Who is this code for? (e.g. "Lexus" or "Lexus – tablet")', F.family.name) || '').trim().slice(0, 40);
+  if (!label) return;
+  const out = box.querySelector('[data-code-out]'); out.className = 'msg'; out.textContent = 'Creating code…';
+  try {
+    const code = newCode(); const login = await codeLogin(code);
+    const cred = await createUserWithEmailAndPassword(maker, login.email, login.password);
+    const uid = cred.user.uid; await signOut(maker);
+    await updateDoc(doc(db, 'families', fid), { codeUids: arrayUnion(uid), ['codeInfo.' + uid]: { label, at: serverTimestamp() } });
+    await load();
+    const again = document.querySelector(`.fam[data-f="${CSS.escape(fid)}"] [data-code-out]`);
+    again.className = 'msg good';
+    again.innerHTML = `<div class="card" style="border:2px solid #C9A84C;margin-top:8px"><div>KCE code for ${esc(label)}:</div>
+      <div style="font:bold 28px Georgia,serif;letter-spacing:3px;color:#0A1F3D;margin:6px 0" data-code>${esc(code)}</div>
+      <div class="muted" style="font-weight:normal">Copy it now and send it to the family. For safety, KCE does not keep this code, so it will not be shown again. If it is lost, create a new one and turn this one off.</div>
+      <button class="btn light" data-copy>Copy code</button></div>`;
+    again.querySelector('[data-copy]').onclick = async (e) => { try { await navigator.clipboard.writeText(code); e.target.textContent = 'Copied ✓'; } catch (_) { e.target.textContent = 'Select the code and copy it'; } };
+  } catch (e) { out.className = 'msg bad'; out.textContent = 'Could not create the code: ' + (e.code || e.message); }
+}
 function alertMsg(t) { const m = $('#fmsg'); if (m) { m.className = 'msg bad'; m.textContent = t; m.scrollIntoView({ behavior: 'smooth' }); } }
 
 async function saveFamily() {
@@ -245,7 +296,6 @@ async function saveFamily() {
     courses: [...c.querySelectorAll('input[type=checkbox]:checked')].map((x) => x.value)
   })).filter((k) => k.name);
   if (!name) return alertMsg("Please add the parent's first name.");
-  if (!emails.length) return alertMsg('Please add at least one Google sign-in email.');
   const bad = emails.filter((e) => !emailOk(e)); if (bad.length) return alertMsg('Check this email: ' + bad.join(', '));
   if (!kids.length) return alertMsg("Please add at least one child's first name.");
   const taken = DATA.find((F) => (F.family.parentEmails || []).some((e) => emails.includes(e)));

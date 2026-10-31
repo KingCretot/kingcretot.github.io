@@ -4,7 +4,7 @@
 // keeps running. When someone signs in, this file copies that progress to KCE's
 // database, brings it back on any other device, and records each lesson score.
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, connectAuthEmulator, signInWithCredential }
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithEmailAndPassword, signOut, connectAuthEmulator, signInWithCredential }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
 import { getFirestore, connectFirestoreEmulator, collection, doc, getDocs, addDoc, query, where, serverTimestamp, runTransaction }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
@@ -18,6 +18,20 @@ const CONFIG = {
   appId: '1:571768874119:web:cd2092d52fb15552a8c422'
 };
 const ADMIN = 'kce@kingcretot.com';
+// KCE codes: 12 letters/numbers (shown as XXXX-XXXX-XXXX). The code is the whole sign-in.
+const CODE_DOMAIN = '@code.kingcretot.com';
+// The sign-in name is a one-way scramble of the code, so the code itself is never kept anywhere
+// (not in Firebase, not on the device). The code is the password, which Firebase stores scrambled too.
+async function codeToLogin(c) {
+  const k = String(c || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  if (k.length !== 12) return null;
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', enc.encode(k), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: enc.encode('kce-code-v1'), iterations: 100000 }, key, 96);
+  const id = [...new Uint8Array(bits)].map((b) => b.toString(16).padStart(2, '0')).join('');
+  return { email: id + CODE_DOMAIN, password: 'kce-' + k };
+}
+const isCodeUser = (u) => !!u && (u.email || '').endsWith(CODE_DOMAIN);
 // Device storage keys used by the Building Blocks engine.
 const KEYS = { items: 'kce_bb_progress', attempts: 'kce_bb_attempts', tasks: 'kce_bb_tasks' };
 
@@ -80,6 +94,7 @@ background:#0A1F3D;color:#fff;border:2px solid #C9A84C;border-radius:22px;paddin
 display:flex;gap:10px;align-items:center;max-width:92vw}
 .kcep button{font:inherit;cursor:pointer;border:0;border-radius:16px;padding:5px 12px;background:#C9A84C;color:#0A1F3D}
 .kcep a{color:#C9A84C;cursor:pointer;text-decoration:underline;font-weight:400}
+.kcep input{font:600 14px Arial,Helvetica,sans-serif;letter-spacing:1px;text-transform:uppercase;border:0;border-radius:12px;padding:5px 10px;width:170px}
 .kcep-ov{position:fixed;inset:0;background:rgba(10,31,61,.55);z-index:10000;display:flex;align-items:center;justify-content:center}
 .kcep-box{background:#fff;color:#0A1F3D;border-top:6px solid #C9A84C;border-radius:14px;padding:22px 24px;width:min(380px,90vw);
 font:15px/1.4 Arial,Helvetica,sans-serif;text-align:center}
@@ -122,11 +137,11 @@ if (COURSE) {
   if (auth) onAuthStateChanged(auth, async (user) => {
     state.user = user; state.student = null; state.ready = false;
     if (!user) return showSignIn();
-    state.admin = (user.email || '').toLowerCase() === ADMIN;
+    state.admin = !isCodeUser(user) && (user.email || '').toLowerCase() === ADMIN;
     try {
       const people = await findStudents(user);
       if (!people.length) {
-        return ui(el('span', "This Google account isn't set up for this course yet. Please contact KCE."),
+        return ui(el('span', isCodeUser(user) ? "This KCE code isn't set up for this course yet. Please contact KCE." : "This Google account isn't set up for this course yet. Please contact KCE."),
                   el('a', 'Sign out', { onclick: () => leave() }));
       }
       const key = 'kcep_pick_' + COURSE + '_' + user.uid;
@@ -161,12 +176,32 @@ if (COURSE) {
   };
 }
 
-function showSignIn() {
-  ui(el('span', 'Save your progress to KCE'), el('button', 'Sign in with Google', { onclick: async () => {
+function showSignIn(note) {
+  const kids = [el('span', note || 'Save your progress to KCE'), el('button', 'Sign in with Google', { onclick: async () => {
     const p = new GoogleAuthProvider(); p.setCustomParameters({ prompt: 'select_account' });
     try { await signInWithPopup(auth, p); }
-    catch (e) { if (e && e.code === 'auth/popup-blocked') ui(el('span', 'Please allow pop-ups for this page, then tap Sign in again.'), el('button', 'Sign in with Google', { onclick: showSignIn })); }
-  } }));
+    catch (e) {
+      const c = (e && e.code) || '';
+      if (c === 'auth/popup-blocked') showSignIn('Please allow pop-ups for this page, then tap Sign in again.');
+      else if (c !== 'auth/popup-closed-by-user' && c !== 'auth/cancelled-popup-request') showSignIn("Sign-in didn't work. Please try again, or contact KCE for help.");
+    }
+  } }), el('a', 'Use a KCE code', { onclick: () => showCode() })];
+  ui(...kids);
+}
+function showCode(note) {
+  const box = el('input', null, { type: 'text', placeholder: 'XXXX-XXXX-XXXX', autocomplete: 'off', spellcheck: false, maxLength: 16 });
+  box.setAttribute('aria-label', 'KCE code');
+  const go = async () => {
+    const login = await codeToLogin(box.value);
+    if (!login) return showCode('Please type all 12 letters and numbers of your KCE code.');
+    btn.disabled = true; btn.textContent = 'Signing in…';
+    try { await signInWithEmailAndPassword(auth, login.email, login.password); }
+    catch (e) { showCode("That code didn't work. Please check it, or ask KCE for a new one."); }
+  };
+  const btn = el('button', 'Sign in', { onclick: go });
+  box.addEventListener('keydown', (e) => { if (e.key === 'Enter') go(); });
+  ui(el('span', note || 'Your KCE code:'), box, btn, el('a', 'Back', { onclick: () => showSignIn() }));
+  box.focus();
 }
 function showSaving(canSwitch) {
   const kids = [el('span', '✓ ' + (state.admin ? 'Teaching: ' : 'Saving for ') + state.student.firstName)];
@@ -185,7 +220,9 @@ async function findStudents(user) {
   const email = (user.email || '').toLowerCase();
   const fams = state.admin
     ? await getDocs(collection(db, 'families'))
-    : await getDocs(query(collection(db, 'families'), where('parentEmails', 'array-contains', email)));
+    : isCodeUser(user)
+      ? await getDocs(query(collection(db, 'families'), where('codeUids', 'array-contains', user.uid)))
+      : await getDocs(query(collection(db, 'families'), where('parentEmails', 'array-contains', email)));
   const out = [];
   for (const f of fams.docs) {
     const studs = await getDocs(collection(db, 'families', f.id, 'students'));
