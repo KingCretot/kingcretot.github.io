@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 2: Scouting Combine · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  var TD = 'border:1px solid #ddd;padding:10px 8px';
+  var AREA = '<table style="border-collapse:collapse;margin:10px 0 14px;font-size:17px;text-align:center;width:100%;max-width:420px">' +
+    '<tr style="background:#0A1F3D;color:#fff;font-size:14px"><th style="padding:6px 4px">×</th><th style="padding:6px 4px">20</th><th style="padding:6px 4px">4</th></tr>' +
+    '<tr><th style="background:#0A1F3D;color:#fff;padding:6px 8px;font-size:14px">10</th><td style="' + TD + ';font-weight:bold;color:#0A1F3D">20 × 10 = 200</td><td style="' + TD + ';font-weight:bold;color:#0A1F3D">4 × 10 = 40</td></tr>' +
+    '<tr><th style="background:#0A1F3D;color:#fff;padding:6px 8px;font-size:14px">2</th><td style="' + TD + ';font-weight:bold;color:#0A1F3D">20 × 2 = 40</td><td style="' + TD + ';font-weight:bold;color:#0A1F3D">4 × 2 = 8</td></tr></table>';
+
+  var PASSAGE = '<div class="passage"><h4>The Captain’s Armband</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>Every fall, the Bayside Bobcats held a Scouting Combine. Players ran sprints, caught passes and did push-ups while Coach Ellis wrote notes on his clipboard. At the end of the day, he would choose a new team captain.</p>' +
+    '<p><span class="pn">2</span>Lena was not the fastest player on the team. She was not the strongest, either. Still, she showed up an hour early to practice her catches. “Every catch counts,” she told herself as she jogged back for one more.</p>' +
+    '<p><span class="pn">3</span>During the sprint drill, a new player named Marcus tripped and fell. A few kids laughed. Lena’s stomach felt tight, and her cheeks grew hot. She remembered her own first practice, when she had dropped every ball and wanted to go home. She walked over and held out her hand. “Everybody falls,” she said. “Let’s run the next one together.”</p>' +
+    '<p><span class="pn">4</span>Marcus brushed off his knees and lined up beside her. They ran the next sprint side by side. Lena finished last in that race, but she didn’t mind.</p>' +
+    '<p><span class="pn">5</span>At the end of the day, Coach Ellis read his notes out loud. “The captain isn’t always the fastest player,” he said. “It’s the one who makes everyone around them better.” Then he handed the armband to Lena.</p></div>';
+
+  var items = {
+    m1: { t: 'mc', o: ['30 × 6 + 4 × 6', '30 × 6 + 4', '3 × 6 + 4 × 6', '34 + 6'], a: 0, q: 'At the combine, a player does <b>34</b> push-ups in each set. He does <b>6</b> sets. Which shows <b>34 × 6</b> broken apart the right way?', hint: 'Break 34 into tens and ones. Both parts get multiplied by 6.', why: '34 is 30 + 4. Multiply each part by 6: 30 × 6 + 4 × 6. Don’t forget to multiply the 4, and the 3 is really 30.' },
+    m2: { t: 'num', a: 138, q: 'A lineman does <b>46</b> push-ups in each set. He does <b>3</b> sets. How many push-ups is that in all?', ph: 'Type the number', unit: 'push-ups', hint: 'Break 46 into 40 + 6. Multiply each part by 3, then add.', why: '40 × 3 = 120 and 6 × 3 = 18. Then 120 + 18 = 138.' },
+    m3: { t: 'num', a: 642, q: 'The Bobcats run for <b>214</b> yards in each game. How many yards is that in <b>3</b> games?', ph: 'Type the number', unit: 'yards', hint: '214 is 200 + 10 + 4. Multiply each part by 3.', why: '200 × 3 = 600, 10 × 3 = 30 and 4 × 3 = 12. Then 600 + 30 + 12 = 642.' },
+    m4: { t: 'mc', o: ['1,012', '812', '1,002', '257'], a: 0, q: 'A receiver catches passes for <b>253</b> yards in each game. What is <b>253 × 4</b>?', hint: 'Find three partial products: 200 × 4, 50 × 4 and 3 × 4.', why: '200 × 4 = 800, 50 × 4 = 200 and 3 × 4 = 12. Then 800 + 200 + 12 = 1,012. If you got 812, you left out 50 × 4.' },
+    m5: { t: 'order', items: ['Multiply the ones: 8 × 5 = 40', 'Write the 0. Regroup the 4 tens.', 'Multiply the tens: 3 × 5 = 15', 'Add the regrouped tens: 15 + 4 = 19', 'Write 19 in front of the 0. The answer is 190.'], q: 'Put the steps for <b>38 × 5</b> in order. Tap them in order.', hint: 'The standard algorithm always starts with the ones.', why: 'Start with the ones (8 × 5 = 40), write 0 and regroup 4 tens. Then 3 × 5 = 15, plus 4 is 19. So 38 × 5 = 190.' },
+    m6: { t: 'mc', o: ['268', '248', '2,428', '71'], a: 0, q: 'Each team brings <b>67</b> players to the combine. How many players come from <b>4</b> teams? Find <b>67 × 4</b>.', hint: '7 × 4 = 28. Write the 8 and regroup the 2 tens.', why: '7 × 4 = 28: write 8, regroup 2. Then 6 × 4 = 24, plus 2 is 26. The answer is 268. If you got 248, you forgot to add the regrouped 2.' },
+    m7: { t: 'num', a: 180, q: 'A league has <b>15</b> teams. Each team has <b>12</b> players. How many players are in the league?', ph: 'Type the number', unit: 'players', hint: 'Use an area model: 10 + 5 and 10 + 2. Find four partial products.', why: '10 × 10 = 100, 10 × 2 = 20, 5 × 10 = 50 and 5 × 2 = 10. Then 100 + 20 + 50 + 10 = 180.' },
+    m8: { t: 'mc', o: ['800', '610', '760', '57'], a: 0, q: 'A stadium section has <b>32</b> rows with <b>25</b> seats in each row. What is <b>32 × 25</b>?', hint: 'Break apart both numbers: 30 + 2 and 20 + 5. You need four partial products.', why: '30 × 20 = 600, 30 × 5 = 150, 2 × 20 = 40 and 2 × 5 = 10. Then 600 + 150 + 40 + 10 = 800. If you got 610, you only multiplied tens by tens and ones by ones.' },
+    m9: { t: 'mc', o: ['1,600', '160', '16,000', '1,200'], a: 0, q: 'A team gains <b>397</b> yards in each game. <b>Estimate</b> how many yards it gains in <b>4</b> games.', hint: 'Round 397 to the nearest hundred first.', why: '397 rounds to 400. Then 400 × 4 = 1,600.' },
+    m10: { t: 'mc', o: ['No. 30 × 30 = 900, so 568 is too small.', 'Yes. 568 is close to 500.', 'Yes. 28 + 31 is about 60.', 'No. The answer should be about 90.'], a: 0, q: 'A teammate says <b>28 × 31 = 568</b>. Use an estimate to check. Is the answer <b>reasonable</b>?', hint: 'Round both numbers to the nearest ten, then multiply.', why: '28 rounds to 30 and 31 rounds to 30. 30 × 30 = 900, so 568 is much too small. The real answer is 868.' },
+    m11: { t: 'num', a: 952, q: 'A running back gains <b>136</b> yards in each game. How many yards does he gain in <b>7</b> games? Check with an estimate: 140 × 7 = 980.', ph: 'Type the number', unit: 'yards', hint: 'Find 100 × 7, 30 × 7 and 6 × 7, then add.', why: '100 × 7 = 700, 30 × 7 = 210 and 6 × 7 = 42. Then 700 + 210 + 42 = 952, which is close to the estimate of 980.', badge: 'multiplier' },
+
+    tr1: { t: 'mc', o: ['Kind', 'Nervous', 'Fast', 'Bored'], a: 0, q: 'Which word best describes Lena’s <b>character trait</b> in “The Captain’s Armband”?', hint: 'A trait is how a character is most of the time. Think about what she does for Marcus.', why: 'Lena helps Marcus up and runs beside him, so she is kind. Nervous is a feeling, and the story says she is not the fastest.' },
+    tr2: { t: 'sort', bins: ['Trait', 'Feeling'], items: [['Hardworking', 0], ['Kind', 0], ['Honest', 0], ['Brave', 0], ['Embarrassed', 1], ['Nervous', 1], ['Worried', 1], ['Excited', 1]], q: 'Sort each word: <b>trait</b> or <b>feeling</b>?', hint: 'A trait lasts a long time. A feeling can change in a minute.', why: 'Hardworking, kind, honest and brave describe who a person is. Embarrassed, nervous, worried and excited are feelings that come and go.' },
+    tr3: { t: 'multi', o: ['She showed up an hour early to practice her catches.', '“Every catch counts,” she told herself as she jogged back for one more.', 'Lena was not the fastest player on the team.', 'A few kids laughed.'], a: [0, 1], q: 'Which <b>two details</b> show that Lena is <b>hardworking</b>?', hint: 'Look in paragraph 2 for what Lena does and thinks.', why: 'Coming early to practice and running back for one more catch both show hard work.' },
+    ev: { t: 'mc', keep: true, o: ['Her thoughts', 'Her actions', 'The setting', 'The title'], a: 0, q: 'In paragraph 2, Lena <b>told herself</b>, “Every catch counts.” What kind of evidence is this?', hint: 'Did she say it out loud to someone, or was it inside her head?', why: 'She told herself, so it is what she was thinking. Thoughts are strong clues about a character.' },
+    mo1: { t: 'mc', o: ['She remembered how it felt to struggle at her own first practice.', 'She wanted to win the sprint.', 'Coach Ellis told her to help.', 'She wanted the other kids to laugh.'], a: 0, q: 'Why does Lena help Marcus? What is her <b>motivation</b>?', hint: 'Read the sentence that starts with “She remembered” in paragraph 3.', why: 'Lena remembered dropping every ball at her first practice. She knew how Marcus felt, so she helped him.' },
+    mo2: { t: 'mc', o: ['How Lena feels when the kids laugh', 'A trait Lena shows all the time', 'That Lena is sick', 'That Lena is the fastest'], a: 0, q: 'In paragraph 3, “Lena’s stomach felt tight, and her cheeks grew hot.” What does this sentence show?', hint: 'It happens right after a few kids laugh. Is it a feeling or a trait?', why: 'It shows how Lena feels in that moment. She is upset that the kids laughed at Marcus. That is a feeling, not a trait.' },
+    cap: { t: 'mc', o: ['She makes the players around her better.', 'She was the fastest player.', 'She won the sprint race.', 'She did the most push-ups.'], a: 0, q: 'Why does Coach Ellis choose Lena as captain?', hint: 'Read what Coach Ellis says in paragraph 5.', why: 'Coach says the captain is “the one who makes everyone around them better.” Lena did that when she helped Marcus.', badge: 'charstudy' },
+
+    ern: { t: 'sort', bins: ['Earned', 'Received as a gift'], items: [['Mowing a neighbor’s lawn', 0], ['Doing extra chores for pay', 0], ['Selling lemonade at a stand', 0], ['Money in a birthday card', 1], ['A gift from your uncle', 1], ['Holiday money from Grandma', 1]], q: 'Sort each one: was the money <b>earned</b> or <b>received as a gift</b>?', hint: 'Earned money comes from doing work.', why: 'Mowing, extra chores and selling lemonade are work, so that money is earned. Birthday, gift and holiday money are given to you.' },
+    lawn: { t: 'num', a: 45, show: '$45', unit: 'dollars', q: 'Jada earns <b>$5</b> for each lawn she mows. She mows <b>9</b> lawns. How much does she earn?', hint: 'Multiply the pay for one lawn by the number of lawns.', why: '$5 × 9 = $45.' },
+    gs: { t: 'sort', bins: ['Good', 'Service'], items: [['Football', 0], ['Water bottle', 0], ['Team T-shirt', 0], ['Haircut', 1], ['Mowing a lawn', 1], ['Swim lesson', 1]], q: 'Sort each one: <b>good</b> or <b>service</b>?', hint: 'Can you hold it in your hands? Then it’s a good.', why: 'A football, water bottle and T-shirt are things you can hold, so they are goods. A haircut, mowing and a swim lesson are work someone does for you, so they are services.' },
+    sell: { t: 'mc', o: ['Selling homemade bracelets', 'Raking a neighbor’s leaves', 'Getting $10 in a birthday card', 'Walking a neighbor’s dog'], a: 0, q: 'Which one is earning money by selling a <b>good</b>?', hint: 'A good is something you can hold. Which choice is also earning?', why: 'Bracelets are things you can hold, and you earn money when you sell them. Raking and dog walking are services, and birthday money is a gift.', badge: 'moneymaker' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 2 · Scouting Combine</div><h2>Scouting Combine</h2>' +
+      '<p>Before a big draft, teams hold a <b>scouting combine</b>. Players run, jump and lift while scouts take notes. As GM, you need to read those numbers fast and get to know your players, inside and out.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Combine Numbers.</b> Multiply bigger numbers and check with estimates.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Character Study.</b> Traits, feelings and why characters act.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Money Maker.</b> Ways to earn money.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Combine Numbers</span></div><h2>Break It Apart</h2>' +
+      '<p>Big multiplication is easier when you <b>break a number apart</b> into tens and ones. Multiply each part, then add the answers. Each answer is called a <b>partial product</b>.</p>' +
+      '<div class="callout"><b>23 × 4:</b> break 23 into 20 + 3. Then 20 × 4 = 80 and 3 × 4 = 12. Add them: 80 + 12 = <b>92</b>.</div>' +
+      '<div data-item="m1"></div><div data-item="m2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Combine Numbers</span></div><h2>Bigger Numbers, Same Plan</h2>' +
+      '<p>A 3-digit number breaks into hundreds, tens and ones. That gives you <b>three</b> partial products to add.</p>' +
+      '<div class="callout blue"><b>132 × 3:</b> 100 × 3 = 300, 30 × 3 = 90 and 2 × 3 = 6. Add them: 300 + 90 + 6 = <b>396</b>.</div>' +
+      '<div data-item="m3"></div><div data-item="m4"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Combine Numbers</span></div><h2>The Standard Algorithm</h2>' +
+      '<p>The <b>standard algorithm</b> is a short way to write the same thing. Start with the <b>ones</b>. If you get 10 or more, write the ones digit and <b>regroup</b> the tens to the next place.</p>' +
+      '<p class="big-rule">47 × 6 → 7 × 6 = 42 → write 2, regroup 4 → 4 × 6 = 24 → 24 + 4 = 28 → 282</p>' +
+      '<div class="callout">Don’t forget the regrouped number! It gets added <b>after</b> you multiply the next digit.</div>' +
+      '<div data-item="m5"></div><div data-item="m6"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Combine Numbers</span></div><h2>Two Digits Times Two Digits</h2>' +
+      '<p>When both numbers have two digits, break <b>both</b> apart. An <b>area model</b> keeps it organized. Here is <b>24 × 12</b>, like 24 teams with 12 players each.</p>' + AREA +
+      '<div class="callout blue">Add all four partial products: 200 + 40 + 40 + 8 = <b>288</b>. Every box counts, so don’t skip one!</div>' +
+      '<div data-item="m7"></div><div data-item="m8"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Combine Numbers</span></div><h2>Estimate to Check</h2>' +
+      '<p>Scouts always double-check their numbers. You can too. <b>Round</b> each number, multiply, and see if your answer is close.</p>' +
+      '<div class="callout"><b>48 × 6:</b> 48 rounds to 50, and 50 × 6 = 300. The exact answer, 288, is close to 300, so it makes sense.</div>' +
+      '<div data-item="m9"></div><div data-item="m10"></div><div data-item="m11"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Character Study</span></div><h2>Traits vs. Feelings</h2>' +
+      '<p>Scouts want to know what a player is <b>really</b> like. Readers do the same with characters. A <b>trait</b> is what a character is like most of the time, like kind or honest. A <b>feeling</b> is how a character feels right now, like nervous or happy.</p>' +
+      '<div class="callout"><b>How to find a trait:</b> look at what the character <b>does</b>, <b>says</b> and <b>thinks</b>. Those are your clues.</div>' +
+      PASSAGE + '<div data-item="tr1"></div><div data-item="tr2"></div><div data-item="tr3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Character Study</span></div><h2>Why Did She Do That?</h2>' +
+      '<p>A character’s <b>motivation</b> is the reason they do something. Look for clues like “because,” “she remembered” or “he wanted.” A character’s thoughts often tell you why.</p>' +
+      PASSAGE + '<div data-item="ev"></div><div data-item="mo1"></div><div data-item="mo2"></div><div data-item="cap"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Money Maker</span></div><h2>Earning Money</h2>' +
+      '<p>When you <b>earn</b> money, you get paid for doing work. When you get money as a <b>gift</b>, someone gives it to you without you doing a job.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Earned:</b> money you get for doing a job, like walking a dog or washing a car.</div><div class="callout"><b>Gift:</b> money someone gives you, like birthday money.</div></div>' +
+      '<div data-item="ern"></div><div data-item="lawn"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Money Maker</span></div><h2>Goods and Services</h2>' +
+      '<p>There are two big ways to earn money. You can sell <b>goods</b>, or you can do <b>services</b>.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Good:</b> a thing you can hold, like a cookie, a bracelet or a football.</div><div class="callout"><b>Service:</b> work you do for someone, like mowing a lawn or giving a haircut.</div></div>' +
+      '<div data-item="gs"></div><div data-item="sell"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 2 in the Books</h2>' +
+      '<ul><li>Break numbers into hundreds, tens and ones. Multiply each part, then add the partial products.</li>' +
+      '<li>In the standard algorithm, start with the ones and don’t forget to add what you regroup.</li>' +
+      '<li>For 2-digit times 2-digit, an area model gives four partial products. Use them all.</li>' +
+      '<li>Round and multiply to check that your answer makes sense.</li>' +
+      '<li>A trait is what a character is like. A feeling changes. Actions, words and thoughts show both, and motivation is why a character acts.</li>' +
+      '<li>You earn money by selling goods or doing services. Gifts are given, not earned.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice02.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can change it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-11-06', 'Week 2', document.getElementById('deck'))) return; FO.deck({ id: 'L02', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

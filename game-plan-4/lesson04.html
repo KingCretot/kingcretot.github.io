@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 4: Building the Roster · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  function rows(r, c, color) {
+    var s = '<div style="display:inline-block;margin:6px 14px 6px 0;text-align:center;vertical-align:top">';
+    for (var i = 0; i < r; i++) { s += '<div style="white-space:nowrap;line-height:0">'; for (var j = 0; j < c; j++) s += '<span style="display:inline-block;width:16px;height:16px;margin:2px;border-radius:50%;background:' + color + '"></span>'; s += '</div>'; }
+    return s + '<div style="font-size:14px;font-weight:bold;color:#0A1F3D;margin-top:4px">' + r + ' rows of ' + c + '</div></div>';
+  }
+  var ARRAYS = '<div style="margin:8px 0 12px">' + rows(1, 12, '#DB2F30') + rows(2, 6, '#0047BA') + rows(3, 4, '#1E6B3A') + '</div>';
+
+  var PASSAGE = '<div class="passage"><h4>How a Team Builds Its Roster</h4><div class="by">An informational article</div>' +
+    '<p><span class="pn">1</span>A football roster is the list of every player on a team. A youth team might have about 25 players. The roster has quarterbacks who throw the ball, running backs who carry it, linemen who block and kickers who kick. Each player wears a jersey with a number, so coaches and fans can tell who is who.</p>' +
+    '<p><span class="pn">2</span>Building a roster takes several steps. First, the coaches hold tryouts so every player can show their skills. Next, the coaches watch each player run, catch and block. Then they decide which position fits each player best. Finally, they post the roster so the players can see where they will play.</p>' +
+    '<p><span class="pn">3</span>Sometimes a player gets hurt during the season. Because that player cannot play, the team needs someone to fill the spot. As a result, a backup player gets the chance to start. That is why coaches keep extra players on the roster.</p>' +
+    '<p><span class="pn">4</span>Offense and defense are both important parts of a roster. Both groups have eleven players on the field at a time. However, they have very different jobs. The offense tries to score points, while the defense tries to stop the other team from scoring.</p>' +
+    '<p><span class="pn">5</span>One season, the Lakeview Lions had a problem. They had only one kicker, and he was sick on game day. To solve the problem, the coach asked every player to try kicking at practice. A lineman named Theo could kick far and straight. Now the Lions have two kickers, so they are ready for anything.</p></div>';
+
+  var items = {
+    fp1: { t: 'mc', o: ['4 rows of 6', '5 rows of 5', '7 rows of 3', '9 rows of 3'], a: 0, q: 'Coach wants to line up <b>24 players</b> in equal rows with nobody left over. Which way works?', hint: 'Multiply the rows by the players in each row. Which one makes 24?', why: '4 × 6 = 24, so 4 rows of 6 works. 5 × 5 = 25, 7 × 3 = 21 and 9 × 3 = 27 do not.' },
+    fp2: { t: 'multi', o: ['2 × 9', '3 × 6', '4 × 4', '5 × 3'], a: [0, 1], q: 'Which <b>two</b> are factor pairs of <b>18</b>?', hint: 'Multiply each pair. Which ones make exactly 18?', why: '2 × 9 = 18 and 3 × 6 = 18. But 4 × 4 = 16 and 5 × 3 = 15.' },
+    fl1: { t: 'num', a: 9, q: 'You have <b>36 players</b>. How many <b>factors</b> does 36 have? Find every factor pair first.', ph: 'Type a number', hint: 'Start at 1 × 36, then try 2, 3, 4, 5 and 6. In 6 × 6, count the 6 only once.', why: 'The pairs are 1 × 36, 2 × 18, 3 × 12, 4 × 9 and 6 × 6. The factors are 1, 2, 3, 4, 6, 9, 12, 18 and 36. That’s 9 factors.' },
+    fl2: { t: 'mc', o: ['1, 2, 4, 5, 10, 20', '1, 2, 4, 10, 20', '2, 4, 5, 10', '1, 2, 3, 4, 5, 10, 20'], a: 0, q: 'Which list shows <b>all</b> the factors of <b>20</b>?', hint: 'Find the pairs: 1 × 20, 2 × 10, 4 × 5. Does 3 go into 20 evenly?', why: 'The factor pairs of 20 are 1 × 20, 2 × 10 and 4 × 5. So the factors are 1, 2, 4, 5, 10 and 20. Don’t forget 1 and the number itself, and 3 is not a factor.' },
+    fl3: { t: 'sort', bins: ['Factor of 30', 'Not a factor of 30'], items: [['5', 0], ['6', 0], ['10', 0], ['15', 0], ['4', 1], ['8', 1], ['9', 1], ['12', 1]], q: 'Sort each number: is it a <b>factor of 30</b> or not?', hint: 'The factor pairs of 30 are 1 × 30, 2 × 15, 3 × 10 and 5 × 6.', why: 'The factors of 30 are 1, 2, 3, 5, 6, 10, 15 and 30. So 5, 6, 10 and 15 are factors. 4, 8, 9 and 12 do not go into 30 evenly.' },
+    m1: { t: 'mc', o: ['42', '26', '38', '15'], a: 0, q: 'The Rams run their trick play on <b>every 6th play</b>: play 6, play 12, play 18 and so on. Which play number will be a trick play?', hint: 'Keep skip counting by 6, or check which number is 6 times something.', why: '6 × 7 = 42, so 42 is a multiple of 6. 26, 38 and 15 are not in the 6s.' },
+    m2: { t: 'multi', o: ['28', '36', '30', '18'], a: [0, 1], q: 'Which <b>two</b> numbers are multiples of <b>4</b>?', hint: 'Skip count by 4: 4, 8, 12, 16, 20, 24, 28...', why: '4 × 7 = 28 and 4 × 9 = 36. Skip counting by 4 goes 16, 20, 24, 28, 32, so it jumps right over 18 and 30.' },
+    m3: { t: 'num', a: 54, q: 'Jersey numbers that are multiples of <b>9</b> are “lucky.” What is the first lucky jersey number that is <b>greater than 50</b>?', ph: 'Type a number', hint: 'Skip count by 9: 9, 18, 27, 36, 45...', why: '9 × 5 = 45 is less than 50. The next multiple is 9 × 6 = 54.' },
+    rel: { t: 'mc', keep: true, o: ['multiple', 'factor', 'prime number', 'factor pair'], a: 0, q: 'Since 6 × 8 = 48, we know 6 is a factor of 48. That means 48 is a <b>___</b> of 6.', hint: 'You get 48 by skip counting by 6.', why: 'If 6 is a factor of 48, then 48 is a multiple of 6. Factors and multiples are two sides of the same fact.' },
+    p1: { t: 'sort', bins: ['Prime', 'Composite'], items: [['2', 0], ['7', 0], ['13', 0], ['29', 0], ['9', 1], ['15', 1], ['21', 1], ['27', 1]], q: 'Sort each jersey number: <b>prime</b> or <b>composite</b>?', hint: 'Can you make it with a multiplication fact other than 1 × the number? Then it’s composite.', why: '2, 7, 13 and 29 have only two factors, 1 and themselves. 9 = 3 × 3, 15 = 3 × 5, 21 = 3 × 7 and 27 = 3 × 9, so those are composite. Odd numbers can still be composite.' },
+    p2: { t: 'mc', keep: true, o: ['Prime', 'Composite', 'Neither'], a: 2, q: 'A new player picks jersey number <b>1</b>. Is 1 prime, composite or neither?', hint: 'How many factors does 1 have?', why: '1 has only one factor, itself. A prime needs exactly two factors and a composite needs more than two, so 1 is neither.' },
+    p3: { t: 'mc', o: ['Composite, because 3 × 17 = 51', 'Prime, because it is odd', 'Prime, because it ends in 1', 'Prime, because it can’t be split into two equal groups'], a: 0, q: 'Your star receiver wears number <b>51</b>. Is 51 prime or composite?', hint: 'Add the digits: 5 + 1 = 6. If the digits add up to a multiple of 3, the number can be divided by 3.', why: '51 ÷ 3 = 17, so 3 × 17 = 51. That means 51 has more than two factors (1, 3, 17 and 51), so it is composite. Being odd does not make a number prime.', badge: 'factorpro' },
+
+    sw: { t: 'sort', bins: ['Sequence', 'Cause and effect', 'Compare and contrast'], items: [['first', 0], ['finally', 0], ['because', 1], ['as a result', 1], ['both', 2], ['however', 2]], q: 'Sort each <b>signal word</b> into the structure it usually shows.', hint: 'Sequence words show order. Cause and effect words show why. Compare and contrast words show alike or different.', why: '“First” and “finally” show order. “Because” and “as a result” show why something happened. “Both” shows alike and “however” shows different.' },
+    s1: { t: 'mc', o: ['Sequence', 'Cause and effect', 'Compare and contrast', 'Problem and solution'], a: 0, q: 'Which text structure does <b>paragraph 2</b> use?', hint: 'Look for the words First, Next, Then and Finally.', why: 'Paragraph 2 tells the steps in order, using First, Next, Then and Finally. That is sequence.' },
+    s2: { t: 'mc', o: ['Cause and effect', 'Sequence', 'Description', 'Compare and contrast'], a: 0, q: 'Which text structure does <b>paragraph 3</b> use?', hint: 'Find the words “Because” and “As a result.”', why: 'A player getting hurt (cause) leads to a backup getting to start (effect). “Because” and “As a result” are cause and effect signal words.' },
+    s3: { t: 'multi', o: ['both', 'however', 'first', 'because'], a: [0, 1], q: 'Which <b>two</b> signal words in <b>paragraph 4</b> show compare and contrast?', hint: 'Which words show alike and different?', why: '“Both” shows how offense and defense are alike. “However” shows how they are different.' },
+    s4: { t: 'mc', o: ['Problem and solution', 'Description', 'Sequence', 'Compare and contrast'], a: 0, q: 'Which text structure does <b>paragraph 5</b> use?', hint: 'Look for the words “had a problem” and “To solve.”', why: 'The Lions had only one kicker and he was sick (problem). The coach found a second kicker (solution).' },
+    s5: { t: 'mc', keep: true, o: ['Paragraph 1', 'Paragraph 2', 'Paragraph 4', 'Paragraph 5'], a: 0, q: 'Which paragraph uses <b>description</b> to tell what a roster is and what is in it?', hint: 'Which paragraph explains what a roster is?', why: 'Paragraph 1 describes a roster: what it is, how many players it has and the kinds of players on it.' },
+    s6: { t: 'mc', o: ['To show the steps in the order they happen', 'To show how two things are alike and different', 'To explain why a player got hurt', 'To describe what a jersey looks like'], a: 0, q: 'Why did the author use <b>sequence</b> in paragraph 2?', hint: 'What does sequence help a reader follow?', why: 'Building a roster happens in steps. Sequence helps the reader follow those steps in order.', badge: 'blueprint' },
+
+    b1: { t: 'sort', bins: ['Money in', 'Money out'], items: [['Weekly allowance', 0], ['Birthday money from Grandma', 0], ['Pay for raking leaves', 0], ['Buying a football', 1], ['Movie ticket', 1], ['Snack at the game', 1]], q: 'Sort each one: <b>money in</b> or <b>money out</b>?', hint: 'Money in is money you get. Money out is money you spend.', why: 'Allowance, birthday money and pay for chores come in. A football, a movie ticket and a snack are things you spend money on.' },
+    b2: { t: 'num', a: 5, show: '$5', unit: 'dollars', q: 'You get <b>$12</b> allowance this week. Your budget plans <b>$4</b> for a snack and <b>$3</b> for a pack of team stickers. How much is left?', hint: 'Add the money out first, then subtract it from the money in.', why: 'Money out: $4 + $3 = $7. What’s left: $12 − $7 = $5.' },
+    b3: { t: 'mc', o: ['Cones $15, water bottles $20, snacks $20', 'Cones $15, water bottles $25, snacks $25', 'Cones $20, water bottles $20, snacks $30', 'Cones $30, water bottles $20, snacks $15'], a: 0, q: 'Your team raised <b>$60</b> at a bake sale. Which spending plan stays <b>within the budget</b>?', hint: 'Add up each plan. The total can’t be more than $60.', why: '$15 + $20 + $20 = $55, which is less than $60. The other plans cost $65, $70 and $65, which are over the budget.' },
+    b4: { t: 'num', a: 3, show: '$3', unit: 'dollars', q: 'You have <b>$20</b>. You want a <b>$14</b> team hat and <b>$9</b> football cards. How much <b>more</b> money would you need to buy both?', hint: 'Add the two prices. Then find how far over $20 the total is.', why: '$14 + $9 = $23. $23 − $20 = $3. You are $3 over budget, so you need $3 more or you skip one item.' },
+    b5: { t: 'num', a: 25, show: '$25', unit: 'dollars', q: 'The Lions raised <b>$150</b> at a car wash. They spend <b>$85</b> on new practice balls and <b>$40</b> on a team banner. How much is left in the budget?', hint: 'Add what they spent, then subtract from $150.', why: 'Money out: $85 + $40 = $125. What’s left: $150 − $125 = $25.', badge: 'budgetboss' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 4 · Building the Roster</div><h2>Building the Roster</h2>' +
+      '<p>A great GM knows every player on the roster, where they line up and what number they wear. This week you’ll arrange players in equal rows, check jersey numbers and plan how the team spends its money.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Roster Rows.</b> Factors, multiples, primes and composites.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Blueprint.</b> Find how a text is built.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Budget Boss.</b> Money in, money out and what’s left.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Roster Rows</span></div><h2>Players in Equal Rows</h2>' +
+      '<p>Coach wants <b>12 players</b> in equal rows for warm-ups, with nobody left over. There is more than one way to do it.</p>' + ARRAYS +
+      '<div class="callout">Each way is a multiplication fact: 1 × 12, 2 × 6 and 3 × 4. The numbers you multiply are called <b>factors</b>. Two factors that make a number are a <b>factor pair</b>. So the factors of 12 are <b>1, 2, 3, 4, 6 and 12</b>.</div>' +
+      '<div data-item="fp1"></div><div data-item="fp2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Roster Rows</span></div><h2>Find Every Factor</h2>' +
+      '<p>A good GM doesn’t miss a player, and a good mathematician doesn’t miss a factor. Use a plan: start at 1 and test each number in order. Stop when the pairs start to repeat.</p>' +
+      '<div class="callout blue"><b>Factors of 24:</b> 1 × 24, 2 × 12, 3 × 8, 4 × 6. Does 5 work? No. Next is 6, but 6 × 4 is already on the list, so stop. The factors are <b>1, 2, 3, 4, 6, 8, 12 and 24</b>.</div>' +
+      '<p>Remember: 1 and the number itself are always factors.</p>' +
+      '<div data-item="fl1"></div><div data-item="fl2"></div><div data-item="fl3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Roster Rows</span></div><h2>Plays That Repeat</h2>' +
+      '<p>When you skip count, you are listing <b>multiples</b>. If a team runs a special play every 6th play, it happens on plays that are multiples of 6.</p>' +
+      '<p class="big-rule">6 → 12 → 18 → 24 → 30 → 36 → 42</p>' +
+      '<div class="callout">Factors and multiples go together. Since 4 × 6 = 24, 4 and 6 are <b>factors</b> of 24, and 24 is a <b>multiple</b> of 4 and of 6.</div>' +
+      '<div data-item="m1"></div><div data-item="m2"></div><div data-item="m3"></div><div data-item="rel"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Roster Rows</span></div><h2>Prime or Composite?</h2>' +
+      '<p>Some jersey numbers can only be made one way. Others can be made many ways.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Prime:</b> exactly two factors, 1 and itself. 7 is prime because only 1 × 7 = 7.</div><div class="callout"><b>Composite:</b> more than two factors. 8 is composite because 1 × 8 and 2 × 4 both make 8.</div></div>' +
+      '<p><b>1 is neither</b>, because it has only one factor. And watch out: odd numbers like 9, 15 and 51 can still be composite. 2 is the only even prime.</p>' +
+      '<div data-item="p1"></div><div data-item="p2"></div><div data-item="p3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Blueprint</span></div><h2>Every Text Has a Blueprint</h2>' +
+      '<p>Before a team builds a new stadium, someone draws a blueprint, a plan that shows how it fits together. Writers plan too. The way a text is put together is called its <b>text structure</b>.</p>' +
+      '<div class="callout"><b>Description:</b> tells what something is like (for example, such as).<br><b>Sequence:</b> tells steps in order (first, next, then, finally).<br><b>Cause and effect:</b> tells why something happens (because, so, as a result).<br><b>Compare and contrast:</b> tells how things are alike and different (both, however, while).<br><b>Problem and solution:</b> tells a problem and how it is fixed (problem, to solve).</div>' +
+      '<div data-item="sw"></div>' +
+      PASSAGE + '<div data-item="s1"></div><div data-item="s2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Blueprint</span></div><h2>Reading the Blueprint</h2>' +
+      '<p>One article can use different structures in different paragraphs. Look for the <b>signal words</b>, then ask: is this paragraph telling steps, causes, differences, a problem or a description?</p>' +
+      PASSAGE + '<div data-item="s3"></div><div data-item="s4"></div><div data-item="s5"></div><div data-item="s6"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Budget Boss</span></div><h2>Money In, Money Out</h2>' +
+      '<p>A <b>budget</b> is a plan for your money. Every budget has three parts.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Money in:</b> money you get, like an allowance, a gift or pay for doing chores.</div><div class="callout"><b>Money out:</b> money you spend, like snacks, tickets or new gear.</div></div>' +
+      '<p class="big-rule">Money in − Money out = What’s left</p>' +
+      '<div data-item="b1"></div><div data-item="b2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Budget Boss</span></div><h2>Stay Inside the Budget</h2>' +
+      '<p>Staying <b>within the budget</b> means your money out is not more than your money in. If a plan costs too much, a smart GM cuts something or finds a cheaper choice.</p>' +
+      '<div class="callout">The team has $40. Jerseys cost $30 and a banner costs $15. That’s $45, which is $5 over. Fix it: skip the banner or find a $10 one.</div>' +
+      '<div data-item="b3"></div><div data-item="b4"></div><div data-item="b5"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 4 in the Books</h2>' +
+      '<ul><li>Factors are numbers you multiply to make a number. Find them in pairs, starting at 1, so you never miss one.</li>' +
+      '<li>Multiples are what you get when you skip count. If 6 is a factor of 42, then 42 is a multiple of 6.</li>' +
+      '<li>A prime has exactly two factors. A composite has more than two. 1 is neither.</li>' +
+      '<li>Text structure is a writer’s blueprint. Signal words like first, because, however and to solve show you the plan.</li>' +
+      '<li>A budget shows money in, money out and what’s left. Stay within it.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice04.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can change it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-04', 'Week 4', document.getElementById('deck'))) return; FO.deck({ id: 'L04', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

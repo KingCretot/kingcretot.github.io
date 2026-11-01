@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 3 · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  var A = [
+    { s: 'Math', t: 'text', a: ['7 R5', '7 remainder 5', '7 rem 5', '7 remainder of 5'], q: 'Find <b>47 ÷ 6</b>. Write your answer like <b>12 R3</b>.', ph: 'Example: 12 R3', hint: 'Count by 6s. How many 6s fit in 47?', why: '6 × 7 = 42, and 47 − 42 = 5. So 47 ÷ 6 = 7 R5.' },
+    { s: 'Math', t: 'text', a: ['65 R3', '65 remainder 3', '65 rem 3', '65 remainder of 3'], q: 'Find <b>263 ÷ 4</b>. Write your answer like <b>12 R3</b>.', ph: 'Example: 12 R3', hint: '4 doesn’t go into 2, so start with 26.', why: '26 ÷ 4 = 6 R2. Bring down the 3 to make 23. 23 ÷ 4 = 5 R3. Answer: 65 R3. Check: 4 × 65 = 260, and 260 + 3 = 263.' },
+    { s: 'Math', t: 'num', a: 308, show: '308', q: 'Find <b>1,848 ÷ 6</b>.', hint: 'Start with 18. Watch for a place where 6 doesn’t fit.', why: '18 ÷ 6 = 3. 4 ÷ 6 = 0, with 4 left. 48 ÷ 6 = 8. Answer: 308. Check: 6 × 308 = 1,848.' },
+    { s: 'Math', t: 'mc', o: ['8 × 7 + 3 = 59', '8 × 7 = 59', '8 × 3 + 7 = 59', '7 + 8 + 3 = 59'], a: 0, q: 'Which shows how to <b>check</b> that <b>59 ÷ 8 = 7 R3</b>?', hint: 'Quotient × divisor + remainder.', why: '8 × 7 = 56, and 56 + 3 = 59. It matches.' },
+    { s: 'Math', t: 'num', a: 6, unit: 'vans', q: '<b>34 players</b> are riding to a game. Each van holds <b>6 players</b>. How many vans are needed so <b>everyone</b> gets a ride?', hint: '34 ÷ 6 = 5 R4. Can 4 players be left behind?', why: '34 ÷ 6 = 5 R4. The 4 extra players need one more van, so round up to 6 vans.' },
+    { s: 'Math', t: 'num', a: 8, unit: 'bags', q: 'Coach has <b>70 footballs</b>. Each bag holds <b>8</b>. How many bags can he fill <b>all the way</b>?', hint: 'Only full bags count.', why: '70 ÷ 8 = 8 R6. The 6 leftover footballs can’t fill a bag, so drop the remainder: 8 full bags.' },
+    { s: 'Math', t: 'num', a: 2, show: '$2', unit: 'dollars', q: 'A <b>$1,250</b> bonus is shared equally among <b>4</b> players in whole dollars. How many dollars are <b>left over</b>?', hint: 'Divide. The question asks about the leftovers.', why: '1,250 ÷ 4 = 312 R2. Each player gets $312, and $2 is left over. Check: 4 × 312 = 1,248, and 1,248 + 2 = 1,250.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Being honest is the right choice, even when no one is watching.', 'Football gloves cost twenty dollars.', 'Brownies are the best snack.', 'You should keep what you find.'], a: 0, q: 'What is the <b>theme</b> of “The Lost Wallet”?', hint: 'What does Devon choose, and how does he feel at the end?', why: 'Devon could have kept the money, but he returned it and felt proud. The lesson is that honesty is right, even when no one would know.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['He handed the wallet to Coach Ellis.', 'He felt proud all the way home.', 'Devon was picking up trash in the stands.', 'The gloves cost exactly twenty dollars.'], a: [0, 1], q: 'Which <b>two details</b> best support the theme?', hint: 'Find what Devon did and how it made him feel.', why: 'Returning the wallet is the honest choice, and feeling proud shows it was worth it.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Doing the right thing feels better than getting something you want.', 'Football gloves are too expensive.', 'He should keep anything he finds.', 'Mrs. Park bakes good brownies.'], a: 0, q: 'What does <b>Devon learn</b> in the story?', hint: 'He didn’t get the gloves. How did he feel anyway?', why: 'He didn’t get the gloves, but he felt proud. He learns that doing the right thing feels better.' },
+    { s: 'Money', t: 'num', a: 9, unit: 'weeks', q: 'New cleats cost <b>$36</b>. You save <b>$4</b> each week. How many <b>weeks</b> will it take?', hint: 'How many groups of $4 make $36?', why: '$36 ÷ $4 = 9 weeks.' },
+    { s: 'Money', t: 'num', a: 6, unit: 'weeks', q: 'A team jacket costs <b>$46</b>. You already have <b>$10</b>. You save <b>$6</b> each week. How many <b>weeks</b> until you can buy it?', hint: 'Subtract what you have first, then divide.', why: '$46 − $10 = $36. $36 ÷ $6 = 6 weeks.' },
+    { s: 'Money', t: 'mc', keep: true, o: ['5 weeks', '6 weeks', '7 weeks', '8 weeks'], a: 2, q: 'Jordan saves <b>$5</b> a week for a <b>$30</b> helmet. One week, he spends that week’s $5 on candy instead. How many weeks will it take him <b>in all</b>?', hint: 'Without the candy, it takes $30 ÷ $5 weeks. The candy week doesn’t count.', why: 'Saving every week, it takes $30 ÷ $5 = 6 weeks. One week’s savings went to candy, so he needs 1 more week: 7 weeks.' }
+  ];
+  var B = [
+    { s: 'Math', t: 'text', a: ['7 R4', '7 remainder 4', '7 rem 4', '7 remainder of 4'], q: 'Find <b>53 ÷ 7</b>. Write your answer like <b>12 R3</b>.', ph: 'Example: 12 R3', hint: 'Count by 7s. How many 7s fit in 53?', why: '7 × 7 = 49, and 53 − 49 = 4. So 53 ÷ 7 = 7 R4.' },
+    { s: 'Math', t: 'text', a: ['57 R5', '57 remainder 5', '57 rem 5', '57 remainder of 5'], q: 'Find <b>347 ÷ 6</b>. Write your answer like <b>12 R3</b>.', ph: 'Example: 12 R3', hint: '6 doesn’t go into 3, so start with 34.', why: '34 ÷ 6 = 5 R4. Bring down the 7 to make 47. 47 ÷ 6 = 7 R5. Answer: 57 R5. Check: 6 × 57 = 342, and 342 + 5 = 347.' },
+    { s: 'Math', t: 'num', a: 427, show: '427', q: 'Find <b>2,135 ÷ 5</b>.', hint: 'Start with 21. 5 × 4 = 20.', why: '21 ÷ 5 = 4 R1. 13 ÷ 5 = 2 R3. 35 ÷ 5 = 7. Answer: 427. Check: 5 × 427 = 2,135.' },
+    { s: 'Math', t: 'mc', o: ['9 × 8 + 2 = 74', '9 × 8 = 74', '9 × 2 + 8 = 74', '8 + 9 + 2 = 74'], a: 0, q: 'Which shows how to <b>check</b> that <b>74 ÷ 9 = 8 R2</b>?', hint: 'Quotient × divisor + remainder.', why: '9 × 8 = 72, and 72 + 2 = 74. It matches.' },
+    { s: 'Math', t: 'num', a: 8, unit: 'vans', q: '<b>52 players</b> are riding to a game. Each van holds <b>7 players</b>. How many vans are needed so <b>everyone</b> gets a ride?', hint: '52 ÷ 7 = 7 R3. Can 3 players be left behind?', why: '52 ÷ 7 = 7 R3. The 3 extra players need one more van, so round up to 8 vans.' },
+    { s: 'Math', t: 'num', a: 5, unit: 'bags', q: 'Coach has <b>45 footballs</b>. Each bag holds <b>8</b>. How many bags can he fill <b>all the way</b>?', hint: 'Only full bags count.', why: '45 ÷ 8 = 5 R5. The 5 leftover footballs can’t fill a bag, so drop the remainder: 5 full bags.' },
+    { s: 'Math', t: 'num', a: 1, show: '$1', unit: 'dollars', q: 'A <b>$1,630</b> bonus is shared equally among <b>3</b> players in whole dollars. How many dollars are <b>left over</b>?', hint: 'Divide. The question asks about the leftovers.', why: '1,630 ÷ 3 = 543 R1. Each player gets $543, and $1 is left over. Check: 3 × 543 = 1,629, and 1,629 + 1 = 1,630.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['A team is stronger when players trust each other and work together.', 'Cole is the best running back in the league.', 'The Riverside Rams are a tough team.', 'Bus rides home are long.'], a: 0, q: 'What is the <b>theme</b> of “The Ball Hog”?', hint: 'What changed between the game they lost and the game they won?', why: 'The Bobcats lost when Cole played alone and won when he trusted Ana. The lesson is that teams are stronger together.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['The Bobcats lost when Cole tried to score by himself.', 'When Cole passed to Ana, the Bobcats won.', 'Cole was the best running back in the league.', 'The big game was against the Riverside Rams.'], a: [0, 1], q: 'Which <b>two details</b> best support the theme?', hint: 'Compare what happened when Cole played alone and when he worked with Ana.', why: 'Losing alone and winning together show that teamwork makes the team stronger.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['He can win more by trusting his teammates.', 'He should run faster.', 'Ana is a better player than he is.', 'He should stop playing football.'], a: 0, q: 'What does <b>Cole learn</b> in the story?', hint: 'What does Ana tell him on the bus? What does he do next?', why: 'Ana tells him to trust the team. The next week he passes to her, and they win. He learns to trust his teammates.' },
+    { s: 'Money', t: 'num', a: 7, unit: 'weeks', q: 'A new football costs <b>$28</b>. You save <b>$4</b> each week. How many <b>weeks</b> will it take?', hint: 'How many groups of $4 make $28?', why: '$28 ÷ $4 = 7 weeks.' },
+    { s: 'Money', t: 'num', a: 8, unit: 'weeks', q: 'A team hoodie costs <b>$52</b>. You already have <b>$12</b>. You save <b>$5</b> each week. How many <b>weeks</b> until you can buy it?', hint: 'Subtract what you have first, then divide.', why: '$52 − $12 = $40. $40 ÷ $5 = 8 weeks.' },
+    { s: 'Money', t: 'mc', keep: true, o: ['5 weeks', '6 weeks', '7 weeks', '8 weeks'], a: 3, q: 'Kayla saves <b>$4</b> a week for a <b>$28</b> gym bag. One week, she spends that week’s $4 on a snack instead. How many weeks will it take her <b>in all</b>?', hint: 'Without the snack, it takes $28 ÷ $4 weeks. The snack week doesn’t count.', why: 'Saving every week, it takes $28 ÷ $4 = 7 weeks. One week’s savings went to a snack, so she needs 1 more week: 8 weeks.' }
+  ];
+  var PA = '<div class="passage"><h4>The Lost Wallet</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>After the Bayside Bobcats game, Devon was picking up trash in the stands when he spotted a brown wallet under a seat. Inside were a twenty-dollar bill and a library card with the name Ruth Park.</p>' +
+    '<p><span class="pn">2</span>Devon stared at the money. He had been wanting new football gloves, and they cost exactly twenty dollars. Nobody had seen him pick up the wallet. “No one would ever know,” he whispered.</p>' +
+    '<p><span class="pn">3</span>Then he thought about how he would feel if he lost his own money. He walked to the snack stand and handed the wallet to Coach Ellis, who called Mrs. Park right away.</p>' +
+    '<p><span class="pn">4</span>The next Saturday, Mrs. Park came to the game with a big tray of brownies for the whole team. “Thank you for being honest,” she told Devon. He didn’t get new gloves that day, but he felt proud all the way home.</p></div>';
+  var PB = '<div class="passage"><h4>The Ball Hog</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>Cole was the best running back in the league, and he knew it. In every game, he grabbed the ball and tried to score by himself, even when a teammate was wide open.</p>' +
+    '<p><span class="pn">2</span>In the big game against the Riverside Rams, Cole ran into a wall of defenders again and again. Each time, he was tackled. His teammate Ana waved her arms near the end zone, but Cole never passed her the ball. The Bobcats lost, 14 to 7.</p>' +
+    '<p><span class="pn">3</span>On the bus ride home, Cole sat alone. Ana sat down next to him. “We could have won,” she said quietly. “But you have to trust us.”</p>' +
+    '<p><span class="pn">4</span>The next week, Cole did something new. When the defenders came at him, he tossed the ball to Ana, and she ran into the end zone. The Bobcats won, and Cole cheered louder than anyone.</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-11-13', 'Week 3', document.getElementById('practice'))) return;
+    FO.practice({ week: 3, title: 'Contract Talks', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w3win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>

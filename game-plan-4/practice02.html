@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 2 · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  var A = [
+    { s: 'Math', t: 'mc', o: ['50 × 7 + 2 × 7', '50 × 7 + 2', '5 × 7 + 2 × 7', '52 + 7'], a: 0, q: 'Which shows <b>52 × 7</b> broken apart the right way?', hint: 'Break 52 into tens and ones. Multiply both parts by 7.', why: '52 is 50 + 2, so 52 × 7 = 50 × 7 + 2 × 7.' },
+    { s: 'Math', t: 'num', a: 252, unit: 'push-ups', q: 'A player does <b>63</b> push-ups in each set. He does <b>4</b> sets. How many push-ups in all?', hint: 'Find 60 × 4 and 3 × 4, then add.', why: '60 × 4 = 240 and 3 × 4 = 12. Then 240 + 12 = 252.' },
+    { s: 'Math', t: 'num', a: 954, unit: 'yards', q: 'The Rams pass for <b>318</b> yards in each game. How many yards is that in <b>3</b> games?', hint: 'Find 300 × 3, 10 × 3 and 8 × 3, then add.', why: '300 × 3 = 900, 10 × 3 = 30 and 8 × 3 = 24. Then 900 + 30 + 24 = 954.' },
+    { s: 'Math', t: 'mc', o: ['380', '350', '3,530', '81'], a: 0, q: 'Use the standard algorithm. What is <b>76 × 5</b>?', hint: '6 × 5 = 30. Write the 0 and regroup the 3 tens.', why: '6 × 5 = 30: write 0, regroup 3. Then 7 × 5 = 35, plus 3 is 38. The answer is 380. If you got 350, you forgot the regrouped 3.' },
+    { s: 'Math', t: 'num', a: 308, unit: 'players', q: 'A league has <b>14</b> teams with <b>22</b> players on each team. How many players are in the league?', hint: 'Use an area model: 10 + 4 and 20 + 2. Find four partial products.', why: '10 × 20 = 200, 10 × 2 = 20, 4 × 20 = 80 and 4 × 2 = 8. Then 200 + 20 + 80 + 8 = 308.' },
+    { s: 'Math', t: 'mc', o: ['943', '803', '923', '64'], a: 0, q: 'What is <b>41 × 23</b>?', hint: 'Break apart both numbers: 40 + 1 and 20 + 3. You need four partial products.', why: '40 × 20 = 800, 40 × 3 = 120, 1 × 20 = 20 and 1 × 3 = 3. Then 800 + 120 + 20 + 3 = 943.' },
+    { s: 'Math', t: 'mc', o: ['1,800', '180', '18,000', '1,200'], a: 0, q: 'A team gains <b>289</b> yards in each game. <b>Estimate</b> how many yards it gains in <b>6</b> games.', hint: 'Round 289 to the nearest hundred first.', why: '289 rounds to 300. Then 300 × 6 = 1,800.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Honest', 'Tired', 'Lazy', 'Bored'], a: 0, q: 'Which word best describes Jordan’s <b>character trait</b> in “The Push-Up Count”?', hint: 'A trait is what a character is like. What does Jordan do when nobody saw him stop?', why: 'Jordan tells the real number even though he could have said 25. That shows he is honest. Tired is a feeling, not a trait.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['He remembered his grandpa’s words about earning your score.', 'Coach Rivera was watching him.', 'He wanted the lowest score.', 'Tyler told him to say 18.'], a: 0, q: 'Why does Jordan tell Tyler “Eighteen”? What is his <b>motivation</b>?', hint: 'Read the end of paragraph 3.', why: 'Jordan remembered his grandpa saying, “A score you didn’t earn isn’t really yours.” That is why he told the truth.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['That night, Jordan did push-ups in his living room until his arms were tired.', 'He did the same thing the next night, and the next.', 'His partner, Tyler, had looked away to watch the sprints.', 'Coach Rivera wrote down every score.'], a: [0, 1], q: 'Which <b>two details</b> show that Jordan is <b>hardworking</b>?', hint: 'Look in paragraph 5 for what Jordan does.', why: 'Practicing every night until his arms were tired shows hard work.' },
+    { s: 'Money', t: 'sort', bins: ['Earned', 'Received as a gift'], items: [['Raking leaves for a neighbor', 0], ['Selling cookies at a bake sale', 0], ['Feeding a neighbor’s cat', 0], ['Birthday money from Grandpa', 1], ['Gift money from a friend', 1], ['Holiday money from an aunt', 1]], q: 'Sort each one: was the money <b>earned</b> or <b>received as a gift</b>?', hint: 'Earned money comes from doing work.', why: 'Raking, selling cookies and feeding a cat are work, so that money is earned. The others are gifts.' },
+    { s: 'Money', t: 'num', a: 48, show: '$48', unit: 'dollars', q: 'Eli earns <b>$6</b> for each lawn he mows. He mows <b>8</b> lawns. How much does he earn?', hint: 'Multiply the pay for one lawn by the number of lawns.', why: '$6 × 8 = $48.' },
+    { s: 'Money', t: 'mc', o: ['Washing a neighbor’s car', 'A box of cookies', 'A team jersey', 'A water bottle'], a: 0, q: 'Which one is a <b>service</b>?', hint: 'A service is work someone does for you.', why: 'Washing a car is work you do for someone, so it is a service. The others are goods you can hold.' }
+  ];
+  var B = [
+    { s: 'Math', t: 'mc', o: ['60 × 8 + 7 × 8', '60 × 8 + 7', '6 × 8 + 7 × 8', '67 + 8'], a: 0, q: 'Which shows <b>67 × 8</b> broken apart the right way?', hint: 'Break 67 into tens and ones. Multiply both parts by 8.', why: '67 is 60 + 7, so 67 × 8 = 60 × 8 + 7 × 8.' },
+    { s: 'Math', t: 'num', a: 162, unit: 'push-ups', q: 'A player does <b>54</b> push-ups in each set. She does <b>3</b> sets. How many push-ups in all?', hint: 'Find 50 × 3 and 4 × 3, then add.', why: '50 × 3 = 150 and 4 × 3 = 12. Then 150 + 12 = 162.' },
+    { s: 'Math', t: 'num', a: 828, unit: 'yards', q: 'The Bobcats run for <b>207</b> yards in each game. How many yards is that in <b>4</b> games?', hint: '207 has 0 tens. Find 200 × 4 and 7 × 4, then add.', why: '200 × 4 = 800, 0 × 4 = 0 and 7 × 4 = 28. Then 800 + 0 + 28 = 828.' },
+    { s: 'Math', t: 'mc', o: ['348', '308', '3,048', '64'], a: 0, q: 'Use the standard algorithm. What is <b>58 × 6</b>?', hint: '8 × 6 = 48. Write the 8 and regroup the 4 tens.', why: '8 × 6 = 48: write 8, regroup 4. Then 5 × 6 = 30, plus 4 is 34. The answer is 348. If you got 308, you forgot the regrouped 4.' },
+    { s: 'Math', t: 'num', a: 325, unit: 'players', q: 'A league has <b>13</b> teams with <b>25</b> players on each team. How many players are in the league?', hint: 'Use an area model: 10 + 3 and 20 + 5. Find four partial products.', why: '10 × 20 = 200, 10 × 5 = 50, 3 × 20 = 60 and 3 × 5 = 15. Then 200 + 50 + 60 + 15 = 325.' },
+    { s: 'Math', t: 'mc', o: ['672', '602', '632', '53'], a: 0, q: 'What is <b>32 × 21</b>?', hint: 'Break apart both numbers: 30 + 2 and 20 + 1. You need four partial products.', why: '30 × 20 = 600, 30 × 1 = 30, 2 × 20 = 40 and 2 × 1 = 2. Then 600 + 30 + 40 + 2 = 672.' },
+    { s: 'Math', t: 'mc', o: ['3,000', '300', '30,000', '3,500'], a: 0, q: 'A team gains <b>612</b> yards in each game. <b>Estimate</b> how many yards it gains in <b>5</b> games.', hint: 'Round 612 to the nearest hundred first.', why: '612 rounds to 600. Then 600 × 5 = 3,000.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Generous', 'Excited', 'Selfish', 'Sleepy'], a: 0, q: 'Which word best describes Devon’s <b>character trait</b> in “The Spare Cleats”?', hint: 'A trait is what a character is like. What does Devon give Ruby?', why: 'Devon gives Ruby his extra cleats to keep. That shows he is generous. Excited is a feeling, not a trait.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['He remembered how good it felt when his brother gave him real cleats.', 'Coach Ellis told him to.', 'He wanted Ruby to lose the race.', 'He wanted to trade for her sneakers.'], a: 0, q: 'Why does Devon give Ruby the cleats? What is his <b>motivation</b>?', hint: 'Read the sentence that starts with “He remembered” in paragraph 4.', why: 'Devon remembered how good it felt to have real cleats for the first time, so he wanted Ruby to have that feeling too.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['She got up, wiped her hands on her shorts and walked back to the line to try again.', 'She had practiced her starts every day for two weeks.', 'Ruby was new to the team.', 'Every player lined up at the chalk line.'], a: [0, 1], q: 'Which <b>two details</b> show that Ruby is <b>determined</b>?', hint: 'Look for what Ruby does that shows she won’t give up.', why: 'Getting up to try again and practicing every day for two weeks show that Ruby does not give up.' },
+    { s: 'Money', t: 'sort', bins: ['Earned', 'Received as a gift'], items: [['Walking a neighbor’s dog', 0], ['Selling bracelets you made', 0], ['Watering a neighbor’s plants', 0], ['Money in a birthday card', 1], ['A gift from your grandma', 1], ['Holiday money from an uncle', 1]], q: 'Sort each one: was the money <b>earned</b> or <b>received as a gift</b>?', hint: 'Earned money comes from doing work.', why: 'Walking a dog, selling bracelets and watering plants are work, so that money is earned. The others are gifts.' },
+    { s: 'Money', t: 'num', a: 63, show: '$63', unit: 'dollars', q: 'Mia earns <b>$7</b> for each car she washes. She washes <b>9</b> cars. How much does she earn?', hint: 'Multiply the pay for one car by the number of cars.', why: '$7 × 9 = $63.' },
+    { s: 'Money', t: 'mc', o: ['A bag of popcorn', 'A haircut', 'Walking a dog', 'A piano lesson'], a: 0, q: 'Which one is a <b>good</b>?', hint: 'A good is a thing you can hold.', why: 'A bag of popcorn is a thing you can hold, so it is a good. The others are services.' }
+  ];
+  var PA = '<div class="passage"><h4>The Push-Up Count</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>At the Riverside Rams’ Scouting Combine, players worked in pairs. One partner did push-ups while the other counted out loud. Coach Rivera was busy timing sprints at the other end of the field, so partners reported the scores to him later.</p>' +
+    '<p><span class="pn">2</span>Jordan dropped to the mat and started. By push-up number 15, his arms were shaking. He made it to 18 before he stopped. His partner, Tyler, had looked away to watch the sprints and lost count.</p>' +
+    '<p><span class="pn">3</span>“How many did you get?” Tyler asked. Jordan knew the top score so far was 25. Nobody had seen him stop. For a second, he thought about saying 25. Then he remembered something his grandpa always said: “A score you didn’t earn isn’t really yours.”</p>' +
+    '<p><span class="pn">4</span>“Eighteen,” Jordan said.</p>' +
+    '<p><span class="pn">5</span>That night, Jordan did push-ups in his living room until his arms were tired. He did the same thing the next night, and the next. At the next combine, he did 26 push-ups, and every one of them was his.</p></div>';
+  var PB = '<div class="passage"><h4>The Spare Cleats</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>The Bayside Bobcats’ Scouting Combine started with the 40-yard dash. Every player lined up at the chalk line, waiting for Coach Ellis to blow his whistle.</p>' +
+    '<p><span class="pn">2</span>Ruby was new to the team. Her sneakers were old, and the bottom of one shoe flapped when she walked. Still, she lined up with everyone else. She had practiced her starts every day for two weeks.</p>' +
+    '<p><span class="pn">3</span>On her first run, Ruby’s shoe slipped, and she slid onto the grass. She got up, wiped her hands on her shorts and walked back to the line to try again.</p>' +
+    '<p><span class="pn">4</span>Devon watched from the bench. He had an extra pair of cleats in his bag, the pair his big brother had given him when he first joined the team. He remembered how good it felt to have real cleats for the first time. Devon jogged over and held out the cleats. “Try these,” he said. “You can keep them.”</p>' +
+    '<p><span class="pn">5</span>Ruby’s next run was her fastest of the day. As she crossed the finish line, she looked back and gave Devon a thumbs-up.</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-11-06', 'Week 2', document.getElementById('practice'))) return;
+    FO.practice({ week: 2, title: 'Scouting Combine', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w2win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>

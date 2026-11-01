@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 4 · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  var A = [
+    { s: 'Math', t: 'mc', o: ['3 rows of 6', '4 rows of 5', '5 rows of 3', '8 rows of 2'], a: 0, q: 'Coach lines up <b>18 players</b> in equal rows with nobody left over. Which way works?', hint: 'Multiply the rows by the players in each row.', why: '3 × 6 = 18. The others make 20, 15 and 16.' },
+    { s: 'Math', t: 'multi', o: ['2 × 14', '4 × 7', '3 × 9', '5 × 6'], a: [0, 1], q: 'Which <b>two</b> are factor pairs of <b>28</b>?', hint: 'Multiply each pair. Which ones make exactly 28?', why: '2 × 14 = 28 and 4 × 7 = 28. But 3 × 9 = 27 and 5 × 6 = 30.' },
+    { s: 'Math', t: 'num', a: 5, q: 'How many <b>factors</b> does <b>16</b> have?', hint: 'Find the pairs: 1 × 16, 2 × 8, 4 × 4. Count the 4 only once.', why: 'The factors of 16 are 1, 2, 4, 8 and 16. That’s 5 factors.' },
+    { s: 'Math', t: 'mc', o: ['1, 2, 4, 8, 16, 32', '1, 2, 4, 16, 32', '2, 4, 8, 16', '1, 2, 3, 4, 8, 16, 32'], a: 0, q: 'Which list shows <b>all</b> the factors of <b>32</b>?', hint: 'Find the pairs: 1 × 32, 2 × 16, 4 × 8.', why: 'The factor pairs of 32 are 1 × 32, 2 × 16 and 4 × 8, so the factors are 1, 2, 4, 8, 16 and 32. 3 is not a factor of 32.' },
+    { s: 'Math', t: 'multi', o: ['35', '49', '27', '57'], a: [0, 1], q: 'A team runs a trick play on every 7th play. Which <b>two</b> play numbers are multiples of <b>7</b>?', hint: 'Skip count by 7: 7, 14, 21, 28, 35...', why: '7 × 5 = 35 and 7 × 7 = 49. 27 and 57 are not in the 7s (7 × 8 = 56).' },
+    { s: 'Math', t: 'sort', bins: ['Prime', 'Composite', 'Neither'], items: [['5', 0], ['11', 0], ['17', 0], ['9', 1], ['21', 1], ['39', 1], ['1', 2]], q: 'Sort each jersey number: <b>prime</b>, <b>composite</b> or <b>neither</b>?', hint: 'Prime has exactly two factors. 1 has only one factor.', why: '5, 11 and 17 are prime. 9 = 3 × 3, 21 = 3 × 7 and 39 = 3 × 13 are composite. 1 is neither.' },
+    { s: 'Math', t: 'mc', o: ['Composite, because 3 × 19 = 57', 'Prime, because it is odd', 'Prime, because it ends in 7'], a: 0, q: 'Your linebacker wears number <b>57</b>. Is 57 prime or composite?', hint: 'Add the digits: 5 + 7 = 12. Is 12 a multiple of 3?', why: '57 ÷ 3 = 19, so 3 × 19 = 57. It has more than two factors, so it is composite.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Sequence', 'Compare and contrast', 'Problem and solution', 'Cause and effect'], a: 0, q: 'What text structure do <b>paragraphs 2 and 3</b> use?', hint: 'Look for First, Next, Then, After that and Finally.', why: 'Paragraphs 2 and 3 tell the steps of making a football in order. That is sequence.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['First', 'Next', 'Because', 'However'], a: [0, 1], q: 'Which <b>two</b> signal words in <b>paragraph 2</b> show sequence?', why: '“First” and “Next” tell the order of the steps.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Cause and effect', 'Sequence', 'Description', 'Compare and contrast'], a: 0, q: 'What text structure does <b>paragraph 4</b> use?', hint: 'Find “Because” and “As a result.”', why: 'Footballs are made by hand (cause), so no two are alike and quarterbacks test them (effect).' },
+    { s: 'Money', t: 'sort', bins: ['Money in', 'Money out'], items: [['Allowance', 0], ['Selling lemonade', 0], ['Birthday money', 0], ['New cleats', 1], ['Bowling with friends', 1], ['Team snack', 1]], q: 'Sort each one: <b>money in</b> or <b>money out</b>?', why: 'Allowance, lemonade sales and birthday money come in. Cleats, bowling and a snack cost money.' },
+    { s: 'Money', t: 'num', a: 3, show: '$3', unit: 'dollars', q: 'You get <b>$10</b> allowance. Your budget plans <b>$3</b> for a snack and <b>$4</b> for trading cards. How much is left?', hint: 'Add the money out, then subtract.', why: '$3 + $4 = $7. $10 − $7 = $3.' },
+    { s: 'Money', t: 'mc', o: ['Pizza $30, drinks $10, cups $5', 'Pizza $35, drinks $10, cups $8', 'Pizza $30, drinks $15, cups $10', 'Pizza $40, drinks $12, cups $5'], a: 0, q: 'Your team has <b>$50</b> for an end-of-season party. Which plan stays <b>within the budget</b>?', hint: 'Add up each plan. It can’t be more than $50.', why: '$30 + $10 + $5 = $45, which is within $50. The others cost $53, $55 and $57.' }
+  ];
+  var B = [
+    { s: 'Math', t: 'mc', o: ['4 rows of 5', '3 rows of 7', '6 rows of 4', '9 rows of 2'], a: 0, q: 'Coach lines up <b>20 players</b> in equal rows with nobody left over. Which way works?', hint: 'Multiply the rows by the players in each row.', why: '4 × 5 = 20. The others make 21, 24 and 18.' },
+    { s: 'Math', t: 'multi', o: ['4 × 10', '5 × 8', '6 × 7', '3 × 13'], a: [0, 1], q: 'Which <b>two</b> are factor pairs of <b>40</b>?', hint: 'Multiply each pair. Which ones make exactly 40?', why: '4 × 10 = 40 and 5 × 8 = 40. But 6 × 7 = 42 and 3 × 13 = 39.' },
+    { s: 'Math', t: 'num', a: 3, q: 'How many <b>factors</b> does <b>25</b> have?', hint: 'Find the pairs: 1 × 25 and 5 × 5. Count the 5 only once.', why: 'The factors of 25 are 1, 5 and 25. That’s 3 factors.' },
+    { s: 'Math', t: 'mc', o: ['1, 3, 5, 9, 15, 45', '1, 3, 9, 15, 45', '3, 5, 9, 15', '1, 3, 5, 7, 9, 15, 45'], a: 0, q: 'Which list shows <b>all</b> the factors of <b>45</b>?', hint: 'Find the pairs: 1 × 45, 3 × 15, 5 × 9.', why: 'The factor pairs of 45 are 1 × 45, 3 × 15 and 5 × 9, so the factors are 1, 3, 5, 9, 15 and 45. 7 is not a factor of 45.' },
+    { s: 'Math', t: 'multi', o: ['42', '54', '46', '32'], a: [0, 1], q: 'A team runs a trick play on every 6th play. Which <b>two</b> play numbers are multiples of <b>6</b>?', hint: 'Skip count by 6: 6, 12, 18, 24, 30, 36...', why: '6 × 7 = 42 and 6 × 9 = 54. 46 and 32 are not in the 6s.' },
+    { s: 'Math', t: 'sort', bins: ['Prime', 'Composite', 'Neither'], items: [['7', 0], ['13', 0], ['29', 0], ['15', 1], ['27', 1], ['49', 1], ['1', 2]], q: 'Sort each jersey number: <b>prime</b>, <b>composite</b> or <b>neither</b>?', hint: 'Prime has exactly two factors. 1 has only one factor.', why: '7, 13 and 29 are prime. 15 = 3 × 5, 27 = 3 × 9 and 49 = 7 × 7 are composite. 1 is neither.' },
+    { s: 'Math', t: 'mc', o: ['Composite, because 7 × 13 = 91', 'Prime, because it is odd', 'Prime, because it ends in 1'], a: 0, q: 'Your tight end wears number <b>91</b>. Is 91 prime or composite?', hint: 'Try dividing by 7.', why: '91 ÷ 7 = 13, so 7 × 13 = 91. It has more than two factors, so it is composite.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Compare and contrast', 'Sequence', 'Cause and effect', 'Description'], a: 0, q: 'What text structure does <b>paragraph 2</b> use?', hint: 'Look for “Both” and “However.”', why: 'Paragraph 2 tells how grass and turf are alike and how they are different. That is compare and contrast.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['Both', 'However', 'First', 'Finally'], a: [0, 1], q: 'Which <b>two</b> signal words in <b>paragraph 2</b> show compare and contrast?', why: '“Both” shows how the fields are alike. “However” shows how they are different.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Problem and solution', 'Sequence', 'Compare and contrast', 'Description'], a: 0, q: 'What text structure does <b>paragraph 3</b> use?', hint: 'Find “one big problem” and “To solve this problem.”', why: 'Grass turns muddy in the rain (problem). Schools put in turf or use a tarp (solution).' },
+    { s: 'Money', t: 'sort', bins: ['Money in', 'Money out'], items: [['Pay for walking a dog', 0], ['Allowance', 0], ['Birthday money', 0], ['Football poster', 1], ['Movie ticket', 1], ['Water bottle', 1]], q: 'Sort each one: <b>money in</b> or <b>money out</b>?', why: 'Dog walking pay, allowance and birthday money come in. A poster, a ticket and a water bottle cost money.' },
+    { s: 'Money', t: 'num', a: 5, show: '$5', unit: 'dollars', q: 'You get <b>$16</b> this week. Your budget plans <b>$6</b> for a snack and <b>$5</b> for a keychain. How much is left?', hint: 'Add the money out, then subtract.', why: '$6 + $5 = $11. $16 − $11 = $5.' },
+    { s: 'Money', t: 'mc', o: ['Cones $25, bags $30, pump $20', 'Cones $30, bags $35, pump $20', 'Cones $25, bags $40, pump $20', 'Cones $35, bags $30, pump $25'], a: 0, q: 'Your team has <b>$80</b> for new gear. Which plan stays <b>within the budget</b>?', hint: 'Add up each plan. It can’t be more than $80.', why: '$25 + $30 + $20 = $75, which is within $80. The others cost $85, $85 and $90.' }
+  ];
+  var PA = '<div class="passage"><h4>How a Football Is Made</h4><div class="by">An informational article</div>' +
+    '<p><span class="pn">1</span>A football looks simple, but making one takes many careful steps. Most footballs are made of leather, a strong material that comes from cowhide.</p>' +
+    '<p><span class="pn">2</span>First, workers cut the leather into four long pieces with pointed ends. Next, they stamp the team logo onto the pieces. Then they sew the four pieces together inside out, leaving a small opening.</p>' +
+    '<p><span class="pn">3</span>After that, workers turn the ball right side out through the opening. They slide a rubber bag inside to hold the air. Finally, they lace up the opening and pump the ball full of air.</p>' +
+    '<p><span class="pn">4</span>Because many footballs are put together by hand, no two feel exactly the same. As a result, quarterbacks often test several balls before a big game to find the ones they like best.</p></div>';
+  var PB = '<div class="passage"><h4>Grass or Turf?</h4><div class="by">An informational article</div>' +
+    '<p><span class="pn">1</span>Football fields can be covered with real grass or with turf. Turf is made of plastic blades that look like grass.</p>' +
+    '<p><span class="pn">2</span>Both kinds of fields are green, and both have white yard lines. However, they feel very different. Real grass is soft and cool, while turf can get very hot on a sunny day.</p>' +
+    '<p><span class="pn">3</span>Grass fields have one big problem. When it rains hard, they can turn into mud, and players slip. To solve this problem, some schools put in turf, which lets water drain away quickly. Other schools cover their grass with a big tarp before a storm.</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-04', 'Week 4', document.getElementById('practice'))) return;
+    FO.practice({ week: 4, title: 'Building the Roster', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w4win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>

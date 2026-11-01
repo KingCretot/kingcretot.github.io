@@ -51,7 +51,27 @@
     fieldpos:  { n: 'Stadium Numbers', d: 'Finished Stadium Numbers', c: '#1E6B3A', i: 'ball' },
     filmroom:  { n: 'Film Room', d: 'Finished the Film Room', c: '#DB2F30', i: 'doc' },
     capwise:   { n: 'Cap Wise', d: 'Finished Cap Space', c: '#0047BA', i: 'cash' },
-    w1win:     { n: 'Week 1 W', d: 'Won Practice Here, Week 1', c: '#0A1F3D', i: 'trophy' }
+    w1win:     { n: 'Week 1 W', d: 'Won Practice Here, Week 1', c: '#0A1F3D', i: 'trophy' },
+    multiplier:{ n: 'Multiplier', d: 'Finished Multiplier (multiplying big numbers)', c: '#1E6B3A', i: 'ball' },
+    charstudy: { n: 'Character Study', d: 'Finished Character Study', c: '#DB2F30', i: 'doc' },
+    moneymaker:{ n: 'Money Maker', d: 'Finished Money Maker (ways to earn)', c: '#0047BA', i: 'cash' },
+    w2win:     { n: 'Week 2 W', d: 'Won Practice Here, Week 2', c: '#0A1F3D', i: 'trophy' },
+    divider:   { n: 'Division Pro', d: 'Finished Division Pro (remainders)', c: '#1E6B3A', i: 'ball' },
+    themefinder:{ n: 'Theme Finder', d: 'Finished Theme Finder', c: '#DB2F30', i: 'doc' },
+    supersaver:{ n: 'Super Saver', d: 'Finished Super Saver (saving for a goal)', c: '#0047BA', i: 'cash' },
+    w3win:     { n: 'Week 3 W', d: 'Won Practice Here, Week 3', c: '#0A1F3D', i: 'trophy' },
+    factorpro: { n: 'Factor Pro', d: 'Finished Factor Pro (factors, multiples, primes)', c: '#1E6B3A', i: 'ball' },
+    blueprint: { n: 'Blueprint', d: 'Finished Blueprint (text structure)', c: '#DB2F30', i: 'doc' },
+    budgetboss:{ n: 'Budget Boss', d: 'Finished Budget Boss (simple budget)', c: '#0047BA', i: 'cash' },
+    w4win:     { n: 'Week 4 W', d: 'Won Practice Here, Week 4', c: '#0A1F3D', i: 'trophy' },
+    builder:   { n: 'Stadium Builder', d: 'Finished Stadium Builder (area and perimeter)', c: '#1E6B3A', i: 'ball' },
+    summarystar:{ n: 'Summary Star', d: 'Finished Summary Star', c: '#DB2F30', i: 'doc' },
+    smartshopper:{ n: 'Smart Shopper', d: 'Finished Smart Shopper (comparing prices)', c: '#0047BA', i: 'cash' },
+    w5win:     { n: 'Week 5 W', d: 'Won Practice Here, Week 5', c: '#0A1F3D', i: 'trophy' },
+    mathfilm:  { n: 'Math Film Review', d: 'Finished the Weeks 1–5 math review', c: '#1E6B3A', i: 'ball' },
+    elafilm:   { n: 'ELA Film Review', d: 'Finished the Weeks 1–5 reading review', c: '#DB2F30', i: 'doc' },
+    changemaker:{ n: 'Change Maker', d: 'Finished Change Maker (counting change)', c: '#0047BA', i: 'cash' },
+    w6win:     { n: 'Week 6 W', d: 'Won Practice Here, Week 6', c: '#0A1F3D', i: 'trophy' }
   };
   FO.addBadges = function (o) { for (var k in o) FO.BADGES[k] = o[k]; };
   function icon(kind, c) {
@@ -147,7 +167,7 @@
 
   /* ---------- items ---------- */
   function norm(s) { return String(s).toLowerCase().replace(/[−–—]/g, '-').replace(/[’']/g, "'").replace(/\s+/g, ' ').replace(/^[\s"]+|[\s".!?]+$/g, ''); }
-  function num(s) { s = String(s).replace(/[−–—]/g, '-').replace(/[$,\s]/g, '').replace(/^\+/, '').replace(/yards?|yds?$/i, ''); if (!/^-?\d*\.?\d+$/.test(s)) return NaN; return parseFloat(s); }
+  function num(s) { s = String(s).replace(/[−–—]/g, '-').replace(/[$,\s]/g, '').replace(/^\+/, '').replace(/%$/, '').replace(/[a-z][a-z .]*$/i, ''); if (!/^-?\d*\.?\d+$/.test(s)) return NaN; return parseFloat(s); }
   FO.fmt = function (v) { return v < 0 ? '−' + (-v) : String(v); };
 
   /* Render one item. opts: {mode:'lesson'|'practice', onDone(res)} — res: {first:boolean, given:string} */
@@ -215,7 +235,7 @@
       if (it.t === 'mc') { var s = $('.opt.sel', box); return s ? { ok: +s.dataset.i === it.a, txt: s.textContent.slice(1) } : null; }
       if (it.t === 'multi') { var sel = $$('.opt.sel', box).map(function (x) { return +x.dataset.i; }).sort(); if (!sel.length) return null; var a = it.a.slice().sort(); return { ok: sel.join() === a.join(), txt: sel.map(function (i) { return it.o[i]; }).join(' | ') }; }
       if (it.t === 'num') { var v = $('input', box).value.trim(); if (!v) return null; var n = num(v); if (isNaN(n)) return { bad: 'Type a number (use - for negative).' }; var ans = [].concat(it.a); return { ok: ans.some(function (x) { return Math.abs(x - n) < 1e-9; }), txt: v }; }
-      if (it.t === 'text') { var t = $('input', box).value; if (!t.trim()) return null; var nt = norm(t); return { ok: it.a.some(function (x) { return norm(x) === nt; }), txt: t.trim() }; }
+      if (it.t === 'text') { var t = $('input', box).value; if (!t.trim()) return null; var nt = norm(t).replace(/\s/g, ''); return { ok: it.a.some(function (x) { return norm(x).replace(/\s/g, '') === nt; }), txt: t.trim() }; }
       if (it.t === 'order') { if (state.pick.length < it.items.length) return null; return { ok: state.pick.every(function (v, i) { return v === i; }), txt: state.pick.map(function (i) { return it.items[i]; }).join(', ') }; }
       if (it.t === 'sort') { if (Object.keys(state.place).length < it.items.length) return null; var okk = it.items.every(function (x, i) { return state.place[i] === x[1]; }); return { ok: okk, txt: it.items.map(function (x, i) { return x[0] + '→' + it.bins[state.place[i]]; }).join('; ') }; }
       if (it.t === 'nl') { if (state.v === undefined) return null; return { ok: state.v === it.a, txt: FO.fmt(state.v * (it.k || 1)) }; }

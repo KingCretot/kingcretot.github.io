@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 3: Contract Talks · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  var PASSAGE = '<div class="passage"><h4>Leading the Huddle</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>Malik was the fastest runner on the Bayside Bobcats, and he wanted to be team captain more than anything. The captain wore a gold armband and called the coin toss before every game. “I’m the best player,” Malik told everyone. “So I should be in charge.”</p>' +
+    '<p><span class="pn">2</span>At practice, Malik shouted orders. When a teammate dropped a pass, he rolled his eyes. When the younger players asked for help, he said he was too busy. Soon, the other players stopped listening to him.</p>' +
+    '<p><span class="pn">3</span>Coach Ellis noticed. After practice, he sat down next to Malik on the bench. “A captain isn’t the person who shouts the loudest,” he said. “A captain is the person who lifts up the whole team.”</p>' +
+    '<p><span class="pn">4</span>Malik thought about that all week. At the next practice, he stayed late to help Theo, a nervous new player, learn to catch. He cheered when Theo finally caught one. He thanked the linemen who blocked for him. Little by little, his teammates started to smile when he walked onto the field.</p>' +
+    '<p><span class="pn">5</span>At the end of the season, the players voted for captain, and Malik won. But he was most proud of something else. In the last game, Theo caught his first real pass, and the whole bench went wild. Malik cheered the loudest of all.</p></div>';
+
+  var items = {
+    d1: { t: 'num', a: 4, unit: 'bags', q: 'The equipment manager has <b>29 footballs</b>. Each bag holds <b>6</b>. How many bags can be <b>filled all the way</b>?', ph: 'Type a number', hint: 'Count by 6s: 6, 12, 18, 24 … How many 6s fit before you pass 29?', why: '6 × 4 = 24, and 6 × 5 = 30 is too many. So 4 bags can be filled.' },
+    d2: { t: 'num', a: 5, unit: 'footballs', q: 'After filling those bags, how many footballs are <b>left over</b>?', ph: 'Type a number', hint: 'Subtract the footballs in the full bags from 29.', why: '29 − 24 = 5 footballs left over. So 29 ÷ 6 = 4 R5.' },
+    ld1: { t: 'text', a: ['39 R2', '39 remainder 2', '39 rem 2', '39 remainder of 2'], q: 'Find <b>158 ÷ 4</b>. Write your answer like <b>12 R3</b>.', ph: 'Example: 12 R3', hint: '4 doesn’t go into 1, so start with 15. 4 × 3 = 12.', why: '15 ÷ 4 = 3 R3. Bring down the 8 to make 38. 38 ÷ 4 = 9 R2. Answer: 39 R2. Check: 4 × 39 = 156, and 156 + 2 = 158.' },
+    ld2: { t: 'text', a: ['654 R1', '654 remainder 1', '654 rem 1', '654 remainder of 1'], q: 'Find <b>2,617 ÷ 4</b>. Write your answer like <b>12 R3</b>.', ph: 'Example: 12 R3', hint: 'Start with 26. 4 × 6 = 24.', why: '26 ÷ 4 = 6 R2. 21 ÷ 4 = 5 R1. 17 ÷ 4 = 4 R1. Answer: 654 R1. Check: 4 × 654 = 2,616, and 2,616 + 1 = 2,617.' },
+    chk1: { t: 'mc', o: ['6 × 14 + 1 = 85', '6 × 14 = 85', '14 + 6 + 1 = 85', '6 × 1 + 14 = 85'], a: 0, q: 'Which shows how to <b>check</b> that <b>85 ÷ 6 = 14 R1</b>?', hint: 'Multiply the quotient by the divisor, then add the remainder.', why: '6 × 14 = 84, and 84 + 1 = 85. It matches, so the answer is right.' },
+    chk2: { t: 'mc', o: ['The remainder 8 is bigger than 7, so one more group fits. The answer is 7 R1.', 'Nothing. 6 R8 is correct.', 'The answer should be 6 R1.', 'The answer should be 8 R6.'], a: 0, q: 'Leo says <b>50 ÷ 7 = 6 R8</b>. What is wrong?', hint: 'Can the remainder be bigger than the number you are dividing by?', why: 'A remainder must be smaller than the divisor. 8 is more than 7, so another group of 7 fits. 7 × 7 = 49, and 49 + 1 = 50, so 50 ÷ 7 = 7 R1.' },
+    van: { t: 'num', a: 6, unit: 'vans', q: '<b>45 players</b> are going to an away game. Each van holds <b>8 players</b>. How many vans are needed so <b>every player</b> gets a ride?', ph: 'Type a number', hint: '45 ÷ 8 = 5 R5. What happens to those 5 extra players?', why: '45 ÷ 8 = 5 R5. Five vans carry 40 players, but 5 players are still waiting. They need one more van, so round up to 6.' },
+    bag: { t: 'mc', o: ['8 bags', '9 bags', '2 bags', '8 R2 bags'], a: 0, q: 'Coach has <b>50 footballs</b>. He puts <b>6</b> in each bag. How many bags can he fill <b>all the way</b>?', hint: 'Only full bags count. What do you do with the leftovers?', why: '50 ÷ 6 = 8 R2. The 2 extra footballs can’t fill a bag, so drop the remainder: 8 full bags.' },
+    keep: { t: 'num', a: 4, unit: 'stickers', q: 'Coach shares <b>58 team stickers</b> equally among <b>9 players</b>. Each player gets as many as possible, and Coach keeps the rest. How many stickers does <b>Coach keep</b>?', ph: 'Type a number', hint: 'Divide. This time the remainder is the answer.', why: '58 ÷ 9 = 6 R4. Each player gets 6 stickers (54 in all), and Coach keeps the 4 left over.' },
+    bonus: { t: 'num', a: 255, show: '$255', unit: 'dollars', q: 'Your team wins a <b>$1,275</b> bonus. You share it equally among <b>5</b> players. How much does each player get?', ph: 'Type the amount', hint: 'Find 1,275 ÷ 5. Start with 12 ÷ 5.', why: '12 ÷ 5 = 2 R2. 27 ÷ 5 = 5 R2. 25 ÷ 5 = 5. Each player gets $255. Check: 5 × 255 = 1,275.' },
+    rsort: { t: 'sort', bins: ['Round up', 'Drop it', 'Remainder is the answer'], items: [['50 fans, 4 per car. How many cars so everyone rides?', 0], ['30 players, 7 per table. How many tables so everyone sits?', 0], ['50 cookies, 4 per box. How many full boxes?', 1], ['$30, and tickets cost $7. How many tickets can you buy?', 1], ['50 cards shared by 4 friends. How many are left over?', 2], ['30 footballs in bags of 7. How many don’t fit in a full bag?', 2]], q: 'What should you do with the <b>remainder</b>? Sort each problem.', hint: 'Does everyone need a spot? Do only full groups count? Or is the question asking about the leftovers?', why: 'Rides and seats: round up so nobody is left out. Full boxes and tickets: drop the remainder. “Left over” and “don’t fit” questions: the remainder is the answer.', badge: 'divider' },
+
+    th1: { t: 'mc', o: ['A good leader helps the people around them get better.', 'Fast players always become team captains.', 'Football practice can be very hard.', 'Malik wanted to wear a gold armband.'], a: 0, q: 'What is the <b>theme</b> of “Leading the Huddle”?', hint: 'Read what Coach Ellis tells Malik in paragraph 3.', why: 'Malik learns that being a captain means making everyone better. That lesson is the theme, and it works for anyone, not just Malik.' },
+    tvt: { t: 'mc', o: ['Being a team captain', 'Helping others makes you a true leader.', 'Kindness earns respect.', 'Leaders listen to their team.'], a: 0, q: 'Which one is the <b>topic</b> of the story, not a theme?', hint: 'A topic is just a few words. A theme is a whole sentence with a lesson.', why: '“Being a team captain” names what the story is about. The others are full lessons, so they are themes.' },
+    learn: { t: 'mc', o: ['Being a captain means making teammates better, not being the loudest.', 'He needs to run even faster.', 'Captains should shout more orders.', 'Theo is the best catcher on the team.'], a: 0, q: 'What does <b>Malik learn</b> in the story?', hint: 'How does Malik act differently after he talks with Coach Ellis?', why: 'After Coach Ellis talks to him, Malik stops shouting and starts helping. He learns that a captain makes the team better.' },
+    ev: { t: 'multi', o: ['He stayed late to help Theo learn to catch.', 'He thanked the linemen who blocked for him.', 'Malik was the fastest runner on the team.', 'The captain called the coin toss before every game.'], a: [0, 1], q: 'Which <b>two details</b> best support the theme?', hint: 'Look for things Malik does to help others.', why: 'Helping Theo and thanking the linemen show Malik making his teammates better. That is the lesson of the story.' },
+    prob: { t: 'mc', o: ['Malik changes how he treats his teammates, and they start to respect him.', 'Coach Ellis makes the players listen to Malik.', 'Malik runs faster in the next game.', 'Theo becomes the new team captain.'], a: 0, q: 'At first, the players stopped listening to Malik. <b>How is this problem solved?</b>', hint: 'Look at paragraph 4.', why: 'Malik starts helping and thanking his teammates. Little by little, they smile when he walks onto the field. How a problem gets solved is a big clue to the theme.' },
+    stmt: { t: 'mc', o: ['Helping others succeed is what makes a real leader.', 'Malik helped Theo catch a pass.', 'This story is about football.', 'Theo was a nervous new player.'], a: 0, q: 'Which sentence is the <b>best theme statement</b>?', hint: 'A theme statement is a lesson that could be true for anyone, not just one character.', why: 'It is a lesson anyone can use. The others are just events, a topic or a detail from the story.', badge: 'themefinder' },
+
+    g1: { t: 'num', a: 6, unit: 'weeks', q: 'Dre wants a new football that costs <b>$24</b>. He saves <b>$4</b> each week. How many <b>weeks</b> will it take?', ph: 'Type a number', hint: 'How many groups of $4 make $24?', why: '$24 ÷ $4 = 6. Dre needs 6 weeks. Check: 6 × $4 = $24.' },
+    g2: { t: 'num', a: 9, unit: 'weeks', q: 'You want cleats that cost <b>$48</b>. You already have <b>$12</b>. You save <b>$4</b> each week. How many <b>weeks</b> until you can buy them?', ph: 'Type a number', hint: 'First find how much more you need. Then divide by $4.', why: '$48 − $12 = $36 still needed. $36 ÷ $4 = 9 weeks.' },
+    g3: { t: 'num', a: 24, show: '$24', unit: 'dollars', q: 'Maya saves <b>$3</b> every week for <b>8 weeks</b>. How much has she saved?', ph: 'Type the amount', hint: 'Multiply the amount each week by the number of weeks.', why: '8 × $3 = $24.' },
+    g4: { t: 'mc', o: ['It will take her one more week to reach her goal.', 'She will reach her goal sooner.', 'Nothing changes.', 'She can never buy the jersey.'], a: 0, q: 'Nia saves <b>$5 a week</b> for a <b>$40</b> jersey. After 4 weeks she has $20. A friend asks her to spend <b>$5</b> on snacks. If she does, what happens?', hint: 'If she spends $5, how much will she still need?', why: 'Without the snacks, she needs $20 more, which is 4 more weeks. If she spends $5, she has $15 and needs $25 more, which is 5 more weeks. That is one extra week.' },
+    g5: { t: 'num', a: 18, unit: 'weeks', q: 'As GM, you want a <b>$140</b> tackling dummy for practice. The team saves <b>$8</b> each week. How many <b>weeks</b> until you can buy it?', ph: 'Type a number', hint: '140 ÷ 8 has a remainder. After that many weeks, do you have enough yet?', why: '140 ÷ 8 = 17 R4. After 17 weeks you have $136, which is still $4 short. You need one more week, so round up to 18 weeks.', badge: 'supersaver' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 3 · Contract Talks</div><h2>Contract Talks</h2>' +
+      '<p>This week, the GM has a lot to split up. Players need rides to the away game. Footballs need to go into bags. A bonus has to be shared fairly. And you have a big goal to save for. A smart GM knows how to divide and how to plan ahead.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Split the Roster.</b> Divide with remainders and decide what to do with them.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Film Room.</b> Find the theme, the lesson of a story.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Savings Plan.</b> Set a goal and save a little each week.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Split the Roster</span></div><h2>Equal Groups and Leftovers</h2>' +
+      '<p><b>Division</b> splits a total into <b>equal groups</b>. Sometimes everything fits perfectly. Sometimes a few are left over. The amount left over is called the <b>remainder</b>.</p>' +
+      '<p class="big-rule">23 footballs ÷ 4 per bag = 5 bags, 3 left over</p>' +
+      '<div class="callout">We write it as <b>23 ÷ 4 = 5 R3</b>. The 5 is the <b>quotient</b> (how many groups). The R3 means 3 are left over.</div>' +
+      '<div data-item="d1"></div><div data-item="d2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Split the Roster</span></div><h2>Long Division, One Play at a Time</h2>' +
+      '<p>For bigger numbers, divide one place at a time, starting on the <b>left</b>. Run the same four plays over and over: <b>divide, multiply, subtract, bring down</b>.</p>' +
+      '<div class="callout blue"><b>437 ÷ 3:</b> 4 ÷ 3 = 1, with 1 left. Bring down the 3 to make 13. 13 ÷ 3 = 4, with 1 left. Bring down the 7 to make 17. 17 ÷ 3 = 5, with 2 left. So <b>437 ÷ 3 = 145 R2</b>.</div>' +
+      '<div data-item="ld1"></div><div data-item="ld2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Split the Roster</span></div><h2>Check the Replay</h2>' +
+      '<p>Refs check the replay to make sure the call is right. You can check a division answer with <b>multiplication</b>.</p>' +
+      '<p class="big-rule">quotient × divisor + remainder = the starting number</p>' +
+      '<div class="callout">Check 437 ÷ 3 = 145 R2: 145 × 3 = 435, and 435 + 2 = 437. It matches! Also remember: the remainder must always be <b>smaller</b> than the number you divide by.</div>' +
+      '<div data-item="chk1"></div><div data-item="chk2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Split the Roster</span></div><h2>What Do You Do With the Remainder?</h2>' +
+      '<p>In a word problem, the remainder isn’t the end of the play. You have to decide what it means.</p>' +
+      '<div class="callout blue"><b>Round up</b> when everyone needs a spot, like players in vans.<br><b>Drop it</b> when only full groups count, like full bags.<br><b>The remainder is the answer</b> when the question asks how many are left over.</div>' +
+      '<div data-item="van"></div><div data-item="bag"></div><div data-item="keep"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Split the Roster</span></div><h2>Sharing the Bonus</h2>' +
+      '<p>When a team shares a bonus <b>equally</b>, every player gets the same amount. That is a division problem.</p>' +
+      '<div class="callout"><b>$848 shared by 4 players:</b> 8 ÷ 4 = 2. 4 ÷ 4 = 1. 8 ÷ 4 = 2. Each player gets <b>$212</b>. Check: 4 × 212 = 848.</div>' +
+      '<div data-item="bonus"></div><div data-item="rsort"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room</span></div><h2>What Is a Theme?</h2>' +
+      '<p>The <b>theme</b> is the lesson or message of a story. It is a big idea about life that could be true for anyone. The <b>topic</b> is different. It is just what the story is about, in a few words.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Topic:</b> friendship<br>(a few words)</div><div class="callout"><b>Theme:</b> A true friend sticks with you when times are hard.<br>(a whole sentence with a lesson)</div></div>' +
+      PASSAGE + '<div data-item="th1"></div><div data-item="tvt"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room</span></div><h2>Finding the Evidence</h2>' +
+      '<p>Authors don’t usually say the theme out loud. You figure it out from clues, just like a coach studying film.</p>' +
+      '<div class="callout"><b>Ask yourself:</b> What does the main character <b>learn</b>? How does he or she <b>change</b>? How is the <b>problem solved</b>? The answers point to the theme.</div>' +
+      PASSAGE + '<div data-item="learn"></div><div data-item="ev"></div><div data-item="prob"></div><div data-item="stmt"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Savings Plan</span></div><h2>Set a Goal</h2>' +
+      '<p>A <b>savings goal</b> is something you want to buy later. To reach it, save the same amount every week. Then divide to find how many weeks it will take.</p>' +
+      '<p class="big-rule">goal ÷ amount saved each week = number of weeks</p>' +
+      '<div class="callout blue">If you already have some money saved, subtract it from the goal first. Then divide what is left.</div>' +
+      '<div data-item="g1"></div><div data-item="g2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Savings Plan</span></div><h2>Save It or Spend It?</h2>' +
+      '<p>Every week, you get to choose: spend your money now, or save it for your goal. Small amounts add up fast when you save every week.</p>' +
+      '<div class="callout">Spending a little now isn’t always wrong. Just know that every dollar you spend pushes your goal further away.</div>' +
+      '<div data-item="g3"></div><div data-item="g4"></div><div data-item="g5"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 3 in the Books</h2>' +
+      '<ul><li>Division splits a total into equal groups. The amount left over is the remainder.</li>' +
+      '<li>Long division: divide, multiply, subtract, bring down. Check with quotient × divisor + remainder.</li>' +
+      '<li>In word problems, round up when everyone needs a spot, drop the remainder for full groups, or use the remainder when the question asks what is left.</li>' +
+      '<li>The theme is the lesson of a story. Look at what the character learns and how the problem is solved.</li>' +
+      '<li>Set a savings goal, save the same amount each week, and divide to see how long it will take.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice03.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can change it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-11-13', 'Week 3', document.getElementById('deck'))) return; FO.deck({ id: 'L03', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

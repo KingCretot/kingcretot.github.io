@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 5 · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  function T(x, y, s, anchor, size) { return '<text x="' + x + '" y="' + y + '" text-anchor="' + anchor + '" font-family="Arial" font-size="' + (size || 16) + '" font-weight="bold" fill="#0A1F3D">' + s + '</text>'; }
+  function rect(pw, ph, bottom, left, inside) {
+    var x = 70, y = 16, W = pw + 140, H = ph + 52;
+    return '<div style="max-width:' + W + 'px;margin:6px 0 10px"><svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Rectangle, ' + bottom + ' by ' + left + '">' +
+      '<rect x="' + x + '" y="' + y + '" width="' + pw + '" height="' + ph + '" fill="#DDEFD9" stroke="#1E6B3A" stroke-width="3"/>' +
+      T(x + pw / 2, y + ph + 26, bottom, 'middle') + T(x - 8, y + ph / 2 + 5, left, 'end') + (inside ? T(x + pw / 2, y + ph / 2 + 5, inside, 'middle', 14) : '') + '</svg></div>';
+  }
+  function lshape(s, Wf, Hf, nw, nh) {
+    var X = 70, Y = 26, w = Wf * s, h = Hf * s, a = (Wf - nw) * s, b = nh * s;
+    var pts = [[0, 0], [a, 0], [a, b], [w, b], [w, h], [0, h]].map(function (p) { return (X + p[0]) + ',' + (Y + p[1]); }).join(' ');
+    return '<div style="max-width:' + (X + w + 64) + 'px;margin:6px 0 10px"><svg viewBox="0 0 ' + (X + w + 64) + ' ' + (Y + h + 40) + '" width="100%" role="img" aria-label="L-shaped space">' +
+      '<polygon points="' + pts + '" fill="#DDEFD9" stroke="#1E6B3A" stroke-width="3"/>' +
+      T(X + w / 2, Y + h + 26, Wf + ' ft', 'middle') + T(X - 8, Y + h / 2 + 5, Hf + ' ft', 'end') +
+      T(X + a / 2, Y - 8, (Wf - nw) + ' ft', 'middle') + T(X + a + 8, Y + b * 0.35 + 5, nh + ' ft', 'start') +
+      T(X + a + nw * s / 2, Y + b - 8, nw + ' ft', 'middle') + T(X + w + 8, Y + (b + h) / 2 + 5, (Hf - nh) + ' ft', 'start') + '</svg></div>';
+  }
+
+  var A = [
+    { s: 'Math', t: 'num', a: 120, unit: 'feet', pre: rect(240, 80, '45 ft', '15 ft'), q: 'A kicking net area is <b>45 feet</b> long and <b>15 feet</b> wide. How many feet of rope go <b>all the way around</b> it?', hint: 'Add all four sides: 45 + 15 + 45 + 15.', why: 'Perimeter = 45 + 15 + 45 + 15 = 120 feet.' },
+    { s: 'Math', t: 'num', a: 63, unit: 'square feet', pre: rect(220, 170, '9 ft', '7 ft'), q: 'A ticket booth floor is <b>9 feet</b> long and <b>7 feet</b> wide. What is its <b>area</b>?', hint: 'Area = length × width.', why: 'Area = 9 × 7 = 63 square feet.' },
+    { s: 'Math', t: 'mc', keep: true, o: ['Perimeter', 'Area'], a: 0, q: 'Coach wants to paint a stripe along the <b>edge</b> of the warm-up area. Does he need the area or the perimeter?', hint: 'Is the stripe going around the edge or covering the inside?', why: 'The stripe goes around the edge, so he needs the perimeter.' },
+    { s: 'Math', t: 'num', a: 6, unit: 'feet', pre: rect(240, 160, '9 ft', '? ft', 'Area = 54 square feet'), q: 'A mat has an area of <b>54 square feet</b>. It is <b>9 feet</b> long. How wide is it?', hint: 'Divide: 54 ÷ 9.', why: '54 ÷ 9 = 6 feet. Check: 9 × 6 = 54.' },
+    { s: 'Math', t: 'num', a: 7, unit: 'feet', pre: rect(240, 150, '11 ft', '? ft', 'Perimeter = 36 feet'), q: 'A rectangle-shaped sign has a perimeter of <b>36 feet</b>. It is <b>11 feet</b> long. How wide is it?', hint: '36 − 11 − 11, then split what is left in half.', why: '36 − 11 − 11 = 14. 14 ÷ 2 = 7 feet. Check: 11 + 7 + 11 + 7 = 36.' },
+    { s: 'Math', t: 'num', a: 57, unit: 'square feet', pre: lshape(32, 9, 7, 3, 2), q: 'Here is the floor plan of the new coaches’ office. What is its <b>area</b>?', hint: 'Split it into two rectangles: 9 ft by 5 ft on the bottom and 6 ft by 2 ft on top.', why: 'Bottom: 9 × 5 = 45. Top: 6 × 2 = 12. Total: 45 + 12 = 57 square feet.' },
+    { s: 'Math', t: 'mc', o: ['64 square feet', '32 square feet', '16 square feet', '24 square feet'], a: 0, q: 'A square landing pad for the team mascot is <b>8 feet</b> on each side. What is its <b>area</b>?', hint: 'Area = side × side.', why: 'Area = 8 × 8 = 64 square feet. 32 is the perimeter.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Lakeview Park’s old scoreboard was hard to read. Fourth graders wrote letters to businesses, two shops paid for a new one, and it was turned on before the fall season.', 'Sometimes a 7 looked like a 1. A teacher checked spelling. A grandmother loved the new scoreboard.', 'The park got a scoreboard.', 'A pizza shop paid for half of a scoreboard.'], a: 0, q: 'Which is the <b>best summary</b> of “The Old Scoreboard”?', hint: 'Look for the problem, how it was solved and how it ended.', why: 'It tells the main idea and the big events in order. The others have small details, are too short, or tell only one part.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['The fourth graders wrote letters to local businesses asking for help.', 'Two shops agreed to pay for a new scoreboard.', 'Their teacher helped them check their spelling.', 'Sometimes a 7 looked like a 1.'], a: [0, 1], q: 'Which <b>two details</b> are important enough to go in a summary?', hint: 'Pick the details that show how the problem got solved.', why: 'Writing letters and getting the shops to pay are the big steps. The spelling help and the 7 that looked like a 1 are small details.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['“I think it is the best thing that ever happened to this park.”', 'Half of the old scoreboard’s lights were burned out.', 'The shops’ names were printed across the bottom.', 'The new scoreboard was turned on before the first game.'], a: 0, q: 'Which part should be left out of a summary because it is an <b>opinion</b>?', hint: 'Look for what someone thinks or feels.', why: '“I think it is the best thing” is the grandmother’s feeling, so it is an opinion. The others are facts.' },
+    { s: 'Money', t: 'mc', keep: true, o: ['Fan Shop', 'Corner Store', 'They cost the same'], a: 0, q: 'A water bottle costs <b>$3.49</b> at the Fan Shop and <b>$3.94</b> at the Corner Store. Which store has the <b>lower price</b>?', hint: 'The dollars match. Compare the cents.', why: 'Both are $3. 49 cents is less than 94 cents, so $3.49 at the Fan Shop costs less.' },
+    { s: 'Money', t: 'num', a: 2, show: '$2', unit: 'dollars', q: 'Granola bars cost <b>$3 each</b>, or <b>4 for $10</b>. You need 4. How much do you <b>save</b> with the deal?', hint: 'Four bars at $3 each cost $12. Compare that to $10.', why: '4 × $3 = $12. $12 − $10 = $2 saved.' },
+    { s: 'Money', t: 'num', a: 25, show: '$25', unit: 'dollars', q: 'A jersey usually costs <b>$32</b>. It is on sale for <b>$7 off</b>. What is the <b>sale price</b>?', hint: 'Subtract the discount.', why: '$32 − $7 = $25.' }
+  ];
+  var B = [
+    { s: 'Math', t: 'num', a: 110, unit: 'feet', pre: rect(240, 140, '35 ft', '20 ft'), q: 'A parking lot is <b>35 feet</b> long and <b>20 feet</b> wide. How many feet of fence go <b>all the way around</b> it?', hint: 'Add all four sides: 35 + 20 + 35 + 20.', why: 'Perimeter = 35 + 20 + 35 + 20 = 110 feet.' },
+    { s: 'Math', t: 'num', a: 48, unit: 'square feet', pre: rect(220, 165, '8 ft', '6 ft'), q: 'A team photo wall is <b>8 feet</b> long and <b>6 feet</b> tall. How many <b>square feet</b> of paint will cover it?', hint: 'Area = length × width.', why: 'Area = 8 × 6 = 48 square feet.' },
+    { s: 'Math', t: 'mc', keep: true, o: ['Perimeter', 'Area'], a: 1, q: 'The team wants to cover the weight room floor with rubber mats. Does the GM need the area or the perimeter?', hint: 'Are the mats going around the edge or covering the inside?', why: 'The mats cover the whole floor, so the GM needs the area.' },
+    { s: 'Math', t: 'num', a: 7, unit: 'feet', pre: rect(240, 160, '8 ft', '? ft', 'Area = 56 square feet'), q: 'A storage closet has an area of <b>56 square feet</b>. It is <b>8 feet</b> long. How wide is it?', hint: 'Divide: 56 ÷ 8.', why: '56 ÷ 8 = 7 feet. Check: 8 × 7 = 56.' },
+    { s: 'Math', t: 'num', a: 8, unit: 'feet', pre: rect(240, 160, '12 ft', '? ft', 'Perimeter = 40 feet'), q: 'A rectangle-shaped stage has a perimeter of <b>40 feet</b>. It is <b>12 feet</b> long. How wide is it?', hint: '40 − 12 − 12, then split what is left in half.', why: '40 − 12 − 12 = 16. 16 ÷ 2 = 8 feet. Check: 12 + 8 + 12 + 8 = 40.' },
+    { s: 'Math', t: 'num', a: 73, unit: 'square feet', pre: lshape(21, 11, 8, 5, 3), q: 'Here is the floor plan of the new team store. What is its <b>area</b>?', hint: 'Split it into two rectangles: 11 ft by 5 ft on the bottom and 6 ft by 3 ft on top.', why: 'Bottom: 11 × 5 = 55. Top: 6 × 3 = 18. Total: 55 + 18 = 73 square feet.' },
+    { s: 'Math', t: 'mc', o: ['28 feet', '49 feet', '14 feet', '21 feet'], a: 0, q: 'A square end zone banner is <b>7 feet</b> on each side. What is its <b>perimeter</b>?', hint: 'A square has 4 equal sides.', why: '7 + 7 + 7 + 7 = 28 feet. 49 is the area.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['The bleachers at Pine Grove Field were unsafe. About thirty volunteers spent a Saturday putting in new boards and painting them, and fans filled the seats at the next home game.', 'Someone brought donuts. The bleachers were painted green and white. One dad grinned.', 'The bleachers got fixed.', 'The volunteers brought hammers and drills.'], a: 0, q: 'Which is the <b>best summary</b> of “The Bleacher Fix”?', hint: 'Look for the problem, how it was solved and how it ended.', why: 'It tells the main idea and the big events in order. The others have small details, are too short, or tell only one part.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['The league said fans could not sit in the bleachers until they were fixed.', 'Volunteers replaced the old boards with strong new ones.', 'Someone brought a big box of donuts.', 'The volunteers used hammers and drills.'], a: [0, 1], q: 'Which <b>two details</b> are important enough to go in a summary?', hint: 'Pick the details that tell the problem and how it got solved.', why: 'The bleachers being closed is the problem, and the new boards solved it. The donuts and the tools are small details.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['“These are the nicest seats in town.”', 'Some boards had loose nails.', 'About thirty volunteers showed up.', 'Fans filled the bleachers for the first home game.'], a: 0, q: 'Which part should be left out of a summary because it is an <b>opinion</b>?', hint: 'Look for what someone thinks or feels.', why: '“Nicest seats in town” is the dad’s feeling, so it is an opinion. The others are facts.' },
+    { s: 'Money', t: 'mc', keep: true, o: ['Fan Shop', 'Corner Store', 'They cost the same'], a: 1, q: 'A team hat costs <b>$12.50</b> at the Fan Shop and <b>$12.05</b> at the Corner Store. Which store has the <b>lower price</b>?', hint: 'The dollars match. Compare the cents.', why: 'Both are $12. 5 cents is less than 50 cents, so $12.05 at the Corner Store costs less.' },
+    { s: 'Money', t: 'num', a: 1, show: '$1', unit: 'dollars', q: 'Wristbands cost <b>$3 each</b>, or <b>2 for $5</b>. You need 2. How much do you <b>save</b> with the deal?', hint: 'Two wristbands at $3 each cost $6. Compare that to $5.', why: '2 × $3 = $6. $6 − $5 = $1 saved.' },
+    { s: 'Money', t: 'num', a: 18, show: '$18', unit: 'dollars', q: 'A football usually costs <b>$24</b>. It is on sale for <b>$6 off</b>. What is the <b>sale price</b>?', hint: 'Subtract the discount.', why: '$24 − $6 = $18.' }
+  ];
+  var PA = '<div class="passage"><h4>The Old Scoreboard</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>The scoreboard at Lakeview Park was so old that half of its lights were burned out. Fans often could not tell who was winning. Sometimes a 7 looked like a 1.</p>' +
+    '<p><span class="pn">2</span>A group of fourth graders on the Lakeview Lions decided to fix the problem. They wrote letters to local businesses asking for help. Their teacher helped them check their spelling.</p>' +
+    '<p><span class="pn">3</span>A pizza shop and a car repair shop each agreed to pay for half of a new scoreboard. In return, the shops’ names were printed across the bottom.</p>' +
+    '<p><span class="pn">4</span>The new scoreboard was turned on before the first game of the fall season. Its bright numbers could be seen all the way from the parking lot. “I think it is the best thing that ever happened to this park,” said one grandmother.</p></div>';
+  var PB = '<div class="passage"><h4>The Bleacher Fix</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>The wooden bleachers at Pine Grove Field were cracked and wobbly. Some boards had loose nails, and parents worried someone would get hurt. The league said fans could not sit in the bleachers until they were fixed.</p>' +
+    '<p><span class="pn">2</span>Coach Rivera asked the players’ families to help. On a Saturday morning, about thirty volunteers showed up with hammers, drills and new boards. Someone brought a big box of donuts.</p>' +
+    '<p><span class="pn">3</span>The volunteers worked all day. They pulled out the old boards, put in strong new ones and painted everything green and white, the team colors.</p>' +
+    '<p><span class="pn">4</span>The next week, fans filled the bleachers for the first home game. “These are the nicest seats in town,” one dad said with a grin.</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-11', 'Week 5', document.getElementById('practice'))) return;
+    FO.practice({ week: 5, title: 'Stadium Upgrade', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w5win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>

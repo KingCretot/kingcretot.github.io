@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 6: Midseason Film Review · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  var STORY = '<div class="passage"><h4>Ready on the Sideline</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>Andre had been the backup quarterback for the Lakeview Lions all season. At every practice, he stood on the sideline with a clipboard and watched. Some players thought he was bored. Andre wasn’t bored. He was studying every play.</p>' +
+    '<p><span class="pn">2</span>Before the big game against the Harbor Hawks, the starting quarterback, Tyrell, twisted his ankle during warm-ups. Coach Ruiz turned to Andre. “You’re up,” she said. Andre’s hands trembled, shaking so much that he almost dropped his helmet. His stomach felt like it was full of jumping frogs.</p>' +
+    '<p><span class="pn">3</span>On his first play, Andre threw the ball too hard, and it bounced off his receiver’s hands. A few fans groaned. Andre wanted to hide under the bench. Then he remembered what his grandfather always told him: “A mistake is just a lesson in disguise.”</p>' +
+    '<p><span class="pn">4</span>Andre took a deep breath. He thought about all the plays he had watched from the sideline. He remembered that the Hawks’ defenders always rushed to the left. On the next play, he rolled to the right and found his receiver wide open for a touchdown.</p>' +
+    '<p><span class="pn">5</span>The Lions won by three points. After the game, Tyrell limped over on crutches and gave Andre a high five. “You were ready,” Tyrell said. Andre grinned. “I was ready because I never stopped paying attention.”</p></div>';
+
+  var INFO = '<div class="passage"><h4>Why Teams Watch Game Film</h4><div class="by">An informational article</div>' +
+    '<p><span class="pn">1</span>After every game, football teams do something that might surprise you. They sit in a dark room and watch videos of themselves. This is called watching game film, and it is one of the most important parts of a team’s week.</p>' +
+    '<p><span class="pn">2</span>Long ago, coaches had only their memories and their notes to help them remember a game. Once teams began recording games on video, coaches could watch every play again, as many times as they wanted.</p>' +
+    '<p><span class="pn">3</span>Film helps teams solve problems. Suppose a team keeps losing yards on running plays. By watching the film, the coach might see that one blocker is stepping the wrong way. Once the coach points out the mistake, the players can fix it at practice.</p>' +
+    '<p><span class="pn">4</span>Film also helps teams get ready for their next opponent. Players watch the other team’s past games to learn its patterns, the things it does again and again, such as the plays it likes to run on third down. Knowing these patterns is like getting a peek at the other team’s game plan.</p>' +
+    '<p><span class="pn">5</span>Watching film is not always fun. Seeing your own mistakes on a big screen can be embarrassing. But the best players know that film is a tool, not a punishment. Every replay is a chance to get better.</p></div>';
+
+  var items = {
+    b1: { t: 'mc', o: ['30,000', '3,000', '300,000', '3'], a: 0, q: 'In <b>638,247</b>, what is the <b>value</b> of the <b>3</b>?', hint: 'Count the places from the right: ones, tens, hundreds, thousands, ten thousands.', why: 'The 3 is in the ten thousands place, so its value is 3 × 10,000 = 30,000.' },
+    b2: { t: 'mc', keep: true, o: ['>', '<', '='], a: 1, q: 'Choose the symbol that makes this true: <b>405,192 ___ 450,192</b>', hint: 'Start at the left. Where is the first digit that is different?', why: 'Both have 4 hundred thousands. In the ten thousands place, 0 is less than 5, so 405,192 < 450,192.' },
+    b3: { t: 'num', a: 390000, show: '390,000', q: 'Round <b>386,529</b> to the nearest <b>ten thousand</b>.', ph: 'Type the number', hint: 'The ten thousands digit is 8. Look at the digit to its right.', why: 'The digit to the right of the ten thousands place is 6, which is 5 or more, so the 8 goes up to 9: 390,000.' },
+
+    x1: { t: 'num', a: 322, q: 'Multiply: <b>46 × 7</b>', ph: 'Type the product', hint: 'Break 46 into 40 + 6. Multiply each part by 7.', why: '40 × 7 = 280 and 6 × 7 = 42. 280 + 42 = 322.' },
+    x2: { t: 'num', a: 4820, show: '4,820', q: 'Multiply: <b>1,205 × 4</b>', ph: 'Type the product', hint: 'Break it apart: 1,000 + 200 + 5.', why: '1,000 × 4 = 4,000, 200 × 4 = 800 and 5 × 4 = 20. 4,000 + 800 + 20 = 4,820.' },
+    x3: { t: 'num', a: 276, unit: 'footballs', q: 'Your team orders <b>23 boxes</b> of footballs. Each box holds <b>12</b> footballs. How many footballs is that in all?', ph: 'Type the number', hint: 'Find 23 × 12. Try 20 × 12 and 3 × 12.', why: '20 × 12 = 240 and 3 × 12 = 36. 240 + 36 = 276 footballs.' },
+
+    d1: { t: 'mc', o: ['26 R1', '25 R7', '26 R2', '27'], a: 0, q: 'Divide: <b>157 ÷ 6</b>', hint: 'What is 6 × 26? How far is that from 157?', why: '6 × 26 = 156, and 157 − 156 = 1, so the answer is 26 R1. The remainder must be less than 6, so 25 R7 can’t be right.' },
+    d2: { t: 'num', a: 7, unit: 'vans', q: '<b>50 players</b> are riding to an away game. Each van holds <b>8</b> players. How many vans are needed so <b>every</b> player gets a ride?', ph: 'Type the number', hint: 'Find 50 ÷ 8. What should you do with the players who are left over?', why: '50 ÷ 8 = 6 R2. Six vans carry 48 players, but 2 players still need a ride, so you need 7 vans.' },
+    d3: { t: 'num', a: 3, unit: 'stickers', q: 'Coach has <b>45 stickers</b> to share equally among <b>6 players</b>. Each player gets the same number. How many stickers are <b>left over</b>?', ph: 'Type the number', hint: 'Find 45 ÷ 6. This time the remainder is the answer.', why: '6 × 7 = 42, and 45 − 42 = 3. Each player gets 7 stickers, and 3 are left over.' },
+
+    f1: { t: 'mc', o: ['8', '4', '9', '12'], a: 0, q: 'Which number is <b>not</b> a factor of <b>36</b>?', hint: 'Try dividing 36 by each number. Does it come out even?', why: '36 ÷ 4 = 9, 36 ÷ 9 = 4 and 36 ÷ 12 = 3. But 8 × 4 = 32 and 8 × 5 = 40, so 8 does not go into 36 evenly.' },
+    f2: { t: 'mc', o: ['42', '27', '47', '17'], a: 0, q: 'Which number is a <b>multiple of 7</b>?', hint: 'Skip count by 7: 7, 14, 21, 28, 35 …', why: '7 × 6 = 42. The other numbers have a 7 in them, but none of them is in the 7s skip-count list.' },
+    f3: { t: 'sort', bins: ['Prime', 'Composite'], items: [['2', 0], ['13', 0], ['31', 0], ['9', 1], ['15', 1], ['51', 1]], q: 'Sort each number: <b>prime</b> or <b>composite</b>?', hint: 'A prime number has exactly two factors: 1 and itself. Watch out for 51. Try dividing it by 3.', why: '2, 13 and 31 have only two factors. 9 = 3 × 3, 15 = 3 × 5 and 51 = 3 × 17, so they are composite.' },
+
+    a1: { t: 'num', a: 54, unit: 'square feet', q: 'A practice mat is <b>9 feet</b> long and <b>6 feet</b> wide. What is its <b>area</b>?', ph: 'Type the area', hint: 'Area = length × width.', why: '9 × 6 = 54, so the area is 54 square feet.' },
+    a2: { t: 'num', a: 34, unit: 'feet', q: 'A locker room rug is <b>12 feet</b> long and <b>5 feet</b> wide. What is its <b>perimeter</b>?', ph: 'Type the perimeter', hint: 'Add all four sides: 12 + 5 + 12 + 5.', why: '12 + 5 + 12 + 5 = 34, so the perimeter is 34 feet.' },
+    a3: { t: 'mc', o: ['6 feet', '40 feet', '16 feet', '56 feet'], a: 0, q: 'A team banner is a rectangle with an <b>area of 48 square feet</b>. It is <b>8 feet</b> long. How <b>wide</b> is it?', hint: 'What number times 8 equals 48?', why: '8 × 6 = 48, so the banner is 6 feet wide. 40 comes from subtracting, and that does not work for area.', badge: 'mathfilm' },
+
+    tr: { t: 'mc', o: ['Observant, because he pays close attention', 'Bored, because he only holds a clipboard', 'Bossy, because he tells everyone what to do', 'Careless, because he drops the ball'], a: 0, q: 'Which word best describes Andre as a <b>character</b>?', hint: 'What does Andre do on the sideline all season? What does he notice in paragraph 4?', why: 'Andre studies every play and notices that the Hawks always rush to the left. That shows he is observant. Paragraph 1 says he was not bored.' },
+    mo: { t: 'mc', o: ['He remembered the Hawks’ defenders always rushed to the left.', 'Coach Ruiz told him to run right.', 'He wanted to get away from the groaning fans.', 'Tyrell gave him a signal from the bench.'], a: 0, q: 'In paragraph 4, <b>why</b> does Andre roll to the right?', hint: 'Read the sentence right before he rolls to the right.', why: 'Andre remembered that the defenders always rushed left, so he went the other way. That is his motivation, the reason he acts.' },
+    v1: { t: 'mc', o: ['Shook', 'Grew bigger', 'Stayed still', 'Felt warm'], a: 0, q: 'In paragraph 2, what does <b>trembled</b> mean?', hint: 'Read the words right after it.', why: 'The story says his hands were “shaking so much that he almost dropped his helmet,” so trembled means shook.' },
+    th: { t: 'mc', o: ['If you stay ready and learn from your mistakes, you can succeed when your chance comes.', 'Football is a hard game to play.', 'The Lakeview Lions beat the Harbor Hawks.', 'Backup players never get a chance to play.'], a: 0, q: 'What is the <b>theme</b> of “Ready on the Sideline”?', hint: 'A theme is a life lesson. What did Andre learn that could help anyone?', why: 'Andre kept studying and did not give up after his mistake, and it paid off. “Football is a hard game” is a topic, and the Lions winning is just an event.' },
+    td: { t: 'multi', o: ['At every practice, he was studying every play.', '“A mistake is just a lesson in disguise.”', 'The Lions won by three points.', 'Tyrell limped over on crutches.'], a: [0, 1], q: 'Which <b>two details</b> best support the theme?', hint: 'Pick the details about staying ready and learning from mistakes.', why: 'Studying every play shows Andre staying ready. His grandfather’s words show learning from mistakes. The other two details are true but do not show the lesson.' },
+
+    ci: { t: 'mc', o: ['Watching game film helps football teams find mistakes, fix them and get ready for opponents.', 'Football games are recorded on video.', 'Watching film can be embarrassing.', 'Long ago, coaches used only their memories and notes.'], a: 0, q: 'What is the <b>central idea</b> of “Why Teams Watch Game Film”?', hint: 'Which choice is about the whole article, not just one paragraph?', why: 'Every paragraph explains how film helps teams. The other choices are details from just one paragraph.' },
+    ts: { t: 'mc', keep: true, o: ['Problem and solution', 'Compare and contrast', 'Time order (sequence)', 'Description'], a: 0, q: 'How is <b>paragraph 3</b> organized? Choose the <b>text structure</b>.', hint: 'Look at the first sentence of paragraph 3. Then find the problem and how it gets fixed.', why: 'Paragraph 3 says film helps teams “solve problems.” The problem is losing yards, and the solution is finding and fixing the blocker’s mistake.' },
+    v2: { t: 'mc', o: ['Things a team does again and again', 'Colors on a team’s uniform', 'Plays that only happen once', 'Mistakes the referees make'], a: 0, q: 'In paragraph 4, what does <b>patterns</b> mean?', hint: 'Read the words right after it, between the commas.', why: 'The article tells you right there: patterns are “the things it does again and again.”' },
+    sum: { t: 'mc', o: ['Teams sit in a dark room. Coaches used notes. Players feel embarrassed.', 'Teams watch videos of their games to find and fix mistakes and to learn what their next opponent likes to do. Film is a tool for getting better.', 'One blocker stepped the wrong way on running plays.', 'Football teams like to watch movies after games.'], a: 1, q: 'Which is the <b>best summary</b> of the article?', hint: 'A good summary tells the most important ideas in a few sentences, in your own words.', why: 'It covers the main ideas of the whole article without small details. The first choice lists details but misses the big point.', badge: 'elafilm' },
+
+    c1: { t: 'num', a: 79, unit: 'cents', q: 'You find <b>2 quarters, 1 dime, 3 nickels and 4 pennies</b> in your pocket. How many <b>cents</b> is that?', ph: 'Type the cents', hint: 'Start with the biggest coins: 25, 50, then add 10, then 5, 5, 5, then the pennies.', why: '50 + 10 + 15 + 4 = 79 cents.' },
+    c2: { t: 'num', a: 7.95, show: '$7.95', unit: 'dollars', q: 'You have <b>one $5 bill, two $1 bills, 3 quarters and 2 dimes</b>. How much money is that?', ph: 'Type the amount', hint: 'Count the bills first ($7), then the coins.', why: '$5 + $2 = $7. 3 quarters = 75¢ and 2 dimes = 20¢, so 95¢. In all, $7.95.' },
+    ch1: { t: 'num', a: 2.65, show: '$2.65', unit: 'dollars', q: 'A hot dog costs <b>$2.35</b>. You pay with a <b>$5 bill</b>. How much change should you get?', ph: 'Type the change', hint: 'Count up: $2.35 to $2.50, then to $3.00, then to $5.00.', why: '$2.35 → $2.50 is 15¢. $2.50 → $3.00 is 50¢. $3.00 → $5.00 is $2. 15¢ + 50¢ + $2 = $2.65.' },
+    ch3: { t: 'mc', o: ['$3.20', '$4.20', '$3.80', '$4.80'], a: 0, q: 'A foam finger costs <b>$6.80</b>. You pay with a <b>$10 bill</b>. How much change should you get?', hint: 'Count up: $6.80 to $7.00, then to $10.00.', why: '$6.80 → $7.00 is 20¢. $7.00 → $10.00 is $3. So the change is $3.20. $4.20 forgets that one dollar was broken into cents.' },
+    fc1: { t: 'num', a: 4, unit: 'coins', q: 'What is the <b>fewest</b> number of coins you can use to make <b>41¢</b>?', ph: 'Type the number', hint: 'Use the biggest coin you can first: a quarter. How much is left?', why: '1 quarter (25¢), then 1 dime makes 35¢, 1 nickel makes 40¢ and 1 penny makes 41¢. That is 4 coins.' },
+    fc2: { t: 'mc', o: ['Two $1 bills, 3 quarters and 1 dime', 'Two $1 bills, 2 quarters, 3 dimes and 1 nickel', 'Two $1 bills, 3 quarters and 2 nickels', 'Three $1 bills, 1 dime and 1 nickel'], a: 0, q: 'A snack costs <b>$7.15</b>. You pay with a <b>$10 bill</b>. Which change uses the <b>fewest bills and coins</b>?', hint: 'First find the change. Then use the biggest bills and coins you can.', why: 'The change is $2.85. Two $1 bills, 3 quarters and 1 dime is $2.85 in just 6 pieces. The second and third choices are $2.85 too, but they use more pieces. The last choice is $3.15, which is the wrong amount.', badge: 'changemaker' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 6 · Midseason Film Review</div><h2>Midseason Film Review</h2>' +
+      '<p>Halfway through the season, smart GMs stop and watch the film. They look back at every game to see what the team does well and what needs more practice. This week, you’ll replay the skills from Weeks 1 to 5. It’s the last lesson before winter break, so let’s finish strong.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Math Replay.</b> Big numbers, multiplying, dividing, factors, area and perimeter.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Film Room Replay.</b> Characters, theme, central idea, text structure and summaries.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Making Change.</b> Count coins and bills and give the right change.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Math Replay</span></div><h2>Replay: Big Numbers</h2>' +
+      '<p><b>Week 1 rewind.</b> Every place in a number is worth <b>10 times</b> the place to its right. To compare, start at the <b>left</b> and find the first digit that is different.</p>' +
+      '<div class="callout"><b>Rounding rule:</b> find the place you’re rounding to, then look one digit to the <b>right</b>. <b>5 or more</b>, round up. <b>Less than 5</b>, round down.</div>' +
+      '<div data-item="b1"></div><div data-item="b2"></div><div data-item="b3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Math Replay</span></div><h2>Replay: Multiplying</h2>' +
+      '<p><b>Week 2 rewind.</b> To multiply a big number, <b>break it apart</b> by place value. Multiply each part, then add the parts together.</p>' +
+      '<div class="callout blue"><b>34 × 6:</b> 30 × 6 = 180 and 4 × 6 = 24. Then 180 + 24 = <b>204</b>.</div>' +
+      '<div data-item="x1"></div><div data-item="x2"></div><div data-item="x3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Math Replay</span></div><h2>Replay: Dividing with Remainders</h2>' +
+      '<p><b>Week 3 rewind.</b> When a number doesn’t divide evenly, the amount left over is the <b>remainder</b>. 29 ÷ 4 = 7 R1, because 4 × 7 = 28 and 1 is left.</p>' +
+      '<div class="callout"><b>Think about what the remainder means.</b> Sometimes you need one more (another van for the extra players). Sometimes you leave it out (only full boxes count). Sometimes the remainder <i>is</i> the answer (how many are left over).</div>' +
+      '<div data-item="d1"></div><div data-item="d2"></div><div data-item="d3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Math Replay</span></div><h2>Replay: Factors and Primes</h2>' +
+      '<p><b>Week 4 rewind.</b> <b>Factors</b> are numbers you multiply to get another number. <b>Multiples</b> are what you get when you skip count.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Prime:</b> has exactly two factors, 1 and itself. Example: 7 (1 × 7).</div><div class="callout"><b>Composite:</b> has more than two factors. Example: 12 (1, 2, 3, 4, 6, 12).</div></div>' +
+      '<div data-item="f1"></div><div data-item="f2"></div><div data-item="f3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Math Replay</span></div><h2>Replay: Area and Perimeter</h2>' +
+      '<p><b>Week 5 rewind.</b> <b>Area</b> is the space inside a shape. <b>Perimeter</b> is the distance around it.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Area</b> = length × width. Count it in <b>square</b> units, like square feet.</div><div class="callout"><b>Perimeter</b> = add all four sides. For a rectangle: length + width + length + width.</div></div>' +
+      '<div data-item="a1"></div><div data-item="a2"></div><div data-item="a3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room Replay</span></div><h2>Replay: Characters</h2>' +
+      '<p>A <b>character trait</b> is what a character is like on the inside, such as brave or kind. A <b>motivation</b> is the reason a character does something. Look at what characters say, do and think. And remember your <b>context clues</b> for new words.</p>' +
+      STORY + '<div data-item="tr"></div><div data-item="mo"></div><div data-item="v1"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room Replay</span></div><h2>Replay: Theme</h2>' +
+      '<p>The <b>theme</b> is the life lesson of a story. It’s a message that could help anyone, not just the characters. To find it, ask: what did the main character learn?</p>' +
+      '<div class="callout">A topic is one or two words, like “football.” A theme is a full sentence, like “Hard work pays off.”</div>' +
+      STORY + '<div data-item="th"></div><div data-item="td"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room Replay</span></div><h2>Replay: Central Idea and Text Structure</h2>' +
+      '<p>The <b>central idea</b> is the most important point of the whole text. <b>Text structure</b> is how the writer organizes the ideas.</p>' +
+      '<div class="callout blue"><b>Text structures:</b> problem and solution, cause and effect, compare and contrast, time order (sequence) and description. Look for signal words like <i>problem</i>, <i>because</i>, <i>both</i>, <i>first</i> and <i>then</i>.</div>' +
+      INFO + '<div data-item="ci"></div><div data-item="ts"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room Replay</span></div><h2>Replay: Context Clues and Summary</h2>' +
+      '<p>A <b>summary</b> tells the most important ideas in a few sentences. Leave out small details and your own opinions.</p>' +
+      INFO + '<div data-item="v2"></div><div data-item="sum"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Making Change</span></div><h2>Count the Cash</h2>' +
+      '<p>At the concession stand, you have to count money fast. Start with the bills, then count coins from the <b>biggest to the smallest</b>.</p>' +
+      '<div class="callout"><b>Quarter</b> = 25¢ · <b>Dime</b> = 10¢ · <b>Nickel</b> = 5¢ · <b>Penny</b> = 1¢ · 100¢ = $1.00</div>' +
+      '<div data-item="c1"></div><div data-item="c2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Making Change</span></div><h2>Count Up to Make Change</h2>' +
+      '<p>When someone pays more than the price, they get <b>change</b> back. Cashiers find it by <b>counting up</b> from the price to the amount paid.</p>' +
+      '<div class="callout blue"><b>Price $3.65, paid with $5:</b> $3.65 → $3.75 is 10¢. $3.75 → $4.00 is 25¢. $4.00 → $5.00 is $1. Add them up: 10¢ + 25¢ + $1 = <b>$1.35</b> in change.</div>' +
+      '<div data-item="ch1"></div><div data-item="ch3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Making Change</span></div><h2>Fewest Coins</h2>' +
+      '<p>A good cashier gives change with the <b>fewest</b> bills and coins. Use the biggest bill or coin you can, then the next biggest, and keep going.</p>' +
+      '<div class="callout"><b>30¢:</b> a quarter and a nickel is 2 coins. Three dimes is 3 coins. The quarter and nickel win.</div>' +
+      '<div data-item="fc1"></div><div data-item="fc2"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 6 in the Books</h2>' +
+      '<ul><li>Place value, rounding, multiplying, dividing, factors, area and perimeter: you replayed them all.</li>' +
+      '<li>Always ask what a remainder means before you write your answer.</li>' +
+      '<li>Characters have traits and motivations. Stories have themes. Articles have a central idea and a text structure.</li>' +
+      '<li>A summary tells the big ideas in a few sentences.</li>' +
+      '<li>To make change, count up from the price. Use the fewest bills and coins you can.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<p>That’s the first half of the season! Enjoy your winter break, GM. <b>Week 7 opens Friday, January 8.</b></p>' +
+      '<div class="inrow"><a class="btn gold" href="practice06.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can change it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-18', 'Week 6', document.getElementById('deck'))) return; FO.deck({ id: 'L06', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

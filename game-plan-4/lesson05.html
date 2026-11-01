@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 5: Stadium Upgrade · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  function T(x, y, s, anchor, size) { return '<text x="' + x + '" y="' + y + '" text-anchor="' + anchor + '" font-family="Arial" font-size="' + (size || 16) + '" font-weight="bold" fill="#0A1F3D">' + s + '</text>'; }
+  // Rectangle diagram. pw, ph = drawing size in pixels. bottom/left = side labels. grid = [cols, rows] to draw unit squares.
+  function rect(pw, ph, bottom, left, inside, grid) {
+    var x = 70, y = 16, W = pw + 140, H = ph + 52, g = '';
+    if (grid) {
+      for (var i = 1; i < grid[0]; i++) g += '<line x1="' + (x + i * pw / grid[0]) + '" y1="' + y + '" x2="' + (x + i * pw / grid[0]) + '" y2="' + (y + ph) + '" stroke="#1E6B3A" stroke-width="1" opacity=".6"/>';
+      for (var j = 1; j < grid[1]; j++) g += '<line x1="' + x + '" y1="' + (y + j * ph / grid[1]) + '" x2="' + (x + pw) + '" y2="' + (y + j * ph / grid[1]) + '" stroke="#1E6B3A" stroke-width="1" opacity=".6"/>';
+    }
+    return '<div style="max-width:' + W + 'px;margin:6px 0 10px"><svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Rectangle, ' + bottom + ' by ' + left + '">' +
+      '<rect x="' + x + '" y="' + y + '" width="' + pw + '" height="' + ph + '" fill="#DDEFD9" stroke="#1E6B3A" stroke-width="3"/>' + g +
+      T(x + pw / 2, y + ph + 26, bottom, 'middle') + T(x - 8, y + ph / 2 + 5, left, 'end') + (inside ? T(x + pw / 2, y + ph / 2 + 5, inside, 'middle', 14) : '') + '</svg></div>';
+  }
+  // L-shaped diagram: W x H overall, with an nw x nh corner cut from the top right. s = pixels per foot.
+  function lshape(s, Wf, Hf, nw, nh, split) {
+    var X = 70, Y = 26, w = Wf * s, h = Hf * s, a = (Wf - nw) * s, b = nh * s;
+    var pts = [[0, 0], [a, 0], [a, b], [w, b], [w, h], [0, h]].map(function (p) { return (X + p[0]) + ',' + (Y + p[1]); }).join(' ');
+    var svg = '<svg viewBox="0 0 ' + (X + w + 64) + ' ' + (Y + h + 40) + '" width="100%" role="img" aria-label="L-shaped space">' +
+      '<polygon points="' + pts + '" fill="#DDEFD9" stroke="#1E6B3A" stroke-width="3"/>' +
+      T(X + w / 2, Y + h + 26, Wf + ' ft', 'middle') + T(X - 8, Y + h / 2 + 5, Hf + ' ft', 'end') +
+      T(X + a / 2, Y - 8, (Wf - nw) + ' ft', 'middle') + T(X + a + 8, Y + b * 0.35 + 5, nh + ' ft', 'start') +
+      T(X + a + nw * s / 2, Y + b - 8, nw + ' ft', 'middle') + T(X + w + 8, Y + (b + h) / 2 + 5, (Hf - nh) + ' ft', 'start');
+    if (split) svg += '<line x1="' + X + '" y1="' + (Y + b) + '" x2="' + (X + a) + '" y2="' + (Y + b) + '" stroke="#DB2F30" stroke-width="3" stroke-dasharray="8 6"/>' +
+      T(X + a / 2, Y + b / 2 + 5, split[0], 'middle', 14) + T(X + w / 2, Y + (b + h) / 2 + 5, split[1], 'middle', 14);
+    return '<div style="max-width:' + (X + w + 64) + 'px;margin:6px 0 10px">' + svg + '</svg></div>';
+  }
+
+  var PASSAGE = '<div class="passage"><h4>A New Field for the Bobcats</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>For years, the Bayside Bobcats practiced on a bumpy field behind the old library. When it rained, the field turned into a muddy mess. Players slipped, and the coaches had to cancel practice again and again. Last fall, the team missed six practices because of mud.</p>' +
+    '<p><span class="pn">2</span>Coach Ellis knew the team needed a better field. He went to a city council meeting and asked for help. The council liked the idea, but the city did not have enough money to pay for all of it.</p>' +
+    '<p><span class="pn">3</span>So the Bobcats got to work. Players and parents sold T-shirts at every home game. Mateo, the team’s kicker, designed the shirts himself, with a bright orange bobcat on the front. A local bank gave $5,000, and the city paid for the rest.</p>' +
+    '<p><span class="pn">4</span>In the spring, workers removed the old grass and laid down new turf. They also put up a fence around the whole field to keep it safe. The project took about two months.</p>' +
+    '<p><span class="pn">5</span>Now the Bobcats practice on a smooth, dry field, even after a storm. “We haven’t missed a single practice this season,” Coach Ellis said proudly. Mateo shouted, “This is the coolest field in Florida!”</p></div>';
+
+  var items = {
+    per1: { t: 'num', a: 130, unit: 'feet', pre: rect(240, 150, '40 ft', '25 ft'), q: 'The Bobcats want a fence around their practice field. The field is <b>40 feet</b> long and <b>25 feet</b> wide. How many feet of fence do they need?', ph: 'Type the number', hint: 'A rectangle has 4 sides. Add all four: 40 + 25 + 40 + 25.', why: 'Perimeter = 40 + 25 + 40 + 25 = 130 feet. Adding only two sides (65) would fence just half the field.' },
+    per2: { t: 'mc', o: ['36 feet', '81 feet', '18 feet', '27 feet'], a: 0, q: 'A square sign has sides that are each <b>9 feet</b> long. What is the <b>perimeter</b> of the sign?', hint: 'A square has 4 equal sides.', why: 'All 4 sides are 9 feet, so 9 + 9 + 9 + 9 = 36 feet (or 4 × 9 = 36). 81 is the area, not the perimeter.' },
+    area1: { t: 'num', a: 96, unit: 'square feet', pre: rect(240, 160, '12 ft', '8 ft'), q: 'The equipment room floor is <b>12 feet</b> long and <b>8 feet</b> wide. How many <b>square feet</b> of rubber mat will cover the floor?', ph: 'Type the number', hint: 'Area = length × width.', why: 'Area = 12 × 8 = 96 square feet.' },
+    area2: { t: 'mc', o: ['1,000 square feet', '130 square feet', '65 square feet', '100 square feet'], a: 0, q: 'The practice field is <b>40 feet</b> long and <b>25 feet</b> wide. How much turf will cover the <b>whole field</b>?', hint: 'Covering a space is area. Multiply length × width.', why: 'Area = 40 × 25 = 1,000 square feet. 130 is the perimeter, the distance around the field.' },
+    sort: { t: 'sort', bins: ['Area', 'Perimeter'], items: [['Turf to cover the field', 0], ['Carpet for the locker room floor', 0], ['A tarp to cover the field in the rain', 0], ['Paint for a whole wall', 0], ['A fence around the field', 1], ['A painted stripe along the edge of the field', 1], ['Rope around the parking lot', 1], ['Trim around the edge of a poster', 1]], q: 'Sort each job: does the GM need to know the <b>area</b> or the <b>perimeter</b>?', hint: 'Covering the inside = area. Going around the edge = perimeter.', why: 'Turf, carpet, a tarp and wall paint cover a whole space, so they use area. A fence, an edge stripe, rope and trim go around the outside, so they use perimeter.' },
+    ap: { t: 'mc', o: ['Area 35 square feet, perimeter 24 feet', 'Area 24 square feet, perimeter 35 feet', 'Area 12 square feet, perimeter 35 feet', 'Area 35 square feet, perimeter 12 feet'], a: 0, q: 'A team banner is <b>7 feet</b> long and <b>5 feet</b> wide. Which is true?', hint: 'Area: 7 × 5. Perimeter: 7 + 5 + 7 + 5.', why: 'Area = 7 × 5 = 35 square feet. Perimeter = 7 + 5 + 7 + 5 = 24 feet. 12 is only two sides added together.' },
+    miss1: { t: 'num', a: 9, unit: 'feet', pre: rect(240, 160, '? ft', '8 ft', 'Area = 72 square feet'), q: 'A storage room has an area of <b>72 square feet</b>. It is <b>8 feet</b> wide. How long is it?', ph: 'Type the number', hint: 'What number times 8 equals 72? Divide 72 ÷ 8.', why: '72 ÷ 8 = 9, so the room is 9 feet long. Check: 9 × 8 = 72.' },
+    miss2: { t: 'num', a: 10, unit: 'feet', pre: rect(240, 160, '15 ft', '? ft', 'Perimeter = 50 feet'), q: 'A rectangle-shaped warm-up area has a perimeter of <b>50 feet</b>. It is <b>15 feet</b> long. How wide is it?', ph: 'Type the number', hint: 'Take away the two long sides: 50 − 15 − 15. Then split what is left in half.', why: '50 − 15 − 15 = 20 feet for the two short sides. 20 ÷ 2 = 10 feet. Check: 15 + 10 + 15 + 10 = 50.' },
+    comp1: { t: 'num', a: 88, unit: 'square feet', pre: lshape(20, 12, 9, 5, 4), q: 'Here is the floor of the new snack stand. What is its <b>area</b>?', ph: 'Type the number', hint: 'Draw a line to split it into two rectangles. The bottom one is 12 ft by 5 ft. The top one is 7 ft by 4 ft.', why: 'Bottom rectangle: 12 × 5 = 60. Top rectangle: 7 × 4 = 28. Total: 60 + 28 = 88 square feet.' },
+    comp2: { t: 'mc', o: ['42 feet', '88 square feet', '38 feet', '21 feet'], a: 0, q: 'The snack stand needs a strip of trim around its <b>whole edge</b>. Use the same floor plan. What is the <b>perimeter</b>?', pre: lshape(20, 12, 9, 5, 4), hint: 'This shape has 6 sides. Add every one of them.', why: '12 + 9 + 7 + 4 + 5 + 5 = 42 feet. Leaving out the 4-foot side gives 38, and 88 square feet is the area.', badge: 'builder' },
+
+    main: { t: 'mc', o: ['The Bobcats and their town replaced a muddy field with a new turf field, so now the team can practice in any weather.', 'Mateo designed T-shirts with a bright orange bobcat on the front.', 'Rain can make a football field muddy.', 'The city council meets to talk about money.'], a: 0, q: 'Which sentence tells what the whole story “A New Field for the Bobcats” is <b>mostly about</b>?', hint: 'What is the whole story about, from start to finish?', why: 'The story starts with a muddy field and ends with a new one. That is what the whole story is mostly about. The other choices are small details or not what the story is about.' },
+    keep: { t: 'multi', o: ['Players and parents sold T-shirts to help pay for the field.', 'Workers laid down new turf and put up a fence.', 'Mateo’s shirts had a bright orange bobcat on the front.', 'The old field was behind the old library.'], a: [0, 1], q: 'Which <b>two details</b> are important enough to go in a summary?', hint: 'Pick the details that tell how the problem got solved.', why: 'Raising money and building the new field are big steps in the story. The shirt color and where the old field was are small details.' },
+    small: { t: 'mc', o: ['The bobcat on the shirts was bright orange.', 'The old field turned muddy when it rained.', 'The team raised money to help pay for the field.', 'The team can now practice even after storms.'], a: 0, q: 'Which detail is <b>too small</b> to put in a summary?', hint: 'If you left it out, would the story still make sense?', why: 'The shirt color is fun, but the story makes sense without it. The other three are needed to tell what happened.' },
+    opin: { t: 'mc', o: ['“This is the coolest field in Florida!”', 'Workers laid down new turf.', 'The city did not have enough money to pay for all of it.', 'A local bank gave $5,000.'], a: 0, q: 'A summary leaves out opinions. Which part of the story is an <b>opinion</b>?', hint: 'An opinion is what someone thinks or feels. It can’t be proven.', why: '“Coolest” is what Mateo feels. Someone else might disagree, so it is an opinion. The others are facts.' },
+    seq: { t: 'order', items: ['The muddy field caused canceled practices.', 'Coach Ellis asked the city council for help.', 'The team sold T-shirts and got help from a bank and the city.', 'Workers laid new turf and built a fence.', 'The Bobcats now practice in any weather.'], q: 'A summary tells events <b>in order</b>. Tap the events in the order they happened.', hint: 'Use the paragraph numbers. Paragraph 1 comes first.', why: 'Problem (mud), asking for help, raising money, building the field, then the happy ending.' },
+    sum: { t: 'mc', o: ['The Bobcats’ old field got so muddy that practices were canceled. With T-shirt sales, a gift from a bank and help from the city, the team got a new turf field with a fence. Now they can practice even after storms.', 'Mateo designed shirts with a bright orange bobcat. A bank gave $5,000. Mateo said it was the coolest field in Florida.', 'The Bobcats got a new field.', 'Workers put in new turf. The Bobcats had a muddy field. Coach Ellis went to a meeting.'], a: 0, q: 'Which is the <b>best summary</b> of the story?', hint: 'Look for what the whole story is mostly about, the big details in order, and no opinions.', why: 'It tells the problem, how it was solved and how it ended, in order. The others have small details and an opinion, are too short, or are out of order.', badge: 'summarystar' },
+
+    less: { t: 'mc', keep: true, o: ['Sports Shack', 'Game Day Store', 'They cost the same'], a: 1, q: 'A football costs <b>$18.75</b> at Sports Shack and <b>$17.90</b> at Game Day Store. Which store has the <b>lower price</b>?', hint: 'Compare the dollars first: 18 or 17?', why: '$17 is less than $18, so $17.90 at Game Day Store costs less.' },
+    diff: { t: 'num', a: 0.85, show: '$0.85', unit: 'dollars', q: 'Use the same prices: <b>$18.75</b> and <b>$17.90</b>. How much <b>less</b> is the football at Game Day Store?', ph: 'Answer in dollars, like 0.50', hint: 'Subtract the smaller price from the bigger price. Line up the decimal points.', why: '$18.75 − $17.90 = $0.85. You save 85 cents.' },
+    pack: { t: 'mc', keep: true, o: ['The 3-pack for $6', 'Three single drinks at $2.50 each', 'They cost the same'], a: 0, q: 'You need <b>3</b> sports drinks. A 3-pack costs <b>$6</b>. Single drinks cost <b>$2.50 each</b>. Which way costs less?', hint: 'Find the cost of 3 single drinks: $2.50 + $2.50 + $2.50.', why: 'Three singles cost $2.50 × 3 = $7.50. The 3-pack is only $6, so the pack costs less.' },
+    save: { t: 'num', a: 1.5, show: '$1.50', unit: 'dollars', q: 'How much do you <b>save</b> by buying the 3-pack for <b>$6</b> instead of 3 singles for <b>$7.50</b>?', ph: 'Example: 1.25', hint: 'Subtract: $7.50 − $6.00.', why: '$7.50 − $6.00 = $1.50 saved.' },
+    sale: { t: 'num', a: 37, show: '$37', unit: 'dollars', q: 'Cleats usually cost <b>$45</b>. This week they are <b>$8 off</b>. What is the <b>sale price</b>?', ph: 'Type the price', hint: '“$8 off” means subtract $8.', why: '$45 − $8 = $37.' },
+    best: { t: 'mc', keep: true, o: ['Store A: $45, now $8 off', 'Store B: $39, now $3 off', 'They cost the same'], a: 1, q: 'Two stores sell the same cleats. Which store has the <b>lower sale price</b>?', hint: 'Find each sale price first. The bigger discount is not always the better deal.', why: 'Store A: $45 − $8 = $37. Store B: $39 − $3 = $36. $36 is less, so Store B wins by $1.', badge: 'smartshopper' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 5 · Stadium Upgrade</div><h2>Stadium Upgrade</h2>' +
+      '<p>Your team is getting a stadium upgrade. New turf, new fences and new gear all cost money, and they all have to fit. A smart GM measures before buying and compares prices before paying.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Stadium Builder.</b> Find area and perimeter.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Highlight Reel.</b> Summarize a story.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Smart Shopper.</b> Compare prices and spot the deal.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Builder</span></div><h2>Fencing the Field</h2>' +
+      '<p>The <b>perimeter</b> is the distance <b>all the way around</b> a shape. To find it, add the lengths of every side. We measure perimeter in <b>feet</b>.</p>' +
+      rect(210, 140, '30 ft', '20 ft') +
+      '<div class="callout">A rectangle has 2 long sides and 2 short sides. This one: <b>30 + 20 + 30 + 20 = 100 feet</b>. A quick way: <b>2 × (length + width)</b> = 2 × 50 = 100 feet.</div>' +
+      '<div data-item="per1"></div><div data-item="per2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Builder</span></div><h2>Covering It with Turf</h2>' +
+      '<p>The <b>area</b> is the space <b>inside</b> a shape. We measure it in <b>square feet</b>: squares that are 1 foot on each side.</p>' +
+      rect(240, 160, '6 ft', '4 ft', '', [6, 4]) +
+      '<div class="callout blue">You could count all the squares: 4 rows of 6 is 24. The fast way is the formula: <b>Area = length × width</b>. 6 × 4 = <b>24 square feet</b>.</div>' +
+      '<div data-item="area1"></div><div data-item="area2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Builder</span></div><h2>Area or Perimeter?</h2>' +
+      '<p>Before buying anything, a smart GM asks one question: am I going <b>around</b> the space or <b>covering</b> it?</p>' +
+      '<div class="grid2"><div class="callout"><b>Perimeter:</b> the edge. Fences, stripes, rope and trim. Add the sides. Answer in <b>feet</b>.</div><div class="callout blue"><b>Area:</b> the inside. Turf, carpet, mats and paint. Multiply length × width. Answer in <b>square feet</b>.</div></div>' +
+      '<div data-item="sort"></div><div data-item="ap"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Builder</span></div><h2>The Missing Side</h2>' +
+      '<p>Sometimes the builder knows the area or perimeter but is missing one side. You can work backward to find it.</p>' +
+      '<div class="callout"><b>Missing side from area:</b> divide. A 40 square foot room that is 5 feet wide is 40 ÷ 5 = <b>8 feet</b> long.</div>' +
+      '<div class="callout blue"><b>Missing side from perimeter:</b> take away the two sides you know, then split what is left in half. Perimeter 30 feet, length 10 feet: 30 − 10 − 10 = 10, and 10 ÷ 2 = <b>5 feet</b> wide.</div>' +
+      '<div data-item="miss1"></div><div data-item="miss2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Builder</span></div><h2>Odd-Shaped Spaces</h2>' +
+      '<p>Not every room is a rectangle. For an L-shaped space, draw a line to <b>split it into two rectangles</b>. Find each area, then add.</p>' +
+      lshape(22, 10, 8, 4, 3, ['6 × 3 = 18', '10 × 5 = 50']) +
+      '<div class="callout">Top rectangle: 6 × 3 = 18. Bottom rectangle: 10 × 5 = 50. Total area: 18 + 50 = <b>68 square feet</b>. For the perimeter, add all 6 sides: 10 + 8 + 6 + 3 + 4 + 5 = <b>36 feet</b>.</div>' +
+      '<div data-item="comp1"></div><div data-item="comp2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Highlight Reel</span></div><h2>What Goes in a Summary?</h2>' +
+      '<p>After a game, TV shows play a <b>highlight reel</b>: just the biggest plays, in order, in a few minutes. A <b>summary</b> does the same thing for a story. It tells <b>what the whole story is mostly about</b> and the <b>most important details</b>, in your own words.</p>' +
+      '<div class="callout"><b>Keep:</b> what the whole story is mostly about, and the big events. <b>Cut:</b> small details that the story doesn’t need.</div>' +
+      PASSAGE + '<div data-item="main"></div><div data-item="keep"></div><div data-item="small"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Highlight Reel</span></div><h2>Short, In Order, No Opinions</h2>' +
+      '<p>A strong summary is <b>short</b>, tells events <b>in order</b>, and sticks to <b>facts</b>. It leaves out opinions, which are what someone thinks or feels.</p>' +
+      '<div class="callout blue"><b>Summary check:</b> Does it tell what the whole story is mostly about? Are the big events in order? Did I cut small details and opinions? Is it in my own words?</div>' +
+      PASSAGE + '<div data-item="opin"></div><div data-item="seq"></div><div data-item="sum"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Smart Shopper</span></div><h2>Which Costs Less?</h2>' +
+      '<p>Smart GMs check prices at more than one store. To compare prices, look at the <b>dollars</b> first. If the dollars match, compare the <b>cents</b>.</p>' +
+      '<div class="callout">$12.40 or $12.75? The dollars match (12), so look at the cents: 40 cents is less than 75 cents, so <b>$12.40</b> costs less. To find <b>how much less</b>, subtract: $12.75 − $12.40 = <b>$0.35</b>.</div>' +
+      '<div data-item="less"></div><div data-item="diff"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Smart Shopper</span></div><h2>Spot the Deal</h2>' +
+      '<p>Stores use deals to get you to buy. Do the math before you decide.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>More than one:</b> “2 for $5” or “$3 each”? Find the cost of 2 at $3 each: $3 + $3 = $6. The deal ($5) costs less.</div><div class="callout"><b>Sale price:</b> “$10 off” means subtract $10 from the regular price. A $30 helmet with $10 off costs $20.</div></div>' +
+      '<div data-item="pack"></div><div data-item="save"></div><div data-item="sale"></div><div data-item="best"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 5 in the Books</h2>' +
+      '<ul><li>Perimeter is the distance around a shape. Add every side, and answer in feet.</li>' +
+      '<li>Area is the space inside. For a rectangle, multiply length × width, and answer in square feet.</li>' +
+      '<li>To find a missing side, work backward: divide the area, or take the known sides away from the perimeter and split what is left.</li>' +
+      '<li>Split odd shapes into rectangles, then add the areas.</li>' +
+      '<li>A summary tells what the whole story is mostly about and the big events, in order, in your own words, with no small details or opinions.</li>' +
+      '<li>Compare prices before you buy. Find the price for the amount you need, and subtract to find the sale price.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice05.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can change it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-11', 'Week 5', document.getElementById('deck'))) return; FO.deck({ id: 'L05', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

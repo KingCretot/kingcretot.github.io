@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 6 · Game Plan Grade 4 · KCE</title>
+<link rel="stylesheet" href="fo.css?v=11">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=16"></script>
+<script>
+(function () {
+  var A = [
+    { s: 'Math', t: 'mc', o: ['70,000', '7,000', '700,000', '700'], a: 0, q: 'In <b>274,903</b>, what is the <b>value</b> of the <b>7</b>?', hint: 'Which place is the 7 in?', why: 'The 7 is in the ten thousands place, so it is worth 70,000.' },
+    { s: 'Math', t: 'num', a: 518000, show: '518,000', q: 'Round <b>518,362</b> to the nearest <b>thousand</b>.', hint: 'Look at the hundreds digit, 3.', why: 'The digit to the right of the thousands place is 3, which is less than 5, so round down: 518,000.' },
+    { s: 'Math', t: 'num', a: 228, q: 'Multiply: <b>38 × 6</b>', hint: 'Break 38 into 30 + 8.', why: '30 × 6 = 180 and 8 × 6 = 48. 180 + 48 = 228.' },
+    { s: 'Math', t: 'num', a: 8, unit: 'buses', q: '<b>70 fans</b> are riding buses to the big game. Each bus holds <b>9</b> fans. How many buses are needed so <b>every</b> fan gets a ride?', hint: 'Find 70 ÷ 9. What about the fans left over?', why: '70 ÷ 9 = 7 R7. Seven buses carry 63 fans, but 7 fans still need a ride, so you need 8 buses.' },
+    { s: 'Math', t: 'mc', o: ['17', '21', '27', '15'], a: 0, q: 'Which number is <b>prime</b>?', hint: 'A prime number has only two factors: 1 and itself.', why: '17 has only the factors 1 and 17. 21 = 3 × 7, 27 = 3 × 9 and 15 = 3 × 5, so they are composite.' },
+    { s: 'Math', t: 'num', a: 56, unit: 'square yards', q: 'A practice field section is <b>8 yards</b> long and <b>7 yards</b> wide. What is its <b>area</b>?', hint: 'Area = length × width.', why: '8 × 7 = 56 square yards.' },
+    { s: 'Math', t: 'num', a: 38, unit: 'feet', q: 'A bench area is a rectangle <b>15 feet</b> long and <b>4 feet</b> wide. What is its <b>perimeter</b>?', hint: 'Add all four sides.', why: '15 + 4 + 15 + 4 = 38 feet.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Hard work can help you earn the trust and respect of others.', 'Football is mostly about being big and strong.', 'Teammates should always agree with each other.', 'If something is hard at first, you should quit.'], a: 0, q: 'What is the <b>theme</b> of “The Perfect Snap”?', hint: 'What changed after Nia practiced?', why: 'Nia practiced until her snaps were great, and the teammates who laughed ended up asking for her help.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['She wanted her team to trust her.', 'Her coach made her do it.', 'She wanted to play quarterback.', 'She was bored at home.'], a: 0, q: 'In paragraph 3, <b>why</b> does Nia practice in her backyard?', hint: 'Read the last sentence of paragraph 3.', why: 'The story says, “She wanted her team to trust her.” That is her motivation.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Laughed quietly in an unkind way', 'Cheered loudly', 'Ran away', 'Clapped their hands'], a: 0, q: 'In paragraph 2, what does <b>snickered</b> mean?', hint: 'Read the words right after it.', why: 'The teammates were “laughing quietly behind their hands,” and Nia’s cheeks burned, so it was an unkind, quiet laugh.' },
+    { s: 'Money', t: 'num', a: 84, unit: 'cents', q: 'Count the coins: <b>2 quarters, 3 dimes and 4 pennies</b>. How many <b>cents</b> is that?', hint: 'Start with the quarters.', why: '50 + 30 + 4 = 84 cents.' },
+    { s: 'Money', t: 'num', a: 1.55, show: '$1.55', unit: 'dollars', q: 'A game program costs <b>$3.45</b>. You pay with a <b>$5 bill</b>. How much change should you get?', hint: 'Count up: $3.45 to $3.50, then to $4.00, then to $5.00.', why: '5¢ + 50¢ + $1 = $1.55.' },
+    { s: 'Money', t: 'mc', o: ['A quarter and a dime', 'Three dimes and a nickel', 'Seven nickels', 'A quarter and two nickels'], a: 0, q: 'Which uses the <b>fewest coins</b> to make <b>35¢</b>?', hint: 'Start with the biggest coin you can.', why: 'A quarter and a dime is 35¢ in just 2 coins. The others use 3, 4 or 7 coins.' }
+  ];
+  var B = [
+    { s: 'Math', t: 'mc', o: ['40,000', '4,000', '400,000', '400'], a: 0, q: 'In <b>843,615</b>, what is the <b>value</b> of the <b>4</b>?', hint: 'Which place is the 4 in?', why: 'The 4 is in the ten thousands place, so it is worth 40,000.' },
+    { s: 'Math', t: 'num', a: 265000, show: '265,000', q: 'Round <b>264,851</b> to the nearest <b>thousand</b>.', hint: 'Look at the hundreds digit, 8.', why: 'The digit to the right of the thousands place is 8, which is 5 or more, so the 4 goes up to 5: 265,000.' },
+    { s: 'Math', t: 'num', a: 378, q: 'Multiply: <b>54 × 7</b>', hint: 'Break 54 into 50 + 4.', why: '50 × 7 = 350 and 4 × 7 = 28. 350 + 28 = 378.' },
+    { s: 'Math', t: 'num', a: 7, unit: 'boxes', q: 'The team bakes <b>60 cupcakes</b> for a bake sale. Each box holds <b>8</b> cupcakes. How many boxes can be <b>completely filled</b>?', hint: 'Find 60 ÷ 8. Do the leftover cupcakes fill a whole box?', why: '60 ÷ 8 = 7 R4. Seven boxes are full, and the 4 leftover cupcakes are not enough to fill another box.' },
+    { s: 'Math', t: 'mc', o: ['25', '23', '19', '11'], a: 0, q: 'Which number is <b>composite</b>?', hint: 'A composite number has more than two factors.', why: '25 has the factors 1, 5 and 25, so it is composite. 23, 19 and 11 are prime.' },
+    { s: 'Math', t: 'num', a: 45, unit: 'square yards', q: 'A warm-up area is <b>9 yards</b> long and <b>5 yards</b> wide. What is its <b>area</b>?', hint: 'Area = length × width.', why: '9 × 5 = 45 square yards.' },
+    { s: 'Math', t: 'num', a: 40, unit: 'feet', q: 'A team tent is a rectangle <b>14 feet</b> long and <b>6 feet</b> wide. What is its <b>perimeter</b>?', hint: 'Add all four sides.', why: '14 + 6 + 14 + 6 = 40 feet.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Helping each other can turn a hard wait into a chance to get ready.', 'Thunderstorms are dangerous.', 'Kickers are the most important players.', 'It is best to wait by yourself.'], a: 0, q: 'What is the <b>theme</b> of “Rain Delay”?', hint: 'How did Marco feel before and after he studied with Ben?', why: 'Marco and Ben helped each other study during the rain delay. Marco went from restless to calm and ready, and Ben says Marco helped him too.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Calm', 'Restless', 'Bossy', 'Lazy'], a: 0, q: 'Which word best describes <b>Ben</b>?', hint: 'Read paragraph 3. How is Ben sitting?', why: 'Ben was “sitting calmly in the corner” and invited Marco to help. Restless describes Marco, not Ben.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Unable to sit still', 'Very sleepy', 'Happy and relaxed', 'Hungry'], a: 0, q: 'In paragraph 2, what does <b>restless</b> mean?', hint: 'Read the words right after it.', why: 'The story says he was “unable to sit still for even a minute,” and he paced back and forth.' },
+    { s: 'Money', t: 'num', a: 78, unit: 'cents', q: 'Count the coins: <b>1 quarter, 4 dimes, 2 nickels and 3 pennies</b>. How many <b>cents</b> is that?', hint: 'Start with the quarter.', why: '25 + 40 + 10 + 3 = 78 cents.' },
+    { s: 'Money', t: 'num', a: 7.3, show: '$7.30', unit: 'dollars', q: 'A team hat costs <b>$12.70</b>. You pay with a <b>$20 bill</b>. How much change should you get?', hint: 'Count up: $12.70 to $13.00, then to $20.00.', why: '30¢ + $7 = $7.30.' },
+    { s: 'Money', t: 'mc', o: ['Two quarters and a dime', 'Six dimes', 'A quarter, three dimes and a nickel', 'Two quarters and two nickels'], a: 0, q: 'Which uses the <b>fewest coins</b> to make <b>60¢</b>?', hint: 'Start with the biggest coin you can.', why: 'Two quarters and a dime is 60¢ in just 3 coins. The others use 4, 5 or 6 coins.' }
+  ];
+  var PA = '<div class="passage"><h4>The Perfect Snap</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>Nia was the smallest player on the Westside Wolves, and she played center. Her job was to snap the ball back to the quarterback at the start of every play.</p>' +
+    '<p><span class="pn">2</span>At the first practice, her snaps flew too high. The quarterback had to jump to catch them. Some teammates snickered, laughing quietly behind their hands. Nia’s cheeks burned.</p>' +
+    '<p><span class="pn">3</span>That night, Nia set up an old laundry basket in her backyard. She snapped the ball into it again and again until the porch light came on. She wanted her team to trust her.</p>' +
+    '<p><span class="pn">4</span>By the end of the week, almost every snap landed right in the quarterback’s hands. At the next practice, the same teammates who had laughed asked Nia to show them how she did it.</p></div>';
+  var PB = '<div class="passage"><h4>Rain Delay</h4><div class="by">A short story</div>' +
+    '<p><span class="pn">1</span>Marco was the kicker for the Pine Grove Panthers. He loved game days, but he did not love waiting.</p>' +
+    '<p><span class="pn">2</span>Before the championship game, a thunderstorm rolled in. The referees sent both teams to the locker rooms. Marco paced back and forth. He was restless, unable to sit still for even a minute.</p>' +
+    '<p><span class="pn">3</span>His teammate Ben was sitting calmly in the corner, reading the team’s playbook. “Want to help me study?” Ben asked. Marco sat down beside him, and they quizzed each other on every play.</p>' +
+    '<p><span class="pn">4</span>When the storm passed, the Panthers ran back onto the field. Marco felt calm and ready. Late in the game, he kicked the winning extra point. “Thanks for the help,” he told Ben. Ben laughed. “You helped me too.”</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-18', 'Week 6', document.getElementById('practice'))) return;
+    FO.practice({ week: 6, title: 'Midseason Film Review', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w6win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>
