@@ -58,6 +58,8 @@ ok('loading the same file again makes no copies', (await list('families/t/studen
 // dashboard shows it
 await A.click('.tabs button:has-text("Students")'); await wait(500); await A.click('.stu:has-text("Bristol")'); await wait(600);
 const h=(await A.innerText('#detail')).replace(/\s+/g,' ');
+const rowB=(await A.innerText('tr:has-text("Bristol")')).replace(/\s+/g,' ');
+ok('Last activity shows her real last score time (10/28/2026, 8:03 AM), not the load time', rowB.includes('10/28/2026, 8:03 AM'));
 ok('Bristol history shows "Past score" rows with lesson titles', h.includes('Past score') && h.includes('Equal Groups or Not?') && h.includes('Lesson 4 · best 100 ✓'));
 
 // a family cannot write a "past score"
