@@ -125,3 +125,31 @@ TOPICS["celine"] = {
 MASTERY["celine"] = 85
 NAMES["celine"] = "Ce'Line"
 SINGLE.add("celine")
+
+# ── Nov 1, 2026: Bristol and Bailey HALT and SHIFT (Jonathan's decision, Option A).
+# Week 2 was not finished, so Mon Nov 2 is a catch-up lesson (no new lesson, no new links).
+# Lessons 6–10 each move one slot later with all their linked lessons; Lesson 11 (Week 4 Prove it)
+# takes the Thu Dec 3 slot and doubles as the welcome-back lesson. Lesson 12 (Welcome Back Review) is
+# dropped; Lesson 13 onward keep their dates, so the course still ends Thu Jan 28, 2027.
+_SHIFT = {6: ("2026-11-03", "Tue", "In person"), 7: ("2026-11-05", "Thu", "In person"),
+          8: ("2026-11-09", "Mon", "Zoom"), 9: ("2026-11-10", "Tue", "In person"),
+          10: ("2026-11-12", "Thu", "In person"), 11: ("2026-12-03", "Thu", "In person")}
+_SHIFTED = [(n, *_SHIFT[n]) if n in _SHIFT else (n, d, wd, md) for (n, d, wd, md) in DATES]
+_WEEKS_SHIFTED = [(1, [1, 2]), (2, [3, 4, 5]), (3, [6, 7, 8]), (4, [9, 10]), (5, [11]),
+                  (6, [13, 14, 15]), (7, [16, 17, 18]), (8, [19, 20, 21]), (9, [22, 23, 24]), (10, [25, 26, 27]), (11, [28, 29, 30])]
+for _w in ("bristol", "bailey"):
+    STU_DATES[_w] = _SHIFTED
+    STU_WEEKS[_w] = _WEEKS_SHIFTED
+TOPICS["bristol"][5] = ("Welcome Back: Prove It", "Week 4 Prove it + welcome-back review", "#C9A84C", [])
+TOPICS["bailey"][5] = ("Welcome Back: Prove It", "Week 4 Prove it + welcome-back review", "#C9A84C", [])
+_SIMON2 = [
+ (4, "gratitude.html", "The Simon Family Gratitude Project", "Mon, Nov 16 – Wed, Dec 2", "Lesson 11 · Thu, Dec 3"),
+ (7, "holiday.html", "The Simon Family Holiday Gazette", "Sun, Dec 20 – Sun, Jan 3", "Lesson 19 · Mon, Jan 4 (Zoom)"),
+]
+PROJECTS["bristol"] = PROJECTS["bailey"] = [p + (_simon_desc(p[4]),) for p in _SIMON2]
+
+def lesson_order(who):
+    return [n for _, ns in weeks_for(who) for n in ns]
+def prev_of(who, n):
+    o = lesson_order(who)
+    return o[o.index(n) - 1] if n in o and o.index(n) > 0 else None

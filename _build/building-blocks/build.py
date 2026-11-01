@@ -4,7 +4,7 @@ import os as _os
 import json, os, sys, glob, html, datetime, shutil
 sys.path.insert(0, os.path.dirname(__file__))
 from plan import *
-OUT = "/home/claude/kgh/building-blocks"
+OUT = os.environ.get("BB_OUT", "/home/claude/kgh/building-blocks")
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">'
 TOP = '<div class="top"><span class="wm">KingCretot Experience</span><span class="tg"><span class="e">EDUCATE.</span> <span class="m">EMPOWER.</span> <span class="x">EXCEL.</span></span></div><div class="tri"><span class="b"></span><span class="g"></span><span class="r"></span></div>'
@@ -188,6 +188,35 @@ def teacher_page(who, L, m):
         '<script src="../bb.js"></script><script>BBTeacher();</script>')
     return page(f"Teacher Plan · {NAMES[who]} Lesson {m['n']}", body)
 
+CATCHUP = json.load(open(f"{HERE}/data/catchup.json")) if os.path.exists(f"{HERE}/data/catchup.json") else {}
+
+def catchup_card(who, C):
+    head = f'<div class="dt">{E(dlabel(C["date"], True))} · {"💻 Zoom" if C["mode"]=="Zoom" else "🏫 In person"}</div><div class="ln">Catch-up · no new lesson</div>'
+    btns = "".join(f'<a class="{k}" href="{h}">{E(t)}</a>' for t, h, k in C["buttons"])
+    also = "".join(f'<li>🔗 <a href="{a["url"]}" target="_blank">{E(a["label"])}</a><br><span>{a["how"]}</span></li>' for a in C["also"])
+    tasks = "".join(f'<label class="task"><input type="checkbox" id="t-{who}-0-{i}"> {tk}</label>' for i, tk in enumerate(C["tasks"]))
+    return (f'<div class="card catchup" data-lesson="bb-{who}-C1" data-date="{C["date"]}" style="border-top-color:#C9A84C">{head}<h3>{E(C["title"])}</h3><div class="gl">🎯 {E(C["goal"])}</div>'
+            f'<p class="desc">{C["desc"]}</p><div class="btns">{btns}<a class="b3" href="catchup-{C["id"]}.html">🔒 Teacher plan &amp; key</a></div>'
+            + (f'<div class="also"><b>Also do:</b><ul>{also}</ul></div>' if also else "") + f'<div class="tasks"><b>✅ Before the next lesson:</b>{tasks}</div></div>')
+
+def catchup_teacher(who, C):
+    T = C["teacher"]
+    plan = "".join(f'<tr><td style="white-space:nowrap"><b>{E(t)}</b></td><td><b>{E(b)}</b><br>{E(d)}</td></tr>' for t, b, d in T["plan"])
+    key = "".join(f'<tr><td>{E(q)}</td><td>{E(a)}</td></tr>' for q, a in T["key"])
+    body = (TOP + '<div class="stage" style="padding-bottom:40px"><div id="tbody" style="display:none">'
+        f'<h1 style="color:#0A1F3D;margin:0">Teacher Plan · {NAMES[who]} · Catch-up: Finish Week 2</h1>'
+        f'<p style="margin:4px 0 14px">{E(dlabel(C["date"]))} · {"Zoom" if C["mode"]=="Zoom" else "In person"} · 60 minutes · Name: {NAMES[who]} · Date: {mdy(C["date"])}</p>'
+        f'<div class="tip">🎯 <b>Objective:</b> {E(T["objective"])}</div>'
+        f'<h2 style="color:#0A1F3D">Where she is</h2><p>{E(T["status"])}</p>'
+        '<h2 style="color:#0A1F3D">Materials</h2><ul>' + "".join(f"<li>{E(x)}</li>" for x in T["materials"]) + '</ul>'
+        f'<h2 style="color:#0A1F3D">Plan</h2><table class="tt">{plan}</table>'
+        f'<h2 style="color:#0A1F3D">Answer key</h2><table class="tt"><tr><th>Item</th><th>Answer</th></tr>{key}</table>'
+        f'<div class="tip" style="margin-top:14px">➡️ <b>Decision for Tuesday:</b> {E(T["decision"])}</div>'
+        '<h2 style="color:#0A1F3D">Task list given to the student</h2><ul>' + "".join(f"<li>{t}</li>" for t in C["tasks"]) + '</ul>'
+        '</div></div><style>.tt{border-collapse:collapse;width:100%;font-size:16px;background:#fff}.tt td,.tt th{border:1px solid #E2D8C2;padding:7px 9px;vertical-align:top;text-align:left}.tt th{background:#0A1F3D;color:#fff}h2{font-size:22px;margin:20px 0 6px}</style>'
+        '<script src="../bb.js"></script><script>BBTeacher();</script>')
+    return page(f"Teacher Plan · {NAMES[who]} Catch-up", body)
+
 def course_page(who, Ls):
     nm = NAMES[who]
     secs = ""
@@ -201,7 +230,7 @@ def course_page(who, Ls):
             else:
                 di, dn = day_in_week(n)
                 dayname = ["", "Learn it", "Practice it", "Prove it"][di] if dn == 3 else (["", "Learn it", "Prove it"][di] if dn == 2 else "Review")
-            prev = n - 1 if n > 1 else None
+            prev = prev_of(who, n)
             head = f'<div class="dt">{E(dlabel(m["date"], True))} · {"💻 Zoom" if m["mode"]=="Zoom" else "🏫 In person"}</div><div class="ln">Lesson {n} · {dayname}</div>'
             if not L:
                 secs += f'<div class="card soon">{head}<h3>{E(t[0])}</h3><p class="desc">This lesson is being built. It will be here before {E(dlabel(m["date"], True))}.</p></div>'
@@ -217,6 +246,8 @@ def course_page(who, Ls):
             inner = (f'<div class="wcol">{c1}</div><div class="wcol">{c2}</div><div class="wcol">{c3}</div>' if wide else c1 + c2 + c3)
             secs += (f'<div class="card{" wide" if wide else ""}" data-lesson="bb-{who}-L{n:02d}" data-label="Lesson {n}" data-date="{m["date"]}"' + (f' data-prev="bb-{who}-L{prev:02d}"' if prev else "") + '>'
                      + inner + '</div>')
+            for C in CATCHUP.get(who, []):
+                if C["after"] == n: secs += catchup_card(who, C)
         secs += '</div></section>'
         for pw, pf, ptitle, pdates, pshow, pdesc in PROJECTS.get(who, []):
             if pw == w:
@@ -256,14 +287,18 @@ def course_page(who, Ls):
 
 def build(who):
     Ls = load(who); d = f"{OUT}/{who}"; os.makedirs(d, exist_ok=True)
+    order = lesson_order(who)
+    Ls = {n: L for n, L in Ls.items() if n in order}   # lessons dropped from the schedule are not built or linked
     for n, L in Ls.items():
-        m = meta(who, n); prev = n - 1 if n > 1 else None
+        m = meta(who, n); prev = prev_of(who, n)
         L.setdefault("also", [])
         open(f"{d}/lesson-{n:02d}.html", "w").write(lesson_page(who, L, m, prev))
         open(f"{d}/practice-{n:02d}.html", "w").write(practice_page(who, L, m))
         open(f"{d}/packet-{n:02d}.html", "w").write(packet_page(who, L, m))
         open(f"{d}/teacher-{n:02d}.html", "w").write(teacher_page(who, L, m))
         if L.get("teach"): open(f"{d}/class-{n:02d}.html", "w").write(lesson_page(who, L, m, prev, teach=True))
+    for C in CATCHUP.get(who, []):
+        open(f"{d}/catchup-{C['id']}.html", "w").write(catchup_teacher(who, C))
     open(f"{d}/index.html", "w").write(course_page(who, Ls))
     return sorted(Ls)
 
