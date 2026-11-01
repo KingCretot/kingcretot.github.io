@@ -23,7 +23,8 @@ const COURSES = [
   { id: 'pathways-g45', name: 'Pathways — Grades 4–5' },
   { id: 'readfound', name: 'Reading Foundations' },
   { id: 'readpower', name: 'Reading Power' },
-  { id: 'mathfound', name: 'Math Foundations' },
+  { id: 'mathfound-g23', name: 'Math Foundations — Grades 2–3' },
+  { id: 'mathfound-g45', name: 'Math Foundations — Grades 4–5' },
   { id: 'bb-practice', name: 'Practice page (testing only)' }
 ];
 // Building Blocks keeps a lesson record on the device and here; the other courses send scores only,
