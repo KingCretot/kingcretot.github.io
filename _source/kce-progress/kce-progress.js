@@ -37,6 +37,10 @@ const KEYS = { items: 'kce_bb_progress', attempts: 'kce_bb_attempts', tasks: 'kc
 
 const me = document.querySelector('script[data-course][src*="kce-progress"]');
 const COURSE = me && me.dataset.course;
+// Building Blocks pages also keep their lesson unlocks in step across devices. Every other
+// course (Pathways, Math Foundations, Reading Power, Reading Foundations) records scores only.
+const SYNC = /^bb-/.test(COURSE || '');
+const PART = { 'pathways-g23': 'Weekly check', 'pathways-g45': 'Weekly check', mathfound: 'Lesson check', readpower: 'Lesson check', readfound: 'Lesson check' };
 // This course's own entries, matched exactly (e.g. bb-bristol-L01, practice-bb-bristol-L01, t-bristol-1-0).
 const rx = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const WHO = COURSE ? COURSE.replace(/^bb-/, '') : '';
@@ -89,13 +93,13 @@ function clearLocal() { putLocal({ items: {}, attempts: {}, tasks: {} }); }
 const OWNER = 'kcep_owner_' + COURSE;   // which student this device's course progress belongs to
 
 // ---------- small on-page bar (text only, never HTML from the database) ----------
-const css = `.kcep{position:fixed;right:12px;bottom:12px;z-index:9999;font:600 13px/1.3 Arial,Helvetica,sans-serif;
+const css = `.kcep{position:fixed;right:12px;bottom:12px;z-index:2147483600;font:600 13px/1.3 Arial,Helvetica,sans-serif;
 background:#0A1F3D;color:#fff;border:2px solid #C9A84C;border-radius:22px;padding:8px 14px;box-shadow:0 3px 12px rgba(0,0,0,.25);
 display:flex;gap:10px;align-items:center;max-width:92vw}
 .kcep button{font:inherit;cursor:pointer;border:0;border-radius:16px;padding:5px 12px;background:#C9A84C;color:#0A1F3D}
 .kcep a{color:#C9A84C;cursor:pointer;text-decoration:underline;font-weight:400}
 .kcep input{font:600 14px Arial,Helvetica,sans-serif;letter-spacing:1px;text-transform:uppercase;border:0;border-radius:12px;padding:5px 10px;width:170px}
-.kcep-ov{position:fixed;inset:0;background:rgba(10,31,61,.55);z-index:10000;display:flex;align-items:center;justify-content:center}
+.kcep-ov{position:fixed;inset:0;background:rgba(10,31,61,.55);z-index:2147483646;display:flex;align-items:center;justify-content:center}
 .kcep-box{background:#fff;color:#0A1F3D;border-top:6px solid #C9A84C;border-radius:14px;padding:22px 24px;width:min(380px,90vw);
 font:15px/1.4 Arial,Helvetica,sans-serif;text-align:center}
 .kcep-box h3{font:bold 20px Georgia,'Times New Roman',serif;margin:0 0 14px}
@@ -151,7 +155,7 @@ if (COURSE) {
         : await picker(state.admin ? 'Teaching:' : "Who's learning today?", people);
       try { sessionStorage.setItem(key, who.path); } catch (e) {}
       state.student = who;
-      if (await syncDown()) return; // page is refreshing to show the saved progress
+      if (SYNC && await syncDown()) return; // page is refreshing to show the saved progress
       state.ready = true;
       showSaving(people.length > 1);
     } catch (e) {
@@ -163,7 +167,7 @@ if (COURSE) {
   // Save whenever the lesson saves on the device (grouped, so we don't save every click).
   Storage.prototype.setItem = function (k, v) {
     rawSet.call(this, k, v);
-    if (this === localStorage && Object.values(KEYS).includes(k) && state.ready) queueSave();
+    if (SYNC && this === localStorage && Object.values(KEYS).includes(k) && state.ready) queueSave();
   };
 
   // Mirror each score the lesson already sends to Formspree into the student's score history.
@@ -212,7 +216,7 @@ function showSaving(canSwitch) {
 // Signing out takes this course's progress off the device, so the next person starts clean.
 async function leave() {
   clearTimeout(state.saving); state.ready = false;
-  clearLocal(); try { localStorage.removeItem(OWNER); } catch (e) {}
+  if (SYNC) { clearLocal(); try { localStorage.removeItem(OWNER); } catch (e) {} }
   await signOut(auth); location.reload();
 }
 
@@ -299,21 +303,35 @@ function queueSave() {
   }, 1500);
 }
 
+// The first name a lesson was given must match the signed-in student, so a score typed in
+// under another child's name on a shared computer is never filed to the wrong record.
+const firstWord = (v) => String(v || '').trim().split(/\s+/)[0].toLowerCase().replace(/[^a-z']/g, '');
+function sameChild(o) {
+  const typed = firstWord(o.student || o.student_name);
+  if (!typed || typed === 'unnamed' || typed === 'student' || typed === 'reader') return true;
+  return typed === firstWord(state.student && state.student.firstName);
+}
 async function logEvent(o) {
-  if (o.score == null) return;
+  if (o.score == null || o.score === '') return;
+  if (!sameChild(o)) { console.warn('[KCE progress] score is for a different child than the one signed in; not recorded (Formspree still has it)'); return; }
   const s = (v, n) => String(v == null ? '' : v).slice(0, n);
   const int = (v, d) => { const n = Math.round(Number(v)); return Number.isFinite(n) ? Math.max(0, Math.min(500, n)) : d; };
   const total = int(o.total, 0);
+  const mastered = o.mastered === 'yes' || o.mastered === true;
+  // Attempt number: Building Blocks and Reading send it; Pathways sends "attempts";
+  // Math Foundations sends the number of failed tries.
+  const attempt = o.attempt != null ? int(o.attempt, 1) : o.attempts != null ? int(o.attempts, 1)
+    : o.failedAttempts != null ? Math.max(1, int(o.failedAttempts, 0) + (mastered ? 1 : 0)) : 1;
   const ev = {
     course: COURSE,
-    part: s(o.part || 'Lesson', 40),
-    lesson: s(o.lesson || o.lesson_title || '', 80),
+    part: s(o.part || PART[COURSE] || 'Lesson', 40),
+    lesson: s(o.lesson || o.module || o.lesson_title || '', 80),
     lessonTitle: s(o.lesson_title || '', 200),
-    score: Math.max(0, Math.min(100, Number(o.score) || 0)),
+    score: Math.max(0, Math.min(100, parseFloat(o.score) || 0)),
     correct: Math.min(int(o.correct, 0), total),
     total,
-    mastered: o.mastered === 'yes' || o.mastered === true,
-    attempt: int(o.attempt, 1),
+    mastered,
+    attempt,
     questionSet: int(o.question_set, 1),
     missed: (Array.isArray(o.missed) ? o.missed : []).map((m) => (typeof m === 'string' ? m : JSON.stringify(m))).join('\n').slice(0, 8000),
     by: state.admin ? 'teacher' : 'family',
@@ -323,4 +341,7 @@ async function logEvent(o) {
   catch (e) { console.warn('[KCE progress] score not recorded in database (Formspree still has it)', e); }
 }
 
-window.KCEProgress = { state, course: COURSE };
+// Courses whose lessons don't send every score to Formspree (Reading Power, Reading
+// Foundations) hand the score to this directly when a quiz ends.
+function record(o) { try { if (state.ready && o) logEvent(o); } catch (e) {} }
+window.KCEProgress = { state, course: COURSE, record };

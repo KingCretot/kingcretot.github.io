@@ -19,8 +19,25 @@ const COURSES = [
   { id: 'bb-bailey', name: 'Building Blocks — Bailey' },
   { id: 'bb-ethan', name: 'Building Blocks — Ethan' },
   { id: 'bb-celine', name: "Building Blocks — Ce'Line" },
+  { id: 'pathways-g23', name: 'Pathways — Grades 2–3' },
+  { id: 'pathways-g45', name: 'Pathways — Grades 4–5' },
+  { id: 'readfound', name: 'Reading Foundations' },
+  { id: 'readpower', name: 'Reading Power' },
+  { id: 'mathfound', name: 'Math Foundations' },
   { id: 'bb-practice', name: 'Practice page (testing only)' }
 ];
+// Building Blocks keeps a lesson record on the device and here; the other courses send scores only,
+// so their lesson list is built from the scores.
+const scoreOnly = (cid) => !/^bb-/.test(cid);
+function lessonsFromScores(ev) {
+  const items = {};
+  for (const e of ev.slice().reverse()) { // oldest first, so "last" ends up as the newest score
+    const k = String(e.lesson || '').trim(); if (!k) continue;
+    const x = items[k] || { best: 0, passed: false, last: null };
+    items[k] = { best: Math.max(x.best, n0(e.score)), passed: x.passed || e.mastered === true, last: n0(e.score) };
+  }
+  return items;
+}
 const courseName = (id) => (COURSES.find((c) => c.id === id) || { name: id }).name;
 
 const app = initializeApp(CONFIG), auth = getAuth(app), db = getFirestore(app);
@@ -38,7 +55,26 @@ if (EMU) {
 const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const n0 = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0; };
-const lessonName = (k) => { const m = /L(\d+)$/.exec(k); return m ? 'Lesson ' + Number(m[1]) : k.replace(/^practice-/, 'Practice ').replace(/^bb-[a-z]+-/, ''); };
+const cap = (w) => w.charAt(0).toUpperCase() + w.slice(1);
+const SUBJ = { socialstudies: 'Social Studies', science: 'Science', reading: 'Reading', math: 'Math', checkpoint: 'Checkpoint', lesson: 'Lesson' };
+const lessonName = (k) => {
+  k = String(k);
+  let m;
+  if (/^grade[\d-]+-/.test(k)) {  // Pathways: grade4-5-week9-reading, grade3-math-w9, grade3-florida-science-u1
+    const parts = k.replace(/^grade[\d-]+-/, '').split('-').map((w) => {
+      let x = /^(?:week|w)(\d+)([a-z]?)$/.exec(w); if (x) return 'Week ' + x[1] + x[2].toUpperCase();
+      x = /^u(\d+)$/.exec(w); if (x) return 'Unit ' + x[1];
+      x = /^([a-z]+?)(\d+)$/.exec(w); if (x) return (SUBJ[x[1]] || cap(x[1])) + ' ' + x[2];
+      return SUBJ[w] || cap(w);
+    });
+    const wk = parts.findIndex((p) => p.startsWith('Week ')); if (wk > 0) parts.unshift(parts.splice(wk, 1)[0]);
+    return parts.join(' ');
+  }
+  m = /^mathfoundations-([a-z]+?)(mountain|falls|lane|depot|trail)?-l(\d+)$/.exec(k);  // Math Foundations: mathfoundations-fractionfalls-l4
+  if (m) return cap(m[1]) + (m[2] ? ' ' + cap(m[2]) : '') + ' L' + m[3];
+  m = /L(\d+)$/.exec(k); if (m && /^(bb-|practice-|[a-z]+-L)/.test(k)) return 'Lesson ' + Number(m[1]);
+  return k.replace(/^practice-/, 'Practice ').replace(/^bb-[a-z]+-/, '');
+};
 const toDate = (t) => (t && t.toDate ? t.toDate() : t ? new Date(t) : null);
 const fmt = (d) => d ? d.toLocaleString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }) : '—';
 const fmtDay = (d) => d ? d.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' }) : '—';
@@ -122,14 +158,16 @@ function render() {
 function rows() {
   const out = [];
   for (const F of DATA) for (const S of F.students) for (const cid of S.student.courses || []) {
-    const p = S.progress[cid] || {}, items = p.items || {};
+    const p = S.progress[cid] || {};
     const ev = S.events.filter((e) => e.course === cid);
+    const items = scoreOnly(cid) ? lessonsFromScores(ev) : (p.items || {});
     const lessons = Object.keys(items).filter((k) => !k.startsWith('practice-')).sort();
+    if (scoreOnly(cid)) lessons.sort((a, b) => (ev.findIndex((e) => e.lesson === b)) - (ev.findIndex((e) => e.lesson === a))); // oldest work first
     const passed = lessons.filter((k) => items[k] && items[k].passed === true);
     const unfinished = lessons.filter((k) => !(items[k] && items[k].passed === true));
     // Last activity = the student's most recent score (past scores keep their real dates), not when KCE loaded or synced the record.
     const last = ev.map((e) => toDate(e.at)).filter(Boolean).sort((a, b) => b - a)[0] || (ev.length ? null : toDate(p.updatedAt)) || null;
-    const current = unfinished[0] || (passed.length ? passed[passed.length - 1] : null);
+    const current = scoreOnly(cid) ? (ev[0] ? String(ev[0].lesson) : null) : (unfinished[0] || (passed.length ? passed[passed.length - 1] : null));
     out.push({ F, S, cid, items, ev, passed, unfinished, last, current, lastScore: ev[0] });
   }
   return out;
@@ -158,7 +196,7 @@ function renderStudents() {
         <td>${r.current ? esc(lessonName(r.current)) : '<span class="muted">Not started</span>'}</td>
         <td>${n0(r.passed.length)}</td>
         <td class="hide-s">${r.unfinished.map((k) => `<span class="pill wait">${esc(lessonName(k))} · best ${n0(r.items[k].best)}</span>`).join('') || '—'}</td>
-        <td>${ls ? `<span class="pill ${ls.mastered === true ? 'ok' : 'no'}">${n0(ls.score)}</span> <span class="muted">${esc(ls.lesson)}</span>` : '—'}</td>
+        <td>${ls ? `<span class="pill ${ls.mastered === true ? 'ok' : 'no'}">${n0(ls.score)}</span> <span class="muted">${esc(lessonName(ls.lesson))}</span>` : '—'}</td>
         <td class="hide-s">${fmt(r.last)}</td></tr>`;
     }
     h += `</table>`;
@@ -172,7 +210,7 @@ function detail(fid, sid) {
   const F = DATA.find((x) => x.fid === fid), S = F.students.find((x) => x.sid === sid);
   let h = `<div class="card"><h2>${esc(S.student.firstName)} · score history</h2><p class="muted">Family: ${esc(F.family.name)}</p>`;
   for (const cid of S.student.courses || []) {
-    const items = (S.progress[cid] || {}).items || {};
+    const items = scoreOnly(cid) ? lessonsFromScores(S.events.filter((e) => e.course === cid)) : ((S.progress[cid] || {}).items || {});
     const keys = Object.keys(items).filter((k) => !k.startsWith('practice-')).sort();
     h += `<h3 style="margin:14px 0 6px">${esc(courseName(cid))}</h3>`;
     h += keys.length ? `<p>${keys.map((k) => `<span class="pill ${items[k].passed === true ? 'ok' : 'wait'}">${esc(lessonName(k))} · best ${n0(items[k].best)}${items[k].passed === true ? ' ✓' : ''}</span>`).join(' ')}</p>` : `<p class="muted">No lessons saved yet.</p>`;
@@ -180,8 +218,8 @@ function detail(fid, sid) {
   if (!S.events.length) h += `<p class="muted">No scores recorded yet.</p>`;
   else {
     h += `<table><tr><th>When</th><th>Course</th><th>What</th><th>Score</th><th class="hide-s">Right</th><th class="hide-s">Try</th><th class="hide-s">By</th></tr>`;
-    for (const e of S.events) h += `<tr><td>${fmt(toDate(e.at))}</td><td>${esc(courseName(e.course))}</td><td>${esc(e.lesson)} · ${esc(e.part)}${e.lessonTitle ? `<br><span class="muted">${esc(e.lessonTitle)}</span>` : ''}</td>
-      <td><span class="pill ${e.mastered === true ? 'ok' : 'no'}">${n0(e.score)}</span></td><td class="hide-s">${n0(e.correct)}/${n0(e.total)}</td><td class="hide-s">${n0(e.attempt)}</td><td class="hide-s">${e.by === 'teacher' ? 'Live lesson' : e.by === 'import' ? 'Past score' : 'Student'}</td></tr>`;
+    for (const e of S.events) h += `<tr><td>${fmt(toDate(e.at))}</td><td>${esc(courseName(e.course))}</td><td>${esc(lessonName(e.lesson))} · ${esc(e.part)}${e.lessonTitle ? `<br><span class="muted">${esc(e.lessonTitle)}</span>` : ''}</td>
+      <td><span class="pill ${e.mastered === true ? 'ok' : 'no'}">${n0(e.score)}</span></td><td class="hide-s">${n0(e.total) ? n0(e.correct) + '/' + n0(e.total) : '—'}</td><td class="hide-s">${n0(e.attempt)}</td><td class="hide-s">${e.by === 'teacher' ? 'Live lesson' : e.by === 'import' ? 'Past score' : 'Student'}</td></tr>`;
     h += `</table>`;
   }
   h += `</div>`;
@@ -314,14 +352,19 @@ async function importFile(file) {
   let d; try { d = JSON.parse(await file.text()); } catch (e) { m.className = 'msg bad'; m.textContent = 'That file could not be read. Please choose the past-scores file KCE prepared.'; return; }
   if (!d || d.kind !== 'kce-past-scores' || typeof d.courses !== 'object') { m.className = 'msg bad'; m.textContent = 'That is not a KCE past-scores file.'; return; }
   const plan = []; const lines = [];
-  for (const cid of Object.keys(d.courses)) {
-    if (!COURSES.some((c) => c.id === cid)) { lines.push(`${esc(cid)}: not a KCE course here — skipped.`); continue; }
-    const who = []; DATA.forEach((F) => F.students.forEach((S) => { if ((S.student.courses || []).includes(cid)) who.push({ F, S }); }));
-    const evs = (d.courses[cid].events || []).filter((e) => e && IMP_ID.test(e.id || ''));
-    if (who.length !== 1) { lines.push(`<b>${esc(courseName(cid))}</b>: ${who.length ? 'more than one student has this course' : 'no student has this course yet — enter the family first'}. Skipped.`); continue; }
+  // A key is a course ("bb-bristol"), or a course plus the student's first name ("pathways-g45@bailey")
+  // for courses that several students share.
+  const first = (v) => String(v || '').trim().split(/\s+/)[0].toLowerCase().replace(/[^a-z]/g, '');
+  for (const key of Object.keys(d.courses)) {
+    const [cid, nm] = key.split('@');
+    if (!COURSES.some((c) => c.id === cid)) { lines.push(`${esc(key)}: not a KCE course here — skipped.`); continue; }
+    const label = esc(courseName(cid)) + (nm ? ' · ' + esc(nm.charAt(0).toUpperCase() + nm.slice(1)) : '');
+    const who = []; DATA.forEach((F) => F.students.forEach((S) => { if ((S.student.courses || []).includes(cid) && (!nm || first(S.student.firstName) === first(nm))) who.push({ F, S }); }));
+    const evs = (d.courses[key].events || []).filter((e) => e && IMP_ID.test(e.id || ''));
+    if (who.length !== 1) { lines.push(`<b>${label}</b>: ${who.length ? 'more than one student matches' : 'no student has this course yet — assign it first'}. Skipped.`); continue; }
     const { F, S } = who[0];
-    plan.push({ cid, F, S, evs, items: d.courses[cid].items || {}, attempts: d.courses[cid].attempts || {} });
-    lines.push(`<b>${esc(courseName(cid))}</b> → ${esc(S.student.firstName)} (${esc(F.family.name)} family): ${evs.length} past scores.`);
+    plan.push({ cid, F, S, evs, items: d.courses[key].items || {}, attempts: d.courses[key].attempts || {} });
+    lines.push(`<b>${label}</b> → ${esc(S.student.firstName)} (${esc(F.family.name)} family): ${evs.length} past scores.`);
   }
   m.innerHTML = lines.join('<br>') + (plan.length ? `<br><button class="btn gold" id="impgo">Load these scores</button>` : '');
   if (plan.length) { PENDING = plan; $('#impgo').onclick = runImport; }
@@ -343,6 +386,7 @@ async function runImport() {
         });
       }
       // Add the past results to the saved lesson record, keeping whatever is already better.
+      if (scoreOnly(P.cid)) { done.push(`${P.evs.length} for ${P.S.student.firstName}`); continue; }
       const pat = new RegExp('^' + P.cid + '-L\\d+$');
       await runTransaction(db, async (tx) => {
         const ref = doc(db, ...base, 'progress', P.cid); const cur = (await tx.get(ref)).data() || {};
