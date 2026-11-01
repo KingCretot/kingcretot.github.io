@@ -32,8 +32,8 @@ ok('KCE account sees the dashboard with Ethan', txt.includes('Ethan') && txt.inc
 ok('shows where Ethan is (Lesson 2, started not mastered)', txt.includes('Lesson 2 · best 60'));
 ok('shows mastered count and last score 60', /Ethan.*Building Blocks — Ethan.*Lesson 2.*1/.test(txt.replace(/\s+/g,' ')) && txt.includes('60'));
 ok('summary: 1 student enrolled, 1 active this week', (await A.textContent('.sum')).replace(/\s+/g,' ').includes('1students enrolled') || (await A.textContent('.sum')).includes('students enrolled'));
-await A.click('.stu'); await A.waitForSelector('text=score history');
-ok("clicking Ethan shows his score history with the lesson title", (await A.textContent('#detail')).includes("Deja's Food Drive"));
+await A.click('.hist'); await A.waitForSelector('.hist-in');
+ok("clicking Ethan shows his score history with the lesson title", (await A.textContent('.histbox:not(:empty)')).includes("Deja's Food Drive"));
 
 // Enrollment
 await A.click('text=Families & enrollment'); await A.waitForSelector('#pn');

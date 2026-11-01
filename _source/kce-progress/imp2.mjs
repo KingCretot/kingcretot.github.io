@@ -31,7 +31,7 @@ const w9=ba.filter(e=>e.lesson.stringValue==='grade4-5-week9-reading').map(e=>e.
 ok('Bailey this morning: 89/80/98 at 9:21/9:26/9:29 AM EST ('+w9+')', JSON.stringify(w9)===JSON.stringify(['80@2026-11-01T14:26:00Z','89@2026-11-01T14:21:00Z','98@2026-11-01T14:29:00Z']));
 ok('no progress record written for score-only courses', !(await list('families/t/students/bailey/progress')).length);
 await P.click('.tabs button:has-text("Students")'); await P.waitForTimeout(500);
-const row=(await P.innerText('tr:has-text("Bailey"):has-text("Pathways — Grades 4–5")')).replace(/\s+/g,' '); console.log('   row:',row);
+const row=(await P.innerText('.person:has-text("Bailey Simon") tr:has-text("Pathways — Grades 4–5")')).replace(/\s+/g,' '); console.log('   row:',row);
 ok('Bailey Pathways row: last score 98 Week 9 Reading', row.includes('98') && row.includes('Week 9 Reading'));
 await P.setInputFiles('#impf',FILE).catch(()=>{}); 
 ok('no page errors', errs.length===0); if(errs.length) console.log(errs);

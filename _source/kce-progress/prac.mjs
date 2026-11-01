@@ -25,8 +25,8 @@ await D.click('#reload'); await wait(1500); await D.click('.tabs button:has-text
 const t=(await D.innerText('#view')).replace(/\s+/g,' ');
 ok('dashboard shows Test Student on the practice course', t.includes('Test Student') && t.includes('Practice page (testing only)'));
 ok('dashboard: Lesson 2 started, not mastered (best 60)', t.includes('Lesson 2 · best 60'));
-await D.click('.stu:has-text("Test Student")'); await wait(600);
-const h=(await D.innerText('#detail')).replace(/\s+/g,' ');
+await D.click('.person:has-text(\"Test Student\") .hist'); await wait(600);
+const h=(await D.innerText('.histbox:not(:empty)')).replace(/\s+/g,' ');
 console.log('HISTORY ROWS', (h.match(/Lesson check/g)||[]).length); ok('score history has all three scores', (h.match(/Lesson check/g)||[]).length===3 && h.includes('Lesson 1 · best 90 ✓'));
 // 4. Fresh device: progress comes back
 const Q=await pg(); await Q.goto('http://127.0.0.1:8765/kce-progress/practice.html'); await Q.waitForSelector('.kcep button');
