@@ -7,7 +7,7 @@ from pypdf import PdfReader, PdfWriter
 from playwright.sync_api import sync_playwright
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = "/home/claude/kgh/building-blocks"
-PW = "/home/claude/sec/KCE_Pathways_Curriculum"
+PW = os.environ.get("PW_DIR", "/home/claude/sec/KCE_Pathways_Curriculum")
 BASE = "https://kingcretot.github.io/KCE_Pathways_Curriculum/"
 
 M = {}

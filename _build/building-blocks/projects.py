@@ -186,10 +186,10 @@ G_WORDS = [("grateful", "thankful for something"), ("appreciate", "to see the va
 
 g_intro = f"""
 <h1>🫙 The Simon Family Gratitude Project</h1>
-<div class="sub">Monday, November 16 – Wednesday, December 2 · The girls present it at <b>Lesson 12 on Thursday, December 3</b></div>
-<div class="box gold"><p><b>What it is:</b> For two and a half weeks, the whole family fills a <b>Gratitude Jar</b>. Every day, each person writes one thing they are thankful for, and the girls write slips for River and Cam too. The girls count and sort the slips (math), interview Mom and Dad (speaking and writing), write thank-you notes, and finish with a book (Bristol) and a poster (Bailey) to show at Lesson 12.</p>
+<div class="sub">Monday, November 16 – Wednesday, December 2 · The girls present it at <b>Lesson 11 on Thursday, December 3</b></div>
+<div class="box gold"><p><b>What it is:</b> For two and a half weeks, the whole family fills a <b>Gratitude Jar</b>. Every day, each person writes one thing they are thankful for, and the girls write slips for River and Cam too. The girls count and sort the slips (math), interview Mom and Dad (speaking and writing), write thank-you notes, and finish with a book (Bristol) and a poster (Bailey) to show at Lesson 11.</p>
 <p><b>Time:</b> about 20 minutes a day, plus 5 minutes at dinner for the jar. Thanksgiving week is lighter.</p>
-<p><b>The Lesson 11 task list still counts.</b> It is short and already spread over these three weeks. Do it alongside this project.</p></div>
+<p><b>The Lesson 10 task list still counts.</b> It is short and already spread over these three weeks. Do it alongside this project.</p></div>
 <h3>Who is in it</h3>
 <div class="who">{''.join(f'<div><b>{n}</b><br>{r}</div>' for n, r in FAMILY)}</div>
 <h3>Supplies</h3>
@@ -231,7 +231,7 @@ g_rows = [
  ("Tue, Dec 1", "No family part today.", "Finish the book: pages for River, Cam and Me, and the cover with the title and your name.", "Make the poster: title, your bar graph, your paragraph, and 3 favorite quotes from the interviews or the jar."),
  ("Wed, Dec 2", "<b>Practice show.</b> The family sits and listens. After each girl, every person says one thing they liked.",
   "Read your book out loud (about 3 minutes).", "Present your poster (about 5 minutes). Look up at the family, not only at the poster."),
- ("Thu, Dec 3", "Have the book, the poster, and pages 3 and 4 ready for Jonathan at Lesson 12.", "Show your book to Jonathan.", "Present your poster to Jonathan."),
+ ("Thu, Dec 3", "Have the book, the poster, and pages 3 and 4 ready for Jonathan at Lesson 11.", "Show your book to Jonathan.", "Present your poster to Jonathan."),
 ]
 
 def g_sheets():

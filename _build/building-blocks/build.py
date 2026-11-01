@@ -196,7 +196,7 @@ def catchup_card(who, C):
     also = "".join(f'<li>🔗 <a href="{a["url"]}" target="_blank">{E(a["label"])}</a><br><span>{a["how"]}</span></li>' for a in C["also"])
     tasks = "".join(f'<label class="task"><input type="checkbox" id="t-{who}-0-{i}"> {tk}</label>' for i, tk in enumerate(C["tasks"]))
     return (f'<div class="card catchup" data-lesson="bb-{who}-C1" data-date="{C["date"]}" style="border-top-color:#C9A84C">{head}<h3>{E(C["title"])}</h3><div class="gl">🎯 {E(C["goal"])}</div>'
-            f'<p class="desc">{C["desc"]}</p><div class="btns">{btns}<a class="b3" href="catchup-{C["id"]}.html">🔒 Teacher plan &amp; key</a></div>'
+            f'<p class="desc">{C["desc"]}</p><div class="btns">' + (f'<a class="b4" href="class-{C["id"]}.html">🧑‍🏫 Class lesson (teacher leads it)</a>' if C.get("teach") else '') + f'{btns}<a class="b3" href="catchup-{C["id"]}.html">🔒 Teacher plan &amp; key</a></div>'
             + (f'<div class="also"><b>Also do:</b><ul>{also}</ul></div>' if also else "") + f'<div class="tasks"><b>✅ Before the next lesson:</b>{tasks}</div></div>')
 
 def catchup_teacher(who, C):
@@ -216,6 +216,22 @@ def catchup_teacher(who, C):
         '</div></div><style>.tt{border-collapse:collapse;width:100%;font-size:16px;background:#fff}.tt td,.tt th{border:1px solid #E2D8C2;padding:7px 9px;vertical-align:top;text-align:left}.tt th{background:#0A1F3D;color:#fff}h2{font-size:22px;margin:20px 0 6px}</style>'
         '<script src="../bb.js"></script><script>BBTeacher();</script>')
     return page(f"Teacher Plan · {NAMES[who]} Catch-up", body)
+
+def catchup_class(who, C, Ls):
+    """The class lesson Jonathan teaches on the catch-up day: the earlier lesson's class slides, adapted (Zoom wording, no hands-on)."""
+    import copy
+    T = C["teach"]; src = copy.deepcopy(Ls[T["from"]])
+    slides = []
+    for i, sl in enumerate(src["teach"]["slides"], 1):
+        if i in T.get("drop", []): continue
+        if str(i) in T.get("replace", {}): sl = copy.deepcopy(T["replace"][str(i)])
+        elif str(i) in T.get("notes", {}): sl["notes"] = T["notes"][str(i)]
+        slides.append(sl)
+    src["teach"]["slides"] = slides
+    src["title"] = C["title"]; src["goal"] = C["goal"]
+    m = dict(meta(who, T["from"])); m["date"] = C["date"]
+    out = lesson_page(who, src, m, None, teach=True)
+    return out.replace(f'"label": "Lesson {T["from"]}"', '"label": "Catch-up"').replace(f'"label":"Lesson {T["from"]}"', '"label":"Catch-up"')
 
 def course_page(who, Ls):
     nm = NAMES[who]
@@ -299,6 +315,8 @@ def build(who):
         if L.get("teach"): open(f"{d}/class-{n:02d}.html", "w").write(lesson_page(who, L, m, prev, teach=True))
     for C in CATCHUP.get(who, []):
         open(f"{d}/catchup-{C['id']}.html", "w").write(catchup_teacher(who, C))
+        if C.get("teach"):
+            open(f"{d}/class-{C['id']}.html", "w").write(catchup_class(who, C, Ls))
     open(f"{d}/index.html", "w").write(course_page(who, Ls))
     return sorted(Ls)
 
