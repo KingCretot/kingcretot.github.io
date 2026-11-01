@@ -127,7 +127,8 @@ function rows() {
     const lessons = Object.keys(items).filter((k) => !k.startsWith('practice-')).sort();
     const passed = lessons.filter((k) => items[k] && items[k].passed === true);
     const unfinished = lessons.filter((k) => !(items[k] && items[k].passed === true));
-    const last = [toDate(p.updatedAt), ...ev.map((e) => toDate(e.at))].filter(Boolean).sort((a, b) => b - a)[0] || null;
+    // Last activity = the student's most recent score (past scores keep their real dates), not when KCE loaded or synced the record.
+    const last = ev.map((e) => toDate(e.at)).filter(Boolean).sort((a, b) => b - a)[0] || (ev.length ? null : toDate(p.updatedAt)) || null;
     const current = unfinished[0] || (passed.length ? passed[passed.length - 1] : null);
     out.push({ F, S, cid, items, ev, passed, unfinished, last, current, lastScore: ev[0] });
   }
