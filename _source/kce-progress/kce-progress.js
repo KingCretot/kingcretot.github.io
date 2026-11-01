@@ -40,7 +40,7 @@ const COURSE = me && me.dataset.course;
 // Building Blocks pages also keep their lesson unlocks in step across devices. Every other
 // course (Pathways, Math Foundations, Reading Power, Reading Foundations) records scores only.
 const SYNC = /^bb-/.test(COURSE || '');
-const PART = { 'pathways-g23': 'Weekly check', 'pathways-g45': 'Weekly check', mathfound: 'Lesson check', readpower: 'Lesson check', readfound: 'Lesson check' };
+const PART = { 'pathways-g23': 'Weekly check', 'pathways-g45': 'Weekly check', 'mathfound-g23': 'Lesson check', 'mathfound-g45': 'Lesson check', readpower: 'Lesson check', readfound: 'Lesson check' };
 // This course's own entries, matched exactly (e.g. bb-bristol-L01, practice-bb-bristol-L01, t-bristol-1-0).
 const rx = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const WHO = COURSE ? COURSE.replace(/^bb-/, '') : '';

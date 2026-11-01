@@ -7,7 +7,7 @@ const env = await initializeTestEnvironment({ projectId: 'kce-student-progress',
 await env.clearFirestore();
 await env.withSecurityRulesDisabled(async (c) => { const db = c.firestore();
   await setDoc(doc(db, 'families/t'), { name: 'Tia', parentEmails: ['tia@example.com'] });
-  await setDoc(doc(db, 'families/t/students/bailey'), { firstName: 'Bailey Simon', courses: ['bb-bailey', 'pathways-g45', 'readpower', 'mathfound'] });
+  await setDoc(doc(db, 'families/t/students/bailey'), { firstName: 'Bailey Simon', courses: ['bb-bailey', 'pathways-g45', 'readpower', 'mathfound-g23'] });
   await setDoc(doc(db, 'families/t/students/bristol'), { firstName: 'Bristol Simon', courses: ['bb-bristol', 'pathways-g45'] });
   await setDoc(doc(db, 'families/s'), { name: 'Skyler', parentEmails: ['skyler@example.com'] });
   await setDoc(doc(db, 'families/s/students/ethan'), { firstName: 'Ethan', courses: ['pathways-g23', 'readfound'] });
@@ -59,7 +59,7 @@ await P.goto(S + 'KCE_Math_Foundations/world1/lesson1.html'); await P.waitForSel
 await signIn(P, 'tia@example.com'); await bar(P, 'Saving for Bailey Simon');
 await P.evaluate(() => { localStorage.setItem('kceMathFoundationsStudentName', 'Bailey Simon'); reportProgress(75, { failedAttempts: 2, locked: false }); });
 await P.waitForTimeout(2500);
-ev = (await list('families/t/students/bailey/events')).filter((e) => e.course.stringValue === 'mathfound');
+ev = (await list('families/t/students/bailey/events')).filter((e) => e.course.stringValue === 'mathfound-g23');
 ok('Math Foundations score saved: 75, not mastered, try 2', ev.length === 1 && ev[0].score.integerValue === '75' && ev[0].mastered.booleanValue === false && ev[0].attempt.integerValue === '2' && /^mathfoundations-/.test(ev[0].lesson.stringValue));
 await ctx.close();
 

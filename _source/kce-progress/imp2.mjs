@@ -7,12 +7,12 @@ const env = await initializeTestEnvironment({ projectId: 'kce-student-progress',
 await env.clearFirestore();
 await env.withSecurityRulesDisabled(async c => { const db=c.firestore();
   await setDoc(doc(db,'families/t'),{name:'Tia Bigi-Simon',parentEmails:['t@x.com']});
-  await setDoc(doc(db,'families/t/students/bailey'),{firstName:'Bailey Simon',courses:['bb-bailey','pathways-g45','mathfound','readpower']});
-  await setDoc(doc(db,'families/t/students/bristol'),{firstName:'Bristol Simon',courses:['bb-bristol','pathways-g23','readfound','mathfound']});
+  await setDoc(doc(db,'families/t/students/bailey'),{firstName:'Bailey Simon',courses:['bb-bailey','pathways-g45','mathfound-g23','mathfound-g45','readpower']});
+  await setDoc(doc(db,'families/t/students/bristol'),{firstName:'Bristol Simon',courses:['bb-bristol','pathways-g23','readfound','mathfound-g23']});
   await setDoc(doc(db,'families/s'),{name:'Skyler',parentEmails:['s@x.com']});
-  await setDoc(doc(db,'families/s/students/ethan'),{firstName:'Ethan',courses:['bb-ethan','pathways-g45','mathfound']});
+  await setDoc(doc(db,'families/s/students/ethan'),{firstName:'Ethan',courses:['bb-ethan','pathways-g45','readpower','mathfound-g45']});
   await setDoc(doc(db,'families/l'),{name:'Lexus',parentEmails:[]});
-  await setDoc(doc(db,'families/l/students/ce-line'),{firstName:"Ce'Line",courses:['bb-celine','pathways-g23','mathfound']});
+  await setDoc(doc(db,'families/l/students/ce-line'),{firstName:"Ce'Line",courses:['bb-celine','pathways-g23','readfound','mathfound-g45']});
 });
 const BASE='http://127.0.0.1:8080/v1/projects/kce-student-progress/databases/(default)/documents/'; const H={headers:{Authorization:'Bearer owner'}};
 const list=async p=>((await (await fetch(BASE+p+'?pageSize=300',H)).json()).documents||[]).map(d=>d.fields);

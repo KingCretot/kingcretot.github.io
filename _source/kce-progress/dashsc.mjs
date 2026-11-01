@@ -7,7 +7,7 @@ await env.clearFirestore();
 const at = (s) => Timestamp.fromDate(new Date(s));
 await env.withSecurityRulesDisabled(async c => { const db=c.firestore();
   await setDoc(doc(db,'families/t'),{name:'Tia',parentEmails:['tia@example.com']});
-  await setDoc(doc(db,'families/t/students/bailey'),{firstName:'Bailey Simon',courses:['pathways-g45','mathfound']});
+  await setDoc(doc(db,'families/t/students/bailey'),{firstName:'Bailey Simon',courses:['pathways-g45','mathfound-g45']});
   const E=(id,o)=>setDoc(doc(db,'families/t/students/bailey/events/'+id),{course:'pathways-g45',part:'Weekly check',correct:0,total:0,questionSet:1,missed:'',by:'family',...o});
   await E('a',{lesson:'grade4-5-week8-reading',score:64,mastered:false,attempt:1,at:at('2026-10-25T13:29:00Z')});
   await E('b',{lesson:'grade4-5-week9-reading',score:89,mastered:true,attempt:1,at:at('2026-11-01T14:21:00Z')});
@@ -21,7 +21,7 @@ await P.evaluate(()=>window.__kcepTestSignIn('kce@kingcretot.com')); await P.wai
 const row=(await P.innerText('tr:has-text("Pathways — Grades 4–5")')).replace(/\s+/g,' ');
 console.log('   row:', row);
 ok('row: where she is = Week 9 Reading, 1 mastered, Week 8 Reading not mastered (best 64), last score 98', row.includes('Week 9 Reading') && row.includes('Week 8 Reading · best 64') && / 1 /.test(row) && row.includes('98'));
-ok('Math Foundations row shows Not started', (await P.innerText('tr:has-text("Math Foundations")')).includes('Not started'));
+ok('Math Foundations row shows Not started', (await P.innerText('tr:has-text("Math Foundations — Grades 4–5")')).includes('Not started'));
 await P.click('.stu:has-text("Bailey")'); await P.waitForTimeout(500);
 const d=(await P.innerText('#detail')).replace(/\s+/g,' ');
 ok('detail pills: Week 9 Reading · best 98 ✓ and Week 8 Reading · best 64', d.includes('Week 9 Reading · best 98 ✓') && d.includes('Week 8 Reading · best 64'));
