@@ -153,3 +153,17 @@ def lesson_order(who):
 def prev_of(who, n):
     o = lesson_order(who)
     return o[o.index(n) - 1] if n in o and o.index(n) > 0 else None
+
+# ── Nov 1, 2026: Ethan HALT and SHIFT (Jonathan's decision, full halt and shift).
+# Lesson 1 (multiplication) is not mastered after 5 tries, so Wed Nov 4 is a catch-up lesson
+# ("Finish Lesson 1"). Lessons 2–7 each move one slot later with their linked Pathways weeks.
+# The Feast Planner now follows Lesson 2 and is presented at Lesson 3 (Dec 2);
+# the Winter Games follows Lesson 5 and is presented at Lesson 6 (Jan 6).
+STU_DATES["ethan"] = [(1,"2026-10-21","Wed","In person"),(2,"2026-11-11","Wed","In person"),(3,"2026-12-02","Wed","In person"),
+                      (4,"2026-12-09","Wed","In person"),(5,"2026-12-16","Wed","In person"),
+                      (6,"2027-01-06","Wed","In person"),(7,"2027-01-13","Wed","In person")]
+PROJECTS["ethan"] = [
+ (7, "ethan-november.html", "The Ferguson Family Feast Planner", "Thu, Nov 12 – Tue, Dec 1", "Lesson 3 · Wed, Dec 2"),
+ (10, "ethan-holiday.html", "The Ferguson Family Winter Games", "Thu, Dec 17 – Tue, Jan 5", "Lesson 6 · Wed, Jan 6"),
+]
+PROJECTS["ethan"] = [p + (_ethan_desc(p[4]),) for p in PROJECTS["ethan"]]

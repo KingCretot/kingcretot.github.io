@@ -204,14 +204,14 @@ def catchup_teacher(who, C):
     plan = "".join(f'<tr><td style="white-space:nowrap"><b>{E(t)}</b></td><td><b>{E(b)}</b><br>{E(d)}</td></tr>' for t, b, d in T["plan"])
     key = "".join(f'<tr><td>{E(q)}</td><td>{E(a)}</td></tr>' for q, a in T["key"])
     body = (TOP + '<div class="stage" style="padding-bottom:40px"><div id="tbody" style="display:none">'
-        f'<h1 style="color:#0A1F3D;margin:0">Teacher Plan · {NAMES[who]} · Catch-up: Finish Week 2</h1>'
+        f'<h1 style="color:#0A1F3D;margin:0">Teacher Plan · {NAMES[who]} · {E(C["title"])}</h1>'
         f'<p style="margin:4px 0 14px">{E(dlabel(C["date"]))} · {"Zoom" if C["mode"]=="Zoom" else "In person"} · 60 minutes · Name: {NAMES[who]} · Date: {mdy(C["date"])}</p>'
         f'<div class="tip">🎯 <b>Objective:</b> {E(T["objective"])}</div>'
-        f'<h2 style="color:#0A1F3D">Where she is</h2><p>{E(T["status"])}</p>'
+        f'<h2 style="color:#0A1F3D">Where {C.get("pron","she")} is</h2><p>{E(T["status"])}</p>'
         '<h2 style="color:#0A1F3D">Materials</h2><ul>' + "".join(f"<li>{E(x)}</li>" for x in T["materials"]) + '</ul>'
         f'<h2 style="color:#0A1F3D">Plan</h2><table class="tt">{plan}</table>'
         f'<h2 style="color:#0A1F3D">Answer key</h2><table class="tt"><tr><th>Item</th><th>Answer</th></tr>{key}</table>'
-        f'<div class="tip" style="margin-top:14px">➡️ <b>Decision for Tuesday:</b> {E(T["decision"])}</div>'
+        f'<div class="tip" style="margin-top:14px">➡️ <b>Decision for {C.get("decday","Tuesday")}:</b> {E(T["decision"])}</div>'
         '<h2 style="color:#0A1F3D">Task list given to the student</h2><ul>' + "".join(f"<li>{t}</li>" for t in C["tasks"]) + '</ul>'
         '</div></div><style>.tt{border-collapse:collapse;width:100%;font-size:16px;background:#fff}.tt td,.tt th{border:1px solid #E2D8C2;padding:7px 9px;vertical-align:top;text-align:left}.tt th{background:#0A1F3D;color:#fff}h2{font-size:22px;margin:20px 0 6px}</style>'
         '<script src="../bb.js"></script><script>BBTeacher();</script>')

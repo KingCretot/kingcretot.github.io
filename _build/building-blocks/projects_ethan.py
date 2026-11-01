@@ -127,12 +127,12 @@ a1 = 14 * 125; assert a1 == 1750
 a2 = 245 * 12; assert a2 == 2940
 q3, r3 = divmod(38, 5); assert (q3, r3) == (7, 3)
 q4, r4 = divmod(50, 12); packs = q4 + (1 if r4 else 0); assert (q4, r4, packs) == (4, 2, 5)
-a5 = F(1, 2) + F(1, 3); assert a5 == F(5, 6)
-a6 = F(1, 4) + F(1, 8); left6 = 1 - a6; assert (a6, left6) == (F(3, 8), F(5, 8))
-a7 = D("1.79") * 3; assert a7 == D("5.37")
-a8 = D("4.25") + D("3.89"); ch8 = D("10.00") - a8; assert (a8, ch8) == (D("8.14"), D("1.86"))
-ex_rolls = D("3.49") * 2; assert ex_rolls == D("6.98")
-ex_milk = F(3, 4) * 2; assert ex_milk == F(3, 2)
+a5 = 156 // 12; assert 156 % 12 == 0 and a5 == 13
+m6 = 15 * 18; h6, mm6 = divmod(m6, 60); assert (m6, h6, mm6) == (270, 4, 30)
+q7, r7 = divmod(27, 6); boxes7 = q7 + (1 if r7 else 0); cost7 = boxes7 * 3; assert (q7, r7, boxes7, cost7) == (4, 3, 5, 15)
+est8 = 4 + 4 + 7; ch8 = 20 - est8; assert (est8, ch8) == (15, 5)
+ex_rolls = 3 * 2; assert ex_rolls == 6
+ex_eggs, ex_flour = 3 * 3, 250 * 3; assert (ex_eggs, ex_flour) == (9, 750)
 
 FEAST_PROBS = [
  ("If one serving of mashed potatoes is 125 grams, how many grams do 14 servings take? Use an <b>area model</b> or <b>partial products</b>.", "Answer: ________ grams",
@@ -143,14 +143,14 @@ FEAST_PROBS = [
   f"38 ÷ 5 = {q3} R{r3}: each person gets {q3} rolls, and {r3} are left over"),
  ("Paper plates come in packs of 12. The family needs 50 plates. How many packs must they buy? Think about the remainder!", "Answer: ________ packs",
   f"50 ÷ 12 = {q4} R{r4}. 4 packs is only 48 plates, so they must buy {packs} packs"),
- ("A recipe uses ½ cup of brown sugar and ⅓ cup of white sugar. How much sugar is that in all? Find a common denominator first.", "Answer: ________ cup",
-  f"1/2 + 1/3 = 3/6 + 2/6 = {a5} cup"),
- ("A pie is cut into equal slices. ¼ of the pie is eaten at lunch and ⅛ of the pie is eaten at dinner. What fraction was eaten? What fraction is left?", "Eaten: ______ &nbsp; Left: ______",
-  f"1/4 + 1/8 = 2/8 + 1/8 = {a6} eaten; 8/8 − 3/8 = {left6} left"),
- ("If a can of cranberry sauce costs $1.79, how much do 3 cans cost?", "Answer: $ ________",
-  f"$1.79 × 3 = {money(a7)}"),
- ("Potatoes cost $4.25 and butter costs $3.89. Line up the decimal points and add. Then: you pay with a $10 bill. How much change do you get back?", "Total: $ ______ &nbsp; Change: $ ______",
-  f"$4.25 + $3.89 = {money(a8)}; $10.00 − $8.14 = {money(ch8)} change"),
+ ("The family bakes 156 cookies and packs them into 12 tins. Every tin gets the same number. How many cookies go in each tin? Use <b>long division</b> and check with multiplication.", "Answer: ________ cookies",
+  f"156 ÷ 12 = {a5} cookies in each tin (check: 12 × 13 = 156)"),
+ ("A turkey roasts 15 minutes for every pound. The turkey weighs 18 pounds. How many minutes does it roast? How many hours and minutes is that? (60 minutes = 1 hour)", "Minutes: ______ &nbsp; Hours: ______ Minutes: ______",
+  f"15 × 18 = {m6} minutes; {m6} ÷ 60 = {h6} R{mm6}, so {h6} hours {mm6} minutes"),
+ ("One box of stuffing serves 6 people. 27 people are coming. How many boxes must the family buy? Each box costs $3. How much do the boxes cost in all?", "Boxes: ______ &nbsp; Cost: $ ______",
+  f"27 ÷ 6 = {q7} R{r7}. 4 boxes only serve 24, so buy {boxes7} boxes; {boxes7} × $3 = ${cost7}"),
+ ("Round each price to the nearest dollar: potatoes $4.25, butter $3.89, a turkey breast $6.79. About how much is that in all? You pay with a $20 bill. About how much change do you get back?", "About: $ ______ &nbsp; Change: about $ ______",
+  f"$4 + $4 + $7 = about ${est8}; $20 − ${est8} = about ${ch8} change"),
 ]
 
 F_WORDS = [("budget", "the amount of money you plan to spend"), ("estimate", "a careful guess that is close to the real number"),
@@ -162,11 +162,11 @@ f_who = [("Skyler", "Mom · Co-Planner and Price Checker"), ("Matt", "Dad · Hea
 
 f_intro = f"""
 <h1>🍽️ The Ferguson Family Feast Planner</h1>
-<div class="sub">Thursday, November 12 – Tuesday, December 1 · Ethan presents it at <b>Lesson 5 on Wednesday, December 2 (in person)</b></div>
-<div class="box gold"><p><b>What it is:</b> Ethan is the <b>Head Planner</b> for one special family meal: your Thanksgiving dinner on Thursday, November 26, or another special family dinner during the break. He plans the menu with the family, finds <b>real store prices</b> and keeps to a budget (money and decimals), makes a recipe big enough for everyone (multiplying and fractions), shares the leftovers fairly (division with remainders), runs a taste-test, and interviews Mom and Dad to compare their two viewpoints. He finishes with a <b>Feast Report poster</b> and presents it in 3 to 5 minutes at Lesson 5.</p>
+<div class="sub">Thursday, November 12 – Tuesday, December 1 · Ethan presents it at <b>Lesson 3 on Wednesday, December 2 (in person)</b></div>
+<div class="box gold"><p><b>What it is:</b> Ethan is the <b>Head Planner</b> for one special family meal: your Thanksgiving dinner on Thursday, November 26, or another special family dinner during the break. He plans the menu with the family, finds <b>real store prices</b>, rounds them to the nearest dollar and keeps to a budget (rounding, multiplying and adding), makes a recipe big enough for everyone (multiplying and dividing), shares the leftovers fairly (division with remainders), runs a taste-test, and interviews Mom and Dad to compare their two viewpoints. He finishes with a <b>Feast Report poster</b> and presents it in 3 to 5 minutes at Lesson 3.</p>
 <p><b>Time:</b> 10 to 25 minutes a day for Ethan. Each day's time is shown in blue. A few days are off.</p>
-<p><b>Why it helps:</b> Lesson 5 is the Unit 2 Checkpoint. The Feast Math Warm-Up (page 4) reviews the same skills as Lessons 1 to 4.</p>
-<p><b>Thu Nov 12–Tue Nov 17: finish Lesson 4's task list first; the project's daily part is short those days</b> (10 minutes or less).</p>
+<p><b>Why it helps:</b> every part uses the two big skills from Lessons 1 and 2: multiplying big numbers and long division. The Feast Math Warm-Up (page 4) reviews both, so they stay sharp over the break.</p>
+<p><b>Thu Nov 12–Tue Nov 17: finish Lesson 2's task list first; the project's daily part is short those days</b> (10 minutes or less).</p>
 <p><b>If your feast is on a different day,</b> just move the Feast Day row to that day.</p></div>
 <h3>Who is in it</h3>
 <div class="who">{''.join(f'<div><b>{n}</b><br>{r}</div>' for n, r in f_who)}</div>
@@ -175,7 +175,7 @@ f_intro = f"""
 <li>A poster board, or 2 sheets of paper taped together</li><li>Markers or crayons, scissors, glue or tape</li>
 <li>Measuring cups and spoons (for the recipe you make bigger)</li><li>A store, the store's website, or the weekly ad, to find real prices</li></ul>
 <h3>The Head Planner rules</h3>
-<ol><li>Every price is a <b>real</b> price. Write it with a $ and two digits after the decimal point, like $3.49.</li>
+<ol><li>Every price is a <b>real</b> price. Write it just as it is, like $3.49. Then round it to the nearest dollar ($3) and do the math with the rounded price.</li>
 <li>Do the math by hand first. You can check it with a calculator after.</li>
 <li>Joyce and Clyde each pick one dish for the menu.</li>
 <li>When you interview someone, write their <b>exact words</b> in quotation marks. That is your evidence.</li></ol>
@@ -183,28 +183,28 @@ f_intro = f"""
 
 f_guide = f"""
 <h1>🍽️ The Ferguson Family Feast Planner</h1>
-<div class="sub">Thu, Nov 12 – Tue, Dec 1 · Ethan presents it at <b>Lesson 5, Wed, Dec 2 (in person)</b></div>
-<div class="box gold"><p><b>What it is:</b> Ethan is Head Planner for one special family meal (Thanksgiving dinner on Thu, Nov 26, or another family dinner during the break). He plans the menu, finds real prices and keeps to a budget, makes a recipe bigger, shares leftovers fairly, runs a taste-test, interviews Mom and Dad, and makes a Feast Report poster.</p>
-<p><b>Time:</b> 10 to 25 minutes a day for Ethan (shown on each day). Page 4 reviews Lessons 1 to 4 before the Unit 2 Checkpoint at Lesson 5. <b>Thu Nov 12–Tue Nov 17: finish Lesson 4's task list first; the project's daily part is short those days.</b></p></div>
+<div class="sub">Thu, Nov 12 – Tue, Dec 1 · Ethan presents it at <b>Lesson 3, Wed, Dec 2 (in person)</b></div>
+<div class="box gold"><p><b>What it is:</b> Ethan is Head Planner for one special family meal (Thanksgiving dinner on Thu, Nov 26, or another family dinner during the break). He plans the menu, finds real prices, rounds them to the nearest dollar and keeps to a budget, makes a recipe bigger, shares leftovers fairly, runs a taste-test, interviews Mom and Dad, and makes a Feast Report poster.</p>
+<p><b>Time:</b> 10 to 25 minutes a day for Ethan (shown on each day). Page 4 reviews Lessons 1 and 2 (multiplying big numbers and long division). <b>Thu Nov 12–Tue Nov 17: finish Lesson 2's task list first; the project's daily part is short those days.</b></p></div>
 <h3>Who is in it</h3><div class="who" style="grid-template-columns:repeat(5,1fr)">{''.join(f'<div><b>{n}</b><br>{r}</div>' for n, r in f_who)}</div>
 <h3>Supplies</h3><ul><li>The 11 printed worksheets (page 3 twice if you buy more than 10 items)</li><li>Poster board or 2 sheets of paper taped together; markers, scissors, glue or tape</li><li>Measuring cups and spoons; a store, its website, or the weekly ad for prices</li></ul>
-<h3>Head Planner rules</h3><ol><li>Every price is a real price, written like $3.49.</li><li>Math by hand first, then check with a calculator.</li><li>Joyce and Clyde each pick one dish.</li><li>Interview answers: write exact words in quotation marks.</li></ol>
+<h3>Head Planner rules</h3><ol><li>Every price is a real price, written like $3.49, then rounded to the nearest dollar for the math.</li><li>Math by hand first, then check with a calculator.</li><li>Joyce and Clyde each pick one dish.</li><li>Interview answers: write exact words in quotation marks.</li></ol>
 <h3>What to bring on Wed, Dec 2</h3><p>The poster and worksheet pages 1 to 11.</p>
 """
 
 f_rows = [
- ("WEEK", "Week 1 · Plan the feast (Thu, Nov 12 – Sun, Nov 15) · Lesson 4's task list comes first"),
+ ("WEEK", "Week 1 · Plan the feast (Thu, Nov 12 – Sun, Nov 15) · Lesson 2's task list comes first"),
  ("Thu, Nov 12", "<b>Family meeting</b> (10 minutes). Skyler reads \"What it is\" out loud. Choose the feast: Thanksgiving dinner on Thu, Nov 26, or another special family dinner. Joyce and Clyde each pick one dish.",
-  "Lesson 4's task list first. Then lead the meeting with Mom and fill in <b>Feast Crew and Menu</b> (page 1) as the family decides." + mins(10)),
- ("Fri, Nov 13", "No family part today.", "Lesson 4's task list first. Then <b>Feast Math Warm-Up</b> (page 4), problems 1 and 2. Show your work in each box." + mins(10)),
+  "Lesson 2's task list first. Then lead the meeting with Mom and fill in <b>Feast Crew and Menu</b> (page 1) as the family decides." + mins(10)),
+ ("Fri, Nov 13", "No family part today.", "Lesson 2's task list first. Then <b>Feast Math Warm-Up</b> (page 4), problems 1 and 2. Show your work in each box." + mins(10)),
  ("Sat, Nov 14", "<b>Price hunt.</b> Mom or Dad and Ethan look up prices: at the store, on the store's website, or in the weekly ad. Joyce and Clyde help spot the items.",
-  "Lesson 4's task list first. On <b>Price Hunt</b> (page 3), write each item, its size, its real price, and how many you need. No math yet." + mins(10)),
- ("Sun, Nov 15", "Joyce draws the menu picture on page 1.", "Lesson 4's task list first. Read the Word Bank (page 2) out loud to the family. Then <b>Word Bank, Try 1</b>: fold the page and write each word from memory." + mins(10)),
+  "Lesson 2's task list first. On <b>Price Hunt</b> (page 3), write each item, its size, its real price, and how many you need. No math yet." + mins(10)),
+ ("Sun, Nov 15", "Joyce draws the menu picture on page 1.", "Lesson 2's task list first. Read the Word Bank (page 2) out loud to the family. Then <b>Word Bank, Try 1</b>: fold the page and write each word from memory." + mins(10)),
  ("WEEK", "Week 2 · Do the math (Mon, Nov 16 – Sun, Nov 22)"),
  ("Mon, Nov 16", "Mom or Dad tells Ethan the budget: how much money the family wants to spend on the feast.",
-  "Lesson 4's task list first. On page 3, write the budget. Then fill in the <b>Cost</b> column: price × how many." + mins(10)),
- ("Tue, Nov 17", "No family part today.", "Lesson 4's task list first. Then <b>Feast Math Warm-Up</b> (page 4), problems 3 and 4." + mins(10)),
- ("Wed, Nov 18", "No lesson today.", "Finish <b>Price Hunt</b> (page 3): add the costs with the decimal points lined up, and compare the total with the budget." + mins(15)),
+  "Lesson 2's task list first. On page 3, write the budget. Round each price to the nearest dollar, then fill in the <b>Cost</b> column: rounded price × how many." + mins(10)),
+ ("Tue, Nov 17", "No family part today.", "Lesson 2's task list first. Then <b>Feast Math Warm-Up</b> (page 4), problems 3 and 4." + mins(10)),
+ ("Wed, Nov 18", "No lesson today.", "Finish <b>Price Hunt</b> (page 3): add the costs, one column at a time, and compare the total with the budget." + mins(15)),
  ("Thu, Nov 19", "Mom and Dad each answer Ethan's 3 interview questions (about 5 minutes each).", "<b>Viewpoint Interview</b> (page 7). Write their exact words in quotation marks." + mins(15)),
  ("Fri, Nov 20", "No family part today.", "<b>Two Viewpoints, One Feast</b> (page 8): fill in the plan at the top. Then <b>Word Bank, Try 2</b> (page 2)." + mins(25)),
  ("Sat, Nov 21", "No family part today.", "Write your paragraph on page 8. Use the words <b>viewpoint</b> and <b>evidence</b>. Read it out loud and check: a main idea sentence, evidence in quotation marks, and a closing sentence." + mins(20)),
@@ -224,7 +224,7 @@ f_rows = [
  ("Mon, Nov 30", "No family part today.", "Make the poster from your plan on page 11. Use the checklist." + mins(20)),
  ("Tue, Dec 1", "<b>Practice show.</b> The family sits and listens. After Ethan presents, each person says one thing they liked.",
   "Practice presenting the poster in 3 to 5 minutes. Look at the family, not only at the poster. Pack the poster and pages 1 to 11." + mins(15)),
- ("Wed, Dec 2", "Lesson 5 is in person. Send the poster and the worksheets with Ethan.", "Present your Feast Report poster to Jonathan (3 to 5 minutes). Then do the Unit 2 Checkpoint."),
+ ("Wed, Dec 2", "Lesson 3 is in person. Send the poster and the worksheets with Ethan.", "Present your Feast Report poster to Jonathan (3 to 5 minutes). Then Lesson 3 begins."),
 ]
 
 def f_sheets():
@@ -243,25 +243,25 @@ def f_sheets():
     # p2 word bank
     s += word_page("Ethan", "Feast Word Bank", F_WORDS, "Sun, Nov 15", "Fri, Nov 20", "Use at least 2 of these words on your poster.")
     # p3 price hunt
-    prow = '<tr><td style="height:.38in"></td><td></td><td></td><td></td><td></td></tr>' * 10
-    s += (f'<div class="pg">{ph("Ethan + Mom", "Price Hunt")}<p class="dir">Find the <b>real</b> price of each thing you need: at the store, on the store\'s website, or in the weekly ad. Write money with a $ and two digits after the decimal point. Then multiply: price × how many = cost.</p>'
-          f'<div class="box" style="margin:4px 0 8px;font-size:14px;padding:6px 10px"><b>Example:</b> rolls cost $3.49 a bag. We need 2 bags. &nbsp; $3.49 × 2 = {money(ex_rolls)}</div>'
-          f'<table class="ws"><tr><th>Item</th><th style="width:1.2in">Size (like 5 lb)</th><th style="width:1.05in">Price for one</th><th style="width:.8in">How many</th><th style="width:1.05in">Cost</th></tr>{prow}</table>'
-          '<p class="q">Add all the costs. Line up the decimal points! &nbsp; Total: $ ____________</p>'
+    prow = '<tr><td style="height:.38in"></td><td></td><td></td><td></td><td></td><td></td></tr>' * 10
+    s += (f'<div class="pg">{ph("Ethan + Mom", "Price Hunt")}<p class="dir">Find the <b>real</b> price of each thing you need: at the store, on the store\'s website, or in the weekly ad. Write the price just as it is. Round it to the nearest dollar. Then multiply: rounded price × how many = cost.</p>'
+          f'<div class="box" style="margin:4px 0 8px;font-size:14px;padding:6px 10px"><b>Example:</b> rolls cost $3.49 a bag. Rounded: $3. We need 2 bags. &nbsp; $3 × 2 = ${ex_rolls}</div>'
+          f'<table class="ws"><tr><th>Item</th><th style="width:1.05in">Size (like 5 lb)</th><th style="width:.95in">Real price</th><th style="width:.85in">Rounded ($)</th><th style="width:.75in">How many</th><th style="width:.85in">Cost</th></tr>{prow}</table>'
+          '<p class="q">Add all the costs, one column at a time. &nbsp; Total: about $ ____________</p>'
           '<p class="q">Our budget: $ ____________</p><p class="q">Are we over or under? ____________ &nbsp; By how much? $ ____________</p>'
           '<p class="q" style="font-weight:normal">Show the subtraction here:</p><div class="bx" style="height:.75in"></div>'
-          '<p class="q">After shopping: the real total on the receipt was $ ____________.</p><p class="q">My estimate was off by $ ____________.</p></div>')
+          '<p class="q">After shopping: the real total on the receipt, rounded to the nearest dollar, was $ ____________.</p><p class="q">My estimate was off by about $ ____________.</p></div>')
     # p4 warm-up
-    s += problems_page("Ethan", "Feast Math Warm-Up", "These are like the problems from Lessons 1 to 4. Show your work in each box. Write your answer on the line, with the unit (grams, miles, $, cups).", FEAST_PROBS)
+    s += problems_page("Ethan", "Feast Math Warm-Up", "These are like the problems from Lessons 1 and 2. Show your work in each box. Write your answer on the line, with the unit (grams, miles, $, cups).", FEAST_PROBS)
     # p5 scale it up
     srow = '<tr><td style="height:.38in"></td><td></td><td style="width:.8in"></td><td></td></tr>' * 8
     s += (f'<div class="pg">{ph("Ethan", "Scale It Up")}<p class="dir">Pick one real recipe from your menu. Copy each ingredient. Then make it big enough for everyone.</p>'
-          f'<div class="box" style="margin:4px 0 8px;font-size:14px;padding:6px 10px"><b>Example:</b> a recipe serves 4 and uses ¾ cup of milk. We need 8 servings, so we multiply by 2. &nbsp; ¾ × 2 means ¾ + ¾ = 6/4 = {mixed(ex_milk)} cups.</div>'
+          f'<div class="box" style="margin:4px 0 8px;font-size:14px;padding:6px 10px"><b>Example:</b> a recipe serves 4 and uses 3 eggs and 250 grams of flour. We need 12 servings. 12 ÷ 4 = 3, so we multiply by 3. &nbsp; 3 × 3 = {ex_eggs} eggs &nbsp; 250 × 3 = {ex_flour} grams of flour.</div>'
           '<p class="q">Recipe name: ______________________________</p>'
           '<p class="q" style="font-weight:normal">The recipe serves ______ people. We need ______ servings. ______ ÷ ______ = ______, so I multiply every amount by ______.</p>'
-          '<p class="dir">If the division does not come out even, round up. A little extra food is better than not enough! <b>Fraction × whole number:</b> ¾ × 2 means ¾ + ¾. Add the fraction that many times.</p>'
+          '<p class="dir">If the division does not come out even, round up. A little extra food is better than not enough! Scale the amounts that are whole numbers (like 2 eggs, 3 cups or 250 grams). If an amount has a fraction in it, like ¾ cup, ask Mom to scale that one with you.</p>'
           f'<table class="ws"><tr><th>Ingredient</th><th style="width:1.5in">Amount in the recipe</th><th>× ___</th><th style="width:1.7in">New amount</th></tr>{srow}</table>'
-          '<p class="q">Fraction check: find two amounts in your new recipe that use the same unit (like cups). Add them. If the denominators are different, find a common denominator first.</p>'
+          '<p class="q">Check: pick your biggest new amount. Divide it by the number you multiplied by. Do you get the amount in the recipe back? Show it here.</p>'
           '<div class="bx" style="height:1.1in"></div></div>')
     # p6 fair share
     pie = ('<svg width="190" height="190" viewBox="-100 -100 200 200" style="display:block;margin:4px auto"><circle r="94" fill="#fff" stroke="#333" stroke-width="3"/>'
@@ -273,8 +273,8 @@ def f_sheets():
           '<p class="q" style="font-weight:normal">Each person gets ______. There are ______ left over.</p>'
           '<p class="q">What should we do with the leftover ones? Save them, share them with someone, or cut them into pieces? Explain.</p>' + lines(2) +
           '<p class="q">Part 2 · The pie picture</p><p class="dir">Ethan counts the slices of pie (or cake) that were eaten and points to one slice on the picture for each; Joyce colors each slice he points to. If your pie was not cut into 8 slices, draw your own pie on the back.</p>' + pie +
-          '<p class="q" style="font-weight:normal">______ of 8 slices were eaten. &nbsp; Eaten: ______ / 8 &nbsp;&nbsp; Left: ______ / 8</p>'
-          '<p class="q">Can you write the eaten fraction a simpler way? (Example: 4/8 = 1/2)</p>' + lines(1) + '</div>')
+          '<p class="q" style="font-weight:normal">Eaten: ______ slices &nbsp;&nbsp; Left: ______ slices &nbsp;&nbsp; (Eaten + Left should make 8.)</p>'
+          '<p class="q">If the family made 6 pies, each cut into 8 slices, how many slices is that? ______ × ______ = ______</p>' + lines(1) + '</div>')
     # p7 interview
     iq = ["What is the most important part of a great family meal: the food, the people, or something else? Why?",
           "Should a holiday meal be fancy or simple? Why?", "What is one thing you would change about how we do holiday meals?"]
@@ -293,19 +293,19 @@ def f_sheets():
           f'<table class="ws"><tr><th>Dish</th><th style="width:.7in">Mom</th><th style="width:.7in">Dad</th><th style="width:.7in">Ethan</th><th style="width:.8in">Joyce</th><th style="width:.85in">Clyde</th><th style="width:.7in">Total</th></tr>{trow}</table>'
           '<p class="q">1. Which dish got the highest total? ____________________ &nbsp; How many stars? ______</p>'
           '<p class="q">2. Which dish got the lowest total? ____________________</p>'
-          '<p class="q">3. 5 people × 5 stars = 25 stars is a perfect score.<br>Write the top dish\'s score as a fraction: ______ / 25</p>'
+          '<p class="q">3. 5 people × 5 stars = 25 stars is a perfect score.<br>The top dish got ______ out of 25 stars. How many stars short of perfect? ______</p>'
           '<p class="q">4. Write one main idea sentence about what the family liked best.</p>' + lines(3) + '</div>')
     # p10 stories
     s += story_page("Ethan + Joyce + Clyde", "Little Storytellers", "Ask Joyce, then Clyde: <i>What was your favorite part of the feast? What happened?</i>")
     # p11 poster plan
-    s += (f'<div class="pg">{ph("Ethan", "Feast Report: Poster Plan")}<p class="dir">Plan your poster here. You will present it in 3 to 5 minutes at Lesson 5.</p>'
+    s += (f'<div class="pg">{ph("Ethan", "Feast Report: Poster Plan")}<p class="dir">Plan your poster here. You will present it in 3 to 5 minutes at Lesson 3.</p>'
           '<p class="q">Main idea sentence (what your whole poster is about):</p>' + lines(2) +
           '<p class="q">Detail 1 · The budget (total cost, budget, over or under):</p>' + lines(2) +
           '<p class="q">Detail 2 · The recipe I made bigger (show one step of the math):</p>' + lines(2) +
           '<p class="q">Detail 3 · The taste-test winner:</p>' + lines(1) +
           '<p class="q">Detail 4 · Two viewpoints (one sentence about Mom\'s and Dad\'s views):</p>' + lines(2) +
           '<p class="q">Poster checklist</p>' + cklist(["Title: The Ferguson Family Feast", "The menu, with Joyce\'s art", "Price Hunt total and budget", "One math example, step by step", "Taste-test winner", "Your Two Viewpoints paragraph", "2 Word Bank words", "Your name"]) +
-          '<p class="q">Bring to Lesson 5 (Wed, Dec 2): ☐ the poster &nbsp; ☐ worksheet pages 1 to 11</p></div>')
+          '<p class="q">Bring to Lesson 3 (Wed, Dec 2): ☐ the poster &nbsp; ☐ worksheet pages 1 to 11</p></div>')
     return s
 
 f_key = ('<p class="dir">Feast Math Warm-Up (worksheet page 4). Price Hunt, Scale It Up, Fair Share and the taste-test use your family\'s own numbers, so check those by redoing the math together.</p>'
@@ -332,8 +332,8 @@ GAMES_PROBS = [
   f"87 ÷ 8 = {q3b} R{r3b}: {q3b} full rows, and {r3b} students in the last row"),
  ("✈️ A flight lasts 140 minutes. How many hours and minutes is that? (60 minutes = 1 hour)", "Answer: ______ hours ______ minutes",
   f"140 ÷ 60 = {h4} R{m4}: {h4} hours {m4} minutes"),
- ("A student practices for ¾ hour on Monday and ⅔ hour on Tuesday. How long is that in all? Write it as a mixed number.", "Answer: ________ hours",
-  f"3/4 + 2/3 = 9/12 + 8/12 = 17/12 = {mixed(b5)} hours"),
+ ("A student practices for ¾ hour on Monday and ⅔ hour on Tuesday. How long is that in all? Find a common denominator first. Is it more or less than 1 hour?", "Answer: ________ hour &nbsp; More or less than 1 hour? ______",
+  f"3/4 + 2/3 = 9/12 + 8/12 = {b5} hour, which is more than 1 hour (12/12 is 1 hour)"),
  ("Plane A flies ¾ of the way down the hall. Plane B flies ⅝ of the way. Which plane flies farther? By how much?", "Plane: ______ &nbsp; By: ______",
   f"Plane A. 3/4 = 6/8, and 6/8 − 5/8 = {b6} of the hall"),
  ("Hang times: 2.4 seconds, 1.85 seconds, 2.09 seconds. Put them in order from <b>longest</b> to <b>shortest</b>. Tip: write 2.4 as 2.40.", "Order: ________, ________, ________",
