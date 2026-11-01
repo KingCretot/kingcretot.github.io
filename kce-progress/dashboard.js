@@ -177,39 +177,60 @@ function rows() {
 function renderStudents() {
   const R = rows();
   const weekAgo = Date.now() - 7 * 864e5;
-  const active = R.filter((r) => r.last && r.last.getTime() > weekAgo).length;
-  const notMastered = R.reduce((n, r) => n + r.unfinished.length, 0);
-  const scoresWeek = R.reduce((n, r) => n + r.ev.filter((e) => toDate(e.at) && toDate(e.at).getTime() > weekAgo).length, 0);
+  // One card per student, with every course they take together in one place.
+  const by = new Map();
+  for (const r of R) {
+    const k = r.F.fid + '/' + r.S.sid;
+    if (!by.has(k)) by.set(k, { F: r.F, S: r.S, rows: [] });
+    by.get(k).rows.push(r);
+  }
+  const people = [...by.values()].map((p) => {
+    p.last = p.rows.map((r) => r.last).filter(Boolean).sort((a, b) => b - a)[0] || null;
+    p.week = p.rows.reduce((n, r) => n + r.ev.filter((e) => toDate(e.at) && toDate(e.at).getTime() > weekAgo).length, 0);
+    p.mastered = p.rows.reduce((n, r) => n + r.passed.length, 0);
+    p.open = p.rows.reduce((n, r) => n + r.unfinished.length, 0);
+    p.rows.sort((a, b) => (b.last || 0) - (a.last || 0));
+    return p;
+  }).sort((a, b) => String(a.S.student.firstName).localeCompare(String(b.S.student.firstName)));
+  const active = people.filter((p) => p.last && p.last.getTime() > weekAgo).length;
+  const scoresWeek = people.reduce((n, p) => n + p.week, 0);
+  const notMastered = people.reduce((n, p) => n + p.open, 0);
   let h = `<div class="sum">
-     <div><b>${new Set(R.map((r) => r.S.sid + r.F.fid)).size}</b><span>students enrolled</span></div>
-     <div><b>${active}</b><span>active in the last 7 days</span></div>
+     <div><b>${people.length}</b><span>students enrolled</span></div>
+     <div><b>${active}</b><span>students active in the last 7 days</span></div>
      <div><b>${scoresWeek}</b><span>scores in the last 7 days</span></div>
      <div><b>${notMastered}</b><span>lessons started, not yet mastered</span></div></div>`;
-  h += `<div class="card"><h2>Every student</h2>`;
-  if (!R.length) h += `<p class="muted">No students yet. Add a family under “Families &amp; enrollment.”</p>`;
-  else {
-    h += `<table><tr><th>Student</th><th>Course</th><th>Where they are</th><th>Mastered</th><th class="hide-s">Started, not mastered</th><th>Last score</th><th class="hide-s">Last activity</th></tr>`;
-    R.sort((a, b) => (b.last || 0) - (a.last || 0));
-    for (const r of R) {
+  h += `<h2 class="every">Every student</h2>`;
+  if (!people.length) h += `<div class="card"><p class="muted">No students yet. Add a family under “Families &amp; enrollment.”</p></div>`;
+  people.forEach((p, i) => {
+    h += `<div class="card person" id="p${i}">
+      <div class="phead"><div><h2 style="margin:0;border:0;padding:0">${esc(p.S.student.firstName)}</h2>
+        <span class="muted">${esc(p.F.family.name)} family · last activity ${fmt(p.last)}</span></div>
+        <div class="pstats"><span><b>${p.week}</b> scores this week</span><span><b>${p.mastered}</b> mastered</span><span><b>${p.open}</b> not yet mastered</span></div></div>
+      <table><tr><th>Course</th><th>Where they are</th><th>Mastered</th><th class="hide-s">Started, not mastered</th><th>Last score</th><th class="hide-s">Last activity</th></tr>`;
+    for (const r of p.rows) {
       const ls = r.lastScore;
-      h += `<tr><td><span class="stu" data-f="${esc(r.F.fid)}" data-s="${esc(r.S.sid)}">${esc(r.S.student.firstName)}</span></td>
-        <td>${esc(courseName(r.cid))}</td>
+      h += `<tr><td>${esc(courseName(r.cid))}</td>
         <td>${r.current ? esc(lessonName(r.current)) : '<span class="muted">Not started</span>'}</td>
         <td>${n0(r.passed.length)}</td>
-        <td class="hide-s">${r.unfinished.map((k) => `<span class="pill wait">${esc(lessonName(k))} · best ${n0(r.items[k].best)}</span>`).join('') || '—'}</td>
+        <td class="hide-s">${r.unfinished.map((k) => `<span class="pill wait">${esc(lessonName(k))} · best ${n0(r.items[k].best)}</span>`).join(' ') || '—'}</td>
         <td>${ls ? `<span class="pill ${ls.mastered === true ? 'ok' : 'no'}">${n0(ls.score)}</span> <span class="muted">${esc(lessonName(ls.lesson))}</span>` : '—'}</td>
         <td class="hide-s">${fmt(r.last)}</td></tr>`;
     }
-    h += `</table>`;
-  }
-  h += `</div><div id="detail"></div>`;
+    h += `</table><button class="btn light hist" data-f="${esc(p.F.fid)}" data-s="${esc(p.S.sid)}" data-i="${i}">Show ${esc(String(p.S.student.firstName).split(' ')[0])}'s score history</button>
+      <div class="histbox" id="h${i}"></div></div>`;
+  });
   $('#view').innerHTML = h;
-  document.querySelectorAll('.stu').forEach((s) => (s.onclick = () => detail(s.dataset.f, s.dataset.s)));
+  document.querySelectorAll('.hist').forEach((b) => (b.onclick = () => {
+    const box = $('#h' + b.dataset.i);
+    if (box.innerHTML) { box.innerHTML = ''; b.textContent = b.textContent.replace(/^Hide/, 'Show'); return; }
+    detail(b.dataset.f, b.dataset.s, box); b.textContent = b.textContent.replace(/^Show/, 'Hide');
+  }));
 }
 
-function detail(fid, sid) {
+function detail(fid, sid, box) {
   const F = DATA.find((x) => x.fid === fid), S = F.students.find((x) => x.sid === sid);
-  let h = `<div class="card"><h2>${esc(S.student.firstName)} · score history</h2><p class="muted">Family: ${esc(F.family.name)}</p>`;
+  let h = `<div class="hist-in">`;
   for (const cid of S.student.courses || []) {
     const items = scoreOnly(cid) ? lessonsFromScores(S.events.filter((e) => e.course === cid)) : ((S.progress[cid] || {}).items || {});
     const keys = Object.keys(items).filter((k) => !k.startsWith('practice-')).sort();
@@ -224,8 +245,7 @@ function detail(fid, sid) {
     h += `</table>`;
   }
   h += `</div>`;
-  $('#detail').innerHTML = h;
-  $('#detail').scrollIntoView({ behavior: 'smooth' });
+  box.innerHTML = h;
 }
 
 // ---------- enrollment ----------
