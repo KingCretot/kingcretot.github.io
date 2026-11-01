@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 5 · KCE Game Plan</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  /* ---------- simple labeled diagrams (not drawn to scale) ---------- */
+  var FILL = '#E3F1E6', INK = '#0A1F3D', RED = '#DB2F30';
+  function fig(w, h, inner, label) {
+    return '<svg viewBox="0 0 ' + w + ' ' + h + '" width="100%" style="display:block;max-width:' + w + 'px;height:auto;margin:10px auto" role="img" aria-label="' + label + '" font-family="Arial" font-size="14" font-weight="bold">' + inner + '</svg><span style="display:block;font-size:13px;font-weight:normal;color:var(--muted);text-align:center;margin-top:-4px">(Not drawn to scale.)</span>';
+  }
+  function txt(x, y, s, anchor, color) { return '<text x="' + x + '" y="' + y + '" text-anchor="' + (anchor || 'middle') + '" fill="' + (color || INK) + '">' + s + '</text>'; }
+  function hgt(x, y1, y2) { return '<line x1="' + x + '" y1="' + y1 + '" x2="' + x + '" y2="' + y2 + '" stroke="' + RED + '" stroke-width="2" stroke-dasharray="6 4"/><path d="M' + x + ' ' + (y2 - 10) + ' H' + (x + 10) + ' V' + y2 + '" fill="none" stroke="' + RED + '" stroke-width="1.5"/>'; }
+  var SH = ' fill="' + FILL + '" stroke="' + INK + '" stroke-width="2"';
+  function paraFig(b, h, s, label) {
+    return fig(340, 170, '<polygon points="40,130 240,130 300,30 100,30"' + SH + '/>' + hgt(100, 30, 130) + txt(140, 152, b) + txt(108, 85, h, 'start', RED) + txt(62, 82, s, 'end'), label);
+  }
+  function triFig(b, h, s, label) {
+    return fig(320, 190, '<polygon points="40,150 280,150 160,30"' + SH + '/>' + hgt(160, 30, 150) + txt(160, 172, b) + txt(166, 105, h, 'start', RED) + txt(230, 88, s, 'start') + txt(90, 88, s, 'end'), label);
+  }
+  function houseFig(w, h, th, label) {
+    return fig(320, 220, '<rect x="60" y="90" width="200" height="100"' + SH + '/><polygon points="60,90 260,90 160,30"' + SH + '/>' + hgt(160, 30, 90) + txt(166, 68, th, 'start', RED) + txt(160, 210, w) + txt(270, 145, h, 'start'), label);
+  }
+  function lFig(W, H, topW, rightH, label) {
+    return fig(360, 230, '<polygon points="60,20 160,20 160,110 300,110 300,200 60,200"' + SH + '/>' + txt(110, 14, topW) + txt(52, 115, H, 'end') + txt(180, 220, W) + txt(308, 160, rightH, 'start'), label);
+  }
+  function holeFig(W, H, hw, hh, label) {
+    return fig(340, 190, '<rect x="40" y="20" width="240" height="130"' + SH + '/><rect x="130" y="60" width="80" height="45" fill="#fff" stroke="' + INK + '" stroke-width="2"/>' + txt(170, 53, hw) + txt(216, 88, hh, 'start') + txt(160, 172, W) + txt(290, 90, H, 'start'), label);
+  }
+  function plazaFig(side, tb, th, label) {
+    var k = 180 / parseFloat(side), bw = parseFloat(tb) * k, th2 = parseFloat(th) * k, top = 165 - th2;
+    return fig(300, 230, '<rect x="40" y="20" width="180" height="180"' + SH + '/><polygon points="' + (125 - bw / 2) + ',165 ' + (125 + bw / 2) + ',165 125,' + top + '" fill="#fff" stroke="' + INK + '" stroke-width="2"/><line x1="125" y1="' + top + '" x2="125" y2="165" stroke="' + RED + '" stroke-width="2" stroke-dasharray="4 3"/>' + txt(125, 184, tb) + txt(125 + bw / 2 + 6, 165 - th2 / 2 + 5, th, 'start', RED) + txt(130, 222, side) + txt(228, 115, side, 'start'), label);
+  }
+
+  var A = [
+    { s: 'Math', t: 'num', a: 1000, q: 'The new scoreboard screen is a rectangle <b>40 ft</b> wide and <b>25 ft</b> tall. What is its area?', unit: 'sq ft', hint: 'Area = base × height.', why: '40 × 25 = 1,000 sq ft.', show: '1,000 sq ft' },
+    { s: 'Math', t: 'mc', o: ['36 sq ft', '45 sq ft', '18 sq ft', '28 sq ft'], a: 0, q: 'A parallelogram decal goes on the locker room door. What is its area?' + paraFig('9 ft', '4 ft', '5 ft', 'Parallelogram with base 9 feet, dashed height 4 feet, slanted side 5 feet'), hint: 'Use the dashed height, not the slanted side.', why: '9 × 4 = 36 sq ft. 9 × 5 = 45 uses the slanted side by mistake.' },
+    { s: 'Math', t: 'num', a: 12, q: 'A triangular pennant has a base of <b>3 ft</b> and a height of <b>8 ft</b>. What is its area?', unit: 'sq ft', hint: 'Find base × height, then take half.', why: '½ × 3 × 8 = ½ × 24 = 12 sq ft.' },
+    { s: 'Math', t: 'mc', o: ['60 sq ft', '65 sq ft', '120 sq ft', '130 sq ft'], a: 0, q: 'A triangular banner hangs over the tunnel. What is its area?' + triFig('10 ft', '12 ft', '13 ft', 'Triangle with base 10 feet, dashed height 12 feet, slanted sides 13 feet'), hint: 'Use the dashed height, and don’t forget the ½.', why: '½ × 10 × 12 = 60 sq ft. Using the slanted side gives 65, and forgetting the ½ gives 120.' },
+    { s: 'Math', t: 'num', a: 480, q: 'The entrance sign is a rectangle with a triangle on top. What is the total area?' + houseFig('30 ft', '12 ft', '8 ft', 'Rectangle 30 feet wide and 12 feet tall with a triangle on top, triangle height 8 feet'), unit: 'sq ft', hint: 'Rectangle: 30 × 12. Triangle: ½ × 30 × 8. Add them.', why: '30 × 12 = 360. ½ × 30 × 8 = 120. 360 + 120 = 480 sq ft.' },
+    { s: 'Math', t: 'num', a: 2300, q: 'The tailgate lot is an L shape. What is its area?' + lFig('60 yd', '50 yd', '25 yd', '30 yd', 'L-shaped lot: bottom edge 60 yards, left edge 50 yards, top edge 25 yards, right edge 30 yards'), unit: 'square yards', hint: 'Bottom rectangle: 60 × 30. The top piece is 25 wide and 50 − 30 = 20 tall.', why: '60 × 30 = 1,800. 25 × 20 = 500. 1,800 + 500 = 2,300 square yards.', show: '2,300 square yards' },
+    { s: 'Math', t: 'num', a: 162, q: 'A ticket booth wall is 20 ft by 9 ft with a 6 ft by 3 ft window. How many square feet of wall get painted?' + holeFig('20 ft', '9 ft', '6 ft', '3 ft', 'Wall 20 feet by 9 feet with a window 6 feet by 3 feet'), unit: 'sq ft', hint: 'Whole wall minus the window.', why: '20 × 9 = 180. 6 × 3 = 18. 180 − 18 = 162 sq ft.' },
+    { s: 'ELA', passage: 1, t: 'order', items: ['Rain soaks down through the grass.', 'Water passes quickly through the sand layer.', 'Water drips into the gravel.', 'Pipes with small holes collect the water.', 'The pipes carry the water to a retention pond.'], q: 'Put the steps water takes <b>in order</b> in “How a Field Stays Dry.”', hint: 'Follow the water from the top of the field to the bottom.', why: 'Grass, then sand, then gravel, then pipes, then the pond. That’s the path from paragraphs 3 to 5.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['Nothing is worse than playing in a muddy mess.', 'The pond is home to a family of ducks.', 'The middle of the field is a little higher than the sidelines.', 'Pipes under the gravel collect the water.'], a: [0, 1], q: 'Which <b>two sentences</b> should be <b>left out</b> of a summary?', hint: 'Cut opinions and small extra facts.', why: 'The first is an opinion and the ducks are a minor detail. The crown and the pipes are key parts of how the field drains.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['The field is built higher in the middle so some rain runs off. The rest soaks through grass, sand and gravel into pipes that carry it to a pond.', 'Florida gets a lot of rain, and muddy games are the worst. The ducks in the pond are cute.', 'The pond is past the end zone. The pipes have small holes. Sand is under the grass.', 'Ridgeline Field never gets muddy because the crew works hard.'], a: 0, q: 'Which is the <b>best summary</b> of “How a Field Stays Dry”?', hint: 'Look for the main steps in order, with no opinions.', why: 'It covers the crown and each layer in order, without opinions or minor details.' },
+    { s: 'Money', t: 'sort', bins: ['Short-term', 'Long-term'], items: [['Concert tickets next month', 0], ['Birthday gift for Mom in 3 weeks', 0], ['A new bike this summer', 0], ['College tuition', 1], ['A first car in 5 years', 1], ['Starting a business someday', 1]], q: 'Sort each goal: <b>short-term</b> or <b>long-term</b>?', hint: 'Short-term means within about a year.', why: 'Tickets, a gift and a bike this summer are within a year. College, a car in 5 years and a business are long-term.' },
+    { s: 'Money', t: 'num', a: 15, q: 'Jaylen wants new cleats that cost <b>$120</b>. He wants them in <b>8 weeks</b>. How much should he save each week?', unit: 'dollars', hint: 'Goal ÷ number of weeks.', why: '$120 ÷ 8 = $15 a week.', show: '$15' },
+    { s: 'Money', t: 'mc', o: ['Save $600 for a laptop in 12 weeks by putting away $50 every week.', 'Save more money soon.', 'Save $600 for a laptop.', 'Get rich someday.'], a: 0, q: 'Which is a <b>SMART</b> goal?', hint: 'Look for an amount, a plan and a deadline.', why: 'It is specific, measurable and time-bound, and the plan works: $50 × 12 = $600.' }
+  ];
+  var B = [
+    { s: 'Math', t: 'num', a: 700, q: 'The new concession stand floor is a rectangle <b>35 ft</b> by <b>20 ft</b>. What is its area?', unit: 'sq ft', hint: 'Area = base × height.', why: '35 × 20 = 700 sq ft.' },
+    { s: 'Math', t: 'mc', o: ['66 sq ft', '77 sq ft', '33 sq ft', '36 sq ft'], a: 0, q: 'A parallelogram logo is painted on the sideline. What is its area?' + paraFig('11 ft', '6 ft', '7 ft', 'Parallelogram with base 11 feet, dashed height 6 feet, slanted side 7 feet'), hint: 'Use the dashed height, not the slanted side.', why: '11 × 6 = 66 sq ft. 11 × 7 = 77 uses the slanted side by mistake.' },
+    { s: 'Math', t: 'num', a: 25, q: 'A triangular pennant has a base of <b>5 ft</b> and a height of <b>10 ft</b>. What is its area?', unit: 'sq ft', hint: 'Find base × height, then take half.', why: '½ × 5 × 10 = ½ × 50 = 25 sq ft.' },
+    { s: 'Math', t: 'mc', o: ['120 sq ft', '136 sq ft', '240 sq ft', '272 sq ft'], a: 0, q: 'A triangular glass panel goes above the main gate. What is its area?' + triFig('16 ft', '15 ft', '17 ft', 'Triangle with base 16 feet, dashed height 15 feet, slanted sides 17 feet'), hint: 'Use the dashed height, and don’t forget the ½.', why: '½ × 16 × 15 = 120 sq ft. Using the slanted side gives 136, and forgetting the ½ gives 240.' },
+    { s: 'Math', t: 'num', a: 300, q: 'The team store sign is a rectangle with a triangle on top. What is the total area?' + houseFig('24 ft', '10 ft', '5 ft', 'Rectangle 24 feet wide and 10 feet tall with a triangle on top, triangle height 5 feet'), unit: 'sq ft', hint: 'Rectangle: 24 × 10. Triangle: ½ × 24 × 5. Add them.', why: '24 × 10 = 240. ½ × 24 × 5 = 60. 240 + 60 = 300 sq ft.' },
+    { s: 'Math', t: 'num', a: 2200, q: 'The bus parking lot is an L shape. What is its area?' + lFig('70 yd', '40 yd', '30 yd', '25 yd', 'L-shaped lot: bottom edge 70 yards, left edge 40 yards, top edge 30 yards, right edge 25 yards'), unit: 'square yards', hint: 'Bottom rectangle: 70 × 25. The top piece is 30 wide and 40 − 25 = 15 tall.', why: '70 × 25 = 1,750. 30 × 15 = 450. 1,750 + 450 = 2,200 square yards.', show: '2,200 square yards' },
+    { s: 'Math', t: 'num', a: 876, q: 'A square courtyard is 30 ft on each side. A triangular flower bed (base 8 ft, height 6 ft) is cut out. How much area gets new pavers?' + plazaFig('30 ft', '8 ft', '6 ft', 'Square courtyard 30 feet on each side with a triangle cut out, base 8 feet and height 6 feet'), unit: 'sq ft', hint: 'Square: 30 × 30. Triangle: ½ × 8 × 6. Subtract.', why: '30 × 30 = 900. ½ × 8 × 6 = 24. 900 − 24 = 876 sq ft.' },
+    { s: 'ELA', passage: 1, t: 'order', items: ['The crew measures the field and stretches string lines.', 'A line-painting machine paints the sidelines and yard lines.', 'The crew uses stencils to paint the numbers and logo.', 'The paint dries before anyone steps on the field.'], q: 'Put the main steps of “Painting the Field” <b>in order</b>.', hint: 'Follow the signal words: first, next, then, finally.', why: 'Measure and mark first, then paint the lines, then the stencils, then let it dry.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['The painted field looks better than anything on TV.', 'The head of the crew has worked there for 22 years.', 'Stencils are used to paint the numbers and logo.', 'The paint has to dry before anyone walks on it.'], a: [0, 1], q: 'Which <b>two sentences</b> should be <b>left out</b> of a summary?', hint: 'Cut opinions and small extra facts.', why: 'The first is an opinion and the crew leader’s years on the job are a minor detail. Stencils and drying time are key steps.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['The crew measures and marks the field with string, paints the lines with a machine, paints numbers and the logo with stencils, and lets the paint dry before anyone walks on it.', 'Painting the field is the best job in the stadium, and the field looks amazing on game day.', 'The crew leader has worked there for 22 years. The paint is white. The logo is in the middle.', 'Ridgeline Field gets painted.'], a: 0, q: 'Which is the <b>best summary</b> of “Painting the Field”?', hint: 'Look for the main steps in order, with no opinions.', why: 'It covers every main step in order, without opinions or minor details.' },
+    { s: 'Money', t: 'sort', bins: ['Short-term', 'Long-term'], items: [['Football camp fee in 2 months', 0], ['Holiday gifts this December', 0], ['New cleats this season', 0], ['Buying a house', 1], ['Retirement', 1], ['College in 6 years', 1]], q: 'Sort each goal: <b>short-term</b> or <b>long-term</b>?', hint: 'Short-term means within about a year.', why: 'Camp, gifts and cleats are within a year. A house, retirement and college in 6 years are long-term.' },
+    { s: 'Money', t: 'num', a: 300, q: 'Marcus wants <b>$2,100</b> to take his family on a vacation in <b>7 months</b>. How much should he save each month?', unit: 'dollars', hint: 'Goal ÷ number of months.', why: '$2,100 ÷ 7 = $300 a month. That’s half of the $600 he saves each month.', show: '$300' },
+    { s: 'Money', t: 'mc', o: ['Save $900 for a phone in 6 months by saving $150 each month.', 'Save some money for a phone.', 'Save $900 for a phone someday.', 'Never spend money on anything.'], a: 0, q: 'Which is a <b>SMART</b> goal?', hint: 'Look for an amount, a plan and a deadline.', why: 'It is specific, measurable and time-bound, and the plan works: $150 × 6 = $900.' }
+  ];
+  var PA = '<div class="passage"><h4>How a Field Stays Dry</h4><div class="by">A short how-it-works article about a fictional stadium</div>' +
+    '<p><span class="pn">1</span>A Florida thunderstorm can drop a lot of rain in a short time. Nothing is worse than playing in a muddy mess. Ridgeline Field was built to drain fast, and the secret is under your feet.</p>' +
+    '<p><span class="pn">2</span>First, the field has a slight “crown.” The middle of the field is a little higher than the sidelines, so some rain runs off toward the edges instead of sitting in puddles.</p>' +
+    '<p><span class="pn">3</span>The rest of the rain soaks down through the grass. Right under the grass is a thick layer of sand. Sand lets water pass through quickly.</p>' +
+    '<p><span class="pn">4</span>Next, the water drips into a layer of gravel. Buried in the gravel are long pipes with small holes, and the pipes collect the water.</p>' +
+    '<p><span class="pn">5</span>Finally, the pipes carry the water to a retention pond past the end zone. The pond is home to a family of ducks. Within an hour of a storm, the field is ready to play.</p></div>';
+  var PB = '<div class="passage"><h4>Painting the Field</h4><div class="by">A short how-it-works article about a fictional stadium</div>' +
+    '<p><span class="pn">1</span>Those bright white lines on a grass field don’t last forever. At Ridgeline Field, the grounds crew repaints them before every home game. The head of the crew has worked there for 22 years.</p>' +
+    '<p><span class="pn">2</span>First, the crew measures the field and stretches string lines tight between stakes. The strings show exactly where each line will go.</p>' +
+    '<p><span class="pn">3</span>Next, a worker pushes a line-painting machine along each string to paint the sidelines and yard lines.</p>' +
+    '<p><span class="pn">4</span>Then the crew lays large stencils on the grass to paint the numbers and the team logo.</p>' +
+    '<p><span class="pn">5</span>Finally, the paint has to dry before anyone walks on it, or it will smear. The painted field looks better than anything on TV.</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-10', 'Week 5', document.getElementById('practice'))) return;
+    FO.practice({ week: 5, title: 'Stadium Upgrade', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w5win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>

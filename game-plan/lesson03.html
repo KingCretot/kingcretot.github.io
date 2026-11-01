@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 3: Contract Talks · KCE</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  var PASSAGE = '<div class="passage"><h4>Westbrook Needs Flag Football</h4><div class="by">A student opinion piece</div>' +
+    '<p><span class="pn">1</span>Westbrook Middle School has a soccer team, a basketball team and a track team. It is time to add one more. Our school should start a flag football team this spring.</p>' +
+    '<p><span class="pn">2</span>First, students want it. Last month, 112 students signed a petition asking for a team. That is more students than tried out for soccer and basketball combined.</p>' +
+    '<p><span class="pn">3</span>Second, flag football is cheap. Players don’t need helmets or pads. Coach Ellis priced out flags, cones and footballs, and the total came to about $600. The parent club has already offered to pay half.</p>' +
+    '<p><span class="pn">4</span>Third, flag football is safer. Everyone knows that flag players hardly ever get hurt. My cousin plays in a flag league, and he has never been injured.</p>' +
+    '<p><span class="pn">5</span>Some people say the field is already too crowded. However, the soccer team practices only on Mondays and Wednesdays. That leaves the field open three afternoons a week. Also, the first college football game was played way back in 1869.</p>' +
+    '<p><span class="pn">6</span>Flag football is the most exciting sport in the world. Let’s give Westbrook students the team they are asking for.</p></div>';
+
+  var CONTRACT = '<div class="callout blue"><b>Marcus Hale · Rookie Contract</b><br>' +
+    '<b>Length:</b> 4 years<br>' +
+    '<b>Salary:</b> $48,000 per year ($4,000 a month)<br>' +
+    '<b>Signing bonus:</b> $4,000, paid when he signs, fully guaranteed<br>' +
+    '<b>Guaranteed money:</b> the signing bonus plus his Year 1 salary<br>' +
+    '<b>Incentive:</b> $2,000 extra in any season he makes 100 tackles</div>';
+
+  var items = {
+    p1: { t: 'mc', o: ['45 out of 100', '45 out of 10', '4.5 out of 100', '100 out of 45'], a: 0, q: 'Which means the same as <b>45%</b>?', hint: 'Percent means “per hundred.”', why: '45% means 45 per 100, or 45 out of 100.' },
+    p2: { t: 'num', a: 70, q: 'Your rookie quarterback completes <b>21 of 30</b> passes. What is his <b>completion percentage</b>? Type the number only.', ph: 'Percent', show: '70%', hint: 'Divide completions by attempts: 21 ÷ 30. Then write the decimal as a percent.', why: '21 ÷ 30 = 0.7, and 0.7 = 70 out of 100 = 70%.' },
+
+    conv1: { t: 'num', a: 40, q: 'Write <sup>2</sup>⁄<sub>5</sub> as a percent. Type the number only.', ph: 'Percent', show: '40%', hint: 'Multiply 5 by 20 to get 100. Do the same to the top.', why: '2/5 = 40/100 (multiply top and bottom by 20), so 2/5 = 40%.' },
+    conv2: { t: 'mc', o: ['40%', '4%', '0.4%', '400%'], a: 0, q: 'Write <b>0.4</b> as a percent.', hint: 'Move the decimal point two places to the right.', why: '0.4 = 0.40 = 40 hundredths = 40%. A common mistake is writing 4%, but 4% is 0.04.' },
+    conv3: { t: 'order', items: ['1/4', '0.3', '35%', '2/5'], q: 'Put these in order from <b>least to greatest</b>. Tap them in order.', hint: 'Change them all to percents first.', why: '1/4 = 25%, 0.3 = 30%, 35% stays 35%, and 2/5 = 40%. So: 1/4, 0.3, 35%, 2/5.' },
+
+    pof1: { t: 'num', a: 24, q: 'Your kicker made <b>80%</b> of his <b>30</b> field goal tries this season. How many field goals did he make?', unit: 'field goals', ph: 'Field goals', hint: '80% = 0.8. Multiply 0.8 × 30.', why: '80% of 30 = 0.8 × 30 = 24. Check: 10% of 30 is 3, and 8 × 3 = 24.' },
+    raise: { t: 'mc', o: ['$600,000', '$100,000', '$520,000', '$1,000,000'], a: 0, q: 'Your star safety earns <b>$500,000</b> a year. You give him a <b>20% raise</b>. What is his <b>new salary</b>?', hint: 'Find 20% of $500,000 first, then add it to what he already earns.', why: '20% of $500,000 = $100,000. New salary = $500,000 + $100,000 = $600,000. $100,000 is just the raise, not the new salary.' },
+
+    whole1: { t: 'num', a: 30, q: 'Your quarterback completed <b>18</b> passes. That was <b>60%</b> of his attempts. How many passes did he <b>attempt</b>?', unit: 'attempts', ph: 'Attempts', hint: '60% = 6 out of 10. If 6 parts are 18, what is 1 part?', why: 'If 60% is 18, then 10% is 18 ÷ 6 = 3, and 100% is 3 × 10 = 30. Check: 60% of 30 = 18.' },
+    whole2: { t: 'num', a: 1200000, q: 'A player’s signing bonus is <b>$300,000</b>. That is <b>25%</b> of his first-year pay. What is his <b>total first-year pay</b>?', unit: 'dollars', ph: 'Dollars', show: '$1,200,000', hint: '25% is one fourth. The whole is 4 times as big.', why: '25% = 1/4, so the whole is 4 × $300,000 = $1,200,000. Check: 25% of $1,200,000 = $300,000.', badge: 'pctpro' },
+
+    claim: { t: 'mc', o: ['Westbrook Middle should start a flag football team this spring.', 'Flag football is cheaper than soccer.', 'The soccer field is too crowded.', 'Westbrook already has too many sports teams.'], a: 0, q: 'What is the author’s <b>claim</b> in “Westbrook Needs Flag Football”?', hint: 'Look at the last sentence of paragraph 1.', why: 'The author states the position at the end of paragraph 1, and every paragraph after that argues for it.' },
+    rel: { t: 'multi', o: ['112 students signed a petition asking for a team.', 'Equipment would cost about $600, and the parent club offered to pay half.', 'The first college football game was played in 1869.', 'Westbrook has a track team.'], a: [0, 1], q: 'Which <b>two pieces of evidence</b> are relevant and support the claim?', hint: 'Relevant evidence connects directly to why the school should start a team.', why: 'The petition shows students want a team, and the low cost shows the school can afford one. A fact from 1869 and the track team don’t tell us why Westbrook needs flag football.' },
+    irr: { t: 'mc', o: ['The first college football game was played in 1869.', 'The soccer team practices only on Mondays and Wednesdays.', 'That leaves the field open three afternoons a week.', 'Some people say the field is already too crowded.'], a: 0, q: 'Paragraph 5 has one sentence that is <b>irrelevant</b> to the argument. Which one?', hint: 'Which sentence is true but has nothing to do with the field or a new team?', why: 'The 1869 fact may be true, but it doesn’t help prove Westbrook should start a team or that the field has room.' },
+
+    fo: { t: 'sort', bins: ['Fact', 'Opinion'], items: [['112 students signed a petition.', 0], ['The equipment would cost about $600.', 0], ['The soccer team practices on Mondays and Wednesdays.', 0], ['Flag football is the most exciting sport in the world.', 1], ['It is time to add one more.', 1]], q: 'Sort each statement from the passage: <b>fact</b> or <b>opinion</b>?', hint: 'Could you check it with a list, a receipt or a schedule? Then it’s a fact.', why: 'The petition count, the cost and the practice schedule can all be checked. “Most exciting” and “it is time” are what the author believes.' },
+    suff: { t: 'mc', o: ['One person’s story and “everyone knows” don’t prove flag football is safer for all players.', 'The paragraph is too long.', 'Family members can never be used in an argument.', 'Safety has nothing to do with sports.'], a: 0, q: 'Paragraph 4 says flag football is safer. Why is its evidence <b>not sufficient</b>?', hint: 'How many players does the evidence actually cover?', why: 'One cousin is just one example, and “everyone knows” is not proof. Sufficient evidence needs enough facts to convince a reader.' },
+    add: { t: 'mc', o: ['A sports-safety report comparing injury rates in flag and tackle football', 'A quote from the author saying flag football is awesome', 'A list of every NFL team', 'A photo of the school’s new scoreboard'], a: 0, q: 'Which new evidence would <b>best strengthen</b> paragraph 4?', hint: 'Pick the fact that directly tests the claim “flag football is safer.”', why: 'Injury numbers from a report are relevant facts that directly support the safety claim. The other choices are opinions or off topic.', badge: 'closer' },
+
+    guar: { t: 'num', a: 52000, q: 'Look at Marcus’s contract. How much money is <b>guaranteed</b>?', unit: 'dollars', ph: 'Dollars', show: '$52,000', hint: 'Add the signing bonus and the Year 1 salary.', why: '$4,000 signing bonus + $48,000 Year 1 salary = $52,000 guaranteed.' },
+    total: { t: 'num', a: 196000, q: 'If Marcus plays all <b>4 years</b> and never earns the incentive, how much does the contract pay in all?', unit: 'dollars', ph: 'Dollars', show: '$196,000', hint: 'Four years of salary, plus the signing bonus.', why: '4 × $48,000 = $192,000 in salary. $192,000 + $4,000 bonus = $196,000.' },
+
+    auto: { t: 'mc', o: ['The plan starts over for another term unless you cancel in time.', 'The plan ends by itself when the time is up.', 'The company will lower your price each year.', 'You can quit any day for free.'], a: 0, q: 'Marcus’s phone plan says it <b>auto-renews</b>. What does that mean?', hint: 'Auto means automatic. Renew means start again.', why: 'Auto-renewal means the contract signs you up again on its own. If you don’t cancel by the deadline, you keep paying.' },
+    cancel: { t: 'num', a: 430, q: 'Marcus’s phone plan costs <b>$35 a month</b> on a 12-month contract, with a <b>$150 cancellation fee</b>. He cancels after <b>8 months</b>. How much did he pay in all?', unit: 'dollars', ph: 'Dollars', show: '$430', hint: 'Pay for 8 months, then add the fee.', why: '8 × $35 = $280. $280 + $150 fee = $430.' },
+    gym: { t: 'mc', o: ['Read the fine print and ask about cancellation fees and auto-renewal before signing.', 'Sign fast so the deal doesn’t go away.', 'Only look at the monthly price in big letters.', 'Skip the contract, because all gyms have the same rules.'], a: 0, q: 'A gym offers Marcus “only $20 a month!” in big letters. What is the <b>smartest move</b> before he signs?', hint: 'The big letters are the sales pitch. The small letters are the rules.', why: 'The fine print is where fees, contract length and auto-renewal hide. Reading it first protects your money.', badge: 'fineprint' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 3 · Contract Talks</div><h2>Contract Talks</h2>' +
+      '<p>It’s contract season. Agents are calling, players want raises and every deal has numbers in it. A great GM knows how to work with percents, how to spot a strong argument and how to read every word before signing.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Percent Pro.</b> Percents, fractions, decimals and raises.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">The Closer.</b> Claims and evidence in an argument.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Fine Print.</b> What’s really inside a contract.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Percent Pro</span></div><h2>What Is a Percent?</h2>' +
+      '<p><b>Percent</b> means “per hundred.” A percent is a rate that compares a number to 100. So <b>63%</b> means 63 out of every 100.</p>' +
+      '<div class="callout">A quarterback with a <b>65% completion percentage</b> completes about 65 passes for every 100 he throws.</div>' +
+      '<p>To find a percent, divide the part by the whole, then write the answer out of 100: <b>part ÷ whole</b>.</p>' +
+      '<div data-item="p1"></div><div data-item="p2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Percent Pro</span></div><h2>Fractions, Decimals and Percents</h2>' +
+      '<p>The same amount can wear three different jerseys. A fraction, a decimal and a percent can all name the same number.</p>' +
+      '<div class="callout blue"><sup>1</sup>⁄<sub>2</sub> = 0.5 = 50% &nbsp;&nbsp; <sup>1</sup>⁄<sub>4</sub> = 0.25 = 25% &nbsp;&nbsp; <sup>3</sup>⁄<sub>4</sub> = 0.75 = 75% &nbsp;&nbsp; <sup>1</sup>⁄<sub>5</sub> = 0.2 = 20% &nbsp;&nbsp; <sup>1</sup>⁄<sub>10</sub> = 0.1 = 10%</div>' +
+      '<p><b>Decimal to percent:</b> move the decimal point two places right (0.35 → 35%). <b>Percent to decimal:</b> move it two places left (8% → 0.08). <b>Fraction to percent:</b> make the bottom 100, or divide top by bottom.</p>' +
+      '<div data-item="conv1"></div><div data-item="conv2"></div><div data-item="conv3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Percent Pro</span></div><h2>Percent of a Number</h2>' +
+      '<p>To find a percent of a number, change the percent to a decimal and multiply: <b>20% of 50 = 0.2 × 50 = 10</b>.</p>' +
+      '<div class="callout"><b>GM shortcut:</b> 10% of a number is easy: move the decimal one place left. 10% of $300,000 is $30,000, so 20% is $60,000.</div>' +
+      '<div class="callout red"><b>Watch out:</b> a raise is added on top. A 20% raise means the player keeps 100% of his pay <i>and</i> gets 20% more.</div>' +
+      '<div data-item="pof1"></div><div data-item="raise"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Percent Pro</span></div><h2>Finding the Whole</h2>' +
+      '<p>Sometimes you know the <b>part</b> and the <b>percent</b>, but not the whole. Work backward.</p>' +
+      '<div class="callout blue">12 is 25% of what number? &nbsp; 25% is <sup>1</sup>⁄<sub>4</sub>, so the whole is 4 × 12 = <b>48</b>. Check: 25% of 48 = 12.</div>' +
+      '<p>Another way: find what <b>1%</b> or <b>10%</b> is worth, then build up to 100%.</p>' +
+      '<div data-item="whole1"></div><div data-item="whole2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">The Closer</span></div><h2>Claims and Evidence</h2>' +
+      '<p>An agent walks into your office and says his player deserves a raise. That’s a <b>claim</b>: the position someone wants you to accept. To close the deal, he needs <b>evidence</b>: the facts and reasons that back it up.</p>' +
+      '<div class="callout"><b>Relevant evidence</b> connects directly to the claim. <b>Irrelevant evidence</b> might be true, but it doesn’t help prove the point.</div>' +
+      PASSAGE + '<div data-item="claim"></div><div data-item="rel"></div><div data-item="irr"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">The Closer</span></div><h2>Facts, Opinions and Enough Proof</h2>' +
+      '<div class="grid2"><div class="callout blue"><b>Fact:</b> something that can be checked and proven, like a number, a date or a schedule.</div><div class="callout"><b>Opinion:</b> what someone believes or feels. It can’t be proven true or false.</div></div>' +
+      '<p>Strong arguments lean on facts. They also need <b>sufficient</b> evidence: enough proof to convince a careful reader, not just one story.</p>' +
+      PASSAGE + '<div data-item="fo"></div><div data-item="suff"></div><div data-item="add"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Fine Print</span></div><h2>What’s in a Contract?</h2>' +
+      '<p>Remember <b>Marcus Hale</b>, your rookie linebacker? Let’s look at the rookie contract he signed. A <b>contract</b> is an agreement where both sides make promises, and both sides have to keep them.</p>' +
+      '<div class="grid2"><div class="callout"><b>Guaranteed money:</b> paid no matter what, even if the player gets hurt or cut.</div><div class="callout"><b>Not guaranteed:</b> paid only if the player is still on the team.</div></div>' +
+      '<p>An <b>incentive</b> is extra pay for reaching a goal. A <b>signing bonus</b> is money paid just for signing.</p>' +
+      CONTRACT + '<div data-item="guar"></div><div data-item="total"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Fine Print</span></div><h2>Read the Fine Print</h2>' +
+      '<p>Contracts aren’t just for athletes. Phone plans, gym memberships and streaming services all have them. The big letters sell the deal. The <b>fine print</b>, the small letters, holds the rules.</p>' +
+      '<div class="callout red"><b>Look for:</b> how long the contract lasts, a <b>cancellation fee</b> for quitting early and <b>auto-renewal</b>, which signs you up again unless you cancel in time.</div>' +
+      '<div class="callout">Real contracts can be tricky. Before you sign anything, read it all and ask a trusted adult about anything you don’t understand.</div>' +
+      '<div data-item="auto"></div><div data-item="cancel"></div><div data-item="gym"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 3 in the Books</h2>' +
+      '<ul><li>Percent means per hundred. Fractions, decimals and percents can name the same amount.</li>' +
+      '<li>To find a percent of a number, multiply. To find the whole, work backward from the part.</li>' +
+      '<li>A claim is the author’s position. Strong evidence is relevant, factual and sufficient.</li>' +
+      '<li>Know your guaranteed money, and always read the fine print for fees and auto-renewal.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice03.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can edit it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-11-12', 'Week 3', document.getElementById('deck'))) return; FO.deck({ id: 'L03', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

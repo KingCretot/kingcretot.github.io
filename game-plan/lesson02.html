@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 2: Scouting Combine · KCE</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  var TD = 'border:1px solid #cdd5e0;padding:6px 14px;text-align:center';
+  function table(rows) {
+    return '<table style="border-collapse:collapse;margin:12px 0;font-size:16px">' + rows.map(function (r) {
+      return '<tr><th style="' + TD + ';background:var(--navy);color:#fff;text-align:left">' + r[0] + '</th>' + r.slice(1).map(function (c) { return '<td style="' + TD + '">' + c + '</td>'; }).join('') + '</tr>';
+    }).join('') + '</table>';
+  }
+  function stub(rows) {
+    return '<table style="border-collapse:collapse;margin:12px 0;font-size:16px;min-width:300px">' +
+      '<tr><th colspan="2" style="' + TD + ';background:var(--navy);color:#fff">Pay Stub · Marcus Hale</th></tr>' + rows.map(function (r) {
+      return '<tr><td style="' + TD + ';text-align:left' + (r[2] ? ';font-weight:bold' : '') + '">' + r[0] + '</td><td style="' + TD + ';text-align:right' + (r[2] ? ';font-weight:bold' : '') + '">' + r[1] + '</td></tr>';
+    }).join('') + '</table>';
+  }
+
+  var PA = '<div class="passage"><h4>The Stopwatch Doesn’t Lie</h4><div class="by">By Tasha Greene, sports blogger</div>' +
+    '<p><span class="pn">1</span>Every spring, the best college players in the country line up at the scouting combine for the most exciting few seconds in sports: the 40-yard dash. It is the purest test in football. No coaches, no teammates, no excuses. Just a player, a straight line and a clock.</p>' +
+    '<p><span class="pn">2</span>Some people say a stopwatch can’t tell you who can really play. I disagree. Speed is the one skill you can’t teach. A slow cornerback gets burned by a fast receiver, and a slow running back gets caught from behind. A blazing 40 time proves a player has the gift.</p>' +
+    '<p><span class="pn">3</span>The clock is also fair. Game film depends on who you played against. A 40 time means the same thing in every stadium. That’s why scouts should trust the clock first.</p>' +
+    '<p><span class="pn">4</span>When a prospect runs a lightning-fast 40, teams should take notice. The stopwatch doesn’t lie.</p></div>';
+
+  var PB = '<div class="passage"><h4>Watch the Film, Not the Clock</h4><div class="by">By Coach Ray Bell, high school football coach</div>' +
+    '<p><span class="pn">1</span>I have coached high school football for twenty years, and I have seen plenty of fast kids who couldn’t play. The 40-yard dash is fun to watch, but it is badly overrated.</p>' +
+    '<p><span class="pn">2</span>Think about it. In a real game, how often does a player sprint 40 yards in a straight line with nobody touching him? Almost never. Football is about quick first steps, changing direction, reading a play and taking a hit.</p>' +
+    '<p><span class="pn">3</span>Speed matters. I’ll never argue with that. But a player who reads the play a split second early can beat a faster player who guesses wrong. You can’t see that on a stopwatch. You can only see it on game film.</p>' +
+    '<p><span class="pn">4</span>So, scouts, put down the stopwatch for a minute. Watch how a player actually plays the game. That’s where the real answers are.</p></div>';
+
+  var items = {
+    r1: { t: 'text', a: ['2:3', '2 : 3', '2 to 3', '2/3', '2 / 3', 'two to three', 'two:three'], q: 'A cornerback breaks up <b>10</b> of the <b>15</b> passes thrown his way. Write the ratio of <b>breakups to passes</b> in simplest form.', ph: 'Like 1:2', hint: 'Start with 10:15. What number divides both 10 and 15?', why: '10:15. Divide both numbers by 5 to get 2:3.' },
+    r2: { t: 'mc', o: ['6:4', '4:6', '6:10', '4:10'], a: 0, q: 'Your depth chart has <b>4 running backs</b> and <b>6 wide receivers</b>. Which ratio compares <b>wide receivers to running backs</b>?', hint: 'Look at the words after ‘compares.’ The group named first there goes first in the ratio.', why: 'Wide receivers come first, so it’s 6:4. 4:6 is backwards, and 6:10 and 4:10 compare a part to the whole group.' },
+    eq: { t: 'mc', o: ['8:12', '4:5', '3:2', '2:6'], a: 0, q: 'Which ratio is <b>equivalent</b> to 2:3?', hint: 'Multiply both numbers by the same number.', why: '2 × 4 = 8 and 3 × 4 = 12, so 8:12 = 2:3. 4:5 adds 2 to each number, which doesn’t keep the ratio the same.' },
+    tbl: { t: 'num', a: 45, q: 'Look at the ratio table. How many yards go in the empty box for <b>9 carries</b>?', unit: 'yards', ph: 'Yards', hint: '9 carries is 3 times as many as 3 carries.', why: '3 carries → 15 yards. 9 is 3 × 3, so the yards are 3 × 15 = 45.' },
+    tbl2: { t: 'num', a: 15, q: 'At the same rate, how many carries would it take to gain <b>75 yards</b>?', unit: 'carries', ph: 'Carries', hint: 'He gains 5 yards for every 1 carry.', why: '15 yards per 3 carries is 5 yards per carry. 75 ÷ 5 = 15 carries.' },
+    ypc: { t: 'num', a: 8, q: 'A running back gains <b>96 yards</b> on <b>12 carries</b>. What are his <b>yards per carry</b>?', unit: 'yards per carry', ph: 'Yards', hint: 'Divide yards by carries.', why: '96 ÷ 12 = 8 yards per carry.' },
+    cpg: { t: 'num', a: 7, q: 'A receiver makes <b>42 catches</b> in <b>6 games</b>. How many <b>catches per game</b> is that?', unit: 'catches per game', ph: 'Catches', hint: 'Divide catches by games.', why: '42 ÷ 6 = 7 catches per game.' },
+    fast: { t: 'mc', keep: true, o: ['Player A', 'Player B', 'They are equally fast', 'Can’t tell without more information'], a: 0, q: 'Player A runs <b>40 yards in 5 seconds</b>. Player B runs <b>30 yards in 4 seconds</b>. Who is <b>faster</b>?', hint: 'Find yards per second for each player.', why: 'Player A: 40 ÷ 5 = 8 yards per second. Player B: 30 ÷ 4 = 7.5 yards per second. 8 is more, so Player A is faster.' },
+    buy: { t: 'mc', keep: true, o: ['The 6-pack for $9', 'The 8-pack for $10', 'They cost the same per bottle'], a: 1, q: 'The team needs sports drinks. A <b>6-pack costs $9</b>. An <b>8-pack costs $10</b>. Which is the <b>better buy</b>?', hint: 'Find the price for 1 bottle in each pack.', why: '$9 ÷ 6 = $1.50 per bottle. $10 ÷ 8 = $1.25 per bottle. The 8-pack costs less per bottle, so it’s the better buy.' },
+    bunit: { t: 'num', a: 1.25, q: 'What is the <b>price per bottle</b> for the 8-pack?', unit: 'dollars', ph: 'Like 2.50', hint: 'Divide the price by the number of bottles.', why: '$10 ÷ 8 = $1.25 per bottle.', show: '$1.25', badge: 'combine' },
+
+    pie: { t: 'sort', bins: ['Inform', 'Persuade', 'Entertain'], items: [['A news report on this year’s combine results', 0], ['A how-to guide for starting the 40-yard dash', 0], ['An ad that says “Buy Lightning cleats and run faster!”', 1], ['A letter asking the school board to build a new track', 1], ['A funny story about a mascot who loses his costume head', 2], ['A comic about a dog who plays quarterback', 2]], q: 'Sort each piece of writing by the author’s <b>main purpose</b>.', hint: 'Teach facts = inform. Change your mind = persuade. Make you laugh or enjoy a story = entertain.', why: 'Reports and how-to guides teach facts. Ads and letters asking for something try to persuade. Funny stories and comics entertain.' },
+    purp: { t: 'mc', o: ['To persuade readers that the 40-yard dash is the best way to judge players', 'To inform readers about how the 40-yard dash is timed', 'To entertain readers with a funny story about the combine', 'To explain the history of the scouting combine'], a: 0, q: 'What is Tasha Greene’s <b>main purpose</b> in “The Stopwatch Doesn’t Lie”?', hint: 'Look at paragraph 3: what does she say scouts <i>should</i> do?', why: 'She gives her opinion and reasons, then says scouts should trust the clock first. That’s persuading.' },
+    word: { t: 'mc', o: ['“the purest test in football”', '“line up at the scouting combine”', '“a straight line and a clock”', '“every spring”'], a: 0, q: 'Which phrase shows Greene’s <b>strong positive feeling</b> about the 40-yard dash?', hint: 'Look for a phrase that judges the 40, not one that just describes it.', why: 'Calling it “the purest test in football” shows how highly she thinks of it. The other phrases just describe facts.' },
+    pov: { t: 'mc', o: ['Greene thinks the 40 time is the best way to judge players. Bell thinks game film shows more.', 'Both authors think scouts should ignore the 40-yard dash.', 'Bell thinks speed doesn’t matter at all in football.', 'Greene thinks game film is fairer than the stopwatch.'], a: 0, q: 'How is Coach Bell’s <b>perspective</b> different from Tasha Greene’s?', hint: 'What does each author tell scouts to trust?', why: 'Greene says to trust the clock first. Bell says to watch the film. Bell still says “speed matters,” so he doesn’t think speed is worthless.' },
+    word2: { t: 'multi', o: ['“badly overrated”', '“put down the stopwatch”', '“fun to watch”', '“Speed matters”'], a: [0, 1], q: 'Which <b>two phrases</b> from Coach Bell show his view that the 40-yard dash gets too much attention?', hint: 'Two of these actually say something nice about the 40 or about speed.', why: '“Badly overrated” and “put down the stopwatch” show he thinks the 40 matters less than people think. “Fun to watch” and “Speed matters” are things he admits are true.' },
+    both: { t: 'mc', o: ['Speed is important in football.', 'The 40-yard dash is the best test at the combine.', 'Game film is the fairest way to judge a player.', 'Scouts should stop timing players.'], a: 0, q: 'What do <b>both</b> authors agree on?', hint: 'Look at Greene’s paragraph 2 and Bell’s paragraph 3.', why: 'Greene says speed is the one skill you can’t teach. Bell says “Speed matters. I’ll never argue with that.” They disagree on how to measure it.', badge: 'scoutrep' },
+
+    gn: { t: 'mc', o: ['Gross pay', 'Net pay', 'A deduction', 'A tax refund'], a: 0, q: 'Marcus’s pay stub says he earned <b>$4,000</b> this month, but the money that lands in his bank account is less. What is the $4,000?', hint: 'Is it before or after anything is taken out?', why: 'The $4,000 is what he earns before anything is taken out. That’s gross pay.' },
+    ded: { t: 'sort', bins: ['Deduction', 'Not a deduction'], items: [['Federal income tax', 0], ['Social Security', 0], ['Medicare', 0], ['Health insurance', 0], ['Base salary', 1], ['Performance bonus', 1], ['Rent', 1]], q: 'Which of these come <b>out of</b> Marcus’s paycheck as <b>deductions</b>?', hint: 'A deduction is taken out before the money reaches his account. Pay that he earns is not a deduction.', why: 'Taxes, Social Security, Medicare and health insurance are taken out of his check. Salary and bonuses are pay he earns. Rent is a bill he pays himself after he gets his money.' },
+    tot: { t: 'num', a: 1000, q: 'Use the pay stub. What is the <b>total</b> of Marcus’s deductions?', unit: 'dollars', ph: 'Total deductions', hint: 'Add the three amounts taken out.', why: '$500 + $300 + $200 = $1,000.', show: '$1,000' },
+    net: { t: 'num', a: 3000, q: 'What is Marcus’s <b>net pay</b>?', unit: 'dollars', ph: 'Net pay', hint: 'Net pay = gross pay − total deductions.', why: '$4,000 − $1,000 = $3,000. That’s what he actually takes home.', show: '$3,000', badge: 'payday' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 2 · Scouting Combine</div><h2>Scouting Combine</h2>' +
+      '<p>Every spring, scouts gather at the combine to time, measure and compare players. A number by itself doesn’t tell you much. A number <b>compared to another number</b> tells you who to draft. This week, you scout like a pro.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Combine Stats.</b> Ratios, unit rates and who’s really faster.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Scouting Report.</b> Why an author writes and what they believe.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Payday.</b> Gross pay, net pay and reading a pay stub.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Combine Stats</span></div><h2>Ratios: Comparing Two Amounts</h2>' +
+      '<p>A <b>ratio</b> compares two amounts. If a receiver catches 6 of the 8 passes thrown to him, the ratio of catches to targets is 6 to 8.</p>' +
+      '<p class="big-rule">6:8 &nbsp;&nbsp; 6 to 8 &nbsp;&nbsp; 6/8</p>' +
+      '<p>All three mean the same thing. To <b>simplify</b>, divide both numbers by the same number: 6:8 = 3:4.</p>' +
+      '<div class="callout red"><b>Watch out:</b> order matters. Catches to targets is 6:8. Targets to catches is 8:6.</div>' +
+      '<div data-item="r1"></div><div data-item="r2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Combine Stats</span></div><h2>Equivalent Ratios and Ratio Tables</h2>' +
+      '<p><b>Equivalent ratios</b> make the same comparison. To find one, <b>multiply or divide both numbers by the same number</b>. A <b>ratio table</b> lines them up so you can spot the pattern.</p>' +
+      '<div class="callout blue">A running back gains <b>15 yards every 3 carries</b>.</div>' +
+      table([['Carries', '3', '6', '9', '12'], ['Yards', '15', '30', '?', '60']]) +
+      '<div class="callout red"><b>Watch out:</b> adding the same number to both does <i>not</i> work. 3:4 is not equivalent to 5:6.</div>' +
+      '<div data-item="eq"></div><div data-item="tbl"></div><div data-item="tbl2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Combine Stats</span></div><h2>Unit Rates: How Much for One?</h2>' +
+      '<p>A <b>rate</b> compares two different kinds of things, like yards and carries. A <b>unit rate</b> tells you how much for <b>one</b>: yards per carry, catches per game, dollars per bottle.</p>' +
+      '<p class="big-rule">90 yards ÷ 10 carries = 9 yards per carry</p>' +
+      '<div class="callout">To find a unit rate, <b>divide</b> the first amount by the second. The word “per” means “for each one.”</div>' +
+      '<div data-item="ypc"></div><div data-item="cpg"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Combine Stats</span></div><h2>Compare Like a Scout</h2>' +
+      '<p>Two players ran different distances in different times. Who’s faster? Two packs have different sizes and prices. Which is the better deal? <b>Turn each one into a unit rate</b>, then compare.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Faster player:</b> more yards per second wins.</div><div class="callout"><b>Better buy:</b> lower price per item wins.</div></div>' +
+      '<div data-item="fast"></div><div data-item="buy"></div><div data-item="bunit"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Scouting Report</span></div><h2>Why Did the Author Write This?</h2>' +
+      '<p>Every writer has a reason, called the <b>author’s purpose</b>. Most writing does one of three things:</p>' +
+      '<div class="callout"><b>Inform:</b> teach you facts. &nbsp; <b>Persuade:</b> get you to believe or do something. &nbsp; <b>Entertain:</b> tell a story you enjoy.</div>' +
+      '<p>Scouts read reports with one question in mind: is this writer just giving facts, or trying to sell me on something?</p>' +
+      '<div data-item="pie"></div>' + PA + '<div data-item="purp"></div><div data-item="word"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Scouting Report</span></div><h2>Two Writers, One Topic</h2>' +
+      '<p>An author’s <b>perspective</b> is how they see a topic. It shows up in <b>word choice</b>. “Blazing” and “lightning-fast” sound excited. “Badly overrated” sounds doubtful. Two writers can look at the same thing and see it very differently.</p>' +
+      '<div class="callout"><b>How to compare:</b> ask what each author wants you to believe, which words give away their feelings, and where they agree.</div>' +
+      PA + PB + '<div data-item="pov"></div><div data-item="word2"></div><div data-item="both"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Payday</span></div><h2>Gross Pay vs. Net Pay</h2>' +
+      '<p>Remember <b>Marcus Hale</b>, your rookie linebacker? His latest paycheck just arrived, and he’s confused. His pay stub says he earned one number, but his bank account shows a smaller one. Where did the rest go?</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Gross pay:</b> what you earn <i>before</i> anything is taken out.</div><div class="callout"><b>Net pay:</b> what you actually take home <i>after</i> deductions.</div></div>' +
+      '<p><b>Deductions</b> are amounts taken out of a paycheck before you get it, like taxes, Social Security and Medicare, and health insurance.</p>' +
+      '<p class="big-rule">gross pay − deductions = net pay</p>' +
+      '<div data-item="gn"></div><div data-item="ded"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Payday</span></div><h2>Reading a Pay Stub</h2>' +
+      '<p>A <b>pay stub</b> comes with every paycheck. It shows gross pay at the top, each deduction in the middle and net pay at the bottom. Smart players read it every time.</p>' +
+      stub([['Gross pay', '$4,000.00', true], ['Federal income tax', '−$500.00'], ['Social Security and Medicare', '−$300.00'], ['Health insurance', '−$200.00'], ['Net pay', '?', true]]) +
+      '<div class="callout">These amounts are examples. Real deductions depend on how much you earn and where you live.</div>' +
+      '<div data-item="tot"></div><div data-item="net"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 2 in the Books</h2>' +
+      '<ul><li>A ratio compares two amounts: a:b, a to b or a/b. Order matters.</li>' +
+      '<li>Equivalent ratios multiply or divide both numbers by the same number. A unit rate tells you how much for one.</li>' +
+      '<li>Authors write to inform, persuade or entertain. Word choice shows their perspective.</li>' +
+      '<li>Gross pay is what you earn. Net pay is what you keep after deductions.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice02.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can edit it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-11-05', 'Week 2', document.getElementById('deck'))) return; FO.deck({ id: 'L02', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

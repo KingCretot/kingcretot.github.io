@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 6 · KCE Game Plan</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  var A = [
+    { s: 'Math', t: 'num', a: -2, q: 'A drive goes <b>+7, −10, +5, −4</b>. What is the net yardage?', unit: 'yards', hint: 'Gains: 7 + 5. Losses: 10 + 4.', why: 'Gains: 12. Losses: 14. 12 − 14 = −2 yards.' },
+    { s: 'Math', t: 'text', a: ['5:2', '5 : 2', '5 to 2', '5/2', '5 / 2'], q: 'Your team has <b>10 wins</b> and <b>4 losses</b>. Write the ratio of wins to losses in <b>simplest form</b>.', ph: 'Like 1:2', hint: 'Divide both numbers by 2.', why: '10:4 = 5:2.' },
+    { s: 'Math', t: 'num', a: 18, q: 'Your tight end gained <b>144 yards in 8 games</b>. How many yards per game is that?', unit: 'yards per game', hint: 'Divide yards by games.', why: '144 ÷ 8 = 18 yards per game.' },
+    { s: 'Math', t: 'num', a: 9, q: 'Your linebacker made <b>45 tackles</b>. <b>20%</b> of them were for a loss. How many tackles for a loss?', unit: 'tackles', hint: '20% = 0.2. Multiply 0.2 × 45.', why: '0.2 × 45 = 9 tackles.' },
+    { s: 'Math', t: 'num', a: 6, q: 'You have <b>18 footballs</b> and <b>30 cones</b> to split into identical practice stations with nothing left over. What is the <b>greatest</b> number of stations?', unit: 'stations', hint: 'Find the GCF of 18 and 30.', why: 'GCF of 18 and 30 is 6, so 6 stations, each with 3 footballs and 5 cones.' },
+    { s: 'Math', t: 'num', a: 8, q: 'Your team runs <b>2 miles</b> on a track. Each lap is <b>1/4 mile</b>. How many laps is that? (2 ÷ 1/4)', unit: 'laps', hint: 'Keep, change, flip: 2 × 4/1.', why: '2 ÷ 1/4 = 2 × 4 = 8 laps.' },
+    { s: 'Math', t: 'num', a: 72, q: 'A flag is a <b>rectangle 10 ft by 6 ft</b> with a <b>triangle</b> attached to its 6-ft side. The triangle’s base is 6 ft and its height is 4 ft. What is the total area?', unit: 'square feet', hint: 'Rectangle area + triangle area.', why: 'Rectangle: 10 × 6 = 60. Triangle: ½ × 6 × 4 = 12. Total: 72 square feet.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Lightning is a serious danger at outdoor games, but a clear safety rule keeps players and fans safe.', 'Florida has more thunderstorms than any other state.', 'Youth football games should never be played in the afternoon.', 'Fans should complain when games are delayed.'], a: 0, q: 'What is the <b>central idea</b> of “When Thunder Roars”?', hint: 'Look at the problem and the rule that solves it.', why: 'The article explains why lightning is dangerous and how a simple rule keeps everyone safe.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Lightning can strike miles away from the storm itself, so a field can be at risk even before the rain starts.', 'Officials stop the game as soon as anyone hears thunder.', 'Players and fans move to a building or a hard-topped car.', 'Some fans grumble about waiting.'], a: 0, q: 'The author claims lightning is <b>one of the most serious dangers</b> in outdoor sports. Which detail <b>best supports</b> that claim?', hint: 'Which detail shows how lightning can reach players?', why: 'Lightning striking miles from the storm, before the rain even starts, shows how dangerous it is.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Paragraph 2 describes a problem, and paragraph 3 gives a solution.', 'Paragraph 2 tells a story, and paragraph 3 continues it in time order.', 'Paragraph 2 describes one team, and paragraph 3 compares it with another.', 'Paragraph 2 gives an opinion, and paragraph 3 gives the facts behind it.'], a: 0, q: 'How is <b>paragraph 3</b> connected to <b>paragraph 2</b>?', hint: 'Paragraph 3 starts with “to solve this problem.”', why: 'Paragraph 2 explains why lightning is dangerous. Paragraph 3 gives the rule that keeps people safe. That’s problem and solution.' },
+    { s: 'Money', t: 'sort', bins: ['Emergency', 'Not an emergency'], items: [['Tow truck after a breakdown', 0], ['Urgent care for a sprained ankle', 0], ['Fixing a leaking roof', 0], ['New video game', 1], ['Birthday gifts', 1], ['Weekend trip', 1]], q: 'Sort each cost: should it come from an <b>emergency fund</b>?', hint: 'An emergency is a surprise you must handle right away.', why: 'A breakdown, an injury and a leaking roof are surprises. The game and trip are wants, and birthdays can be planned.' },
+    { s: 'Money', t: 'num', a: 5700, q: 'Devon, Marcus’s teammate, has needs that cost <b>$1,900 a month</b>. What is his emergency fund goal for <b>3 months</b> of needs?', unit: 'dollars', hint: 'Multiply by 3.', why: '$1,900 × 3 = $5,700.', show: '$5,700' },
+    { s: 'Money', t: 'num', a: 8, q: 'Devon wants a starter emergency fund of <b>$1,200</b>. He saves <b>$150 a month</b>. How many months will it take?', unit: 'months', hint: 'Divide the goal by the monthly amount.', why: '$1,200 ÷ $150 = 8 months.' }
+  ];
+  var B = [
+    { s: 'Math', t: 'num', a: -4, q: 'A drive goes <b>+3, −8, +6, −5</b>. What is the net yardage?', unit: 'yards', hint: 'Gains: 3 + 6. Losses: 8 + 5.', why: 'Gains: 9. Losses: 13. 9 − 13 = −4 yards.' },
+    { s: 'Math', t: 'text', a: ['3:2', '3 : 2', '3 to 2', '3/2', '3 / 2'], q: 'Your team has <b>12 wins</b> and <b>8 losses</b>. Write the ratio of wins to losses in <b>simplest form</b>.', ph: 'Like 1:2', hint: 'Divide both numbers by 4.', why: '12:8 = 3:2.' },
+    { s: 'Math', t: 'num', a: 25, q: 'Your running back gained <b>175 yards in 7 games</b>. How many yards per game is that?', unit: 'yards per game', hint: 'Divide yards by games.', why: '175 ÷ 7 = 25 yards per game.' },
+    { s: 'Math', t: 'num', a: 18, q: 'Your quarterback threw <b>60 passes</b>. <b>30%</b> of them went to your top receiver. How many passes went to him?', unit: 'passes', hint: '30% = 0.3. Multiply 0.3 × 60.', why: '0.3 × 60 = 18 passes.' },
+    { s: 'Math', t: 'num', a: 8, q: 'You have <b>16 footballs</b> and <b>40 cones</b> to split into identical practice stations with nothing left over. What is the <b>greatest</b> number of stations?', unit: 'stations', hint: 'Find the GCF of 16 and 40.', why: 'GCF of 16 and 40 is 8, so 8 stations, each with 2 footballs and 5 cones.' },
+    { s: 'Math', t: 'num', a: 6, q: 'Your team runs <b>3 miles</b> on a trail. Each loop is <b>1/2 mile</b>. How many loops is that? (3 ÷ 1/2)', unit: 'loops', hint: 'Keep, change, flip: 3 × 2/1.', why: '3 ÷ 1/2 = 3 × 2 = 6 loops.' },
+    { s: 'Math', t: 'num', a: 132, q: 'A banner is a <b>rectangle 14 ft by 8 ft</b> with a <b>triangle</b> attached to its 8-ft side. The triangle’s base is 8 ft and its height is 5 ft. What is the total area?', unit: 'square feet', hint: 'Rectangle area + triangle area.', why: 'Rectangle: 14 × 8 = 112. Triangle: ½ × 8 × 5 = 20. Total: 132 square feet.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Warming up with movement before practice helps players avoid injuries.', 'Rubber bands break in the freezer.', 'Players should never sprint at practice.', 'Holding a stretch is the best way to start practice.'], a: 0, q: 'What is the <b>central idea</b> of “Warm Up, Stay In”?', hint: 'Look at the problem and the fix.', why: 'The article explains why cold muscles get hurt and how dynamic warm-ups help.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Studies of youth athletes found that teams using warm-up programs tend to have fewer leg injuries.', 'Players jog, skip, do high knees and swing their legs.', 'Many injuries happen in the first few minutes of practice.', 'Every season, thousands of young athletes miss games.'], a: 0, q: 'The author claims warm-ups help players <b>avoid injuries</b>. Which detail <b>best supports</b> that claim?', hint: 'Which detail shows a result?', why: 'The studies show that teams who warm up actually get hurt less often.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Paragraph 2 describes a problem, and paragraph 3 gives a solution.', 'Paragraph 2 tells a story, and paragraph 3 continues it in time order.', 'Paragraph 2 describes one team, and paragraph 3 compares it with another.', 'Paragraph 2 gives an opinion, and paragraph 3 gives the facts behind it.'], a: 0, q: 'How is <b>paragraph 3</b> connected to <b>paragraph 2</b>?', hint: 'Paragraph 3 starts with “to solve this problem.”', why: 'Paragraph 2 explains why cold muscles tear. Paragraph 3 gives the fix. That’s problem and solution.' },
+    { s: 'Money', t: 'sort', bins: ['Emergency', 'Not an emergency'], items: [['Dentist for a cracked tooth', 0], ['Replacing a flat tire', 0], ['Rent after hours get cut', 0], ['New sneakers', 1], ['Holiday decorations', 1], ['Theme park tickets', 1]], q: 'Sort each cost: should it come from an <b>emergency fund</b>?', hint: 'An emergency is a surprise you must handle right away.', why: 'A cracked tooth, a flat tire and lost pay are surprises. Sneakers and tickets are wants, and holidays can be planned.' },
+    { s: 'Money', t: 'num', a: 6600, q: 'Marcus’s teammate Tre has needs that cost <b>$2,200 a month</b>. What is his emergency fund goal for <b>3 months</b> of needs?', unit: 'dollars', hint: 'Multiply by 3.', why: '$2,200 × 3 = $6,600.', show: '$6,600' },
+    { s: 'Money', t: 'num', a: 6, q: 'Tre wants a starter emergency fund of <b>$1,500</b>. He saves <b>$250 a month</b>. How many months will it take?', unit: 'months', hint: 'Divide the goal by the monthly amount.', why: '$1,500 ÷ $250 = 6 months.' }
+  ];
+  var PA = '<div class="passage"><h4>When Thunder Roars</h4><div class="by">A short article</div>' +
+    '<p><span class="pn">1</span>A youth football game can be going perfectly, with sunny skies and a close score, when a storm rolls in. In Florida, summer and early fall afternoons often bring sudden thunderstorms.</p>' +
+    '<p><span class="pn">2</span>Lightning is one of the most serious dangers in outdoor sports. Lightning can strike miles away from the storm itself, so a field can be at risk even before the rain starts. Players on an open field are often the tallest objects around, which puts them at even greater risk.</p>' +
+    '<p><span class="pn">3</span>To solve this problem, many leagues follow a simple rule: “When thunder roars, go indoors.” Officials stop the game as soon as anyone hears thunder or sees lightning. Players and fans move to a building or a hard-topped car. The game does not restart until 30 minutes have passed since the last thunder or lightning.</p>' +
+    '<p><span class="pn">4</span>Some fans grumble about waiting. But a delay costs only a little time, and coaches agree that no game is worth the risk.</p></div>';
+  var PB = '<div class="passage"><h4>Warm Up, Stay In</h4><div class="by">A short article</div>' +
+    '<p><span class="pn">1</span>Every season, thousands of young athletes miss games because of strained muscles and sprained knees. Many of these injuries happen in the first few minutes of practice, when muscles are still cold and tight.</p>' +
+    '<p><span class="pn">2</span>A cold muscle is less flexible, a bit like a rubber band left in the freezer. If it is stretched or twisted suddenly, it is more likely to tear. That is why sprinting at full speed right away can be risky.</p>' +
+    '<p><span class="pn">3</span>To solve this problem, many coaches now start every practice with a dynamic warm-up. Instead of standing still and holding a stretch, players keep moving. They jog, skip, do high knees and swing their legs. These movements raise body temperature and get blood flowing to the muscles.</p>' +
+    '<p><span class="pn">4</span>Studies of youth athletes have found that teams using warm-up programs tend to have fewer leg injuries. Ten or fifteen minutes at the start of practice can mean a whole season on the field instead of on the bench.</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-17', 'Week 6', document.getElementById('practice'))) return;
+    FO.practice({ week: 6, title: 'Midseason Film Review', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w6win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>

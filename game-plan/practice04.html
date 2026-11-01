@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 4 · KCE Game Plan</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  var A = [
+    { s: 'Math', t: 'num', a: 8, q: 'You have <b>16 linemen</b> and <b>24 skill players</b>. You want equal groups with the same mix in each and nobody left out. What is the <b>greatest number of groups</b>?', unit: 'groups', hint: 'Find the GCF of 16 and 24.', why: 'Factors of 16: 1, 2, 4, 8, 16. Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. The GCF is 8.' },
+    { s: 'Math', t: 'mc', o: ['2 linemen and 3 skill players', '8 linemen and 8 skill players', '3 linemen and 2 skill players', '4 linemen and 6 skill players'], a: 0, q: 'With those <b>8 groups</b>, what does each group get?', hint: 'Divide each position by 8.', why: '16 ÷ 8 = 2 linemen and 24 ÷ 8 = 3 skill players.' },
+    { s: 'Math', t: 'mc', o: ['8(3 + 5)', '4(6 + 10)', '2(12 + 20)', '8(3 + 40)'], a: 0, q: 'Which expression uses the <b>GCF</b> to rewrite <b>24 + 40</b>?', hint: 'Find the GCF of 24 and 40 first.', why: 'The GCF is 8. 24 = 8 × 3 and 40 = 8 × 5, so 24 + 40 = 8(3 + 5).' },
+    { s: 'Math', t: 'num', a: 20, q: 'Drill A restarts every <b>4 minutes</b> and Drill B every <b>10 minutes</b>. Both start now. In how many minutes will they restart together?', unit: 'minutes', hint: 'Find the LCM of 4 and 10.', why: 'Multiples of 4: 4, 8, 12, 16, 20. Multiples of 10: 10, 20. The LCM is 20.' },
+    { s: 'Math', t: 'num', a: 10, q: 'Your conditioning run is <b>2 miles</b>. Each lap is <b>1/5 mile</b>. How many laps is that?', unit: 'laps', hint: 'How many fifths fit into one mile? Into 2 miles?', why: '2 ÷ 1/5 = 2 × 5 = 10 laps.' },
+    { s: 'Math', t: 'text', a: ['3/2', '1 1/2', '1-1/2', '6/4', '1.5'], q: '3/4 ÷ 1/2 = ?', ph: 'Like 7/4 or 1 3/4', hint: 'Keep, change, flip: 3/4 × 2/1.', why: '3/4 × 2/1 = 6/4 = 3/2, which is 1 1/2.' },
+    { s: 'Math', t: 'num', a: 6, q: 'The team has <b>2 1/4 pounds</b> of trail mix. Each snack bag holds <b>3/8 pound</b>. How many bags can they fill?', unit: 'bags', hint: 'Change 2 1/4 to an improper fraction first.', why: '2 1/4 = 9/4. 9/4 ÷ 3/8 = 9/4 × 8/3 = 72/12 = 6 bags.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Cause and effect', 'Compare and contrast', 'Description', 'Sequence'], a: 0, q: 'Which structure organizes “Heat on the Practice Field” as a whole?', hint: 'Does the article explain why something happens and what it leads to?', why: 'The article explains what heat does to players (causes and effects) and what schools changed because of it. (It also shows a problem and a solution, but most of it explains causes and effects.)' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['Because', 'As a result', 'First', 'However'], a: [0, 1], q: 'Which <b>two signal words</b> in paragraph 2 show cause and effect?', hint: 'Reread paragraph 2 only.', why: '“Because” gives the cause (pads and helmets trap heat). “As a result” gives the effect (players lose water). First and However are not in paragraph 2.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['To explain why heat is dangerous for players and why schools changed practice', 'To describe what football pads look like', 'To compare Florida with other states', 'To tell the story of one player’s season in order'], a: 0, q: 'Why did the author most likely use a <b>cause and effect</b> structure?', hint: 'What does the reader learn by the end?', why: 'Cause and effect helps the reader see how heat leads to danger and how that danger led to new practice rules.' },
+    { s: 'Money', t: 'num', a: 960, q: 'Marcus’s teammate Devon takes home <b>$3,200</b> a month. Using 50/30/20, how much goes to <b>wants</b>?', unit: 'dollars', hint: 'Find 30% of $3,200.', why: '30% of $3,200 = 0.30 × 3,200 = $960.', show: '$960' },
+    { s: 'Money', t: 'sort', bins: ['Needs', 'Wants', 'Savings'], items: [['Electric bill', 0], ['Health insurance', 0], ['New video game', 1], ['Courtside seats', 1], ['Emergency fund', 2], ['Money for a future house', 2]], q: 'Sort each item into the right <b>50/30/20 bucket</b>.', hint: 'Savings is money put away for later.', why: 'Electricity and health insurance are needs. The game and seats are wants. The emergency fund and house money are savings.' },
+    { s: 'Money', t: 'num', a: 660, q: 'Devon’s needs end up costing <b>$1,900</b>, which is $300 over his $1,600 needs budget. If he keeps saving <b>$640</b>, how much is left for <b>wants</b>?', unit: 'dollars', hint: 'Net pay − needs − savings.', why: '$3,200 − $1,900 − $640 = $660. His wants budget shrinks from $960 to $660.', show: '$660' }
+  ];
+  var B = [
+    { s: 'Math', t: 'num', a: 6, q: 'You have <b>18 linemen</b> and <b>30 skill players</b>. You want equal groups with the same mix in each and nobody left out. What is the <b>greatest number of groups</b>?', unit: 'groups', hint: 'Find the GCF of 18 and 30.', why: 'Factors of 18: 1, 2, 3, 6, 9, 18. Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30. The GCF is 6.' },
+    { s: 'Math', t: 'mc', o: ['3 linemen and 5 skill players', '6 linemen and 6 skill players', '5 linemen and 3 skill players', '9 linemen and 15 skill players'], a: 0, q: 'With those <b>6 groups</b>, what does each group get?', hint: 'Divide each position by 6.', why: '18 ÷ 6 = 3 linemen and 30 ÷ 6 = 5 skill players.' },
+    { s: 'Math', t: 'mc', o: ['9(3 + 5)', '3(9 + 15)', '9(3 + 45)', '9(18 + 36)'], a: 0, q: 'Which expression uses the <b>GCF</b> to rewrite <b>27 + 45</b>?', hint: 'Find the GCF of 27 and 45 first.', why: 'The GCF is 9. 27 = 9 × 3 and 45 = 9 × 5, so 27 + 45 = 9(3 + 5). 3(9 + 15) is equal, but 3 is not the greatest common factor.' },
+    { s: 'Math', t: 'num', a: 18, q: 'Drill A restarts every <b>6 minutes</b> and Drill B every <b>9 minutes</b>. Both start now. In how many minutes will they restart together?', unit: 'minutes', hint: 'Find the LCM of 6 and 9.', why: 'Multiples of 6: 6, 12, 18. Multiples of 9: 9, 18. The LCM is 18.' },
+    { s: 'Math', t: 'num', a: 12, q: 'You have <b>4 hours</b> of film to study. Each clip is <b>1/3 hour</b>. How many clips is that?', unit: 'clips', hint: 'How many thirds fit into one hour? Into 4 hours?', why: '4 ÷ 1/3 = 4 × 3 = 12 clips.' },
+    { s: 'Math', t: 'text', a: ['5/2', '2 1/2', '2-1/2', '15/6', '2.5'], q: '5/6 ÷ 1/3 = ?', ph: 'Like 7/4 or 1 3/4', hint: 'Keep, change, flip: 5/6 × 3/1.', why: '5/6 × 3/1 = 15/6 = 5/2, which is 2 1/2.' },
+    { s: 'Math', t: 'num', a: 6, q: 'A relay course is <b>3 3/4 miles</b> long. Each runner’s leg is <b>5/8 mile</b>. How many legs are in the course?', unit: 'legs', hint: 'Change 3 3/4 to an improper fraction first.', why: '3 3/4 = 15/4. 15/4 ÷ 5/8 = 15/4 × 8/5 = 120/20 = 6 legs.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Compare and contrast', 'Cause and effect', 'Problem and solution', 'Sequence'], a: 0, q: 'Which structure organizes “Two Ways to Get Faster” as a whole?', hint: 'How many training methods does the article look at?', why: 'The article shows how track sprints and sand runs are alike and how they are different. That is compare and contrast.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['However', 'On the other hand', 'As a result', 'First'], a: [0, 1], q: 'Which <b>two signal words</b> in the article show contrast?', hint: 'Look in paragraphs 3 and 4.', why: '“However” starts paragraph 3 and “On the other hand” is in paragraph 4. Both point to differences. As a result and First are not in the article.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['To help readers see how two training methods are alike and different', 'To explain what caused one team to lose', 'To list the steps of a warm-up in order', 'To describe what one beach looks like'], a: 0, q: 'Why did the author most likely use a <b>compare and contrast</b> structure?', hint: 'Look at the last paragraph. What do many coaches do?', why: 'Comparing the two methods side by side shows the strengths of each, which explains why many coaches use both.' },
+    { s: 'Money', t: 'num', a: 1500, q: 'Marcus’s teammate Tyrell takes home <b>$5,000</b> a month. Using 50/30/20, how much goes to <b>wants</b>?', unit: 'dollars', hint: 'Find 30% of $5,000.', why: '30% of $5,000 = 0.30 × 5,000 = $1,500.', show: '$1,500' },
+    { s: 'Money', t: 'sort', bins: ['Needs', 'Wants', 'Savings'], items: [['Rent', 0], ['Phone bill', 0], ['Designer sneakers', 1], ['Takeout every night', 1], ['Retirement account', 2], ['Emergency fund', 2]], q: 'Sort each item into the right <b>50/30/20 bucket</b>.', hint: 'Savings is money put away for later.', why: 'Rent and a phone bill are needs. Sneakers and takeout are wants. The retirement account and emergency fund are savings.' },
+    { s: 'Money', t: 'num', a: 1200, q: 'Tyrell’s needs end up costing <b>$2,800</b>, which is $300 over his $2,500 needs budget. If he keeps saving <b>$1,000</b>, how much is left for <b>wants</b>?', unit: 'dollars', hint: 'Net pay − needs − savings.', why: '$5,000 − $2,800 − $1,000 = $1,200. His wants budget shrinks from $1,500 to $1,200.', show: '$1,200' }
+  ];
+  var PA = '<div class="passage"><h4>Heat on the Practice Field</h4><div class="by">A short article</div>' +
+    '<p><span class="pn">1</span>Florida summers are hot, and high school football practice starts in late July, during some of the hottest weeks of the year.</p>' +
+    '<p><span class="pn">2</span>Players wear heavy pads and helmets. Because the gear covers so much of the body, it traps heat inside. As a result, a player can lose a lot of water through sweat in a single practice.</p>' +
+    '<p><span class="pn">3</span>When players don’t drink enough water, their muscles can cramp and they may feel dizzy or sick. That is why many schools now practice early in the morning and stop often for water breaks.</p>' +
+    '<p><span class="pn">4</span>These changes have made a difference. Since the new routines started, many coaches say fewer players have had to sit out because of the heat.</p></div>';
+  var PB = '<div class="passage"><h4>Two Ways to Get Faster</h4><div class="by">A short article</div>' +
+    '<p><span class="pn">1</span>Speed wins games, and coaches have many ways to build it. Two popular choices are sprinting on a track and running on sand.</p>' +
+    '<p><span class="pn">2</span>Track sprints and sand runs both build leg strength. Both can be done without fancy equipment.</p>' +
+    '<p><span class="pn">3</span>However, they feel very different. On a track, players can run at full speed and practice good form. On sand, each step sinks, so players move slower but their muscles work harder.</p>' +
+    '<p><span class="pn">4</span>Sand is also softer on the knees and ankles. On the other hand, a track is easier to find in most towns, and players can time their sprints more accurately on it.</p>' +
+    '<p><span class="pn">5</span>Because each one has strengths, many coaches use both: the track on some days and the sand on others.</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-03', 'Week 4', document.getElementById('practice'))) return;
+    FO.practice({ week: 4, title: 'Building the Roster', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w4win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>

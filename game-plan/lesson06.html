@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 6: Midseason Film Review · KCE</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  function field(min, max, marks) {
+    var f = FO.fieldSVG(min, max), s = f.svg.replace('<rect class="hit"', '<rect class="hit" style="display:none"');
+    marks.forEach(function (m) {
+      var x = f.x(m.v);
+      s = s.replace('</svg>', '<g><circle cx="' + x + '" cy="' + f.cy + '" r="14" fill="' + m.c + '" stroke="#fff" stroke-width="3"/><text x="' + x + '" y="' + (f.cy + 5) + '" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">' + m.l + '</text></g></svg>');
+    });
+    return '<div class="nl-wrap">' + s + '</div>';
+  }
+
+  var PASSAGE = '<div class="passage"><h4>Inside the Helmet</h4><div class="by">An informational article</div>' +
+    '<p><span class="pn">1</span>Every fall, thousands of young players snap on a helmet without thinking twice. But a football helmet is a carefully engineered piece of safety equipment, and how well it works depends on how it is built, how it fits and how it is cared for.</p>' +
+    '<p><span class="pn">2</span>A helmet has three main parts. The hard outer shell, usually made of tough plastic, spreads the force of a hit across a wider area. Under the shell is padding, often foam or air-filled pads, that squeezes together to absorb energy. Finally, the face mask and chin strap hold everything in place so the helmet does not shift during contact.</p>' +
+    '<p><span class="pn">3</span>Fit matters as much as design. A helmet that is too loose can slide on impact, and one that is too tight can cause headaches. Equipment managers check that the front of the helmet sits about one inch above the eyebrows and that the chin strap is snug. It should hug the chin firmly, but the player should still be able to open his mouth comfortably.</p>' +
+    '<p><span class="pn">4</span>Helmets also wear out. Padding can lose its bounce, and plastic can crack in ways that are hard to see. For this reason, experts recommend that helmets be inspected regularly by trained technicians. A helmet that fails inspection is retired for good.</p>' +
+    '<p><span class="pn">5</span>Some families assume an older helmet is fine as long as it looks clean. I believe that is a risky bet. A helmet’s job is invisible until the moment it is needed, and by then it is too late to find out the padding has gone flat. Every youth league should require each helmet to carry a sticker showing the date of its last inspection.</p>' +
+    '<p><span class="pn">6</span>No helmet can prevent every injury. But a well-built, well-fitted and well-maintained helmet gives a player the best protection the sport can offer.</p></div>';
+
+  var items = {
+    opp: { t: 'nl', min: -10, max: 10, a: -7, q: 'Warm-up rep: place the ball at the <b>opposite of 7</b>.', hint: 'Same distance from 0, other side.', why: '7 is 7 units right of 0, so its opposite, −7, is 7 units left of 0.' },
+    absc: { t: 'mc', o: ['−12 > −4', '|−12| > |−4|', '−4 < −12', '|−4| > |−12|'], a: 1, q: 'Which statement is <b>true</b>?', hint: 'Comparing is about position. Absolute value is about distance from 0.', why: '|−12| = 12 and |−4| = 4, so |−12| > |−4|. But as numbers, −4 is farther right, so −4 > −12.' },
+    drive: { t: 'num', a: 4, q: 'A drive goes <b>+9, −4, −7, +6</b>. What is the <b>net yardage</b>?', unit: 'yards', ph: 'Net yards', hint: 'Add the gains (9 + 6), add the losses (4 + 7), then subtract.', why: 'Gains: 9 + 6 = 15. Losses: 4 + 7 = 11. 15 − 11 = +4 yards.' },
+
+    ratio: { t: 'text', a: ['3:2', '3 : 2', '3 to 2', '3/2', '3 / 2'], q: 'Your offense ran <b>18 running plays</b> and <b>12 passing plays</b>. Write the ratio of running plays to passing plays in <b>simplest form</b>.', ph: 'Like 1:2', hint: 'Divide both numbers by their greatest common factor, 6.', why: '18:12. Divide both by 6 to get 3:2. For every 3 runs, you threw 2 passes.' },
+    buy: { t: 'mc', o: ['6 bottles for $9', '8 bottles for $10', 'They cost the same per bottle'], a: 1, keep: true, q: 'You’re stocking the sideline with sports drinks. Which is the <b>better buy</b>: 6 bottles for $9 or 8 bottles for $10?', hint: 'Find the unit price: dollars ÷ bottles.', why: '$9 ÷ 6 = $1.50 per bottle. $10 ÷ 8 = $1.25 per bottle. The 8-pack costs less per bottle, even though the total is higher.' },
+
+    pct1: { t: 'num', a: 21, q: 'Your quarterback threw <b>35 passes</b> and completed <b>60%</b> of them. How many passes did he complete?', unit: 'passes', hint: '60% = 0.6. Multiply 0.6 × 35.', why: '0.6 × 35 = 21 completions.' },
+    pct2: { t: 'num', a: 24, q: 'Your kicker made <b>18 field goals</b>. That is <b>75%</b> of his attempts. How many field goals did he <b>attempt</b>?', unit: 'attempts', hint: '18 is the part. 75% is the percent. Find the whole: 18 ÷ 0.75.', why: '18 ÷ 0.75 = 24. Check: 75% of 24 is 18.' },
+    pct3: { t: 'num', a: 60, q: 'Your team won <b>3/5</b> of its games. What percent is that? <b>Type the number only.</b>', ph: 'Percent', hint: 'Divide 3 by 5 to get a decimal, then move the decimal point two places right.', why: '3 ÷ 5 = 0.6, and 0.6 = 60%.' },
+
+    gcf: { t: 'num', a: 12, q: 'You have <b>24 water bottles</b> and <b>36 granola bars</b>. You want to make identical snack bags with nothing left over. What is the <b>greatest</b> number of bags you can make?', unit: 'bags', hint: 'Find the greatest common factor of 24 and 36.', why: 'Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. The greatest factor on both lists is 12, so the GCF is 12. That makes so 12 bags, each with 2 bottles and 3 bars.' },
+    lcm: { t: 'num', a: 24, q: 'One field sprinkler pops on every <b>6 minutes</b>. Another pops on every <b>8 minutes</b>. They just came on together. In how many minutes will they come on together again?', unit: 'minutes', hint: 'Find the least common multiple of 6 and 8.', why: 'Multiples of 6: 6, 12, 18, 24. Multiples of 8: 8, 16, 24. LCM = 24 minutes.' },
+    div: { t: 'num', a: 6, q: 'The team cooler holds <b>3/4 gallon</b> of water. Each cup holds <b>1/8 gallon</b>. How many cups can you fill? (3/4 ÷ 1/8)', unit: 'cups', hint: 'Keep, change, flip: 3/4 × 8/1.', why: '3/4 ÷ 1/8 = 3/4 × 8 = 24/4 = 6 cups.' },
+
+    tri: { t: 'mc', o: ['63 square inches', '126 square inches', '23 square inches', '46 square inches'], a: 0, q: 'A team pennant is a triangle with a <b>base of 14 inches</b> and a <b>height of 9 inches</b>. What is its area?', hint: 'A = ½ × b × h.', why: '½ × 14 × 9 = 7 × 9 = 63 square inches. 126 forgets the ½.' },
+    comp: { t: 'num', a: 120, q: 'A banner is a <b>rectangle 12 ft long and 8 ft tall</b>, with a <b>triangle</b> attached to its 8-ft side. The triangle’s base is 8 ft and its height is 6 ft. What is the <b>total area</b>?', unit: 'square feet', hint: 'Find the rectangle’s area and the triangle’s area, then add.', why: 'Rectangle: 12 × 8 = 96. Triangle: ½ × 8 × 6 = 24. Total: 96 + 24 = 120 square feet.', badge: 'mathfilm' },
+
+    ci: { t: 'mc', o: ['A helmet protects a player best when it is well built, fits correctly and is kept in good condition.', 'Football helmets are made of plastic and foam.', 'A good helmet can prevent every football injury.', 'Old helmets should always be thrown away.'], a: 0, q: 'What is the <b>central idea</b> of “Inside the Helmet”?', hint: 'Paragraph 1 and paragraph 6 both point to it.', why: 'The article explains how a helmet is built, fitted and cared for, and paragraph 6 sums it up. Plastic and foam is just a detail, and paragraph 6 says no helmet prevents every injury.' },
+    snug: { t: 'mc', o: ['Close-fitting and secure', 'Loose and floppy', 'Brand new', 'Painted in team colors'], a: 0, q: 'In paragraph 3, what does <b>snug</b> mean?', hint: 'Read the sentence right after it.', why: 'The next sentence says the strap should hug the chin firmly without being too tight. That is close-fitting and secure.' },
+    struct: { t: 'mc', o: ['Description: it names each part of a helmet and explains what it does', 'Chronological order (sequence): it tells the history of helmets from oldest to newest', 'Compare and contrast: it shows how two helmets are alike and different', 'Problem and solution: it describes a problem and how players solved it'], a: 0, q: 'How is <b>paragraph 2</b> organized?', hint: 'What does each sentence after the first one tell you about?', why: 'Paragraph 2 goes part by part (shell, padding, face mask and strap) and explains each job. That is description.' },
+    purp: { t: 'mc', o: ['To persuade. The author thinks judging a helmet by its looks is risky.', 'To inform. The author thinks old helmets are just as safe as new ones.', 'To entertain. The author thinks helmet stickers are funny.', 'To inform. The author has no opinion about old helmets.'], a: 0, q: 'What is the author’s <b>purpose</b> in paragraph 5, and what is the author’s <b>perspective</b>?', hint: 'Look for “I believe” and the word “should.”', why: '“I believe that is a risky bet” shows the author’s opinion, and “every youth league should” tries to convince readers. That is persuading.' },
+    evid: { t: 'mc', o: ['Padding can lose its bounce, and plastic can crack in ways that are hard to see.', 'The hard outer shell is usually made of tough plastic.', 'Equipment managers check that the helmet sits about one inch above the eyebrows.', 'Every fall, thousands of young players snap on a helmet without thinking twice.'], a: 0, q: 'The author claims an older helmet can be unsafe <b>even if it looks clean</b>. Which detail <b>best supports</b> that claim?', hint: 'Find the detail about damage you can’t see.', why: 'Flat padding and hidden cracks are problems you can’t see from the outside. That shows looks aren’t enough.' },
+    sum: { t: 'mc', o: ['A helmet has a hard shell that spreads force, padding that absorbs energy, and a face mask and chin strap that hold it in place. It must also fit right, sitting about an inch above the eyebrows with a snug strap.', 'Helmets are the coolest part of the uniform, and every player should pick one in his favorite color.', 'Helmets wear out, so leagues should put an inspection sticker on every helmet.', 'Helmets are important. Players should wear them.'], a: 0, q: 'Which is the best <b>summary of paragraphs 2 and 3</b>?', hint: 'A good summary of technical text keeps the key parts and steps, in order, with no opinions.', why: 'It covers each part and its job, plus how a helmet should fit. The others add opinions, describe a different paragraph or are too vague.', badge: 'elafilm' },
+
+    sort: { t: 'sort', bins: ['Emergency', 'Not an emergency'], items: [['Car repair after a breakdown', 0], ['Emergency room visit', 0], ['Rent after losing a job', 0], ['Replacing a broken water heater', 0], ['New phone (his old one works)', 1], ['Beach vacation', 1], ['Concert tickets', 1], ['Holiday gifts', 1]], q: 'Help Marcus sort: which costs should come out of his <b>emergency fund</b>?', hint: 'An emergency is a surprise you need to handle right away to stay safe, healthy and working.', why: 'Breakdowns, medical visits, lost pay and broken appliances are surprises he must handle. A new phone, trips and tickets are wants, and holidays come every year, so gifts can be planned.' },
+    goal: { t: 'num', a: 4500, q: 'Marcus takes home $3,000 a month, and his needs budget is <b>$1,500 a month</b>. What is his emergency fund goal if he saves <b>3 months</b> of needs?', unit: 'dollars', hint: 'Multiply his monthly needs by 3.', why: '$1,500 × 3 = $4,500. A 6-month fund would be $9,000.', show: '$4,500' },
+    months: { t: 'num', a: 15, q: 'Marcus’s 20% for saving is $600 a month. He puts half of it, <b>$300 a month</b>, into his emergency fund. How many months will it take to reach <b>$4,500</b>?', unit: 'months', hint: 'Divide the goal by the monthly amount.', why: '$4,500 ÷ $300 = 15 months. Small, steady deposits get him there.' },
+    where: { t: 'mc', o: ['In a savings account at a bank or credit union', 'In cash under his mattress', 'All in one popular stock', 'On his debit card with his spending money'], a: 0, q: 'Where should Marcus <b>keep</b> his emergency fund?', hint: 'It needs to be safe, easy to reach and separate from spending money.', why: 'A savings account is insured (by the FDIC at banks or the NCUA at credit unions, up to set limits), easy to get to in an emergency and kept apart from everyday spending. Cash can be lost or stolen, a stock can drop in value, and money on a debit card is too easy to spend.', badge: 'rainyday' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 6 · Midseason Film Review</div><h2>Midseason Film Review</h2>' +
+      '<p>Halfway through the season, the best GMs sit down and watch the tape. What’s working? What needs another rep? This week you’ll review everything from Weeks 1–5 before the winter break.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Film Review.</b> Integers, ratios, percents, fractions and area.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Film Room.</b> Central idea, purpose, evidence, structure and summary.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Rainy Day Fund.</b> Build an emergency fund.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Film Review</span></div><h2>Week 1 Tape: Integers</h2>' +
+      '<p>The line of scrimmage is <b>0</b>. Gains are positive, losses are negative. <b>Opposites</b> are the same distance from 0 on opposite sides. <b>Absolute value</b> is distance from 0. <b>Farther right means greater.</b></p>' +
+      field(-10, 10, [{ v: -5, l: '−5', c: '#DB2F30' }, { v: 5, l: '+5', c: '#0047BA' }]) +
+      '<div class="callout"><b>Net yardage = total gains − total losses.</b> The answer takes the sign of the bigger side.</div>' +
+      '<div data-item="opp"></div><div data-item="absc"></div><div data-item="drive"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Film Review</span></div><h2>Week 2 Tape: Ratios and Unit Rates</h2>' +
+      '<p>A <b>ratio</b> compares two amounts, like 3:2 or 3 to 2. Simplify it the same way you simplify a fraction. A <b>unit rate</b> tells how much for <b>one</b>: yards per carry, dollars per bottle.</p>' +
+      '<div class="callout blue"><b>Better buy:</b> divide the price by the number of items. The lower unit price wins.</div>' +
+      '<div data-item="ratio"></div><div data-item="buy"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Film Review</span></div><h2>Week 3 Tape: Percents</h2>' +
+      '<p><b>Percent</b> means “out of 100.” To find a percent of a number, change the percent to a decimal and multiply. To find the <b>whole</b>, divide the part by the percent.</p>' +
+      '<p class="big-rule">part = percent × whole &nbsp;&nbsp; whole = part ÷ percent</p>' +
+      '<div class="callout">3/4 = 0.75 = 75% &nbsp;&nbsp; 1/5 = 0.2 = 20%</div>' +
+      '<div data-item="pct1"></div><div data-item="pct2"></div><div data-item="pct3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Film Review</span></div><h2>Week 4 Tape: GCF, LCM and Dividing Fractions</h2>' +
+      '<p>The <b>GCF</b> (greatest common factor) splits things into the most equal groups. The <b>LCM</b> (least common multiple) tells when two repeating things line up again.</p>' +
+      '<div class="callout blue"><b>Dividing fractions:</b> keep the first fraction, change ÷ to ×, and flip the second fraction.</div>' +
+      '<div data-item="gcf"></div><div data-item="lcm"></div><div data-item="div"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Film Review</span></div><h2>Week 5 Tape: Triangles and Composite Figures</h2>' +
+      '<p>A triangle is half of a rectangle, so <b>A = ½ × base × height</b>. A <b>composite figure</b> is made of simpler shapes. Break it apart, find each area, then add.</p>' +
+      '<div class="callout red"><b>Watch out:</b> don’t forget the ½ for triangles, and always label area in <b>square</b> units.</div>' +
+      '<div data-item="tri"></div><div data-item="comp"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room</span></div><h2>Central Idea, Context Clues and Structure</h2>' +
+      '<p>Quick replay: the <b>central idea</b> is what the whole text is really about. <b>Context clues</b> are nearby words that unlock a hard word. <b>Text structure</b> is how the writer organizes ideas: description, chronological order (sequence), compare and contrast, cause and effect, or problem and solution.</p>' +
+      PASSAGE + '<div data-item="ci"></div><div data-item="snug"></div><div data-item="struct"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Film Room</span></div><h2>Purpose, Claims and Summary</h2>' +
+      '<p>An author writes to <b>inform</b>, <b>persuade</b> or <b>entertain</b>. Their <b>perspective</b> is how they feel about the topic. A <b>claim</b> is what the author wants you to believe, and <b>evidence</b> is the proof. A <b>summary</b> of technical text keeps the key parts and steps, with no opinions.</p>' +
+      PASSAGE + '<div data-item="purp"></div><div data-item="evid"></div><div data-item="sum"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Rainy Day Fund</span></div><h2>What Is an Emergency Fund?</h2>' +
+      '<p>Marcus Hale, your rookie linebacker, is having a solid first season. Then his car breaks down on the way to practice. The repair bill is $900. Does he panic, or is he ready?</p>' +
+      '<p>An <b>emergency fund</b> is money set aside <b>only</b> for surprises you can’t skip: a car repair, a medical bill, a lost paycheck. Some people call it a <b>rainy day fund</b>. With one, a surprise is a bad day, not a crisis, and you don’t have to borrow or use a credit card.</p>' +
+      '<div class="callout">Holidays, birthdays and new gear aren’t surprises. Plan and save for those separately.</div><div data-item="sort"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Rainy Day Fund</span></div><h2>How Big, How Fast, and Where?</h2>' +
+      '<p>A common guideline is to save <b>3 to 6 months of needs</b>: rent, food, utilities, insurance and transportation. That’s a big number, so nobody builds it all at once. You add a little every month, like gaining yards one play at a time.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Step 1:</b> monthly needs × 3 (or × 6) = goal.</div><div class="callout"><b>Step 2:</b> goal ÷ monthly savings = months to get there.</div></div>' +
+      '<p>Keep it somewhere <b>safe</b>, <b>easy to reach</b> and <b>separate</b> from your spending money, like a savings account.</p>' +
+      '<div data-item="goal"></div><div data-item="months"></div><div data-item="where"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 6 in the Books</h2>' +
+      '<ul><li>Integers, ratios, percents, GCF and LCM, dividing fractions and area: that’s five weeks of math on film.</li>' +
+      '<li>Find the central idea, use context clues, spot the structure, check the author’s purpose and claims, then summarize.</li>' +
+      '<li>An emergency fund covers real surprises. Aim for 3 to 6 months of needs, build it a little at a time and keep it in savings.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="callout">Enjoy the winter break! Week 7 opens <b>Thu Jan 7</b>.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice06.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can edit it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-17', 'Week 6', document.getElementById('deck'))) return; FO.deck({ id: 'L06', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

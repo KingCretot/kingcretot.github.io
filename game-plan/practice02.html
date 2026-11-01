@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 2 · KCE Game Plan</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  var A = [
+    { s: 'Math', t: 'text', a: ['4:5', '4 : 5', '4 to 5', '4/5', '4 / 5', 'four to five', 'four:five'], q: 'A kicker makes <b>8</b> of his <b>10</b> field goal tries. Write the ratio of <b>makes to tries</b> in simplest form.', ph: 'Like 1:2', hint: 'Divide both 8 and 10 by the same number.', why: '8:10. Divide both by 2 to get 4:5.' },
+    { s: 'Math', t: 'mc', o: ['4:7', '7:4', '4:11', '7:11'], a: 0, q: 'At camp there are <b>7 linemen</b> and <b>4 linebackers</b>. Which ratio compares <b>linebackers to linemen</b>?', hint: 'Look at the words after ‘compares.’ The group named first there goes first in the ratio.', why: 'Linebackers come first, so it’s 4:7.' },
+    { s: 'Math', t: 'mc', o: ['9:15', '5:7', '5:3', '6:8'], a: 0, q: 'Which ratio is <b>equivalent</b> to 3:5?', hint: 'Multiply both numbers by the same number.', why: '3 × 3 = 9 and 5 × 3 = 15, so 9:15 = 3:5. Adding the same number to both doesn’t work.' },
+    { s: 'Math', t: 'num', a: 6, q: 'A player drinks 2 bottles of water for every 30 minutes of practice.<br>Minutes: 30, 60, 90, 120<br>Bottles: 2, 4, <b>?</b>, 8<br>How many bottles for <b>90 minutes</b>?', unit: 'bottles', hint: '90 minutes is 3 times 30 minutes.', why: '90 = 3 × 30, so the bottles are 3 × 2 = 6.' },
+    { s: 'Math', t: 'num', a: 9, q: 'A running back gains <b>108 yards</b> on <b>12 carries</b>. What are his yards per carry?', unit: 'yards per carry', hint: 'Divide yards by carries.', why: '108 ÷ 12 = 9 yards per carry.' },
+    { s: 'Math', t: 'mc', keep: true, o: ['Player A', 'Player B', 'They are equally fast'], a: 1, q: 'Player A runs <b>40 yards in 5 seconds</b>. Player B runs <b>36 yards in 4 seconds</b>. Who is faster?', hint: 'Find yards per second for each player.', why: 'Player A: 40 ÷ 5 = 8 yards per second. Player B: 36 ÷ 4 = 9 yards per second. Player B is faster.' },
+    { s: 'Math', t: 'num', a: 0.75, q: 'Store 1 sells <b>12 sports drinks for $9</b>. Store 2 sells <b>10 for $8</b>. What is the <b>lower</b> price per bottle?', unit: 'dollars', hint: 'Find the price for 1 bottle at each store.', why: '$9 ÷ 12 = $0.75. $8 ÷ 10 = $0.80. The lower price is $0.75 per bottle, at Store 1.', show: '$0.75' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['To persuade readers to try flag football', 'To inform readers about the rules of flag football', 'To entertain readers with a funny story about a game', 'To compare flag football to soccer'], a: 0, q: 'What is the author’s <b>main purpose</b> in “Why Every Kid Should Try Flag Football”?', hint: 'Read the last paragraph. What does the author want you to do?', why: 'The author gives reasons and ends with “Sign up this season.” That’s persuading.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['“the best thing to happen to youth sports”', '“ridiculously fun”', '“pull a flag from a belt”', '“on the same field”'], a: [0, 1], q: 'Which <b>two phrases</b> show the author’s positive perspective on flag football?', hint: 'Look for words that judge, not words that just describe.', why: '“The best thing” and “ridiculously fun” show the author’s feelings. The other two just describe how the game works.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Without tackling, flag football misses what makes football special.', 'Flag football lets everyone join in.', 'Boys and girls can play flag football together.', 'Quick feet help flag football players win.'], a: 0, q: 'Which sentence would someone with a <b>different perspective</b> on flag football most likely write?', hint: 'Find the sentence the author of this passage would disagree with.', why: 'The author loves flag football. Only the first sentence criticizes it. The others agree with the passage.' },
+    { s: 'Money', t: 'mc', o: ['The money you take home after deductions', 'Your pay before anything is taken out', 'The amount taken out for taxes', 'A bonus for playing well'], a: 0, q: 'On Marcus’s pay stub, what does <b>net pay</b> mean?', hint: 'Net pay is the bottom line.', why: 'Net pay is what’s left after deductions. Pay before anything is taken out is gross pay.' },
+    { s: 'Money', t: 'num', a: 900, q: 'Rookie kicker <b>Leo Diaz</b> gets a pay stub that shows gross pay of <b>$3,600</b>. Deductions: federal income tax <b>$450</b>, Social Security and Medicare <b>$275</b>, health insurance <b>$175</b>. What are his <b>total deductions</b>?', unit: 'dollars', hint: 'Add the three deductions.', why: '$450 + $275 + $175 = $900.', show: '$900' },
+    { s: 'Money', t: 'num', a: 2700, q: 'Using the same pay stub (gross pay $3,600, total deductions $900), what is Leo’s <b>net pay</b>?', unit: 'dollars', hint: 'Gross pay − total deductions.', why: '$3,600 − $900 = $2,700.', show: '$2,700' }
+  ];
+  var B = [
+    { s: 'Math', t: 'text', a: ['7:10', '7 : 10', '7 to 10', '7/10', '7 / 10', 'seven to ten', 'seven:ten'], q: 'A quarterback completes <b>14</b> of his <b>20</b> passes. Write the ratio of <b>completions to passes</b> in simplest form.', ph: 'Like 1:2', hint: 'Divide both 14 and 20 by the same number.', why: '14:20. Divide both by 2 to get 7:10.' },
+    { s: 'Math', t: 'mc', o: ['5:9', '9:5', '5:14', '9:14'], a: 0, q: 'At camp there are <b>9 defensive backs</b> and <b>5 tight ends</b>. Which ratio compares <b>tight ends to defensive backs</b>?', hint: 'Look at the words after ‘compares.’ The group named first there goes first in the ratio.', why: 'Tight ends come first, so it’s 5:9.' },
+    { s: 'Math', t: 'mc', o: ['12:21', '6:9', '7:4', '8:11'], a: 0, q: 'Which ratio is <b>equivalent</b> to 4:7?', hint: 'Multiply both numbers by the same number.', why: '4 × 3 = 12 and 7 × 3 = 21, so 12:21 = 4:7. Adding the same number to both doesn’t work.' },
+    { s: 'Math', t: 'num', a: 9, q: 'A running back scores 3 touchdowns every 2 games.<br>Games: 2, 4, 6, 8<br>Touchdowns: 3, 6, <b>?</b>, 12<br>How many touchdowns in <b>6 games</b>?', unit: 'touchdowns', hint: '6 games is 3 times 2 games.', why: '6 = 3 × 2, so the touchdowns are 3 × 3 = 9.' },
+    { s: 'Math', t: 'num', a: 7, q: 'A receiver makes <b>56 catches</b> in <b>8 games</b>. How many catches per game is that?', unit: 'catches per game', hint: 'Divide catches by games.', why: '56 ÷ 8 = 7 catches per game.' },
+    { s: 'Math', t: 'mc', keep: true, o: ['Player A', 'Player B', 'They are equally fast'], a: 0, q: 'Player A runs <b>35 yards in 5 seconds</b>. Player B runs <b>24 yards in 4 seconds</b>. Who is faster?', hint: 'Find yards per second for each player.', why: 'Player A: 35 ÷ 5 = 7 yards per second. Player B: 24 ÷ 4 = 6 yards per second. Player A is faster.' },
+    { s: 'Math', t: 'num', a: 1.2, q: 'Store 1 sells <b>5 protein bars for $6</b>. Store 2 sells <b>4 for $5</b>. What is the <b>lower</b> price per bar?', unit: 'dollars', hint: 'Find the price for 1 bar at each store.', why: '$6 ÷ 5 = $1.20. $5 ÷ 4 = $1.25. The lower price is $1.20 per bar, at Store 1.', show: '$1.20' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['To persuade schools to change practices to keep players safe in the heat', 'To inform readers about how the body cools itself', 'To entertain readers with a funny story about practice', 'To explain how to play football'], a: 0, q: 'What is the author’s <b>main purpose</b> in “Practice Smarter in the Heat”?', hint: 'Read the last paragraph. Who is the author talking to, and what does the author want?', why: 'The author gives reasons and asks coaches to change before an emergency. That’s persuading.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['“heat that feels like an oven”', '“Heat is dangerous”', '“early in the morning”', '“water breaks every twenty minutes”'], a: [0, 1], q: 'Which <b>two phrases</b> show the author’s worried perspective about practicing in the heat?', hint: 'Look for words that show feelings about the heat, not the plan to fix it.', why: '“Feels like an oven” and “Heat is dangerous” show how serious the author thinks the heat is. The other two are parts of the solution.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Practicing in the heat makes players tougher, so teams should keep their normal schedule.', 'Water breaks help keep players safe.', 'Coaches should move practice indoors on very hot days.', 'Heat can make players sick.'], a: 0, q: 'Which sentence would someone with a <b>different perspective</b> most likely write?', hint: 'Find the sentence the author would disagree with.', why: 'The author wants practices changed for safety. Only the first sentence argues against changing anything.' },
+    { s: 'Money', t: 'mc', o: ['Health insurance', 'Gross pay', 'Net pay', 'Hours worked'], a: 0, q: 'Which line on a pay stub is a <b>deduction</b>?', hint: 'A deduction is taken out of your pay.', why: 'Health insurance is taken out of the paycheck. Gross pay and net pay are totals, and hours worked is not money taken out.' },
+    { s: 'Money', t: 'num', a: 1000, q: 'Rookie receiver <b>Andre Price</b> gets a pay stub that shows gross pay of <b>$4,200</b>. Deductions: federal income tax <b>$520</b>, Social Security and Medicare <b>$320</b>, health insurance <b>$160</b>. What are his <b>total deductions</b>?', unit: 'dollars', hint: 'Add the three deductions.', why: '$520 + $320 + $160 = $1,000.', show: '$1,000' },
+    { s: 'Money', t: 'num', a: 3200, q: 'Using the same pay stub (gross pay $4,200, total deductions $1,000), what is Andre’s <b>net pay</b>?', unit: 'dollars', hint: 'Gross pay − total deductions.', why: '$4,200 − $1,000 = $3,200.', show: '$3,200' }
+  ];
+  var PA = '<div class="passage"><h4>Why Every Kid Should Try Flag Football</h4><div class="by">A student opinion piece</div>' +
+    '<p><span class="pn">1</span>Flag football is the best thing to happen to youth sports in years. If you have never tried it, you are missing out.</p>' +
+    '<p><span class="pn">2</span>In flag football, players pull a flag from a belt instead of tackling. That means less contact and fewer scary collisions. Parents who might say no to tackle football often say yes to flag.</p>' +
+    '<p><span class="pn">3</span>Flag football is also for everyone. Boys and girls play on the same field, and you don’t have to be the biggest kid to be a star. Quick feet and smart decisions win games.</p>' +
+    '<p><span class="pn">4</span>Best of all, it is ridiculously fun. Sign up this season. You will thank me later.</p></div>';
+  var PB = '<div class="passage"><h4>Practice Smarter in the Heat</h4><div class="by">By an athletic trainer</div>' +
+    '<p><span class="pn">1</span>Every August, Florida football teams practice in heat that feels like an oven. Players sweat through their jerseys before warm-ups are even over. It is time for schools to practice smarter.</p>' +
+    '<p><span class="pn">2</span>Heat is dangerous. When the air is hot and sticky, the body has a harder time cooling down. Players can get dizzy, cramp up or become seriously ill.</p>' +
+    '<p><span class="pn">3</span>The fix is simple. Teams should practice early in the morning or after sunset, take water breaks every twenty minutes and move to the gym when the heat gets extreme.</p>' +
+    '<p><span class="pn">4</span>Winning matters, but nothing matters more than keeping players safe. Coaches, please don’t wait for an emergency to make a change.</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-11-05', 'Week 2', document.getElementById('practice'))) return;
+    FO.practice({ week: 2, title: 'Scouting Combine', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w2win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 5: Stadium Upgrade · KCE</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  /* ---------- simple labeled diagrams (not drawn to scale) ---------- */
+  var FILL = '#E3F1E6', INK = '#0A1F3D', RED = '#DB2F30';
+  function fig(w, h, inner, label) {
+    return '<svg viewBox="0 0 ' + w + ' ' + h + '" width="100%" style="display:block;max-width:' + w + 'px;height:auto;margin:10px auto" role="img" aria-label="' + label + '" font-family="Arial" font-size="14" font-weight="bold">' + inner + '</svg><span style="display:block;font-size:13px;font-weight:normal;color:var(--muted);text-align:center;margin-top:-4px">(Not drawn to scale.)</span>';
+  }
+  function txt(x, y, s, anchor, color) { return '<text x="' + x + '" y="' + y + '" text-anchor="' + (anchor || 'middle') + '" fill="' + (color || INK) + '">' + s + '</text>'; }
+  function hgt(x, y1, y2) { return '<line x1="' + x + '" y1="' + y1 + '" x2="' + x + '" y2="' + y2 + '" stroke="' + RED + '" stroke-width="2" stroke-dasharray="6 4"/><path d="M' + x + ' ' + (y2 - 10) + ' H' + (x + 10) + ' V' + y2 + '" fill="none" stroke="' + RED + '" stroke-width="1.5"/>'; }
+  var SH = ' fill="' + FILL + '" stroke="' + INK + '" stroke-width="2"';
+  function rectFig(w, h, label) {
+    return fig(340, 170, '<rect x="40" y="20" width="240" height="110"' + SH + '/>' + txt(160, 152, w) + txt(290, 80, h, 'start'), label);
+  }
+  function paraFig(b, h, s, label) {
+    return fig(340, 170, '<polygon points="40,130 240,130 300,30 100,30"' + SH + '/>' + hgt(100, 30, 130) + txt(140, 152, b) + txt(108, 85, h, 'start', RED) + txt(62, 82, s, 'end'), label);
+  }
+  function triFig(b, h, s, label) {
+    return fig(320, 190, '<polygon points="40,150 280,150 160,30"' + SH + '/>' + hgt(160, 30, 150) + txt(160, 172, b) + txt(166, 105, h, 'start', RED) + txt(230, 88, s, 'start') + txt(90, 88, s, 'end'), label);
+  }
+  function houseFig(w, h, th, label) {
+    return fig(320, 220, '<rect x="60" y="90" width="200" height="100"' + SH + '/><polygon points="60,90 260,90 160,30"' + SH + '/>' + hgt(160, 30, 90) + txt(166, 68, th, 'start', RED) + txt(160, 210, w) + txt(270, 145, h, 'start'), label);
+  }
+  function lFig(W, H, topW, rightH, label) {
+    return fig(360, 230, '<polygon points="60,20 160,20 160,110 300,110 300,200 60,200"' + SH + '/>' + txt(110, 14, topW) + txt(52, 115, H, 'end') + txt(180, 220, W) + txt(308, 160, rightH, 'start'), label);
+  }
+  function holeFig(W, H, hw, hh, label) {
+    return fig(340, 190, '<rect x="40" y="20" width="240" height="130"' + SH + '/><rect x="130" y="60" width="80" height="45" fill="#fff" stroke="' + INK + '" stroke-width="2"/>' + txt(170, 53, hw) + txt(216, 88, hh, 'start') + txt(160, 172, W) + txt(290, 90, H, 'start'), label);
+  }
+  function plazaFig(side, tb, th, label) {
+    var k = 180 / parseFloat(side), bw = parseFloat(tb) * k, th2 = parseFloat(th) * k, top = 165 - th2;
+    return fig(300, 230, '<rect x="40" y="20" width="180" height="180"' + SH + '/><polygon points="' + (125 - bw / 2) + ',165 ' + (125 + bw / 2) + ',165 125,' + top + '" fill="#fff" stroke="' + INK + '" stroke-width="2"/><line x1="125" y1="' + top + '" x2="125" y2="165" stroke="' + RED + '" stroke-width="2" stroke-dasharray="4 3"/>' + txt(125, 184, tb) + txt(125 + bw / 2 + 6, 165 - th2 / 2 + 5, th, 'start', RED) + txt(130, 222, side) + txt(228, 115, side, 'start'), label);
+  }
+
+  var PASSAGE = '<div class="passage"><h4>How Instant Replay Review Works</h4><div class="by">A short how-it-works article</div>' +
+    '<p><span class="pn">1</span>Football officials have to make calls in a split second. Was the ball caught? Did the runner’s knee touch the ground first? Sometimes they miss. In many leagues, instant replay gives them a second look. Some fans think reviews take way too long.</p>' +
+    '<p><span class="pn">2</span>A review starts in one of two ways. In some leagues, a coach can toss a red challenge flag onto the field before the next play begins. In others, a replay official watching from a booth high above the field can stop the game and call for a review.</p>' +
+    '<p><span class="pn">3</span>Next, the officials study the play on video. They watch it from as many camera angles as they can, in slow motion and frame by frame. A big game can have dozens of cameras.</p>' +
+    '<p><span class="pn">4</span>Then the officials decide. To change the call, they need clear video evidence that the first call was wrong. If the video does not clearly show a mistake, the call on the field stays the same.</p>' +
+    '<p><span class="pn">5</span>Finally, the referee turns on a microphone and announces the ruling to the whole stadium, and play starts again. In this writer’s opinion, that short wait is worth it to get the call right.</p></div>';
+
+  var items = {
+    rect1: { t: 'num', a: 4800, q: 'An end zone is <b>160 ft</b> wide and <b>30 ft</b> deep. You’re putting new turf in it. What is its <b>area</b>?', unit: 'sq ft', ph: 'Area', hint: 'Rectangle: area = base × height.', why: '160 × 30 = 4,800 square feet.', show: '4,800 sq ft' },
+    para1: { t: 'mc', o: ['60 sq ft', '72 sq ft', '30 sq ft', '36 sq ft'], a: 0, q: 'The team logo painted at midfield is a parallelogram. Its base is 12 ft, its height (the dashed line) is 5 ft, and its slanted side is 6 ft. What is its area?' + paraFig('12 ft', '5 ft', '6 ft', 'Parallelogram with base 12 feet, dashed height 5 feet, slanted side 6 feet'), hint: 'Use the dashed height, not the slanted side.', why: 'Area = base × height = 12 × 5 = 60 sq ft. Using the slanted side (12 × 6 = 72) is the classic trap.' },
+
+    tri1: { t: 'num', a: 18, q: 'A giant triangular pennant hangs from the upper deck. Its base is <b>4 ft</b> and its height is <b>9 ft</b>. What is its area?', unit: 'sq ft', ph: 'Area', hint: 'Find base × height, then take half.', why: '½ × 4 × 9 = ½ × 36 = 18 sq ft. If you got 36, you forgot the ½.' },
+    ht: { t: 'mc', o: ['8 ft', '10 ft', '12 ft', '32 ft'], a: 0, keep: true, q: 'Look at the triangle above. Which measurement is the <b>height</b> that goes with the 12 ft base?', hint: 'The height makes a square corner (90°) with the base.', why: 'The dashed 8 ft line is perpendicular to the base, so it is the height. The 10 ft sides are slanted.' },
+    tri3: { t: 'num', a: 48, q: 'Now find the <b>area</b> of that triangle.', unit: 'sq ft', ph: 'Area', hint: '½ × base × height, using the dashed height.', why: '½ × 12 × 8 = ½ × 96 = 48 sq ft. Using the slanted side would give 60, and forgetting the ½ would give 96.' },
+
+    comp1: { t: 'num', a: 260, q: 'The new scoreboard is a rectangle with a triangle on top. What is the <b>total area</b>?' + houseFig('20 ft', '10 ft', '6 ft', 'Rectangle 20 feet wide and 10 feet tall with a triangle on top, triangle height 6 feet'), unit: 'sq ft', ph: 'Total area', hint: 'Rectangle: 20 × 10. Triangle: ½ × 20 × 6. Then add.', why: 'Rectangle: 20 × 10 = 200. Triangle: ½ × 20 × 6 = 60. Total: 200 + 60 = 260 sq ft.' },
+    comp2: { t: 'num', a: 1400, q: 'The players’ parking lot is an L shape. What is its <b>area</b>?' + lFig('50 yd', '40 yd', '20 yd', '20 yd', 'L-shaped lot: bottom edge 50 yards, left edge 40 yards, top edge 20 yards, right edge 20 yards'), unit: 'square yards', ph: 'Area', hint: 'Split it into a bottom rectangle (50 × 20) and a top rectangle. The top piece is 40 − 20 = 20 yd tall.', why: 'Bottom: 50 × 20 = 1,000. Top: 20 × 20 = 400. Total: 1,400 square yards. Splitting it the other way (20 × 40 + 30 × 20) also gives 1,400.', show: '1,400 square yards' },
+
+    cut1: { t: 'num', a: 320, q: 'You’re painting the front wall of the press box. The wall is 30 ft by 12 ft, but you don’t paint the 10 ft by 4 ft window. How many square feet do you paint?' + holeFig('30 ft', '12 ft', '10 ft', '4 ft', 'Wall 30 feet by 12 feet with a window 10 feet by 4 feet'), unit: 'sq ft', ph: 'Area to paint', hint: 'Whole wall minus the window.', why: 'Wall: 30 × 12 = 360. Window: 10 × 4 = 40. Paint: 360 − 40 = 320 sq ft.' },
+    cut2: { t: 'num', a: 1560, q: 'The fan plaza is a square, 40 ft on each side. A triangular flower bed (base 10 ft, height 8 ft) is cut out of the middle. How much area gets new pavers?' + plazaFig('40 ft', '10 ft', '8 ft', 'Square plaza 40 feet on each side with a triangle cut out, base 10 feet and height 8 feet'), unit: 'sq ft', ph: 'Paver area', hint: 'Square: 40 × 40. Triangle: ½ × 10 × 8. Subtract.', why: 'Square: 40 × 40 = 1,600. Flower bed: ½ × 10 × 8 = 40. Pavers: 1,600 − 40 = 1,560 sq ft.', show: '1,560 sq ft', badge: 'builder' },
+
+    ci: { t: 'mc', o: ['How an instant replay review works, step by step', 'Why fans get bored during reviews', 'How many cameras are at a football game', 'Why referees make so many mistakes'], a: 0, q: 'What does “How Instant Replay Review Works” <b>mainly explain</b>?', hint: 'Look at the title and the signal words: next, then, finally.', why: 'Each paragraph covers one stage of a review, from how it starts to how the ruling is announced.' },
+    ord: { t: 'order', items: ['A call is made on the field.', 'A coach or replay official asks for a review.', 'Officials study the play from different camera angles.', 'Officials decide if there is clear evidence to change the call.', 'The referee announces the ruling.'], q: 'Put the main steps of a review <b>in order</b>. Tap them in order.', hint: 'Follow the signal words: next, then, finally.', why: 'The call comes first, then the request for a review, the video study, the decision and the announcement.' },
+    cut: { t: 'multi', o: ['Some fans think reviews take way too long.', 'A big game can have dozens of cameras.', 'Officials need clear video evidence to change a call.', 'The referee announces the ruling to the stadium.'], a: [0, 1], q: 'Which <b>two sentences</b> should be <b>left out</b> of a summary?', hint: 'Cut opinions and small extra facts. Keep the steps.', why: 'The first sentence reports what some fans think, which is an opinion, not a step in the process. The number of cameras is a minor detail. The other two are key steps.' },
+
+    op: { t: 'mc', o: ['In this writer’s opinion, that short wait is worth it to get the call right.', 'A review starts in one of two ways.', 'Next, the officials study the play on video.', 'The referee turns on a microphone and announces the ruling.'], a: 0, q: 'Which sentence is the writer’s <b>opinion</b>, so it does <b>not</b> belong in a summary?', hint: 'Look for a judgment that someone could disagree with.', why: '“Worth it” is a judgment, and the writer even says it’s an opinion. The other sentences describe what actually happens.' },
+    key: { t: 'mc', o: ['To change a call, officials need clear video evidence. Otherwise the call stays.', 'Officials always change the call after a review.', 'Officials watch the play in slow motion.', 'Coaches throw a red flag.'], a: 0, q: 'What is the <b>key idea</b> of paragraph 4?', hint: 'What rule decides whether the call changes?', why: 'Paragraph 4 is about the decision rule: clear evidence changes the call, and unclear video keeps it the same.' },
+    sum: { t: 'mc', o: ['A review starts when a coach throws a challenge flag or a replay official calls for one. Officials study the play on video, change the call only if there is clear evidence it was wrong, and then the referee announces the ruling.', 'Replay is great, and the short wait is worth it. Fans who complain should be more patient.', 'A big game has dozens of cameras. Officials watch in slow motion and frame by frame. The red flag is thrown before the next play.', 'Officials make calls in a split second. Sometimes they miss.'], a: 0, q: 'Which is the <b>best summary</b> of the article?', hint: 'A strong summary hits every main step, in order, with no opinions.', why: 'It covers how a review starts, how officials decide and how it ends, in order, without opinions or minor details.', badge: 'techtalk' },
+
+    sort: { t: 'sort', bins: ['Short-term', 'Long-term'], items: [['New headphones next month', 0], ['Holiday gifts this December', 0], ['Plane tickets home for Thanksgiving', 0], ['Down payment on a house', 1], ['Retirement savings', 1], ['Opening his own gym after football', 1]], q: 'Help Marcus sort his goals: <b>short-term</b> or <b>long-term</b>?', hint: 'Short-term means within about a year.', why: 'Headphones, holiday gifts and Thanksgiving tickets happen within a year. A house, retirement and a gym are years away.' },
+    pace: { t: 'num', a: 300, q: 'Marcus wants <b>$1,800</b> to fly his family to a road game in <b>6 months</b>. How much should he save <b>each month</b>?', unit: 'dollars', ph: 'Per month', hint: 'Goal ÷ number of months.', why: '$1,800 ÷ 6 = $300 a month. That’s half of the $600 he saves each month.', show: '$300' },
+    smart: { t: 'mc', o: ['Save $2,400 for a used truck down payment in 12 months by saving $200 a month.', 'Save a lot of money this year.', 'Buy a truck eventually.', 'Save $2,400 for a truck someday.'], a: 0, q: 'Which of Marcus’s goals is a <b>SMART</b> goal?', hint: 'Look for an amount, a purpose, a plan and a deadline.', why: 'It is specific (truck), measurable ($2,400), achievable ($200 a month fits inside the $600 he saves each month), relevant and time-bound (12 months). $200 × 12 = $2,400.' },
+    pyf: { t: 'num', a: 600, q: 'Marcus takes home <b>$3,000</b> a month. He pays himself first by moving <b>20%</b> into savings the moment his pay arrives. How much does he save each month?', unit: 'dollars', ph: 'Savings', hint: '10% of $3,000 is $300. 20% is double that.', why: '20% of $3,000 = 0.20 × 3,000 = $600. That’s the same 20% savings from his 50/30/20 budget.', show: '$600', badge: 'goalsetter' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 5 · Stadium Upgrade</div><h2>Stadium Upgrade</h2>' +
+      '<p>The owners just approved a stadium upgrade, and the GM signs off on every square foot. New turf, a new scoreboard, a bigger parking lot. Before anyone orders materials, somebody has to know exactly how much space each piece covers. That’s you.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Stadium Builder.</b> Area of triangles and composite figures.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Tech Talk.</b> Summarize how something works.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Goal Setter.</b> Saving goals and paying yourself first.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Builder</span></div><h2>Area Review: Rectangles and Parallelograms</h2>' +
+      '<p><b>Area</b> is how much flat space a shape covers. We measure it in <b>square units</b>, like square feet (sq ft) or square yards.</p>' +
+      '<p class="big-rule">Rectangle or parallelogram: A = b × h</p>' +
+      rectFig('160 ft', '30 ft', 'End zone rectangle 160 feet wide and 30 feet deep') +
+      '<div class="callout">For a parallelogram, the <b>height</b> is the straight-up distance between the base and the top, shown with a dashed line. It is <b>not</b> the slanted side.</div>' +
+      '<div data-item="rect1"></div><div data-item="para1"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Builder</span></div><h2>Triangles: Half a Rectangle</h2>' +
+      '<p>Draw a line from corner to corner across a rectangle and you get two matching triangles. So a triangle covers <b>half</b> the area of a rectangle with the same base and height.</p>' +
+      '<p class="big-rule">Triangle: A = ½ × b × h</p>' +
+      '<div class="callout red"><b>Watch out:</b> the height must make a square corner (90°) with the base. It is the dashed line, not a slanted side.</div>' +
+      triFig('12 ft', '8 ft', '10 ft', 'Triangle with base 12 feet, dashed height 8 feet, slanted sides 10 feet') +
+      '<div data-item="ht"></div><div data-item="tri3"></div><div data-item="tri1"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Builder</span></div><h2>Composite Figures: Split It Up</h2>' +
+      '<p>A <b>composite figure</b> is made of simpler shapes stuck together. To find its area, <b>split</b> it into rectangles and triangles, find each area, then <b>add</b>.</p>' +
+      '<div class="callout blue"><b>Builder’s tip:</b> if a side length is missing, find it from the others. In an L shape, the missing piece is often a big side minus a small side.</div>' +
+      '<div data-item="comp1"></div><div data-item="comp2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Stadium Builder</span></div><h2>Cut-Outs: Subtract the Hole</h2>' +
+      '<p>Sometimes a shape has a piece taken out, like a window in a wall. Find the area of the <b>whole</b> shape, then <b>subtract</b> the area of the cut-out.</p>' +
+      '<p class="big-rule">Area left = whole − cut-out</p>' +
+      '<div data-item="cut1"></div><div data-item="cut2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Tech Talk</span></div><h2>Summarizing How Something Works</h2>' +
+      '<p>A <b>technical text</b> explains how something works or how to do something. To summarize it, find the <b>main steps</b> or key ideas and put them <b>in order</b>.</p>' +
+      '<div class="callout"><b>How to do it:</b> watch for signal words like <i>first, next, then</i> and <i>finally</i>. Keep the steps. Cut opinions and small extra facts.</div>' +
+      PASSAGE + '<div data-item="ci"></div><div data-item="ord"></div><div data-item="cut"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Tech Talk</span></div><h2>Keep It Short, Stick to the Facts</h2>' +
+      '<p>A summary is short and in your own words. It tells only what the text says, not what you or the writer think about it. Opinions and tiny details stay on the bench.</p>' +
+      PASSAGE + '<div data-item="op"></div><div data-item="key"></div><div data-item="sum"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Goal Setter</span></div><h2>Short-Term vs. Long-Term Goals</h2>' +
+      '<p><b>Marcus Hale</b>, your rookie linebacker, is learning to plan ahead. Every saving goal has a timeline.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Short-term goal:</b> something you want within about a year, like new headphones or holiday gifts.</div><div class="callout"><b>Long-term goal:</b> something that takes years, like buying a house or retiring.</div></div>' +
+      '<p>To reach a goal by a date: <b>goal amount ÷ number of weeks or months = amount to save each time</b>.</p><div data-item="sort"></div><div data-item="pace"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Goal Setter</span></div><h2>SMART Goals and Paying Yourself First</h2>' +
+      '<p>A <b>SMART</b> goal is <b>S</b>pecific, <b>M</b>easurable, <b>A</b>chievable, <b>R</b>elevant and <b>T</b>ime-bound. “Save more” is a wish. “Save $300 a month for 6 months for my family’s trip” is a plan.</p>' +
+      '<div class="callout"><b>Pay yourself first:</b> move money into savings the moment you get paid, before you spend anything. What’s left is what you spend.</div>' +
+      '<div data-item="smart"></div><div data-item="pyf"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 5 in the Books</h2>' +
+      '<ul><li>Rectangles and parallelograms: A = b × h. Triangles: A = ½ × b × h.</li>' +
+      '<li>The height always makes a square corner with the base. Never use the slanted side.</li>' +
+      '<li>Composite figures: split, find each area, then add. Cut-outs: whole minus the hole.</li>' +
+      '<li>A summary of a technical text keeps the main steps in order and leaves out opinions and minor details.</li>' +
+      '<li>Set SMART goals, divide the goal by the time you have, and pay yourself first.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice05.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can edit it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-10', 'Week 5', document.getElementById('deck'))) return; FO.deck({ id: 'L05', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

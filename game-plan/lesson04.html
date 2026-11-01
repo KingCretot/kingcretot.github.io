@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 4: Building the Roster · KCE</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="deck" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  var PASSAGE = '<div class="passage"><h4>The Fourth-Quarter Fix</h4><div class="by">A short feature story</div>' +
+    '<p><span class="pn">1</span>For the first half of the season, the Lakeview Lions had the same problem every week. They would build an early lead, then lose it in the fourth quarter. They dropped four games that way, three of them by less than a touchdown.</p>' +
+    '<p><span class="pn">2</span>Coach Tasha Bell studied the game film and spotted the cause. Her best players were on the field for almost every snap, on offense and on defense. Because they never got a break, their legs were gone by the final quarter. As a result, they missed tackles and dropped passes when it mattered most.</p>' +
+    '<p><span class="pn">3</span>Coach Bell built a plan to fix it. First, she trained backup players so the starters could rest for a few plays each quarter. Next, she set up a water and snack schedule on the sideline. Finally, she ended every practice with ten minutes of sprints so players got used to running hard while tired.</p>' +
+    '<p><span class="pn">4</span>The change was easy to see. Before the plan, the Lions gave up an average of 14 points in the fourth quarter. After the plan, they gave up only 4. Earlier in the season, tired players walked back to the huddle. Now they jogged.</p>' +
+    '<p><span class="pn">5</span>The Lions won five of their last six games. “We didn’t get more talented,” one captain said. “We got a plan.”</p></div>';
+
+  var items = {
+    gcf1: { t: 'num', a: 12, q: 'Spring camp has <b>24 linemen</b> and <b>36 skill players</b>. You want equal practice groups, each with the same number of linemen and the same number of skill players, and nobody left out. What is the <b>greatest number of groups</b> you can make?', unit: 'groups', ph: 'Groups', hint: 'List the factors of 24 and 36. Find the biggest one they share.', why: 'Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. The greatest common factor is 12, so 12 groups.' },
+    gcf2: { t: 'mc', o: ['2 linemen and 3 skill players', '12 linemen and 12 skill players', '3 linemen and 2 skill players', '4 linemen and 6 skill players'], a: 0, q: 'With those <b>12 groups</b>, what does each group get?', hint: 'Divide each position by 12.', why: '24 ÷ 12 = 2 linemen and 36 ÷ 12 = 3 skill players in every group.' },
+    gcffac: { t: 'mc', o: ['12(3 + 4)', '6(6 + 8)', '4(9 + 12)', '12(3 + 48)'], a: 0, q: 'Which expression uses the <b>GCF</b> to rewrite <b>36 + 48</b>?', hint: 'First find the GCF of 36 and 48. Then divide each number by it.', why: 'The GCF of 36 and 48 is 12. 36 = 12 × 3 and 48 = 12 × 4, so 36 + 48 = 12(3 + 4). 6(6 + 8) is equal, but 6 is not the greatest common factor.' },
+
+    lcm1: { t: 'num', a: 24, q: 'Drill A restarts every <b>6 minutes</b>. Drill B restarts every <b>8 minutes</b>. They both start right now. In how many minutes will they <b>restart at the same time</b> again?', unit: 'minutes', ph: 'Minutes', hint: 'List multiples: 6, 12, 18, … and 8, 16, … Find the first match.', why: 'Multiples of 6: 6, 12, 18, 24. Multiples of 8: 8, 16, 24. The least common multiple is 24 minutes.' },
+    sortgl: { t: 'sort', bins: ['GCF', 'LCM'], items: [['Pack 18 footballs and 27 cones into identical bags, as many bags as possible', 0], ['Cut a 12-foot rope and a 20-foot rope into equal pieces, as long as possible', 0], ['Two drills restart every 4 and 6 minutes. When do they restart together?', 1], ['Hot dogs come 10 to a pack and buns come 8 to a pack. What is the fewest hot dogs and buns you can buy so the numbers match?', 1]], q: 'Scout each job: does it call for the <b>GCF</b> or the <b>LCM</b>?', hint: 'Splitting into equal groups usually means GCF. Waiting for things to line up again usually means LCM.', why: 'Bags and rope pieces split things into the biggest equal parts (GCF). Drills lining up and packs matching need the first shared multiple (LCM).' },
+
+    divmean: { t: 'mc', o: ['How many groups of 1/3 fit into 2?', 'What is one third of 2?', 'What is 2 minus 1/3?', 'How many groups of 2 fit into 1/3?'], a: 0, q: 'What question does <b>2 ÷ 1/3</b> ask?', hint: 'Read 12 ÷ 3 as “how many 3s fit into 12?” Do the same here.', why: 'Division asks how many groups of the divisor fit into the dividend. 2 ÷ 1/3 asks how many thirds fit into 2. (The answer is 6.)' },
+    div1: { t: 'num', a: 12, q: 'You have <b>3 hours</b> of field time. Each drill block lasts <b>1/4 hour</b>. How many drill blocks fit?', unit: 'blocks', ph: 'Blocks', hint: 'How many fourths are in one hour? Now do 3 hours.', why: 'There are 4 quarter-hours in each hour, so 3 ÷ 1/4 = 3 × 4 = 12 blocks.' },
+
+    kcf2: { t: 'text', a: ['5/4', '1 1/4', '1-1/4', '15/12', '1.25'], q: '5/6 ÷ 2/3 = ?', ph: 'Like 7/4 or 1 3/4', hint: 'Keep 5/6, change ÷ to ×, flip 2/3 to 3/2.', why: '5/6 × 3/2 = 15/12 = 5/4, which is 1 1/4.' },
+    kcfmis: { t: 'mc', o: ['He flipped the first fraction instead of the second one.', 'He should have added the fractions.', 'He forgot to change ÷ to ×.', 'Nothing. His answer is correct.'], a: 0, q: 'Jordan solved <b>1/2 ÷ 3/4</b> like this: <b>2/1 × 3/4 = 6/4</b>. What went wrong?', hint: 'In keep-change-flip, which fraction do you keep?', why: 'You keep the first fraction and flip the second. The right way: 1/2 × 4/3 = 4/6 = 2/3.' },
+    kcf3: { t: 'num', a: 6, q: 'The trainer has <b>4 1/2 gallons</b> of sports drink. Each cooler jug holds <b>3/4 gallon</b>. How many jugs can he fill?', unit: 'jugs', ph: 'Jugs', hint: 'Change 4 1/2 to an improper fraction first.', why: '4 1/2 = 9/2. Then 9/2 ÷ 3/4 = 9/2 × 4/3 = 36/6 = 6 jugs.', badge: 'rostermath' },
+
+    st1: { t: 'sort', bins: ['Sequence', 'Cause and effect', 'Compare and contrast', 'Problem and solution', 'Description'], items: [['first', 0], ['after that', 0], ['as a result', 1], ['because of this', 1], ['similarly', 2], ['on the other hand', 2], ['the problem is', 3], ['one solution is', 3], ['such as', 4], ['looks like', 4]], q: 'Sort each <b>signal word</b> to the text structure it usually points to.', hint: 'Ask what job the words do: show order, show why, show alike and different, fix something, or paint a picture.', why: 'First and after that show order. As a result and because of this show causes and effects. Similarly and on the other hand compare. The problem is and one solution is set up a fix. Such as and looks like describe.' },
+    st2: { t: 'mc', o: ['Cause and effect', 'Sequence', 'Compare and contrast', 'Description', 'Problem and solution'], a: 0, q: '“Heavy rain soaked the field all week. <b>Because of this</b>, the grass turned to mud, and the game was moved to Saturday.” Which structure is this?', hint: 'Look at the signal words in bold.', why: 'The rain (cause) led to mud and a moved game (effects). “Because of this” is a cause-and-effect signal.' },
+    p1: { t: 'mc', o: ['Problem and solution', 'Description', 'Compare and contrast', 'Sequence'], a: 0, q: 'Which structure organizes “The Fourth-Quarter Fix” <b>as a whole</b>?', hint: 'What goes wrong in paragraph 1? What happens in paragraph 3?', why: 'Paragraph 1 states a problem (losing late leads), and the rest explains the cause, the fix and the result. That is problem and solution.' },
+    p2: { t: 'mc', o: ['Sequence', 'Compare and contrast', 'Cause and effect', 'Description'], a: 0, q: 'How is <b>paragraph 3</b> organized?', hint: 'Find the words First, Next and Finally.', why: 'First, Next and Finally put the steps of the plan in order. That is sequence.' },
+    p3: { t: 'multi', o: ['Because', 'As a result', 'First', 'Before'], a: [0, 1], q: 'Which <b>two signal words</b> in paragraph 2 show cause and effect?', hint: 'Reread paragraph 2 only.', why: '“Because they never got a break” gives the cause. “As a result” introduces the effect. First (as a signal word) is in paragraph 3 and Before is in paragraph 4.' },
+    p4: { t: 'mc', o: ['Compare and contrast', 'Problem and solution', 'Sequence', 'Description'], a: 0, q: 'Paragraph 4 sets the Lions <b>before</b> the plan next to the Lions <b>after</b> the plan. Which structure is that?', hint: 'Is the author showing how two things are different?', why: 'Fourteen points versus 4 points, walking versus jogging. The author shows how before and after are different, which is compare and contrast.' },
+    p5: { t: 'mc', o: ['To show how the team figured out what was going wrong and fixed it', 'To describe what the Lions’ stadium looks like', 'To compare the Lions with a rival team', 'To list every game in the order it was played'], a: 0, q: 'Why did the author most likely choose a <b>problem and solution</b> structure?', hint: 'Think about the captain’s quote at the end.', why: 'The story is about a team that had a problem and solved it with a plan. Problem and solution lets the reader follow that path from losing to winning.', badge: 'blueprint' },
+
+    m1: { t: 'num', a: 1500, q: 'Marcus takes home <b>$3,000</b> a month. Using 50/30/20, how much goes to <b>needs</b>?', unit: 'dollars', ph: 'Dollars', hint: '50% is half.', why: '50% of $3,000 = 0.50 × 3,000 = $1,500.', show: '$1,500' },
+    msort: { t: 'sort', bins: ['Needs (50%)', 'Wants (30%)', 'Savings (20%)'], items: [['Rent', 0], ['Groceries', 0], ['Car insurance', 0], ['Streaming service', 1], ['Concert tickets', 1], ['Eating out', 1], ['Emergency fund', 2], ['Retirement account', 2]], q: 'Help Marcus sort each item into the right <b>bucket</b>.', hint: 'Needs keep him housed, fed and working. Savings is money he puts away for later.', why: 'Rent, groceries and car insurance are needs. Streaming, concerts and eating out are wants. The emergency fund and retirement account are savings.' },
+    adj: { t: 'mc', o: ['Move $200 out of his wants budget and keep saving $600', 'Stop saving this month', 'Put the extra $200 on a credit card', 'Keep everything the same and hope it works out'], a: 0, q: 'Suppose Marcus’s rent goes up and his needs would cost <b>$1,700</b>. That would be <b>$200 over</b> his $1,500 needs budget. What is the smartest fix?', hint: 'Which bucket is the easiest to trim without hurting his future?', why: 'Wants are the most flexible bucket. Trimming wants keeps the bills paid and protects his savings. A credit card just turns the problem into debt.' },
+    m5: { t: 'num', a: 700, q: 'If Marcus moves that $200, how much would be left in his <b>wants</b> budget each month?', unit: 'dollars', ph: 'Dollars', hint: 'His wants budget started at 30% of $3,000.', why: '30% of $3,000 = $900. $900 − $200 = $700. Check: $1,700 + $700 + $600 = $3,000.', show: '$700', badge: 'budgetboss' }
+  };
+
+  var slides = [
+    { html: '<div class="eyebrow">Week 4 · Building the Roster</div><h2>Building the Roster</h2>' +
+      '<p>A great GM doesn’t just collect players. He fits them together: the right number at each position, practice plans that line up, and a budget that works every month. This week you build the roster.</p>' +
+      '<div class="plan"><div><b class="m">1 · Math</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Roster Math.</b> GCF, LCM and dividing fractions.</span></div>' +
+      '<div><b class="e">2 · ELA</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Blueprint.</b> How authors structure a text, and why.</span></div>' +
+      '<div><b class="f">3 · Money</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Budget Boss.</b> Split a paycheck with the 50/30/20 rule.</span></div>' +
+      '<div><b class="g">4 · Game Day</b><span><b style="text-transform:none;letter-spacing:0;font-size:16px;color:var(--navy)">Practice Here.</b> Score 80 or more to put a W on your record.</span></div></div>' +
+      '<p>Every first-try answer earns <b>+10 XP</b>. Badges are worth <b>+50</b>.</p>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Roster Math</span></div><h2>Equal Position Groups: GCF</h2>' +
+      '<p>A <b>factor</b> divides a number evenly. The <b>greatest common factor (GCF)</b> is the biggest factor two numbers share. Use it when you want to split things into the <b>most equal groups</b> with nothing left over.</p>' +
+      '<div class="callout blue"><b>GCF of 12 and 18:</b> factors of 12 are 1, 2, 3, 4, 6, 12. Factors of 18 are 1, 2, 3, 6, 9, 18. The biggest shared factor is <b>6</b>.</div>' +
+      '<p>The GCF also lets you rewrite a sum: <b>12 + 18 = 6(2 + 3)</b>.</p>' +
+      '<div data-item="gcf1"></div><div data-item="gcf2"></div><div data-item="gcffac"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Roster Math</span></div><h2>Drills on Repeat: LCM</h2>' +
+      '<p>A <b>multiple</b> is what you get when you count by a number: 4, 8, 12, 16, … The <b>least common multiple (LCM)</b> is the smallest multiple two numbers share. Use it when you want to know when two repeating things will <b>line up again</b>.</p>' +
+      '<div class="callout"><b>LCM of 4 and 6:</b> 4, 8, <b>12</b> and 6, <b>12</b>. They first meet at <b>12</b>.</div>' +
+      '<div class="callout red"><b>Quick test:</b> splitting into groups? Think GCF. Waiting for things to match up? Think LCM.</div>' +
+      '<div data-item="lcm1"></div><div data-item="sortgl"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Roster Math</span></div><h2>How Many Groups Of? Dividing Fractions</h2>' +
+      '<p>Division asks a simple question: <b>how many groups of this fit into that?</b> 12 ÷ 3 asks how many 3s fit into 12. In the same way, <b>3 ÷ 1/2</b> asks how many halves fit into 3.</p>' +
+      '<div class="callout blue">Three whole pizzas cut in halves make <b>6</b> halves. So 3 ÷ 1/2 = 6. Dividing by a fraction less than 1 gives a <b>bigger</b> answer.</div>' +
+      '<div data-item="divmean"></div><div data-item="div1"></div>' },
+
+    { html: '<div class="q-head"><span class="pill m">Q1 · Math</span><span class="qtr">Roster Math</span></div><h2>Keep, Change, Flip</h2>' +
+      '<p>To divide by a fraction, <b>keep</b> the first fraction, <b>change</b> ÷ to ×, and <b>flip</b> the second fraction (use its reciprocal). Then multiply and simplify.</p>' +
+      '<p class="big-rule">2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6</p>' +
+      '<div class="callout"><b>Mixed numbers:</b> change them to improper fractions first. 2 1/2 = 5/2.</div>' +
+      '<div data-item="kcf2"></div><div data-item="kcfmis"></div><div data-item="kcf3"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Blueprint</span></div><h2>Reading the Blueprint: Text Structure</h2>' +
+      '<p>Every play has a design, and so does every text. <b>Text structure</b> is how an author organizes ideas. <b>Signal words</b> are the clues.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>Sequence:</b> events or steps in order (first, next, then, finally).<br><b>Cause and effect:</b> why something happened and what it led to (because, so, as a result).<br><b>Compare and contrast:</b> how things are alike and different (both, similarly, however, on the other hand).</div>' +
+      '<div class="callout"><b>Problem and solution:</b> something goes wrong and someone fixes it (the problem is, one solution is, to fix this).<br><b>Description:</b> details that paint a picture of one topic (for example, such as, looks like).</div></div>' +
+      '<div data-item="st1"></div><div data-item="st2"></div>' },
+
+    { html: '<div class="q-head"><span class="pill e">Q2 · ELA</span><span class="qtr">Blueprint</span></div><h2>Why This Structure?</h2>' +
+      '<p>A whole text can have one main structure while single paragraphs use others. Authors pick the structure that best fits their purpose. Ask: what does this design help me understand?</p>' +
+      PASSAGE + '<div data-item="p1"></div><div data-item="p2"></div><div data-item="p3"></div><div data-item="p4"></div><div data-item="p5"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Budget Boss</span></div><h2>The 50/30/20 Plan</h2>' +
+      '<p>Remember <b>Marcus Hale</b>, your rookie linebacker? His take-home pay, or <b>net pay</b>, is what lands in his account after taxes. His Week 2 pay stub showed <b>$3,000</b> take-home for the month. Now he needs a plan for every dollar.</p>' +
+      '<div class="grid2"><div class="callout blue"><b>50% Needs:</b> rent, groceries, insurance, bills.<br><b>30% Wants:</b> fun stuff he could live without.<br><b>20% Savings:</b> emergency fund and money for the future.</div><div class="callout"><b>Marcus’s plan:</b><br>Needs: $1,500<br>Wants: $900<br>Savings: $600</div></div>' +
+      '<div data-item="m1"></div><div data-item="msort"></div>' },
+
+    { html: '<div class="q-head"><span class="pill f">Q3 · Money</span><span class="qtr">Budget Boss</span></div><h2>Over Budget? Adjust the Plan</h2>' +
+      '<p>Real budgets change. When one bucket costs more than planned, a GM doesn’t panic. He moves money from the most flexible bucket, which is usually <b>wants</b>, and protects savings.</p>' +
+      '<div class="callout red"><b>Rule:</b> the three buckets must still add up to the net pay. Needs + wants + savings = $3,000.</div>' +
+      '<div data-item="adj"></div><div data-item="m5"></div>' },
+
+    { html: '<div class="eyebrow">Postgame</div><h2>Week 4 in the Books</h2>' +
+      '<ul><li>The GCF splits things into the most equal groups. The LCM tells you when repeating things line up again.</li>' +
+      '<li>Dividing fractions asks how many groups fit. Keep, change, flip, and turn mixed numbers into improper fractions first.</li>' +
+      '<li>Text structure is the author’s blueprint. Signal words reveal it, and the author picks it to fit the purpose.</li>' +
+      '<li>50/30/20 splits net pay into needs, wants and savings. When you go over, trim wants and protect savings.</li></ul>' +
+      '<div class="callout blue"><b>Your play this week:</b> win Practice Here. Score 80 or more to put a W on your record. You can run it back with a new set of questions.</div>' +
+      '<div class="inrow"><a class="btn gold" href="practice04.html">Practice Here ▶</a><a class="btn ghost" href="index.html">Home</a></div>' }
+  ];
+
+  if (!FO.hasTeam()) slides.splice(1, 0, { html: '<div class="eyebrow">Pregame</div><h2>Build Your Team</h2><p>Type your name or a nickname, name your team, and choose your colors and a logo shape. You only do this once. You can edit it later from Home.</p><div id="builder"></div>',
+    init: function (sec) { FO.builder(sec.querySelector('#builder')); } });
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-12-03', 'Week 4', document.getElementById('deck'))) return; FO.deck({ id: 'L04', slides: slides, items: items, home: 'index.html' }); });
+})();
+</script>
+</body>
+</html>

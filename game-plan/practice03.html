@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Practice Here · Week 3 · KCE Game Plan</title>
+<link rel="stylesheet" href="fo.css?v=9">
+</head>
+<body>
+<div id="fo-bar" class="fo-bar" data-home="index.html"></div>
+<main id="practice" class="deck" aria-live="polite"></main>
+<div class="tmode" id="tmode"></div>
+<div class="legal">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div>
+
+<script src="fo.js?v=15"></script>
+<script>
+(function () {
+  var A = [
+    { s: 'Math', t: 'mc', o: ['30 out of 100', '30 out of 10', '3 out of 100', '100 out of 30'], a: 0, q: 'Which means the same as <b>30%</b>?', hint: 'Percent means “per hundred.”', why: '30% means 30 per 100, or 30 out of 100.' },
+    { s: 'Math', t: 'num', a: 72, q: 'A quarterback completes <b>18 of 25</b> passes. What is his completion percentage? Type the number only.', show: '72%', hint: 'Multiply 25 by 4 to get 100. Do the same to 18.', why: '18/25 = 72/100 = 72%.' },
+    { s: 'Math', t: 'num', a: 60, q: 'Write <sup>3</sup>⁄<sub>5</sub> as a percent. Type the number only.', show: '60%', hint: 'What do you multiply 5 by to get 100?', why: '3/5 = 60/100 (multiply top and bottom by 20), so 3/5 = 60%.' },
+    { s: 'Math', t: 'mc', o: ['8%', '80%', '0.08%', '800%'], a: 0, q: 'Write <b>0.08</b> as a percent.', hint: 'Move the decimal point two places to the right.', why: '0.08 = 8 hundredths = 8%. 80% would be 0.8.' },
+    { s: 'Math', t: 'num', a: 12, q: 'Your roster has <b>48</b> players. <b>25%</b> of them are rookies. How many rookies are on the team?', unit: 'rookies', hint: '25% is one fourth.', why: '25% of 48 = 48 ÷ 4 = 12.' },
+    { s: 'Math', t: 'num', a: 480000, q: 'A player earns <b>$400,000</b> a year and gets a <b>20% raise</b>. What is his new salary?', unit: 'dollars', show: '$480,000', hint: 'Find 20% of $400,000, then add it on.', why: '20% of $400,000 = $80,000. $400,000 + $80,000 = $480,000.' },
+    { s: 'Math', t: 'num', a: 50, q: 'A receiver caught <b>15</b> passes. That was <b>30%</b> of all the team’s catches. How many catches did the team have?', unit: 'catches', hint: 'If 30% is 15, what is 10%?', why: '10% = 15 ÷ 3 = 5, so 100% = 5 × 10 = 50. Check: 30% of 50 = 15.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['The town should buy a new scoreboard before next football season.', 'Pinecrest Park needs a new walking trail.', 'Referees make too many mistakes.', 'Local businesses should pay for everything in the park.'], a: 0, q: 'What is the author’s <b>claim</b> in “Our Town Needs a New Scoreboard”?', hint: 'Look at the end of paragraph 1.', why: 'The author states the position in paragraph 1, and the rest of the piece argues for it.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['At the last home game, the scoreboard showed the wrong score for the whole second half.', 'A new scoreboard costs $8,000, and local businesses have promised $5,000.', 'The park added a new walking trail last spring.', 'The snack stand now sells pretzels.'], a: [0, 1], q: 'Which <b>two pieces of evidence</b> are relevant and support the claim?', hint: 'Which facts show the town needs a scoreboard and can pay for one?', why: 'The wrong score shows the old board is failing, and the cost and business promise show a new one is affordable. The trail and the pretzels have nothing to do with the scoreboard.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['A new scoreboard would be the coolest thing to happen to this town in years.', 'The scoreboard has been broken for two seasons.', 'Referees had to stop play twice to sort out the clock.', 'The new model costs $8,000.'], a: 0, q: 'Which statement from the passage is an <b>opinion</b>?', hint: 'Which one can’t be checked or proven?', why: '“The coolest thing to happen to this town in years” is a feeling. The other statements can be checked.' },
+    { s: 'Money', t: 'mc', o: ['The $200,000 signing bonus', 'His Year 2 salary', 'Both the bonus and the Year 2 salary', 'Nothing'], a: 0, q: 'A contract says: “<b>$200,000 signing bonus, fully guaranteed. Year 2 salary not guaranteed.</b>” If the player is cut before Year 2, what money does he keep for sure?', hint: 'Guaranteed money is paid even if the player is cut.', why: 'Only the guaranteed signing bonus is safe. Money that is not guaranteed goes away if he is cut.' },
+    { s: 'Money', t: 'num', a: 340, q: 'A phone plan costs <b>$40 a month</b> on a 12-month contract, with a <b>$100 cancellation fee</b>. You cancel after <b>6 months</b>. How much did you pay in all?', unit: 'dollars', hint: 'Pay for 6 months, then add the fee.', why: '6 × $40 = $240. $240 + $100 = $340.', show: '$340' },
+    { s: 'Money', t: 'mc', o: ['You are signed up for another year and keep paying.', 'The membership ends on its own.', 'The gym sends you a refund.', 'Your price drops to $0.'], a: 0, q: 'A gym contract <b>auto-renews</b> every year unless you cancel 30 days before the end date. What happens if you forget to cancel?', hint: 'Auto-renew means it starts again by itself.', why: 'Auto-renewal signs you up again automatically, so you keep paying for another year.' }
+  ];
+  var B = [
+    { s: 'Math', t: 'mc', o: ['65 out of 100', '65 out of 10', '6.5 out of 100', '100 out of 65'], a: 0, q: 'Which means the same as <b>65%</b>?', hint: 'Percent means “per hundred.”', why: '65% means 65 per 100, or 65 out of 100.' },
+    { s: 'Math', t: 'num', a: 60, q: 'A quarterback completes <b>24 of 40</b> passes. What is his completion percentage? Type the number only.', show: '60%', hint: 'Divide 24 by 40.', why: '24 ÷ 40 = 0.6 = 60%.' },
+    { s: 'Math', t: 'num', a: 70, q: 'Write <sup>7</sup>⁄<sub>10</sub> as a percent. Type the number only.', show: '70%', hint: 'What do you multiply 10 by to get 100?', why: '7/10 = 70/100 (multiply top and bottom by 10), so 7/10 = 70%.' },
+    { s: 'Math', t: 'mc', o: ['50%', '5%', '0.5%', '500%'], a: 0, q: 'Write <b>0.5</b> as a percent.', hint: 'Move the decimal point two places to the right.', why: '0.5 = 0.50 = 50 hundredths = 50%. 5% would be 0.05.' },
+    { s: 'Math', t: 'num', a: 11, q: 'Your roster has <b>55</b> players. <b>20%</b> of them play defensive line. How many defensive linemen are there?', unit: 'players', hint: '20% is one fifth.', why: '20% of 55 = 55 ÷ 5 = 11.' },
+    { s: 'Math', t: 'num', a: 360000, q: 'A player earns <b>$300,000</b> a year and gets a <b>20% raise</b>. What is his new salary?', unit: 'dollars', show: '$360,000', hint: 'Find 20% of $300,000, then add it on.', why: '20% of $300,000 = $60,000. $300,000 + $60,000 = $360,000.' },
+    { s: 'Math', t: 'num', a: 30, q: 'A running back scored <b>12</b> touchdowns. That was <b>40%</b> of all the team’s touchdowns. How many touchdowns did the team score?', unit: 'touchdowns', hint: 'If 40% is 12, what is 10%?', why: '10% = 12 ÷ 4 = 3, so 100% = 3 × 10 = 30. Check: 40% of 30 = 12.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['The town should build shade covers over the bleachers at Ridgeline Field.', 'Ridgeline Field needs new bleachers.', 'Fans should stop going to afternoon games.', 'The snack stand should sell more food.'], a: 0, q: 'What is the author’s <b>claim</b> in “Throw Some Shade”?', hint: 'Look at the end of paragraph 1.', why: 'The author states the position in paragraph 1, and the rest of the piece argues for it.' },
+    { s: 'ELA', passage: 1, t: 'multi', o: ['A parent measured the metal seats at 130 degrees.', 'Afternoon crowds dropped from about 400 fans to about 250.', 'The snack stand added nachos this year.', 'The team wears green and white.'], a: [0, 1], q: 'Which <b>two pieces of evidence</b> are relevant and support the claim?', hint: 'Which facts show the sun is a problem for fans?', why: 'Burning-hot seats and shrinking crowds show why shade is needed. Nachos and team colors have nothing to do with it.' },
+    { s: 'ELA', passage: 1, t: 'mc', o: ['Shade covers would make Ridgeline the prettiest stadium in Florida.', 'A parent measured the metal seats at 130 degrees.', 'Afternoon crowds dropped to about 250 fans.', 'The town has $15,000 saved in its parks fund.'], a: 0, q: 'Which statement from the passage is an <b>opinion</b>?', hint: 'Which one can’t be checked or proven?', why: '“The prettiest stadium in Florida” is what the author believes. The others can be checked.' },
+    { s: 'Money', t: 'mc', o: ['His Year 2 salary', 'The $150,000 signing bonus', 'His Year 1 salary', 'All of it is guaranteed'], a: 0, q: 'A contract says: “<b>$150,000 signing bonus, fully guaranteed. Year 1 salary guaranteed. Year 2 salary not guaranteed.</b>” Which money could the player <b>lose</b> if he is cut after Year 1?', hint: 'Look for the words “not guaranteed.”', why: 'The Year 2 salary is not guaranteed, so he only gets it if he is still on the team.' },
+    { s: 'Money', t: 'num', a: 225, q: 'A gym costs <b>$30 a month</b> on a 12-month contract, with a <b>$75 cancellation fee</b>. You cancel after <b>5 months</b>. How much did you pay in all?', unit: 'dollars', hint: 'Pay for 5 months, then add the fee.', why: '5 × $30 = $150. $150 + $75 = $225.', show: '$225' },
+    { s: 'Money', t: 'mc', o: ['Cancel before the 30 days are up.', 'Wait until the first $12 charge, then cancel.', 'Do nothing, because free trials end by themselves.', 'Delete the app from your phone.'], a: 0, q: 'A streaming service says: “<b>Free for 30 days, then $12 a month automatically.</b>” You only want the free month. What should you do?', hint: '“Automatically” means it renews unless you stop it.', why: 'The trial auto-renews into a paid plan. Cancel before day 30 ends to avoid the charge. Deleting the app does not cancel it.' }
+  ];
+  var PA = '<div class="passage"><h4>Our Town Needs a New Scoreboard</h4><div class="by">A student opinion piece</div>' +
+    '<p><span class="pn">1</span>The scoreboard at Pinecrest Park has been broken for two seasons. Half of its lights don’t work. The town should buy a new scoreboard before next football season.</p>' +
+    '<p><span class="pn">2</span>Right now, fans can’t follow the game. At the last home game, the scoreboard showed the wrong score for the whole second half. Referees had to stop play twice to sort out the clock.</p>' +
+    '<p><span class="pn">3</span>A new scoreboard is affordable. The parks department found a model that costs $8,000, and local businesses have promised $5,000 if they can put their names on it.</p>' +
+    '<p><span class="pn">4</span>The park added a new walking trail last spring, and the snack stand now sells pretzels. A new scoreboard would be the coolest thing to happen to this town in years. Let’s give players and fans a scoreboard they can count on.</p></div>';
+  var PB = '<div class="passage"><h4>Throw Some Shade</h4><div class="by">A student opinion piece</div>' +
+    '<p><span class="pn">1</span>Fans at Ridgeline Field sit in the full sun for every afternoon game. The town should build shade covers over the bleachers at Ridgeline Field.</p>' +
+    '<p><span class="pn">2</span>The seats get dangerously hot. Before one September game, a parent measured the metal seats at 130 degrees with a thermometer.</p>' +
+    '<p><span class="pn">3</span>The heat is keeping fans away. Afternoon crowds dropped from about 400 fans to about 250 last season. The town has $15,000 saved in its parks fund that could help pay for covers.</p>' +
+    '<p><span class="pn">4</span>The snack stand added nachos this year. Shade covers would make Ridgeline the prettiest stadium in Florida. Let’s give fans a cool place to cheer.</p></div>';
+
+  document.addEventListener('DOMContentLoaded', function () { FO.teacherToggle(document.getElementById('tmode')); if (!FO.gate('2026-11-12', 'Week 3', document.getElementById('practice'))) return;
+    FO.practice({ week: 3, title: 'Contract Talks', sets: { A: A, B: B }, passages: { A: PA, B: PB }, winBadge: 'w3win', home: 'index.html' });
+  });
+})();
+</script>
+</body>
+</html>
