@@ -9,7 +9,7 @@ const H={headers:{Authorization:'Bearer owner'}};
 const list = async p => { const r=await fetch(BASE+p,H); const j=await r.json(); return j.documents||[]; };
 let pass=0,fail=0; const ok=(n,c)=>{ if(c){pass++;console.log('  ok  ',n)} else {fail++;console.log('  FAIL',n)} };
 const b=await chromium.launch(); const wait=ms=>new Promise(r=>setTimeout(r,ms));
-const pg=async()=>{const ctx=await b.newContext(); await ctx.grantPermissions(['clipboard-read','clipboard-write'],{origin:'http://127.0.0.1:8765'}); const p=await ctx.newPage(); p.on('pageerror',e=>console.log('  pageerror',e.message)); return p;};
+const pg=async()=>{const ctx=await b.newContext(); await ctx.route('https://formspree.io/**', r=>r.fulfill({status:200,body:'{}',contentType:'application/json'})); await ctx.grantPermissions(['clipboard-read','clipboard-write'],{origin:'http://127.0.0.1:8765'}); const p=await ctx.newPage(); p.on('pageerror',e=>console.log('  pageerror',e.message)); return p;};
 const DASH='http://127.0.0.1:8765/kce-progress/dashboard.html', PRAC='http://127.0.0.1:8765/kce-progress/practice.html';
 const bar = async (P, s) => P.waitForFunction((s)=>{const x=document.querySelector('.kcep');return !!x&&x.textContent.includes(s)}, s, {timeout:20000});
 

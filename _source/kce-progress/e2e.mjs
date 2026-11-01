@@ -20,7 +20,7 @@ const events = async p => { const r=await fetch(BASE+p,H); const j=await r.json(
 let pass=0,fail=0; const ok=(n,c)=>{ if(c){pass++;console.log('  ok  ',n)} else {fail++;console.log('  FAIL',n)} };
 const browser = await chromium.launch();
 const URL='http://127.0.0.1:8765/building-blocks/ethan/index.html';
-async function device(){ const ctx=await browser.newContext(); const pg=await ctx.newPage(); pg.on('pageerror',e=>console.log('   pageerror',e.message)); return {ctx,pg}; }
+async function device(){ const ctx=await browser.newContext(); await ctx.route('https://formspree.io/**', r=>r.fulfill({status:200,body:'{}',contentType:'application/json'})); const pg=await ctx.newPage(); pg.on('pageerror',e=>console.log('   pageerror',e.message)); return {ctx,pg}; }
 const wait = ms => new Promise(r=>setTimeout(r,ms));
 
 // Device A: has L02 locally, signs in

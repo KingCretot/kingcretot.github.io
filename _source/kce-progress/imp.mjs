@@ -20,7 +20,7 @@ const get = async p => (await (await fetch(BASE+p,H)).json());
 const list = async p => (await get(p)).documents||[];
 let pass=0,fail=0; const ok=(n,c)=>{ if(c){pass++;console.log('  ok  ',n)} else {fail++;console.log('  FAIL',n)} };
 const b=await chromium.launch(); const wait=ms=>new Promise(r=>setTimeout(r,ms));
-const ctx=await b.newContext(); const A=await ctx.newPage(); A.on('pageerror',e=>console.log('  pageerror',e.message));
+const ctx=await b.newContext(); await ctx.route('https://formspree.io/**', r=>r.fulfill({status:200,body:'{}',contentType:'application/json'})); const A=await ctx.newPage(); A.on('pageerror',e=>console.log('  pageerror',e.message));
 await A.goto('http://127.0.0.1:8765/kce-progress/dashboard.html'); await A.waitForSelector('#in');
 await A.evaluate(()=>window.__kcepTestSignIn('kce@kingcretot.com')); await A.waitForSelector('text=Every student',{timeout:20000});
 await A.click('text=Families & enrollment'); await A.waitForSelector('#impf');

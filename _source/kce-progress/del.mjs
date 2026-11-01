@@ -15,7 +15,7 @@ await env.withSecurityRulesDisabled(async c => { const db=c.firestore();
 const BASE='http://127.0.0.1:8080/v1/projects/kce-student-progress/databases/(default)/documents/'; const H={headers:{Authorization:'Bearer owner'}};
 const list=async p=>((await (await fetch(BASE+p,H)).json()).documents||[]);
 let pass=0,fail=0; const ok=(n,c)=>{ if(c){pass++;console.log('  ok  ',n)} else {fail++;console.log('  FAIL',n)} };
-const b=await chromium.launch(); const A=await (await b.newContext()).newPage(); let ans=true; A.on('dialog',d=>ans?d.accept():d.dismiss());
+const b=await chromium.launch(); const ctx=await b.newContext(); await ctx.route('https://formspree.io/**', r=>r.fulfill({status:200,body:'{}',contentType:'application/json'})); const A=await ctx.newPage(); let ans=true; A.on('dialog',d=>ans?d.accept():d.dismiss());
 await A.goto('http://127.0.0.1:8765/kce-progress/dashboard.html'); await A.waitForSelector('#in');
 await A.evaluate(()=>window.__kcepTestSignIn('kce@kingcretot.com')); await A.waitForSelector('text=Every student',{timeout:20000});
 await A.click('text=Families & enrollment'); await A.waitForSelector('[data-f="b"] [data-del-fam]');

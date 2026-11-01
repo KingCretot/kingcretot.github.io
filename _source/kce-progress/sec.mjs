@@ -14,7 +14,7 @@ await env.withSecurityRulesDisabled(async c => { const db=c.firestore();
 });
 let pass=0,fail=0; const ok=(n,c)=>{ if(c){pass++;console.log('  ok  ',n)} else {fail++;console.log('  FAIL',n)} };
 const b=await chromium.launch(); const wait=ms=>new Promise(r=>setTimeout(r,ms));
-const pg=async()=>{const p=await (await b.newContext()).newPage(); p.on('dialog',d=>d.dismiss()); return p;};
+const pg=async()=>{const ctx=await b.newContext(); await ctx.route('https://formspree.io/**', r=>r.fulfill({status:200,body:'{}',contentType:'application/json'})); const p=await ctx.newPage(); p.on('dialog',d=>d.dismiss()); return p;};
 let D=await pg(); await D.goto('http://127.0.0.1:8765/kce-progress/dashboard.html'); await D.waitForSelector('#in');
 await D.evaluate(()=>window.__kcepTestSignIn('kce@kingcretot.com')); await D.waitForSelector('text=Every student',{timeout:20000});
 await D.click('.stu'); await wait(800);
