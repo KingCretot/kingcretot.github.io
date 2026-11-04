@@ -201,3 +201,7 @@ _SIMON3 = [
  (7, "holiday.html", "The Simon Family Holiday Gazette", "Sun, Dec 20 – Sun, Jan 3", "Lesson 18 · Mon, Jan 4 (Zoom)"),
 ]
 PROJECTS["bristol"] = PROJECTS["bailey"] = [p + (_simon_desc(p[4]),) for p in _SIMON3]
+# Winter break now falls after L17 (Thu Dec 17); L18 (Mon Jan 4, Zoom) is the welcome-back lesson, so week 8 opens with it.
+for _w in ("bristol", "bailey"):
+    _t7, _t8 = TOPICS[_w][7], TOPICS[_w][8]
+    TOPICS[_w][8] = (f"Welcome Back: Finish {_t7[0]}, Then {_t8[0]}", f"{_t7[1]} (finish) + welcome-back review + {_t8[1]}", _t8[2], _t8[3])
