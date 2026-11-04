@@ -186,10 +186,10 @@ G_WORDS = [("grateful", "thankful for something"), ("appreciate", "to see the va
 
 g_intro = f"""
 <h1>🫙 The Simon Family Gratitude Project</h1>
-<div class="sub">Monday, November 16 – Wednesday, December 2 · The girls present it at <b>Lesson 11 on Thursday, December 3</b></div>
-<div class="box gold"><p><b>What it is:</b> For two and a half weeks, the whole family fills a <b>Gratitude Jar</b>. Every day, each person writes one thing they are thankful for, and the girls write slips for River and Cam too. The girls count and sort the slips (math), interview Mom and Dad (speaking and writing), write thank-you notes, and finish with a book (Bristol) and a poster (Bailey) to show at Lesson 11.</p>
+<div class="sub">Monday, November 16 – Wednesday, December 2 · The girls present it at <b>Lesson 10 on Thursday, December 3</b></div>
+<div class="box gold"><p><b>What it is:</b> For two and a half weeks, the whole family fills a <b>Gratitude Jar</b>. Every day, each person writes one thing they are thankful for, and the girls write slips for River and Cam too. The girls count and sort the slips (math), interview Mom and Dad (speaking and writing), write thank-you notes, and finish with a book (Bristol) and a poster (Bailey) to show at Lesson 10.</p>
 <p><b>Time:</b> about 20 minutes a day, plus 5 minutes at dinner for the jar. Thanksgiving week is lighter.</p>
-<p><b>The Lesson 10 task list still counts.</b> It is short and already spread over these three weeks. Do it alongside this project.</p></div>
+<p><b>The Lesson 9 task list still counts.</b> It is short and already spread over these three weeks. Do it alongside this project.</p></div>
 <h3>Who is in it</h3>
 <div class="who">{''.join(f'<div><b>{n}</b><br>{r}</div>' for n, r in FAMILY)}</div>
 <h3>Supplies</h3>
@@ -231,7 +231,7 @@ g_rows = [
  ("Tue, Dec 1", "No family part today.", "Finish the book: pages for River, Cam and Me, and the cover with the title and your name.", "Make the poster: title, your bar graph, your paragraph, and 3 favorite quotes from the interviews or the jar."),
  ("Wed, Dec 2", "<b>Practice show.</b> The family sits and listens. After each girl, every person says one thing they liked.",
   "Read your book out loud (about 3 minutes).", "Present your poster (about 5 minutes). Look up at the family, not only at the poster."),
- ("Thu, Dec 3", "Have the book, the poster, and pages 3 and 4 ready for Jonathan at Lesson 11.", "Show your book to Jonathan.", "Present your poster to Jonathan."),
+ ("Thu, Dec 3", "Have the book, the poster, and pages 3 and 4 ready for Jonathan at Lesson 10.", "Show your book to Jonathan.", "Present your poster to Jonathan."),
 ]
 
 def g_sheets():
@@ -292,7 +292,7 @@ H_WORDS = [("festive", "cheerful and full of celebration"), ("tradition", "somet
 
 h_intro = f"""
 <h1>📰 The Simon Family Holiday Gazette</h1>
-<div class="sub">Sunday, December 20 – Sunday, January 3 · The girls present it at <b>Lesson 19 on Monday, January 4 (Zoom)</b></div>
+<div class="sub">Sunday, December 20 – Sunday, January 3 · The girls present it at <b>Lesson 18 on Monday, January 4 (Zoom)</b></div>
 <div class="box gold"><p><b>What it is:</b> The family makes its own holiday newspaper. Bailey is the <b>Editor</b>. Bristol is the <b>Reporter and Pet Columnist</b>. Mom and Dad are interviewed, the family bakes together, River and Cam get their own diary page, everyone does kind acts and sets a goal for 2027, and it all goes into one gazette the girls show on Zoom on January 4.</p>
 <p><b>Time:</b> about 20–30 minutes on work days. Christmas Eve, Christmas Day and the day after are <b>off</b> except for the Kindness Log. New Year's Eve and New Year's Day are fully <b>off</b>.</p></div>
 <h3>Who is in it</h3>
@@ -329,7 +329,7 @@ h_rows = [
  ("Sat, Jan 2", "<b>Put the gazette together.</b> Stack worksheet pages 2 to 6 in order: Front Page, Kitchen Corner, Pet Page, Kindness Log and Report, Hello 2027. Staple them. (Page 1, the interview notes, is not part of the gazette.)",
   "Color your pictures. Check every sentence: capital letter, period.", "Read every page as the Editor. Fix spelling. Write the gazette's name and the date on the front."),
  ("Sun, Jan 3", "<b>Practice show</b> for the family.", "Read River's Diary and show your Tray Math (2–3 minutes).", "Read the front-page story and the Kindness Report (about 5 minutes)."),
- ("Mon, Jan 4", "Lesson 19 is on Zoom. Have the gazette next to the computer before the lesson starts.", "Hold your pages up to the camera and read them.", "Hold your pages up to the camera and present."),
+ ("Mon, Jan 4", "Lesson 18 is on Zoom. Have the gazette next to the computer before the lesson starts.", "Hold your pages up to the camera and read them.", "Hold your pages up to the camera and present."),
 ]
 
 def h_sheets():

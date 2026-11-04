@@ -191,7 +191,7 @@ def teacher_page(who, L, m):
 CATCHUP = json.load(open(f"{HERE}/data/catchup.json")) if os.path.exists(f"{HERE}/data/catchup.json") else {}
 
 def catchup_card(who, C):
-    head = f'<div class="dt">{E(dlabel(C["date"], True))} · {"💻 Zoom" if C["mode"]=="Zoom" else "🏫 In person"}</div><div class="ln">Catch-up · no new lesson</div>'
+    head = f'<div class="dt">{E(dlabel(C["date"], True))} · {"💻 Zoom" if C["mode"]=="Zoom" else "🏫 In person"}</div><div class="ln">{E(C.get("ln", "Catch-up · no new lesson"))}</div>'
     btns = "".join(f'<a class="{k}" href="{h}">{E(t)}</a>' for t, h, k in C["buttons"])
     also = "".join(f'<li>🔗 <a href="{a["url"]}" target="_blank">{E(a["label"])}</a><br><span>{a["how"]}</span></li>' for a in C["also"])
     tasks = "".join(f'<label class="task"><input type="checkbox" id="t-{who}-0-{i}"> {tk}</label>' for i, tk in enumerate(C["tasks"]))

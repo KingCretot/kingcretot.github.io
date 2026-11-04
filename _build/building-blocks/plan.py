@@ -167,3 +167,37 @@ PROJECTS["ethan"] = [
  (10, "ethan-holiday.html", "The Ferguson Family Winter Games", "Thu, Dec 17 – Tue, Jan 5", "Lesson 6 · Wed, Jan 6"),
 ]
 PROJECTS["ethan"] = [p + (_ethan_desc(p[4]),) for p in PROJECTS["ethan"]]
+
+# ── Nov 4, 2026: Ethan mastered Lesson 1 (100, 6th try) and Pathways Week 3 Reading (100) at home on Tue, Nov 3.
+# Jonathan's decision: drop the Nov 4 catch-up and teach Lesson 2 on Wed, Nov 4. Wed, Nov 11 becomes
+# "Finish Lesson 2" (catch-up c2 in data/catchup.json), the last class before the break. Lessons 3–7 keep their dates.
+STU_DATES["ethan"] = [(1,"2026-10-21","Wed","In person"),(2,"2026-11-04","Wed","In person"),(3,"2026-12-02","Wed","In person"),
+                      (4,"2026-12-09","Wed","In person"),(5,"2026-12-16","Wed","In person"),
+                      (6,"2027-01-06","Wed","In person"),(7,"2027-01-13","Wed","In person")]
+
+# ── Nov 4, 2026: Bristol and Bailey — Thu Nov 5 CANCELED by Jonathan (next lesson Mon Nov 9).
+# Jonathan's decision: shift every lesson one slot later; nothing is cut; the course now ends Mon Feb 1, 2027.
+# Before Brazil (away Nov 16–30): L7 Mon 11/9 Zoom, L8 Tue 11/10, L9 Thu 11/12 (last before the break).
+# L10 Thu 12/3 is the welcome-back lesson. L11 Mon 12/7 Zoom. L12 stays dropped.
+_B_SLOTS = ["2026-11-09","2026-11-10","2026-11-12","2026-12-03","2026-12-07","2026-12-08","2026-12-10",
+            "2026-12-14","2026-12-15","2026-12-17","2027-01-04","2027-01-05","2027-01-07","2027-01-11","2027-01-12",
+            "2027-01-14","2027-01-18","2027-01-19","2027-01-21","2027-01-25","2027-01-26","2027-01-28","2027-02-01"]
+import datetime as _dt
+def _slot(iso):
+    wd = _dt.date.fromisoformat(iso).strftime("%a")
+    return (iso, wd, "Zoom" if wd == "Mon" else "In person")
+_B_ORDER = [7, 8, 9, 10, 11] + list(range(13, 31))
+_B_NEW = {n: _slot(s) for n, s in zip(_B_ORDER, _B_SLOTS)}
+_B_DATES = [(n, *_B_NEW[n]) if n in _B_NEW else (n, d, wd, md) for (n, d, wd, md) in _SHIFTED]
+_B_DATES = [(12, "2026-12-03", "Thu", "In person") if n == 12 else r for r in _B_DATES for n in [r[0]]]
+_B_WEEKS = [(1, [1, 2]), (2, [3, 4, 5]), (3, [6, 7, 8]), (4, [9]), (5, [10, 11]),
+            (6, [13, 14, 15]), (7, [16, 17]), (8, [18, 19, 20]), (9, [21, 22, 23]), (10, [24, 25, 26]), (11, [27, 28, 29, 30])]
+for _w in ("bristol", "bailey"):
+    STU_DATES[_w] = _B_DATES
+    STU_WEEKS[_w] = _B_WEEKS
+    TOPICS[_w][5] = ("Welcome Back: Finish Week 4, Then Prove It", "Week 4 lessons + welcome-back review + Prove it", "#C9A84C", TOPICS[_w][5][3])
+_SIMON3 = [
+ (4, "gratitude.html", "The Simon Family Gratitude Project", "Mon, Nov 16 – Wed, Dec 2", "Lesson 10 · Thu, Dec 3"),
+ (7, "holiday.html", "The Simon Family Holiday Gazette", "Sun, Dec 20 – Sun, Jan 3", "Lesson 18 · Mon, Jan 4 (Zoom)"),
+]
+PROJECTS["bristol"] = PROJECTS["bailey"] = [p + (_simon_desc(p[4]),) for p in _SIMON3]
