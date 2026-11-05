@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>A French Gift for Elizabeth | KingCretot Experience</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&display=swap">
+<style>
+:root{--navy:#0A1F3D;--gold:#C9A84C;--blue:#0047BA;--red:#DB2F30;--cream:#FBF8F1;--ink:#1f2a3a;--muted:#5b6474;--line:#e3ddcf}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f1ea;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-left)) 48px}
+.top{text-align:center;margin-bottom:22px}
+.top .brand{font-family:Georgia,'Times New Roman',serif;color:var(--navy);font-size:22px;font-weight:bold}
+.top .tag{font-size:11px;letter-spacing:3px;font-weight:bold;margin-top:4px}
+.top h1{font-family:Georgia,'Times New Roman',serif;color:var(--navy);font-size:26px;margin:18px 0 6px}
+.top p{color:var(--muted);margin:0 auto;max-width:60ch}
+/* Certificate */
+.cert{background:var(--cream);border:2px solid var(--gold);outline:6px solid var(--navy);outline-offset:0;padding:10px;margin:26px 0;box-shadow:0 10px 30px rgba(10,31,61,.12)}
+.cert-in{border:1px solid var(--gold);padding:34px 36px;text-align:center;position:relative}
+.cert .kc{display:inline-block;border:2px solid var(--gold);padding:4px 9px}
+.cert .kc span{display:block;border:1px solid var(--gold);padding:2px 8px;color:var(--navy);font-family:Georgia,serif;font-weight:bold;letter-spacing:2px}
+.cert .eyebrow{font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:bold;margin-top:16px}
+.cert h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:44px;color:var(--navy);margin:4px 0 0;font-weight:700;line-height:1.05}
+.cert .fr{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:22px;color:var(--gold);margin-top:2px}
+.bar{height:4px;display:flex;width:180px;margin:16px auto}
+.bar i{flex:1}.bar i:nth-child(1){background:var(--blue)}.bar i:nth-child(2){background:var(--gold)}.bar i:nth-child(3){background:var(--red)}
+.cert .to{font-size:13px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:6px}
+.cert .name{font-family:'Cormorant Garamond',Georgia,serif;font-size:36px;color:var(--navy);font-weight:700}
+.cert .what{max-width:520px;margin:10px auto 0;font-size:14.5px}
+.cert ul{list-style:none;padding:0;margin:12px auto 0;max-width:460px;text-align:left;font-size:14px}
+.cert li{padding:3px 0 3px 22px;position:relative}.cert li:before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:bold}
+.memo{margin:22px auto 0;max-width:560px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:16px 10px;min-height:96px}
+.memo .lbl{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:bold}
+.memo .msg{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:21px;color:var(--navy);white-space:pre-wrap;margin-top:6px;min-height:30px}
+.memo .msg.empty{color:#b9b3a3}
+.memo .sig{font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;color:var(--navy);margin-top:8px}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px;font-size:12px;color:var(--muted);text-align:left}
+.foot b{color:var(--navy)}
+/* Form */
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px}
+.card h3{font-family:Georgia,serif;color:var(--navy);margin:0 0 4px;font-size:20px}
+.card .hint{color:var(--muted);font-size:14px;margin:0 0 16px}
+label{display:block;font-weight:bold;color:var(--navy);font-size:14px;margin:14px 0 6px}
+input,textarea{width:100%;font:15px Arial,Helvetica,sans-serif;border:1px solid #cfc8b6;border-radius:6px;padding:10px 12px;background:#fff;color:var(--ink)}
+textarea{min-height:130px;resize:vertical}
+input:focus,textarea:focus{outline:3px solid rgba(201,168,76,.45);border-color:var(--gold)}
+.count{font-size:12px;color:var(--muted);text-align:right;margin-top:4px}
+button{margin-top:18px;background:var(--navy);color:#fff;border:0;border-radius:24px;padding:12px 26px;font:bold 15px Arial,Helvetica,sans-serif;cursor:pointer}
+button:hover{background:#13305a}button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button[disabled]{opacity:.6;cursor:default}
+.ok{display:none;background:#eef6ee;border-left:4px solid #2e7d32;padding:14px 16px;margin-top:16px;border-radius:4px}
+.err{display:none;background:#fdeeee;border-left:4px solid var(--red);padding:14px 16px;margin-top:16px;border-radius:4px}
+.pagefoot{text-align:center;font-size:12px;color:var(--muted);margin-top:28px}
+@media(max-width:600px){.cert-in{padding:24px 16px}.cert h2{font-size:34px}.cert .name{font-size:30px}}
+@media print{body{background:#fff}.top,.card,.pagefoot{display:none}.cert{box-shadow:none;margin:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">KingCretot Experience</div>
+    <div class="tag"><span style="color:#0047BA">EDUCATE.</span> <span style="color:#C9A84C">EMPOWER.</span> <span style="color:#DB2F30">EXCEL.</span></div>
+    <h1>Write Your Note to Elizabeth</h1>
+    <p>Bonjour Lorna et Jean-Charles ! Type your message below and watch it appear on Elizabeth&rsquo;s gift certificate. When it reads just right, press <b>Send my note to KCE</b> and we&rsquo;ll place it on her finished certificate.</p>
+  </div>
+
+  <div class="cert" id="cert">
+    <div class="cert-in">
+      <div class="kc"><span>KC</span></div>
+      <div class="eyebrow">GIFT CERTIFICATE &middot; CERTIFICAT CADEAU</div>
+      <h2>The Full Experience</h2>
+      <div class="fr">Le grand voyage</div>
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="to">Presented to</div>
+      <div class="name">Elizabeth Turnbull</div>
+      <p class="what">Private French lessons with Fabrice King-Cretot, your French language guide, built around your goals.</p>
+      <ul>
+        <li>13 private 45-minute French lessons</li>
+        <li>2 bonus 45-minute lessons, free</li>
+        <li>A free 30-minute welcome consultation with Fabrice</li>
+        <li>Unlimited access to the KCE online French program</li>
+      </ul>
+      <div class="memo">
+        <div class="lbl">A NOTE FOR YOU</div>
+        <div class="msg empty" id="pmsg">Your message will appear here&hellip;</div>
+        <div class="sig" id="psig">With love, Lorna &amp; Jean-Charles</div>
+      </div>
+      <div class="foot">
+        <div><b>Gift of</b><br><span id="pfrom">Lorna Kirwan &amp; Jean-Charles</span></div>
+        <div><b>Certificate no.</b><br>KCE-GC-2026-001</div>
+        <div><b>To begin, write to</b><br>kce@kingcretot.com</div>
+      </div>
+    </div>
+  </div>
+
+  <form class="card" id="f" novalidate>
+    <h3>Your note</h3>
+    <p class="hint">Write in English, French or both. Keep it to a few lines so it fits beautifully on the certificate.</p>
+    <label for="msg">Message to Elizabeth</label>
+    <textarea id="msg" name="message" maxlength="350" placeholder="Chère Elizabeth, &hellip;"></textarea>
+    <div class="count"><span id="cnt">0</span> / 350</div>
+    <label for="sig">Sign-off line</label>
+    <input id="sig" name="signoff" maxlength="80" value="With love, Lorna &amp; Jean-Charles">
+    <label for="from">Your names as they should appear (&ldquo;Gift of&rdquo;)</label>
+    <input id="from" name="from_names" maxlength="80" value="Lorna Kirwan &amp; Jean-Charles">
+    <label for="email">Your email, so we can confirm</label>
+    <input id="email" name="email" type="email" value="kirlorna@gmail.com">
+    <button type="submit" id="btn">Send my note to KCE</button>
+    <div class="ok" id="ok"><b>Merci !</b> Your note is on its way to Jonathan. We&rsquo;ll send you a final copy of Elizabeth&rsquo;s certificate to approve before it goes to her.</div>
+    <div class="err" id="err">Something went wrong sending your note. Please try again, or simply reply to our email with your message.</div>
+  </form>
+
+  <div class="pagefoot">KingCretot Experience, LLC &middot; PO Box 2322, Arcadia, FL 34265 &middot; kingcretot.com &middot; kce@kingcretot.com<br>Approved Provider: Step Up For Students &middot; Arizona ESA &middot; West Virginia Hope Scholarship</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+function upd(){const m=$('msg').value.trim();$('pmsg').textContent=m||'Your message will appear here…';$('pmsg').classList.toggle('empty',!m);
+$('psig').textContent=$('sig').value.trim();$('pfrom').textContent=$('from').value.trim()||'Lorna Kirwan & Jean-Charles';$('cnt').textContent=$('msg').value.length}
+['msg','sig','from'].forEach(i=>$(i).addEventListener('input',upd));upd();
+$('f').addEventListener('submit',e=>{e.preventDefault();$('err').style.display='none';
+if(!$('msg').value.trim()){$('msg').focus();$('err').textContent='Please write your message first.';$('err').style.display='block';return}
+const b=$('btn');b.disabled=true;b.textContent='Sending…';
+const payload={_subject:'Gift certificate note — Elizabeth Turnbull (Lorna Kirwan)',form:'Gift Certificate Note',certificate:'KCE-GC-2026-001 · The Full Experience ($700)',recipient:'Elizabeth Turnbull',message:$('msg').value.trim(),signoff:$('sig').value.trim(),from_names:$('from').value.trim(),email:$('email').value.trim(),_replyto:$('email').value.trim()};
+fetch('https://formspree.io/f/mvkgajjw',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
+.then(r=>{if(!r.ok)throw 0;$('ok').style.display='block';b.textContent='Sent ✓'})
+.catch(()=>{$('err').textContent='Something went wrong sending your note. Please try again, or simply reply to our email with your message.';$('err').style.display='block';b.disabled=false;b.textContent='Send my note to KCE'})});
+</script>
+</body>
+</html>
