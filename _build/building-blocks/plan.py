@@ -205,3 +205,10 @@ PROJECTS["bristol"] = PROJECTS["bailey"] = [p + (_simon_desc(p[4]),) for p in _S
 for _w in ("bristol", "bailey"):
     _t7, _t8 = TOPICS[_w][7], TOPICS[_w][8]
     TOPICS[_w][8] = (f"Welcome Back: Finish {_t7[0]}, Then {_t8[0]}", f"{_t7[1]} (finish) + welcome-back review + {_t8[1]}", _t8[2], _t8[3])
+
+# ── Nov 6, 2026: Bristol and Bailey — Mon Nov 9 CANCELED (family trip to Amazon). Jonathan's decision:
+# Lesson 7 moves to Sat Nov 7 (Zoom, 1–2 PM Bailey, 2–3 PM Bristol). Sun Nov 8 (Zoom, same times) is a
+# bonus lesson, "Inside Amazon" (data/bonus.json), that gets them ready for the trip; it does not lock or unlock
+# anything. Lessons 8 (Tue 11/10) and 9 (Thu 11/12) and everything after keep their dates.
+for _w in ("bristol", "bailey"):
+    STU_DATES[_w] = [(7, "2026-11-07", "Sat", "Zoom") if r[0] == 7 else r for r in STU_DATES[_w]]

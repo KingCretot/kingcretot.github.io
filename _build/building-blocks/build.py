@@ -233,6 +233,35 @@ def catchup_class(who, C, Ls):
     out = lesson_page(who, src, m, None, teach=True)
     return out.replace(f'"label": "Lesson {T["from"]}"', '"label": "Catch-up"').replace(f'"label":"Lesson {T["from"]}"', '"label":"Catch-up"')
 
+BONUS = json.load(open(f"{HERE}/data/bonus.json")) if os.path.exists(f"{HERE}/data/bonus.json") else {}
+
+def _bonus_m(who, B):
+    w = next(wk for wk, ns in weeks_for(who) if B["after"] in ns); t = TOPICS[who][w]
+    wd = datetime.date.fromisoformat(B["date"]).strftime("%a")
+    return dict(n=99, date=B["date"], wd=wd, mode=B["mode"], week=w, topic=B["title"], focus="Bonus lesson", color="#C9A84C", links=[])
+
+def _bonus_fix(htm, who, B):
+    """Pages are rendered with lesson number 99, then relabeled as the bonus lesson (id A1)."""
+    i = B["id"]
+    return (htm.replace(f"bb-{who}-L99", f"bb-{who}-{i.upper()}").replace(f'"{who}-L99"', f'"{who}-{i.upper()}"')
+               .replace("<b>Mastery to unlock the next lesson:</b>", "<b>Score goal (this bonus lesson does not lock or unlock anything):</b>").replace("Lesson 99", "Bonus Lesson").replace("Practice 99", "Bonus Practice").replace("Packet 99", "Bonus Packet")
+               .replace("lesson-99.html", f"lesson-{i}.html").replace("practice-99.html", f"practice-{i}.html").replace("packet-99.html", f"packet-{i}.html"))
+
+def bonus_pages(who, B, d):
+    m = _bonus_m(who, B); B = dict(B); B.setdefault("also", [])
+    for name, htm in ((f"lesson-{B['id']}", lesson_page(who, B, m, None)), (f"class-{B['id']}", lesson_page(who, B, m, None, teach=True)),
+                      (f"practice-{B['id']}", practice_page(who, B, m)), (f"packet-{B['id']}", packet_page(who, B, m)), (f"teacher-{B['id']}", teacher_page(who, B, m))):
+        open(f"{d}/{name}.html", "w").write(_bonus_fix(htm, who, B))
+
+def bonus_card(who, B):
+    i = B["id"]
+    head = f'<div class="dt">{E(dlabel(B["date"], True))} · {"💻 Zoom" if B["mode"]=="Zoom" else "🏫 In person"}</div><div class="ln">{E(B.get("ln", "Bonus lesson"))}</div>'
+    tasks = "".join(f'<label class="task"><input type="checkbox" id="t-{who}-{i}-{k}"> {tk}</label>' for k, tk in enumerate(B["tasks"]))
+    return (f'<div class="card" data-lesson="bb-{who}-{i.upper()}" data-label="Bonus Lesson" data-date="{B["date"]}" style="border-top-color:#C9A84C">{head}<h3>{E(B["title"])}</h3><div class="gl">🎯 {E(B["goal"])}</div>'
+            f'<p class="desc">{B["card"]["desc"]}</p><span class="status"></span><div class="btns"><a class="b4" href="class-{i}.html">🧑‍🏫 Class lesson (teacher leads it)</a>'
+            f'<a class="b1 go-lesson" href="lesson-{i}.html">▶ After-class lesson</a><a class="b2" href="practice-{i}.html">📝 Practice</a><a class="b2" href="packet-{i}.html">🖨 Field Notes packet</a>'
+            f'<a class="b3" href="teacher-{i}.html">🔒 Teacher plan &amp; key</a></div><div class="tasks"><b>✅ Before the next lesson:</b>{tasks}</div></div>')
+
 def course_page(who, Ls):
     nm = NAMES[who]
     secs = ""
@@ -264,6 +293,8 @@ def course_page(who, Ls):
                      + inner + '</div>')
             for C in CATCHUP.get(who, []):
                 if C["after"] == n: secs += catchup_card(who, C)
+            for B in BONUS.get(who, []):
+                if B["after"] == n: secs += bonus_card(who, B)
         secs += '</div></section>'
         for pw, pf, ptitle, pdates, pshow, pdesc in PROJECTS.get(who, []):
             if pw == w:
@@ -317,6 +348,8 @@ def build(who):
         open(f"{d}/catchup-{C['id']}.html", "w").write(catchup_teacher(who, C))
         if C.get("teach"):
             open(f"{d}/class-{C['id']}.html", "w").write(catchup_class(who, C, Ls))
+    for B in BONUS.get(who, []):
+        bonus_pages(who, B, d)
     open(f"{d}/index.html", "w").write(course_page(who, Ls))
     return sorted(Ls)
 
