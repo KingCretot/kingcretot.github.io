@@ -212,3 +212,31 @@ for _w in ("bristol", "bailey"):
 # anything. Lessons 8 (Tue 11/10) and 9 (Thu 11/12) and everything after keep their dates.
 for _w in ("bristol", "bailey"):
     STU_DATES[_w] = [(7, "2026-11-07", "Sat", "Zoom") if r[0] == 7 else r for r in STU_DATES[_w]]
+
+# ── Nov 8, 2026: Bristol and Bailey HALT and SHIFT (halt rule: Lesson 7 Show What You Know not mastered —
+# Bristol 75 on Sat Nov 7, needs 85; Bailey has no Lesson 6 or Lesson 7 Show What You Know score yet, needs 90).
+# Tue Nov 10 becomes a catch-up ("Finish Lesson 7", c2 in data/catchup.json). Lesson 8 and every later lesson move
+# one slot later: L8 Thu 11/12 (last before Brazil), L9 Thu 12/3 (welcome back), ... the course now ends Tue Feb 2, 2027.
+_C_SLOTS = _B_SLOTS[2:] + ["2027-02-02"]
+_C_ORDER = [8, 9, 10, 11] + list(range(13, 31))
+_C_NEW = {n: _slot(s) for n, s in zip(_C_ORDER, _C_SLOTS)}
+_C_WEEKS = [(1, [1, 2]), (2, [3, 4, 5]), (3, [6, 7, 8]), (4, [9]), (5, [10, 11]),
+            (6, [13, 14, 15]), (7, [16]), (8, [17, 18, 19]), (9, [20, 21, 22]), (10, [23, 24, 25]), (11, [26, 27, 28, 29, 30])]
+for _w in ("bristol", "bailey"):
+    STU_DATES[_w] = [(r[0], *_C_NEW[r[0]]) if r[0] in _C_NEW else r for r in STU_DATES[_w]]
+    STU_WEEKS[_w] = _C_WEEKS
+    _t4, _t5 = TOPICS[_w][4], TOPICS[_w][5]
+    TOPICS[_w][4] = (f"Welcome Back: {_t4[0]}", f"{_t4[1]} + welcome-back review", _t4[2], _t4[3])
+    TOPICS[_w][5] = ("Finish Week 4, Then Prove It", "Week 4 lessons + Prove it", _t5[2], _t5[3])
+_SIMON4 = [
+ (3, "gratitude.html", "The Simon Family Gratitude Project", "Mon, Nov 16 – Wed, Dec 2", "Lesson 9 · Thu, Dec 3"),
+ (7, "holiday.html", "The Simon Family Holiday Gazette", "Sun, Dec 20 – Sun, Jan 3", "Lesson 17 · Mon, Jan 4 (Zoom)"),
+]
+PROJECTS["bristol"] = PROJECTS["bailey"] = [p + (_simon_desc(p[4]),) for p in _SIMON4]
+
+# ── Nov 8, 2026: Ce'Line HALT and SHIFT (halt rule: Lesson 1 Show What You Know 75, needs 85; no Lesson 2 score yet).
+# Tue Nov 10 becomes a catch-up ("Finish Lessons 1 and 2", c1 in data/catchup.json). Lessons 3–7 each move one
+# lesson later: L3 Dec 1, L4 Dec 8, L5 Dec 15, L6 Dec 29, L7 Tue Jan 5, 2027.
+STU_DATES["celine"] = [(1,"2026-10-27","Tue","In person"),(2,"2026-11-03","Tue","In person"),(3,"2026-12-01","Tue","In person"),
+                       (4,"2026-12-08","Tue","In person"),(5,"2026-12-15","Tue","In person"),(6,"2026-12-29","Tue","In person"),
+                       (7,"2027-01-05","Tue","In person")]

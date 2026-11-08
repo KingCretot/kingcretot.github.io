@@ -194,8 +194,8 @@ def catchup_card(who, C):
     head = f'<div class="dt">{E(dlabel(C["date"], True))} · {"💻 Zoom" if C["mode"]=="Zoom" else "🏫 In person"}</div><div class="ln">{E(C.get("ln", "Catch-up · no new lesson"))}</div>'
     btns = "".join(f'<a class="{k}" href="{h}">{E(t)}</a>' for t, h, k in C["buttons"])
     also = "".join(f'<li>🔗 <a href="{a["url"]}" target="_blank">{E(a["label"])}</a><br><span>{a["how"]}</span></li>' for a in C["also"])
-    tasks = "".join(f'<label class="task"><input type="checkbox" id="t-{who}-0-{i}"> {tk}</label>' for i, tk in enumerate(C["tasks"]))
-    return (f'<div class="card catchup" data-lesson="bb-{who}-C1" data-date="{C["date"]}" style="border-top-color:#C9A84C">{head}<h3>{E(C["title"])}</h3><div class="gl">🎯 {E(C["goal"])}</div>'
+    tasks = "".join(f'<label class="task"><input type="checkbox" id="t-{who}-{'0' if CATCHUP[who].index(C)==0 else C['id']}-{i}"> {tk}</label>' for i, tk in enumerate(C["tasks"]))
+    return (f'<div class="card catchup" data-lesson="bb-{who}-C{CATCHUP[who].index(C)+1}" data-date="{C["date"]}" style="border-top-color:#C9A84C">{head}<h3>{E(C["title"])}</h3><div class="gl">🎯 {E(C["goal"])}</div>'
             f'<p class="desc">{C["desc"]}</p><div class="btns">' + (f'<a class="b4" href="class-{C["id"]}.html">🧑‍🏫 Class lesson (teacher leads it)</a>' if C.get("teach") else '') + f'{btns}<a class="b3" href="catchup-{C["id"]}.html">🔒 Teacher plan &amp; key</a></div>'
             + (f'<div class="also"><b>Also do:</b><ul>{also}</ul></div>' if also else "") + f'<div class="tasks"><b>✅ Before the next lesson:</b>{tasks}</div></div>')
 
@@ -291,10 +291,10 @@ def course_page(who, Ls):
             inner = (f'<div class="wcol">{c1}</div><div class="wcol">{c2}</div><div class="wcol">{c3}</div>' if wide else c1 + c2 + c3)
             secs += (f'<div class="card{" wide" if wide else ""}" data-lesson="bb-{who}-L{n:02d}" data-label="Lesson {n}" data-date="{m["date"]}"' + (f' data-prev="bb-{who}-L{prev:02d}"' if prev else "") + '>'
                      + inner + '</div>')
-            for C in CATCHUP.get(who, []):
-                if C["after"] == n: secs += catchup_card(who, C)
             for B in BONUS.get(who, []):
                 if B["after"] == n: secs += bonus_card(who, B)
+            for C in CATCHUP.get(who, []):
+                if C["after"] == n: secs += catchup_card(who, C)
         secs += '</div></section>'
         for pw, pf, ptitle, pdates, pshow, pdesc in PROJECTS.get(who, []):
             if pw == w:
