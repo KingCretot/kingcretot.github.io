@@ -50,7 +50,9 @@ const PAT = {
   tasks: new RegExp('^t-' + rx(WHO) + '-\\d+-\\d+$')
 };
 const PARTS = ['items', 'attempts', 'tasks'];
-const state = { user: null, admin: false, student: null, ready: false, saving: null, base: {} };
+const state = { user: null, admin: false, student: null, ready: false, canLog: false, syncError: '', saving: null, base: {} };
+// Short, readable reason for a failure (shown on the bar so it can be read out to KCE).
+const why = (e) => String((e && (e.code || e.name)) || (e && e.message) || 'unknown').replace(/^firestore\//, '').replace(/^auth\//, '').slice(0, 60);
 
 function rd(k) { try { return JSON.parse(localStorage.getItem(k) || '{}') || {}; } catch (e) { return {}; } }
 const rawSet = Storage.prototype.setItem;
@@ -139,7 +141,7 @@ if (COURSE) {
   }
 
   if (auth) onAuthStateChanged(auth, async (user) => {
-    state.user = user; state.student = null; state.ready = false;
+    state.user = user; state.student = null; state.ready = false; state.canLog = false; state.syncError = '';
     if (!user) return showSignIn();
     state.admin = !isCodeUser(user) && (user.email || '').toLowerCase() === ADMIN;
     try {
@@ -155,12 +157,19 @@ if (COURSE) {
         : await picker(state.admin ? 'Teaching:' : "Who's learning today?", people);
       try { sessionStorage.setItem(key, who.path); } catch (e) {}
       state.student = who;
-      if (SYNC && await syncDown()) return; // page is refreshing to show the saved progress
-      state.ready = true;
+      // Scores are recorded as soon as we know who is learning, even if the lesson sync below fails.
+      state.canLog = true;
+      try {
+        if (SYNC && await syncDown()) return; // page is refreshing to show the saved progress
+        state.ready = true;
+      } catch (e) {
+        state.syncError = why(e);
+        console.warn('[KCE progress] lesson sync failed; scores still record', e);
+      }
       showSaving(people.length > 1);
     } catch (e) {
       console.warn('[KCE progress]', e);
-      ui(el('span', 'Progress is saving on this device only right now.'));
+      ui(el('span', 'Progress is saving on this device only right now (' + why(e) + ').'));
     }
   });
 
@@ -174,7 +183,7 @@ if (COURSE) {
   const rawFetch = window.fetch;
   window.fetch = function (url, opts) {
     try {
-      if (state.ready && typeof url === 'string' && url.indexOf('formspree.io') !== -1 && opts && opts.body) logEvent(JSON.parse(opts.body));
+      if (state.canLog && typeof url === 'string' && url.indexOf('formspree.io') !== -1 && opts && opts.body) logEvent(JSON.parse(opts.body));
     } catch (e) {}
     return rawFetch.apply(this, arguments);
   };
@@ -208,7 +217,7 @@ function showCode(note) {
   box.focus();
 }
 function showSaving(canSwitch) {
-  const kids = [el('span', '✓ ' + (state.admin ? 'Teaching: ' : 'Saving for ') + state.student.firstName)];
+  const kids = [el('span', '✓ ' + (state.admin ? 'Teaching: ' : 'Saving for ') + state.student.firstName + (state.syncError ? ' · scores save to KCE; lesson unlocks on this device only (' + state.syncError + ')' : ''))];
   if (canSwitch) kids.push(el('a', 'Switch', { onclick: () => { try { sessionStorage.removeItem('kcep_pick_' + COURSE + '_' + state.user.uid); } catch (e) {} location.reload(); } }));
   kids.push(el('a', 'Sign out', { onclick: () => leave() }));
   ui(...kids);
@@ -338,10 +347,13 @@ async function logEvent(o) {
     at: serverTimestamp()
   };
   try { await addDoc(collection(db, state.student.path, 'events'), ev); }
-  catch (e) { console.warn('[KCE progress] score not recorded in database (Formspree still has it)', e); }
+  catch (e) {
+    console.warn('[KCE progress] score not recorded in database (Formspree still has it)', e);
+    ui(el('span', 'Score not saved to KCE (' + why(e) + '). KCE still received it by email.'));
+  }
 }
 
 // Courses whose lessons don't send every score to Formspree (Reading Power, Reading
 // Foundations) hand the score to this directly when a quiz ends.
-function record(o) { try { if (state.ready && o) logEvent(o); } catch (e) {} }
+function record(o) { try { if (state.canLog && o) logEvent(o); } catch (e) {} }
 window.KCEProgress = { state, course: COURSE, record };
