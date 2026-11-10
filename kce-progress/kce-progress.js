@@ -158,7 +158,8 @@ if (COURSE) {
       try { sessionStorage.setItem(key, who.path); } catch (e) {}
       state.student = who;
       // Scores are recorded as soon as we know who is learning, even if the lesson sync below fails.
-      state.canLog = true;
+      // KCE's own teaching laptop never records anything to a student's profile.
+      state.canLog = !state.admin;
       try {
         if (SYNC && await syncDown()) return; // page is refreshing to show the saved progress
         state.ready = true;
@@ -176,14 +177,24 @@ if (COURSE) {
   // Save whenever the lesson saves on the device (grouped, so we don't save every click).
   Storage.prototype.setItem = function (k, v) {
     rawSet.call(this, k, v);
-    if (SYNC && this === localStorage && Object.values(KEYS).includes(k) && state.ready) queueSave();
+    if (SYNC && this === localStorage && Object.values(KEYS).includes(k) && state.ready && !state.admin) queueSave();
   };
 
   // Mirror each score the lesson already sends to Formspree into the student's score history.
   const rawFetch = window.fetch;
   window.fetch = function (url, opts) {
     try {
-      if (state.canLog && typeof url === 'string' && url.indexOf('formspree.io') !== -1 && opts && opts.body) logEvent(JSON.parse(opts.body));
+      if (typeof url === 'string' && url.indexOf('formspree.io') !== -1 && opts && opts.body) {
+        if (state.canLog) logEvent(JSON.parse(opts.body));
+        else if (state.admin && typeof opts.body === 'string') {
+          // Taught on KCE's laptop: mark the email so it is never logged as the student's score.
+          const b = JSON.parse(opts.body);
+          b.kce_device = 'KCE teaching laptop - not a student score';
+          b._subject = '[TEACHING - not logged] ' + (b._subject || 'Lesson result');
+          opts = Object.assign({}, opts, { body: JSON.stringify(b) });
+          return rawFetch.call(this, url, opts);
+        }
+      }
     } catch (e) {}
     return rawFetch.apply(this, arguments);
   };
@@ -217,7 +228,7 @@ function showCode(note) {
   box.focus();
 }
 function showSaving(canSwitch) {
-  const kids = [el('span', '✓ ' + (state.admin ? 'Teaching: ' : 'Saving for ') + state.student.firstName + (state.syncError ? ' · scores save to KCE; lesson unlocks on this device only (' + state.syncError + ')' : ''))];
+  const kids = [el('span', state.admin ? 'Teaching: ' + state.student.firstName + ' · nothing on this laptop is recorded to the student’s profile' : '✓ Saving for ' + state.student.firstName + (state.syncError ? ' · scores save to KCE; lesson unlocks on this device only (' + state.syncError + ')' : ''))];
   if (canSwitch) kids.push(el('a', 'Switch', { onclick: () => { try { sessionStorage.removeItem('kcep_pick_' + COURSE + '_' + state.user.uid); } catch (e) {} location.reload(); } }));
   kids.push(el('a', 'Sign out', { onclick: () => leave() }));
   ui(...kids);
@@ -355,5 +366,5 @@ async function logEvent(o) {
 
 // Courses whose lessons don't send every score to Formspree (Reading Power, Reading
 // Foundations) hand the score to this directly when a quiz ends.
-function record(o) { try { if (state.canLog && o) logEvent(o); } catch (e) {} }
+function record(o) { try { if (state.canLog && !state.admin && o) logEvent(o); } catch (e) {} }
 window.KCEProgress = { state, course: COURSE, record };
