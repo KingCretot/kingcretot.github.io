@@ -21,6 +21,7 @@ const COURSES = [
   { id: 'bb-celine', name: "Building Blocks — Ce'Line" },
   { id: 'pathways-g23', name: 'Pathways — Grades 2–3' },
   { id: 'pathways-g45', name: 'Pathways — Grades 4–5' },
+  { id: 'pathways-g6', name: 'Pathways — Grade 6' },
   { id: 'readfound', name: 'Reading Foundations' },
   { id: 'readpower', name: 'Reading Power' },
   { id: 'mathfound-g23', name: 'Math Foundations — Grades 2–3' },
