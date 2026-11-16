@@ -153,6 +153,18 @@ if (COURSE) {
       const key = 'kcep_pick_' + COURSE + '_' + user.uid;
       let who = null;
       try { const saved = sessionStorage.getItem(key); who = people.find((p) => p.path === saved) || null; } catch (e) {}
+      // One child in this family has this course but the family has more than one child: ask before
+      // using that child's name, so a sibling on her own laptop is never shown as "Saving for <sister>".
+      if (!who && !state.admin && people.length === 1 && people.familyKids > 1) {
+        const only = people[0];
+        const yes = await picker('This lesson is in ' + only.firstName + "'s course. Are you " + only.firstName + '?',
+          [{ firstName: "Yes, I'm " + only.firstName, ok: true }, { firstName: "No, I'm not " + only.firstName, ok: false }]);
+        if (!yes.ok) {
+          return ui(el('span', "This lesson isn't one of your courses, so nothing here is saved. Please go back to your own course page."),
+                    el('a', 'Sign out', { onclick: () => leave() }));
+        }
+        who = only;
+      }
       if (!who) who = people.length === 1 ? people[0]
         : await picker(state.admin ? 'Teaching:' : "Who's learning today?", people);
       try { sessionStorage.setItem(key, who.path); } catch (e) {}
@@ -248,14 +260,18 @@ async function findStudents(user) {
       ? await getDocs(query(collection(db, 'families'), where('codeUids', 'array-contains', user.uid)))
       : await getDocs(query(collection(db, 'families'), where('parentEmails', 'array-contains', email)));
   const out = [];
+  let familyKids = 0;
   for (const f of fams.docs) {
     const studs = await getDocs(collection(db, 'families', f.id, 'students'));
+    familyKids += studs.size;
     studs.forEach((s) => {
       const d = s.data();
       if ((d.courses || []).includes(COURSE)) out.push({ path: `families/${f.id}/students/${s.id}`, firstName: String(d.firstName || '') });
     });
   }
-  return out.sort((a, b) => a.firstName.localeCompare(b.firstName));
+  out.sort((a, b) => a.firstName.localeCompare(b.firstName));
+  out.familyKids = familyKids;
+  return out;
 }
 
 // Bring saved progress onto this device, and send this device's progress up, so nobody starts over.
